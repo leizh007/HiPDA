@@ -1,0 +1,13 @@
+PODS:
+  - SSKeychain (1.2.2)
+  - SWRevealViewController (2.3.0)
+
+DEPENDENCIES:
+  - SSKeychain (~> 1.2.2)
+  - SWRevealViewController (~> 2.3.0)
+
+SPEC CHECKSUMS:
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77
+
+COCOAPODS: 0.35.0

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#include "LZAccount.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if ([[LZAccount sharedAccount]checkIfThereIsAValidAccount]) {
+        NSLog(@"%d",YES);
+    }else{
+        NSLog(@"%d",NO);
+    }
+    
     return YES;
 }
 

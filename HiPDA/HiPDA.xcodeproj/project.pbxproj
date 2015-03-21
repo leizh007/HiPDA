@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0528F7F91ABD61C100A1B430 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0528F7F81ABD61C100A1B430 /* Security.framework */; };
+		0528F7FD1ABD674700A1B430 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F7FC1ABD674700A1B430 /* NSString+extension.m */; };
 		05C45A161ABD5633007DF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A151ABD5633007DF8CC /* main.m */; };
 		05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A181ABD5633007DF8CC /* AppDelegate.m */; };
 		05C45A1C1ABD5633007DF8CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A1B1ABD5633007DF8CC /* ViewController.m */; };
@@ -14,6 +16,8 @@
 		05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A201ABD5633007DF8CC /* Images.xcassets */; };
 		05C45A241ABD5633007DF8CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A221ABD5633007DF8CC /* LaunchScreen.xib */; };
 		05C45A301ABD5634007DF8CC /* HiPDATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A2F1ABD5634007DF8CC /* HiPDATests.m */; };
+		05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A421ABD5C4B007DF8CC /* LZAccount.m */; };
+		F021639E3926B0402E7AB3F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFCE43A80B2E1F4A63D5E19 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0528F7F81ABD61C100A1B430 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0528F7FB1ABD674700A1B430 /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+extension.h"; path = "untitled folder/NSString+extension.h"; sourceTree = "<group>"; };
+		0528F7FC1ABD674700A1B430 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+extension.m"; path = "untitled folder/NSString+extension.m"; sourceTree = "<group>"; };
 		05C45A101ABD5633007DF8CC /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C45A141ABD5633007DF8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C45A151ABD5633007DF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +47,11 @@
 		05C45A291ABD5634007DF8CC /* HiPDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C45A2E1ABD5634007DF8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C45A2F1ABD5634007DF8CC /* HiPDATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HiPDATests.m; sourceTree = "<group>"; };
+		05C45A411ABD5C4B007DF8CC /* LZAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZAccount.h; path = Model/LZAccount.h; sourceTree = "<group>"; };
+		05C45A421ABD5C4B007DF8CC /* LZAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZAccount.m; path = Model/LZAccount.m; sourceTree = "<group>"; };
+		371279805B9D075807D96F19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		497F1161E17B9838B2E8916E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		ADFCE43A80B2E1F4A63D5E19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0528F7F91ABD61C100A1B430 /* Security.framework in Frameworks */,
+				F021639E3926B0402E7AB3F3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +74,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0528F7FA1ABD665A00A1B430 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0528F7FB1ABD674700A1B430 /* NSString+extension.h */,
+				0528F7FC1ABD674700A1B430 /* NSString+extension.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		05C45A071ABD5633007DF8CC = {
 			isa = PBXGroup;
 			children = (
 				05C45A121ABD5633007DF8CC /* HiPDA */,
 				05C45A2C1ABD5634007DF8CC /* HiPDATests */,
 				05C45A111ABD5633007DF8CC /* Products */,
+				18977B1C901443AA3623D01A /* Pods */,
+				57F80AD34D17EDD7AC38679A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +106,8 @@
 		05C45A121ABD5633007DF8CC /* HiPDA */ = {
 			isa = PBXGroup;
 			children = (
+				0528F7FA1ABD665A00A1B430 /* Utils */,
+				05C45A3D1ABD5BDE007DF8CC /* Model */,
 				05C45A171ABD5633007DF8CC /* AppDelegate.h */,
 				05C45A181ABD5633007DF8CC /* AppDelegate.m */,
 				05C45A1A1ABD5633007DF8CC /* ViewController.h */,
@@ -119,6 +146,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		05C45A3D1ABD5BDE007DF8CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05C45A411ABD5C4B007DF8CC /* LZAccount.h */,
+				05C45A421ABD5C4B007DF8CC /* LZAccount.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		18977B1C901443AA3623D01A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				371279805B9D075807D96F19 /* Pods.debug.xcconfig */,
+				497F1161E17B9838B2E8916E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		57F80AD34D17EDD7AC38679A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0528F7F81ABD61C100A1B430 /* Security.framework */,
+				ADFCE43A80B2E1F4A63D5E19 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05C45A331ABD5634007DF8CC /* Build configuration list for PBXNativeTarget "HiPDA" */;
 			buildPhases = (
+				FEB3F93430CB4DA1383F94CE /* Check Pods Manifest.lock */,
 				05C45A0C1ABD5633007DF8CC /* Sources */,
 				05C45A0D1ABD5633007DF8CC /* Frameworks */,
 				05C45A0E1ABD5633007DF8CC /* Resources */,
+				754CE5A1D55C2DF2B68B3D1C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,12 +270,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		754CE5A1D55C2DF2B68B3D1C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEB3F93430CB4DA1383F94CE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05C45A0C1ABD5633007DF8CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0528F7FD1ABD674700A1B430 /* NSString+extension.m in Sources */,
 				05C45A1C1ABD5633007DF8CC /* ViewController.m in Sources */,
+				05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */,
 				05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */,
 				05C45A161ABD5633007DF8CC /* main.m in Sources */,
 			);
@@ -341,6 +432,7 @@
 		};
 		05C45A341ABD5634007DF8CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 371279805B9D075807D96F19 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HiPDA/Info.plist;
@@ -351,6 +443,7 @@
 		};
 		05C45A351ABD5634007DF8CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 497F1161E17B9838B2E8916E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HiPDA/Info.plist;
@@ -412,6 +505,7 @@
 				05C45A351ABD5634007DF8CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05C45A361ABD5634007DF8CC /* Build configuration list for PBXNativeTarget "HiPDATests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +514,7 @@
 				05C45A381ABD5634007DF8CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
