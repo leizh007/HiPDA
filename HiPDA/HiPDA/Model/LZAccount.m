@@ -9,10 +9,12 @@
 #import "LZAccount.h"
 #import "SSKeychain.h"
 #import "NSString+extension.h"
+#import "LZLoginViewController.h"
 
 #define HiPDAUserName @"HiPDAUserName"
 #define HiPDAServiceName @"HiPDAServiceName"
 #define AHiPDANewUser @"AHiPDANewUser"
+#define HiPDAUserCookies @"HiPDAUserCookies"
 
 @implementation LZAccount
 
@@ -56,12 +58,73 @@
     if (accountName==nil) {
         accountName=AHiPDANewUser;
     }
-    NSString *password=[NSString ifTheStringIsNilReturnAEmptyString:[SSKeychain passwordForService:HiPDAUserName account:[NSString stringWithFormat:@"%@+password",accountName]]];
-    NSString *safeQuestionNumber=[NSString ifTheStringIsNilReturnAEmptyString:[SSKeychain passwordForService:HiPDAUserName account:[NSString stringWithFormat:@"%@+safeQuestionNumber",accountName]]];
-    NSString *safeQuestionAnswear=[NSString ifTheStringIsNilReturnAEmptyString:[SSKeychain passwordForService:HiPDAUserName account:[NSString stringWithFormat:@"%@+safeQuestionAnswear",accountName]]];
+    NSString *password=[NSString ifTheStringIsNilReturnAEmptyString:[SSKeychain passwordForService:HiPDAServiceName account:[NSString stringWithFormat:@"%@+password",accountName]]];
+    NSString *safeQuestionNumber=[NSString ifTheStringIsNilReturnAEmptyString:[SSKeychain passwordForService:HiPDAServiceName account:[NSString stringWithFormat:@"%@+safeQuestionNumber",accountName]]];
+    NSString *safeQuestionAnswear=[NSString ifTheStringIsNilReturnAEmptyString:[SSKeychain passwordForService:HiPDAServiceName account:[NSString stringWithFormat:@"%@+safeQuestionAnswear",accountName]]];
     NSArray *info=@[accountName,password,safeQuestionNumber,safeQuestionAnswear];
     return info;
     
 }
 
+/**
+ *  设置用户信息
+ *
+ *  @param info 用户名，密码，安全提问，回答
+ *
+ *  @return 设置成功返回真否则为假
+ */
+-(BOOL)setAccountInfo:(NSArray *)info{
+    NSUserDefaults *accountDefaults=[NSUserDefaults standardUserDefaults];
+    [accountDefaults setObject:info[0] forKey:HiPDAUserName];
+    if (![SSKeychain setPassword:info[1] forService:HiPDAServiceName account:[NSString stringWithFormat:@"%@+password",info[0]]]|
+        ![SSKeychain setPassword:info[2] forService:HiPDAServiceName account:[NSString stringWithFormat:@"%@+safeQuestionNumber",info[0]]]|![SSKeychain setPassword:info[3] forService:HiPDAServiceName account:[NSString stringWithFormat:@"%@+safeQuestionAnswear",info[0]]]) {
+        return NO;
+    }
+    [accountDefaults synchronize];
+    [[LZAccount sharedAccount] saveCookies];
+    return YES;
+}
+
+/**
+ *  保存cookie
+ */
+-(void)saveCookies{
+    NSData *cookieData=[NSKeyedArchiver archivedDataWithRootObject:[[NSHTTPCookieStorage sharedHTTPCookieStorage]cookies]];
+    NSUserDefaults *accountDefaults=[NSUserDefaults standardUserDefaults];
+    [accountDefaults setObject:cookieData forKey:HiPDAUserCookies];
+    [accountDefaults synchronize];
+}
+
+/**
+ *  加载cookie
+ */
+-(void)loadCookies{
+    NSArray *cookieArray=[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults]objectForKey:HiPDAUserCookies] ];
+    NSHTTPCookieStorage *cookieStorage=[NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in cookieArray) {
+        [cookieStorage setCookie:cookie];
+    }
+}
+
+/**
+ *  清楚cookie
+ */
+-(void)clearCookies{
+    NSHTTPCookieStorage *cookieStorage=[NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [cookieStorage cookies]) {
+        [cookieStorage deleteCookie:cookie];
+    }
+}
+
+/**
+ *  检查是否有可用账户，若没有就转到登录页面
+ *
+ *  @param viewController 根viewcontroller
+ */
+-(void)checkAccountIfNoValidThenLogin:(UIViewController *)viewController{
+    if (![[LZAccount sharedAccount]checkIfThereIsAValidAccount]) {
+        [viewController presentViewController:[[LZLoginViewController alloc]init] animated:YES completion:^{
+        }];
+    }
+}
 @end

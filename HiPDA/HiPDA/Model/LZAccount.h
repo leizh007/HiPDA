@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LZAccount : NSObject
 
 +(id)sharedAccount;
 -(BOOL)checkIfThereIsAValidAccount;
 -(id)getAccountInfo;
+-(BOOL)setAccountInfo:(NSArray *)info;
+-(void)saveCookies;
+-(void)loadCookies;
+-(void)clearCookies;
+-(void)checkAccountIfNoValidThenLogin:(UIViewController *)viewController;
 
 @end

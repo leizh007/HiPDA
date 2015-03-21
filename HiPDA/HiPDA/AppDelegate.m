@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#include "LZAccount.h"
+#import "LZAccount.h"
+#import "LZLoginViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,13 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if ([[LZAccount sharedAccount]checkIfThereIsAValidAccount]) {
-        NSLog(@"%d",YES);
-    }else{
-        NSLog(@"%d",NO);
-    }
+    self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    self.window.rootViewController=[[ViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    [self performSelector:@selector(checkAccount) withObject:nil afterDelay:0.5];
     
     return YES;
+}
+
+-(void)checkAccount{
+    [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

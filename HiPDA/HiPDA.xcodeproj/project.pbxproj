@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0528F7F91ABD61C100A1B430 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0528F7F81ABD61C100A1B430 /* Security.framework */; };
-		0528F7FD1ABD674700A1B430 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F7FC1ABD674700A1B430 /* NSString+extension.m */; };
+		0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8011ABD8FE200A1B430 /* NSString+extension.m */; };
+		0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8041ABD935B00A1B430 /* LZLoginViewController.m */; };
+		0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8071ABD937F00A1B430 /* LZLoginView.m */; };
 		05C45A161ABD5633007DF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A151ABD5633007DF8CC /* main.m */; };
 		05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A181ABD5633007DF8CC /* AppDelegate.m */; };
 		05C45A1C1ABD5633007DF8CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A1B1ABD5633007DF8CC /* ViewController.m */; };
-		05C45A1F1ABD5633007DF8CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A1D1ABD5633007DF8CC /* Main.storyboard */; };
 		05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A201ABD5633007DF8CC /* Images.xcassets */; };
 		05C45A241ABD5633007DF8CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A221ABD5633007DF8CC /* LaunchScreen.xib */; };
 		05C45A301ABD5634007DF8CC /* HiPDATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A2F1ABD5634007DF8CC /* HiPDATests.m */; };
@@ -32,8 +33,12 @@
 
 /* Begin PBXFileReference section */
 		0528F7F81ABD61C100A1B430 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		0528F7FB1ABD674700A1B430 /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+extension.h"; path = "untitled folder/NSString+extension.h"; sourceTree = "<group>"; };
-		0528F7FC1ABD674700A1B430 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+extension.m"; path = "untitled folder/NSString+extension.m"; sourceTree = "<group>"; };
+		0528F8001ABD8FE200A1B430 /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+extension.h"; path = "Utils/NSString+extension.h"; sourceTree = "<group>"; };
+		0528F8011ABD8FE200A1B430 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+extension.m"; path = "Utils/NSString+extension.m"; sourceTree = "<group>"; };
+		0528F8031ABD935B00A1B430 /* LZLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZLoginViewController.h; path = Controller/LZLoginViewController.h; sourceTree = "<group>"; };
+		0528F8041ABD935B00A1B430 /* LZLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZLoginViewController.m; path = Controller/LZLoginViewController.m; sourceTree = "<group>"; };
+		0528F8061ABD937F00A1B430 /* LZLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZLoginView.h; path = View/LZLoginView.h; sourceTree = "<group>"; };
+		0528F8071ABD937F00A1B430 /* LZLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZLoginView.m; path = View/LZLoginView.m; sourceTree = "<group>"; };
 		05C45A101ABD5633007DF8CC /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C45A141ABD5633007DF8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C45A151ABD5633007DF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,7 +46,6 @@
 		05C45A181ABD5633007DF8CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		05C45A1A1ABD5633007DF8CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		05C45A1B1ABD5633007DF8CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		05C45A1E1ABD5633007DF8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05C45A201ABD5633007DF8CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05C45A231ABD5633007DF8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		05C45A291ABD5634007DF8CC /* HiPDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,10 +81,28 @@
 		0528F7FA1ABD665A00A1B430 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0528F7FB1ABD674700A1B430 /* NSString+extension.h */,
-				0528F7FC1ABD674700A1B430 /* NSString+extension.m */,
+				0528F8001ABD8FE200A1B430 /* NSString+extension.h */,
+				0528F8011ABD8FE200A1B430 /* NSString+extension.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		0528F7FE1ABD8FA600A1B430 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0528F8031ABD935B00A1B430 /* LZLoginViewController.h */,
+				0528F8041ABD935B00A1B430 /* LZLoginViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0528F7FF1ABD8FB400A1B430 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0528F8061ABD937F00A1B430 /* LZLoginView.h */,
+				0528F8071ABD937F00A1B430 /* LZLoginView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		05C45A071ABD5633007DF8CC = {
@@ -106,13 +128,14 @@
 		05C45A121ABD5633007DF8CC /* HiPDA */ = {
 			isa = PBXGroup;
 			children = (
+				0528F7FF1ABD8FB400A1B430 /* View */,
+				0528F7FE1ABD8FA600A1B430 /* Controller */,
 				0528F7FA1ABD665A00A1B430 /* Utils */,
 				05C45A3D1ABD5BDE007DF8CC /* Model */,
 				05C45A171ABD5633007DF8CC /* AppDelegate.h */,
 				05C45A181ABD5633007DF8CC /* AppDelegate.m */,
 				05C45A1A1ABD5633007DF8CC /* ViewController.h */,
 				05C45A1B1ABD5633007DF8CC /* ViewController.m */,
-				05C45A1D1ABD5633007DF8CC /* Main.storyboard */,
 				05C45A201ABD5633007DF8CC /* Images.xcassets */,
 				05C45A221ABD5633007DF8CC /* LaunchScreen.xib */,
 				05C45A131ABD5633007DF8CC /* Supporting Files */,
@@ -255,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C45A1F1ABD5633007DF8CC /* Main.storyboard in Resources */,
 				05C45A241ABD5633007DF8CC /* LaunchScreen.xib in Resources */,
 				05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */,
 			);
@@ -308,9 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0528F7FD1ABD674700A1B430 /* NSString+extension.m in Sources */,
+				0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */,
 				05C45A1C1ABD5633007DF8CC /* ViewController.m in Sources */,
+				0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */,
 				05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */,
+				0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */,
 				05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */,
 				05C45A161ABD5633007DF8CC /* main.m in Sources */,
 			);
@@ -335,14 +359,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05C45A1D1ABD5633007DF8CC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05C45A1E1ABD5633007DF8CC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		05C45A221ABD5633007DF8CC /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -436,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HiPDA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -447,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HiPDA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
