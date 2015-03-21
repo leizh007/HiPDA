@@ -9,8 +9,9 @@
 #import "LZLoginView.h"
 #import "FBShimmeringView.h"
 
-#define  DISTANCEBETWEENEACHVIEW 20
-#define  INSET                   6
+#define  DISTANCEBETWEENEACHVIEWLEFT 30
+#define  DISTANCEBETWEENEACHVIEWUP   20
+#define  INSET                       8
 
 @interface LZLoginView()
 
@@ -20,7 +21,7 @@
 @property (strong, nonatomic) UILabel          *safeQuestionNumberLabel;
 @property (strong, nonatomic) UILabel          *safeQuestionAnswerLabel;
 @property (strong, nonatomic) FBShimmeringView *shimmerinHipdaView;
-
+@property (strong, nonatomic) FBShimmeringView *shimmerinLoginView;
 @end
 
 @implementation LZLoginView
@@ -54,7 +55,7 @@
         [self addSubview:self.userPassWoldTextField];
         [self addSubview:self.safeQuestionNumberButton];
         [self addSubview:self.safeQuestionAnswerTextField];
-        [self addSubview:self.loginButton];
+        //[self addSubview:self.loginButton];
         self.userNameLabel.text=@"用户名";
         self.userPasswordLabel.text=@"密码";
         self.safeQuestionNumberLabel.text=@"安全提问";
@@ -75,22 +76,61 @@
         self.userPassWoldTextField.delegate=self;
         self.userNameTextField.delegate=self;
         self.safeQuestionAnswerTextField.delegate=self;
+        self.shimmerinLoginView=[[FBShimmeringView alloc]init];
+        [self addSubview:self.shimmerinLoginView];
+        self.shimmerinLoginView.contentView=self.loginButton;
+        self.shimmerinLoginView.shimmering=YES;
     }
     return self;
 }
 
 -(void)layoutSubviews{
+    //设置标题label
     self.shimmerinHipdaView.frame=CGRectMake([[UIScreen mainScreen]bounds].size.width/2-self.hiPdaLabel.frame.size.width/2, 35, self.hiPdaLabel.frame.size.width, self.hiPdaLabel.frame.size.height);
+    
+    //设置第一层
     [self.userNameLabel sizeToFit];
-    self.userNameLabel.frame=CGRectMake(DISTANCEBETWEENEACHVIEW, self.shimmerinHipdaView.frame.origin.y+self.shimmerinHipdaView.frame.size.height+2*DISTANCEBETWEENEACHVIEW, self.userNameLabel.frame.size.width, self.userNameLabel.frame.size.height);
-    self.userNameTextField.frame=CGRectMake(self.userNameLabel.frame.origin.x+self.userNameLabel.frame.size.width+DISTANCEBETWEENEACHVIEW, self.userNameLabel.frame.origin.y-INSET/2, [[UIScreen mainScreen] bounds].size.width-self.userNameLabel.frame.size.width-5*DISTANCEBETWEENEACHVIEW, self.userNameLabel.frame.size.height+INSET);
+    self.userNameLabel.frame=CGRectMake(DISTANCEBETWEENEACHVIEWLEFT, self.shimmerinHipdaView.frame.origin.y+self.shimmerinHipdaView.frame.size.height+1.5*DISTANCEBETWEENEACHVIEWUP, self.userNameLabel.frame.size.width, self.userNameLabel.frame.size.height);
+    self.userNameTextField.frame=CGRectMake(self.userNameLabel.frame.origin.x+self.userNameLabel.frame.size.width+DISTANCEBETWEENEACHVIEWLEFT/2, self.userNameLabel.frame.origin.y-INSET/2, [[UIScreen mainScreen] bounds].size.width-self.userNameLabel.frame.size.width-4*DISTANCEBETWEENEACHVIEWUP, self.userNameLabel.frame.size.height+INSET);
     [self setTextField:self.userNameTextField];
     self.userNameTextField.placeholder=@"请输入用户名";
+    
+    int leftLabelRighPosition=self.userNameLabel.frame.origin.x+self.userNameLabel.frame.size.width;
+    
+    //设置第二层
     [self.userPasswordLabel sizeToFit];
-    self.userPasswordLabel.frame=CGRectMake(DISTANCEBETWEENEACHVIEW, self.userNameLabel.frame.origin.y+self.userNameLabel.frame.size.height+2*DISTANCEBETWEENEACHVIEW, self.userPasswordLabel.frame.size.width, self.userPasswordLabel.frame.size.height);
+    self.userPasswordLabel.frame=CGRectMake(leftLabelRighPosition-self.userPasswordLabel.frame.size.width, self.userNameLabel.frame.origin.y+self.userNameLabel.frame.size.height+DISTANCEBETWEENEACHVIEWUP, self.userPasswordLabel.frame.size.width, self.userPasswordLabel.frame.size.height);
     self.userPassWoldTextField.frame=CGRectMake(self.userNameTextField.frame.origin.x, self.userPasswordLabel.frame.origin.y-INSET/2, self.userNameTextField.frame.size.width, self.userNameTextField.frame.size.height);
     [self setTextField:self.userPassWoldTextField];
     self.userPassWoldTextField.placeholder=@"请输入密码";
+    self.userPassWoldTextField.secureTextEntry=YES;
+    
+    //设置第三层
+    [self.safeQuestionNumberLabel sizeToFit];
+    self.safeQuestionNumberLabel.frame=CGRectMake(leftLabelRighPosition-self.safeQuestionNumberLabel.frame.size.width, self.userPasswordLabel.frame.origin.y+self.userPasswordLabel.frame.size.height+DISTANCEBETWEENEACHVIEWUP, self.safeQuestionNumberLabel.frame.size.width, self.safeQuestionNumberLabel.frame.size.height);
+    self.safeQuestionNumberButton.frame=CGRectMake(self.userPassWoldTextField.frame.origin.x, self.safeQuestionNumberLabel.frame.origin.y-INSET/2, self.userPassWoldTextField.frame.size.width, self.userPassWoldTextField.frame.size.height);
+    //self.safeQuestionNumberButton.backgroundColor=[UIColor greenColor];
+    self.safeQuestionNumberButton.layer.borderWidth=1.0;
+    self.safeQuestionNumberButton.layer.borderColor=[[UIColor colorWithRed:0.568 green:0.525 blue:0.678 alpha:1] CGColor];
+    self.safeQuestionNumberButton.layer.cornerRadius=5.0;
+    [self.safeQuestionNumberButton setTitle:@"安全提问" forState:UIControlStateNormal];
+    self.safeQuestionNumberButton.contentHorizontalAlignment=UIControlContentHorizontalAlignmentLeft;
+    self.safeQuestionNumberButton.layer.sublayerTransform=CATransform3DMakeTranslation(5, 0, 0);
+    [self.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.781 green:0.778 blue:0.804 alpha:1] forState:UIControlStateNormal];
+    
+    //设置第四层
+    [self.safeQuestionAnswerLabel sizeToFit];
+    self.safeQuestionAnswerLabel.frame=CGRectMake(leftLabelRighPosition-self.safeQuestionAnswerLabel.frame.size.width, self.safeQuestionNumberLabel.frame.origin.y+self.safeQuestionNumberLabel.frame.size.height+DISTANCEBETWEENEACHVIEWUP, self.safeQuestionAnswerLabel.frame.size.width, self.safeQuestionAnswerLabel.frame.size.height);
+    self.safeQuestionAnswerTextField.frame=CGRectMake(self.safeQuestionNumberButton.frame.origin.x, self.safeQuestionAnswerLabel.frame.origin.y-INSET/2, self.safeQuestionNumberButton.frame.size.width, self.safeQuestionNumberButton.frame.size.height);
+    [self setTextField:self.safeQuestionAnswerTextField];
+    self.safeQuestionAnswerTextField.placeholder=@"空";
+    
+    //设置第五层
+    self.shimmerinLoginView.frame=CGRectMake(DISTANCEBETWEENEACHVIEWLEFT, self.safeQuestionAnswerTextField.frame.origin.y+self.safeQuestionAnswerTextField.frame.size.height+2*DISTANCEBETWEENEACHVIEWUP, [[UIScreen mainScreen]bounds].size.width-2*DISTANCEBETWEENEACHVIEWLEFT, self.safeQuestionAnswerTextField.frame.size.height+INSET);
+    self.loginButton.backgroundColor=[UIColor colorWithRed:0.181 green:0.331 blue:0.792 alpha:1];
+    self.loginButton.layer.cornerRadius=5.0;
+    self.loginButton.layer.borderWidth=1.0;
+    self.loginButton.layer.borderColor=[[UIColor colorWithRed:0.568 green:0.525 blue:0.678 alpha:1] CGColor];
 }
 
 -(void)dismissKeyboard:(id)sender{
