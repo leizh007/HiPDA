@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define SAFEQUESTIONBUTTONTAG 1
+#define LOGINBUTTONTAG        2
+
 @interface LZLoginView : UIView<UITextFieldDelegate>
 
 @property (strong, nonatomic) UITextField *userNameTextField;

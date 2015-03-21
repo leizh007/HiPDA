@@ -1,14 +1,17 @@
 PODS:
+  - ActionSheetPicker-3.0 (1.3.11)
   - Shimmer (1.0.2)
   - SSKeychain (1.2.2)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 1.3.11)
   - Shimmer (~> 1.0.2)
   - SSKeychain (~> 1.2.2)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 4f48f8ca46f981effd10ba59a73401d4ae9d6a2e
   Shimmer: 057fcfe9c1c978d69d50b64fce93a61080cd08ec
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77

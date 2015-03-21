@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
     self.loginView=[[LZLoginView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     self.view=self.loginView;
+    [self.loginView.safeQuestionNumberButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.loginView.loginButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,4 +41,14 @@
 }
 */
 
+-(void)buttonPressed:(id)sender{
+//    NSLog(@"%d button pressed!",(int)((UIButton *)sender).tag);
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [sender setAlpha:0.4];
+                     } completion:^(BOOL finished) {
+                         [sender setAlpha:1.0];
+                     }];
+    
+}
 @end

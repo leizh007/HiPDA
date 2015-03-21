@@ -80,6 +80,8 @@
         [self addSubview:self.shimmerinLoginView];
         self.shimmerinLoginView.contentView=self.loginButton;
         self.shimmerinLoginView.shimmering=YES;
+        self.safeQuestionNumberButton.tag=SAFEQUESTIONBUTTONTAG;
+        self.loginButton.tag=LOGINBUTTONTAG;
     }
     return self;
 }
