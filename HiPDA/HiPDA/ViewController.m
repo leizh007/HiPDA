@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "LZNetworkHelper.h"
+#import "SVProgressHUD.h"
 
 @interface ViewController ()
 
@@ -18,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor=[UIColor greenColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {

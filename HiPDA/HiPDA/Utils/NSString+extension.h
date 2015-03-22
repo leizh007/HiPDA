@@ -11,5 +11,5 @@
 @interface NSString (extension)
 
 +(id)ifTheStringIsNilReturnAEmptyString:(NSString *)string;
-
++(id)encodingGBKStringToIOSString:(NSData *)data;
 @end

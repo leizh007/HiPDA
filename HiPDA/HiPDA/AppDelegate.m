@@ -10,6 +10,11 @@
 #import "LZAccount.h"
 #import "LZLoginViewController.h"
 #import "ViewController.h"
+#import "LZNetworkHelper.h"
+#import "SVProgressHUD.h"
+#import <AFNetworking.h>
+#import "AFNetworkActivityIndicatorManager.h"
+#import "SDURLCache.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +28,16 @@
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     self.window.rootViewController=[[ViewController alloc] init];
     [self.window makeKeyAndVisible];
+
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024*1024   // 1MB mem cache
+                                                         diskCapacity:1024*1024*5 // 5MB disk cache
+                                                             diskPath:[SDURLCache defaultCachePath]];
+    [NSURLCache setSharedURLCache:urlCache];
+    
     [self performSelector:@selector(checkAccount) withObject:nil afterDelay:0.5];
+    
     
     return YES;
 }

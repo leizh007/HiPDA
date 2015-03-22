@@ -24,4 +24,16 @@
     return @"";
 }
 
+/**
+ *  把gbk编码的字符串转化为ios的字符串类型string
+ *
+ *  @param data gbk编码的数据
+ *
+ *  @return 转换后的ios字符串类型string
+ */
++(id)encodingGBKStringToIOSString:(NSData *)data{
+    NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    return [[NSString alloc] initWithData:data encoding:gbkEncoding];
+}
+
 @end

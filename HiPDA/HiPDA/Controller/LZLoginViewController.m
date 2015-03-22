@@ -9,6 +9,9 @@
 #import "LZLoginViewController.h"
 #import "LZLoginView.h"
 #import "ActionSheetStringPicker.h"
+#import "NSString+extension.h"
+#import "SVProgressHUD.h"
+#import "LZNetworkHelper.h"
 
 @interface LZLoginViewController ()
 
@@ -76,6 +79,24 @@
                                            }
                                               origin:self.view];
     }else if(2==tag){
+        self.userName=[NSString ifTheStringIsNilReturnAEmptyString:self.loginView.userNameTextField.text];
+        self.userPassword=[NSString ifTheStringIsNilReturnAEmptyString:self.loginView.userPassWoldTextField.text];
+        self.safeQuestionNumber=self.safeQuestionDic[self.loginView.safeQuestionNumberButton.currentTitle];
+        if ([self.safeQuestionNumber isEqualToString:@"0"]) {
+            self.safeQuestionAnswer=@"";
+        }else{
+            self.safeQuestionAnswer=[NSString ifTheStringIsNilReturnAEmptyString:self.loginView.safeQuestionAnswerTextField.text];
+        }
+//        NSLog(@"username:%@\nuserpassword:%@\nsafequestion:%@\nanswer:%@\n",self.userName,self.userPassword,self.safeQuestionNumber,self.safeQuestionAnswer);
+        [SVProgressHUD showWithStatus:@"奋力登录中..." maskType:SVProgressHUDMaskTypeGradient];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [NSThread sleepForTimeInterval:1.0];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                LZNetworkHelper *networkHelper=[LZNetworkHelper sharedLZNetworkHelper];
+                [networkHelper getFormhash];
+                [SVProgressHUD dismiss];
+            });
+        });
         
     }
 }
