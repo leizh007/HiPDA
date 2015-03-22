@@ -15,6 +15,7 @@
 -(BOOL)checkIfThereIsAValidAccount;
 -(id)getAccountInfo;
 -(BOOL)setAccountInfo:(NSArray *)info;
+-(BOOL)clearAccountInfo;
 -(void)saveCookies;
 -(void)loadCookies;
 -(void)clearCookies;

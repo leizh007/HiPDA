@@ -12,6 +12,7 @@
 #import "NSString+extension.h"
 #import "SVProgressHUD.h"
 #import "LZNetworkHelper.h"
+#import "LZAccount.h"
 
 @interface LZLoginViewController ()
 
@@ -30,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[LZAccount sharedAccount] clearAccountInfo];
+    [[LZAccount sharedAccount] clearCookies];
     self.loginView=[[LZLoginView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     self.view=self.loginView;
     [self.loginView.safeQuestionNumberButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -87,17 +90,33 @@
         }else{
             self.safeQuestionAnswer=[NSString ifTheStringIsNilReturnAEmptyString:self.loginView.safeQuestionAnswerTextField.text];
         }
-//        NSLog(@"username:%@\nuserpassword:%@\nsafequestion:%@\nanswer:%@\n",self.userName,self.userPassword,self.safeQuestionNumber,self.safeQuestionAnswer);
         [SVProgressHUD showWithStatus:@"奋力登录中..." maskType:SVProgressHUDMaskTypeGradient];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [NSThread sleepForTimeInterval:1.0];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                LZNetworkHelper *networkHelper=[LZNetworkHelper sharedLZNetworkHelper];
-                [networkHelper getFormhash];
-                [SVProgressHUD dismiss];
-            });
-        });
+        LZNetworkHelper *networkHelper=[LZNetworkHelper sharedLZNetworkHelper];
+        NSDictionary *parameters=@{@"loginfield":@"username",
+                                   @"username":self.userName,
+                                   @"password":[self.userPassword md5],
+                                   @"questionid":self.safeQuestionNumber,
+                                   @"answer":self.safeQuestionAnswer,
+                                   @"cookietime":@"2592000",
+                                   @"Referer":@"http://www.hi-pda.com/forum/index.php"};
+        [networkHelper login:parameters block:^(BOOL isSuccess, NSError *error) {
+                if (isSuccess) {
+                    [SVProgressHUD showSuccessWithStatus:@"登录成功！" maskType:SVProgressHUDMaskTypeGradient];
+                    [[LZAccount sharedAccount] setAccountInfo:@[self.userName,self.userPassword,self.safeQuestionNumber,self.safeQuestionAnswer]];
+                    [[LZAccount sharedAccount] saveCookies];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:@"登录失败！" maskType:SVProgressHUDMaskTypeGradient];
+                }
+            [self performSelector:@selector(dismissSVProgressHUD:) withObject:nil afterDelay:3];
+        }];
         
     }
+}
+
+-(void)dismissSVProgressHUD:(id)sender{
+    [SVProgressHUD dismiss];
 }
 @end

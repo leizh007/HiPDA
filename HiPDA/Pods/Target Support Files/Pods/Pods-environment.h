@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_ActionSheetPicker_3_0 3
 #define COCOAPODS_VERSION_PATCH_ActionSheetPicker_3_0 11
 
+// RegExCategories
+#define COCOAPODS_POD_AVAILABLE_RegExCategories
+#define COCOAPODS_VERSION_MAJOR_RegExCategories 1
+#define COCOAPODS_VERSION_MINOR_RegExCategories 0
+#define COCOAPODS_VERSION_PATCH_RegExCategories 0
+
 // SDURLCache
 #define COCOAPODS_POD_AVAILABLE_SDURLCache
 #define COCOAPODS_VERSION_MAJOR_SDURLCache 1

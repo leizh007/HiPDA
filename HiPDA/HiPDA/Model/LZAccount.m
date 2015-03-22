@@ -86,6 +86,16 @@
 }
 
 /**
+ *  清除用户信息
+ *
+ *  @return 清除成功返回真
+ */
+-(BOOL)clearAccountInfo{
+    [self setAccountInfo:@[AHiPDANewUser,@"",@"",@""]];
+    return YES;
+}
+
+/**
  *  保存cookie
  */
 -(void)saveCookies{
@@ -128,5 +138,6 @@
         [viewController presentViewController:loginViewController animated:YES completion:^{
         }];
     }
+    [self loadCookies];
 }
 @end

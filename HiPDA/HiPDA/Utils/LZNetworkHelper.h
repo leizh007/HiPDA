@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking.h>
 
 @interface LZNetworkHelper : NSObject
 
 +(id)sharedLZNetworkHelper;
--(void)getFormhash;
-
+-(void)login:(NSDictionary *)parameters block: (void (^)(BOOL isSuccess,NSError *error))block;
 @end
