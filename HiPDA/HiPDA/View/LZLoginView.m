@@ -36,7 +36,7 @@
 
 -(id)initWithFrame:(CGRect)frame{
     if(self=[super initWithFrame:frame]){
-        self.backgroundColor=[UIColor whiteColor];
+        self.backgroundColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
         self.hiPdaLabel=[[UILabel alloc]init];
         self.userNameLabel=[[UILabel alloc]init];
         self.userPasswordLabel=[[UILabel alloc]init];
@@ -118,7 +118,7 @@
     [self.safeQuestionNumberButton setTitle:@"安全提问" forState:UIControlStateNormal];
     self.safeQuestionNumberButton.contentHorizontalAlignment=UIControlContentHorizontalAlignmentLeft;
     self.safeQuestionNumberButton.layer.sublayerTransform=CATransform3DMakeTranslation(5, 0, 0);
-    [self.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.781 green:0.778 blue:0.804 alpha:1] forState:UIControlStateNormal];
+    [self.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.66 green:0.782 blue:0.681 alpha:1] forState:UIControlStateNormal];
     
     //设置第四层
     [self.safeQuestionAnswerLabel sizeToFit];
@@ -135,17 +135,34 @@
     self.loginButton.layer.borderColor=[[UIColor colorWithRed:0.568 green:0.525 blue:0.678 alpha:1] CGColor];
 }
 
+/**
+ *  收起键盘
+ *
+ *  @param sender
+ */
 -(void)dismissKeyboard:(id)sender{
     [self.userNameTextField endEditing:YES];
     [self.userPassWoldTextField endEditing:YES];
     [self.safeQuestionAnswerTextField endEditing:YES];
 }
 
+/**
+ *  输入return收起键盘
+ *
+ *  @param textField
+ *
+ *  @return
+ */
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
 }
 
+/**
+ *  设置textfield的外观
+ *
+ *  @param sender 要设置的textfield
+ */
 -(void)setTextField:(id)sender{
     UITextField *textField=(UITextField *)sender;
     textField.layer.borderColor=[[UIColor colorWithRed:0.568 green:0.525 blue:0.678 alpha:1] CGColor];

@@ -123,7 +123,9 @@
  */
 -(void)checkAccountIfNoValidThenLogin:(UIViewController *)viewController{
     if (![[LZAccount sharedAccount]checkIfThereIsAValidAccount]) {
-        [viewController presentViewController:[[LZLoginViewController alloc]init] animated:YES completion:^{
+        LZLoginViewController *loginViewController=[[LZLoginViewController alloc]init];
+        loginViewController.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+        [viewController presentViewController:loginViewController animated:YES completion:^{
         }];
     }
 }
