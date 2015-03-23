@@ -36,7 +36,7 @@
 
 -(id)initWithFrame:(CGRect)frame{
     if(self=[super initWithFrame:frame]){
-        self.backgroundColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
+        self.backgroundColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:1];
         self.hiPdaLabel=[[UILabel alloc]init];
         self.userNameLabel=[[UILabel alloc]init];
         self.userPasswordLabel=[[UILabel alloc]init];
@@ -118,7 +118,7 @@
     [self.safeQuestionNumberButton setTitle:@"安全提问" forState:UIControlStateNormal];
     self.safeQuestionNumberButton.contentHorizontalAlignment=UIControlContentHorizontalAlignmentLeft;
     self.safeQuestionNumberButton.layer.sublayerTransform=CATransform3DMakeTranslation(5, 0, 0);
-    [self.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.66 green:0.782 blue:0.681 alpha:1] forState:UIControlStateNormal];
+    [self.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.791 green:0.791 blue:0.811 alpha:1] forState:UIControlStateNormal];
     
     //设置第四层
     [self.safeQuestionAnswerLabel sizeToFit];

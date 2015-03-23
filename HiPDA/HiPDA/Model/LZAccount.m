@@ -139,22 +139,24 @@
         loginViewController.modalPresentationStyle=UIModalPresentationOverCurrentContext;
         [viewController presentViewController:loginViewController animated:YES completion:^{
         }];
+    }else{
+        NSArray *accountInfo=[self getAccountInfo];
+        NSDictionary *parameters=@{@"loginfield":@"username",
+                                   @"username":accountInfo[0],
+                                   @"password":[accountInfo[1] md5],
+                                   @"questionid":accountInfo[2],
+                                   @"answer":accountInfo[3],
+                                   @"cookietime":@"2592000",
+                                   @"Referer":@"http://www.hi-pda.com/forum/index.php"};
+        LZNetworkHelper *networkHelper=[LZNetworkHelper sharedLZNetworkHelper];
+        [networkHelper login:parameters block:^(BOOL isSuccess, NSError *error) {
+            if (isSuccess) {
+                [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:@"登录成功！"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:LOGINCOMPLETENOTIFICATION object:nil userInfo:nil];
+            }else{
+                [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+            }
+        }];
     }
-    NSArray *accountInfo=[self getAccountInfo];
-    NSDictionary *parameters=@{@"loginfield":@"username",
-                               @"username":accountInfo[0],
-                               @"password":[accountInfo[1] md5],
-                               @"questionid":accountInfo[2],
-                               @"answer":accountInfo[3],
-                               @"cookietime":@"2592000",
-                               @"Referer":@"http://www.hi-pda.com/forum/index.php"};
-    LZNetworkHelper *networkHelper=[LZNetworkHelper sharedLZNetworkHelper];
-    [networkHelper login:parameters block:^(BOOL isSuccess, NSError *error) {
-        if (isSuccess) {
-            [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:@"登录成功！"];
-        }else{
-            [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPEERROR message:@"登录失败！"];
-        }
-    }];
 }
 @end

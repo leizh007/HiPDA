@@ -54,6 +54,18 @@
 #define COCOAPODS_VERSION_MINOR_ActionSheetPicker_3_0 3
 #define COCOAPODS_VERSION_PATCH_ActionSheetPicker_3_0 11
 
+// BBBadgeBarButtonItem
+#define COCOAPODS_POD_AVAILABLE_BBBadgeBarButtonItem
+#define COCOAPODS_VERSION_MAJOR_BBBadgeBarButtonItem 1
+#define COCOAPODS_VERSION_MINOR_BBBadgeBarButtonItem 1
+#define COCOAPODS_VERSION_PATCH_BBBadgeBarButtonItem 0
+
+// MTLog
+#define COCOAPODS_POD_AVAILABLE_MTLog
+#define COCOAPODS_VERSION_MAJOR_MTLog 0
+#define COCOAPODS_VERSION_MINOR_MTLog 6
+#define COCOAPODS_VERSION_PATCH_MTLog 1
+
 // RegExCategories
 #define COCOAPODS_POD_AVAILABLE_RegExCategories
 #define COCOAPODS_VERSION_MAJOR_RegExCategories 1

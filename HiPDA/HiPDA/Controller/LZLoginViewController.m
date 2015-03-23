@@ -58,6 +58,7 @@
 
 -(void)buttonPressed:(id)sender{
 //    NSLog(@"%d button pressed!",(int)((UIButton *)sender).tag);
+    [self.loginView dismissKeyboard:nil];
     [UIView animateWithDuration:0.2
                      animations:^{
                          [sender setAlpha:0.4];
@@ -74,7 +75,7 @@
                                                if (selectedIndex!=0) {
                                                    [self.loginView.safeQuestionNumberButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                                                }else{
-                                                   [self.loginView.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.66 green:0.782 blue:0.681 alpha:1] forState:UIControlStateNormal];
+                                                   [self.loginView.safeQuestionNumberButton setTitleColor:[UIColor colorWithRed:0.791 green:0.791 blue:0.811 alpha:1] forState:UIControlStateNormal];
                                                }
                                            }
                                          cancelBlock:^(ActionSheetStringPicker *picker) {
@@ -104,11 +105,12 @@
                     [SVProgressHUD showSuccessWithStatus:@"登录成功！" maskType:SVProgressHUDMaskTypeGradient];
                     [[LZAccount sharedAccount] setAccountInfo:@[self.userName,self.userPassword,self.safeQuestionNumber,self.safeQuestionAnswer]];
                     [[LZAccount sharedAccount] saveCookies];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:LOGINCOMPLETENOTIFICATION object:nil userInfo:nil];
                     [self dismissViewControllerAnimated:YES completion:^{
                         
                     }];
                 }else{
-                    [SVProgressHUD showErrorWithStatus:@"登录失败！" maskType:SVProgressHUDMaskTypeGradient];
+                    [SVProgressHUD showErrorWithStatus:[error localizedDescription] maskType:SVProgressHUDMaskTypeGradient];
                 }
             [self performSelector:@selector(dismissSVProgressHUD:) withObject:nil afterDelay:3];
         }];

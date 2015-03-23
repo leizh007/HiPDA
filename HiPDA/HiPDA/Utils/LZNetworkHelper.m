@@ -59,6 +59,7 @@
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   NSString *responHtml=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
+//                  NSLog(@"%@",responHtml);
                   if ([responHtml containsString:@"欢迎您回来"]) {
                       block(YES,nil);
                       return ;
@@ -70,12 +71,13 @@
                       return;
                   }
                   NSString *formhash=[responHtml substringWithRange:((NSTextCheckingResult *)matches[0]).range];
-                  NSLog(@"%@",formhash);
+//                  NSLog(@"%@",formhash);
                   NSMutableDictionary *param=[NSMutableDictionary dictionaryWithDictionary:parameters];
                   [param setValue:formhash forKey:@"formhash"];
                   [self.manager POST:@"http://www.hi-pda.com/forum/logging.php?action=login&loginsubmit=yes&inajax=1"
                           parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                               NSString *responString=[NSString encodingGBKStringToIOSString:responseObject];
+//                              NSLog(@"%@",responString);
                               if ([responString containsString:@"欢迎您回来"]) {
                                   block(YES,nil);
                               }else{

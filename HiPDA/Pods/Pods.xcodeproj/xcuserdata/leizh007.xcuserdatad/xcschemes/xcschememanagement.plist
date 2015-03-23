@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BBBadgeBarButtonItem.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MTLog.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RegExCategories.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DF4C6E43F2F09B66F7D18D3</key>
+		<key>0EA2C77A9E6592E0AD34BD4F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0FC63A7F0BED819CC6E107FC</key>
+		<key>1B21479BBBA41810BD83D817</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2BD9D69CC614A29B96F28078</key>
+		<key>38C6E1AFD7859DD6075F47B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D53206F381F666944B3C989</key>
+		<key>51DC6A03A71DFBAAE413F674</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D670C487CA92DE5528BBD2E</key>
+		<key>5EEB83D7F9FA57343B1ED98B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70D2277B0E4D64E5D7FDA32D</key>
+		<key>64186C0F13751A905A990331</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>728BCA79FF61CF01F71CCE19</key>
+		<key>6531F2609F7E6D5B251B4751</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA7560B44A9ED6E46E764318</key>
+		<key>8BA1D56E607251204B001756</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FC2156D1A1F68F22553EFC28</key>
+		<key>8D9203EC80ABA3801A4DB2CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9CCC6EC218910BD63834543C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA0B590462A3F0BA052963B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

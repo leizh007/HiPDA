@@ -18,5 +18,6 @@
 @property (strong, nonatomic) UIButton    *safeQuestionNumberButton;
 @property (strong, nonatomic) UITextField *safeQuestionAnswerTextField;
 @property (strong, nonatomic) UIButton    *loginButton;
+-(void)dismissKeyboard:(id)sender;
 
 @end

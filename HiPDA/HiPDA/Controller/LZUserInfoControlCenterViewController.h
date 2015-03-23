@@ -11,4 +11,6 @@
 
 @interface LZUserInfoControlCenterViewController : UIViewController<SWRevealViewControllerDelegate>
 
+-(void)loginComplete:(id)sender;
+
 @end

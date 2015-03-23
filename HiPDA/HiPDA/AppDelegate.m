@@ -27,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
 
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
@@ -36,15 +37,18 @@
                                                              diskPath:[SDURLCache defaultCachePath]];
     [NSURLCache setSharedURLCache:urlCache];
     
-    [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
-    
-    
     UINavigationController *frontNavController=[[UINavigationController alloc]initWithRootViewController:[[LZMainThreadViewController alloc]init]] ;
-    UINavigationController *rearNavController=[[UINavigationController alloc]initWithRootViewController:[[LZUserInfoControlCenterViewController alloc]init]];
-    self.viewController=[[SWRevealViewController alloc]initWithRearViewController:rearNavController frontViewController:frontNavController];
-    self.viewController.rearViewRevealWidth=200;
+    LZUserInfoControlCenterViewController *userInfoControlCenterViewController=[[LZUserInfoControlCenterViewController alloc]init];
+    self.viewController=[[SWRevealViewController alloc]initWithRearViewController:userInfoControlCenterViewController frontViewController:frontNavController];
+    self.viewController.rearViewRevealWidth=REARVIEWREVEALWIDTH;
+    self.viewController.rearViewRevealOverdraw=REARVIEWREVEALOVERDRAW;
     self.window.rootViewController=self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:userInfoControlCenterViewController
+                                             selector:@selector(loginComplete:)
+                                                 name:LOGINCOMPLETENOTIFICATION object:nil];
+    [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
     
     return YES;
 }
