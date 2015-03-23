@@ -10,10 +10,12 @@
 #import "SSKeychain.h"
 #import "NSString+extension.h"
 #import "LZLoginViewController.h"
+#import "LZNetworkHelper.h"
+#import "LZShowMessagesHelper.h"
 
-#define HiPDAUserName @"HiPDAUserName"
+#define HiPDAUserName    @"HiPDAUserName"
 #define HiPDAServiceName @"HiPDAServiceName"
-#define AHiPDANewUser @"AHiPDANewUser"
+#define AHiPDANewUser    @"AHiPDANewUser"
 #define HiPDAUserCookies @"HiPDAUserCookies"
 
 @implementation LZAccount
@@ -138,6 +140,21 @@
         [viewController presentViewController:loginViewController animated:YES completion:^{
         }];
     }
-    [self loadCookies];
+    NSArray *accountInfo=[self getAccountInfo];
+    NSDictionary *parameters=@{@"loginfield":@"username",
+                               @"username":accountInfo[0],
+                               @"password":[accountInfo[1] md5],
+                               @"questionid":accountInfo[2],
+                               @"answer":accountInfo[3],
+                               @"cookietime":@"2592000",
+                               @"Referer":@"http://www.hi-pda.com/forum/index.php"};
+    LZNetworkHelper *networkHelper=[LZNetworkHelper sharedLZNetworkHelper];
+    [networkHelper login:parameters block:^(BOOL isSuccess, NSError *error) {
+        if (isSuccess) {
+            [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:@"登录成功！"];
+        }else{
+            [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPEERROR message:@"登录失败！"];
+        }
+    }];
 }
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051EA0901ABFA5FE00A84B50 /* LZShowMessagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 051EA08F1ABFA5FE00A84B50 /* LZShowMessagesHelper.m */; };
+		051EA0931ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051EA0921ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m */; };
+		051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */; };
 		0528F7F91ABD61C100A1B430 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0528F7F81ABD61C100A1B430 /* Security.framework */; };
 		0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8011ABD8FE200A1B430 /* NSString+extension.m */; };
 		0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8041ABD935B00A1B430 /* LZLoginViewController.m */; };
@@ -15,7 +18,6 @@
 		0528F80E1ABEBCC900A1B430 /* LZNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F80D1ABEBCC900A1B430 /* LZNetworkHelper.m */; };
 		05C45A161ABD5633007DF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A151ABD5633007DF8CC /* main.m */; };
 		05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A181ABD5633007DF8CC /* AppDelegate.m */; };
-		05C45A1C1ABD5633007DF8CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A1B1ABD5633007DF8CC /* ViewController.m */; };
 		05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A201ABD5633007DF8CC /* Images.xcassets */; };
 		05C45A241ABD5633007DF8CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A221ABD5633007DF8CC /* LaunchScreen.xib */; };
 		05C45A301ABD5634007DF8CC /* HiPDATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A2F1ABD5634007DF8CC /* HiPDATests.m */; };
@@ -34,6 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051EA08E1ABFA5FE00A84B50 /* LZShowMessagesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZShowMessagesHelper.h; path = Utils/LZShowMessagesHelper.h; sourceTree = "<group>"; };
+		051EA08F1ABFA5FE00A84B50 /* LZShowMessagesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZShowMessagesHelper.m; path = Utils/LZShowMessagesHelper.m; sourceTree = "<group>"; };
+		051EA0911ABFABC500A84B50 /* LZUserInfoControlCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZUserInfoControlCenterViewController.h; path = Controller/LZUserInfoControlCenterViewController.h; sourceTree = "<group>"; };
+		051EA0921ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUserInfoControlCenterViewController.m; path = Controller/LZUserInfoControlCenterViewController.m; sourceTree = "<group>"; };
+		051EA0941ABFAC6C00A84B50 /* LZMainThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZMainThreadViewController.h; path = Controller/LZMainThreadViewController.h; sourceTree = "<group>"; };
+		051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZMainThreadViewController.m; path = Controller/LZMainThreadViewController.m; sourceTree = "<group>"; };
 		0528F7F81ABD61C100A1B430 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0528F8001ABD8FE200A1B430 /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+extension.h"; path = "Utils/NSString+extension.h"; sourceTree = "<group>"; };
 		0528F8011ABD8FE200A1B430 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+extension.m"; path = "Utils/NSString+extension.m"; sourceTree = "<group>"; };
@@ -49,8 +57,6 @@
 		05C45A151ABD5633007DF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C45A171ABD5633007DF8CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05C45A181ABD5633007DF8CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05C45A1A1ABD5633007DF8CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		05C45A1B1ABD5633007DF8CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		05C45A201ABD5633007DF8CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05C45A231ABD5633007DF8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		05C45A291ABD5634007DF8CC /* HiPDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,8 @@
 				0528F8011ABD8FE200A1B430 /* NSString+extension.m */,
 				0528F80C1ABEBCC900A1B430 /* LZNetworkHelper.h */,
 				0528F80D1ABEBCC900A1B430 /* LZNetworkHelper.m */,
+				051EA08E1ABFA5FE00A84B50 /* LZShowMessagesHelper.h */,
+				051EA08F1ABFA5FE00A84B50 /* LZShowMessagesHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -100,6 +108,10 @@
 			children = (
 				0528F8031ABD935B00A1B430 /* LZLoginViewController.h */,
 				0528F8041ABD935B00A1B430 /* LZLoginViewController.m */,
+				051EA0911ABFABC500A84B50 /* LZUserInfoControlCenterViewController.h */,
+				051EA0921ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m */,
+				051EA0941ABFAC6C00A84B50 /* LZMainThreadViewController.h */,
+				051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -142,8 +154,6 @@
 				05C45A3D1ABD5BDE007DF8CC /* Model */,
 				05C45A171ABD5633007DF8CC /* AppDelegate.h */,
 				05C45A181ABD5633007DF8CC /* AppDelegate.m */,
-				05C45A1A1ABD5633007DF8CC /* ViewController.h */,
-				05C45A1B1ABD5633007DF8CC /* ViewController.m */,
 				05C45A201ABD5633007DF8CC /* Images.xcassets */,
 				05C45A221ABD5633007DF8CC /* LaunchScreen.xib */,
 				05C45A131ABD5633007DF8CC /* Supporting Files */,
@@ -340,8 +350,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */,
-				05C45A1C1ABD5633007DF8CC /* ViewController.m in Sources */,
+				051EA0901ABFA5FE00A84B50 /* LZShowMessagesHelper.m in Sources */,
+				051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */,
 				0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */,
+				051EA0931ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m in Sources */,
 				05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */,
 				0528F80E1ABEBCC900A1B430 /* LZNetworkHelper.m in Sources */,
 				0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */,

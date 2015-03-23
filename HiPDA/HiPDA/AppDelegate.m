@@ -9,12 +9,14 @@
 #import "AppDelegate.h"
 #import "LZAccount.h"
 #import "LZLoginViewController.h"
-#import "ViewController.h"
 #import "LZNetworkHelper.h"
 #import "SVProgressHUD.h"
 #import <AFNetworking.h>
 #import "AFNetworkActivityIndicatorManager.h"
 #import "SDURLCache.h"
+#import "SWRevealViewController.h"
+#import "LZMainThreadViewController.h"
+#import "LZUserInfoControlCenterViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,8 +28,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    self.window.rootViewController=[[ViewController alloc] init];
-    [self.window makeKeyAndVisible];
 
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
@@ -36,19 +36,23 @@
                                                              diskPath:[SDURLCache defaultCachePath]];
     [NSURLCache setSharedURLCache:urlCache];
     
-    [self performSelector:@selector(checkAccount) withObject:nil afterDelay:0.5];
+    [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
     
+    
+    UINavigationController *frontNavController=[[UINavigationController alloc]initWithRootViewController:[[LZMainThreadViewController alloc]init]] ;
+    UINavigationController *rearNavController=[[UINavigationController alloc]initWithRootViewController:[[LZUserInfoControlCenterViewController alloc]init]];
+    self.viewController=[[SWRevealViewController alloc]initWithRearViewController:rearNavController frontViewController:frontNavController];
+    self.viewController.rearViewRevealWidth=200;
+    self.window.rootViewController=self.viewController;
+    [self.window makeKeyAndVisible];
     
     return YES;
-}
-
--(void)checkAccount{
-    [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[LZAccount sharedAccount] saveCookies];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -62,6 +66,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[LZAccount sharedAccount] loadCookies];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
