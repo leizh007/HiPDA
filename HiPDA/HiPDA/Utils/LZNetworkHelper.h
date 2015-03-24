@@ -13,4 +13,5 @@
 
 +(id)sharedLZNetworkHelper;
 -(void)login:(NSDictionary *)parameters block: (void (^)(BOOL isSuccess,NSError *error))block;
+-(void)loadForumFid:(NSInteger)fid page:(NSInteger)page success:(void (^)(NSArray *threads))success failure:(void (^)(NSError *error))failure;
 @end

@@ -37,7 +37,8 @@
                                                              diskPath:[SDURLCache defaultCachePath]];
     [NSURLCache setSharedURLCache:urlCache];
     
-    UINavigationController *frontNavController=[[UINavigationController alloc]initWithRootViewController:[[LZMainThreadViewController alloc]init]] ;
+    LZMainThreadViewController *mainThreadViewController=[[LZMainThreadViewController alloc]init];
+    UINavigationController *frontNavController=[[UINavigationController alloc]initWithRootViewController:mainThreadViewController] ;
     LZUserInfoControlCenterViewController *userInfoControlCenterViewController=[[LZUserInfoControlCenterViewController alloc]init];
     self.viewController=[[SWRevealViewController alloc]initWithRearViewController:userInfoControlCenterViewController frontViewController:frontNavController];
     self.viewController.rearViewRevealWidth=REARVIEWREVEALWIDTH;
@@ -49,6 +50,7 @@
                                              selector:@selector(loginComplete:)
                                                  name:LOGINCOMPLETENOTIFICATION object:nil];
     [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
+    
     
     return YES;
 }

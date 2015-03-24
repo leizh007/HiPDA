@@ -91,4 +91,27 @@
               }];
 }
 
+/**
+ *  加载论坛帖子列表
+ *
+ *  @param fid     论坛版块fid
+ *  @param page    页数
+ *  @param success 加载成功调用block
+ *  @param failure 加载失败调用block
+ */
+-(void)loadForumFid:(NSInteger)fid page:(NSInteger)page success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
+    NSString *forumURL=[NSString stringWithFormat:@"%@%ld&page=%ld",FORUMSECTIONBASEADDRESS,fid,page];
+    NSDictionary *param=@{@"fid":[NSNumber numberWithInteger:fid],
+                          @"page":[NSNumber numberWithInteger:page]};
+    [self.manager GET:forumURL
+           parameters:param
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSString *responseHtml=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
+//                  NSLog(@"%@",responseHtml);
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  
+              }];
+}
+
 @end

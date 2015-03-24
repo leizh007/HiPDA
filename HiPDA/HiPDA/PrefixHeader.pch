@@ -16,5 +16,11 @@
 
 #define REARVIEWREVEALWIDTH    180
 #define REARVIEWREVEALOVERDRAW 0
+#define DISCOVERYSECTIONFID    2
+#define BUYANDSELLSECTIONFID   6
+#define GEEKTALKSSECTIONFID    7
+#define MACHINESECTIONFID      57
+#define EINKSECTIONFID         59
+#define FORUMSECTIONBASEADDRESS @"http://www.hi-pda.com/forum/forumdisplay.php?fid="
 
 #endif

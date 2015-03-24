@@ -10,8 +10,11 @@
 #import "SWRevealViewController.h"
 #import "UIBarButtonItem+ImageItem.h"
 #import "BBBadgeBarButtonItem.h"
+#import "LZNetworkHelper.h"
 
 @interface LZMainThreadViewController()
+
+@property (assign, nonatomic) NSInteger fid;
 
 @end
 
@@ -26,15 +29,18 @@
     UIImage *leftBarButtonItemImage=[UIImage imageNamed:@"leftBarButtonItemImage"];
     UIButton *button=[[UIButton alloc] init];
     [button setImage:leftBarButtonItemImage forState:UIControlStateNormal];
-//    NSLog(@"%lf %lf",leftBarButtonItemImage.size.width,leftBarButtonItemImage.size.height );
     button.bounds=CGRectMake(0, 0, leftBarButtonItemImage.size.width, leftBarButtonItemImage.size.height);
-//    [button setBackgroundColor:[UIColor blueColor]];
     [button addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
     BBBadgeBarButtonItem *barButton=[[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
     barButton.badgeValue=@"0";
     self.navigationItem.leftBarButtonItem=barButton;
-//    NSLog(@"%@",@"test");
+
+    self.fid=DISCOVERYSECTIONFID;
+    [[LZNetworkHelper sharedLZNetworkHelper] loadForumFid:self.fid page:1 success:^(NSArray *threads) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

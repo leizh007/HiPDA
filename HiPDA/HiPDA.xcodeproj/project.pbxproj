@@ -17,8 +17,10 @@
 		0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8071ABD937F00A1B430 /* LZLoginView.m */; };
 		0528F80A1ABEBAD600A1B430 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0528F8091ABEBAD600A1B430 /* SystemConfiguration.framework */; };
 		0528F80E1ABEBCC900A1B430 /* LZNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F80D1ABEBCC900A1B430 /* LZNetworkHelper.m */; };
-		0534E9F91AC0334900F3A820 /* LZThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 0534E9F81AC0334900F3A820 /* LZThread.m */; };
-		0534E9FC1AC0372B00F3A820 /* LZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0534E9FB1AC0372B00F3A820 /* LZUser.m */; };
+		057518EA1AC17F0100141A56 /* LZPersistenceDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518E91AC17F0100141A56 /* LZPersistenceDataManager.m */; };
+		057518F11AC1865A00141A56 /* LZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518EC1AC1865A00141A56 /* LZCache.m */; };
+		057518F21AC1865A00141A56 /* LZThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518EE1AC1865A00141A56 /* LZThread.m */; };
+		057518F31AC1865A00141A56 /* LZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518F01AC1865A00141A56 /* LZUser.m */; };
 		05C45A161ABD5633007DF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A151ABD5633007DF8CC /* main.m */; };
 		05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A181ABD5633007DF8CC /* AppDelegate.m */; };
 		05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A201ABD5633007DF8CC /* Images.xcassets */; };
@@ -58,10 +60,14 @@
 		0528F80C1ABEBCC900A1B430 /* LZNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZNetworkHelper.h; path = Utils/LZNetworkHelper.h; sourceTree = "<group>"; };
 		0528F80D1ABEBCC900A1B430 /* LZNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZNetworkHelper.m; path = Utils/LZNetworkHelper.m; sourceTree = "<group>"; };
 		0534E9F61ABFFA4F00F3A820 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		0534E9F71AC0334900F3A820 /* LZThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZThread.h; path = Utils/LZThread.h; sourceTree = "<group>"; };
-		0534E9F81AC0334900F3A820 /* LZThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZThread.m; path = Utils/LZThread.m; sourceTree = "<group>"; };
-		0534E9FA1AC0372B00F3A820 /* LZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZUser.h; path = Utils/LZUser.h; sourceTree = "<group>"; };
-		0534E9FB1AC0372B00F3A820 /* LZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUser.m; path = Utils/LZUser.m; sourceTree = "<group>"; };
+		057518E81AC17F0100141A56 /* LZPersistenceDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZPersistenceDataManager.h; path = Utils/LZPersistenceDataManager.h; sourceTree = "<group>"; };
+		057518E91AC17F0100141A56 /* LZPersistenceDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZPersistenceDataManager.m; path = Utils/LZPersistenceDataManager.m; sourceTree = "<group>"; };
+		057518EB1AC1865A00141A56 /* LZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZCache.h; path = Model/LZCache.h; sourceTree = "<group>"; };
+		057518EC1AC1865A00141A56 /* LZCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZCache.m; path = Model/LZCache.m; sourceTree = "<group>"; };
+		057518ED1AC1865A00141A56 /* LZThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZThread.h; path = Model/LZThread.h; sourceTree = "<group>"; };
+		057518EE1AC1865A00141A56 /* LZThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZThread.m; path = Model/LZThread.m; sourceTree = "<group>"; };
+		057518EF1AC1865A00141A56 /* LZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZUser.h; path = Model/LZUser.h; sourceTree = "<group>"; };
+		057518F01AC1865A00141A56 /* LZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUser.m; path = Model/LZUser.m; sourceTree = "<group>"; };
 		05C45A101ABD5633007DF8CC /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C45A141ABD5633007DF8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C45A151ABD5633007DF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 				0528F80D1ABEBCC900A1B430 /* LZNetworkHelper.m */,
 				051EA08E1ABFA5FE00A84B50 /* LZShowMessagesHelper.h */,
 				051EA08F1ABFA5FE00A84B50 /* LZShowMessagesHelper.m */,
+				057518E81AC17F0100141A56 /* LZPersistenceDataManager.h */,
+				057518E91AC17F0100141A56 /* LZPersistenceDataManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -203,12 +211,14 @@
 		05C45A3D1ABD5BDE007DF8CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				057518EB1AC1865A00141A56 /* LZCache.h */,
+				057518EC1AC1865A00141A56 /* LZCache.m */,
+				057518ED1AC1865A00141A56 /* LZThread.h */,
+				057518EE1AC1865A00141A56 /* LZThread.m */,
+				057518EF1AC1865A00141A56 /* LZUser.h */,
+				057518F01AC1865A00141A56 /* LZUser.m */,
 				05C45A411ABD5C4B007DF8CC /* LZAccount.h */,
 				05C45A421ABD5C4B007DF8CC /* LZAccount.m */,
-				0534E9F71AC0334900F3A820 /* LZThread.h */,
-				0534E9F81AC0334900F3A820 /* LZThread.m */,
-				0534E9FA1AC0372B00F3A820 /* LZUser.h */,
-				0534E9FB1AC0372B00F3A820 /* LZUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -366,19 +376,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0534E9FC1AC0372B00F3A820 /* LZUser.m in Sources */,
 				0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */,
 				051EA0901ABFA5FE00A84B50 /* LZShowMessagesHelper.m in Sources */,
 				051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */,
 				0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */,
+				057518F31AC1865A00141A56 /* LZUser.m in Sources */,
 				051EA0931ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m in Sources */,
+				057518F21AC1865A00141A56 /* LZThread.m in Sources */,
+				057518EA1AC17F0100141A56 /* LZPersistenceDataManager.m in Sources */,
 				05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */,
 				0528F80E1ABEBCC900A1B430 /* LZNetworkHelper.m in Sources */,
+				057518F11AC1865A00141A56 /* LZCache.m in Sources */,
 				0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */,
 				05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */,
 				05C45A161ABD5633007DF8CC /* main.m in Sources */,
 				051EA09D1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.m in Sources */,
-				0534E9F91AC0334900F3A820 /* LZThread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

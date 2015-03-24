@@ -32,7 +32,8 @@
     self.tid=[attributes objectForKey:@"tid"];
     self.title=[attributes objectForKey:@"title"];
     self.user=[attributes objectForKey:@"user"];
-    self.titleColor=[attributes objectForKey:@"titleColor"];
+    NSNumber *hasReadNumber=[attributes objectForKey:@"hasRead"];
+    self.hasRead=[hasReadNumber boolValue];
     self.dateString=[attributes objectForKey:@"dateString"];
     self.date=[attributes objectForKey:@"date"];
     NSNumber *replyCountNumber=[attributes objectForKey:@"replyCount"];
@@ -58,7 +59,7 @@
     self.tid=[aDecoder decodeObjectForKey:@"tid"];
     self.title=[aDecoder decodeObjectForKey:@"title"];
     self.user=[aDecoder decodeObjectForKey:@"user"];
-    self.titleColor=[aDecoder decodeObjectForKey:@"titleColor"];
+    self.hasRead=[aDecoder decodeBoolForKey:@"hasRead"];
     self.dateString=[aDecoder decodeObjectForKey:@"dateString"];
     self.date=[aDecoder decodeObjectForKey:@"date"];
     self.replyCount=[aDecoder decodeIntegerForKey:@"replyCount"];
@@ -75,7 +76,7 @@
     [aCoder encodeObject:self.tid forKey:@"tid"];
     [aCoder encodeObject:self.title forKey:@"title"];
     [aCoder encodeObject:self.user forKey:@"user"];
-    [aCoder encodeObject:self.titleColor forKey:@"titleColor"];
+    [aCoder encodeBool:self.hasRead forKey:@"hasRead"];
     [aCoder encodeObject:self.dateString forKey:@"dateString"];
     [aCoder encodeObject:self.date forKey:@"date"];
     [aCoder encodeInteger:self.replyCount forKey:@"replyCount"];
