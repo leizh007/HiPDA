@@ -11,6 +11,6 @@
 @interface LZMainThreadViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 -(void)getNotifications:(NSNotification *)notification;
--(void)loadForumFid:(NSInteger)fid page:(NSInteger) page;
+-(void)loadForumFid:(NSInteger)fid page:(NSInteger) page forced:(BOOL)isFoced;
 
 @end

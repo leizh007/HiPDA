@@ -20,6 +20,8 @@
 
 #define SMALLDOTSBUTTONWIDTH 40
 #define INSETBETWEENVIEWELEMENTS 8
+#define LOADMOREBUTTONTAGINTABLEFOOTERVIEW 2
+#define ACTIVITYINDICATORFLAGINTABLEFOOTERVIEW 3
 
 @interface LZMainThreadViewController()
 
@@ -29,6 +31,7 @@
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIButton *smallDotsButton;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UIView *tableFooterView;
 
 
 @end
@@ -45,6 +48,7 @@
     self.fid=DISCOVERYSECTIONFID;
     self.page=1;
     self.threads=[[NSMutableArray alloc]init];
+    self.tableFooterView=[self getUITableFooterView];
     
     //设置tableview
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height)];
@@ -52,6 +56,7 @@
     self.tableView.delegate=self;
     [self.view addSubview:self.tableView];
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    self.tableView.tableFooterView=nil;
     
     //初始化刷新控件
     self.refreshControl=[[UIRefreshControl alloc]init];
@@ -81,10 +86,16 @@
     BBBadgeBarButtonItem *barButton=[[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
     barButton.badgeValue=@"0";
     self.navigationItem.leftBarButtonItem=barButton;
+    
+    
 }
 
 
--(void)loadForumFid:(NSInteger)fid page:(NSInteger)page{
+-(void)loadForumFid:(NSInteger)fid page:(NSInteger)page forced:(BOOL)isFoced{
+    if (!isFoced) {
+        [self.refreshControl beginRefreshing];
+        [self.tableView setContentOffset:CGPointMake(0, -2*self.refreshControl.frame.size.height) animated:YES];
+    }
     if (fid!=self.fid) {
         switch (fid) {
             case DISCOVERYSECTIONFID:
@@ -105,8 +116,12 @@
             default:
                 break;
         }
+        NSMutableArray *threadsCache=[[[LZCache globalCache]loadForumCacheFid:fid page:page] mutableCopy];
+        if (threadsCache!=nil) {
+            self.threads=threadsCache;
+            [self.tableView reloadData];
+        }
     }
-//    self.threads=[[[LZCache globalCache]loadForumCacheFid:fid page:page] mutableCopy];
     [[LZNetworkHelper sharedLZNetworkHelper] loadForumFid:self.fid page:self.page success:^(NSArray *threads) {
         if (self.page==1) {
             self.threads=[threads mutableCopy];
@@ -114,6 +129,11 @@
             [self.threads addObjectsFromArray:threads];
         }
         [self.refreshControl endRefreshing];
+        if (!self.tableView.tableFooterView) {
+            self.tableView.tableFooterView=self.tableFooterView;
+        }
+        [(UIButton *)[self.tableFooterView viewWithTag:LOADMOREBUTTONTAGINTABLEFOOTERVIEW] setTitle:@"点击加载下一页" forState:UIControlStateNormal];
+        [(UIActivityIndicatorView *)[self.tableFooterView viewWithTag:ACTIVITYINDICATORFLAGINTABLEFOOTERVIEW] stopAnimating];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         [self.refreshControl endRefreshing];
@@ -130,7 +150,7 @@
  */
 -(void)getNotifications:(NSNotification *)notification{
     if ([notification.name isEqualToString:LOGINCOMPLETENOTIFICATION]) {
-        [self loadForumFid:self.fid page:self.page];
+        [self loadForumFid:self.fid page:self.page forced:NO];
     }
 }
 
@@ -187,7 +207,7 @@
      
      */
     self.page=1;
-    [self loadForumFid:self.fid page:self.page];
+    [self loadForumFid:self.fid page:self.page forced:YES];
 }
 
 - (void) loadMoreDataToTable:(id)sender
@@ -198,9 +218,38 @@
      
      */
     self.page=self.page+1;
-    [self loadForumFid:self.fid page:self.page];
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [sender setAlpha:0.1];
+                     } completion:^(BOOL finished) {
+                         [sender setAlpha:0.7];
+                     }];
+    UIButton *button=(UIButton *)[self.tableFooterView viewWithTag:LOADMOREBUTTONTAGINTABLEFOOTERVIEW];
+    [button setTitle:@"正在加载..." forState:UIControlStateNormal];
+    [(UIActivityIndicatorView *)[self.tableFooterView viewWithTag:ACTIVITYINDICATORFLAGINTABLEFOOTERVIEW] startAnimating];
+    [self loadForumFid:self.fid page:self.page forced:YES];
 }
 
+#pragma mark - UITableFooterView
+-(id)getUITableFooterView{
+    UIView *footerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 50)];
+//    footerView.backgroundColor=[UIColor blueColor];
+    UIButton *button=[[UIButton alloc]initWithFrame:CGRectMake(INSETBETWEENVIEWELEMENTS*2, INSETBETWEENVIEWELEMENTS, footerView.frame.size.width-4*INSETBETWEENVIEWELEMENTS, footerView.frame.size.height-2*INSETBETWEENVIEWELEMENTS)];
+    [button setTitle:@"点击加载下一页" forState:UIControlStateNormal];
+    button.layer.cornerRadius=5.0f;
+    button.layer.borderColor=[[UIColor colorWithRed:0.628 green:0.625 blue:0.646 alpha:1]CGColor];
+    button.layer.borderWidth=1.0;
+    [button setTitleColor:[UIColor colorWithRed:0.628 green:0.625 blue:0.646 alpha:1] forState:UIControlStateNormal ];
+    [button addTarget:self action:@selector(loadMoreDataToTable:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:button];
+    button.tag=LOADMOREBUTTONTAGINTABLEFOOTERVIEW;
+    
+    UIActivityIndicatorView *activityIndicator=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(6*INSETBETWEENVIEWELEMENTS, 12.5, 25, 25)];
+    [footerView addSubview:activityIndicator];
+    activityIndicator.tag=ACTIVITYINDICATORFLAGINTABLEFOOTERVIEW;
+    activityIndicator.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+    return footerView;
+}
 
 
 
