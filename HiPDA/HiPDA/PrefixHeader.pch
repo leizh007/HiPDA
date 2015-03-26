@@ -7,6 +7,7 @@
 //
 
 #import "MTLog.h"
+#import "LZShowMessagesHelper.h"
 
 #ifndef HiPDA_PrefixHeader_pch
 #define HiPDA_PrefixHeader_pch
@@ -22,5 +23,8 @@
 #define MACHINESECTIONFID      57
 #define EINKSECTIONFID         59
 #define FORUMSECTIONBASEADDRESS @"http://www.hi-pda.com/forum/forumdisplay.php?fid="
+#define FORUMTHREADSISGETTINGNOTIFICATION @"FORUMTHREADSISGETTINGNOTIFICATION"
+#define FORUMTHREADSISEXTRACTINGNOTIFICATION @"FORUMTHREADSISEXTRACTINGNOTIFICATION"
+#define LOGINCOMPLETENOTIFICATION @"LOGINCOMPLETENOTIFICATION"
 
 #endif

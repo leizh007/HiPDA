@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define LOGINCOMPLETENOTIFICATION @"LOGINCOMPLETENOTIFICATION"
-
 @interface LZAccount : NSObject
 
 +(id)sharedAccount;

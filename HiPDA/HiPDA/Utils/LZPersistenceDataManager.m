@@ -16,13 +16,13 @@
 
 @implementation LZPersistenceDataManager
 
--(id)sharedPersistenceDataManager{
++(id)sharedPersistenceDataManager{
     static LZPersistenceDataManager *persistenceDataManager=nil;
     static dispatch_once_t oneToken;
     dispatch_once(&oneToken, ^{
         persistenceDataManager=[[LZPersistenceDataManager alloc]init];
     });
-    return self;
+    return persistenceDataManager;
 }
 
 -(id)init{
@@ -46,9 +46,9 @@
  */
 -(BOOL)hasReadThreadTid:(NSString *)tid{
     if ([self.hasReadDic objectForKey:tid]==nil) {
-        return YES;
+        return NO;
     }
-    return NO;
+    return YES;
 }
 
 
@@ -58,7 +58,35 @@
  *  @param tid 帖子tid
  */
 -(void)addThreadTidToHasRead:(NSString *)tid{
-    [self.hasReadDic setObject:@"hasRead" forKey:tid];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM dd, yyyy HH:mm"];
+    NSDate *now = [NSDate date];
+    NSString *dateString = [format stringFromDate:now];
+    [self.hasReadDic setObject:dateString forKey:tid];
+    if ([self.hasReadDic count]>=2000) {
+        [self deleteSomeUnnecessaryValues];
+    }
 }
 
+/**
+ *  保存已读列表
+ */
+-(void)storeHasReadThreads{
+    [[NSUserDefaults standardUserDefaults] setObject:self.hasReadDic forKey:@"hasReadDic"];
+}
+
+/**
+ *  已读帖子列表过多了之后删除掉一些
+ */
+-(void)deleteSomeUnnecessaryValues{
+    NSMutableArray *values=[[self.hasReadDic allValues] mutableCopy];
+    [values sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableDictionary *muDic=[[NSMutableDictionary alloc]initWithDictionary:self.hasReadDic];
+    for (NSString *key in [self.hasReadDic allKeys]) {
+        if ([[self.hasReadDic objectForKey:key] compare:values[[values count]/2]]==NSOrderedAscending) {
+            [muDic removeObjectForKey:key];
+        }
+    }
+    self.hasReadDic=muDic;
+}
 @end

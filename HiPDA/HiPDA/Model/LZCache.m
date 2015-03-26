@@ -10,7 +10,6 @@
 
 @interface LZCache()
 
-@property (strong, nonatomic) EGOCache *egoCache;
 
 @end
 
@@ -22,28 +21,19 @@
     dispatch_once(&oneToken, ^{
         cache=[[LZCache alloc]init];
     });
-    return self;
-}
-
--(id)init{
-    self=[super init ];
-    if (!self) {
-        return nil;
-    }
-    self.egoCache=[EGOCache globalCache];
-    return self;
+    return cache;
 }
 
 /**
- *  缓存帖子列表10分钟
+ *  缓存帖子列表一天
  *
  *  @param threads 帖子列表
  *  @param fid     版块号
  *  @param page    页数
  */
 -(void)cacheForum:(NSArray *)threads fid:(NSInteger)fid page:(NSInteger)page{
-    NSString *keyForCacheForForum=[NSString stringWithFormat:@"fid=%ld&page=%ld",fid,page];
-    [self.egoCache setObject:threads forKey:keyForCacheForForum withTimeoutInterval:600];
+    NSString *keyForCacheForForum=[NSString stringWithFormat:@"fid=%ld&page=%ld",(long)fid,(long)page];
+    [[EGOCache globalCache] setObject:threads forKey:keyForCacheForForum withTimeoutInterval:86400.0f];
 }
 
 /**
@@ -55,8 +45,8 @@
  *  @return 帖子列表
  */
 -(NSArray *)loadForumCacheFid:(NSInteger)fid page:(NSInteger)page{
-    NSString *keyForCacheForForum=[NSString stringWithFormat:@"fid=%ld&page=%ld",fid,page];
-    return (NSArray *)[self.egoCache objectForKey:keyForCacheForForum];
+    NSString *keyForCacheForForum=[NSString stringWithFormat:@"fid=%ld&page=%ld",(long)fid,(long)page];
+    return (NSArray *)[[EGOCache globalCache] objectForKey:keyForCacheForForum];
 }
 
 @end

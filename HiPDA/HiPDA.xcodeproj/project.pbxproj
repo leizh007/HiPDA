@@ -11,6 +11,7 @@
 		051EA0931ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051EA0921ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m */; };
 		051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */; };
 		051EA09D1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 051EA09C1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.m */; };
+		0524AF711AC4039000D734CD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0524AF701AC4039000D734CD /* QuartzCore.framework */; };
 		0528F7F91ABD61C100A1B430 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0528F7F81ABD61C100A1B430 /* Security.framework */; };
 		0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8011ABD8FE200A1B430 /* NSString+extension.m */; };
 		0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0528F8041ABD935B00A1B430 /* LZLoginViewController.m */; };
@@ -21,6 +22,7 @@
 		057518F11AC1865A00141A56 /* LZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518EC1AC1865A00141A56 /* LZCache.m */; };
 		057518F21AC1865A00141A56 /* LZThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518EE1AC1865A00141A56 /* LZThread.m */; };
 		057518F31AC1865A00141A56 /* LZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518F01AC1865A00141A56 /* LZUser.m */; };
+		057518FC1AC2DBB000141A56 /* LZThreadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518FB1AC2DBB000141A56 /* LZThreadTableViewCell.m */; };
 		05C45A161ABD5633007DF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A151ABD5633007DF8CC /* main.m */; };
 		05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A181ABD5633007DF8CC /* AppDelegate.m */; };
 		05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A201ABD5633007DF8CC /* Images.xcassets */; };
@@ -49,6 +51,7 @@
 		051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZMainThreadViewController.m; path = Controller/LZMainThreadViewController.m; sourceTree = "<group>"; };
 		051EA09B1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+ImageItem.h"; path = "Utils/UIBarButtonItem+ImageItem.h"; sourceTree = "<group>"; };
 		051EA09C1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+ImageItem.m"; path = "Utils/UIBarButtonItem+ImageItem.m"; sourceTree = "<group>"; };
+		0524AF701AC4039000D734CD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0528F7F81ABD61C100A1B430 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0528F8001ABD8FE200A1B430 /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+extension.h"; path = "Utils/NSString+extension.h"; sourceTree = "<group>"; };
 		0528F8011ABD8FE200A1B430 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+extension.m"; path = "Utils/NSString+extension.m"; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 		057518EE1AC1865A00141A56 /* LZThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZThread.m; path = Model/LZThread.m; sourceTree = "<group>"; };
 		057518EF1AC1865A00141A56 /* LZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZUser.h; path = Model/LZUser.h; sourceTree = "<group>"; };
 		057518F01AC1865A00141A56 /* LZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUser.m; path = Model/LZUser.m; sourceTree = "<group>"; };
+		057518FA1AC2DBB000141A56 /* LZThreadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZThreadTableViewCell.h; path = View/LZThreadTableViewCell.h; sourceTree = "<group>"; };
+		057518FB1AC2DBB000141A56 /* LZThreadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZThreadTableViewCell.m; path = View/LZThreadTableViewCell.m; sourceTree = "<group>"; };
 		05C45A101ABD5633007DF8CC /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C45A141ABD5633007DF8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C45A151ABD5633007DF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0524AF711AC4039000D734CD /* QuartzCore.framework in Frameworks */,
 				0528F80A1ABEBAD600A1B430 /* SystemConfiguration.framework in Frameworks */,
 				0528F7F91ABD61C100A1B430 /* Security.framework in Frameworks */,
 				F021639E3926B0402E7AB3F3 /* libPods.a in Frameworks */,
@@ -141,6 +147,8 @@
 			children = (
 				0528F8061ABD937F00A1B430 /* LZLoginView.h */,
 				0528F8071ABD937F00A1B430 /* LZLoginView.m */,
+				057518FA1AC2DBB000141A56 /* LZThreadTableViewCell.h */,
+				057518FB1AC2DBB000141A56 /* LZThreadTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 		57F80AD34D17EDD7AC38679A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0524AF701AC4039000D734CD /* QuartzCore.framework */,
 				0528F8091ABEBAD600A1B430 /* SystemConfiguration.framework */,
 				0528F7F81ABD61C100A1B430 /* Security.framework */,
 				ADFCE43A80B2E1F4A63D5E19 /* libPods.a */,
@@ -379,6 +388,7 @@
 				0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */,
 				051EA0901ABFA5FE00A84B50 /* LZShowMessagesHelper.m in Sources */,
 				051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */,
+				057518FC1AC2DBB000141A56 /* LZThreadTableViewCell.m in Sources */,
 				0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */,
 				057518F31AC1865A00141A56 /* LZUser.m in Sources */,
 				051EA0931ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m in Sources */,
@@ -505,12 +515,14 @@
 			baseConfigurationReference = 371279805B9D075807D96F19 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: quanlan huang (L4MC53BS3Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HiPDA/PrefixHeader.pch";
 				INFOPLIST_FILE = HiPDA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e9862727-618e-49f8-92c7-c5c8a073428d";
 			};
 			name = Debug;
 		};
@@ -519,12 +531,14 @@
 			baseConfigurationReference = 497F1161E17B9838B2E8916E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: quanlan huang (L4MC53BS3Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HiPDA/PrefixHeader.pch";
 				INFOPLIST_FILE = HiPDA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e9862727-618e-49f8-92c7-c5c8a073428d";
 			};
 			name = Release;
 		};

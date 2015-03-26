@@ -29,12 +29,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RegExCategories.xcscheme</key>
+		<key>Pods-SDURLCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SDURLCache.xcscheme</key>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,62 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>54A91B8E84C22C248CDC67A1</key>
+		<key>02C666AAC61EA50A9C1B3724</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>575FF84B12646655570B5DD3</key>
+		<key>1909A08F601EDBD226F37302</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>589CC3A7EE45007D1F640C51</key>
+		<key>1A793C562B126DA8A249810F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6DAD03481A141000553E6558</key>
+		<key>4DAF6A25EE3F525915663E3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9CD53AE272E429D129C291D1</key>
+		<key>52BBE9D78631EBD9B25B3DE9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E7EB93D1AEDAE856182368D</key>
+		<key>5ADA7C9C48462645C5F4E71E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B330E87CDF76E08E14B64384</key>
+		<key>7B325EC3E4DD192815537679</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9C365E6FE7A0638D6C809EE</key>
+		<key>82585DB504535A51DACAA72D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2CC3167AD4D7EED1A3396AD</key>
+		<key>85BB3DFDF09575099ED27BFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5B08581B95C402FEF77B8A7</key>
+		<key>BC172B3CDD488CA62C3286AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5D66E80FC3DF2314E4BD97D</key>
+		<key>C39A9BC0AC97EDCC8C572A5B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E21D54E143CF9DAD0630B290</key>
+		<key>CFCA7A8A11FD984F2C5D6201</key>
 		<dict>
 			<key>primary</key>
 			<true/>

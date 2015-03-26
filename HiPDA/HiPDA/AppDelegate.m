@@ -17,9 +17,15 @@
 #import "SWRevealViewController.h"
 #import "LZMainThreadViewController.h"
 #import "LZUserInfoControlCenterViewController.h"
+#import "LZPersistenceDataManager.h"
+#import "LZCache.h"
+#import "LZThread.h"
+#import "LZUser.h"
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) LZMainThreadViewController *mainThreadViewController;
+@property (strong, nonatomic) LZUserInfoControlCenterViewController *userInfoControlCenterViewController;
 @end
 
 @implementation AppDelegate
@@ -37,20 +43,27 @@
                                                              diskPath:[SDURLCache defaultCachePath]];
     [NSURLCache setSharedURLCache:urlCache];
     
-    LZMainThreadViewController *mainThreadViewController=[[LZMainThreadViewController alloc]init];
-    UINavigationController *frontNavController=[[UINavigationController alloc]initWithRootViewController:mainThreadViewController] ;
-    LZUserInfoControlCenterViewController *userInfoControlCenterViewController=[[LZUserInfoControlCenterViewController alloc]init];
-    self.viewController=[[SWRevealViewController alloc]initWithRearViewController:userInfoControlCenterViewController frontViewController:frontNavController];
+    self.mainThreadViewController=[[LZMainThreadViewController alloc]init];
+    UINavigationController *frontNavController=[[UINavigationController alloc]initWithRootViewController:self.mainThreadViewController] ;
+    self.userInfoControlCenterViewController=[[LZUserInfoControlCenterViewController alloc]init];
+    self.viewController=[[SWRevealViewController alloc]initWithRearViewController:self.userInfoControlCenterViewController frontViewController:frontNavController];
     self.viewController.rearViewRevealWidth=REARVIEWREVEALWIDTH;
     self.viewController.rearViewRevealOverdraw=REARVIEWREVEALOVERDRAW;
     self.window.rootViewController=self.viewController;
     [self.window makeKeyAndVisible];
     
-    [[NSNotificationCenter defaultCenter] addObserver:userInfoControlCenterViewController
+    [[NSNotificationCenter defaultCenter] addObserver:self.userInfoControlCenterViewController
                                              selector:@selector(loginComplete:)
                                                  name:LOGINCOMPLETENOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self.mainThreadViewController selector:@selector(getNotifications:) name:FORUMTHREADSISGETTINGNOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self.mainThreadViewController selector:@selector(getNotifications:) name:FORUMTHREADSISEXTRACTINGNOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self.mainThreadViewController selector:@selector(getNotifications:) name:LOGINCOMPLETENOTIFICATION object:nil];
     [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
     
+    
+    NSArray *arr=@[@"1",@"2",@"3"];
+    NSMutableArray *att=[[NSMutableArray alloc] initWithArray:arr];
+    [att sortedArrayUsingSelector:@selector(compare:)];
     
     return YES;
 }
@@ -59,6 +72,7 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     [[LZAccount sharedAccount] saveCookies];
+    [[LZPersistenceDataManager sharedPersistenceDataManager]storeHasReadThreads];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -77,6 +91,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[LZPersistenceDataManager sharedPersistenceDataManager]storeHasReadThreads];
+    [[NSNotificationCenter defaultCenter]removeObserver:self.userInfoControlCenterViewController];
+    [[NSNotificationCenter defaultCenter]removeObserver:self.mainThreadViewController];
 }
 
 @end

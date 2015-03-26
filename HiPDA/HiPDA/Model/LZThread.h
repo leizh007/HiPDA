@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSString  *title;
 @property (strong, nonatomic) LZUser    *user;
 @property (assign, nonatomic) BOOL      hasRead;
-@property (nonatomic, strong) NSString  *dateString;
 @property (nonatomic, strong) NSDate    *date;
 @property (nonatomic, assign) NSInteger replyCount;
 @property (nonatomic, assign) NSInteger openCount;

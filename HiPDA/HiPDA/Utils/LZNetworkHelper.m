@@ -9,7 +9,10 @@
 #import "LZNetworkHelper.h"
 #import "SVProgressHUD.h"
 #import "NSString+extension.h"
-#import "RegExCategories.h"
+#import "LZThread.h"
+#import "LZUser.h"
+#import "LZPersistenceDataManager.h"
+#import "LZCache.h"
 
 
 @interface LZNetworkHelper()
@@ -100,18 +103,72 @@
  *  @param failure 加载失败调用block
  */
 -(void)loadForumFid:(NSInteger)fid page:(NSInteger)page success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
-    NSString *forumURL=[NSString stringWithFormat:@"%@%ld&page=%ld",FORUMSECTIONBASEADDRESS,fid,page];
+    NSString *forumURL=[NSString stringWithFormat:@"%@%ld&page=%ld",FORUMSECTIONBASEADDRESS,(long)fid,(long)page];
     NSDictionary *param=@{@"fid":[NSNumber numberWithInteger:fid],
                           @"page":[NSNumber numberWithInteger:page]};
+    [[NSNotificationCenter defaultCenter]postNotificationName:FORUMTHREADSISGETTINGNOTIFICATION object:nil];
     [self.manager GET:forumURL
            parameters:param
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   NSString *responseHtml=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
 //                  NSLog(@"%@",responseHtml);
+                  [[NSNotificationCenter defaultCenter]postNotificationName:FORUMTHREADSISEXTRACTINGNOTIFICATION object:nil];
+                  NSRange range=[responseHtml rangeOfString:@"版块主题"];
+                  if (range.location!=NSNotFound) {
+                      responseHtml=[responseHtml substringFromIndex:range.location];
+                  }
+                  
+//                  NSLog(@"%@",responseHtml);
+                  NSArray *threads=[self extractThreadsFromHtmlString:responseHtml fid:fid page:page];
+                  if (page==1) {
+                      [[LZCache globalCache]cacheForum:threads fid:fid page:page];
+                  }
+                  success(threads);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   
               }];
+}
+
+/**
+ *  从html代码中把帖子列表抽取出来
+ *
+ *  @param html html源代码
+ *
+ *  @return 返回帖子列表
+ */
+-(id)extractThreadsFromHtmlString:(NSString *)html fid:(NSInteger )fid page:(NSInteger) page{
+    NSMutableArray *threads=[[NSMutableArray alloc]init];
+    NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<span[\\s\\S]*?tid=(\\d*)[^>]+>(.*?)</a>([\\s\\S]*?)uid=(\\d+)\">(.*?)</a>[\\s\\S]*?<em>(.*?)</em>[\\s\\S]*?<strong>(.*?)</strong>/<em>(.*?)</em>" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+    for (NSTextCheckingResult *match in matches) {
+        NSString *tid=[html substringWithRange:[match rangeAtIndex:1]];
+        NSString *title=[html substringWithRange:[match rangeAtIndex:2]];
+        NSString *hasImageOrHasAttach=[html substringWithRange:[match rangeAtIndex:3]];
+        NSString *uid=[html substringWithRange:[match rangeAtIndex:4]];
+        NSString *userName=[html substringWithRange:[match rangeAtIndex:5]];
+        NSString *dateString=[html substringWithRange:[match rangeAtIndex:6]];
+        NSString *replyString=[html substringWithRange:[match rangeAtIndex:7]];
+        NSString *openString=[html substringWithRange:[match rangeAtIndex:8]];
+//        NSLog(@"tid:%@  title:%@  hasImageOrHasAttach:%@  uid:%@  userName:%@  dateString:%@  replyString:%@  openString:%@",tid,title,hasImageOrHasAttach,uid,userName,dateString,replyString,openString);
+        BOOL hasImage=NO;
+        BOOL hasAttach=NO;
+        if ([hasImageOrHasAttach containsString:@"图片附件"]) {
+            hasImage=YES;
+        }else if([hasImageOrHasAttach containsString:@"附件"]){
+            hasAttach=YES;
+        }
+        LZUser *user=[[LZUser alloc] initWithAttributes:@{@"uid":[NSNumber numberWithInteger:[uid integerValue]],@"userName":userName}];
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *date=[dateFormatter dateFromString:dateString];
+        NSInteger replyCount=[replyString integerValue];
+        NSInteger openCount=[openString integerValue];
+        BOOL hasRead=[[LZPersistenceDataManager sharedPersistenceDataManager] hasReadThreadTid:tid];
+        LZThread *thread=[[LZThread alloc]initWithAttributes:@{@"fid":[NSNumber numberWithInteger:fid],@"tid":tid,@"title":title,@"user":user,@"hasRead":[NSNumber numberWithBool:hasRead],@"date":date,@"replyCount":[NSNumber numberWithInteger:replyCount],@"openCount":[NSNumber numberWithInteger:openCount],@"pageCountNumber":[NSNumber numberWithInteger:page],@"hasImage":[NSNumber numberWithBool:hasImage],@"hasAttach":[NSNumber numberWithBool:hasAttach]}];
+        [threads addObject:thread];
+    }
+    return threads;
 }
 
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LZMainThreadViewController : UIViewController
+@interface LZMainThreadViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+-(void)getNotifications:(NSNotification *)notification;
+-(void)loadForumFid:(NSInteger)fid page:(NSInteger) page;
 
 @end

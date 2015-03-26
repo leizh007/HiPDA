@@ -10,8 +10,9 @@
 
 @interface LZPersistenceDataManager : NSObject
 
--(id)sharedPersistenceDataManager;
--(BOOL)hasReadThreadTid:(NSString *)tid;
++(id)sharedPersistenceDataManager;
 -(void)addThreadTidToHasRead:(NSString *)tid;
+-(void)storeHasReadThreads;
+-(BOOL)hasReadThreadTid:(NSString *)tid;
 
 @end

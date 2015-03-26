@@ -26,7 +26,6 @@
 
 -(void)loginComplete:(id)sender{
 //    NSLog(@"登录成功！");
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
     
 }
 

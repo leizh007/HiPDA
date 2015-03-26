@@ -11,21 +11,68 @@
 #import "UIBarButtonItem+ImageItem.h"
 #import "BBBadgeBarButtonItem.h"
 #import "LZNetworkHelper.h"
+#import "LZThread.h"
+#import "LZUser.h"
+#import "LZCache.h"
+#import "LZThreadTableViewCell.h"
+#import "LZShowMessagesHelper.h"
+#import "LZPersistenceDataManager.h"
+
+#define SMALLDOTSBUTTONWIDTH 40
+#define INSETBETWEENVIEWELEMENTS 8
 
 @interface LZMainThreadViewController()
 
 @property (assign, nonatomic) NSInteger fid;
+@property (assign, nonatomic) NSInteger page;
+@property (strong, nonatomic) NSMutableArray *threads;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIButton *smallDotsButton;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 
 @end
 
 @implementation LZMainThreadViewController
 
 -(void)viewDidLoad{
-    self.view.backgroundColor=[UIColor greenColor];
     SWRevealViewController *revealViewController=[self revealViewController];
     [revealViewController panGestureRecognizer];
     [revealViewController tapGestureRecognizer];
+    self.view.backgroundColor=[UIColor whiteColor];
     
+    //初始化变量
+    self.fid=DISCOVERYSECTIONFID;
+    self.page=1;
+    self.threads=[[NSMutableArray alloc]init];
+    
+    //设置tableview
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height)];
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    [self.view addSubview:self.tableView];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
+    //初始化刷新控件
+    self.refreshControl=[[UIRefreshControl alloc]init];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
+    
+    //设置小圆点按键
+    self.smallDotsButton=[[UIButton alloc]init];
+    self.smallDotsButton.backgroundColor=[UIColor colorWithRed:0.314 green:0.601 blue:1 alpha:1];
+    [self.smallDotsButton setAlpha:0.7];
+    [self.smallDotsButton addTarget:self action:@selector(smallDotsButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.smallDotsButton];
+    [self.view bringSubviewToFront:self.smallDotsButton];
+    self.smallDotsButton.frame=CGRectMake([[UIScreen mainScreen]bounds].size.width-120, [[UIScreen mainScreen]bounds].size.height-120, SMALLDOTSBUTTONWIDTH, SMALLDOTSBUTTONWIDTH);
+    self.smallDotsButton.layer.cornerRadius=20.0;
+    self.smallDotsButton.hidden=YES;
+    
+    //设置navigationBar外观
+    self.navigationController.navigationBar.translucent=YES;
+    self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
+    self.navigationItem.title=@"Discovery";
     UIImage *leftBarButtonItemImage=[UIImage imageNamed:@"leftBarButtonItemImage"];
     UIButton *button=[[UIButton alloc] init];
     [button setImage:leftBarButtonItemImage forState:UIControlStateNormal];
@@ -34,13 +81,127 @@
     BBBadgeBarButtonItem *barButton=[[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
     barButton.badgeValue=@"0";
     self.navigationItem.leftBarButtonItem=barButton;
-
-    self.fid=DISCOVERYSECTIONFID;
-    [[LZNetworkHelper sharedLZNetworkHelper] loadForumFid:self.fid page:1 success:^(NSArray *threads) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
 }
+
+
+-(void)loadForumFid:(NSInteger)fid page:(NSInteger)page{
+    if (fid!=self.fid) {
+        switch (fid) {
+            case DISCOVERYSECTIONFID:
+                self.navigationItem.title=@"Discovery";
+                break;
+            case BUYANDSELLSECTIONFID:
+                self.navigationItem.title=@"Buy & Sell";
+                break;
+            case EINKSECTIONFID:
+                self.navigationItem.title=@"E-INK";
+                break;
+            case GEEKTALKSSECTIONFID:
+                self.navigationItem.title=@"Geek Talks";
+                break;
+            case MACHINESECTIONFID:
+                self.navigationItem.title=@"疑似机器人";
+                break;
+            default:
+                break;
+        }
+    }
+//    self.threads=[[[LZCache globalCache]loadForumCacheFid:fid page:page] mutableCopy];
+    [[LZNetworkHelper sharedLZNetworkHelper] loadForumFid:self.fid page:self.page success:^(NSArray *threads) {
+        if (self.page==1) {
+            self.threads=[threads mutableCopy];
+        }else{
+            [self.threads addObjectsFromArray:threads];
+        }
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        [self.refreshControl endRefreshing];
+        [LZShowMessagesHelper showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+    }];
+    
+}
+
+#pragma mark - NSNotifications
+/**
+ *  接收到通知的时候调用
+ *
+ *  @param notification 帖子正在加载和帖子正在解析
+ */
+-(void)getNotifications:(NSNotification *)notification{
+    if ([notification.name isEqualToString:LOGINCOMPLETENOTIFICATION]) {
+        [self loadForumFid:self.fid page:self.page];
+    }
+}
+
+#pragma mark - UITableViewDataSource
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.threads count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    LZThreadTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"LZThreadTableViewCell"];
+    if (cell==nil) {
+        cell=[[LZThreadTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LZThreadTableViewCell"];
+    }
+    [cell configure:self.threads[indexPath.row]];
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [LZThreadTableViewCell getCellHeight:self.threads[indexPath.row]];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ((LZThread *)self.threads[indexPath.row]).hasRead=YES;
+    [[LZPersistenceDataManager sharedPersistenceDataManager] addThreadTidToHasRead:((LZThread *)self.threads[indexPath.row]).tid];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView reloadData];
+}
+
+#pragma mark - smallDotsButton action
+
+-(void)smallDotsButtonPressed:(id)sender{
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [sender setAlpha:0.1];
+                     } completion:^(BOOL finished) {
+                         [sender setAlpha:0.7];
+                     }];
+}
+
+#pragma mark - Refresh and load more methods
+
+- (void) refreshTable:(id)sender
+{
+    /*
+     
+     Code to actually refresh goes here.
+     
+     */
+    self.page=1;
+    [self loadForumFid:self.fid page:self.page];
+}
+
+- (void) loadMoreDataToTable:(id)sender
+{
+    /*
+     
+     Code to actually load more data goes here.
+     
+     */
+    self.page=self.page+1;
+    [self loadForumFid:self.fid page:self.page];
+}
+
+
+
 
 @end
