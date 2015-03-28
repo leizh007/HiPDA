@@ -94,7 +94,7 @@
 -(void)loadForumFid:(NSInteger)fid page:(NSInteger)page forced:(BOOL)isFoced{
     if (!isFoced) {
         [self.refreshControl beginRefreshing];
-        [self.tableView setContentOffset:CGPointMake(0, -2*self.refreshControl.frame.size.height) animated:YES];
+        [self.tableView setContentOffset:CGPointMake(0, -2*self.refreshControl.frame.size.height) animated:NO];
     }
     if (fid!=self.fid) {
         switch (fid) {
@@ -195,6 +195,9 @@
                      } completion:^(BOOL finished) {
                          [sender setAlpha:0.7];
                      }];
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:NO];
+    self.page=1;
+    [self loadForumFid:self.fid page:self.page forced:NO];
 }
 
 #pragma mark - Refresh and load more methods

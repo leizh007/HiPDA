@@ -13,6 +13,7 @@
 #import "LZUser.h"
 #import "LZPersistenceDataManager.h"
 #import "LZCache.h"
+#import "LZAccount.h"
 
 
 @interface LZNetworkHelper()
@@ -82,7 +83,23 @@
                               NSString *responString=[NSString encodingGBKStringToIOSString:responseObject];
 //                              NSLog(@"%@",responString);
                               if ([responString containsString:@"欢迎您回来"]) {
-                                  block(YES,nil);
+                                  //获得用户的uid
+                                  [self.manager GET:@"http://www.hi-pda.com/forum/index.php"
+                                         parameters:nil
+                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                NSString *responString=[NSString encodingGBKStringToIOSString:responseObject];
+                                                NSRange range=[responString rangeOfString:@"space.php?uid="];
+                                                if (range.location!=NSNotFound) {
+                                                    responString=[responString substringFromIndex:range.location+range.length];
+                                                    range=[responString rangeOfString:@"\""];
+                                                    NSString *uid=[responString substringWithRange:NSMakeRange(0, range.location)];
+                                                    [[LZAccount sharedAccount] setAccountUid:uid];
+                                                    block(YES,nil);
+                                                }
+                                                block(NO,nil);
+                                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                
+                                            }];
                               }else{
                                   block(NO,nil);
                               }

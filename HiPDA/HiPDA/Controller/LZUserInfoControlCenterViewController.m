@@ -9,24 +9,41 @@
 #import "LZUserInfoControlCenterViewController.h"
 #import "LZNetworkHelper.h"
 #import "LZAccount.h"
+#import "LZUserInfoControlCenterView.h"
+#import "LZUser.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #define TAG_OVERVIEW 1000
 
 @interface LZUserInfoControlCenterViewController()
+
+@property (strong, nonatomic) LZUserInfoControlCenterView *lZUserInfoControlCenterView;
 
 @end
 
 @implementation LZUserInfoControlCenterViewController
 
 -(void)viewDidLoad{
-    self.view.backgroundColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
-
     
+}
+
+-(id)init{
+    self=[super init];
+    if (self) {
+        self.lZUserInfoControlCenterView=[[LZUserInfoControlCenterView alloc]initWithFrame:self.view.frame];
+        self.view=self.lZUserInfoControlCenterView;
+    }
+    return self;
 }
 
 -(void)loginComplete:(id)sender{
 //    NSLog(@"登录成功！");
-    
+    NSArray *accountArray=[[LZAccount sharedAccount]getAccountInfo];
+    self.lZUserInfoControlCenterView.userNameLabel.text=accountArray[0];
+    LZUser *user=[[LZUser alloc] initWithAttributes:@{@"uid":[NSNumber numberWithInteger:[(NSString *)[[LZAccount sharedAccount] getAccountUid] integerValue]],
+                                                      @"userName":[[LZAccount sharedAccount]getAccountInfo][0]}];
+    self.lZUserInfoControlCenterView.userNameLabel.text=user.userName;
+    [self.lZUserInfoControlCenterView.avatarImageView sd_setImageWithURL:user.avatarImageUrl];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

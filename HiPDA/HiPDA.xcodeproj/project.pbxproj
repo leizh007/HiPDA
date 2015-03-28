@@ -29,6 +29,7 @@
 		05C45A241ABD5633007DF8CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A221ABD5633007DF8CC /* LaunchScreen.xib */; };
 		05C45A301ABD5634007DF8CC /* HiPDATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A2F1ABD5634007DF8CC /* HiPDATests.m */; };
 		05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A421ABD5C4B007DF8CC /* LZAccount.m */; };
+		05CE729B1AC597B90007802C /* LZUserInfoControlCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CE729A1AC597B90007802C /* LZUserInfoControlCenterView.m */; };
 		F021639E3926B0402E7AB3F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFCE43A80B2E1F4A63D5E19 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		05C45A2F1ABD5634007DF8CC /* HiPDATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HiPDATests.m; sourceTree = "<group>"; };
 		05C45A411ABD5C4B007DF8CC /* LZAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZAccount.h; path = Model/LZAccount.h; sourceTree = "<group>"; };
 		05C45A421ABD5C4B007DF8CC /* LZAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZAccount.m; path = Model/LZAccount.m; sourceTree = "<group>"; };
+		05CE72991AC597B90007802C /* LZUserInfoControlCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZUserInfoControlCenterView.h; path = View/LZUserInfoControlCenterView.h; sourceTree = "<group>"; };
+		05CE729A1AC597B90007802C /* LZUserInfoControlCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUserInfoControlCenterView.m; path = View/LZUserInfoControlCenterView.m; sourceTree = "<group>"; };
 		371279805B9D075807D96F19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		497F1161E17B9838B2E8916E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ADFCE43A80B2E1F4A63D5E19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +152,8 @@
 				0528F8071ABD937F00A1B430 /* LZLoginView.m */,
 				057518FA1AC2DBB000141A56 /* LZThreadTableViewCell.h */,
 				057518FB1AC2DBB000141A56 /* LZThreadTableViewCell.m */,
+				05CE72991AC597B90007802C /* LZUserInfoControlCenterView.h */,
+				05CE729A1AC597B90007802C /* LZUserInfoControlCenterView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */,
 				05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */,
 				05C45A161ABD5633007DF8CC /* main.m in Sources */,
+				05CE729B1AC597B90007802C /* LZUserInfoControlCenterView.m in Sources */,
 				051EA09D1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

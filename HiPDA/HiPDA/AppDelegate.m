@@ -60,11 +60,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self.mainThreadViewController selector:@selector(getNotifications:) name:LOGINCOMPLETENOTIFICATION object:nil];
     [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
     
-    
-    NSArray *arr=@[@"1",@"2",@"3"];
-    NSMutableArray *att=[[NSMutableArray alloc] initWithArray:arr];
-    [att sortedArrayUsingSelector:@selector(compare:)];
-    
     return YES;
 }
 

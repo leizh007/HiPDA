@@ -17,6 +17,7 @@
 #define HiPDAServiceName @"HiPDAServiceName"
 #define AHiPDANewUser    @"AHiPDANewUser"
 #define HiPDAUserCookies @"HiPDAUserCookies"
+#define HIPDAUSERUID     @"HIPDAUSERUID"
 
 @implementation LZAccount
 
@@ -159,4 +160,23 @@
         }];
     }
 }
+
+/**
+ *  保存用户uid
+ *
+ *  @param uid uid
+ */
+-(void)setAccountUid:(NSString *)uid{
+    [[NSUserDefaults standardUserDefaults] setObject:uid forKey:HIPDAUSERUID];
+}
+
+/**
+ *  取得uid
+ *
+ *  @return uid
+ */
+-(id)getAccountUid{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:HIPDAUSERUID];
+}
+
 @end

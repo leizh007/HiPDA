@@ -20,5 +20,7 @@
 -(void)loadCookies;
 -(void)clearCookies;
 -(void)checkAccountIfNoValidThenLogin:(UIViewController *)viewController;
+-(void)setAccountUid:(NSString *)uid;
+-(id)getAccountUid;
 
 @end
