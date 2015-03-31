@@ -14,7 +14,8 @@
 #import "LZPersistenceDataManager.h"
 #import "LZCache.h"
 #import "LZAccount.h"
-
+#import "TFHpple.h"
+#import "LZThreadDetail.h"
 
 @interface LZNetworkHelper()
 
@@ -94,9 +95,8 @@
                                                     range=[responString rangeOfString:@"\""];
                                                     NSString *uid=[responString substringWithRange:NSMakeRange(0, range.location)];
                                                     [[LZAccount sharedAccount] setAccountUid:uid];
-                                                    block(YES,nil);
                                                 }
-                                                block(NO,nil);
+                                                block(YES,nil);
                                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                 
                                             }];
@@ -143,7 +143,7 @@
                   success(threads);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  
+                  failure(error);
               }];
 }
 
@@ -186,6 +186,187 @@
         [threads addObject:thread];
     }
     return threads;
+}
+
+/**
+ *  加载帖子详情列表
+ *
+ *  @param tid     帖子tid
+ *  @param page    页数
+ *  @param success 成功调用
+ *  @param failure 失败调用
+ */
+-(void)loadPostListTid:(NSString *)tid page:(NSInteger)page isNeedPageFullNumber:(BOOL)isNeed success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure{
+    NSString *urlString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/viewthread.php?tid=%@&extra=page%%3D1&page=%ld",tid,page];
+    NSDictionary *params=@{@"tid":tid,@"extra":[NSString stringWithFormat:@"page=%ld",page],
+                           @"page":[NSString stringWithFormat:@"%ld",page]};
+    [self.manager GET:urlString
+           parameters:params
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSString *html=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
+                  NSInteger page=1;
+                  if (isNeed) {
+                      page=[self getPageFullNumber:html];
+//                      NSLog(@"%ld",page);
+                  }
+                  NSArray *threadDetailList=[self getThreadDetailListFromHtml:html];
+                  if (threadDetailList==nil) {
+                      threadDetailList=[[NSArray alloc]init];
+                  }
+                  success(@{@"page":[NSNumber numberWithInteger:page],@"threadlist":threadDetailList});
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  failure(error);
+              }];
+}
+
+/**
+ *  获得总页数
+ *
+ *  @param html html字符串
+ *
+ *  @return 总页数
+ */
+-(NSInteger)getPageFullNumber:(NSString *)html{
+    NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"(\\d+)</a><a\\shref=[^>]*?>下一页</a>" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray *result=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+    if ([result count]==0) {
+        return 1;
+    }
+    NSTextCheckingResult *match=(NSTextCheckingResult *)result[0];
+    NSString *pageString=[html substringWithRange:[match rangeAtIndex:1] ];
+    return [pageString integerValue];
+}
+
+
+/**
+ *  返回帖子列表
+ *
+ *  @param html html字符串
+ *
+ *  @return 帖子列表字符串
+ */
+-(NSArray *)getThreadDetailListFromHtml:(NSString *)html{
+    html=[html stringByReplacingOccurrencesOfString:@"gbk" withString:@"utf-8"];
+    NSData *htmlData=[html dataUsingEncoding:NSUTF8StringEncoding];
+    TFHpple *htmlParser=[TFHpple hppleWithHTMLData:htmlData];
+
+    NSString *threadListXpathQuertString=@"//div[@id='postlist']/div";
+    NSArray *threadList=[htmlParser searchWithXPathQuery:threadListXpathQuertString];
+    
+    NSMutableArray *threadDetailList=[[NSMutableArray alloc]init];
+    for (TFHppleElement *element in threadList) {
+        htmlData=[[element raw] dataUsingEncoding:NSUTF8StringEncoding];
+        htmlParser=[TFHpple hppleWithHTMLData:htmlData];
+        LZThreadDetail *threadDetail=[[LZThreadDetail alloc]init];
+        
+        //获取用户信息
+        NSString *userXpathQuertString=@"//div[@class='postinfo']/a";
+        NSArray *userList=[htmlParser searchWithXPathQuery:userXpathQuertString];
+        TFHppleElement *userInfoElement=(TFHppleElement *)userList[0];
+        NSString *uidString=[userInfoElement objectForKey:@"href"];
+        NSString *userName=[userInfoElement text];
+        uidString=[uidString substringFromIndex:[uidString rangeOfString:@"="].location+1];
+        LZUser *user=[[LZUser alloc] initWithAttributes:@{@"uid":uidString,@"userName":userName}];
+        threadDetail.user=user;
+        
+        //获取当前楼层
+        NSString *postnumXpathQuertString=@"//strong//em";
+        NSArray *postnumArray=[htmlParser searchWithXPathQuery:postnumXpathQuertString];
+        TFHppleElement *postnumElement=(TFHppleElement *)postnumArray[0];
+        threadDetail.postnum=[[postnumElement text] integerValue]-1;
+        
+        //是否存在回复其他楼层
+        NSString *replyXpathQuertString=@"//td[@class='t_msgfont']/strong";
+        NSArray *replyArray=[htmlParser searchWithXPathQuery:replyXpathQuertString];
+        if ([replyArray count]!=0) {
+            TFHppleElement *replyElement=(TFHppleElement *)replyArray[0];
+            threadDetail.hasReply=YES;
+            NSString *replyString=[replyElement raw];
+            NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<strong>(\\w+)[\\s\\S]*?\"_blank\">([^<]*)<[\\s\\S]*?<i>(\\w+)</i>" options:NSRegularExpressionCaseInsensitive error:nil];
+            NSArray *results=[regex matchesInString:replyString options:0 range:NSMakeRange(0, [replyString length])];
+            if ([results count]==0) {
+                threadDetail.hasReply=NO;
+            }else{
+                NSTextCheckingResult *result=(NSTextCheckingResult *)results[0];
+                threadDetail.replyString=[NSString stringWithFormat:@"%@ %@ %@",[replyString substringWithRange:[result rangeAtIndex:1]],[replyString substringWithRange:[result rangeAtIndex:2]],[replyString substringWithRange:[result rangeAtIndex:3]]];
+            }
+        }else{
+            threadDetail.hasReply=NO;
+        }
+        
+        
+        //是否存在引用其他楼层
+        NSString *quoteXpathQuertString=@"//blockquote";
+        NSArray *quoteArray=[htmlParser searchWithXPathQuery:quoteXpathQuertString];
+        if ([quoteArray count]!=0) {
+            TFHppleElement *quoteElement=(TFHppleElement *)quoteArray[0];
+            threadDetail.hasQuote=YES;
+            NSString *quoteString=[quoteElement raw];
+            NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<blockquote>([^<]*)<[\\s\\S]*?\"#999999\">(\\w+)" options:NSRegularExpressionCaseInsensitive error:nil];
+            NSArray *results=[regex matchesInString:quoteString options:0 range:NSMakeRange(0, [quoteString length])];
+            NSTextCheckingResult *result=(NSTextCheckingResult *)results[0];
+            threadDetail.quoteString=[NSString stringWithFormat:@"%@\n引用 %@",[quoteString substringWithRange:[result rangeAtIndex:1]],[quoteString substringWithRange:[result rangeAtIndex:2]]];
+        }else{
+            threadDetail.hasQuote=NO;
+        }
+        
+        
+        NSMutableArray *contextMutableArray=[[NSMutableArray alloc]init];
+        //帖子内容
+        NSString *contextXpathQuertString=@"//td[@class='t_msgfont']/node()";
+        NSArray *contextArray=[htmlParser searchWithXPathQuery:contextXpathQuertString];
+        NSMutableString *contextString=[[NSMutableString alloc]init];
+        for (TFHppleElement *contextElement in contextArray) {
+            //如果既不是回复也不是引用
+            if (![[contextElement tagName] isEqualToString:@"strong"]&&![[contextElement objectForKey:@"class"] isEqualToString:@"quote"]&&![[contextElement objectForKey:@"class"]isEqualToString:@"pstatus"]&&![[contextElement tagName]isEqualToString:@"span"]) {
+                if (![[contextElement tagName]isEqualToString:@"img"]) {
+                    NSMutableString *textMutableString;
+                    if ([contextElement isTextNode]||[[contextElement tagName] isEqualToString:@"a"]) {
+                        textMutableString=[[contextElement raw] mutableCopy];
+                        [textMutableString replaceOccurrencesOfString:@"&#13;" withString:@"\n" options:0 range:NSMakeRange(0, [textMutableString length])];
+                        [contextString appendString:textMutableString];
+                    }
+                }else{
+                    [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
+                    contextString=[[NSMutableString alloc]init];
+                    NSString *imageURL;
+                    if ([contextElement objectForKey:@"file"]!=nil) {
+                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"file"]];
+                    }else{
+                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"src"]];
+                    }
+                    [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
+//                    NSLog(@"%@",imageURL);
+                }
+            }
+        }
+        if ([contextString length]!=0) {
+            [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
+            contextString=[[NSMutableString alloc]init];
+        }
+        //附件图片
+        NSString *attachFileXpathQuertString=@"//div[@class='postattachlist']//img";
+        NSArray *attachFileArray=[htmlParser searchWithXPathQuery:attachFileXpathQuertString];
+        if ([attachFileArray count]!=0) {
+            for (TFHppleElement *attachImage in attachFileArray) {
+                NSString *imageURL;
+                if ([attachImage objectForKey:@"file"]!=nil) {
+                    imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[attachImage objectForKey:@"file"]];
+                }else{
+                    imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[attachImage objectForKey:@"src"]];
+                }
+                [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
+            }
+        }
+        
+        threadDetail.contextArray=contextMutableArray;
+        
+        [threadDetailList addObject:threadDetail];
+    }
+    
+    
+    return threadDetailList;
 }
 
 @end

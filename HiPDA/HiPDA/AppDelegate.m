@@ -21,6 +21,7 @@
 #import "LZCache.h"
 #import "LZThread.h"
 #import "LZUser.h"
+#import "NSString+extension.h"
 
 @interface AppDelegate ()
 
@@ -59,6 +60,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self.mainThreadViewController selector:@selector(getNotifications:) name:FORUMTHREADSISEXTRACTINGNOTIFICATION object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self.mainThreadViewController selector:@selector(getNotifications:) name:LOGINCOMPLETENOTIFICATION object:nil];
     [[LZAccount sharedAccount] checkAccountIfNoValidThenLogin:self.window.rootViewController];
+    
     
     return YES;
 }

@@ -24,7 +24,7 @@
 @implementation LZUserInfoControlCenterViewController
 
 -(void)viewDidLoad{
-    
+    self.revealViewController.delegate=self;
 }
 
 -(id)init{

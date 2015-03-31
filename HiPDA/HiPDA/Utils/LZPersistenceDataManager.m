@@ -66,6 +66,7 @@
     if ([self.hasReadDic count]>=2000) {
         [self deleteSomeUnnecessaryValues];
     }
+    [self storeHasReadThreads];
 }
 
 /**

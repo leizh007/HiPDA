@@ -30,6 +30,8 @@
 		05C45A301ABD5634007DF8CC /* HiPDATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A2F1ABD5634007DF8CC /* HiPDATests.m */; };
 		05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A421ABD5C4B007DF8CC /* LZAccount.m */; };
 		05CE729B1AC597B90007802C /* LZUserInfoControlCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CE729A1AC597B90007802C /* LZUserInfoControlCenterView.m */; };
+		05DC8DBD1AC974CD00293C4E /* LZViewThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DC8DBC1AC974CD00293C4E /* LZViewThreadDetailViewController.m */; };
+		05DC8DC11ACAB69D00293C4E /* LZThreadDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DC8DC01ACAB69D00293C4E /* LZThreadDetail.m */; };
 		F021639E3926B0402E7AB3F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFCE43A80B2E1F4A63D5E19 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,10 @@
 		05C45A421ABD5C4B007DF8CC /* LZAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZAccount.m; path = Model/LZAccount.m; sourceTree = "<group>"; };
 		05CE72991AC597B90007802C /* LZUserInfoControlCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZUserInfoControlCenterView.h; path = View/LZUserInfoControlCenterView.h; sourceTree = "<group>"; };
 		05CE729A1AC597B90007802C /* LZUserInfoControlCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUserInfoControlCenterView.m; path = View/LZUserInfoControlCenterView.m; sourceTree = "<group>"; };
+		05DC8DBB1AC974CD00293C4E /* LZViewThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZViewThreadDetailViewController.h; path = Controller/LZViewThreadDetailViewController.h; sourceTree = "<group>"; };
+		05DC8DBC1AC974CD00293C4E /* LZViewThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZViewThreadDetailViewController.m; path = Controller/LZViewThreadDetailViewController.m; sourceTree = "<group>"; };
+		05DC8DBF1ACAB69D00293C4E /* LZThreadDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZThreadDetail.h; path = Model/LZThreadDetail.h; sourceTree = "<group>"; };
+		05DC8DC01ACAB69D00293C4E /* LZThreadDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZThreadDetail.m; path = Model/LZThreadDetail.m; sourceTree = "<group>"; };
 		371279805B9D075807D96F19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		497F1161E17B9838B2E8916E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ADFCE43A80B2E1F4A63D5E19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +147,8 @@
 				051EA0921ABFABC500A84B50 /* LZUserInfoControlCenterViewController.m */,
 				051EA0941ABFAC6C00A84B50 /* LZMainThreadViewController.h */,
 				051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */,
+				05DC8DBB1AC974CD00293C4E /* LZViewThreadDetailViewController.h */,
+				05DC8DBC1AC974CD00293C4E /* LZViewThreadDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -232,6 +240,8 @@
 				057518F01AC1865A00141A56 /* LZUser.m */,
 				05C45A411ABD5C4B007DF8CC /* LZAccount.h */,
 				05C45A421ABD5C4B007DF8CC /* LZAccount.m */,
+				05DC8DBF1ACAB69D00293C4E /* LZThreadDetail.h */,
+				05DC8DC01ACAB69D00293C4E /* LZThreadDetail.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -392,6 +402,7 @@
 			files = (
 				0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */,
 				051EA0901ABFA5FE00A84B50 /* LZShowMessagesHelper.m in Sources */,
+				05DC8DBD1AC974CD00293C4E /* LZViewThreadDetailViewController.m in Sources */,
 				051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */,
 				057518FC1AC2DBB000141A56 /* LZThreadTableViewCell.m in Sources */,
 				0528F8051ABD935B00A1B430 /* LZLoginViewController.m in Sources */,
@@ -401,6 +412,7 @@
 				057518EA1AC17F0100141A56 /* LZPersistenceDataManager.m in Sources */,
 				05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */,
 				0528F80E1ABEBCC900A1B430 /* LZNetworkHelper.m in Sources */,
+				05DC8DC11ACAB69D00293C4E /* LZThreadDetail.m in Sources */,
 				057518F11AC1865A00141A56 /* LZCache.m in Sources */,
 				0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */,
 				05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */,

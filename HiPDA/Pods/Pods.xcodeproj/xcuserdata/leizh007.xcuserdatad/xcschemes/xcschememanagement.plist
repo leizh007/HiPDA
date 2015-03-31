@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RTLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SDURLCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -59,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-hpple.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -66,67 +76,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>061066569735E9DEDFCC25F9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1ACE35A6B9B118653B3C11D9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>201D2F8EDFC944ED6230F09D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7E0D1EA9D3CB6D07D5ED4747</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>87DD40524FD79A1BF15A116F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>89186AF011E8E1C8A6DAA710</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9A9B55D89C220C8E31788F58</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C1730C67BB354FFAD1F099AB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F0C388D62FA67E8EA6BBDBAC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F0E8E4F63F436148B6712412</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F812CBD50A9C16CDBCD86032</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F87893090D29AEA6DA8FDE27</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

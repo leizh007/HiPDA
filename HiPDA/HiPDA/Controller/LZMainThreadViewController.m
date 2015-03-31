@@ -17,6 +17,7 @@
 #import "LZThreadTableViewCell.h"
 #import "LZShowMessagesHelper.h"
 #import "LZPersistenceDataManager.h"
+#import "LZViewThreadDetailViewController.h"
 
 #define SMALLDOTSBUTTONWIDTH 40
 #define INSETBETWEENVIEWELEMENTS 8
@@ -88,6 +89,15 @@
     self.navigationItem.leftBarButtonItem=barButton;
     
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    /**
+     *  移除SWRevealViewController的手势操作
+     */
+    SWRevealViewController *revealViewController=[self revealViewController];
+    revealViewController.panGestureRecognizer.enabled=YES;
+    revealViewController.tapGestureRecognizer.enabled=YES;
 }
 
 
@@ -184,6 +194,10 @@
     [[LZPersistenceDataManager sharedPersistenceDataManager] addThreadTidToHasRead:((LZThread *)self.threads[indexPath.row]).tid];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [tableView reloadData];
+    LZViewThreadDetailViewController *viewThreadDetailViewController=[[LZViewThreadDetailViewController alloc]init];
+    viewThreadDetailViewController.tid=((LZThread *)self.threads[indexPath.row]).tid;
+    viewThreadDetailViewController.threadTitle=((LZThread *)self.threads[indexPath.row]).title;
+    [self.navigationController pushViewController:viewThreadDetailViewController animated:YES];
 }
 
 #pragma mark - smallDotsButton action
