@@ -20,5 +20,9 @@
 @property (strong, nonatomic) NSArray *contextArray;
 //帖子楼层，0层是主贴，其他是回复1楼到n楼
 @property (assign, nonatomic) NSInteger postnum;
+//帖子内容原始版
+@property (strong, nonatomic) NSString *rawContext;
+
+@property (strong, nonatomic) NSString *time;
 
 @end

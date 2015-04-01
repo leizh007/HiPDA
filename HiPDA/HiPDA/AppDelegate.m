@@ -52,6 +52,7 @@
     self.viewController.rearViewRevealOverdraw=REARVIEWREVEALOVERDRAW;
     self.window.rootViewController=self.viewController;
     [self.window makeKeyAndVisible];
+    self.viewController.delegate=self.userInfoControlCenterViewController;
     
     [[NSNotificationCenter defaultCenter] addObserver:self.userInfoControlCenterViewController
                                              selector:@selector(loginComplete:)

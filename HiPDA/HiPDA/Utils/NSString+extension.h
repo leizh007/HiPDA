@@ -13,5 +13,6 @@
 +(id)ifTheStringIsNilReturnAEmptyString:(NSString *)string;
 +(id)encodingGBKStringToIOSString:(NSData *)data;
 -(NSString *)md5;
++(id)removeDuplicatedEnter:(NSString *)string;
 
 @end

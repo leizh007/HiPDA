@@ -24,7 +24,7 @@
 @implementation LZUserInfoControlCenterViewController
 
 -(void)viewDidLoad{
-    self.revealViewController.delegate=self;
+    
 }
 
 -(id)init{
@@ -48,6 +48,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 //    NSLog(@"%lf %lf",self.view.frame.size.width,self.view.frame.size.height);
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
 }
 
 #pragma mark - SWRevealViewControllerDelegate
@@ -59,32 +64,14 @@
  */
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
 {
-    UIView *frontView = nil;
-    UINavigationController *frontNC = (UINavigationController *)revealController.frontViewController;
-    if (frontNC.viewControllers.count > 1) {
-        return;
-    } else {
-        frontView = frontNC.topViewController.navigationController.view;
-    }
     if (revealController.frontViewPosition == FrontViewPositionRight) {
-        
-        UIView *existingOverView = (UIView *)[frontView viewWithTag:TAG_OVERVIEW];
-        if (!existingOverView) {
-            UIView *overView = [[UIView alloc]initWithFrame:frontView.bounds];
-            overView.tag = TAG_OVERVIEW;
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
-            [overView addGestureRecognizer:tap];
-            existingOverView = overView;
-        }
-        [frontView addSubview:existingOverView];
-
+        UIView *lockingView = [[UIView alloc] initWithFrame:revealController.frontViewController.view.frame];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
+        [lockingView addGestureRecognizer:tap];
+        [lockingView setTag:1000];
+        [revealController.frontViewController.view addSubview:lockingView];
     }
-    else {
-        UIView *existingOverView = (UIView *)[frontView viewWithTag:TAG_OVERVIEW];
-        if (existingOverView) {
-            [existingOverView removeFromSuperview];
-            
-        }
-    }
+    else
+        [[revealController.frontViewController.view viewWithTag:1000] removeFromSuperview];
 }
 @end

@@ -260,6 +260,12 @@
         htmlParser=[TFHpple hppleWithHTMLData:htmlData];
         LZThreadDetail *threadDetail=[[LZThreadDetail alloc]init];
         
+        //获取发帖时间
+        NSRegularExpression *timeRegex=[NSRegularExpression regularExpressionWithPattern:@"<em\\sid=\"authorposton\\d+\">发表于([^<]*)</em>" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *results=[timeRegex matchesInString:[element raw] options:0 range:NSMakeRange(0, [[element raw] length])];
+        threadDetail.time=[[element raw] substringWithRange:[(NSTextCheckingResult *)results[0] rangeAtIndex:1]];
+//        NSLog(@"%@",threadDetail.time);
+        
         //获取用户信息
         NSString *userXpathQuertString=@"//div[@class='postinfo']/a";
         NSArray *userList=[htmlParser searchWithXPathQuery:userXpathQuertString];
@@ -305,12 +311,20 @@
             NSString *quoteString=[quoteElement raw];
             NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<blockquote>([^<]*)<[\\s\\S]*?\"#999999\">(\\w+)" options:NSRegularExpressionCaseInsensitive error:nil];
             NSArray *results=[regex matchesInString:quoteString options:0 range:NSMakeRange(0, [quoteString length])];
-            NSTextCheckingResult *result=(NSTextCheckingResult *)results[0];
-            threadDetail.quoteString=[NSString stringWithFormat:@"%@\n引用 %@",[quoteString substringWithRange:[result rangeAtIndex:1]],[quoteString substringWithRange:[result rangeAtIndex:2]]];
+            if ([results count]!=0) {
+                NSTextCheckingResult *result=(NSTextCheckingResult *)results[0];
+                threadDetail.quoteString=[NSString stringWithFormat:@"%@\n引用 %@",[quoteString substringWithRange:[result rangeAtIndex:1]],[quoteString substringWithRange:[result rangeAtIndex:2]]];
+            }
+            threadDetail.hasQuote=NO;
         }else{
             threadDetail.hasQuote=NO;
         }
         
+        
+        //帖子内容原始版
+//        NSString *rawContextXpathQuertString=@"//td[@class='t_msgfont']";
+//        NSArray *rawContextArray=[htmlParser searchWithXPathQuery:rawContextXpathQuertString];
+//        threadDetail.rawContext=[(TFHppleElement *)rawContextArray[0] raw];
         
         NSMutableArray *contextMutableArray=[[NSMutableArray alloc]init];
         //帖子内容
@@ -320,28 +334,62 @@
         for (TFHppleElement *contextElement in contextArray) {
             //如果既不是回复也不是引用
             if (![[contextElement tagName] isEqualToString:@"strong"]&&![[contextElement objectForKey:@"class"] isEqualToString:@"quote"]&&![[contextElement objectForKey:@"class"]isEqualToString:@"pstatus"]&&![[contextElement tagName]isEqualToString:@"span"]) {
-                if (![[contextElement tagName]isEqualToString:@"img"]) {
-                    NSMutableString *textMutableString;
-                    if ([contextElement isTextNode]||[[contextElement tagName] isEqualToString:@"a"]) {
-                        textMutableString=[[contextElement raw] mutableCopy];
-                        [textMutableString replaceOccurrencesOfString:@"&#13;" withString:@"\n" options:0 range:NSMakeRange(0, [textMutableString length])];
-                        [contextString appendString:textMutableString];
+//                if (![[contextElement tagName]isEqualToString:@"img"]) {
+//                    NSMutableString *textMutableString=[[NSMutableString alloc] init];
+//                    textMutableString=[[contextElement raw] mutableCopy];
+//                    [textMutableString replaceOccurrencesOfString:@"&#13;" withString:@"" options:0 range:NSMakeRange(0, [textMutableString length])];
+//                    [contextString appendString:textMutableString];
+//                }else{
+//                    contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
+//                    [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
+//                    contextString=[[NSMutableString alloc]init];
+//                    NSString *imageURL;
+//                    if ([contextElement objectForKey:@"file"]!=nil) {
+//                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"file"]];
+//                    }else{
+//                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"src"]];
+//                    }
+//                    [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
+////                    NSLog(@"%@",imageURL);
+//                }
+                NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc[\\s\\S]*?file=\"([^\"]*)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+                NSArray *results=[regex matchesInString:[contextElement raw] options:0 range:NSMakeRange(0, [[contextElement raw]length])];
+                
+                if ([results count]==0) {
+                    NSRegularExpression *srcRegex=[NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc=\"([\\s\\S]*?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+                    NSArray *resultsSrc=[srcRegex matchesInString:[contextElement raw] options:0 range:NSMakeRange(0, [[contextElement raw]length])];
+                    if ([resultsSrc count]==0) {
+                        NSData *htmlDataTemp=[[contextElement raw] dataUsingEncoding:NSUTF8StringEncoding];
+                        TFHpple *htmlParserTemp=[TFHpple hppleWithHTMLData:htmlDataTemp];
+                        NSString *contextXpathQuertStringTemp=@"/descendant::*/text()";
+                        NSArray *allTextResult=[htmlParserTemp searchWithXPathQuery:contextXpathQuertStringTemp];
+                        if ([allTextResult count]!=0) {
+                            [contextString appendString:[(TFHppleElement *)allTextResult[0] raw]];
+                        }
+                    }else{
+                        contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
+                        [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
+                        contextString=[[NSMutableString alloc]init];
+                        for (NSTextCheckingResult *result in resultsSrc) {
+                            NSString *imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[[contextElement raw] substringWithRange:[result rangeAtIndex:1]]];
+                            [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
+                        }
                     }
+                    
+                    
                 }else{
+                    contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
                     [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
                     contextString=[[NSMutableString alloc]init];
-                    NSString *imageURL;
-                    if ([contextElement objectForKey:@"file"]!=nil) {
-                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"file"]];
-                    }else{
-                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"src"]];
+                    for (NSTextCheckingResult *result in results) {
+                        NSString *imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[[contextElement raw] substringWithRange:[result rangeAtIndex:1]]];
+                        [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
                     }
-                    [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
-//                    NSLog(@"%@",imageURL);
                 }
             }
         }
         if ([contextString length]!=0) {
+            contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
             [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
             contextString=[[NSMutableString alloc]init];
         }

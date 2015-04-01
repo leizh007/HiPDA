@@ -56,4 +56,36 @@
             ];  
 }
 
+/**
+ *  去除多余的回车
+ *
+ *  @param string 待处理字符串
+ *
+ *  @return 处理之后的字符串
+ */
++(id)removeDuplicatedEnter:(NSString *)string{
+    if (string==nil||[string length]==0) {
+        return @"";
+    }
+    NSMutableString *mutableString=[[NSMutableString alloc]initWithString:string];
+    [mutableString replaceOccurrencesOfString:@"&#13;" withString:@"" options:0 range:NSMakeRange(0, [mutableString length])];
+    NSMutableString *str=[[NSMutableString alloc]init];
+    
+    if (![[mutableString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"\n"]) {
+        [str appendString:[mutableString substringWithRange:NSMakeRange(0, 1)]];
+    }
+    for (int i=1; i<[mutableString length]; ++i) {
+        NSString *pre=[mutableString substringWithRange:NSMakeRange(i-1, 1)];
+        NSString *cur=[mutableString substringWithRange:NSMakeRange(i, 1)];
+        if (!([pre isEqualToString:@"\n"]&&[cur isEqualToString:@"\n"])) {
+            [str appendString:[mutableString substringWithRange:NSMakeRange(i, 1)]];
+        }
+    }
+    if (str==nil||[str length]==0) {
+        return @"";
+    }
+    return str;
+}
+
+
 @end

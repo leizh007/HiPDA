@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LZViewThreadDetailViewController : UIViewController
+@interface LZViewThreadDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) NSString *tid;
 @property (strong, nonatomic) NSString *threadTitle;

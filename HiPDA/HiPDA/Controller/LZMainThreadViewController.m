@@ -18,6 +18,7 @@
 #import "LZShowMessagesHelper.h"
 #import "LZPersistenceDataManager.h"
 #import "LZViewThreadDetailViewController.h"
+#import "RTLabel.h"
 
 #define SMALLDOTSBUTTONWIDTH 40
 #define INSETBETWEENVIEWELEMENTS 8
@@ -87,14 +88,11 @@
     BBBadgeBarButtonItem *barButton=[[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
     barButton.badgeValue=@"0";
     self.navigationItem.leftBarButtonItem=barButton;
-    
-    
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    /**
-     *  移除SWRevealViewController的手势操作
-     */
+
     SWRevealViewController *revealViewController=[self revealViewController];
     revealViewController.panGestureRecognizer.enabled=YES;
     revealViewController.tapGestureRecognizer.enabled=YES;
