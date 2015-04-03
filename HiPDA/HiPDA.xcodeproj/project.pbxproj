@@ -21,11 +21,15 @@
 		0543DCED1ACB886200087028 /* LZThreadListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543DCEC1ACB886200087028 /* LZThreadListTableViewCell.m */; };
 		0543DCEF1ACBC87600087028 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0543DCEE1ACBC87600087028 /* CoreText.framework */; };
 		0543DCF31ACBCA3700087028 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0543DCF21ACBCA3700087028 /* RTLabel.m */; };
+		055219571ACE89C500914FC3 /* LZPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 055219561ACE89C500914FC3 /* LZPost.m */; };
+		055874471ACCDBDC0038283E /* LZPopUpWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055874461ACCDBDC0038283E /* LZPopUpWebViewController.m */; };
 		057518EA1AC17F0100141A56 /* LZPersistenceDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518E91AC17F0100141A56 /* LZPersistenceDataManager.m */; };
 		057518F11AC1865A00141A56 /* LZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518EC1AC1865A00141A56 /* LZCache.m */; };
 		057518F21AC1865A00141A56 /* LZThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518EE1AC1865A00141A56 /* LZThread.m */; };
 		057518F31AC1865A00141A56 /* LZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518F01AC1865A00141A56 /* LZUser.m */; };
 		057518FC1AC2DBB000141A56 /* LZThreadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057518FB1AC2DBB000141A56 /* LZThreadTableViewCell.m */; };
+		05977FAD1ACE37FB002036CA /* LZSendPostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05977FAC1ACE37FB002036CA /* LZSendPostView.m */; };
+		05977FB01ACE3836002036CA /* LZSendPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05977FAF1ACE3836002036CA /* LZSendPostViewController.m */; };
 		05C45A161ABD5633007DF8CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A151ABD5633007DF8CC /* main.m */; };
 		05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45A181ABD5633007DF8CC /* AppDelegate.m */; };
 		05C45A211ABD5633007DF8CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C45A201ABD5633007DF8CC /* Images.xcassets */; };
@@ -74,6 +78,10 @@
 		0543DCEE1ACBC87600087028 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		0543DCF11ACBCA3700087028 /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTLabel.h; path = View/RTLabel/RTLabel.h; sourceTree = "<group>"; };
 		0543DCF21ACBCA3700087028 /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTLabel.m; path = View/RTLabel/RTLabel.m; sourceTree = "<group>"; };
+		055219551ACE89C500914FC3 /* LZPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZPost.h; path = Model/LZPost.h; sourceTree = "<group>"; };
+		055219561ACE89C500914FC3 /* LZPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZPost.m; path = Model/LZPost.m; sourceTree = "<group>"; };
+		055874451ACCDBDC0038283E /* LZPopUpWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZPopUpWebViewController.h; path = Controller/LZPopUpWebViewController.h; sourceTree = "<group>"; };
+		055874461ACCDBDC0038283E /* LZPopUpWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZPopUpWebViewController.m; path = Controller/LZPopUpWebViewController.m; sourceTree = "<group>"; };
 		057518E81AC17F0100141A56 /* LZPersistenceDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZPersistenceDataManager.h; path = Utils/LZPersistenceDataManager.h; sourceTree = "<group>"; };
 		057518E91AC17F0100141A56 /* LZPersistenceDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZPersistenceDataManager.m; path = Utils/LZPersistenceDataManager.m; sourceTree = "<group>"; };
 		057518EB1AC1865A00141A56 /* LZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZCache.h; path = Model/LZCache.h; sourceTree = "<group>"; };
@@ -84,6 +92,10 @@
 		057518F01AC1865A00141A56 /* LZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZUser.m; path = Model/LZUser.m; sourceTree = "<group>"; };
 		057518FA1AC2DBB000141A56 /* LZThreadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZThreadTableViewCell.h; path = View/LZThreadTableViewCell.h; sourceTree = "<group>"; };
 		057518FB1AC2DBB000141A56 /* LZThreadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZThreadTableViewCell.m; path = View/LZThreadTableViewCell.m; sourceTree = "<group>"; };
+		05977FAB1ACE37FB002036CA /* LZSendPostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZSendPostView.h; path = View/LZSendPostView.h; sourceTree = "<group>"; };
+		05977FAC1ACE37FB002036CA /* LZSendPostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZSendPostView.m; path = View/LZSendPostView.m; sourceTree = "<group>"; };
+		05977FAE1ACE3836002036CA /* LZSendPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZSendPostViewController.h; path = Controller/LZSendPostViewController.h; sourceTree = "<group>"; };
+		05977FAF1ACE3836002036CA /* LZSendPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZSendPostViewController.m; path = Controller/LZSendPostViewController.m; sourceTree = "<group>"; };
 		05C45A101ABD5633007DF8CC /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C45A141ABD5633007DF8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C45A151ABD5633007DF8CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -158,6 +170,10 @@
 				051EA0951ABFAC6C00A84B50 /* LZMainThreadViewController.m */,
 				05DC8DBB1AC974CD00293C4E /* LZViewThreadDetailViewController.h */,
 				05DC8DBC1AC974CD00293C4E /* LZViewThreadDetailViewController.m */,
+				055874451ACCDBDC0038283E /* LZPopUpWebViewController.h */,
+				055874461ACCDBDC0038283E /* LZPopUpWebViewController.m */,
+				05977FAE1ACE3836002036CA /* LZSendPostViewController.h */,
+				05977FAF1ACE3836002036CA /* LZSendPostViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -174,6 +190,8 @@
 				05CE729A1AC597B90007802C /* LZUserInfoControlCenterView.m */,
 				0543DCEB1ACB886200087028 /* LZThreadListTableViewCell.h */,
 				0543DCEC1ACB886200087028 /* LZThreadListTableViewCell.m */,
+				05977FAB1ACE37FB002036CA /* LZSendPostView.h */,
+				05977FAC1ACE37FB002036CA /* LZSendPostView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -263,6 +281,8 @@
 				05C45A421ABD5C4B007DF8CC /* LZAccount.m */,
 				05DC8DBF1ACAB69D00293C4E /* LZThreadDetail.h */,
 				05DC8DC01ACAB69D00293C4E /* LZThreadDetail.m */,
+				055219551ACE89C500914FC3 /* LZPost.h */,
+				055219561ACE89C500914FC3 /* LZPost.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +444,7 @@
 			files = (
 				0528F8021ABD8FE200A1B430 /* NSString+extension.m in Sources */,
 				051EA0901ABFA5FE00A84B50 /* LZShowMessagesHelper.m in Sources */,
+				05977FB01ACE3836002036CA /* LZSendPostViewController.m in Sources */,
 				05DC8DBD1AC974CD00293C4E /* LZViewThreadDetailViewController.m in Sources */,
 				0543DCED1ACB886200087028 /* LZThreadListTableViewCell.m in Sources */,
 				051EA0961ABFAC6C00A84B50 /* LZMainThreadViewController.m in Sources */,
@@ -434,12 +455,15 @@
 				057518F21AC1865A00141A56 /* LZThread.m in Sources */,
 				057518EA1AC17F0100141A56 /* LZPersistenceDataManager.m in Sources */,
 				05C45A431ABD5C4B007DF8CC /* LZAccount.m in Sources */,
+				055874471ACCDBDC0038283E /* LZPopUpWebViewController.m in Sources */,
 				0528F80E1ABEBCC900A1B430 /* LZNetworkHelper.m in Sources */,
 				05DC8DC11ACAB69D00293C4E /* LZThreadDetail.m in Sources */,
 				0543DCF31ACBCA3700087028 /* RTLabel.m in Sources */,
 				057518F11AC1865A00141A56 /* LZCache.m in Sources */,
 				0528F8081ABD937F00A1B430 /* LZLoginView.m in Sources */,
+				055219571ACE89C500914FC3 /* LZPost.m in Sources */,
 				05C45A191ABD5633007DF8CC /* AppDelegate.m in Sources */,
+				05977FAD1ACE37FB002036CA /* LZSendPostView.m in Sources */,
 				05C45A161ABD5633007DF8CC /* main.m in Sources */,
 				05CE729B1AC597B90007802C /* LZUserInfoControlCenterView.m in Sources */,
 				051EA09D1ABFD90700A84B50 /* UIBarButtonItem+ImageItem.m in Sources */,
@@ -561,7 +585,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HiPDA/PrefixHeader.pch";
 				INFOPLIST_FILE = HiPDA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e9862727-618e-49f8-92c7-c5c8a073428d";
@@ -577,8 +601,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HiPDA/PrefixHeader.pch";
 				INFOPLIST_FILE = HiPDA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e9862727-618e-49f8-92c7-c5c8a073428d";
 			};

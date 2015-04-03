@@ -49,6 +49,8 @@
     [self.manager.requestSerializer setValue:@"zh-cn" forHTTPHeaderField:@"Accept-Language" ];
     [self.manager.requestSerializer setValue:@"http://www.hi-pda.com/forum/forumdisplay.php?fid=2" forHTTPHeaderField:@"Referer"];
     self.manager.responseSerializer=[AFHTTPResponseSerializer serializer];
+    self.manager.requestSerializer.stringEncoding=CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    
     return self;
 }
 
@@ -64,25 +66,36 @@
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   NSString *responHtml=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
-//                  NSLog(@"%@",responHtml);
+                  //                  NSLog(@"%@",responHtml);
+                  NSString *formhash=@"";
+                  NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"(?<=formhash\" value=\")\\w+\\b" options:NSRegularExpressionCaseInsensitive error:nil];
+                  NSArray *matches=[regex matchesInString:responHtml options:0 range:NSMakeRange(0, [responHtml length])];
+                  if ([matches count]==0) {
+                      
+                      NSRegularExpression *regexF=[NSRegularExpression regularExpressionWithPattern:@"formhash=(\\w+)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+                      NSArray *matchesF=[regexF matchesInString:responHtml options:0 range:NSMakeRange(0, [responHtml length])];
+                      if ([matchesF count]==0) {
+                          block(NO,[NSError errorWithDomain:@"获取formhash失败！" code:0 userInfo:nil]);
+                          return;
+                      }
+                      formhash=[responHtml substringWithRange:[((NSTextCheckingResult *)matchesF[0]) rangeAtIndex:1]];
+                      [[LZAccount sharedAccount] setFormhash:formhash];
+                  }else{
+                      formhash=[responHtml substringWithRange:((NSTextCheckingResult *)matches[0]).range];
+                      [[LZAccount sharedAccount] setFormhash:formhash];
+                  }
+                  
+                  //                  NSLog(@"%@",formhash);
                   if ([responHtml containsString:@"欢迎您回来"]) {
                       block(YES,nil);
                       return ;
                   }
-                  NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"(?<=formhash\" value=\")\\w+\\b" options:NSRegularExpressionCaseInsensitive error:nil];
-                  NSArray *matches=[regex matchesInString:responHtml options:0 range:NSMakeRange(0, [responHtml length])];
-                  if ([matches count]==0) {
-                      block(NO,nil);
-                      return;
-                  }
-                  NSString *formhash=[responHtml substringWithRange:((NSTextCheckingResult *)matches[0]).range];
-//                  NSLog(@"%@",formhash);
                   NSMutableDictionary *param=[NSMutableDictionary dictionaryWithDictionary:parameters];
                   [param setValue:formhash forKey:@"formhash"];
                   [self.manager POST:@"http://www.hi-pda.com/forum/logging.php?action=login&loginsubmit=yes&inajax=1"
                           parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                               NSString *responString=[NSString encodingGBKStringToIOSString:responseObject];
-//                              NSLog(@"%@",responString);
+                              //                              NSLog(@"%@",responString);
                               if ([responString containsString:@"欢迎您回来"]) {
                                   //获得用户的uid
                                   [self.manager GET:@"http://www.hi-pda.com/forum/index.php"
@@ -128,14 +141,14 @@
            parameters:param
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   NSString *responseHtml=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
-//                  NSLog(@"%@",responseHtml);
+                  //                  NSLog(@"%@",responseHtml);
                   [[NSNotificationCenter defaultCenter]postNotificationName:FORUMTHREADSISEXTRACTINGNOTIFICATION object:nil];
                   NSRange range=[responseHtml rangeOfString:@"版块主题"];
                   if (range.location!=NSNotFound) {
                       responseHtml=[responseHtml substringFromIndex:range.location];
                   }
                   
-//                  NSLog(@"%@",responseHtml);
+                  //                  NSLog(@"%@",responseHtml);
                   NSArray *threads=[self extractThreadsFromHtmlString:responseHtml fid:fid page:page];
                   if (page==1) {
                       [[LZCache globalCache]cacheForum:threads fid:fid page:page];
@@ -167,7 +180,7 @@
         NSString *dateString=[html substringWithRange:[match rangeAtIndex:6]];
         NSString *replyString=[html substringWithRange:[match rangeAtIndex:7]];
         NSString *openString=[html substringWithRange:[match rangeAtIndex:8]];
-//        NSLog(@"tid:%@  title:%@  hasImageOrHasAttach:%@  uid:%@  userName:%@  dateString:%@  replyString:%@  openString:%@",tid,title,hasImageOrHasAttach,uid,userName,dateString,replyString,openString);
+        //        NSLog(@"tid:%@  title:%@  hasImageOrHasAttach:%@  uid:%@  userName:%@  dateString:%@  replyString:%@  openString:%@",tid,title,hasImageOrHasAttach,uid,userName,dateString,replyString,openString);
         BOOL hasImage=NO;
         BOOL hasAttach=NO;
         if ([hasImageOrHasAttach containsString:@"图片附件"]) {
@@ -207,7 +220,7 @@
                   NSInteger page=1;
                   if (isNeed) {
                       page=[self getPageFullNumber:html];
-//                      NSLog(@"%ld",page);
+                      //                      NSLog(@"%ld",page);
                   }
                   NSArray *threadDetailList=[self getThreadDetailListFromHtml:html];
                   if (threadDetailList==nil) {
@@ -250,7 +263,7 @@
     html=[html stringByReplacingOccurrencesOfString:@"gbk" withString:@"utf-8"];
     NSData *htmlData=[html dataUsingEncoding:NSUTF8StringEncoding];
     TFHpple *htmlParser=[TFHpple hppleWithHTMLData:htmlData];
-
+    
     NSString *threadListXpathQuertString=@"//div[@id='postlist']/div";
     NSArray *threadList=[htmlParser searchWithXPathQuery:threadListXpathQuertString];
     
@@ -260,11 +273,16 @@
         htmlParser=[TFHpple hppleWithHTMLData:htmlData];
         LZThreadDetail *threadDetail=[[LZThreadDetail alloc]init];
         
+        //获取pid
+        NSRegularExpression *pidRegex=[NSRegularExpression regularExpressionWithPattern:@"<div\\sid=\"post_(\\d+)\">" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *resultsPid=[pidRegex matchesInString:[element raw] options:0 range:NSMakeRange(0, [[element raw] length])];
+        threadDetail.pid=[[element raw] substringWithRange:[(NSTextCheckingResult *)resultsPid[0] rangeAtIndex:1]];
+        
         //获取发帖时间
         NSRegularExpression *timeRegex=[NSRegularExpression regularExpressionWithPattern:@"<em\\sid=\"authorposton\\d+\">发表于([^<]*)</em>" options:NSRegularExpressionCaseInsensitive error:nil];
         NSArray *results=[timeRegex matchesInString:[element raw] options:0 range:NSMakeRange(0, [[element raw] length])];
         threadDetail.time=[[element raw] substringWithRange:[(NSTextCheckingResult *)results[0] rangeAtIndex:1]];
-//        NSLog(@"%@",threadDetail.time);
+        //        NSLog(@"%@",threadDetail.time);
         
         //获取用户信息
         NSString *userXpathQuertString=@"//div[@class='postinfo']/a";
@@ -315,16 +333,16 @@
                 NSTextCheckingResult *result=(NSTextCheckingResult *)results[0];
                 threadDetail.quoteString=[NSString stringWithFormat:@"%@\n引用 %@",[quoteString substringWithRange:[result rangeAtIndex:1]],[quoteString substringWithRange:[result rangeAtIndex:2]]];
             }
-            threadDetail.hasQuote=NO;
+            threadDetail.hasQuote=YES;
         }else{
             threadDetail.hasQuote=NO;
         }
         
         
         //帖子内容原始版
-//        NSString *rawContextXpathQuertString=@"//td[@class='t_msgfont']";
-//        NSArray *rawContextArray=[htmlParser searchWithXPathQuery:rawContextXpathQuertString];
-//        threadDetail.rawContext=[(TFHppleElement *)rawContextArray[0] raw];
+        //        NSString *rawContextXpathQuertString=@"//td[@class='t_msgfont']";
+        //        NSArray *rawContextArray=[htmlParser searchWithXPathQuery:rawContextXpathQuertString];
+        //        threadDetail.rawContext=[(TFHppleElement *)rawContextArray[0] raw];
         
         NSMutableArray *contextMutableArray=[[NSMutableArray alloc]init];
         //帖子内容
@@ -334,56 +352,61 @@
         for (TFHppleElement *contextElement in contextArray) {
             //如果既不是回复也不是引用
             if (![[contextElement tagName] isEqualToString:@"strong"]&&![[contextElement objectForKey:@"class"] isEqualToString:@"quote"]&&![[contextElement objectForKey:@"class"]isEqualToString:@"pstatus"]&&![[contextElement tagName]isEqualToString:@"span"]) {
-//                if (![[contextElement tagName]isEqualToString:@"img"]) {
-//                    NSMutableString *textMutableString=[[NSMutableString alloc] init];
-//                    textMutableString=[[contextElement raw] mutableCopy];
-//                    [textMutableString replaceOccurrencesOfString:@"&#13;" withString:@"" options:0 range:NSMakeRange(0, [textMutableString length])];
-//                    [contextString appendString:textMutableString];
-//                }else{
-//                    contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
-//                    [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
-//                    contextString=[[NSMutableString alloc]init];
-//                    NSString *imageURL;
-//                    if ([contextElement objectForKey:@"file"]!=nil) {
-//                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"file"]];
-//                    }else{
-//                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"src"]];
-//                    }
-//                    [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
-////                    NSLog(@"%@",imageURL);
-//                }
-                NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc[\\s\\S]*?file=\"([^\"]*)\"" options:NSRegularExpressionCaseInsensitive error:nil];
-                NSArray *results=[regex matchesInString:[contextElement raw] options:0 range:NSMakeRange(0, [[contextElement raw]length])];
-                
-                if ([results count]==0) {
-                    NSRegularExpression *srcRegex=[NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc=\"([\\s\\S]*?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
-                    NSArray *resultsSrc=[srcRegex matchesInString:[contextElement raw] options:0 range:NSMakeRange(0, [[contextElement raw]length])];
-                    if ([resultsSrc count]==0) {
-                        NSData *htmlDataTemp=[[contextElement raw] dataUsingEncoding:NSUTF8StringEncoding];
-                        TFHpple *htmlParserTemp=[TFHpple hppleWithHTMLData:htmlDataTemp];
-                        NSString *contextXpathQuertStringTemp=@"/descendant::*/text()";
-                        NSArray *allTextResult=[htmlParserTemp searchWithXPathQuery:contextXpathQuertStringTemp];
-                        if ([allTextResult count]!=0) {
-                            [contextString appendString:[(TFHppleElement *)allTextResult[0] raw]];
+                //                if (![[contextElement tagName]isEqualToString:@"img"]) {
+                //                    NSMutableString *textMutableString=[[NSMutableString alloc] init];
+                //                    textMutableString=[[contextElement raw] mutableCopy];
+                //                    [textMutableString replaceOccurrencesOfString:@"&#13;" withString:@"" options:0 range:NSMakeRange(0, [textMutableString length])];
+                //                    [contextString appendString:textMutableString];
+                //                }else{
+                //                    contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
+                //                    [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
+                //                    contextString=[[NSMutableString alloc]init];
+                //                    NSString *imageURL;
+                //                    if ([contextElement objectForKey:@"file"]!=nil) {
+                //                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"file"]];
+                //                    }else{
+                //                        imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[contextElement objectForKey:@"src"]];
+                //                    }
+                //                    [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
+                ////                    NSLog(@"%@",imageURL);
+                //                }
+                if ([contextElement isTextNode]||[[contextElement tagName] isEqualToString:@"a"]) {
+                    [contextString appendString:[contextElement raw]];
+                }else{
+                    
+                    NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc[\\s\\S]*?file=\"([^\"]*)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+                    NSArray *results=[regex matchesInString:[contextElement raw] options:0 range:NSMakeRange(0, [[contextElement raw]length])];
+                    
+                    if ([results count]==0) {
+                        NSRegularExpression *srcRegex=[NSRegularExpression regularExpressionWithPattern:@"<img\\ssrc=\"([\\s\\S]*?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+                        NSArray *resultsSrc=[srcRegex matchesInString:[contextElement raw] options:0 range:NSMakeRange(0, [[contextElement raw]length])];
+                        if ([resultsSrc count]==0) {
+                            NSData *htmlDataTemp=[[contextElement raw] dataUsingEncoding:NSUTF8StringEncoding];
+                            TFHpple *htmlParserTemp=[TFHpple hppleWithHTMLData:htmlDataTemp];
+                            NSString *contextXpathQuertStringTemp=@"/descendant::*/text()";
+                            NSArray *allTextResult=[htmlParserTemp searchWithXPathQuery:contextXpathQuertStringTemp];
+                            if ([allTextResult count]!=0) {
+                                [contextString appendString:[(TFHppleElement *)allTextResult[0] raw]];
+                            }
+                        }else{
+                            contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
+                            [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
+                            contextString=[[NSMutableString alloc]init];
+                            for (NSTextCheckingResult *result in resultsSrc) {
+                                NSString *imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[[contextElement raw] substringWithRange:[result rangeAtIndex:1]]];
+                                [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
+                            }
                         }
+                        
+                        
                     }else{
                         contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
                         [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
                         contextString=[[NSMutableString alloc]init];
-                        for (NSTextCheckingResult *result in resultsSrc) {
+                        for (NSTextCheckingResult *result in results) {
                             NSString *imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[[contextElement raw] substringWithRange:[result rangeAtIndex:1]]];
                             [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
                         }
-                    }
-                    
-                    
-                }else{
-                    contextString=[[NSString removeDuplicatedEnter:contextString] mutableCopy];
-                    [contextMutableArray addObject:@{THREADLISTDETAILSTRING:contextString}];
-                    contextString=[[NSMutableString alloc]init];
-                    for (NSTextCheckingResult *result in results) {
-                        NSString *imageURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[[contextElement raw] substringWithRange:[result rangeAtIndex:1]]];
-                        [contextMutableArray addObject:@{THREADLISTDETAILIMAGE:imageURL}];
                     }
                 }
             }
@@ -415,6 +438,80 @@
     
     
     return threadDetailList;
+}
+
+-(void)sendPostWithTitle:(NSString *)title content:(NSString *)content fid:(NSInteger)fid tid:(NSString *)tid post:(LZPost *)post threadType:(NSInteger)threadType images:(NSArray *)images quoteContent:(NSString *)quoteContent postType:(NSInteger)postType block:(void (^)(BOOL, NSError *))block{
+    NSString *timeStamp=[NSString stringWithFormat:@"%d",(int)[[NSDate date] timeIntervalSince1970]];
+    NSString *path=@"";
+    NSDictionary *params=[[NSDictionary alloc] init];
+    switch (postType) {
+        case POSTTYPEREPLY:
+        {
+            path = [NSString stringWithFormat:@"http://www.hi-pda.com/forum/post.php?action=reply&fid=%ld&tid=%@&extra=&replysubmit=yes",fid,tid];
+            params = @{
+                       @"formhash":[[LZAccount sharedAccount] getFormhash],
+                       @"posttime":timeStamp,
+                       @"wysiwyg":@"1",
+                       @"usesig":@"1",
+                       @"noticeauthor":[NSString stringWithFormat:@"r|%ld|[i]%@[/i]",post.user.uid, post.user.userName],
+                       @"noticetrimstr":[NSString stringWithFormat:@"[b]回复 [url=http://www.hi-pda.com/forum/redirect.php?goto=findpost&pid=%@&ptid=%@]%ld#[/url] [i]%@[/i] [/b]",post.pid, tid, post.floorNumber, post.user.userName],
+                       @"noticeauthormsg":@"",
+                       @"subject":@"",
+                       @"message":[NSString stringWithFormat:@"[b]回复 [url=http://www.hi-pda.com/forum/redirect.php?goto=findpost&pid=%@&ptid=%@]%ld#[/url] [i]%@[/i] [/b] \n    %@", post.pid, tid, post.floorNumber, post.user.userName, content]
+                       };
+            break;
+        }
+        case POSTTYPEQUOTE:
+        {
+            break;
+        }
+        case POSTTYPENEWPOST:
+        {
+            path = [NSString stringWithFormat:@"http://www.hi-pda.com/forum/post.php?action=reply&fid=%ld&tid=%@&extra=&replysubmit=yes",fid,tid];
+            params = @{
+                       @"formhash":[[LZAccount sharedAccount] getFormhash],
+                       @"message":content,
+                       @"noticeauthor":@"",
+                       @"noticeauthormsg":@"",
+                       @"noticetrimstr":@"",
+                       @"posttime":timeStamp,
+                       @"subject":@"",
+                       @"usesig":@"1",
+                       @"wysiwyg":@"1"
+                       };
+            break;
+        }
+        case POSTTYPENEWTHREAD:
+        {
+            path = [NSString stringWithFormat:@"http://www.hi-pda.com/forum/post.php?action=newthread&fid=%ld&extra=&topicsubmit=yes",fid];
+            params = @{
+                       @"formhash":[[LZAccount sharedAccount] getFormhash],
+                       @"posttime":timeStamp,
+                       @"wysiwyg":@"1",
+                       @"usesig":@"1",
+                       @"iconid":@"",
+                       @"subject":title,
+                       @"message":content,
+                       @"typeid":[NSString stringWithFormat:@"%ld",threadType],
+                       @"tags":@"",
+                       @"attention_add":@"1"
+                       };
+            break;
+        }
+        default:
+            break;
+    }
+    [self.manager POST:path
+            parameters:params
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   NSString *responseHtml=[NSString ifTheStringIsNilReturnAEmptyString:[NSString encodingGBKStringToIOSString:responseObject]];
+                   NSLog(@"%@",responseHtml);
+                   block(YES,nil);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   block(NO,error);
+               }];
+    
+    
 }
 
 @end

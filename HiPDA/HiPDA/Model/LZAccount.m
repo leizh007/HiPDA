@@ -179,4 +179,12 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:HIPDAUSERUID];
 }
 
+-(void)setFormhash:(NSString *)formhash{
+    [[NSUserDefaults standardUserDefaults] setObject:formhash forKey:@"formhash"];
+}
+
+-(id)getFormhash{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"formhash"];
+}
+
 @end

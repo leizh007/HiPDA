@@ -19,6 +19,7 @@
 #import "LZPersistenceDataManager.h"
 #import "LZViewThreadDetailViewController.h"
 #import "RTLabel.h"
+#import "LZSendPostViewController.h"
 
 #define SMALLDOTSBUTTONWIDTH 40
 #define INSETBETWEENVIEWELEMENTS 8
@@ -88,7 +89,10 @@
     BBBadgeBarButtonItem *barButton=[[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
     barButton.badgeValue=@"0";
     self.navigationItem.leftBarButtonItem=barButton;
-
+    UIBarButtonItem *buttonItem=[UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"reply"] target:self action:@selector(replyButtonPressed:)];
+    self.navigationItem.rightBarButtonItem=buttonItem;
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -130,6 +134,8 @@
             [self.tableView reloadData];
         }
     }
+    self.fid=fid;
+    self.page=page;
     [[LZNetworkHelper sharedLZNetworkHelper] loadForumFid:self.fid page:self.page success:^(NSArray *threads) {
         if (self.page==1) {
             self.threads=[threads mutableCopy];
@@ -158,6 +164,11 @@
  */
 -(void)getNotifications:(NSNotification *)notification{
     if ([notification.name isEqualToString:LOGINCOMPLETENOTIFICATION]) {
+        NSMutableArray *threadsCache=[[[LZCache globalCache]loadForumCacheFid:self.fid page:self.page] mutableCopy];
+        if (threadsCache!=nil) {
+            self.threads=threadsCache;
+            [self.tableView reloadData];
+        }
         [self loadForumFid:self.fid page:self.page forced:NO];
     }
 }
@@ -194,6 +205,8 @@
     [tableView reloadData];
     LZViewThreadDetailViewController *viewThreadDetailViewController=[[LZViewThreadDetailViewController alloc]init];
     viewThreadDetailViewController.tid=((LZThread *)self.threads[indexPath.row]).tid;
+    viewThreadDetailViewController.fid=self.fid;
+    viewThreadDetailViewController.user=((LZThread *)self.threads[indexPath.row]).user;
     viewThreadDetailViewController.threadTitle=((LZThread *)self.threads[indexPath.row]).title;
     [self.navigationController pushViewController:viewThreadDetailViewController animated:YES];
 }
@@ -266,6 +279,39 @@
     return footerView;
 }
 
+#pragma mark - replyButton
+
+-(void)replyButtonPressed:(id)sender{
+    LZSendPostViewController *sendPostViewController=[[LZSendPostViewController alloc]init];
+    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController: sendPostViewController];
+    NSString *title=[[NSString alloc]init];
+    switch (self.fid) {
+        case DISCOVERYSECTIONFID:
+            title=@"Discovery发表新帖";
+            break;
+        case BUYANDSELLSECTIONFID:
+            title=@"Buy & Sell发表新帖";
+            break;
+        case EINKSECTIONFID:
+            title=@"E-INK发表新帖";
+            break;
+        case GEEKTALKSSECTIONFID:
+            title=@"Geek Talks发表新帖";
+            break;
+        case MACHINESECTIONFID:
+            title=@"疑似机器人发表新帖";
+            break;
+        default:
+            break;
+    }
+    sendPostViewController.navTitle=title;
+    sendPostViewController.postType=POSTTYPENEWTHREAD;
+    sendPostViewController.fid=self.fid;
+    nav.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+    [self.revealViewController presentViewController:nav animated:YES completion:^{
+        
+    }];
+}
 
 
 @end

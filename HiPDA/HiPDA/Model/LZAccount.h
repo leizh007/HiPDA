@@ -22,5 +22,7 @@
 -(void)checkAccountIfNoValidThenLogin:(UIViewController *)viewController;
 -(void)setAccountUid:(NSString *)uid;
 -(id)getAccountUid;
+-(void)setFormhash:(NSString*)formhash;
+-(id)getFormhash;
 
 @end

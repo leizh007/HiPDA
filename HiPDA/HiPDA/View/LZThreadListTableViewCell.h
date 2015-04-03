@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LZThreadDetail.h"
-
+#import "RTLabel.h"
 
 @interface LZThreadListTableViewCell : UITableViewCell
 
--(void)configure:(LZThreadDetail *)threadDetail;
+-(void)configure:(LZThreadDetail *)threadDetail parent:(id)parent;
 
 @end

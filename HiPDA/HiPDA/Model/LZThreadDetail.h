@@ -25,4 +25,6 @@
 
 @property (strong, nonatomic) NSString *time;
 
+@property (strong, nonatomic) NSString *pid;
+
 @end

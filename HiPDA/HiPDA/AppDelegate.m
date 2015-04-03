@@ -53,6 +53,7 @@
     self.window.rootViewController=self.viewController;
     [self.window makeKeyAndVisible];
     self.viewController.delegate=self.userInfoControlCenterViewController;
+    self.userInfoControlCenterViewController.mainThreadViewController=self.mainThreadViewController;
     
     [[NSNotificationCenter defaultCenter] addObserver:self.userInfoControlCenterViewController
                                              selector:@selector(loginComplete:)

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
+#import "LZMainThreadViewController.h"
 
-@interface LZUserInfoControlCenterViewController : UIViewController<SWRevealViewControllerDelegate>
+@interface LZUserInfoControlCenterViewController : UIViewController<SWRevealViewControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 -(void)loginComplete:(id)sender;
+@property (weak, nonatomic) LZMainThreadViewController *mainThreadViewController;
 
 @end

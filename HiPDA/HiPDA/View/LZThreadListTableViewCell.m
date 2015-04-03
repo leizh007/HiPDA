@@ -8,7 +8,7 @@
 
 #import "LZThreadListTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "RTLabel.h"
+
 
 #define INSETBETWEENVIEWELEMENTS 8
 #define AVATARIMAGEVIEWSIZEWIDTHANDHEIGHT 40
@@ -67,11 +67,17 @@
         self.headLabel.backgroundColor=[UIColor colorWithRed:0.899 green:0.899 blue:0.899 alpha:1];
         
         [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        //设置底部分割线
+        self.footLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width,HEADANDFOOTLABELHEIGHT)];
+        self.footLabel.backgroundColor=[UIColor colorWithRed:0.899 green:0.899 blue:0.899 alpha:1];
+        [self.contentView addSubview:self.footLabel];
+        self.footLabel.translatesAutoresizingMaskIntoConstraints=NO;
     }
     return self;
 }
 
--(void)configure:(LZThreadDetail *)threadDetail{
+-(void)configure:(LZThreadDetail *)threadDetail parent:(id)parent{
     [self.avatarImageView sd_setImageWithURL:threadDetail.user.avatarImageUrl];
     self.userNameLabel.text=threadDetail.user.userName;
     self.timeLabel.text=threadDetail.time;
@@ -121,9 +127,59 @@
     [self.contentView addConstraint:timelabelY];
     
     UIView *topView=self.avatarImageView;
+    if (threadDetail.hasReply) {
+        RTLabel *rtlabel=[[RTLabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width-AVATARIMAGEVIEWSIZEWIDTHANDHEIGHT-3*INSETBETWEENVIEWELEMENTS, 99999)];
+        rtlabel.delegate=parent;
+        [rtlabel setText:threadDetail.replyString];
+        rtlabel.textColor=[UIColor colorWithRed:0.628 green:0.625 blue:0.646 alpha:1];;
+        rtlabel.font=[UIFont fontWithName:@"HelveticaNeue" size:16];
+        CGSize optSize=[rtlabel optimumSize];
+        rtlabel.frame=CGRectMake(0, 0, optSize.width, optSize.height);
+        [self.viewArray addObject:rtlabel];
+        rtlabel.translatesAutoresizingMaskIntoConstraints=NO;
+        [self.contentView addSubview:rtlabel];
+        
+        [rtlabel removeConstraints:rtlabel.constraints];
+        NSLayoutConstraint *rtlabelX=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarImageView attribute:NSLayoutAttributeRight multiplier:1.0 constant:INSETBETWEENVIEWELEMENTS];
+        [self.contentView addConstraint:rtlabelX];
+        NSLayoutConstraint *rtlabelY=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:topView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:INSETBETWEENVIEWELEMENTS];
+        [self.contentView addConstraint:rtlabelY];
+        NSLayoutConstraint *rtlabelW=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.avatarImageView attribute:NSLayoutAttributeWidth multiplier:0.0 constant:optSize.width];
+        [self.contentView addConstraint:rtlabelW];
+        NSLayoutConstraint *rtlabelH=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.avatarImageView attribute:NSLayoutAttributeHeight multiplier:0.0 constant:optSize.height];
+        [self.contentView addConstraint:rtlabelH];
+        
+        topView=rtlabel;
+    }
+    if (threadDetail.hasQuote) {
+        RTLabel *rtlabel=[[RTLabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width-AVATARIMAGEVIEWSIZEWIDTHANDHEIGHT-3*INSETBETWEENVIEWELEMENTS, 99999)];
+        rtlabel.delegate=parent;
+        [rtlabel setText:threadDetail.quoteString];
+        rtlabel.textColor=[UIColor colorWithRed:0.628 green:0.625 blue:0.646 alpha:1];;
+        rtlabel.font=[UIFont fontWithName:@"HelveticaNeue" size:16];
+        CGSize optSize=[rtlabel optimumSize];
+        rtlabel.frame=CGRectMake(0, 0, optSize.width, optSize.height);
+        [self.viewArray addObject:rtlabel];
+        rtlabel.translatesAutoresizingMaskIntoConstraints=NO;
+        [self.contentView addSubview:rtlabel];
+        
+        [rtlabel removeConstraints:rtlabel.constraints];
+        NSLayoutConstraint *rtlabelX=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarImageView attribute:NSLayoutAttributeRight multiplier:1.0 constant:INSETBETWEENVIEWELEMENTS];
+        [self.contentView addConstraint:rtlabelX];
+        NSLayoutConstraint *rtlabelY=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:topView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:INSETBETWEENVIEWELEMENTS];
+        [self.contentView addConstraint:rtlabelY];
+        NSLayoutConstraint *rtlabelW=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.avatarImageView attribute:NSLayoutAttributeWidth multiplier:0.0 constant:optSize.width];
+        [self.contentView addConstraint:rtlabelW];
+        NSLayoutConstraint *rtlabelH=[NSLayoutConstraint constraintWithItem:rtlabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.avatarImageView attribute:NSLayoutAttributeHeight multiplier:0.0 constant:optSize.height];
+        [self.contentView addConstraint:rtlabelH];
+        
+        topView=rtlabel;
+    }
+    
     for (NSDictionary *dic in threadDetail.contextArray) {
         if ([dic objectForKey:THREADLISTDETAILSTRING]!=nil) {
             RTLabel *rtlabel=[[RTLabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width-AVATARIMAGEVIEWSIZEWIDTHANDHEIGHT-3*INSETBETWEENVIEWELEMENTS, 99999)];
+            rtlabel.delegate=parent;
             [rtlabel setText:[dic objectForKey:THREADLISTDETAILSTRING]];
             rtlabel.textColor=MAINCONTEXTTEXTCOLOR;
             rtlabel.font=[UIFont fontWithName:@"HelveticaNeue" size:16];
@@ -158,16 +214,25 @@
             [self.contentView addConstraint:imgY];
             
             
+            NSLayoutConstraint *imgW=[NSLayoutConstraint constraintWithItem:imgView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:0.0 constant:10.0];
+            [self.contentView addConstraint:imgW];
+            NSLayoutConstraint *imgH=[NSLayoutConstraint constraintWithItem:imgView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:0.0 constant:10.0];
+            [self.contentView addConstraint:imgH];
+            imgView.backgroundColor=[UIColor blackColor];
+            
             __weak typeof(self) weakSelf = self;
             __weak typeof(UIImageView *) weakImgView=imgView;
             
             [imgView sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:THREADLISTDETAILIMAGE]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 
+                [weakSelf.contentView removeConstraint:imgW];
+                [weakSelf.contentView removeConstraint:imgH];
+                weakImgView.backgroundColor=[UIColor whiteColor];
+                
                 CGFloat width=image.size.width>maxWidth?maxWidth:image.size.width;
                 NSLayoutConstraint *imgW1=[NSLayoutConstraint constraintWithItem:weakImgView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:0.0 constant:width];
                 [weakSelf.contentView addConstraint:imgW1];
                 NSLayoutConstraint *imgH1=[NSLayoutConstraint constraintWithItem:weakImgView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:0.0 constant:width*image.size.height/(image.size.width+0.00001)];
-                
                 [weakSelf.contentView addConstraint:imgH1];
                 
                 [weakSelf needsUpdateConstraints];
@@ -193,7 +258,36 @@
             
         }
     }
-    NSLayoutConstraint *bottom=[NSLayoutConstraint constraintWithItem:topView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-INSETBETWEENVIEWELEMENTS];
+    CGFloat bottomDistance=INSETBETWEENVIEWELEMENTS;
+    
+        
+    NSLayoutConstraint *footX=[NSLayoutConstraint constraintWithItem:self.footLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    [self.contentView addConstraint:footX];
+    NSLayoutConstraint *footY=[NSLayoutConstraint constraintWithItem:self.footLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:topView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:INSETBETWEENVIEWELEMENTS];
+    [self.contentView addConstraint:footY];
+    NSLayoutConstraint *footW=[NSLayoutConstraint constraintWithItem:self.footLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
+    [self.contentView addConstraint:footW];
+    
+    CGFloat footHeight=HEADANDFOOTLABELHEIGHT;
+    if (threadDetail.postnum==0) {
+        footHeight=2*footHeight;
+    }
+    NSLayoutConstraint *footH=[NSLayoutConstraint constraintWithItem:self.footLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0.0 constant:footHeight];
+    [self.contentView addConstraint:footH];
+    
+    
+    topView=self.footLabel;
+    bottomDistance=0.0;
+    
+    if (threadDetail.postnum!=0) {
+        self.headLabel.hidden=YES;
+    }else{
+        self.headLabel.hidden=NO;
+    }
+    
+
+    
+    NSLayoutConstraint *bottom=[NSLayoutConstraint constraintWithItem:topView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-bottomDistance];
     [self.contentView addConstraint:bottom];
 }
 

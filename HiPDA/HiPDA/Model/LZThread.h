@@ -25,7 +25,6 @@
 @property (nonatomic, assign) BOOL      hasImage;
 @property (nonatomic, assign) BOOL      hasAttach;
 
-
 -(id)initWithAttributes:(NSDictionary *)attributes;
 
 @end
