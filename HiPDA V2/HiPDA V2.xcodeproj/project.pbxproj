@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05AB1E711AEA928700D139A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E701AEA928700D139A1 /* main.m */; };
+		05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E731AEA928700D139A1 /* AppDelegate.m */; };
+		05AB1E771AEA928700D139A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E761AEA928700D139A1 /* ViewController.m */; };
+		05AB1E7A1AEA928700D139A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E781AEA928700D139A1 /* Main.storyboard */; };
+		05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E7B1AEA928700D139A1 /* Images.xcassets */; };
+		05AB1E7F1AEA928700D139A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E7D1AEA928700D139A1 /* LaunchScreen.xib */; };
+		05AB1E8B1AEA928700D139A1 /* HiPDA_V2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E8A1AEA928700D139A1 /* HiPDA_V2Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05AB1E851AEA928700D139A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AB1E631AEA928700D139A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05AB1E6A1AEA928700D139A1;
+			remoteInfo = "HiPDA V2";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05AB1E6B1AEA928700D139A1 /* HiPDA V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiPDA V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AB1E6F1AEA928700D139A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05AB1E701AEA928700D139A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05AB1E721AEA928700D139A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		05AB1E731AEA928700D139A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		05AB1E751AEA928700D139A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		05AB1E761AEA928700D139A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		05AB1E791AEA928700D139A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		05AB1E7B1AEA928700D139A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		05AB1E7E1AEA928700D139A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		05AB1E841AEA928700D139A1 /* HiPDA V2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HiPDA V2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AB1E891AEA928700D139A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05AB1E8A1AEA928700D139A1 /* HiPDA_V2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HiPDA_V2Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05AB1E681AEA928700D139A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AB1E811AEA928700D139A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05AB1E621AEA928700D139A1 = {
+			isa = PBXGroup;
+			children = (
+				05AB1E6D1AEA928700D139A1 /* HiPDA V2 */,
+				05AB1E871AEA928700D139A1 /* HiPDA V2Tests */,
+				05AB1E6C1AEA928700D139A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05AB1E6C1AEA928700D139A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05AB1E6B1AEA928700D139A1 /* HiPDA V2.app */,
+				05AB1E841AEA928700D139A1 /* HiPDA V2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05AB1E6D1AEA928700D139A1 /* HiPDA V2 */ = {
+			isa = PBXGroup;
+			children = (
+				05AB1E721AEA928700D139A1 /* AppDelegate.h */,
+				05AB1E731AEA928700D139A1 /* AppDelegate.m */,
+				05AB1E751AEA928700D139A1 /* ViewController.h */,
+				05AB1E761AEA928700D139A1 /* ViewController.m */,
+				05AB1E781AEA928700D139A1 /* Main.storyboard */,
+				05AB1E7B1AEA928700D139A1 /* Images.xcassets */,
+				05AB1E7D1AEA928700D139A1 /* LaunchScreen.xib */,
+				05AB1E6E1AEA928700D139A1 /* Supporting Files */,
+			);
+			path = "HiPDA V2";
+			sourceTree = "<group>";
+		};
+		05AB1E6E1AEA928700D139A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05AB1E6F1AEA928700D139A1 /* Info.plist */,
+				05AB1E701AEA928700D139A1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05AB1E871AEA928700D139A1 /* HiPDA V2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				05AB1E8A1AEA928700D139A1 /* HiPDA_V2Tests.m */,
+				05AB1E881AEA928700D139A1 /* Supporting Files */,
+			);
+			path = "HiPDA V2Tests";
+			sourceTree = "<group>";
+		};
+		05AB1E881AEA928700D139A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05AB1E891AEA928700D139A1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05AB1E6A1AEA928700D139A1 /* HiPDA V2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AB1E8E1AEA928700D139A1 /* Build configuration list for PBXNativeTarget "HiPDA V2" */;
+			buildPhases = (
+				05AB1E671AEA928700D139A1 /* Sources */,
+				05AB1E681AEA928700D139A1 /* Frameworks */,
+				05AB1E691AEA928700D139A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HiPDA V2";
+			productName = "HiPDA V2";
+			productReference = 05AB1E6B1AEA928700D139A1 /* HiPDA V2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05AB1E831AEA928700D139A1 /* HiPDA V2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AB1E911AEA928700D139A1 /* Build configuration list for PBXNativeTarget "HiPDA V2Tests" */;
+			buildPhases = (
+				05AB1E801AEA928700D139A1 /* Sources */,
+				05AB1E811AEA928700D139A1 /* Frameworks */,
+				05AB1E821AEA928700D139A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05AB1E861AEA928700D139A1 /* PBXTargetDependency */,
+			);
+			name = "HiPDA V2Tests";
+			productName = "HiPDA V2Tests";
+			productReference = 05AB1E841AEA928700D139A1 /* HiPDA V2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05AB1E631AEA928700D139A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = leizh007;
+				TargetAttributes = {
+					05AB1E6A1AEA928700D139A1 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					05AB1E831AEA928700D139A1 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 05AB1E6A1AEA928700D139A1;
+					};
+				};
+			};
+			buildConfigurationList = 05AB1E661AEA928700D139A1 /* Build configuration list for PBXProject "HiPDA V2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05AB1E621AEA928700D139A1;
+			productRefGroup = 05AB1E6C1AEA928700D139A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05AB1E6A1AEA928700D139A1 /* HiPDA V2 */,
+				05AB1E831AEA928700D139A1 /* HiPDA V2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05AB1E691AEA928700D139A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AB1E7A1AEA928700D139A1 /* Main.storyboard in Resources */,
+				05AB1E7F1AEA928700D139A1 /* LaunchScreen.xib in Resources */,
+				05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AB1E821AEA928700D139A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05AB1E671AEA928700D139A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AB1E771AEA928700D139A1 /* ViewController.m in Sources */,
+				05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */,
+				05AB1E711AEA928700D139A1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AB1E801AEA928700D139A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AB1E8B1AEA928700D139A1 /* HiPDA_V2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05AB1E861AEA928700D139A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05AB1E6A1AEA928700D139A1 /* HiPDA V2 */;
+			targetProxy = 05AB1E851AEA928700D139A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05AB1E781AEA928700D139A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AB1E791AEA928700D139A1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		05AB1E7D1AEA928700D139A1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AB1E7E1AEA928700D139A1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05AB1E8C1AEA928700D139A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		05AB1E8D1AEA928700D139A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05AB1E8F1AEA928700D139A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "HiPDA V2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05AB1E901AEA928700D139A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "HiPDA V2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		05AB1E921AEA928700D139A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HiPDA V2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiPDA V2.app/HiPDA V2";
+			};
+			name = Debug;
+		};
+		05AB1E931AEA928700D139A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HiPDA V2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiPDA V2.app/HiPDA V2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05AB1E661AEA928700D139A1 /* Build configuration list for PBXProject "HiPDA V2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AB1E8C1AEA928700D139A1 /* Debug */,
+				05AB1E8D1AEA928700D139A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AB1E8E1AEA928700D139A1 /* Build configuration list for PBXNativeTarget "HiPDA V2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AB1E8F1AEA928700D139A1 /* Debug */,
+				05AB1E901AEA928700D139A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		05AB1E911AEA928700D139A1 /* Build configuration list for PBXNativeTarget "HiPDA V2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AB1E921AEA928700D139A1 /* Debug */,
+				05AB1E931AEA928700D139A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05AB1E631AEA928700D139A1 /* Project object */;
+}
