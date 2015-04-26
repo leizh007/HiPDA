@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>FB222FEF-E5DE-4A80-8862-38ACB79E8122</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>HiPDA V2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A933AFDB2AABE55AE5384030EF386B8D96D26825</key>
 		<string>https://github.com/leizh007/HiPDA.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HiPDA V2/HiPDA V2.xcodeproj/project.xcworkspace</string>
+	<string>HiPDA V2/HiPDA V2.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A933AFDB2AABE55AE5384030EF386B8D96D26825</key>

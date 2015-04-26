@@ -1,0 +1,11 @@
+inhibit_all_warnings!
+pod 'SSKeychain', '~> 1.2.2'
+pod 'AFNetworking', '~> 2.5.0'
+pod 'MTLog', '~> 0.6.1'
+pod 'RETableViewManager', '~> 1.5.14'
+pod 'SWRevealViewController', '~> 2.3.0'
+pod 'SVProgressHUD', '~> 1.1.2'
+pod 'SDWebImage', '~> 3.7.1'
+pod 'SDURLCache', '~> 1.3'
+pod 'BBBadgeBarButtonItem', '~> 1.1'
+pod 'MJRefresh', '~> 1.4.5'

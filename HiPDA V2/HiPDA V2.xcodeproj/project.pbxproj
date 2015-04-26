@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */; };
+		059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */; };
+		059C6FD11AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD01AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m */; };
+		059C6FD41AEB3C9400E3EBA0 /* LZHMemCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */; };
+		059C6FDA1AEB4C7A00E3EBA0 /* LZHThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */; };
+		059C6FDD1AEB4E1400E3EBA0 /* LZHSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FDC1AEB4E1400E3EBA0 /* LZHSetting.m */; };
+		059C6FE01AEB4FD300E3EBA0 /* LZHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */; };
+		059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE21AEB658300E3EBA0 /* LZHShowMessage.m */; };
+		059C6FE61AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE51AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m */; };
+		059C6FE91AEBB5B300E3EBA0 /* LZNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE81AEBB5B300E3EBA0 /* LZNotice.m */; };
+		059C70031AEBE08100E3EBA0 /* LZHCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70021AEBE08100E3EBA0 /* LZHCookieManager.m */; };
+		059C70061AECB15500E3EBA0 /* LZHThreadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70051AECB15500E3EBA0 /* LZHThreadTableViewCell.m */; };
+		059C70091AECB52600E3EBA0 /* LZHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70081AECB52600E3EBA0 /* LZHUser.m */; };
+		059C700C1AECB97900E3EBA0 /* LZHBlackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C700B1AECB97900E3EBA0 /* LZHBlackList.m */; };
+		059C700F1AECB99200E3EBA0 /* LZHReadList.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C700E1AECB99200E3EBA0 /* LZHReadList.m */; };
+		059C70121AECBEE200E3EBA0 /* LZHThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70111AECBEE200E3EBA0 /* LZHThread.m */; };
 		05AB1E711AEA928700D139A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E701AEA928700D139A1 /* main.m */; };
 		05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E731AEA928700D139A1 /* AppDelegate.m */; };
-		05AB1E771AEA928700D139A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E761AEA928700D139A1 /* ViewController.m */; };
-		05AB1E7A1AEA928700D139A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E781AEA928700D139A1 /* Main.storyboard */; };
 		05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E7B1AEA928700D139A1 /* Images.xcassets */; };
 		05AB1E7F1AEA928700D139A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E7D1AEA928700D139A1 /* LaunchScreen.xib */; };
 		05AB1E8B1AEA928700D139A1 /* HiPDA_V2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E8A1AEA928700D139A1 /* HiPDA_V2Tests.m */; };
+		05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E991AEA93FA00D139A1 /* LZHAccount.m */; };
+		564F40B18AF81CA936455DAE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3204824E7083C9E38B376889 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +43,53 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		059C6FC91AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHHTTPRequestOperationManager.h; path = Helper/LZHHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHHTTPRequestOperationManager.m; path = Helper/LZHHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		059C6FCC1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHNetworkFetcher.h; path = Helper/LZHNetworkFetcher.h; sourceTree = "<group>"; };
+		059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHNetworkFetcher.m; path = Helper/LZHNetworkFetcher.m; sourceTree = "<group>"; };
+		059C6FCF1AEB35DD00E3EBA0 /* NSString+LZHHIPDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+LZHHIPDA.h"; path = "Helper/NSString+LZHHIPDA.h"; sourceTree = "<group>"; };
+		059C6FD01AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+LZHHIPDA.m"; path = "Helper/NSString+LZHHIPDA.m"; sourceTree = "<group>"; };
+		059C6FD21AEB3C9400E3EBA0 /* LZHMemCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMemCPViewController.h; path = Controllers/LZHMemCPViewController.h; sourceTree = "<group>"; };
+		059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMemCPViewController.m; path = Controllers/LZHMemCPViewController.m; sourceTree = "<group>"; };
+		059C6FD81AEB4C7A00E3EBA0 /* LZHThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadViewController.h; path = Controllers/LZHThreadViewController.h; sourceTree = "<group>"; };
+		059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThreadViewController.m; path = Controllers/LZHThreadViewController.m; sourceTree = "<group>"; };
+		059C6FDB1AEB4E1400E3EBA0 /* LZHSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHSetting.h; path = Controllers/LZHSetting.h; sourceTree = "<group>"; };
+		059C6FDC1AEB4E1400E3EBA0 /* LZHSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHSetting.m; path = Controllers/LZHSetting.m; sourceTree = "<group>"; };
+		059C6FDE1AEB4FD300E3EBA0 /* LZHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHLoginViewController.h; path = Controllers/LZHLoginViewController.h; sourceTree = "<group>"; };
+		059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHLoginViewController.m; path = Controllers/LZHLoginViewController.m; sourceTree = "<group>"; };
+		059C6FE11AEB658300E3EBA0 /* LZHShowMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHShowMessage.h; path = Helper/LZHShowMessage.h; sourceTree = "<group>"; };
+		059C6FE21AEB658300E3EBA0 /* LZHShowMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHShowMessage.m; path = Helper/LZHShowMessage.m; sourceTree = "<group>"; };
+		059C6FE41AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+ImageItem.h"; path = "Helper/UIBarButtonItem+ImageItem.h"; sourceTree = "<group>"; };
+		059C6FE51AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+ImageItem.m"; path = "Helper/UIBarButtonItem+ImageItem.m"; sourceTree = "<group>"; };
+		059C6FE71AEBB5B300E3EBA0 /* LZNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZNotice.h; path = Models/LZNotice.h; sourceTree = "<group>"; };
+		059C6FE81AEBB5B300E3EBA0 /* LZNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZNotice.m; path = Models/LZNotice.m; sourceTree = "<group>"; };
+		059C70011AEBE08100E3EBA0 /* LZHCookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHCookieManager.h; path = Helper/LZHCookieManager.h; sourceTree = "<group>"; };
+		059C70021AEBE08100E3EBA0 /* LZHCookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHCookieManager.m; path = Helper/LZHCookieManager.m; sourceTree = "<group>"; };
+		059C70041AECB15500E3EBA0 /* LZHThreadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadTableViewCell.h; path = Views/LZHThreadTableViewCell.h; sourceTree = "<group>"; };
+		059C70051AECB15500E3EBA0 /* LZHThreadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThreadTableViewCell.m; path = Views/LZHThreadTableViewCell.m; sourceTree = "<group>"; };
+		059C70071AECB52600E3EBA0 /* LZHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHUser.h; path = Models/LZHUser.h; sourceTree = "<group>"; };
+		059C70081AECB52600E3EBA0 /* LZHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHUser.m; path = Models/LZHUser.m; sourceTree = "<group>"; };
+		059C700A1AECB97900E3EBA0 /* LZHBlackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHBlackList.h; path = Models/LZHBlackList.h; sourceTree = "<group>"; };
+		059C700B1AECB97900E3EBA0 /* LZHBlackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHBlackList.m; path = Models/LZHBlackList.m; sourceTree = "<group>"; };
+		059C700D1AECB99200E3EBA0 /* LZHReadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHReadList.h; path = Models/LZHReadList.h; sourceTree = "<group>"; };
+		059C700E1AECB99200E3EBA0 /* LZHReadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHReadList.m; path = Models/LZHReadList.m; sourceTree = "<group>"; };
+		059C70101AECBEE200E3EBA0 /* LZHThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThread.h; path = Models/LZHThread.h; sourceTree = "<group>"; };
+		059C70111AECBEE200E3EBA0 /* LZHThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThread.m; path = Models/LZHThread.m; sourceTree = "<group>"; };
 		05AB1E6B1AEA928700D139A1 /* HiPDA V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiPDA V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AB1E6F1AEA928700D139A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AB1E701AEA928700D139A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05AB1E721AEA928700D139A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05AB1E731AEA928700D139A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05AB1E751AEA928700D139A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		05AB1E761AEA928700D139A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		05AB1E791AEA928700D139A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05AB1E7B1AEA928700D139A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05AB1E7E1AEA928700D139A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		05AB1E841AEA928700D139A1 /* HiPDA V2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HiPDA V2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AB1E891AEA928700D139A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AB1E8A1AEA928700D139A1 /* HiPDA_V2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HiPDA_V2Tests.m; sourceTree = "<group>"; };
+		05AB1E981AEA93FA00D139A1 /* LZHAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHAccount.h; path = Models/LZHAccount.h; sourceTree = "<group>"; };
+		05AB1E991AEA93FA00D139A1 /* LZHAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHAccount.m; path = Models/LZHAccount.m; sourceTree = "<group>"; };
+		086E26437F1D9A4204BD3A65 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3204824E7083C9E38B376889 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52930F4520ED541CFB3FED16 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564F40B18AF81CA936455DAE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +117,8 @@
 				05AB1E6D1AEA928700D139A1 /* HiPDA V2 */,
 				05AB1E871AEA928700D139A1 /* HiPDA V2Tests */,
 				05AB1E6C1AEA928700D139A1 /* Products */,
+				9E75B5391FE64A29E515FB0A /* Pods */,
+				B9B19950310AB78A75B2A88C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +134,12 @@
 		05AB1E6D1AEA928700D139A1 /* HiPDA V2 */ = {
 			isa = PBXGroup;
 			children = (
+				05AB1E971AEA93E100D139A1 /* Helper */,
+				05AB1E961AEA93DC00D139A1 /* Models */,
+				05AB1E951AEA93D700D139A1 /* Views */,
+				05AB1E941AEA93CE00D139A1 /* Controllers */,
 				05AB1E721AEA928700D139A1 /* AppDelegate.h */,
 				05AB1E731AEA928700D139A1 /* AppDelegate.m */,
-				05AB1E751AEA928700D139A1 /* ViewController.h */,
-				05AB1E761AEA928700D139A1 /* ViewController.m */,
-				05AB1E781AEA928700D139A1 /* Main.storyboard */,
 				05AB1E7B1AEA928700D139A1 /* Images.xcassets */,
 				05AB1E7D1AEA928700D139A1 /* LaunchScreen.xib */,
 				05AB1E6E1AEA928700D139A1 /* Supporting Files */,
@@ -119,6 +173,85 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		05AB1E941AEA93CE00D139A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				059C6FD21AEB3C9400E3EBA0 /* LZHMemCPViewController.h */,
+				059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */,
+				059C6FD81AEB4C7A00E3EBA0 /* LZHThreadViewController.h */,
+				059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */,
+				059C6FDE1AEB4FD300E3EBA0 /* LZHLoginViewController.h */,
+				059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		05AB1E951AEA93D700D139A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				059C70041AECB15500E3EBA0 /* LZHThreadTableViewCell.h */,
+				059C70051AECB15500E3EBA0 /* LZHThreadTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		05AB1E961AEA93DC00D139A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05AB1E981AEA93FA00D139A1 /* LZHAccount.h */,
+				05AB1E991AEA93FA00D139A1 /* LZHAccount.m */,
+				059C6FDB1AEB4E1400E3EBA0 /* LZHSetting.h */,
+				059C6FDC1AEB4E1400E3EBA0 /* LZHSetting.m */,
+				059C6FE71AEBB5B300E3EBA0 /* LZNotice.h */,
+				059C6FE81AEBB5B300E3EBA0 /* LZNotice.m */,
+				059C70071AECB52600E3EBA0 /* LZHUser.h */,
+				059C70081AECB52600E3EBA0 /* LZHUser.m */,
+				059C700A1AECB97900E3EBA0 /* LZHBlackList.h */,
+				059C700B1AECB97900E3EBA0 /* LZHBlackList.m */,
+				059C700D1AECB99200E3EBA0 /* LZHReadList.h */,
+				059C700E1AECB99200E3EBA0 /* LZHReadList.m */,
+				059C70101AECBEE200E3EBA0 /* LZHThread.h */,
+				059C70111AECBEE200E3EBA0 /* LZHThread.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		05AB1E971AEA93E100D139A1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				059C6FE41AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.h */,
+				059C6FE51AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m */,
+				059C6FC91AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.h */,
+				059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */,
+				059C6FCC1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.h */,
+				059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */,
+				059C6FCF1AEB35DD00E3EBA0 /* NSString+LZHHIPDA.h */,
+				059C6FD01AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m */,
+				059C6FE11AEB658300E3EBA0 /* LZHShowMessage.h */,
+				059C6FE21AEB658300E3EBA0 /* LZHShowMessage.m */,
+				059C70011AEBE08100E3EBA0 /* LZHCookieManager.h */,
+				059C70021AEBE08100E3EBA0 /* LZHCookieManager.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		9E75B5391FE64A29E515FB0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				086E26437F1D9A4204BD3A65 /* Pods.debug.xcconfig */,
+				52930F4520ED541CFB3FED16 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9B19950310AB78A75B2A88C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3204824E7083C9E38B376889 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +259,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05AB1E8E1AEA928700D139A1 /* Build configuration list for PBXNativeTarget "HiPDA V2" */;
 			buildPhases = (
+				17320724EF68742EFEED607D /* Check Pods Manifest.lock */,
 				05AB1E671AEA928700D139A1 /* Sources */,
 				05AB1E681AEA928700D139A1 /* Frameworks */,
 				05AB1E691AEA928700D139A1 /* Resources */,
+				FE5A53F366488788D0F9E57C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,7 +334,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05AB1E7A1AEA928700D139A1 /* Main.storyboard in Resources */,
 				05AB1E7F1AEA928700D139A1 /* LaunchScreen.xib in Resources */,
 				05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */,
 			);
@@ -214,14 +348,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17320724EF68742EFEED607D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE5A53F366488788D0F9E57C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05AB1E671AEA928700D139A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05AB1E771AEA928700D139A1 /* ViewController.m in Sources */,
+				059C70061AECB15500E3EBA0 /* LZHThreadTableViewCell.m in Sources */,
+				059C70091AECB52600E3EBA0 /* LZHUser.m in Sources */,
+				059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */,
+				059C6FDA1AEB4C7A00E3EBA0 /* LZHThreadViewController.m in Sources */,
+				059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */,
 				05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */,
+				05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */,
+				059C6FDD1AEB4E1400E3EBA0 /* LZHSetting.m in Sources */,
+				059C70031AEBE08100E3EBA0 /* LZHCookieManager.m in Sources */,
+				059C6FE01AEB4FD300E3EBA0 /* LZHLoginViewController.m in Sources */,
+				059C70121AECBEE200E3EBA0 /* LZHThread.m in Sources */,
+				059C700F1AECB99200E3EBA0 /* LZHReadList.m in Sources */,
+				059C6FD11AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m in Sources */,
 				05AB1E711AEA928700D139A1 /* main.m in Sources */,
+				059C6FE61AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m in Sources */,
+				059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */,
+				059C6FE91AEBB5B300E3EBA0 /* LZNotice.m in Sources */,
+				059C700C1AECB97900E3EBA0 /* LZHBlackList.m in Sources */,
+				059C6FD41AEB3C9400E3EBA0 /* LZHMemCPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +427,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05AB1E781AEA928700D139A1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05AB1E791AEA928700D139A1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		05AB1E7D1AEA928700D139A1 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,9 +520,11 @@
 		};
 		05AB1E8F1AEA928700D139A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 086E26437F1D9A4204BD3A65 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "HiPDA V2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,9 +532,11 @@
 		};
 		05AB1E901AEA928700D139A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52930F4520ED541CFB3FED16 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "HiPDA V2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +595,7 @@
 				05AB1E901AEA928700D139A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05AB1E911AEA928700D139A1 /* Build configuration list for PBXNativeTarget "HiPDA V2Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +604,7 @@
 				05AB1E931AEA928700D139A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
