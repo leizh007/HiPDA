@@ -40,6 +40,7 @@
     LZNotice *notice=[LZNotice shareNotice];
     [notice addObserver:memCpViewController forKeyPath:@"sumPromptPm" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
+    //设置viewcontroller
     UINavigationController *frontViewController=[[UINavigationController alloc]initWithRootViewController:threadViewController];
     _viewController=[[SWRevealViewController alloc]initWithRearViewController:memCpViewController frontViewController:frontViewController];
     _viewController.rearViewRevealWidth=190;
@@ -57,7 +58,7 @@
     
     //检查是否存在可用账户，若存在则自动登录，否则转到登录界面
     __weak typeof(self) weakSelf=self;
-    dispatch_time_t checkAccountTime=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(100*NSEC_PER_MSEC));
+    dispatch_time_t checkAccountTime=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(500*NSEC_PER_MSEC));
     dispatch_after(checkAccountTime, dispatch_get_main_queue(), ^{
         if ([[LZHAccount sharedAccount]hasValideAccount]) {
             [[NSNotificationCenter defaultCenter]postNotificationName:LZHUSERINFOLOADCOMPLETENOTIFICATION object:nil];

@@ -21,6 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - BBBadgeBarButtonItem (1.1)
+  - MGSwipeTableCell (1.4.3)
   - MJRefresh (1.4.5)
   - MTLog (0.6.1)
   - REFormattedNumberField (1.1.5)
@@ -35,10 +36,12 @@ PODS:
   - SSKeychain (1.2.3)
   - SVProgressHUD (1.1.3)
   - SWRevealViewController (2.3.0)
+  - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
   - BBBadgeBarButtonItem (~> 1.1)
+  - MGSwipeTableCell (~> 1.4.3)
   - MJRefresh (~> 1.4.5)
   - MTLog (~> 0.6.1)
   - RETableViewManager (~> 1.5.14)
@@ -47,10 +50,12 @@ DEPENDENCIES:
   - SSKeychain (~> 1.2.2)
   - SVProgressHUD (~> 1.1.2)
   - SWRevealViewController (~> 2.3.0)
+  - SWTableViewCell (~> 0.3.7)
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   BBBadgeBarButtonItem: 958744e7c429e467b14af983040dbaae105b3355
+  MGSwipeTableCell: cb9805df3cc5cad75ad43a5c1eb424be0316f0bf
   MJRefresh: 4b24394e577ea399fbc926e5b6072317aae2c152
   MTLog: a1cb28f66e65172849918a356883558ff176d19c
   REFormattedNumberField: be3d55dd709f65541fb26b7e1709da07903147f8
@@ -61,5 +66,6 @@ SPEC CHECKSUMS:
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
 COCOAPODS: 0.35.0

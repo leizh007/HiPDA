@@ -24,6 +24,6 @@
 @property (assign, nonatomic) BOOL isUserInBlackList;
 
 //postTime为原始数据，比如2015-4-26，转化为距离今天的时间
--(id)initWithUser:(LZHUser *)user replyCount:(NSInteger)replyCount totalCount:(NSInteger)totalCount postTime:(NSString *)postTime title:(NSString *)title tid:(NSString *)tid hasAttach:(BOOL)hasAttach hasImage:(BOOL)hasImage;
+-(id)initWithUser:(LZHUser *)user replyCount:(NSInteger)replyCount totalCount:(NSInteger)totalCount postTime:(NSString *)postTime title:(NSString *)title tid:(NSString *)tid hasAttach:(BOOL)hasAttach hasImage:(BOOL)hasImage hasRead:(BOOL)hasRead isUserInBlackList:(BOOL)isUserInBlackList;
 
 @end

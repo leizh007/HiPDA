@@ -35,8 +35,7 @@
 {
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date=[[NSDate alloc]init];
-    date=[dateFormatter dateFromString:dateString];
+    NSDate *date=[dateFormatter dateFromString:dateString];
     
     NSDate *now = [NSDate date];
     double deltaSeconds = fabs([date timeIntervalSinceDate:now]);

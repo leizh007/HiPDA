@@ -17,5 +17,6 @@ extern NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION;
 
 +(void)loginWithUserName:(NSString *)userName password:(NSString *)password questionId:(NSString *)qid questionAnswer:(NSString *)answer completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 +(void)getUidAndAvatarThenSaveUserName:(NSString *)userName password:(NSString *)password questionId:(NSString *)qid questionAnswer:(NSString *)answer;
++(void)loadForumFid:(NSInteger)fid page:(NSInteger)page completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
 @end

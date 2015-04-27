@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface LZHThreadViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+extern NSString *const LZHThreadDataSourceChange;
+extern NSString *const LZHDiscoveryFidString;
+extern NSString *const LZHBuyAndSellFidString;
+extern NSString *const LZHGeekTalkFidString;
+extern NSString *const LZHMachineFidString;
+extern NSString *const LZHEINKFidString;
+
+@interface LZHThreadViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MGSwipeTableCellDelegate>
 
 -(void)handleNotification:(NSNotification *)notification;
 

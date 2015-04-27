@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,67 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>145F0926FD12EAD04C2A6ECF</key>
+		<key>27371E7173C0B80CA5939A3B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DBF1823367F1A33D78E6D74</key>
+		<key>40616204BF518972A27EBB9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4B7E4D8809CD8A85414BB943</key>
+		<key>4F8D77BE56A72E3FE7ADE932</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70B62583F09765B0458275B1</key>
+		<key>50FB450AECC902D99C502C6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>729541C71BC7862683C93729</key>
+		<key>522F6F50CFFB9E9BE288B868</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89F39F90F7440D0F696DF6DB</key>
+		<key>606BA4882C20776796902951</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9028C6889C0D09870E52A6A3</key>
+		<key>71F136B067B80822D54DBB3B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6D176A8766EB66D3ABD3EA8</key>
+		<key>89B689351D0D4B0EDC5C4197</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A75A0A5F8076EBDAA71608F4</key>
+		<key>9375BB1B371B6BB46133A2F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA39D51EC68F794833604334</key>
+		<key>99938CDC8180D99E78AD6BC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1691A1276C49AFBEE665492</key>
+		<key>A4FC0A4357B609A38F1A76BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C83C0DE33D7A48599377545A</key>
+		<key>B92B161B82749D5ECB04FEE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F91CA502FFD8D625EF5F4E5D</key>
+		<key>CD98D92560ECAC32C09BD60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDA2549288D39982FB499C6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D71A290E9DEC5F66D352ABAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

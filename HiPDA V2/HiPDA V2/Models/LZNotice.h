@@ -16,8 +16,11 @@
 @property (assign, nonatomic) NSInteger promptAnnouncepm;
 @property (assign, nonatomic) NSInteger promptSystemPm;
 @property (assign, nonatomic) NSInteger promptFriend;
+//帖子总数
 @property (assign, nonatomic) NSInteger promptThreads;
+//pm总数
 @property (assign, nonatomic) NSInteger sumPrompt;
+//消息总数，用在threadview里
 @property (assign, nonatomic) NSInteger sumPromptPm;
 
 @end

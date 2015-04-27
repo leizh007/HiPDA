@@ -18,16 +18,32 @@
 #import "LZHUser.h"
 #import "LZHAccount.h"
 #import "LZHThread.h"
+#import "LZHShowMessage.h"
+#import "LZHReadList.h"
+#import "MGSwipeButton.h"
+#import "LZHBlackList.h"
 
 
-static const CGFloat MJDuration = 2.0;
+NSString *const LZHThreadDataSourceChange=@"LZHThreadDataSourceChange";
+static const NSInteger kDiscoveryFid=2;
+static const NSInteger kBuyAndSellFid=6;
+static const NSInteger kGeekTalkFid=7;
+static const NSInteger kMachineFid=57;
+static const NSInteger kEINKFid=59;
+NSString *const LZHDiscoveryFidString=@"LZHDiscoveryFidString";
+NSString *const LZHBuyAndSellFidString=@"LZHBuyAndSellFidString";
+NSString *const LZHGeekTalkFidString=@"LZHGeekTalkFidString";
+NSString *const LZHMachineFidString=@"LZHMachineFidString";
+NSString *const LZHEINKFidString=@"LZHEINKFidString";
 
 @interface LZHThreadViewController ()
 
 @property (strong, nonatomic) BBBadgeBarButtonItem *barButton;
 @property (strong, nonatomic) UITableView *tableView;
-
 @property (strong, nonatomic) NSMutableArray *threads;
+@property (assign, nonatomic) NSInteger fid;
+@property (assign, nonatomic) NSInteger page;
+@property (strong, nonatomic) NSDictionary *threadFidDictionary;
 
 @end
 
@@ -47,7 +63,6 @@ static const CGFloat MJDuration = 2.0;
     [button sizeToFit];
     [button addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     _barButton=[[BBBadgeBarButtonItem alloc]initWithCustomUIButton:button];
-    _barButton.badgeValue=@"8";
     _barButton.badgeOriginX=12;
     _barButton.badgeOriginY=-11;
     self.navigationItem.leftBarButtonItem=_barButton;
@@ -56,6 +71,8 @@ static const CGFloat MJDuration = 2.0;
     LZNotice *notice=[LZNotice shareNotice];
     [notice addObserver:self forKeyPath:@"sumPrompt" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 
+    //注册notification
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleNotification:) name:LZHThreadDataSourceChange object:nil];
     
     //设置tableView
     self.tableView=[[UITableView alloc]initWithFrame:self.view.frame];
@@ -64,20 +81,28 @@ static const CGFloat MJDuration = 2.0;
     self.tableView.tableFooterView=[[UIView alloc]init];
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-    [self pullDownToRefresh];
-    [self pullUpToLoadMore];
+    
     
     //初始化数据
     self.threads=[[NSMutableArray alloc]init];
+    _fid=kDiscoveryFid;
+    _page=1;
+    _threadFidDictionary=@{LZHDiscoveryFidString:[NSNumber numberWithInteger:kDiscoveryFid],
+                           LZHBuyAndSellFidString:[NSNumber numberWithInteger:kBuyAndSellFid],
+                           LZHGeekTalkFidString:[NSNumber numberWithInteger:kGeekTalkFid],
+                           LZHMachineFidString:[NSNumber numberWithInteger:kMachineFid],
+                           LZHEINKFidString:[NSNumber numberWithInteger:kEINKFid]};
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     SWRevealViewController *revealViewController=[self revealViewController];
     revealViewController.panGestureRecognizer.enabled=YES;
     revealViewController.tapGestureRecognizer.enabled=YES;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     SWRevealViewController *revealViewController=[self revealViewController];
     revealViewController.panGestureRecognizer.enabled=NO;
     revealViewController.tapGestureRecognizer.enabled=NO;
@@ -87,7 +112,8 @@ static const CGFloat MJDuration = 2.0;
 
 -(void)handleNotification:(NSNotification *)notification{
     if ([notification.name isEqualToString:LZHLOGGINSUCCESSNOTIFICATION]) {
-        [self.tableView.header beginRefreshing];
+        [self pullDownToRefresh];
+        [self pullUpToLoadMore];
     }
 }
 
@@ -97,7 +123,6 @@ static const CGFloat MJDuration = 2.0;
 {
     if ([keyPath isEqualToString:@"sumPrompt"]) {
         _barButton.badgeValue=[NSString stringWithFormat:@"%ld",[[LZNotice shareNotice] sumPrompt]];
-        NSLog(@"%ld",[[LZNotice shareNotice] sumPrompt]);
     }
 }
 
@@ -116,21 +141,28 @@ static const CGFloat MJDuration = 2.0;
     
     [cell configureThread:self.threads[indexPath.row]];
     
+    //configure right buttons
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"删除" backgroundColor:[UIColor redColor]],
+                          [MGSwipeButton buttonWithTitle:@"黑名单" backgroundColor:[UIColor colorWithRed:0.781 green:0.778 blue:0.801 alpha:1]]];
+    cell.rightSwipeSettings.transition = MGSwipeTransitionStatic;
+    
+    cell.delegate=self;
     return cell;
 }
 
 #pragma mark - TableView Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LZHThreadTableViewCell *cell=[[LZHThreadTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    [cell configureThread:self.threads[indexPath.row]];
-    CGSize optSize=[cell.contentView systemLayoutSizeFittingSize: UILayoutFittingCompressedSize];
-    return optSize.height;
+    return [LZHThreadTableViewCell cellHeightForThread:_threads[indexPath.row]];
 }
-//
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    LZHThread *thread=_threads[indexPath.row];
+    thread.hasRead=YES;
+    [[LZHReadList sharedReadList] addTid:thread.tid];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
 #pragma mark - UITableView + 下拉刷新 动画图片
 - (void)pullDownToRefresh
@@ -160,7 +192,7 @@ static const CGFloat MJDuration = 2.0;
     // 在这个例子中，即将刷新 和 正在刷新 用的是一样的动画图片
     
     // 马上进入刷新状态
-//    [self.tableView.gifHeader beginRefreshing];
+    [self.tableView.gifHeader beginRefreshing];
     
     // 此时self.tableView.header == self.tableView.gifHeader
 }
@@ -179,52 +211,54 @@ static const CGFloat MJDuration = 2.0;
         [refreshingImages addObject:image];
     }
     self.tableView.gifFooter.refreshingImages = refreshingImages;
-    self.tableView.footer.hidden=YES;
     // 此时self.tableView.footer == self.tableView.gifFooter
 }
 
 #pragma mark - 数据处理相关
-#pragma mark 下拉刷新数据
+
 - (void)loadNewData
 {
-    // 1.添加假数据
-    for (int i = 0; i<5; i++) {
-        LZHAccount *account=[LZHAccount sharedAccount];
-        LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:[[account account]objectForKey:LZHACCOUNTUSERUID],
-                                                           LZHUSERUSERNAME:[[account account]objectForKey:LZHACCOUNTUSERNAME]}];
-        LZHThread *thread=[[LZHThread alloc]initWithUser:user replyCount:10 totalCount:20 postTime:@"2015-4-1" title:[NSString stringWithFormat:@"%d",i] tid:@"199" hasAttach:YES hasImage:NO];
-        [self.threads addObject:thread];
-    }
-    
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (self.tableView.footer.hidden==YES) {
-            self.tableView.footer.hidden=NO;
+    _page=1;
+    [LZHNetworkFetcher loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
+        if (error!=nil) {
+            [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+        }else{
+            _threads=[array mutableCopy];
         }
-        // 刷新表格
         [self.tableView reloadData];
-        
-        // 拿到当前的下拉刷新控件，结束刷新状态
         [self.tableView.header endRefreshing];
-    });
+    }];
 }
 
-#pragma mark 上拉加载更多数据
+
 - (void)loadMoreData
 {
-//    // 1.添加假数据
-//    for (int i = 0; i<5; i++) {
-////        [self.data addObject:@"20"];
-//    }
-//    
-//    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        // 刷新表格
-//        [self.tableView reloadData];
-//        
-//        // 拿到当前的上拉刷新控件，结束刷新状态
-//        [self.tableView.footer endRefreshing];
-//    });
+    ++_page;
+    [LZHNetworkFetcher loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
+        if (error!=nil) {
+            [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+        }else{
+            [_threads addObjectsFromArray:array];
+        }
+        [self.tableView reloadData];
+        [self.tableView.footer endRefreshing];
+    }];
+}
+
+#pragma mark - MGSwipeTableCellDelegate
+
+-(BOOL)swipeTableCell:(MGSwipeTableCell *)cell tappedButtonAtIndex:(NSInteger)index direction:(MGSwipeDirection)direction fromExpansion:(BOOL)fromExpansion{
+    //0为delete,1为blacklist
+    NSIndexPath *indexPath=[_tableView indexPathForCell:cell];
+    if (index==1) {
+        [[LZHBlackList sharedBlackList] addUIDToBlackList:((LZHThread *)_threads[indexPath.row]).user.uid];
+    }
+    [_threads removeObjectAtIndex:indexPath.row];
+    
+    [_tableView beginUpdates];
+    [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [_tableView endUpdates];
+    return YES;
 }
 
 @end

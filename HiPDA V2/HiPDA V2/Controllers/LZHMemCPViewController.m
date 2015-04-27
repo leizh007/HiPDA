@@ -9,8 +9,13 @@
 #import "LZHMemCPViewController.h"
 #import "MTLog.h"
 #import "LZNotice.h"
+#import "LZHThreadViewController.h"
+
 
 @interface LZHMemCPViewController ()
+
+@property (assign, nonatomic) BOOL isUserInfoLoadComplete;
+@property (strong, nonatomic) UILabel *label;
 
 @end
 
@@ -20,13 +25,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor=[UIColor blueColor];
+    _label=[[UILabel alloc]init];
+//    NSLog(@"%@",_label);
 }
 
 
 #pragma mark - Notification
 
 -(void)handleNotification:(NSNotification *)notification{
-//    NSLog(@"%@",notification.name); 
+//    NSLog(@"%@ %@",notification.name,_label);
 }
 
 #pragma mark - KVO

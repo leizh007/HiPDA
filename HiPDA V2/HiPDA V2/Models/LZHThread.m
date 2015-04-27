@@ -18,7 +18,7 @@
 
 @implementation LZHThread
 
--(id)initWithUser:(LZHUser *)user replyCount:(NSInteger)replyCount totalCount:(NSInteger)totalCount postTime:(NSString *)postTime title:(NSString *)title tid:(NSString *)tid hasAttach:(BOOL)hasAttach hasImage:(BOOL)hasImage{
+-(id)initWithUser:(LZHUser *)user replyCount:(NSInteger)replyCount totalCount:(NSInteger)totalCount postTime:(NSString *)postTime title:(NSString *)title tid:(NSString *)tid hasAttach:(BOOL)hasAttach hasImage:(BOOL)hasImage hasRead:(BOOL)hasRead isUserInBlackList:(BOOL)isUserInBlackList{
     if (self=[super init]) {
         _user=user;
         _replyCount=replyCount;
@@ -35,6 +35,8 @@
         }else if(hasAttach){
             _title=[NSString stringWithFormat:@"%@📎",title];
         }
+        _hasRead=hasRead;
+        _isUserInBlackList=isUserInBlackList;
     }
     return self;
 }

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
 @class LZHThread;
 
-@interface LZHThreadTableViewCell : UITableViewCell
+@interface LZHThreadTableViewCell : MGSwipeTableCell//UITableViewCell
 
 -(id)configureThread:(LZHThread *)thread;
+
++(CGFloat)cellHeightForThread:(LZHThread *)thread;
 
 @end
