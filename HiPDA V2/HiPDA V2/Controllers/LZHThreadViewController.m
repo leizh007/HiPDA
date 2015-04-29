@@ -167,11 +167,8 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 #pragma mark - UITableView + 下拉刷新 动画图片
 - (void)pullDownToRefresh
 {
-    // 添加动画图片的下拉刷新
-    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     [self.tableView addGifHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     
-    // 设置普通状态的动画图片
     NSMutableArray *idleImages = [NSMutableArray array];
     for (NSUInteger i = 1; i<=60; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
@@ -179,7 +176,6 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     }
     [self.tableView.gifHeader setImages:idleImages forState:MJRefreshHeaderStateIdle];
     
-    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
     NSMutableArray *refreshingImages = [NSMutableArray array];
     for (NSUInteger i = 1; i<=3; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
@@ -187,31 +183,23 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     }
     [self.tableView.gifHeader setImages:refreshingImages forState:MJRefreshHeaderStatePulling];
     
-    // 设置正在刷新状态的动画图片
     [self.tableView.gifHeader setImages:refreshingImages forState:MJRefreshHeaderStateRefreshing];
-    // 在这个例子中，即将刷新 和 正在刷新 用的是一样的动画图片
     
-    // 马上进入刷新状态
     [self.tableView.gifHeader beginRefreshing];
     
-    // 此时self.tableView.header == self.tableView.gifHeader
 }
 
 #pragma mark - UITableView + 上拉刷新 动画图片
 - (void)pullUpToLoadMore
 {
-    // 添加动画图片的上拉刷新
-    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
     [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
-    // 设置正在刷新状态的动画图片
     NSMutableArray *refreshingImages = [NSMutableArray array];
     for (NSUInteger i = 1; i<=3; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
         [refreshingImages addObject:image];
     }
     self.tableView.gifFooter.refreshingImages = refreshingImages;
-    // 此时self.tableView.footer == self.tableView.gifFooter
 }
 
 #pragma mark - 数据处理相关
@@ -219,7 +207,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 - (void)loadNewData
 {
     _page=1;
-    [LZHNetworkFetcher loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
+    [LZHThread loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
         if (error!=nil) {
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
@@ -234,7 +222,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 - (void)loadMoreData
 {
     ++_page;
-    [LZHNetworkFetcher loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
+    [LZHThread loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
         if (error!=nil) {
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
@@ -251,7 +239,8 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     //0为delete,1为blacklist
     NSIndexPath *indexPath=[_tableView indexPathForCell:cell];
     if (index==1) {
-        [[LZHBlackList sharedBlackList] addUIDToBlackList:((LZHThread *)_threads[indexPath.row]).user.uid];
+        [[LZHBlackList sharedBlackList] addUserNameToBlackList:((LZHThread *)_threads[indexPath.row]).user.userName];
+        [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:[NSString stringWithFormat:@"您已将用户：%@ 残忍加入小黑屋！",[((LZHThread *)_threads[indexPath.row]).user userName]]];
     }
     [_threads removeObjectAtIndex:indexPath.row];
     

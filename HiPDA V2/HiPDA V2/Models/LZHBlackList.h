@@ -12,10 +12,10 @@
 
 +(id)sharedBlackList;
 
--(BOOL)isUIDInBlackList:(NSString *)uid;
+-(BOOL)isUserNameInBlackList:(NSString *)userName;
 
--(void)addUIDToBlackList:(NSString *)uid;
+-(void)addUserNameToBlackList:(NSString *)userName;
 
--(void)removeUIDFromBlackList:(NSString *)uid;
+-(void)removeUserNameFromBlackList:(NSString *)userName;
 
 @end

@@ -11,6 +11,8 @@
 #import "NSString+LZHHIPDA.h"
 #import "LZHBlackList.h"
 #import "LZHReadList.h"
+#import "LZHHTTPRequestOperationManager.h"
+#import "LZHHtmlParser.h"
 
 @interface LZHThread()
 
@@ -28,7 +30,7 @@
         _hasImage=hasImage;
         _tid=tid;
         _hasRead=[[LZHReadList sharedReadList]hasReadTid:tid];
-        _isUserInBlackList=[[LZHBlackList sharedBlackList] isUIDInBlackList:user.uid];
+        _isUserInBlackList=[[LZHBlackList sharedBlackList] isUserNameInBlackList:user.userName];
         _title=title;
         if (hasImage) {
             _title=[NSString stringWithFormat:@"%@🎑",title];
@@ -41,4 +43,19 @@
     return self;
 }
 
++(void)loadForumFid:(NSInteger)fid page:(NSInteger)page completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    LZHHTTPRequestOperationManager *manager=[LZHHTTPRequestOperationManager sharedHTTPRequestOperationManager];
+    NSString *requestURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/forumdisplay.php?fid=%ld&page=%ld",fid,page];
+    NSDictionary *requestParameters=@{@"fid":[NSNumber numberWithInteger:fid],
+                                      @"page":[NSNumber numberWithInteger:page]};
+    [manager GET:requestURL
+      parameters:requestParameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSString *responHtmlString=[NSString encodingGBKString:responseObject];
+             [LZHHtmlParser extractThreadsFromHtmlString:responHtmlString completionHandler:completion];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             completion(nil,error);
+         }];
+}
 @end

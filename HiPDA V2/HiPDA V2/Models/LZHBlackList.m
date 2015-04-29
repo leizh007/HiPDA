@@ -36,25 +36,29 @@ NSString *const LZHBLACKLIST=@"LZHBLACKLIST";
     return self;
 }
 
--(BOOL)isUIDInBlackList:(NSString *)uid{
-    if ([_blackList containsObject:uid]) {
+-(BOOL)isUserNameInBlackList:(NSString *)userName{
+    if ([_blackList containsObject:userName]) {
         return YES;
     }
     return NO;
 }
 
--(void)addUIDToBlackList:(NSString *)uid{
-    [_blackList addObject:uid];
+-(void)addUserNameToBlackList:(NSString *)userName{
+    [_blackList addObject:userName];
+    NSLog(@"%@",userName);
     [self saveBlackList];
 }
 
--(void)removeUIDFromBlackList:(NSString *)uid{
-    [_blackList removeObject:uid];
+-(void)removeUserNameFromBlackList:(NSString *)userName{
+    [_blackList removeObject:userName];
     [self saveBlackList];
 }
 
 -(void)saveBlackList{
-    [[NSUserDefaults standardUserDefaults]setObject:_blackList forKey:LZHBLACKLIST];
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:_blackList forKey:LZHBLACKLIST];
+    [defaults synchronize];
+    
 }
 
 @end

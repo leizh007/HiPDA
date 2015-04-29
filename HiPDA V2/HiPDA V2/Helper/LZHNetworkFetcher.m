@@ -121,20 +121,5 @@ NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION=@"LZHUSERINFOLOADCOMPLETENOT
          }];
 }
 
-+(void)loadForumFid:(NSInteger)fid page:(NSInteger)page completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
-    LZHHTTPRequestOperationManager *manager=[LZHHTTPRequestOperationManager sharedHTTPRequestOperationManager];
-    NSString *requestURL=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/forumdisplay.php?fid=%ld&page=%ld",fid,page];
-    NSDictionary *requestParameters=@{@"fid":[NSNumber numberWithInteger:fid],
-                                      @"page":[NSNumber numberWithInteger:page]};
-    [manager GET:requestURL
-      parameters:requestParameters
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSString *responHtmlString=[NSString encodingGBKString:responseObject];
-             [LZHHtmlParser extractThreadsFromHtmlString:responHtmlString completionHandler:completion];
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             completion(nil,error);
-         }];
-}
 
 @end
