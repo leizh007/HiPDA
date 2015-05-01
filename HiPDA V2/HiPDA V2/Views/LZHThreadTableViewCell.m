@@ -95,7 +95,7 @@ static const CGFloat kSeperatorHeight=1.0;
         _userNameLabel.textColor=kLightWordsColor;
     }else{
         _titleLabel.textColor=kDeepWordsColor;
-        _userNameLabel.textColor=[UIColor colorWithRed:0.962 green:0.802 blue:0 alpha:1];
+        _userNameLabel.textColor=[UIColor colorWithRed:1 green:0.622 blue:0 alpha:1];
         NSRange range=[_countLabel.text rangeOfString:@"/"];
         NSMutableAttributedString *countLableAttributedString=[[NSMutableAttributedString alloc] initWithString:_countLabel.text];
         NSDictionary *attributes=@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.875 green:0.238 blue:0.238 alpha:1]};

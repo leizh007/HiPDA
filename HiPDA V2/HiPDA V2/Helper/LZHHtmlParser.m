@@ -13,6 +13,7 @@
 #import "NSString+LZHHIPDA.h"
 #import "LZHReadList.h"
 #import "LZHBlackList.h"
+#import "LZHPost.h"
 
 @interface LZHHtmlParser()
 
@@ -84,6 +85,99 @@
                 completion(threads,nil);
             }else{
                 completion(nil,[NSError errorWithDomain:@"无法获取帖子列表！" code:0 userInfo:nil]);
+            }
+        });
+    });
+}
+
++(void)extractPostListFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [LZHHtmlParser extractNoticeFromHtmlString:html];
+        
+        NSMutableArray *postList=[[NSMutableArray alloc]init];
+        
+        //标题
+        NSRegularExpression *regexTitle=[NSRegularExpression regularExpressionWithPattern:@"threadtitle\">([\\s\\S]*?)</div>" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *titleMatches=[regexTitle matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        NSString *title=@"";
+        if ([titleMatches count]!=0) {
+            NSTextCheckingResult *titleResult=(NSTextCheckingResult *)titleMatches[0];
+            title=[html substringWithRange:[titleResult rangeAtIndex:1]];
+        }
+        [postList addObject:title];
+        
+        //总页数
+        NSRegularExpression *regexTotalPage=[NSRegularExpression regularExpressionWithPattern:@"(\\d+)</a><a[^>]*?>下一页" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *matchesTotlaPage=[regexTotalPage matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        NSInteger page=1;
+        if ([matchesTotlaPage count]!=0) {
+            NSTextCheckingResult *resultTotalPage=(NSTextCheckingResult *)matchesTotlaPage[0];
+            page=[[html substringWithRange:[resultTotalPage rangeAtIndex:1]] integerValue];
+        }
+        [postList addObject:[NSNumber numberWithInteger:page]];
+        
+        
+        //列表
+        NSRegularExpression *regexList=[NSRegularExpression regularExpressionWithPattern:@"<div\\sid=\"post_\\d+\">[\\s\\S]*?<td\\sclass=\"postauthor\"[\\s\\S]*?uid=(\\d+)[\\s\\S]*?>([^<]*?)</a>[\\s\\S]*?<em>(\\d+)</em>[\\s\\S]*?<sup>#</sup>[\\s\\S]*?<div\\sclass=\"authorinfo\">[\\s\\S]*?>发表于\\s([\\s\\S]*?)</em>[\\s\\S]*?<div\\sclass=\"t_msgfontfix\">([\\s\\S]*?)</div>[^<]*?<div\\sid=\"post_rate_div_\\d+\"></div>" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *matchesList=[regexList matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        [matchesList enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
+            NSString *uid=[html substringWithRange:[result rangeAtIndex:1]];
+            NSString *userName=[html substringWithRange:[result rangeAtIndex:2]];
+            NSInteger floor=[[html substringWithRange:[result rangeAtIndex:3]]integerValue];
+            NSString *postTime=[html substringWithRange:[result rangeAtIndex:4]];
+            NSString *postMessage=[html substringWithRange:[result rangeAtIndex:5]];
+            
+            //替换视频地址
+            NSRegularExpression *regexVedio=[NSRegularExpression regularExpressionWithPattern:@"<script\\stype=\"text/javascript\"[\\s\\S]*?(http://[\\s\\S]*?)'[\\s\\S]*?</script>" options:NSRegularExpressionCaseInsensitive error:nil];
+            NSArray *matchesVedio=[regexVedio matchesInString:postMessage options:0 range:NSMakeRange(0, [postMessage length])];
+            if ([matchesVedio count]!=0) {
+                NSMutableArray *fullVedioContentArray=[[NSMutableArray alloc]init];
+                NSMutableArray *vedioLinkArray=[[NSMutableArray alloc]init];
+                [matchesVedio enumerateObjectsUsingBlock:^(NSTextCheckingResult *vedioResult, NSUInteger idx, BOOL *stop) {
+                    [fullVedioContentArray addObject:[postMessage substringWithRange:[vedioResult rangeAtIndex:0]]];
+                    [vedioLinkArray addObject:[postMessage substringWithRange:[vedioResult rangeAtIndex:1]]];
+                }];
+                for (int i=0; i<[fullVedioContentArray count]; ++i) {
+                    NSString *vedioLink=[NSString stringWithFormat:@"<a class=\"vedio\" href=\"%@\">%@</a>",vedioLinkArray[i],vedioLinkArray[i]];
+                    postMessage=[postMessage stringByReplacingOccurrencesOfString:fullVedioContentArray[i] withString:vedioLink];
+                }
+            }
+            
+            //用附件列表里的图片替换附件列表里的内容
+            NSRegularExpression *regexAttachment=[NSRegularExpression regularExpressionWithPattern:@"<dl\\sclass=\"t_attachlist\\sattachimg\">[\\s\\S]*?<img\\ssrc=[\\s\\S]*?file=\"([\\s\\S]*?)\"[\\s\\S]*?</dl>" options:NSRegularExpressionCaseInsensitive error:nil];
+            NSArray *matchesAttachment=[regexAttachment matchesInString:postMessage options:0 range:NSMakeRange(0, [postMessage length])];
+            if ([matchesAttachment count]!=0) {
+                NSMutableArray *fullAttachmentContentArray=[[NSMutableArray alloc]init];
+                NSMutableArray *imgLinkArray=[[NSMutableArray alloc]init];
+                [matchesAttachment enumerateObjectsUsingBlock:^(NSTextCheckingResult *attchmentResult, NSUInteger idx, BOOL *stop) {
+                    [fullAttachmentContentArray addObject:[postMessage substringWithRange:[attchmentResult rangeAtIndex:0]]];
+                    [imgLinkArray addObject:[postMessage substringWithRange:[attchmentResult rangeAtIndex:1]]];
+                }];
+                for (int i=0; i<[fullAttachmentContentArray count]; ++i) {
+                    NSString *img=[NSString stringWithFormat:@"<img class=\"attahmentImage\" src=\"%@\"></img>",imgLinkArray[i]];
+                    postMessage=[postMessage stringByReplacingOccurrencesOfString:fullAttachmentContentArray[i] withString:img];
+                }
+            }
+            
+            LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:uid,
+                                                               LZHUSERUSERNAME:userName}];
+            LZHPost *post=[[LZHPost alloc]init];
+            post.user=user;
+            post.floor=floor;
+            post.postTime=postTime;
+            post.postMessage=postMessage;
+            post.isBlocked=[[LZHBlackList sharedBlackList]isUserNameInBlackList:userName];
+            
+            [postList addObject:post];
+        }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                if ([postList count]==2) {
+                    completion(nil,[NSError errorWithDomain:@"无法获取帖子内容！" code:0 userInfo:nil]);
+                }else{
+                    completion(postList,nil);
+                }
             }
         });
     });

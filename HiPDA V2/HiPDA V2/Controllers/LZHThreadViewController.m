@@ -22,6 +22,7 @@
 #import "LZHReadList.h"
 #import "MGSwipeButton.h"
 #import "LZHBlackList.h"
+#import "LZHPostViewController.h"
 
 
 NSString *const LZHThreadDataSourceChange=@"LZHThreadDataSourceChange";
@@ -92,6 +93,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
                            LZHGeekTalkFidString:[NSNumber numberWithInteger:kGeekTalkFid],
                            LZHMachineFidString:[NSNumber numberWithInteger:kMachineFid],
                            LZHEINKFidString:[NSNumber numberWithInteger:kEINKFid]};
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -99,6 +101,26 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     SWRevealViewController *revealViewController=[self revealViewController];
     revealViewController.panGestureRecognizer.enabled=YES;
     revealViewController.tapGestureRecognizer.enabled=YES;
+    
+    NSString *navigationTitle;
+    switch (_fid) {
+        case kDiscoveryFid:
+            navigationTitle=@"Discovery";
+            break;
+        case kBuyAndSellFid:
+            navigationTitle=@"Buy & Sell";
+            break;
+        case kGeekTalkFid:
+            navigationTitle=@"GeekTalk";
+            break;
+        case kMachineFid:
+            navigationTitle=@"疑似机器人";
+            break;
+        case kEINKFid:
+            navigationTitle=@"E-INK";
+            break;
+    }
+    self.navigationItem.title=navigationTitle;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -162,6 +184,10 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     [[LZHReadList sharedReadList] addTid:thread.tid];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
+    postViewController.tid=thread.tid;
+    postViewController.page=1;
+    [self.navigationController pushViewController:postViewController animated:YES];
 }
 
 #pragma mark - UITableView + 下拉刷新 动画图片

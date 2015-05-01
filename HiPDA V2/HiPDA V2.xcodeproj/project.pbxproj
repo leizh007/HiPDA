@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0583384E1AF33E2C00A20792 /* LZHPostList.html in Resources */ = {isa = PBXBuildFile; fileRef = 0583384D1AF33E2C00A20792 /* LZHPostList.html */; };
+		058338511AF33E9D00A20792 /* LZHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 058338501AF33E9D00A20792 /* LZHPost.m */; };
+		05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */; };
 		059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */; };
 		059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */; };
 		059C6FD11AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD01AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m */; };
@@ -44,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0583384D1AF33E2C00A20792 /* LZHPostList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = LZHPostList.html; path = Views/LZHPostList.html; sourceTree = "<group>"; };
+		0583384F1AF33E9D00A20792 /* LZHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPost.h; path = Models/LZHPost.h; sourceTree = "<group>"; };
+		058338501AF33E9D00A20792 /* LZHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPost.m; path = Models/LZHPost.m; sourceTree = "<group>"; };
+		05966D8A1AF39F3A0056CA92 /* LZHPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPostViewController.h; path = Controllers/LZHPostViewController.h; sourceTree = "<group>"; };
+		05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPostViewController.m; path = Controllers/LZHPostViewController.m; sourceTree = "<group>"; };
 		059C6FC91AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHHTTPRequestOperationManager.h; path = Helper/LZHHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHHTTPRequestOperationManager.m; path = Helper/LZHHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		059C6FCC1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHNetworkFetcher.h; path = Helper/LZHNetworkFetcher.h; sourceTree = "<group>"; };
@@ -185,6 +193,8 @@
 				059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */,
 				059C6FDE1AEB4FD300E3EBA0 /* LZHLoginViewController.h */,
 				059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */,
+				05966D8A1AF39F3A0056CA92 /* LZHPostViewController.h */,
+				05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +202,7 @@
 		05AB1E951AEA93D700D139A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0583384D1AF33E2C00A20792 /* LZHPostList.html */,
 				059C70041AECB15500E3EBA0 /* LZHThreadTableViewCell.h */,
 				059C70051AECB15500E3EBA0 /* LZHThreadTableViewCell.m */,
 			);
@@ -215,6 +226,8 @@
 				059C700E1AECB99200E3EBA0 /* LZHReadList.m */,
 				059C70101AECBEE200E3EBA0 /* LZHThread.h */,
 				059C70111AECBEE200E3EBA0 /* LZHThread.m */,
+				0583384F1AF33E9D00A20792 /* LZHPost.h */,
+				058338501AF33E9D00A20792 /* LZHPost.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -341,6 +354,7 @@
 			files = (
 				05AB1E7F1AEA928700D139A1 /* LaunchScreen.xib in Resources */,
 				05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */,
+				0583384E1AF33E2C00A20792 /* LZHPostList.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +410,7 @@
 				059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */,
 				059C6FDA1AEB4C7A00E3EBA0 /* LZHThreadViewController.m in Sources */,
 				059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */,
+				05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */,
 				05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */,
 				05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */,
 				059C6FDD1AEB4E1400E3EBA0 /* LZHSetting.m in Sources */,
@@ -409,6 +424,7 @@
 				059C6FE61AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m in Sources */,
 				059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */,
 				059C6FE91AEBB5B300E3EBA0 /* LZNotice.m in Sources */,
+				058338511AF33E9D00A20792 /* LZHPost.m in Sources */,
 				059C700C1AECB97900E3EBA0 /* LZHBlackList.m in Sources */,
 				059C6FD41AEB3C9400E3EBA0 /* LZHMemCPViewController.m in Sources */,
 			);
