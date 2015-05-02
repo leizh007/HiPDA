@@ -99,21 +99,19 @@
         
         //标题
         NSRegularExpression *regexTitle=[NSRegularExpression regularExpressionWithPattern:@"threadtitle\">([\\s\\S]*?)</div>" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSArray *titleMatches=[regexTitle matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        NSTextCheckingResult *titleMatch=[regexTitle firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
         NSString *title=@"";
-        if ([titleMatches count]!=0) {
-            NSTextCheckingResult *titleResult=(NSTextCheckingResult *)titleMatches[0];
-            title=[html substringWithRange:[titleResult rangeAtIndex:1]];
+        if (titleMatch!=nil) {
+            title=[html substringWithRange:[titleMatch rangeAtIndex:1]];
         }
         [postList addObject:title];
         
         //总页数
         NSRegularExpression *regexTotalPage=[NSRegularExpression regularExpressionWithPattern:@"(\\d+)</a><a[^>]*?>下一页" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSArray *matchesTotlaPage=[regexTotalPage matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        NSTextCheckingResult *matchTotlaPage=[regexTotalPage firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
         NSInteger page=1;
-        if ([matchesTotlaPage count]!=0) {
-            NSTextCheckingResult *resultTotalPage=(NSTextCheckingResult *)matchesTotlaPage[0];
-            page=[[html substringWithRange:[resultTotalPage rangeAtIndex:1]] integerValue];
+        if (matchTotlaPage!=nil ) {
+            page=[[html substringWithRange:[matchTotlaPage rangeAtIndex:1]] integerValue];
         }
         [postList addObject:[NSNumber numberWithInteger:page]];
         
