@@ -183,7 +183,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     thread.hasRead=YES;
     [[LZHReadList sharedReadList] addTid:thread.tid];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [_tableView reloadData];
     LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
     postViewController.tid=thread.tid;
     postViewController.page=1;

@@ -42,6 +42,7 @@ static const CGFloat kSeperatorHeight=1.0;
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.clipsToBounds=YES;
         self.backgroundColor=kBackgroundColor;
         _avatarImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kAvatarImageViewSize, kAvatarImageViewSize)];
         _avatarImageView.backgroundColor=[UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:1];
@@ -114,6 +115,7 @@ static const CGFloat kSeperatorHeight=1.0;
     _countLabel.frame=CGRectMake(_postTimeLabel.frame.origin.x-kDistanceBetweenViews-_countLabel.frame.size.width, _userNameLabel.frame.origin.y, _countLabel.frame.size.width, _countLabel.frame.size.height);
     _titleLabel.frame=CGRectMake(kDistanceBetweenViews, _avatarImageView.frame.origin.y+kAvatarImageViewSize+kDistanceBetweenViews, _titleLabel.frame.size.width, _titleLabel.frame.size.height);
     _footSeperatorLabel.frame=CGRectMake(0, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+kDistanceBetweenViews, _footSeperatorLabel.frame.size.width, _footSeperatorLabel.frame.size.height);
+    self.frame=CGRectMake(0, self.frame.origin.y, [[UIScreen mainScreen]bounds].size.width,_footSeperatorLabel.frame.origin.y+_footSeperatorLabel.frame.size.height );
 }
 
 +(CGFloat)cellHeightForThread:(LZHThread *)thread{

@@ -21,8 +21,6 @@
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) NSMutableArray *postList;
 @property (strong, nonatomic) NSString *htmlFormatString;
-@property (assign, nonatomic) NSInteger contentOffsetY;
-
 @end
 
 @implementation LZHPostViewController
@@ -45,7 +43,6 @@
     //初始化参数
     _postList=[[NSMutableArray alloc]init];
     _htmlFormatString=[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LZHPostList" ofType:@"html"] encoding:NSUTF8StringEncoding error:nil];
-    _contentOffsetY=0;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -83,9 +80,7 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    if (_contentOffsetY!=0&&_contentOffsetY!=-118) {
-        _webView.scrollView.contentOffset=CGPointMake(0, _contentOffsetY);
-    }
+    
 }
 
 #pragma mark - UITableView  下拉刷新 自定义文字
@@ -156,19 +151,17 @@
         }];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (isDataChanged) {
-                [self prepareDataForUIWebView];
+                //[self prepareDataForUIWebView];
             }
             _webView.scrollView.header.hidden=NO;
         });
     });
-    
 }
 
 #pragma mark - prepare data for UIWebView
 -(void)prepareDataForUIWebView{
     __block NSString *htmlString=@"";
     __block NSString *html=@"";
-    _contentOffsetY=_webView.scrollView.contentOffset.y;
     [_postList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (idx==0) {
             NSString *title=(NSString *)obj;
