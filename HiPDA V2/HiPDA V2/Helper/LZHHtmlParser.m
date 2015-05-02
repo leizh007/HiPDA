@@ -92,6 +92,7 @@
 
 +(void)extractPostListFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
         [LZHHtmlParser extractNoticeFromHtmlString:html];
         
         NSMutableArray *postList=[[NSMutableArray alloc]init];
@@ -127,38 +128,6 @@
             NSString *postTime=[html substringWithRange:[result rangeAtIndex:4]];
             NSString *postMessage=[html substringWithRange:[result rangeAtIndex:5]];
             
-            //替换视频地址
-            NSRegularExpression *regexVedio=[NSRegularExpression regularExpressionWithPattern:@"<script\\stype=\"text/javascript\"[\\s\\S]*?(http://[\\s\\S]*?)'[\\s\\S]*?</script>" options:NSRegularExpressionCaseInsensitive error:nil];
-            NSArray *matchesVedio=[regexVedio matchesInString:postMessage options:0 range:NSMakeRange(0, [postMessage length])];
-            if ([matchesVedio count]!=0) {
-                NSMutableArray *fullVedioContentArray=[[NSMutableArray alloc]init];
-                NSMutableArray *vedioLinkArray=[[NSMutableArray alloc]init];
-                [matchesVedio enumerateObjectsUsingBlock:^(NSTextCheckingResult *vedioResult, NSUInteger idx, BOOL *stop) {
-                    [fullVedioContentArray addObject:[postMessage substringWithRange:[vedioResult rangeAtIndex:0]]];
-                    [vedioLinkArray addObject:[postMessage substringWithRange:[vedioResult rangeAtIndex:1]]];
-                }];
-                for (int i=0; i<[fullVedioContentArray count]; ++i) {
-                    NSString *vedioLink=[NSString stringWithFormat:@"<a class=\"vedio\" href=\"%@\">%@</a>",vedioLinkArray[i],vedioLinkArray[i]];
-                    postMessage=[postMessage stringByReplacingOccurrencesOfString:fullVedioContentArray[i] withString:vedioLink];
-                }
-            }
-            
-            //用附件列表里的图片替换附件列表里的内容
-            NSRegularExpression *regexAttachment=[NSRegularExpression regularExpressionWithPattern:@"<dl\\sclass=\"t_attachlist\\sattachimg\">[\\s\\S]*?<img\\ssrc=[\\s\\S]*?file=\"([\\s\\S]*?)\"[\\s\\S]*?</dl>" options:NSRegularExpressionCaseInsensitive error:nil];
-            NSArray *matchesAttachment=[regexAttachment matchesInString:postMessage options:0 range:NSMakeRange(0, [postMessage length])];
-            if ([matchesAttachment count]!=0) {
-                NSMutableArray *fullAttachmentContentArray=[[NSMutableArray alloc]init];
-                NSMutableArray *imgLinkArray=[[NSMutableArray alloc]init];
-                [matchesAttachment enumerateObjectsUsingBlock:^(NSTextCheckingResult *attchmentResult, NSUInteger idx, BOOL *stop) {
-                    [fullAttachmentContentArray addObject:[postMessage substringWithRange:[attchmentResult rangeAtIndex:0]]];
-                    [imgLinkArray addObject:[postMessage substringWithRange:[attchmentResult rangeAtIndex:1]]];
-                }];
-                for (int i=0; i<[fullAttachmentContentArray count]; ++i) {
-                    NSString *img=[NSString stringWithFormat:@"<img class=\"attahmentImage\" src=\"%@\"></img>",imgLinkArray[i]];
-                    postMessage=[postMessage stringByReplacingOccurrencesOfString:fullAttachmentContentArray[i] withString:img];
-                }
-            }
-            
             LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:uid,
                                                                LZHUSERUSERNAME:userName}];
             LZHPost *post=[[LZHPost alloc]init];
@@ -170,7 +139,7 @@
             
             [postList addObject:post];
         }];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (completion) {
                 if ([postList count]==2) {

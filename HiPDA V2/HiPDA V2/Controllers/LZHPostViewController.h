@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LZHPostViewController : UIViewController
+@interface LZHPostViewController : UIViewController<UIWebViewDelegate>
+
+@property (strong, nonatomic) NSString *tid;
+//直接对_page赋值不会调用setPage:方法
+@property (assign, nonatomic) NSInteger page;
 
 @end

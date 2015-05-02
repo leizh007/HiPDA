@@ -17,4 +17,5 @@
 
 +(void)extractPostListFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
+
 @end

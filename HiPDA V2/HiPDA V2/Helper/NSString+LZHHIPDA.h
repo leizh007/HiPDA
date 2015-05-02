@@ -16,4 +16,6 @@
 
 +(NSString *)timeAgo:(NSString *)dateString;
 
+-(id)replacePostContent;
+
 @end
