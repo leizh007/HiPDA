@@ -4,7 +4,6 @@
         <title>HiPDA</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <script type="text/javascript" src="jQuery.js"></script>
         <style type="text/css">
             body
             {
@@ -186,11 +185,12 @@
          -->
         
         <script  type="text/javascript">
-            $("img").each(function(){
-                          var filepath = $(this).attr("file");
-                          if (filepath)
-                            this.src="http://hi-pda.com/forum/"+filepath;
-                          });
+            var imgs = document.getElementsByTagName("img");
+            for (var i = 0; i < imgs.length; i++) {
+                if(imgs[i].getAttribute("file")!=null&&imgs[i].getAttribute("file")!=undefined){
+                    imgs[i].src=imgs[i].getAttribute("file");
+                }
+            }
         </script>
 
     </body>

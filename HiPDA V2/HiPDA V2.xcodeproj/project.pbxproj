@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05311F051AF4D86F00075EB3 /* jQuery.js in Resources */ = {isa = PBXBuildFile; fileRef = 05311F041AF4D86F00075EB3 /* jQuery.js */; };
 		0583384E1AF33E2C00A20792 /* LZHPostList.html in Resources */ = {isa = PBXBuildFile; fileRef = 0583384D1AF33E2C00A20792 /* LZHPostList.html */; };
 		058338511AF33E9D00A20792 /* LZHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 058338501AF33E9D00A20792 /* LZHPost.m */; };
 		05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */; };
@@ -48,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05311F041AF4D86F00075EB3 /* jQuery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jQuery.js; path = Views/jQuery.js; sourceTree = "<group>"; };
 		0583384D1AF33E2C00A20792 /* LZHPostList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = LZHPostList.html; path = Views/LZHPostList.html; sourceTree = "<group>"; };
 		0583384F1AF33E9D00A20792 /* LZHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPost.h; path = Models/LZHPost.h; sourceTree = "<group>"; };
 		058338501AF33E9D00A20792 /* LZHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPost.m; path = Models/LZHPost.m; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		05AB1E951AEA93D700D139A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05311F041AF4D86F00075EB3 /* jQuery.js */,
 				0583384D1AF33E2C00A20792 /* LZHPostList.html */,
 				059C70041AECB15500E3EBA0 /* LZHThreadTableViewCell.h */,
 				059C70051AECB15500E3EBA0 /* LZHThreadTableViewCell.m */,
@@ -355,7 +352,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05311F051AF4D86F00075EB3 /* jQuery.js in Resources */,
 				05AB1E7F1AEA928700D139A1 /* LaunchScreen.xib in Resources */,
 				05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */,
 				0583384E1AF33E2C00A20792 /* LZHPostList.html in Resources */,
