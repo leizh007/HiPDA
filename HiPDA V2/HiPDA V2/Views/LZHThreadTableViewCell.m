@@ -118,6 +118,15 @@ static const CGFloat kSeperatorHeight=1.0;
     self.frame=CGRectMake(0, self.frame.origin.y, [[UIScreen mainScreen]bounds].size.width,_footSeperatorLabel.frame.origin.y+_footSeperatorLabel.frame.size.height );
 }
 
+-(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
+    if (highlighted) {
+        self.contentView.backgroundColor=[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
+    }else{
+        self.contentView.backgroundColor=kBackgroundColor;
+    }
+    
+}
+
 +(CGFloat)cellHeightForThread:(LZHThread *)thread{
     UILabel *titleLabel=[[UILabel alloc]init];
     titleLabel.text=thread.title;

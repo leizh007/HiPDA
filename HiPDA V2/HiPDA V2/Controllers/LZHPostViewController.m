@@ -36,7 +36,7 @@
     self.view.backgroundColor=[UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:1.0];
     _webView.backgroundColor= [UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:1.0];
     _webView.opaque=NO;
-    _webView.dataDetectorTypes=UIDataDetectorTypeNone;
+    _webView.dataDetectorTypes=UIDataDetectorTypeLink;
     [self pullDownToRefresh];
     [self pullUpToLoadMore];
     

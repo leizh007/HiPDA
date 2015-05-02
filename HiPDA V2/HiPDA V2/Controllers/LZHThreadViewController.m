@@ -169,6 +169,8 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     cell.rightSwipeSettings.transition = MGSwipeTransitionStatic;
     
     cell.delegate=self;
+    
+    cell.selectionStyle=UITableViewCellEditingStyleNone;
     return cell;
 }
 
