@@ -22,6 +22,7 @@
 @implementation LZHHtmlParser
 
 +(void)extractNoticeFromHtmlString:(NSString *)html{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"私人消息[^(]\\((\\d+)\\)[\\s\\S]*?公共消息[^(]\\((\\d+)\\)[\\s\\S]*?系统消息[^(]\\((\\d+)\\)[\\s\\S]*?好友消息[^(]\\((\\d+)\\)[\\s\\S]*?帖子消息[^(]\\((\\d+)\\)" options:NSRegularExpressionCaseInsensitive error:nil];
         NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
         if ([matches count]!=0) {
@@ -35,6 +36,7 @@
             notice.sumPromptPm=notice.promptPm+notice.promptAnnouncepm+notice.promptSystemPm+notice.promptFriend;
             notice.sumPrompt=notice.sumPromptPm+notice.promptThreads;
         }
+    });
 }
 
 +(void)extractThreadsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
