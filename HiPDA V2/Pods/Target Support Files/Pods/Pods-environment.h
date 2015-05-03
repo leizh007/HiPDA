@@ -90,6 +90,12 @@
 #define COCOAPODS_VERSION_MINOR_REValidation 1
 #define COCOAPODS_VERSION_PATCH_REValidation 4
 
+// RegExCategories
+#define COCOAPODS_POD_AVAILABLE_RegExCategories
+#define COCOAPODS_VERSION_MAJOR_RegExCategories 1
+#define COCOAPODS_VERSION_MINOR_RegExCategories 0
+#define COCOAPODS_VERSION_PATCH_RegExCategories 0
+
 // SDURLCache
 #define COCOAPODS_POD_AVAILABLE_SDURLCache
 #define COCOAPODS_VERSION_MAJOR_SDURLCache 1

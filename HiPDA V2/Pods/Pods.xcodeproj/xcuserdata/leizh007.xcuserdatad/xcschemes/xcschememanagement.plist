@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RegExCategories.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SDURLCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,77 +87,82 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>27371E7173C0B80CA5939A3B</key>
+		<key>19A8FA357307C18FC401A536</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40616204BF518972A27EBB9F</key>
+		<key>19B2376B6E1C5DD1864C6CF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F8D77BE56A72E3FE7ADE932</key>
+		<key>2281BAF5F3280D4416BACBB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50FB450AECC902D99C502C6B</key>
+		<key>27C5ACA397964423DF982F66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>522F6F50CFFB9E9BE288B868</key>
+		<key>41BAE1B2B326F22DDB68FE9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>606BA4882C20776796902951</key>
+		<key>5CA06B8FF06E6B950C1DCEC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71F136B067B80822D54DBB3B</key>
+		<key>61405A42C92F2BC1A11DF4E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89B689351D0D4B0EDC5C4197</key>
+		<key>65AD8F73C00FC421D2C6E59D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9375BB1B371B6BB46133A2F9</key>
+		<key>7C55ED1E1F7ED11CA8ABCB0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99938CDC8180D99E78AD6BC8</key>
+		<key>994A991A466A22B185D3958B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4FC0A4357B609A38F1A76BF</key>
+		<key>B53CFFD88AFB808E0EA0FC3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B92B161B82749D5ECB04FEE1</key>
+		<key>C9BDC04AAFD0EE9E82A10246</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD98D92560ECAC32C09BD60B</key>
+		<key>CDEA66D5AEDCBB648D5B4B49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CDA2549288D39982FB499C6F</key>
+		<key>D02660444FD96069484DA08F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D71A290E9DEC5F66D352ABAF</key>
+		<key>E9C8474A5A6468513B46491D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1F58DDFCEDC842A4D884FA4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

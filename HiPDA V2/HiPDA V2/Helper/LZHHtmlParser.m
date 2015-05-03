@@ -14,6 +14,7 @@
 #import "LZHReadList.h"
 #import "LZHBlackList.h"
 #import "LZHPost.h"
+#import "RegExCategories.h"
 
 @interface LZHHtmlParser()
 
@@ -100,11 +101,17 @@
         NSMutableArray *postList=[[NSMutableArray alloc]init];
         
         //标题
-        NSRegularExpression *regexTitle=[NSRegularExpression regularExpressionWithPattern:@"threadtitle\">([\\s\\S]*?)</div>" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSTextCheckingResult *titleMatch=[regexTitle firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
         NSString *title=@"";
-        if (titleMatch!=nil) {
-            title=[html substringWithRange:[titleMatch rangeAtIndex:1]];
+        NSRegularExpression *regexTitleWithTags=[NSRegularExpression regularExpressionWithPattern:@"threadtitle\">([\\s\\S]*?)<div\\sclass=\"threadtags\">" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSTextCheckingResult *titleMatchWithTags=[regexTitleWithTags firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
+        if (titleMatchWithTags!=nil) {
+            title=[html substringWithRange:[titleMatchWithTags rangeAtIndex:1]];
+        }else{
+            NSRegularExpression *regexTitle=[NSRegularExpression regularExpressionWithPattern:@"threadtitle\">([\\s\\S]*?)</div>" options:NSRegularExpressionCaseInsensitive error:nil];
+            NSTextCheckingResult *titleMatch=[regexTitle firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
+            if (titleMatch!=nil) {
+                title=[html substringWithRange:[titleMatch rangeAtIndex:1]];
+            }
         }
         [postList addObject:title];
         
