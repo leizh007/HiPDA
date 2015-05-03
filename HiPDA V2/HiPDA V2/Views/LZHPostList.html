@@ -119,8 +119,8 @@
                 border-bottom-width: thin;
                 border-top-style: groove;
                 border-top-width: thin;
-                padding:8px 16px 8px 8px;
-                font-size:30px !important;
+                padding:0px 16px 0px 8px;
+                font-size:20px !important;
                 font-weight:bold !important;
                 pointer-events:none !important;
                 cursor: default !important;
@@ -146,16 +146,6 @@
             .attahmentImage
             {
                 display: block !important;
-            }
-            .footer
-            {
-                text-align:center;
-                width:100%;
-                margin-left:auto;
-                margin-right:auto;
-                display:block;
-                color:rgba(160, 159, 165, 1) !important;
-                margin-top: 8px;
             }
         </style>
         
@@ -186,12 +176,21 @@
          -->
         
         <script  type="text/javascript">
+            <!-- 图片加载失败的时候调用 -->
+            function imgOnError(){
+                var img=event.srcElement;
+                img.src="http://www.hi-pda.com/forum/uc_server/data/avatar/000/85/69/99_avatar_middle.jpg?random=10.20420048222877085";
+                img.onerror=null; 控制不要一直跳动
+            }
+        
+            <!-- 把图片src改为正确的src -->
             var imgs = document.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
                 if(imgs[i].getAttribute("file")!=null&&imgs[i].getAttribute("file")!=undefined){
                     imgs[i].src=imgs[i].getAttribute("file");
                 }
             }
+        
         </script>
 
     </body>

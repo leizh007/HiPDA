@@ -32,6 +32,9 @@ NSString *const LZHBLACKLIST=@"LZHBLACKLIST";
 -(id)init{
     if (self=[super init]) {
         _blackList=[[[NSUserDefaults standardUserDefaults]objectForKey:LZHBLACKLIST] mutableCopy];
+        if (_blackList==nil) {
+            _blackList=[[NSMutableArray alloc]init];
+        }
     }
     return self;
 }
@@ -44,9 +47,10 @@ NSString *const LZHBLACKLIST=@"LZHBLACKLIST";
 }
 
 -(void)addUserNameToBlackList:(NSString *)userName{
-    [_blackList addObject:userName];
-    NSLog(@"%@",userName);
-    [self saveBlackList];
+    if (![self isUserNameInBlackList:userName]) {
+        [_blackList addObject:userName];
+        [self saveBlackList];
+    }
 }
 
 -(void)removeUserNameFromBlackList:(NSString *)userName{
@@ -58,7 +62,6 @@ NSString *const LZHBLACKLIST=@"LZHBLACKLIST";
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject:_blackList forKey:LZHBLACKLIST];
     [defaults synchronize];
-    
 }
 
 @end

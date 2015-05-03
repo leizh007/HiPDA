@@ -49,8 +49,10 @@
     self.window.rootViewController=_viewController;
     [self.window makeKeyAndVisible];
     
+    //设置联网是状态栏的indicator转圈圈
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
+    //设置URLCache
     SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024*1024   // 1MB mem cache
                                                          diskCapacity:1024*1024*5 // 5MB disk cache
                                                              diskPath:[SDURLCache defaultCachePath]];

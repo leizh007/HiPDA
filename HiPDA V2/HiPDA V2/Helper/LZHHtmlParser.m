@@ -78,7 +78,7 @@
                                                    hasAttach:hasAttach
                                                     hasImage:hasImage
                                                      hasRead:[[LZHReadList sharedReadList] hasReadTid:tid]
-                                           isUserInBlackList:[[LZHBlackList sharedBlackList]isUserNameInBlackList:uid]];
+                                           isUserInBlackList:[[LZHBlackList sharedBlackList]isUserNameInBlackList:userName]];
             if (!thread.isUserInBlackList) {
                 [threads addObject:thread];
             }

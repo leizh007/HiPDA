@@ -21,6 +21,8 @@
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) NSMutableArray *postList;
 @property (strong, nonatomic) NSString *htmlFormatString;
+@property (strong, nonatomic) NSString *defaultUserAvatarImageURLString;
+
 @end
 
 @implementation LZHPostViewController
@@ -43,6 +45,7 @@
     //初始化参数
     _postList=[[NSMutableArray alloc]init];
     _htmlFormatString=[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LZHPostList" ofType:@"html"] encoding:NSUTF8StringEncoding error:nil];
+    _defaultUserAvatarImageURLString=@"http://www.hi-pda.com/forum/uc_server/data/avatar/000/85/69/99_avatar_middle.jpg?random=10.9496039664372802";
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -108,13 +111,15 @@
     [_webView.scrollView.footer setTitle:@"No more data" forState:MJRefreshFooterStateNoMoreData];
     
     _webView.scrollView.footer.font = [UIFont systemFontOfSize:15];
-
+    
+    _webView.scrollView.footer.automaticallyRefresh=NO;
 }
 
 #pragma mark - 数据处理相关
 
 - (void)loadNewData
 {
+    [_webView stopLoading];
     __weak typeof(self) weakSelf=self;
     [LZHPost loadPostTid:_tid page:_page completionHandler:^(NSArray *array, NSError *error) {
         if (error!=nil) {
@@ -123,8 +128,7 @@
             weakSelf.postList=[array mutableCopy];
             [weakSelf prepareDataForUIWebView];
             [weakSelf.webView.scrollView.header endRefreshing];
-            [weakSelf replacePostMessageContent];
-            weakSelf.webView.scrollView.header.hidden=YES;
+            self.page=_page;
         }
     }];
 }
@@ -135,33 +139,12 @@
     [_webView.scrollView.footer endRefreshing];
 }
 
-#pragma  mark - 数据转换
-
--(void)replacePostMessageContent{
-    __block BOOL isDataChanged=NO;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [_postList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if (idx>=2) {
-                NSString *postMessage=[((LZHPost *)obj).postMessage replacePostContent];
-                if (![postMessage isEqualToString:((LZHPost *)obj).postMessage]) {
-                    ((LZHPost *)obj).postMessage=postMessage;
-                    isDataChanged=YES;
-                }
-            }
-        }];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (isDataChanged) {
-                //[self prepareDataForUIWebView];
-            }
-            _webView.scrollView.header.hidden=NO;
-        });
-    });
-}
 
 #pragma mark - prepare data for UIWebView
 -(void)prepareDataForUIWebView{
     __block NSString *htmlString=@"";
-    __block NSString *html=@"";
+    __weak typeof(self) weakSelf=self;
+    NSString *html=@"";
     [_postList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (idx==0) {
             NSString *title=(NSString *)obj;
@@ -171,9 +154,9 @@
         }else if(idx>1){
             LZHPost *post=(LZHPost *)obj;
             if (post.isBlocked) {
-                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%ld\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" id=\"avatar_%ld\"><img src=\"%@\"></img></span><span class=\"username\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" id=\"postmessage_%ld\"><span class=\"blocked\">该用户已被您屏蔽！</span></div></div>",idx-2,idx-2,idx-2,[post.user.avatarImageURL absoluteString],idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2];
+                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%ld\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" id=\"avatar_%ld\"><img src=\"%@\" onerror=\"this.src='%@';\"></img></span><span class=\"username\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" id=\"postmessage_%ld\"><span class=\"blocked\">该用户已被您屏蔽！</span></div></div>",idx-2,idx-2,idx-2,[post.user.avatarImageURL absoluteString],weakSelf.defaultUserAvatarImageURLString,idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2];
             }else{
-                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%ld\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" id=\"avatar_%ld\"><img src=\"%@\"></img></span><span class=\"username\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" id=\"postmessage_%ld\">%@</div></div>",idx-2,idx-2,idx-2,[post.user.avatarImageURL absoluteString],idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2,post.postMessage];
+                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%ld\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" id=\"avatar_%ld\"><img src=\"%@\" onerror=\"this.src='%@';\"></img></span><span class=\"username\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" id=\"postmessage_%ld\">%@</div></div>",idx-2,idx-2,idx-2,[post.user.avatarImageURL absoluteString],weakSelf.defaultUserAvatarImageURLString,idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2,post.postMessage];
             }
         }
     }];

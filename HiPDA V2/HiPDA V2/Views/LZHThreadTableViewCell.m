@@ -79,7 +79,7 @@ static const CGFloat kSeperatorHeight=1.0;
 }
 
 -(id)configureThread:(LZHThread *)thread{
-    [_avatarImageView sd_setImageWithURL:thread.user.avatarImageURL];
+    [_avatarImageView sd_setImageWithURL:thread.user.avatarImageURL placeholderImage:[UIImage imageNamed:@"avatar"]];
     _userNameLabel.text=thread.user.userName;
     [_userNameLabel sizeToFit];
     _countLabel.text=[NSString stringWithFormat:@"%ld/%ld",thread.replyCount,thread.totalCount];
