@@ -195,39 +195,26 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 #pragma mark - UITableView + 下拉刷新 动画图片
 - (void)pullDownToRefresh
 {
-    [self.tableView addGifHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    __weak typeof(self) weakSelf = self;
     
-    NSMutableArray *idleImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=60; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
-        [idleImages addObject:image];
-    }
-    [self.tableView.gifHeader setImages:idleImages forState:MJRefreshHeaderStateIdle];
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [weakSelf loadNewData];
+    }];
     
-    NSMutableArray *refreshingImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=3; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
-        [refreshingImages addObject:image];
-    }
-    [self.tableView.gifHeader setImages:refreshingImages forState:MJRefreshHeaderStatePulling];
-    
-    [self.tableView.gifHeader setImages:refreshingImages forState:MJRefreshHeaderStateRefreshing];
-    
-    [self.tableView.gifHeader beginRefreshing];
+    [self.tableView.header beginRefreshing];
     
 }
 
 #pragma mark - UITableView + 上拉刷新 动画图片
 - (void)pullUpToLoadMore
 {
-    [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    __weak typeof(self) weakSelf = self;
     
-    NSMutableArray *refreshingImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=3; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
-        [refreshingImages addObject:image];
-    }
-    self.tableView.gifFooter.refreshingImages = refreshingImages;
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
+    
+    
 }
 
 #pragma mark - 数据处理相关

@@ -91,9 +91,9 @@
 {
     [_webView.scrollView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     
-    [_webView.scrollView.header setTitle:@"Pull down to refresh" forState:MJRefreshHeaderStateIdle];
-    [_webView.scrollView.header setTitle:@"Release to refresh" forState:MJRefreshHeaderStatePulling];
-    [_webView.scrollView.header setTitle:@"Loading ..." forState:MJRefreshHeaderStateRefreshing];
+    [_webView.scrollView.header setTitle:@"下拉可以刷新" forState:MJRefreshHeaderStateIdle];
+    [_webView.scrollView.header setTitle:@"松开立即刷新" forState:MJRefreshHeaderStatePulling];
+    [_webView.scrollView.header setTitle:@"正在刷新数据中..." forState:MJRefreshHeaderStateRefreshing];
     
     _webView.scrollView.header.font = [UIFont systemFontOfSize:15];
     
@@ -106,9 +106,9 @@
 {
     [_webView.scrollView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
-    [_webView.scrollView.footer setTitle:@"Click or drag up to refresh" forState:MJRefreshFooterStateIdle];
-    [_webView.scrollView.footer setTitle:@"Loading more ..." forState:MJRefreshFooterStateRefreshing];
-    [_webView.scrollView.footer setTitle:@"No more data" forState:MJRefreshFooterStateNoMoreData];
+    [_webView.scrollView.footer setTitle:@"点击加载更多" forState:MJRefreshFooterStateIdle];
+    [_webView.scrollView.footer setTitle:@"正在加载更多的数据" forState:MJRefreshFooterStateRefreshing];
+    [_webView.scrollView.footer setTitle:@"没有更多的数据了" forState:MJRefreshFooterStateNoMoreData];
     
     _webView.scrollView.footer.font = [UIFont systemFontOfSize:15];
     
