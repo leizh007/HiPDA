@@ -24,9 +24,8 @@
 
 +(void)extractNoticeFromHtmlString:(NSString *)html{
     NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"私人消息[^(]\\((\\d+)\\)[\\s\\S]*?公共消息[^(]\\((\\d+)\\)[\\s\\S]*?系统消息[^(]\\((\\d+)\\)[\\s\\S]*?好友消息[^(]\\((\\d+)\\)[\\s\\S]*?帖子消息[^(]\\((\\d+)\\)" options:NSRegularExpressionCaseInsensitive error:nil];
-    NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
-    if ([matches count]!=0) {
-        NSTextCheckingResult *result=matches[0];
+    NSTextCheckingResult *result=[regex firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
+    if (result!=nil) {
         LZNotice *notice=[LZNotice shareNotice];
         notice.promptPm=[[html substringWithRange:[result rangeAtIndex:1]] integerValue];
         notice.promptAnnouncepm=[[html substringWithRange:[result rangeAtIndex:2]] integerValue];
