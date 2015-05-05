@@ -144,7 +144,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"sumPrompt"]) {
-        _barButton.badgeValue=[NSString stringWithFormat:@"%ld",[[LZNotice shareNotice] sumPrompt]];
+        _barButton.badgeValue=[[NSString stringWithFormat:@"%ld",[[LZNotice shareNotice] sumPrompt]] copy];
     }
 }
 

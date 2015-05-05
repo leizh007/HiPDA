@@ -1037,7 +1037,7 @@
                 if(imgs[i].getAttribute("file")!=null&&imgs[i].getAttribute("file")!=undefined){
                     imgs[i].src=imgs[i].getAttribute("file");
                 }
-                //为图片添加单机事件
+                //为图片添加单击事件
                 if(imgs[i].parentNode.getAttribute("class")!="avatar"){
                     imgs[i].addEventListener("click", imageClicked, false);
                 }
@@ -1060,14 +1060,7 @@
                 iFrame.parentNode.removeChild(iFrame);
                 iFrame = null;
             }
-        
-            //图片加载失败的时候调用
-            function imgOnError(){
-                var img=event.srcElement;
-                img.src="http://www.hi-pda.com/forum/uc_server/data/avatar/000/85/69/99_avatar_middle.jpg?random=10.20420048222877085";
-                img.onerror=null; 控制不要一直跳动
-            }
-        
+    
             //post被点击
             function postClicked(post){
                 alert(post.getAttribute("id"));

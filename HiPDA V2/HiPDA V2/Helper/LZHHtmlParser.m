@@ -23,26 +23,24 @@
 @implementation LZHHtmlParser
 
 +(void)extractNoticeFromHtmlString:(NSString *)html{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"私人消息[^(]\\((\\d+)\\)[\\s\\S]*?公共消息[^(]\\((\\d+)\\)[\\s\\S]*?系统消息[^(]\\((\\d+)\\)[\\s\\S]*?好友消息[^(]\\((\\d+)\\)[\\s\\S]*?帖子消息[^(]\\((\\d+)\\)" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
-        if ([matches count]!=0) {
-            NSTextCheckingResult *result=matches[0];
-            LZNotice *notice=[LZNotice shareNotice];
-            notice.promptPm=[[html substringWithRange:[result rangeAtIndex:1]] integerValue];
-            notice.promptAnnouncepm=[[html substringWithRange:[result rangeAtIndex:2]] integerValue];
-            notice.promptSystemPm=[[html substringWithRange:[result rangeAtIndex:3]] integerValue];
-            notice.promptFriend=[[html substringWithRange:[result rangeAtIndex:4]] integerValue];
-            notice.promptThreads=[[html substringWithRange:[result rangeAtIndex:5]] integerValue];
-            notice.sumPromptPm=notice.promptPm+notice.promptAnnouncepm+notice.promptSystemPm+notice.promptFriend;
-            notice.sumPrompt=notice.sumPromptPm+notice.promptThreads;
-        }
-    });
+    NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"私人消息[^(]\\((\\d+)\\)[\\s\\S]*?公共消息[^(]\\((\\d+)\\)[\\s\\S]*?系统消息[^(]\\((\\d+)\\)[\\s\\S]*?好友消息[^(]\\((\\d+)\\)[\\s\\S]*?帖子消息[^(]\\((\\d+)\\)" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+    if ([matches count]!=0) {
+        NSTextCheckingResult *result=matches[0];
+        LZNotice *notice=[LZNotice shareNotice];
+        notice.promptPm=[[html substringWithRange:[result rangeAtIndex:1]] integerValue];
+        notice.promptAnnouncepm=[[html substringWithRange:[result rangeAtIndex:2]] integerValue];
+        notice.promptSystemPm=[[html substringWithRange:[result rangeAtIndex:3]] integerValue];
+        notice.promptFriend=[[html substringWithRange:[result rangeAtIndex:4]] integerValue];
+        notice.promptThreads=[[html substringWithRange:[result rangeAtIndex:5]] integerValue];
+        notice.sumPromptPm=notice.promptPm+notice.promptAnnouncepm+notice.promptSystemPm+notice.promptFriend;
+        notice.sumPrompt=notice.sumPromptPm+notice.promptThreads;
+    }
 }
 
 +(void)extractThreadsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    [LZHHtmlParser extractNoticeFromHtmlString:html];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [LZHHtmlParser extractNoticeFromHtmlString:html];
         NSString *threadsString=html;
         NSRange range=[html rangeOfString:@"版块主题"];
         if (range.location!=NSNotFound) {
@@ -94,10 +92,10 @@
 }
 
 +(void)extractPostListFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    
+    [LZHHtmlParser extractNoticeFromHtmlString:html];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
-        [LZHHtmlParser extractNoticeFromHtmlString:html];
-        
         NSMutableArray *postList=[[NSMutableArray alloc]init];
         
         //标题
