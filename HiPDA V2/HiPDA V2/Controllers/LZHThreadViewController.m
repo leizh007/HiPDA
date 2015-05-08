@@ -23,7 +23,7 @@
 #import "MGSwipeButton.h"
 #import "LZHBlackList.h"
 #import "LZHPostViewController.h"
-
+#import "SDImageCache.h"
 
 NSString *const LZHThreadDataSourceChange=@"LZHThreadDataSourceChange";
 static const NSInteger kDiscoveryFid=2;
@@ -86,7 +86,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     
     //初始化数据
     self.threads=[[NSMutableArray alloc]init];
-    _fid=kDiscoveryFid;
+    _fid=kMachineFid;
     _page=1;
     _threadFidDictionary=@{LZHDiscoveryFidString:[NSNumber numberWithInteger:kDiscoveryFid],
                            LZHBuyAndSellFidString:[NSNumber numberWithInteger:kBuyAndSellFid],
@@ -128,6 +128,13 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     SWRevealViewController *revealViewController=[self revealViewController];
     revealViewController.panGestureRecognizer.enabled=NO;
     revealViewController.tapGestureRecognizer.enabled=NO;
+}
+
+-(void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    [imageCache clearMemory];
+    //[imageCache clearDisk];
 }
 
 #pragma mark - Notification
@@ -222,14 +229,15 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 - (void)loadNewData
 {
     _page=1;
+    __weak typeof(self) weakSelf=self;
     [LZHThread loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
         if (error!=nil) {
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
-            _threads=[array mutableCopy];
+            weakSelf.threads=[array mutableCopy];
         }
-        [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.header endRefreshing];
     }];
 }
 
@@ -237,14 +245,15 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 - (void)loadMoreData
 {
     ++_page;
+    __weak typeof(self) weakSelf=self;
     [LZHThread loadForumFid:_fid page:_page completionHandler:^(NSArray *array, NSError *error) {
         if (error!=nil) {
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
-            [_threads addObjectsFromArray:array];
+            [weakSelf.threads addObjectsFromArray:array];
         }
-        [self.tableView reloadData];
-        [self.tableView.footer endRefreshing];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.footer endRefreshing];
     }];
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		057DF5911AF7A73700FC6360 /* LZHPostList.html in Resources */ = {isa = PBXBuildFile; fileRef = 057DF5901AF7A73700FC6360 /* LZHPostList.html */; };
 		058338511AF33E9D00A20792 /* LZHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 058338501AF33E9D00A20792 /* LZHPost.m */; };
+		0589E5D91AFA2A790094E060 /* LZHProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589E5D81AFA2A790094E060 /* LZHProfileViewController.m */; };
 		05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */; };
 		059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */; };
 		059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */; };
@@ -50,6 +51,8 @@
 		057DF5901AF7A73700FC6360 /* LZHPostList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = LZHPostList.html; path = Views/LZHPostList.html; sourceTree = "<group>"; };
 		0583384F1AF33E9D00A20792 /* LZHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPost.h; path = Models/LZHPost.h; sourceTree = "<group>"; };
 		058338501AF33E9D00A20792 /* LZHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPost.m; path = Models/LZHPost.m; sourceTree = "<group>"; };
+		0589E5D71AFA2A790094E060 /* LZHProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHProfileViewController.h; path = Controllers/LZHProfileViewController.h; sourceTree = "<group>"; };
+		0589E5D81AFA2A790094E060 /* LZHProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHProfileViewController.m; path = Controllers/LZHProfileViewController.m; sourceTree = "<group>"; };
 		05966D8A1AF39F3A0056CA92 /* LZHPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPostViewController.h; path = Controllers/LZHPostViewController.h; sourceTree = "<group>"; };
 		05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPostViewController.m; path = Controllers/LZHPostViewController.m; sourceTree = "<group>"; };
 		059C6FC91AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHHTTPRequestOperationManager.h; path = Helper/LZHHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -187,14 +190,16 @@
 		05AB1E941AEA93CE00D139A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				059C6FDE1AEB4FD300E3EBA0 /* LZHLoginViewController.h */,
+				059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */,
 				059C6FD21AEB3C9400E3EBA0 /* LZHMemCPViewController.h */,
 				059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */,
 				059C6FD81AEB4C7A00E3EBA0 /* LZHThreadViewController.h */,
 				059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */,
-				059C6FDE1AEB4FD300E3EBA0 /* LZHLoginViewController.h */,
-				059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */,
 				05966D8A1AF39F3A0056CA92 /* LZHPostViewController.h */,
 				05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */,
+				0589E5D71AFA2A790094E060 /* LZHProfileViewController.h */,
+				0589E5D81AFA2A790094E060 /* LZHProfileViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */,
 				05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */,
 				05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */,
+				0589E5D91AFA2A790094E060 /* LZHProfileViewController.m in Sources */,
 				05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */,
 				059C6FDD1AEB4E1400E3EBA0 /* LZHSetting.m in Sources */,
 				059C70031AEBE08100E3EBA0 /* LZHCookieManager.m in Sources */,

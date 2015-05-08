@@ -1031,6 +1031,11 @@
                                   FastClick.attach(document.body);
                                   }, false);
             
+            var links = document.getElementsByTagName("a");
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click", linkClicked, false);
+            }
+            
             var imgs = document.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
                 //把图片src改为正确的src
@@ -1063,14 +1068,31 @@
     
             //post被点击
             function postClicked(post){
-                alert(post.getAttribute("id"));
+                //alert(post.getAttribute("id"));
+                loadURL("leizh-scheme://"+post.getAttribute("id"));
             }
         
-            //image被电击
+            //image被点击
             function imageClicked(e) {
-                alert(this.getAttribute("src"));
-                e.stopPropagation();  // <=== Prevents the click reaching the div
+                //alert(this.getAttribute("src"));
+                var imageURL=this.getAttribute("src");
+                if(imageURL.indexOf("http://")>-1){
+                    imageURL=imageURL.substring(7,imageURL.length);
+                }
+                loadURL("leizh-scheme:imageClicked_"+imageURL);
+                e.stopPropagation();
             }
+        
+        function linkClicked(e){
+            var linkURL=this.getAttribute("href");
+            if(linkURL.indexOf("http://")>-1){
+                linkURL=linkURL.substring(7,linkURL.length);
+                linkURL="realURL"+linkURL;
+            }
+            loadURL("leizh-scheme://linkClicked_"+linkURL);
+            e.stopPropagation();
+        }
+        
         </script>
 
     </body>

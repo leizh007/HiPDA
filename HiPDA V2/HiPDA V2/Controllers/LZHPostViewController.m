@@ -15,6 +15,9 @@
 #import "LZHShowMessage.h"
 #import "LZHUser.h"
 #import "NSString+LZHHIPDA.h"
+#import "LZHProfileViewController.h"
+#import "IDMPhotoBrowser.h"
+#import "SVWebViewController.h"
 
 @interface LZHPostViewController ()
 
@@ -56,6 +59,11 @@
     [super viewDidDisappear:animated];
 }
 
+-(void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
 -(void)setPage:(NSInteger)page{
     _page=page;
     
@@ -72,13 +80,111 @@
 
 
 #pragma mark - UIWebView Delegate
+
+//scheme://host:port/path?
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-//    NSLog(@"%@",[[request URL] absoluteString]);
+    NSString *requestString=[[request URL] absoluteString];
     if (navigationType==UIWebViewNavigationTypeLinkClicked) {
-        NSLog(@"%@",[[request URL] absoluteString]);
         return NO;
     }
+    if ([[[request URL] scheme]isEqualToString:@"leizh-scheme"]) {
+        //用户名，用户头像和帖子信息被点击的时候
+        NSString *host=[[request URL]host];
+        NSArray *clickedInfoArray=[host componentsSeparatedByString:@"_"];
+        //要加2，应为0是帖子标题，1是楼层总数
+        LZHPost *clickedPost=(LZHPost *)_postList[[clickedInfoArray[1] integerValue]+2];
+        //当用户头像和用户名被点击的时候
+        if ([clickedInfoArray[0] isEqualToString:@"username"]||[clickedInfoArray[0] isEqualToString:@"avatar"]) {
+            //NSLog(@"userName:%@ uid:%@",clickedPost.user.userName,clickedPost.user.uid);
+            LZHProfileViewController *profileViewControlle=[[LZHProfileViewController alloc]init];
+            profileViewControlle.user=clickedPost.user;
+            [self.navigationController pushViewController:profileViewControlle animated:YES];
+        }else if([clickedInfoArray[0] isEqualToString:@"postmessage"]){
+            //当帖子内容被点击的时候
+            //NSLog(@"postmessage %@",clickedPost.postMessage);
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:nil
+                                                                         message:nil
+                                                                  preferredStyle:UIAlertControllerStyleActionSheet];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"回复"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"引用"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"用户信息"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"加为好友"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"发短消息"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"只看该作者"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"取消"
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction *action) {
+                                                                  
+                                                              }]];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }else if([requestString containsString:@"leizh-scheme:imageClicked_"]){
+            NSRange range=[requestString rangeOfString:@"leizh-scheme:imageClicked_"];
+            NSString *imageURLString=[requestString substringFromIndex:range.length];
+            if ([imageURLString containsString:@"www."]) {
+                imageURLString=[NSString stringWithFormat:@"http://%@",imageURLString];
+            }else{
+                imageURLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",imageURLString];
+            }
+            IDMPhoto *photo=[IDMPhoto photoWithURL:[NSURL URLWithString:imageURLString]];
+            IDMPhotoBrowser *browser=[[IDMPhotoBrowser alloc] initWithPhotos:@[photo] animatedFromView:self.view];
+            [self presentViewController:browser animated:YES completion:nil];
+        }else if([requestString containsString:@"leizh-scheme://linkClicked_"]){
+            NSRange range=[requestString rangeOfString:@"leizh-scheme://linkClicked_"];
+            NSString *linkURLString=[requestString substringFromIndex:range.length];
+            if ([linkURLString containsString:@"realURL"]) {
+                linkURLString=[NSString stringWithFormat:@"http://%@",[linkURLString substringFromIndex:7]];
+            }else{
+                linkURLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",linkURLString];
+            }
+            if ([linkURLString containsString:@"hi-pda"]) {
+                
+            }else{
+                SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:linkURLString];
+                [self.navigationController pushViewController:webViewController animated:YES];
+            }
+            NSLog(@"%@",linkURLString);
+        }
+    }/*else if([requestString containsString:@"data:image"]){
+        NSRange headRange=[requestString rangeOfString:@"data:image/jpeg;base64,"];
+        NSData *imageData = [[NSData alloc]initWithBase64EncodedString:[requestString substringFromIndex:headRange.length]options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *clickedImage=[UIImage imageWithData:imageData];
+        IDMPhoto *photo=[IDMPhoto photoWithImage:clickedImage];
+        IDMPhotoBrowser *browser=[[IDMPhotoBrowser alloc] initWithPhotos:@[photo] animatedFromView:self.view];
+        browser.scaleImage=clickedImage;
+        [self presentViewController:browser animated:YES completion:nil];
+    }*/
     return YES;
 }
 
@@ -160,9 +266,11 @@
             }
         }
     }];
-    html=[_htmlFormatString copy];
-    html=[html stringByReplacingOccurrencesOfString:@"###content here###" withString:htmlString];
-    [_webView loadHTMLString:html baseURL:[NSURL URLWithString:@"http://www.hi-pda.com/forum/"]];
+    @autoreleasepool {
+        html=[_htmlFormatString copy];
+        html=[html stringByReplacingOccurrencesOfString:@"###content here###" withString:htmlString];
+        [_webView loadHTMLString:html baseURL:[NSURL URLWithString:@"http://www.hi-pda.com/forum/"]];
+    }
 }
 
 @end
