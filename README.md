@@ -1,2 +1,2 @@
 # HiPDA
-HiPDA iOS 客户端 beta 版 20150322
+HiPDA iOS 客户端 V2 20150424
