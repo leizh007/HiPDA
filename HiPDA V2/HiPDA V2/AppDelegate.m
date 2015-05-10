@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
-#import "LZHMemCPViewController.h"
+#import "LZHMemberContorlPanelViewController.h"
 #import "LZHThreadViewController.h"
 #import "LZHAccount.h"
 #import "LZHLoginViewController.h"
@@ -17,7 +17,7 @@
 #import <AFNetworking.h>
 #import "AFNetworkActivityIndicatorManager.h"
 #import "SDURLCache.h"
-#import "LZNotice.h"
+#import "LZHNotice.h"
 #import "LZHCookieManager.h"
 
 @interface AppDelegate ()
@@ -31,21 +31,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    LZHMemCPViewController *memCpViewController=[[LZHMemCPViewController alloc]init];
+    LZHMemberContorlPanelViewController *memberControlPanelViewController=[[LZHMemberContorlPanelViewController alloc]init];
     LZHThreadViewController *threadViewController=[[LZHThreadViewController alloc]init];
-    //注册消息
-    [[NSNotificationCenter defaultCenter] addObserver:threadViewController selector:@selector(handleNotification:) name:LZHLOGGINSUCCESSNOTIFICATION object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:memCpViewController selector:@selector(handleNotification:) name:LZHUSERINFOLOADCOMPLETENOTIFICATION object:nil];
-    //注册KVO
-    LZNotice *notice=[LZNotice shareNotice];
-    [notice addObserver:memCpViewController forKeyPath:@"sumPromptPm" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     //设置viewcontroller
     UINavigationController *frontViewController=[[UINavigationController alloc]initWithRootViewController:threadViewController];
-    _viewController=[[SWRevealViewController alloc]initWithRearViewController:memCpViewController frontViewController:frontViewController];
-    _viewController.rearViewRevealWidth=190;
+    _viewController=[[SWRevealViewController alloc]initWithRearViewController:memberControlPanelViewController frontViewController:frontViewController];
+    _viewController.rearViewRevealWidth=LZHRearViewRevealWidth;
     _viewController.rearViewRevealOverdraw=0;
-    _viewController.delegate=memCpViewController;
+    //_viewController.frontViewShadowRadius=0;
+    _viewController.delegate=memberControlPanelViewController;
     self.window.rootViewController=_viewController;
     [self.window makeKeyAndVisible];
     
