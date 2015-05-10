@@ -18,6 +18,7 @@
 #import "LZHProfileViewController.h"
 #import "IDMPhotoBrowser.h"
 #import "SVWebViewController.h"
+#import "NJKWebViewProgress.h"
 
 @interface LZHPostViewController ()
 
@@ -172,9 +173,10 @@
                 
             }else{
                 SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:linkURLString];
+                
                 [self.navigationController pushViewController:webViewController animated:YES];
             }
-            NSLog(@"%@",linkURLString);
+            //NSLog(@"%@",linkURLString);
         }
     }/*else if([requestString containsString:@"data:image"]){
         NSRange headRange=[requestString rangeOfString:@"data:image/jpeg;base64,"];

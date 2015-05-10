@@ -16,11 +16,11 @@
 #import "LZHNotice.h"
 
 const CGFloat LZHRearViewRevealWidth = 182.0f;
-const CGFloat kDistanceBetweenViews = 8.0f;
-const CGFloat kAvatarImageViewSize = 45.0f;
-const CGFloat kButtonWidth=50.0f;
-const CGFloat kButtonHeight=45.5f;
-const CGFloat kImageViewWidth=25.0f;
+const CGFloat kDistanceBetweenViews  = 8.0f;
+const CGFloat kAvatarImageViewSize   = 45.0f;
+const CGFloat kButtonWidth           = 50.0f;
+const CGFloat kButtonHeight          = 45.5f;
+const CGFloat kImageViewWidth        = 25.0f;
 
 #define kBackgroundColor [UIColor colorWithRed:0.134 green:0.162 blue:0.188 alpha:1]
 #define kHighlightedBackgroundColor ([UIColor colorWithRed:0.106 green:0.135 blue:0.162 alpha:1])
@@ -28,25 +28,32 @@ const CGFloat kImageViewWidth=25.0f;
 #define kHighlightedFontColor ([UIColor colorWithRed:0.999 green:1 blue:1 alpha:1])
 #define kSeperatorLineColor ([UIColor colorWithRed:0.106 green:0.135 blue:0.162 alpha:1])
 
-@interface LZHMemberContorlPanelViewController ()
+@interface LZHMemberContorlPanelViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (strong, nonatomic) UILabel *titleLable;
-@property (strong, nonatomic) UILabel *seperatorLabelBetweenTitleAndAvatar;
+@property (strong, nonatomic) UILabel     *titleLable;
+@property (strong, nonatomic) UILabel     *seperatorLabelBetweenTitleAndAvatar;
 @property (strong, nonatomic) UIImageView *avatarImageView;
-@property (strong, nonatomic) UILabel *userNameLabel;
-@property (strong, nonatomic) UIButton *noticeButton;
-@property (weak, nonatomic) UIImageView *noticeImageView;
-@property (weak, nonatomic) CustomBadge *noticeBadge;
-@property (strong, nonatomic) UIButton *threadButton;
-@property (weak, nonatomic) UIImageView *threadImageView;
-@property (weak, nonatomic) CustomBadge *threadBadge;
-@property (strong, nonatomic) UIButton *searchButton;
-@property (weak, nonatomic) UIImageView *searchImageView;
-@property (strong, nonatomic) UILabel *seperatorLabelUponTableView;
+@property (strong, nonatomic) UILabel     *userNameLabel;
+@property (strong, nonatomic) UIButton    *noticeButton;
+@property (weak, nonatomic  ) UIImageView *noticeImageView;
+@property (weak, nonatomic  ) CustomBadge *noticeBadge;
+@property (strong, nonatomic) UIButton    *threadButton;
+@property (weak, nonatomic  ) UIImageView *threadImageView;
+@property (weak, nonatomic  ) CustomBadge *threadBadge;
+@property (strong, nonatomic) UIButton    *searchButton;
+@property (weak, nonatomic  ) UIImageView *searchImageView;
+@property (strong, nonatomic) UILabel     *seperatorLabelUponTableView;
+@property (strong, nonatomic) UIButton *settingsButton;
+@property (weak, nonatomic) UIImageView *settingsImageView;
+@property (strong, nonatomic) UIButton *dayNightModeButton;
+@property (weak, nonatomic) UIImageView *dayNightModeImageView;
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
-@implementation LZHMemberContorlPanelViewController
+@implementation LZHMemberContorlPanelViewController{
+    BOOL isDayMode;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -92,7 +99,7 @@ const CGFloat kImageViewWidth=25.0f;
     _userNameLabel.lineBreakMode=NSLineBreakByCharWrapping;
     CGSize maxUserNameLabelSize=CGSizeMake(LZHRearViewRevealWidth-kAvatarImageViewSize-kDistanceBetweenViews*3, 9999);
     CGSize optimicalSize=[_userNameLabel sizeThatFits:maxUserNameLabelSize];
-    _userNameLabel.frame=CGRectMake(2*kDistanceBetweenViews+kAvatarImageViewSize, _avatarImageView.frame.origin.y+_avatarImageView.frame.size.height-optimicalSize.height, optimicalSize.width, optimicalSize.height);
+    _userNameLabel.frame=CGRectMake(2*kDistanceBetweenViews+kAvatarImageViewSize, _avatarImageView.frame.origin.y+_avatarImageView.frame.size.height/2-optimicalSize.height/2, optimicalSize.width, optimicalSize.height);
     [self.view addSubview:_userNameLabel];
     
     LZHNotice *notice=[LZHNotice sharedNotice];
@@ -148,15 +155,56 @@ const CGFloat kImageViewWidth=25.0f;
     _seperatorLabelUponTableView.backgroundColor=kHighlightedBackgroundColor;
     [self.view addSubview:_seperatorLabelUponTableView];
     
+    //settings
+    _settingsButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _settingsButton.frame=CGRectMake(kDistanceBetweenViews, [[UIScreen mainScreen]bounds].size.height-kDistanceBetweenViews-kButtonWidth, kButtonWidth, kButtonWidth);
+    [_settingsButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIImageView *settingsImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Settings"] highlightedImage:[UIImage imageNamed:@"Settings-Highlighted"]];
+    _settingsImageView=settingsImageView;
+    settingsImageView.frame=CGRectMake(kButtonWidth/2-kImageViewWidth/2, kButtonWidth/2-kImageViewWidth/2, kImageViewWidth, kImageViewWidth);
+    settingsImageView.contentMode=UIViewContentModeScaleAspectFit;
+    [_settingsButton addSubview:settingsImageView];
+    [self.view addSubview:_settingsButton];
+    
+    //mode
+    isDayMode=YES;
+    _dayNightModeButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _dayNightModeButton.frame=CGRectMake(LZHRearViewRevealWidth-kDistanceBetweenViews-kButtonWidth, _settingsButton.frame.origin.y, kButtonWidth, kButtonWidth);
+    [_dayNightModeButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIImageView *dayNightModeImageView=[[UIImageView alloc]init];
+    _dayNightModeImageView=dayNightModeImageView;
+    if (isDayMode) {
+        dayNightModeImageView.image=[UIImage imageNamed:@"night"];
+    }else{
+        dayNightModeImageView.image=[UIImage imageNamed:@"day"];
+    }
+    dayNightModeImageView.frame=CGRectMake(kButtonWidth/2-kImageViewWidth/2, kButtonWidth/2-kImageViewWidth/2, kImageViewWidth, kImageViewWidth);
+    dayNightModeImageView.contentMode=UIViewContentModeScaleAspectFit;
+    [_dayNightModeButton addSubview:dayNightModeImageView];
+    [self.view addSubview:_dayNightModeButton];
+    _dayNightModeButton.hidden=YES;
+    
     //注册KVO
     [notice addObserver:self forKeyPath:@"sumPromptPm" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     [notice addObserver:self forKeyPath:@"promptThreads" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    
+    //tableView
+    
 }
 
 #pragma  mark - Button Pressed
 
 -(void)buttonPressed:(id)sender{
     UIButton *button=(UIButton *)sender;
+    if (button==_dayNightModeButton) {
+        isDayMode=!isDayMode;
+        if (isDayMode) {
+            _dayNightModeImageView.image=[UIImage imageNamed:@"night"];
+        }else{
+            _dayNightModeImageView.image=[UIImage imageNamed:@"day"];
+        }
+        return;
+    }
     [self resetImageViewsHighlighted];
     if (button==_noticeButton) {
         _noticeImageView.highlighted=YES;
@@ -164,6 +212,8 @@ const CGFloat kImageViewWidth=25.0f;
         _threadImageView.highlighted=YES;
     }else if(button == _searchButton){
         _searchImageView.highlighted=YES;
+    }else if(button==_settingsButton){
+        _settingsImageView.highlighted=YES;
     }
 }
 
@@ -171,6 +221,7 @@ const CGFloat kImageViewWidth=25.0f;
     _noticeImageView.highlighted=NO;
     _threadImageView.highlighted=NO;
     _searchImageView.highlighted=NO;
+    _settingsImageView.highlighted=NO;
 }
 
 #pragma mark - KVO
@@ -197,7 +248,6 @@ const CGFloat kImageViewWidth=25.0f;
 #pragma  mark - Notification
 
 -(void)hanldNotification:(NSNotification *)notification{
-    NSLog(@"%@",notification.name);
     if ([notification.name isEqualToString:LZHUSERINFOLOADCOMPLETENOTIFICATION]) {
         _avatarImageView.image=((NSDictionary *)[LZHAccount sharedAccount].account)[LZHACCOUNTUSERAVATAR];
         [[NSNotificationCenter defaultCenter]removeObserver:self];
