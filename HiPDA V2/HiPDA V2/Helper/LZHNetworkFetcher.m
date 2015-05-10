@@ -107,12 +107,17 @@ NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION=@"LZHUSERINFOLOADCOMPLETENOT
                                             
                                         }
                                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                                           [[LZHAccount sharedAccount] setAccount:@{LZHACCOUNTUSERNAME:userName,
-                                                                                    LZHACCOUNTUSERPASSWORDD:password,
-                                                                                    LZHACCOUNTQUESTIONID:qid,
-                                                                                    LZHACCOUNTQUESTIONANSWER:answer,
-                                                                                    LZHACCOUNTUSERUID:uid,
-                                                                                    LZHACCOUNTUSERAVATAR:image}];
+                                           if (error==nil) {
+                                               [[LZHAccount sharedAccount] setAccount:@{LZHACCOUNTUSERNAME:userName,
+                                                                                        LZHACCOUNTUSERPASSWORDD:password,
+                                                                                        LZHACCOUNTQUESTIONID:qid,
+                                                                                        LZHACCOUNTQUESTIONANSWER:answer,
+                                                                                        LZHACCOUNTUSERUID:uid,
+                                                                                        LZHACCOUNTUSERAVATAR:image}];
+                                           }else{
+                                               [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+                                           }
+                                           
                                        }];
           }
       }

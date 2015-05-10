@@ -14,13 +14,13 @@
 		059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */; };
 		059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */; };
 		059C6FD11AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD01AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m */; };
-		059C6FD41AEB3C9400E3EBA0 /* LZHMemCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */; };
+		059C6FD41AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD31AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.m */; };
 		059C6FDA1AEB4C7A00E3EBA0 /* LZHThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */; };
 		059C6FDD1AEB4E1400E3EBA0 /* LZHSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FDC1AEB4E1400E3EBA0 /* LZHSetting.m */; };
 		059C6FE01AEB4FD300E3EBA0 /* LZHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */; };
 		059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE21AEB658300E3EBA0 /* LZHShowMessage.m */; };
 		059C6FE61AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE51AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m */; };
-		059C6FE91AEBB5B300E3EBA0 /* LZNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE81AEBB5B300E3EBA0 /* LZNotice.m */; };
+		059C6FE91AEBB5B300E3EBA0 /* LZHNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FE81AEBB5B300E3EBA0 /* LZHNotice.m */; };
 		059C70031AEBE08100E3EBA0 /* LZHCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70021AEBE08100E3EBA0 /* LZHCookieManager.m */; };
 		059C70061AECB15500E3EBA0 /* LZHThreadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70051AECB15500E3EBA0 /* LZHThreadTableViewCell.m */; };
 		059C70091AECB52600E3EBA0 /* LZHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70081AECB52600E3EBA0 /* LZHUser.m */; };
@@ -61,8 +61,8 @@
 		059C6FCD1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHNetworkFetcher.m; path = Helper/LZHNetworkFetcher.m; sourceTree = "<group>"; };
 		059C6FCF1AEB35DD00E3EBA0 /* NSString+LZHHIPDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+LZHHIPDA.h"; path = "Helper/NSString+LZHHIPDA.h"; sourceTree = "<group>"; };
 		059C6FD01AEB35DD00E3EBA0 /* NSString+LZHHIPDA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+LZHHIPDA.m"; path = "Helper/NSString+LZHHIPDA.m"; sourceTree = "<group>"; };
-		059C6FD21AEB3C9400E3EBA0 /* LZHMemCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMemCPViewController.h; path = Controllers/LZHMemCPViewController.h; sourceTree = "<group>"; };
-		059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMemCPViewController.m; path = Controllers/LZHMemCPViewController.m; sourceTree = "<group>"; };
+		059C6FD21AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMemberContorlPanelViewController.h; path = Controllers/LZHMemberContorlPanelViewController.h; sourceTree = "<group>"; };
+		059C6FD31AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMemberContorlPanelViewController.m; path = Controllers/LZHMemberContorlPanelViewController.m; sourceTree = "<group>"; };
 		059C6FD81AEB4C7A00E3EBA0 /* LZHThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadViewController.h; path = Controllers/LZHThreadViewController.h; sourceTree = "<group>"; };
 		059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThreadViewController.m; path = Controllers/LZHThreadViewController.m; sourceTree = "<group>"; };
 		059C6FDB1AEB4E1400E3EBA0 /* LZHSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHSetting.h; path = Controllers/LZHSetting.h; sourceTree = "<group>"; };
@@ -73,8 +73,8 @@
 		059C6FE21AEB658300E3EBA0 /* LZHShowMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHShowMessage.m; path = Helper/LZHShowMessage.m; sourceTree = "<group>"; };
 		059C6FE41AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+ImageItem.h"; path = "Helper/UIBarButtonItem+ImageItem.h"; sourceTree = "<group>"; };
 		059C6FE51AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+ImageItem.m"; path = "Helper/UIBarButtonItem+ImageItem.m"; sourceTree = "<group>"; };
-		059C6FE71AEBB5B300E3EBA0 /* LZNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZNotice.h; path = Models/LZNotice.h; sourceTree = "<group>"; };
-		059C6FE81AEBB5B300E3EBA0 /* LZNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZNotice.m; path = Models/LZNotice.m; sourceTree = "<group>"; };
+		059C6FE71AEBB5B300E3EBA0 /* LZHNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHNotice.h; path = Models/LZHNotice.h; sourceTree = "<group>"; };
+		059C6FE81AEBB5B300E3EBA0 /* LZHNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHNotice.m; path = Models/LZHNotice.m; sourceTree = "<group>"; };
 		059C70011AEBE08100E3EBA0 /* LZHCookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHCookieManager.h; path = Helper/LZHCookieManager.h; sourceTree = "<group>"; };
 		059C70021AEBE08100E3EBA0 /* LZHCookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHCookieManager.m; path = Helper/LZHCookieManager.m; sourceTree = "<group>"; };
 		059C70041AECB15500E3EBA0 /* LZHThreadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadTableViewCell.h; path = Views/LZHThreadTableViewCell.h; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 			children = (
 				059C6FDE1AEB4FD300E3EBA0 /* LZHLoginViewController.h */,
 				059C6FDF1AEB4FD300E3EBA0 /* LZHLoginViewController.m */,
-				059C6FD21AEB3C9400E3EBA0 /* LZHMemCPViewController.h */,
-				059C6FD31AEB3C9400E3EBA0 /* LZHMemCPViewController.m */,
+				059C6FD21AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.h */,
+				059C6FD31AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.m */,
 				059C6FD81AEB4C7A00E3EBA0 /* LZHThreadViewController.h */,
 				059C6FD91AEB4C7A00E3EBA0 /* LZHThreadViewController.m */,
 				05966D8A1AF39F3A0056CA92 /* LZHPostViewController.h */,
@@ -221,8 +221,8 @@
 				05AB1E991AEA93FA00D139A1 /* LZHAccount.m */,
 				059C6FDB1AEB4E1400E3EBA0 /* LZHSetting.h */,
 				059C6FDC1AEB4E1400E3EBA0 /* LZHSetting.m */,
-				059C6FE71AEBB5B300E3EBA0 /* LZNotice.h */,
-				059C6FE81AEBB5B300E3EBA0 /* LZNotice.m */,
+				059C6FE71AEBB5B300E3EBA0 /* LZHNotice.h */,
+				059C6FE81AEBB5B300E3EBA0 /* LZHNotice.m */,
 				059C70071AECB52600E3EBA0 /* LZHUser.h */,
 				059C70081AECB52600E3EBA0 /* LZHUser.m */,
 				059C700A1AECB97900E3EBA0 /* LZHBlackList.h */,
@@ -429,10 +429,10 @@
 				05E69F411AED4489009144F1 /* LZHHtmlParser.m in Sources */,
 				059C6FE61AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m in Sources */,
 				059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */,
-				059C6FE91AEBB5B300E3EBA0 /* LZNotice.m in Sources */,
+				059C6FE91AEBB5B300E3EBA0 /* LZHNotice.m in Sources */,
 				058338511AF33E9D00A20792 /* LZHPost.m in Sources */,
 				059C700C1AECB97900E3EBA0 /* LZHBlackList.m in Sources */,
-				059C6FD41AEB3C9400E3EBA0 /* LZHMemCPViewController.m in Sources */,
+				059C6FD41AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

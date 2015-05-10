@@ -1,0 +1,1 @@
+../../../CustomBadge/Classes/BadgeStyle.h

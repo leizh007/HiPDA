@@ -9,7 +9,7 @@
 #import "LZHThreadViewController.h"
 #import "UIBarButtonItem+ImageItem.h"
 #import "SWRevealViewController.h"
-#import "LZNotice.h"
+#import "LZHNotice.h"
 #import "MTLog.h"
 #import "BBBadgeBarButtonItem.h"
 #import "MJRefresh.h"
@@ -69,11 +69,12 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     self.navigationItem.leftBarButtonItem=_barButton;
     
     //注册KVO
-    LZNotice *notice=[LZNotice shareNotice];
+    LZHNotice *notice=[LZHNotice sharedNotice];
     [notice addObserver:self forKeyPath:@"sumPrompt" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 
     //注册notification
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleNotification:) name:LZHThreadDataSourceChange object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:LZHLOGGINSUCCESSNOTIFICATION object:nil];
     
     //设置tableView
     self.tableView=[[UITableView alloc]initWithFrame:self.view.frame];
@@ -137,6 +138,12 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     //[imageCache clearDisk];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    LZHNotice *notice=[LZHNotice sharedNotice];
+    [notice removeObserver:self forKeyPath:@"sumPrompt"];
+}
+
 #pragma mark - Notification
 
 -(void)handleNotification:(NSNotification *)notification{
@@ -151,7 +158,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"sumPrompt"]) {
-        _barButton.badgeValue=[[NSString stringWithFormat:@"%ld",[[LZNotice shareNotice] sumPrompt]] copy];
+        _barButton.badgeValue=[[NSString stringWithFormat:@"%ld",[[LZHNotice sharedNotice] sumPrompt]] copy];
     }
 }
 

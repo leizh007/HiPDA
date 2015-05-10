@@ -7,7 +7,7 @@
 //
 
 #import "LZHHtmlParser.h"
-#import "LZNotice.h"
+#import "LZHNotice.h"
 #import "LZHThread.h"
 #import "LZHUser.h"
 #import "NSString+LZHHIPDA.h"
@@ -26,7 +26,7 @@
     NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"私人消息[^(]\\((\\d+)\\)[\\s\\S]*?公共消息[^(]\\((\\d+)\\)[\\s\\S]*?系统消息[^(]\\((\\d+)\\)[\\s\\S]*?好友消息[^(]\\((\\d+)\\)[\\s\\S]*?帖子消息[^(]\\((\\d+)\\)" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *result=[regex firstMatchInString:html options:0 range:NSMakeRange(0, [html length])];
     if (result!=nil) {
-        LZNotice *notice=[LZNotice shareNotice];
+        LZHNotice *notice=[LZHNotice sharedNotice];
         notice.promptPm=[[html substringWithRange:[result rangeAtIndex:1]] integerValue];
         notice.promptAnnouncepm=[[html substringWithRange:[result rangeAtIndex:2]] integerValue];
         notice.promptSystemPm=[[html substringWithRange:[result rangeAtIndex:3]] integerValue];

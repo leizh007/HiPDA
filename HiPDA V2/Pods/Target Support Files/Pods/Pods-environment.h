@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_BBBadgeBarButtonItem 1
 #define COCOAPODS_VERSION_PATCH_BBBadgeBarButtonItem 0
 
+// CustomBadge
+#define COCOAPODS_POD_AVAILABLE_CustomBadge
+#define COCOAPODS_VERSION_MAJOR_CustomBadge 3
+#define COCOAPODS_VERSION_MINOR_CustomBadge 0
+#define COCOAPODS_VERSION_PATCH_CustomBadge 0
+
 // DACircularProgress
 #define COCOAPODS_POD_AVAILABLE_DACircularProgress
 #define COCOAPODS_VERSION_MAJOR_DACircularProgress 2
@@ -149,12 +155,6 @@
 #define COCOAPODS_VERSION_MAJOR_SWRevealViewController 2
 #define COCOAPODS_VERSION_MINOR_SWRevealViewController 3
 #define COCOAPODS_VERSION_PATCH_SWRevealViewController 0
-
-// SWTableViewCell
-#define COCOAPODS_POD_AVAILABLE_SWTableViewCell
-#define COCOAPODS_VERSION_MAJOR_SWTableViewCell 0
-#define COCOAPODS_VERSION_MINOR_SWTableViewCell 3
-#define COCOAPODS_VERSION_PATCH_SWTableViewCell 7
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop

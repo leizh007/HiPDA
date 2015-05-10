@@ -11,6 +11,7 @@
 #import "LZHNetworkFetcher.h"
 #import "SVProgressHUD.h"
 #import "LZHShowMessage.h"
+#import "LZHAccount.h"
 
 @interface LZHLoginViewController ()
 
@@ -78,6 +79,12 @@
     [SVProgressHUD showWithStatus:@"登录中..." maskType:SVProgressHUDMaskTypeGradient];
     [LZHNetworkFetcher loginWithUserName:userName password:password questionId:questionId questionAnswer:questionAnswer completionHandler:^(NSArray *array, NSError *error) {
         if (error==nil) {
+            //咱是保存用户信息，uid和用户头像待获取
+            [[LZHAccount sharedAccount] setAccount:@{LZHACCOUNTUSERNAME:userName,
+                                                     LZHACCOUNTUSERPASSWORDD:password,
+                                                     LZHACCOUNTQUESTIONID:questionId,
+                                                     LZHACCOUNTQUESTIONANSWER:questionAnswer
+                                                     }];
             [LZHNetworkFetcher getUidAndAvatarThenSaveUserName:userName password:password questionId:questionId questionAnswer:questionAnswer];
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:@"登录成功!"];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];

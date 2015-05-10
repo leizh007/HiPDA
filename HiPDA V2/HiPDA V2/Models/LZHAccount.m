@@ -55,16 +55,26 @@ NSString* const LZHACCOUNTQUESTIONANSWER=@"LZHACCOUNTQUESTIONANSWER";
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     NSString *userName=[userDefaults objectForKey:LZHACCOUNTUSERNAME];
     NSString *password=[SSKeychain passwordForService:LZHACCOUNTSERVICE account:userName];
-    NSString *uid=[userDefaults objectForKey:LZHACCOUNTUSERUID];
-    UIImage *avatar=[UIImage imageWithData:[userDefaults objectForKey:LZHACCOUNTUSERAVATAR]];
     NSString *questionid=[userDefaults objectForKey:LZHACCOUNTQUESTIONID];
     NSString *qestionAnswer=[userDefaults objectForKey:LZHACCOUNTQUESTIONANSWER];
-    return @{LZHACCOUNTUSERNAME:userName,
-             LZHACCOUNTUSERPASSWORDD:password,
-             LZHACCOUNTUSERUID:uid,
-             LZHACCOUNTUSERAVATAR:avatar,
-             LZHACCOUNTQUESTIONID:questionid,
-             LZHACCOUNTQUESTIONANSWER:qestionAnswer};
+    if ([userDefaults objectForKey:LZHACCOUNTUSERUID]!=nil) {
+        NSString *uid=[userDefaults objectForKey:LZHACCOUNTUSERUID];
+        UIImage *avatar=[UIImage imageWithData:[userDefaults objectForKey:LZHACCOUNTUSERAVATAR]];
+        return @{LZHACCOUNTUSERNAME:userName,
+                 LZHACCOUNTUSERPASSWORDD:password,
+                 LZHACCOUNTUSERUID:uid,
+                 LZHACCOUNTUSERAVATAR:avatar,
+                 LZHACCOUNTQUESTIONID:questionid,
+                 LZHACCOUNTQUESTIONANSWER:qestionAnswer};
+    }else{
+        return @{LZHACCOUNTUSERNAME:userName,
+                LZHACCOUNTUSERPASSWORDD:password,
+                LZHACCOUNTUSERUID:[NSNull null],
+                LZHACCOUNTUSERAVATAR:[NSNull null],
+                LZHACCOUNTQUESTIONID:questionid,
+                LZHACCOUNTQUESTIONANSWER:qestionAnswer};
+    }
+    
 }
 
 -(void)setAccount:(id)account{
@@ -72,12 +82,21 @@ NSString* const LZHACCOUNTQUESTIONANSWER=@"LZHACCOUNTQUESTIONANSWER";
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     [userDefaults setObject:info[LZHACCOUNTUSERNAME] forKey:LZHACCOUNTUSERNAME];
     [userDefaults setObject:info[LZHACCOUNTUSERUID] forKey:LZHACCOUNTUSERUID];
-    [userDefaults setObject:UIImagePNGRepresentation((UIImage *)info[LZHACCOUNTUSERAVATAR]) forKey:LZHACCOUNTUSERAVATAR];
+    if ([info objectForKey:LZHACCOUNTUSERAVATAR]!=nil) {
+        [userDefaults setObject:UIImagePNGRepresentation((UIImage *)info[LZHACCOUNTUSERAVATAR]) forKey:LZHACCOUNTUSERAVATAR];
+    }else{
+        [userDefaults removeObjectForKey:LZHACCOUNTUSERAVATAR];
+    }
     [SSKeychain setPassword:info[LZHACCOUNTUSERPASSWORDD] forService:LZHACCOUNTSERVICE account:info[LZHACCOUNTUSERNAME]];
-    [userDefaults setObject:info[LZHACCOUNTQUESTIONID] forKey:LZHACCOUNTQUESTIONID];
+    if ([info objectForKey:LZHACCOUNTQUESTIONID]!=nil) {
+        [userDefaults setObject:info[LZHACCOUNTQUESTIONID] forKey:LZHACCOUNTQUESTIONID];
+    }else{
+        [userDefaults removeObjectForKey:LZHACCOUNTQUESTIONID];
+    }
     [userDefaults setObject:info[LZHACCOUNTQUESTIONANSWER] forKey:LZHACCOUNTQUESTIONANSWER];
 //    NSLog(@"账户保存成功");
     [[NSNotificationCenter defaultCenter]postNotificationName:LZHUSERINFOLOADCOMPLETENOTIFICATION object:nil];
+    [userDefaults synchronize];
 }
 
 @end

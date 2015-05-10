@@ -17,7 +17,7 @@ extern NSString *const LZHACCOUNTQUESTIONANSWER;
 
 @interface LZHAccount : NSObject
 
-+(id)sharedAccount;
++(instancetype)sharedAccount;
 
 /**
  *  获取用户信息，包括用户名，UID，头像，密码（md5加密后的字符串），问题id，问题答案
