@@ -160,6 +160,7 @@
             }
             IDMPhoto *photo=[IDMPhoto photoWithURL:[NSURL URLWithString:imageURLString]];
             IDMPhotoBrowser *browser=[[IDMPhotoBrowser alloc] initWithPhotos:@[photo] animatedFromView:self.view];
+            browser.usePopAnimation=NO;
             [self presentViewController:browser animated:YES completion:nil];
         }else if([requestString containsString:@"leizh-scheme://linkClicked_"]){
             NSRange range=[requestString rangeOfString:@"leizh-scheme://linkClicked_"];
@@ -173,7 +174,6 @@
                 
             }else{
                 SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:linkURLString];
-                
                 [self.navigationController pushViewController:webViewController animated:YES];
             }
             //NSLog(@"%@",linkURLString);

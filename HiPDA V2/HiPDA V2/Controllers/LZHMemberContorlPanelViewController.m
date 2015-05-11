@@ -14,6 +14,7 @@
 #import "LZHNetworkFetcher.h"
 #import "CustomBadge.h"
 #import "LZHNotice.h"
+#import "LZHThreadViewController.h"
 
 const CGFloat LZHRearViewRevealWidth = 182.0f;
 const CGFloat kDistanceBetweenViews  = 8.0f;
@@ -30,29 +31,32 @@ const CGFloat kImageViewWidth        = 25.0f;
 
 @interface LZHMemberContorlPanelViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (strong, nonatomic) UILabel     *titleLable;
-@property (strong, nonatomic) UILabel     *seperatorLabelBetweenTitleAndAvatar;
-@property (strong, nonatomic) UIImageView *avatarImageView;
-@property (strong, nonatomic) UILabel     *userNameLabel;
-@property (strong, nonatomic) UIButton    *noticeButton;
-@property (weak, nonatomic  ) UIImageView *noticeImageView;
-@property (weak, nonatomic  ) CustomBadge *noticeBadge;
-@property (strong, nonatomic) UIButton    *threadButton;
-@property (weak, nonatomic  ) UIImageView *threadImageView;
-@property (weak, nonatomic  ) CustomBadge *threadBadge;
-@property (strong, nonatomic) UIButton    *searchButton;
-@property (weak, nonatomic  ) UIImageView *searchImageView;
-@property (strong, nonatomic) UILabel     *seperatorLabelUponTableView;
-@property (strong, nonatomic) UIButton *settingsButton;
-@property (weak, nonatomic) UIImageView *settingsImageView;
-@property (strong, nonatomic) UIButton *dayNightModeButton;
-@property (weak, nonatomic) UIImageView *dayNightModeImageView;
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UILabel      *titleLable;
+@property (strong, nonatomic) UILabel      *seperatorLabelBetweenTitleAndAvatar;
+@property (strong, nonatomic) UIImageView  *avatarImageView;
+@property (strong, nonatomic) UILabel      *userNameLabel;
+@property (strong, nonatomic) UIButton     *noticeButton;
+@property (weak,   nonatomic) UIImageView  *noticeImageView;
+@property (weak,   nonatomic) CustomBadge  *noticeBadge;
+@property (strong, nonatomic) UIButton     *threadButton;
+@property (weak,   nonatomic) UIImageView  *threadImageView;
+@property (weak,   nonatomic) CustomBadge  *threadBadge;
+@property (strong, nonatomic) UIButton     *searchButton;
+@property (weak,   nonatomic) UIImageView  *searchImageView;
+@property (strong, nonatomic) UILabel      *seperatorLabelUponTableView;
+@property (strong, nonatomic) UIButton     *settingsButton;
+@property (weak,   nonatomic) UIImageView  *settingsImageView;
+@property (strong, nonatomic) UIButton     *dayNightModeButton;
+@property (weak,   nonatomic) UIImageView  *dayNightModeImageView;
+@property (strong, nonatomic) UITableView  *tableView;
+@property (strong, nonatomic) NSArray      *fidArray;
+@property (strong, nonatomic) NSDictionary *fidDictionary;
 
 @end
 
 @implementation LZHMemberContorlPanelViewController{
     BOOL isDayMode;
+    NSInteger selectedIndex;
 }
 
 - (void)viewDidLoad {
@@ -60,6 +64,14 @@ const CGFloat kImageViewWidth        = 25.0f;
     self.view.backgroundColor=kBackgroundColor;
     
     //初始化参数
+    _fidArray=@[@"Discovery",@"Buy & Sell",@"E-INK",@"Geek Talks",@"疑似机器人"];
+    _fidDictionary=@{@"Discovery":[NSNumber numberWithInteger:LZHDiscoveryFid],
+                     @"Buy & Sell":[NSNumber numberWithInteger:LZHBuyAndSellFid],
+                     @"E-INK":[NSNumber numberWithInteger:LZHEINKFid],
+                     @"Geek Talks":[NSNumber numberWithInteger:LZHGeekTalkFid],
+                     @"疑似机器人":[NSNumber numberWithInteger:LZHMachineFid]};
+    selectedIndex=0;
+    
     //标题
     _titleLable=[[UILabel alloc]init];
     _titleLable.text=@"个人中心";
@@ -189,13 +201,21 @@ const CGFloat kImageViewWidth        = 25.0f;
     [notice addObserver:self forKeyPath:@"promptThreads" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     //tableView
-    
+    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, _seperatorLabelUponTableView.frame.origin.y+_seperatorLabelUponTableView.frame.size.height, LZHRearViewRevealWidth, _dayNightModeButton.frame.origin.y-_seperatorLabelUponTableView.frame.origin.y-_seperatorLabelUponTableView.frame.size.height)];
+    _tableView.backgroundColor=kBackgroundColor;
+    _tableView.separatorColor=kHighlightedBackgroundColor;
+    _tableView.delegate=self;
+    _tableView.dataSource=self;
+    _tableView.tableFooterView=[[UIView alloc]init];
+    [self.view addSubview:_tableView];
 }
 
 #pragma  mark - Button Pressed
 
 -(void)buttonPressed:(id)sender{
     UIButton *button=(UIButton *)sender;
+    selectedIndex=-1;
+    [_tableView reloadData];
     if (button==_dayNightModeButton) {
         isDayMode=!isDayMode;
         if (isDayMode) {
@@ -252,6 +272,48 @@ const CGFloat kImageViewWidth        = 25.0f;
         _avatarImageView.image=((NSDictionary *)[LZHAccount sharedAccount].account)[LZHACCOUNTUSERAVATAR];
         [[NSNotificationCenter defaultCenter]removeObserver:self];
     }
+}
+
+#pragma  mark - TableView DataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _fidArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellReusedIdentifier=@"cellReusedIdentifier";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellReusedIdentifier];
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReusedIdentifier];
+    }
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.text=_fidArray[indexPath.row];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    if (indexPath.row==selectedIndex) {
+        cell.backgroundColor=[UIColor colorWithRed:0.106 green:0.135 blue:0.162 alpha:1];
+        cell.textLabel.textColor=[UIColor colorWithRed:0.999 green:1 blue:1 alpha:1];
+    }else{
+        cell.backgroundColor=[UIColor clearColor];
+        cell.textLabel.textColor=[UIColor colorWithRed:0.581 green:0.6 blue:0.617 alpha:1];
+    }
+    return cell;
+}
+
+#pragma mark - TableView Delegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self resetImageViewsHighlighted];
+    selectedIndex=indexPath.row;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView reloadData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:LZHThreadDataSourceChange
+                                                        object:nil
+                                                      userInfo:@{@"LZHThreadFid":_fidDictionary[_fidArray[indexPath.row]]}];
+    [self.revealViewController revealToggleAnimated:YES];
 }
 
 #pragma mark - SWRevealViewControllerDelegate

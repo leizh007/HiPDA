@@ -15,6 +15,11 @@ extern NSString *const LZHBuyAndSellFidString;
 extern NSString *const LZHGeekTalkFidString;
 extern NSString *const LZHMachineFidString;
 extern NSString *const LZHEINKFidString;
+extern const NSInteger LZHDiscoveryFid;
+extern const NSInteger LZHBuyAndSellFid;
+extern const NSInteger LZHGeekTalkFid;
+extern const NSInteger LZHMachineFid;
+extern const NSInteger LZHEINKFid;
 
 @interface LZHThreadViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MGSwipeTableCellDelegate>
 

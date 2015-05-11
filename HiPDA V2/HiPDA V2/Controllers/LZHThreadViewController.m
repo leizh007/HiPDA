@@ -26,11 +26,11 @@
 #import "SDImageCache.h"
 
 NSString *const LZHThreadDataSourceChange=@"LZHThreadDataSourceChange";
-static const NSInteger kDiscoveryFid=2;
-static const NSInteger kBuyAndSellFid=6;
-static const NSInteger kGeekTalkFid=7;
-static const NSInteger kMachineFid=57;
-static const NSInteger kEINKFid=59;
+const NSInteger LZHDiscoveryFid=2;
+const NSInteger LZHBuyAndSellFid=6;
+const NSInteger LZHGeekTalkFid=7;
+const NSInteger LZHMachineFid=57;
+const NSInteger LZHEINKFid=59;
 NSString *const LZHDiscoveryFidString=@"LZHDiscoveryFidString";
 NSString *const LZHBuyAndSellFidString=@"LZHBuyAndSellFidString";
 NSString *const LZHGeekTalkFidString=@"LZHGeekTalkFidString";
@@ -87,13 +87,13 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     
     //初始化数据
     self.threads=[[NSMutableArray alloc]init];
-    _fid=kMachineFid;
+    _fid=LZHDiscoveryFid;
     _page=1;
-    _threadFidDictionary=@{LZHDiscoveryFidString:[NSNumber numberWithInteger:kDiscoveryFid],
-                           LZHBuyAndSellFidString:[NSNumber numberWithInteger:kBuyAndSellFid],
-                           LZHGeekTalkFidString:[NSNumber numberWithInteger:kGeekTalkFid],
-                           LZHMachineFidString:[NSNumber numberWithInteger:kMachineFid],
-                           LZHEINKFidString:[NSNumber numberWithInteger:kEINKFid]};
+    _threadFidDictionary=@{LZHDiscoveryFidString:[NSNumber numberWithInteger:LZHDiscoveryFid],
+                           LZHBuyAndSellFidString:[NSNumber numberWithInteger:LZHBuyAndSellFid],
+                           LZHGeekTalkFidString:[NSNumber numberWithInteger:LZHGeekTalkFid],
+                           LZHMachineFidString:[NSNumber numberWithInteger:LZHMachineFid],
+                           LZHEINKFidString:[NSNumber numberWithInteger:LZHEINKFid]};
     
 }
 
@@ -103,25 +103,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     revealViewController.panGestureRecognizer.enabled=YES;
     revealViewController.tapGestureRecognizer.enabled=YES;
     
-    NSString *navigationTitle;
-    switch (_fid) {
-        case kDiscoveryFid:
-            navigationTitle=@"Discovery";
-            break;
-        case kBuyAndSellFid:
-            navigationTitle=@"Buy & Sell";
-            break;
-        case kGeekTalkFid:
-            navigationTitle=@"GeekTalk";
-            break;
-        case kMachineFid:
-            navigationTitle=@"疑似机器人";
-            break;
-        case kEINKFid:
-            navigationTitle=@"E-INK";
-            break;
-    }
-    self.navigationItem.title=navigationTitle;
+    [self setNavigationTitle];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -144,12 +126,39 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     [notice removeObserver:self forKeyPath:@"sumPrompt"];
 }
 
+-(void)setNavigationTitle{
+    NSString *navigationTitle;
+    switch (_fid) {
+        case LZHDiscoveryFid:
+            navigationTitle=@"Discovery";
+            break;
+        case LZHBuyAndSellFid:
+            navigationTitle=@"Buy & Sell";
+            break;
+        case LZHGeekTalkFid:
+            navigationTitle=@"GeekTalk";
+            break;
+        case LZHMachineFid:
+            navigationTitle=@"疑似机器人";
+            break;
+        case LZHEINKFid:
+            navigationTitle=@"E-INK";
+            break;
+    }
+    self.navigationItem.title=navigationTitle;
+}
 #pragma mark - Notification
 
 -(void)handleNotification:(NSNotification *)notification{
     if ([notification.name isEqualToString:LZHLOGGINSUCCESSNOTIFICATION]) {
         [self pullDownToRefresh];
         [self pullUpToLoadMore];
+    }else if([notification.name isEqualToString:LZHThreadDataSourceChange]){
+        NSDictionary *userInfo=notification.userInfo;
+        _fid=[userInfo[@"LZHThreadFid"] integerValue];
+        _page=1;
+        [self setNavigationTitle];
+        [_tableView.header beginRefreshing];
     }
 }
 
