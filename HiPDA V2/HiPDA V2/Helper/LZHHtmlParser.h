@@ -17,5 +17,8 @@
 
 +(void)extractPostListFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
++(void)extractPromptPmFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)extractPromptFriendFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
 @end

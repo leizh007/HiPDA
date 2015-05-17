@@ -13,9 +13,13 @@ extern NSString *const LZHLOGGINSUCCESSNOTIFICATION;
 extern NSString *const LZHNEWMESSAGESNOTIFICATION;
 extern NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION;
 
+@class LZHUser;
+
 @interface LZHNetworkFetcher : NSObject
 
 +(void)loginWithUserName:(NSString *)userName password:(NSString *)password questionId:(NSString *)qid questionAnswer:(NSString *)answer completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 +(void)getUidAndAvatarThenSaveUserName:(NSString *)userName password:(NSString *)password questionId:(NSString *)qid questionAnswer:(NSString *)answer;
+
++(void)beFriendToUser:(LZHUser *)user withURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
 @end

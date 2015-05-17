@@ -15,6 +15,10 @@
 #import "CustomBadge.h"
 #import "LZHNotice.h"
 #import "LZHThreadViewController.h"
+#import "LZHPersonalMessageViewController.h"
+#import "LZHMyThreadViewController.h"
+#import "LZHSearchViewController.h"
+#import "LZHSettingsViewController.h"
 
 const CGFloat LZHRearViewRevealWidth = 182.0f;
 const CGFloat kDistanceBetweenViews  = 8.0f;
@@ -51,6 +55,7 @@ const CGFloat kImageViewWidth        = 25.0f;
 @property (strong, nonatomic) UITableView  *tableView;
 @property (strong, nonatomic) NSArray      *fidArray;
 @property (strong, nonatomic) NSDictionary *fidDictionary;
+@property (strong, nonatomic) UINavigationController *presentNavigationController;
 
 @end
 
@@ -210,12 +215,12 @@ const CGFloat kImageViewWidth        = 25.0f;
     [self.view addSubview:_tableView];
 }
 
+
+
 #pragma  mark - Button Pressed
 
 -(void)buttonPressed:(id)sender{
     UIButton *button=(UIButton *)sender;
-    selectedIndex=-1;
-    [_tableView reloadData];
     if (button==_dayNightModeButton) {
         isDayMode=!isDayMode;
         if (isDayMode) {
@@ -226,15 +231,31 @@ const CGFloat kImageViewWidth        = 25.0f;
         return;
     }
     [self resetImageViewsHighlighted];
+    UIViewController *navigationRootViewController;
     if (button==_noticeButton) {
         _noticeImageView.highlighted=YES;
+        navigationRootViewController=[[LZHPersonalMessageViewController alloc]init];
     }else if(button==_threadButton){
         _threadImageView.highlighted=YES;
+        navigationRootViewController=[[LZHMyThreadViewController alloc]init];
     }else if(button == _searchButton){
         _searchImageView.highlighted=YES;
+        navigationRootViewController=[[LZHSearchViewController alloc]init];
     }else if(button==_settingsButton){
         _settingsImageView.highlighted=YES;
+        navigationRootViewController=[[LZHSettingsViewController alloc]init];
     }
+    _presentNavigationController=[[UINavigationController alloc]initWithRootViewController:navigationRootViewController];
+    UIButton *leftButton=[[UIButton alloc]init];
+    [leftButton setTitle:@"完成" forState:UIControlStateNormal];
+    [leftButton setTitleColor:[UIColor colorWithRed:0 green:0.459 blue:1 alpha:1] forState:UIControlStateNormal];
+    [leftButton sizeToFit];
+    [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(navigationBarLeftButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(navigationBarLeftButtonPressed:)];
+    navigationRootViewController.navigationItem.leftBarButtonItem=leftButtonItem;
+    navigationRootViewController.view.backgroundColor=[UIColor whiteColor];
+    [self presentViewController:_presentNavigationController animated:YES completion:nil];
 }
 
 -(void)resetImageViewsHighlighted{
@@ -242,6 +263,11 @@ const CGFloat kImageViewWidth        = 25.0f;
     _threadImageView.highlighted=NO;
     _searchImageView.highlighted=NO;
     _settingsImageView.highlighted=NO;
+}
+
+-(void)navigationBarLeftButtonPressed:(id)sender{
+    [_presentNavigationController dismissViewControllerAnimated:YES completion:nil];
+    [self resetImageViewsHighlighted];
 }
 
 #pragma mark - KVO
@@ -252,15 +278,15 @@ const CGFloat kImageViewWidth        = 25.0f;
         if (notice.sumPromptPm==0) {
             _noticeBadge.hidden=YES;
         }else{
-            _noticeBadge.hidden=NO;
             _noticeBadge.badgeText=[NSString stringWithFormat:@"%ld",notice.sumPromptPm];
+            _noticeBadge.hidden=NO;
         }
     }else if([keyPath isEqualToString:@"promptThreads"]){
         if (notice.promptThreads==0) {
             _threadBadge.hidden=YES;
         }else{
-            _threadBadge.hidden=NO;
             _threadBadge.badgeText=[NSString stringWithFormat:@"%ld",notice.promptThreads];
+            _threadBadge.hidden=NO;
         }
     }
 }

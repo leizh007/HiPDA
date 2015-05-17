@@ -11,7 +11,7 @@
 
 @class LZHThread;
 
-@interface LZHThreadTableViewCell : MGSwipeTableCell//UITableViewCell
+@interface LZHThreadTableViewCell : MGSwipeTableCell
 
 -(id)configureThread:(LZHThread *)thread;
 

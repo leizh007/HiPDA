@@ -14,7 +14,7 @@
 
 @implementation LZHNotice
 
-+(id)sharedNotice{
++(instancetype)sharedNotice{
     static LZHNotice *notice=nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

@@ -49,6 +49,13 @@ install_resource()
 }
           install_resource "IDMPhotoBrowser/Classes/IDMPhotoBrowser.bundle"
                     install_resource "IDMPhotoBrowser/Classes/IDMPBLocalizations.bundle"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Assets/JSQMessagesAssets.bundle"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Controllers/JSQMessagesViewController.xib"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesCollectionViewCellIncoming.xib"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesCollectionViewCellOutgoing.xib"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesLoadEarlierHeaderView.xib"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesToolbarContentView.xib"
+                    install_resource "JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesTypingIndicatorFooterView.xib"
                     install_resource "MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle"
                     install_resource "RETableViewManager/RETableViewManager/RETableViewManager.bundle"
                     install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"

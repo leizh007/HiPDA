@@ -14,6 +14,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LZHAccount.h"
 #import "LZHHtmlParser.h"
+#import "LZHUser.h"
 
 NSString *const LZHLOGGINSUCCESSNOTIFICATION=@"LZHLOGGINSUCCESSNOTIFICATION";
 NSString *const LZHNEWMESSAGESNOTIFICATION=@"LZHNEWMESSAGESNOTIFICATION";
@@ -126,5 +127,25 @@ NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION=@"LZHUSERINFOLOADCOMPLETENOT
          }];
 }
 
++(void)beFriendToUser:(LZHUser *)user withURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    LZHHTTPRequestOperationManager *manager=[LZHHTTPRequestOperationManager sharedHTTPRequestOperationManager];
+    [manager GET:URLString
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSString *responsHtmlString=[NSString encodingGBKString:responseObject];
+             if (completion) {
+                 if ([responsHtmlString containsString:@"用户已存在于您的好友列表中"]) {
+                     completion(@[@"用户已存在于您的好友列表中"],nil);
+                 }else if([responsHtmlString containsString:user.userName]&&[responsHtmlString containsString:user.uid]){
+                     completion(@[[NSString stringWithFormat:@"添加%@为好友成功！",user.userName]],nil);
+                 }else{
+                     completion(nil,[NSError errorWithDomain:@"添加好友出现未知错误!" code:0 userInfo:nil]);
+                 }
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
+         }];
+}
 
 @end

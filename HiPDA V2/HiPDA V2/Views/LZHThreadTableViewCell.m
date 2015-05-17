@@ -10,7 +10,7 @@
 #import "LZHUser.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LZHThread.h"
-#import "LZHSetting.h"
+#import "LZHSettings.h"
 
 static const CGFloat kAvatarImageViewSize=34.0;
 static const CGFloat kDistanceBetweenViews=8.0;
@@ -51,16 +51,16 @@ static const CGFloat kSeperatorHeight=1.0;
         _avatarImageView.layer.borderWidth=kAvatarImageViewBorderWidth;
         _avatarImageView.layer.borderColor=[kLightWordsColor CGColor];
         _userNameLabel=[[UILabel alloc]init];
-        _userNameLabel.font=[UIFont fontWithName:[[LZHSetting sharedSetting]fontName] size:kSmallFontSize];
+        _userNameLabel.font=[UIFont fontWithName:[[LZHSettings sharedSetting]fontName] size:kSmallFontSize];
         _userNameLabel.textColor=kLightWordsColor;
         _countLabel=[[UILabel alloc]init];
         _countLabel.textColor=kLightWordsColor;
-        _countLabel.font=[UIFont fontWithName:[[LZHSetting sharedSetting]fontName] size:kSmallFontSize];
+        _countLabel.font=[UIFont fontWithName:[[LZHSettings sharedSetting]fontName] size:kSmallFontSize];
         _postTimeLabel=[[UILabel alloc]init];
         _postTimeLabel.textColor=kLightWordsColor;
-        _postTimeLabel.font=[UIFont fontWithName:[[LZHSetting sharedSetting]fontName] size:kSmallFontSize];
+        _postTimeLabel.font=[UIFont fontWithName:[[LZHSettings sharedSetting]fontName] size:kSmallFontSize];
         _titleLabel=[[UILabel alloc]init];
-        _titleLabel.font=[UIFont fontWithName:[[LZHSetting sharedSetting] fontName] size: kBigFontSize];
+        _titleLabel.font=[UIFont fontWithName:[[LZHSettings sharedSetting] fontName] size: kBigFontSize];
         _headSeperatorLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kSeperatorHeight)];
         _footSeperatorLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kSeperatorHeight)];
         _headSeperatorLabel.backgroundColor=kSeperatorColor;
@@ -132,7 +132,7 @@ static const CGFloat kSeperatorHeight=1.0;
     titleLabel.text=thread.title;
     titleLabel.numberOfLines=0;
     titleLabel.lineBreakMode=NSLineBreakByCharWrapping;
-    titleLabel.font=[UIFont fontWithName:[[LZHSetting sharedSetting] fontName] size: kBigFontSize];
+    titleLabel.font=[UIFont fontWithName:[[LZHSettings sharedSetting] fontName] size: kBigFontSize];
     CGSize optSize=[titleLabel sizeThatFits:CGSizeMake([[UIScreen mainScreen]bounds].size.width-2*kDistanceBetweenViews, 99999)];
     return kSeperatorHeight*2+3*kDistanceBetweenViews+kAvatarImageViewSize+optSize.height;
 }

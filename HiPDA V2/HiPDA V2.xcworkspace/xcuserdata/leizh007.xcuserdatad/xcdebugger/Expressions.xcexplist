@@ -3,12 +3,37 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "__65+[LZHHtmlParser extractPromptPmFromHtmlString:completionHandler:]_block_invoke164:LZHHtmlParser.m">
+      </ContextState>
+      <ContextState
+         contextName = "__43+[LZHPrompt getPmFilter:completionHandler:]_block_invoke:LZHPrompt.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "URLString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[LZHPromptPmTableViewCell configurePrompt:]:LZHPromptPmTableViewCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[LZHHtmlParser extractNoticeFromHtmlString:]:LZHHtmlParser.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[html substringWithRange:[result rangeAtIndex:1]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[LZHPostViewController webView:shouldStartLoadWithRequest:navigationType:]:LZHPostViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "data">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__55-[LZHPersonalMessageViewController loadNewDataWithTag:]_block_invoke:LZHPersonalMessageViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

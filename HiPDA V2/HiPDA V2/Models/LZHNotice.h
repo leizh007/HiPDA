@@ -10,7 +10,7 @@
 
 @interface LZHNotice : NSObject
 
-+(id)sharedNotice;
++(instancetype)sharedNotice;
 
 @property (assign, nonatomic) NSInteger promptPm;
 @property (assign, nonatomic) NSInteger promptAnnouncepm;

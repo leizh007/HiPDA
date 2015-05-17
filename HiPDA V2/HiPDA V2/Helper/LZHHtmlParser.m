@@ -14,7 +14,7 @@
 #import "LZHReadList.h"
 #import "LZHBlackList.h"
 #import "LZHPost.h"
-#import "RegExCategories.h"
+#import "LZHPrompt.h"
 
 @interface LZHHtmlParser()
 
@@ -155,6 +155,68 @@
                 }else{
                     completion(postList,nil);
                 }
+            }
+        });
+    });
+}
+
++(void)extractPromptPmFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    [LZHHtmlParser extractNoticeFromHtmlString:html];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"space.php\\?uid=(\\d+)\"\\starget=\"_blank\">(\\w+)</a>[^<]?</cite>([\\s\\S]*?)</p>[^<]+<div\\sclass=\"summary\">([\\s\\S]*?)</div>[\\s\\S]*?<a\\shref=\"([\\s\\S]*?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        NSMutableArray *pmArray=[[NSMutableArray alloc]init];
+        if (matches.count!=0) {
+            [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
+                LZHPrompt *prompt=[[LZHPrompt alloc]init];
+                LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:[html substringWithRange:[result rangeAtIndex:1]],
+                                                                   LZHUSERUSERNAME:[html substringWithRange:[result rangeAtIndex:2]]}];
+                prompt.user=user;
+                prompt.timeString=[html substringWithRange:[result rangeAtIndex:3]];
+                prompt.timeString=[prompt.timeString stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+                prompt.titleString=[html substringWithRange:[result rangeAtIndex:4]];
+                prompt.titleString=[prompt.titleString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                prompt.titleString=[prompt.titleString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+                NSRange imgRange=[prompt.timeString rangeOfString:@"<img"];
+                if (imgRange.location!=NSNotFound) {
+                    prompt.timeString=[prompt.timeString substringToIndex:imgRange.location];
+                    prompt.isNew=YES;
+                }else{
+                    prompt.isNew=NO;
+                }
+                prompt.URLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",[html substringWithRange:[result rangeAtIndex:5]]];
+                [pmArray addObject:prompt];
+            }];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(pmArray,nil);
+            }
+        });
+    });
+}
+
++(void)extractPromptFriendFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    [LZHHtmlParser extractNoticeFromHtmlString:html];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"notice&uid=(\\d+)\">(\\w+)</a>[\\s\\S]*?添加您为好友[\\s\\S]*?<em>([\\s\\S]*?)</em>[\\s\\S]*?href=\"([\\s\\S]*?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        NSMutableArray *friendArray=[[NSMutableArray alloc]init];
+        if (matches.count!=0) {
+            [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
+                LZHPrompt *prompt=[[LZHPrompt alloc]init];
+                LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:[html substringWithRange:[result rangeAtIndex:1]],
+                                                                   LZHUSERUSERNAME:[html substringWithRange:[result rangeAtIndex:2]]}];
+                prompt.user=user;
+                prompt.timeString=[html substringWithRange:[result rangeAtIndex:3]];
+                prompt.titleString=@"请求加您为好友";
+                prompt.URLString=[html substringWithRange:[result rangeAtIndex:4]];
+                [friendArray addObject:prompt];
+            }];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(friendArray,nil);
             }
         });
     });
