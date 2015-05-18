@@ -19,13 +19,16 @@
 #import "LZHUser.h"
 #import "SVProgressHUD.h"
 #import "LZHNetworkFetcher.h"
+#import "LZHMessagesViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "LZHAccount.h"
 
 #define kBackgroundColor [UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:0.5]
 
 const NSInteger kPromptPmTag=1;
 const NSInteger kPromptAnnouncepmTag=2;
-const NSInteger kPromptSystemPm=3;
-const NSInteger kPromptFriend=4;
+const NSInteger kPromptSystemPmTag=3;
+const NSInteger kPromptFriendTag=4;
 
 @interface LZHPersonalMessageViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -84,15 +87,7 @@ const NSInteger kPromptFriend=4;
         }
         [_tableViewArray addObject:tableView];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+    
     //注册KVO
     LZHNotice *notice=[LZHNotice sharedNotice];
     [notice addObserver:self forKeyPath:@"promptPm" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
@@ -101,8 +96,12 @@ const NSInteger kPromptFriend=4;
     [notice addObserver:self forKeyPath:@"promptFriend" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
     //注册KVO
     LZHNotice *notice=[LZHNotice sharedNotice];
     [notice removeObserver:self forKeyPath:@"promptPm"];
@@ -198,9 +197,33 @@ const NSInteger kPromptFriend=4;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSInteger tag=tableView.tag;
-    if (tag==kPromptFriend) {
+    if (tag==kPromptFriendTag) {
         LZHPrompt *prompt=_promptDataArray[tag-1][indexPath.row];
         [self showAddFriendAlertWithUser:prompt.user andURLString:prompt.URLString];
+    }else if(tag==kPromptPmTag){
+        LZHPrompt *prompt=_promptDataArray[tag-1][indexPath.row];
+        LZHMessagesViewController *messagesViewController=[[LZHMessagesViewController alloc]init];
+        messagesViewController.friend=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:prompt.user.uid,
+                                                                           LZHUSERUSERNAME:prompt.user.userName}];
+        messagesViewController.dateRange=5;
+        __weak typeof(self) weakSelf=self;
+        SDWebImageManager *manager=[SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:prompt.user.avatarImageURL
+                              options:0
+                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                 
+                             }
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                if (error!=nil) {
+                                    [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+                                }else{
+                                    messagesViewController.friendAvatar=image;
+                                    LZHAccount *account=[LZHAccount sharedAccount];
+                                    NSDictionary *accountInfo=[account account];
+                                    messagesViewController.myAvatar=accountInfo[LZHACCOUNTUSERAVATAR];
+                                    [weakSelf.navigationController pushViewController:messagesViewController animated:YES];
+                                }
+                            }];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

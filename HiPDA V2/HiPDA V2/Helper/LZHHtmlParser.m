@@ -15,6 +15,7 @@
 #import "LZHBlackList.h"
 #import "LZHPost.h"
 #import "LZHPrompt.h"
+#import "JSQMessage.h"
 
 @interface LZHHtmlParser()
 
@@ -219,6 +220,69 @@
                 completion(friendArray,nil);
             }
         });
+    });
+}
+
+/**
+ *  获取对话列表
+ *
+ *  @param html       html
+ *  @param completion 返回值：0:参数 1:是否已读 2:对话列表
+ */
++(void)extractMessagesFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    [LZHHtmlParser extractNoticeFromHtmlString:html];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSMutableArray *messagesArray=[[NSMutableArray alloc] init];
+        NSRegularExpression *regexParameters=[NSRegularExpression regularExpressionWithPattern:@"id=\"formhash\"[^v]?value=\"(\\w+)\"[\\s\\S]*?name=\"handlekey\"[^v]?value=\"(\\w+)\"[\\s\\S]*?name=\"lastdaterange\"[^v]?value=\"([\\s\\S]*?)\"" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSTextCheckingResult *matchResult=[regexParameters firstMatchInString:html options:0 range:NSMakeRange(0,[html length])];
+        if (matchResult==0) {
+            if (completion) {
+                completion(nil,[NSError errorWithDomain:@"获取参数列表失败！" code:0 userInfo:nil]);
+            }
+            return ;
+        }
+        NSDictionary *paramters=@{@"formhash":[html substringWithRange:[matchResult rangeAtIndex:1]],
+                                  @"handlekey":[html substringWithRange:[matchResult rangeAtIndex:2]],
+                                  @"lastdaterange":[html substringWithRange:[matchResult rangeAtIndex:3]]};
+        [messagesArray addObject:paramters];
+        NSMutableArray *messages=[[NSMutableArray alloc]init];
+        NSMutableArray *isReadArray=[[NSMutableArray alloc]init];
+        NSRegularExpression *regexMessages=[NSRegularExpression regularExpressionWithPattern:@"<cite>(\\w+)</cite>([\\s\\S]*?)</p>[\\s\\S]*?\"summary\">([\\s\\S]*?)</div>" options:0 error:nil];
+        NSArray *matchesMessages=[regexMessages matchesInString:html options:0 range:NSMakeRange(0, [html length])];
+        if ([matchesMessages count]==0) {
+            if (completion) {
+                completion(nil,[NSError errorWithDomain:@"无法获取对话列表！" code:0 userInfo:nil]);
+            }
+            return ;
+        }
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        [matchesMessages enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
+            NSString *userName=[html substringWithRange:[result rangeAtIndex:1]];
+            NSString *timeString=[html substringWithRange:[result rangeAtIndex:2]];
+            timeString=[timeString stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
+            timeString=[timeString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+            timeString=[timeString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            if ([timeString containsString:@"<img"]) {
+                [isReadArray addObject:@NO];
+                timeString=[timeString substringToIndex:[timeString rangeOfString:@"<img"].location];
+            }else{
+                [isReadArray addObject:@YES];
+            }
+            NSString *text=[html substringWithRange:[result rangeAtIndex:3]];
+            text=[text stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
+            NSDate *date=[dateFormatter dateFromString:timeString];
+            JSQMessage *message=[[JSQMessage alloc]initWithSenderId:userName
+                                                  senderDisplayName:userName
+                                                               date:date
+                                                               text:text];
+            [messages addObject:message];
+        }];
+        [messagesArray addObject:isReadArray];
+        [messagesArray addObject:messages];
+        if (completion) {
+            completion(messagesArray,nil);
+        }
     });
 }
 

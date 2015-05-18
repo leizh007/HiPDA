@@ -8,16 +8,17 @@
 
 #import "JSQMessagesViewController.h"
 
-@class LZHMessageDataModel;
 @class LZHUser;
 
 @interface LZHMessagesViewController : JSQMessagesViewController
 
-@property (strong, nonatomic) LZHMessageDataModel *messageData;
 @property (strong, nonatomic) LZHUser *friend;
 /**
  *  3:最近三天  4:本周  5:全部
  */
 @property (assign, nonatomic) NSInteger dateRange;
+
+@property (strong, nonatomic) UIImage *myAvatar;
+@property (strong, nonatomic) UIImage *friendAvatar;
 
 @end
