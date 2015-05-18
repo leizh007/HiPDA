@@ -26,6 +26,7 @@
 		059C700C1AECB97900E3EBA0 /* LZHBlackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C700B1AECB97900E3EBA0 /* LZHBlackList.m */; };
 		059C700F1AECB99200E3EBA0 /* LZHReadList.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C700E1AECB99200E3EBA0 /* LZHReadList.m */; };
 		059C70121AECBEE200E3EBA0 /* LZHThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70111AECBEE200E3EBA0 /* LZHThread.m */; };
+		05AAA0771B0A3F320007376E /* LZHReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AAA0761B0A3F320007376E /* LZHReply.m */; };
 		05AB1E711AEA928700D139A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E701AEA928700D139A1 /* main.m */; };
 		05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E731AEA928700D139A1 /* AppDelegate.m */; };
 		05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E7B1AEA928700D139A1 /* Images.xcassets */; };
@@ -94,6 +95,8 @@
 		059C700E1AECB99200E3EBA0 /* LZHReadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHReadList.m; path = Models/LZHReadList.m; sourceTree = "<group>"; };
 		059C70101AECBEE200E3EBA0 /* LZHThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThread.h; path = Models/LZHThread.h; sourceTree = "<group>"; };
 		059C70111AECBEE200E3EBA0 /* LZHThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThread.m; path = Models/LZHThread.m; sourceTree = "<group>"; };
+		05AAA0751B0A3F320007376E /* LZHReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHReply.h; path = Models/LZHReply.h; sourceTree = "<group>"; };
+		05AAA0761B0A3F320007376E /* LZHReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHReply.m; path = Models/LZHReply.m; sourceTree = "<group>"; };
 		05AB1E6B1AEA928700D139A1 /* HiPDA V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiPDA V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AB1E6F1AEA928700D139A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AB1E701AEA928700D139A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				05D128F21B072A4500CC586E /* LZHPrompt.m */,
 				05DF6E681B086F3F00485E71 /* LZHMessageDataModel.h */,
 				05DF6E691B086F3F00485E71 /* LZHMessageDataModel.m */,
+				05AAA0751B0A3F320007376E /* LZHReply.h */,
+				05AAA0761B0A3F320007376E /* LZHReply.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				05AB1E711AEA928700D139A1 /* main.m in Sources */,
 				05E69F411AED4489009144F1 /* LZHHtmlParser.m in Sources */,
 				059C6FE61AEB7E6800E3EBA0 /* UIBarButtonItem+ImageItem.m in Sources */,
+				05AAA0771B0A3F320007376E /* LZHReply.m in Sources */,
 				05D128E81B02F0F800CC586E /* UIImage+LZHHIPDA.m in Sources */,
 				059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */,
 				059C6FE91AEBB5B300E3EBA0 /* LZHNotice.m in Sources */,

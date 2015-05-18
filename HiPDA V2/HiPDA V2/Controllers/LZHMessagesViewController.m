@@ -12,6 +12,8 @@
 #import "LZHAccount.h"
 #import "SVProgressHUD.h"
 #import "LZHShowMessage.h"
+#import "LZHProfileViewController.h"
+#import "LZHReply.h"
 
 @interface LZHMessagesViewController ()
 
@@ -21,6 +23,7 @@
 @property (copy, nonatomic) NSString *lastDateRange;
 @property (strong, nonatomic) JSQMessagesAvatarImage *myAvatarImage;
 @property (strong, nonatomic) JSQMessagesAvatarImage *friendAvatarImage;
+@property (strong, nonatomic) LZHUser *mySelf;
 
 @end
 
@@ -37,6 +40,8 @@
     NSDictionary *accountInfo=[[LZHAccount sharedAccount] account];
     _messageData.users=@{_friend.userName:_friend.userName,
                          accountInfo[LZHACCOUNTUSERNAME]:accountInfo[LZHACCOUNTUSERNAME]};
+    _mySelf=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:accountInfo[LZHACCOUNTUSERUID],
+                                                 LZHUSERUSERNAME:accountInfo[LZHACCOUNTUSERNAME]}];
     
     self.title=_friend.userName;
     
@@ -70,7 +75,7 @@
                 
                 NSDictionary *parameters=array[0];
                 self.formhash=parameters[@"formhash"];
-                self.handleKey=parameters[@"handleKey"];
+                self.handleKey=parameters[@"handlekey"];
                 self.lastDateRange=parameters[@"lastdaterange"];
                 self.messageData.isMessageReadArray=array[1];
                 self.messageData.messages=array[2];
@@ -99,9 +104,20 @@
     [_messageData.messages addObject:message];
     [_messageData.isMessageReadArray addObject:@NO];
     
-    //TODO: 回复
-    
     [self finishSendingMessageAnimated:YES];
+    
+    NSInteger messageIndex=_messageData.messages.count;
+    [LZHReply replyPrivatePmToUser:_friend
+                      withFormhash:_formhash
+                         handlekey:_handleKey
+                     lastdaterange:_lastDateRange
+                           message:text
+                 completionHandler:^(NSArray *array, NSError *error) {
+                     if (error) {
+                         [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+                         [_messageData.messages removeObjectAtIndex:messageIndex];
+                     }
+                 }];
 }
 
 #pragma mark - JSQMessages CollectionView DataSource
@@ -206,5 +222,21 @@
 {
     return 0.0f;
 }
+
+#pragma mark - Responding to collection view tap events
+
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapAvatarImageView:(UIImageView *)avatarImageView atIndexPath:(NSIndexPath *)indexPath
+{
+    JSQMessage *message=_messageData.messages[indexPath.row];
+    LZHProfileViewController *profileViewController=[[LZHProfileViewController alloc]init];
+    if ([message.senderId isEqualToString:self.senderId]) {
+        profileViewController.user=_mySelf;
+    }else{
+        profileViewController.user=_friend;
+    }
+    [self.navigationController pushViewController:profileViewController animated:YES];
+}
+
 
 @end

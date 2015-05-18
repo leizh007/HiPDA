@@ -215,14 +215,14 @@ const NSInteger kPromptFriendTag=4;
                              }
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                 if (error!=nil) {
-                                    [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+                                    messagesViewController.friendAvatar=[UIImage imageNamed:@"avatar"];
                                 }else{
                                     messagesViewController.friendAvatar=image;
-                                    LZHAccount *account=[LZHAccount sharedAccount];
-                                    NSDictionary *accountInfo=[account account];
-                                    messagesViewController.myAvatar=accountInfo[LZHACCOUNTUSERAVATAR];
-                                    [weakSelf.navigationController pushViewController:messagesViewController animated:YES];
                                 }
+                                LZHAccount *account=[LZHAccount sharedAccount];
+                                NSDictionary *accountInfo=[account account];
+                                messagesViewController.myAvatar=accountInfo[LZHACCOUNTUSERAVATAR];
+                                [weakSelf.navigationController pushViewController:messagesViewController animated:YES];
                             }];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

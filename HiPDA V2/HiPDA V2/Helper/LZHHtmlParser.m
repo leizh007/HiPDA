@@ -271,6 +271,7 @@
             }
             NSString *text=[html substringWithRange:[result rangeAtIndex:3]];
             text=[text stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
+            text=[text stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];
             NSDate *date=[dateFormatter dateFromString:timeString];
             JSQMessage *message=[[JSQMessage alloc]initWithSenderId:userName
                                                   senderDisplayName:userName
