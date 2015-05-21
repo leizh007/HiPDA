@@ -135,4 +135,17 @@
     return postMessage;
 }
 
+-(NSString *)stringBetweenString:(NSString *)firstString andString:(NSString *)secondString{
+    NSRange rangeFirst=[self rangeOfString:firstString];
+    if (rangeFirst.location==NSNotFound) {
+        return @"";
+    }
+    NSString *stringBehindFirstString=[self substringFromIndex:rangeFirst.location+rangeFirst.length];
+    NSRange rangeSecond=[stringBehindFirstString rangeOfString:secondString];
+    if (rangeSecond.location==NSNotFound) {
+        return @"";
+    }
+    return [stringBehindFirstString substringToIndex:rangeSecond.location];
+}
+
 @end

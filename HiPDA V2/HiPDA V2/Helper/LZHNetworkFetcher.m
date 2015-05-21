@@ -116,7 +116,12 @@ NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION=@"LZHUSERINFOLOADCOMPLETENOT
                                                                                         LZHACCOUNTUSERUID:uid,
                                                                                         LZHACCOUNTUSERAVATAR:image}];
                                            }else{
-                                               [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+                                               [[LZHAccount sharedAccount] setAccount:@{LZHACCOUNTUSERNAME:userName,
+                                                                                        LZHACCOUNTUSERPASSWORDD:password,
+                                                                                        LZHACCOUNTQUESTIONID:qid,
+                                                                                        LZHACCOUNTQUESTIONANSWER:answer,
+                                                                                        LZHACCOUNTUSERUID:uid,
+                                                                                        LZHACCOUNTUSERAVATAR:[UIImage imageNamed:@"avatar"]}];
                                            }
                                            
                                        }];

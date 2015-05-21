@@ -10,7 +10,7 @@
 
 @interface LZHBlackList : NSObject
 
-+(id)sharedBlackList;
++(instancetype)sharedBlackList;
 
 -(BOOL)isUserNameInBlackList:(NSString *)userName;
 

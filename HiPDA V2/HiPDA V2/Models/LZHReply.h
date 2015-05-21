@@ -20,4 +20,10 @@
                     message:(NSString *)message
           completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
++(void)sendPmToUser:(LZHUser *)user
+            message:(NSString *)message
+  completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)addFriend:(LZHUser *)user completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
 @end

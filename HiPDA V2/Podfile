@@ -15,3 +15,4 @@ pod 'SVWebViewController', :git => 'https://github.com/pilot34/SVWebViewControll
 pod 'CustomBadge', '~> 3.0.0'
 pod 'HMSegmentedControl', '~> 1.5.1'
 pod 'JSQMessagesViewController', '~> 7.0.1'
+pod 'MZFormSheetController', '~> 3.0.2'

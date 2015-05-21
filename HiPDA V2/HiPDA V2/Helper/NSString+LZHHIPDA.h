@@ -18,4 +18,6 @@
 
 -(id)replacePostContent;
 
+-(NSString *)stringBetweenString:(NSString *)firstString andString:(NSString *)secondString;
+
 @end

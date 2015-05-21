@@ -12,4 +12,6 @@
 
 +(UIImage *)segmentedImageWithTitle:(NSString *)title badgeValue:(NSInteger)value;
 
++ (UIImage *)imageWithColor:(UIColor *)color ;
+
 @end

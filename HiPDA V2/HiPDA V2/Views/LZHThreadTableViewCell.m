@@ -65,8 +65,7 @@ static const CGFloat kSeperatorHeight=1.0;
         _footSeperatorLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kSeperatorHeight)];
         _headSeperatorLabel.backgroundColor=kSeperatorColor;
         _footSeperatorLabel.backgroundColor=kSeperatorColor;
-        _headSeperatorLabel.translatesAutoresizingMaskIntoConstraints=NO;
-        _footSeperatorLabel.translatesAutoresizingMaskIntoConstraints=NO;
+
         [self.contentView addSubview:_avatarImageView];
         [self.contentView addSubview:_userNameLabel];
         [self.contentView addSubview:_countLabel];

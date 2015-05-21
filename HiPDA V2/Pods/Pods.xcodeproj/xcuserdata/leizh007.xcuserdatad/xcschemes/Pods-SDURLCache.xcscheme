@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F5C92D0C6725DDF95A777A9C"
+               BlueprintIdentifier = "AB415B5838383D1F081F831E"
                BuildableName = "libPods-SDURLCache.a"
                BlueprintName = "Pods-SDURLCache"
                ReferencedContainer = "container:Pods.xcodeproj">

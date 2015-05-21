@@ -107,6 +107,7 @@
     [self finishSendingMessageAnimated:YES];
     
     NSInteger messageIndex=_messageData.messages.count;
+    __weak typeof(self) weakSelf=self;
     [LZHReply replyPrivatePmToUser:_friend
                       withFormhash:_formhash
                          handlekey:_handleKey
@@ -115,7 +116,8 @@
                  completionHandler:^(NSArray *array, NSError *error) {
                      if (error) {
                          [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
-                         [_messageData.messages removeObjectAtIndex:messageIndex];
+                         [_messageData.messages removeObjectAtIndex:messageIndex-1];
+                         [weakSelf finishSendingMessageAnimated:YES];
                      }
                  }];
 }

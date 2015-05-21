@@ -18,7 +18,7 @@ NSString *const LZHBLACKLIST=@"LZHBLACKLIST";
 
 @implementation LZHBlackList
 
-+(id)sharedBlackList{
++(instancetype)sharedBlackList{
     static LZHBlackList *blackList=nil;
     static dispatch_once_t onceToke;
     dispatch_once(&onceToke, ^{

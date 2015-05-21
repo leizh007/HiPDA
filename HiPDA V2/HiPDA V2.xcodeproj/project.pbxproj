@@ -27,6 +27,8 @@
 		059C700F1AECB99200E3EBA0 /* LZHReadList.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C700E1AECB99200E3EBA0 /* LZHReadList.m */; };
 		059C70121AECBEE200E3EBA0 /* LZHThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C70111AECBEE200E3EBA0 /* LZHThread.m */; };
 		05AAA0771B0A3F320007376E /* LZHReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AAA0761B0A3F320007376E /* LZHReply.m */; };
+		05AAA07D1B0D73650007376E /* LZHSendPmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AAA07C1B0D73650007376E /* LZHSendPmViewController.m */; };
+		05AAA0861B0DA4760007376E /* LZHCustomeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AAA0851B0DA4760007376E /* LZHCustomeTransition.m */; };
 		05AB1E711AEA928700D139A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E701AEA928700D139A1 /* main.m */; };
 		05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E731AEA928700D139A1 /* AppDelegate.m */; };
 		05AB1E7C1AEA928700D139A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AB1E7B1AEA928700D139A1 /* Images.xcassets */; };
@@ -97,6 +99,10 @@
 		059C70111AECBEE200E3EBA0 /* LZHThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThread.m; path = Models/LZHThread.m; sourceTree = "<group>"; };
 		05AAA0751B0A3F320007376E /* LZHReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHReply.h; path = Models/LZHReply.h; sourceTree = "<group>"; };
 		05AAA0761B0A3F320007376E /* LZHReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHReply.m; path = Models/LZHReply.m; sourceTree = "<group>"; };
+		05AAA07B1B0D73650007376E /* LZHSendPmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHSendPmViewController.h; path = Controllers/LZHSendPmViewController.h; sourceTree = "<group>"; };
+		05AAA07C1B0D73650007376E /* LZHSendPmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHSendPmViewController.m; path = Controllers/LZHSendPmViewController.m; sourceTree = "<group>"; };
+		05AAA0841B0DA4760007376E /* LZHCustomeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHCustomeTransition.h; path = Helper/LZHCustomeTransition.h; sourceTree = "<group>"; };
+		05AAA0851B0DA4760007376E /* LZHCustomeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHCustomeTransition.m; path = Helper/LZHCustomeTransition.m; sourceTree = "<group>"; };
 		05AB1E6B1AEA928700D139A1 /* HiPDA V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HiPDA V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AB1E6F1AEA928700D139A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AB1E701AEA928700D139A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 				05D128E41B02391600CC586E /* LZHSettingsViewController.m */,
 				05DF6E651B086EDD00485E71 /* LZHMessagesViewController.h */,
 				05DF6E661B086EDD00485E71 /* LZHMessagesViewController.m */,
+				05AAA07B1B0D73650007376E /* LZHSendPmViewController.h */,
+				05AAA07C1B0D73650007376E /* LZHSendPmViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -304,6 +312,8 @@
 				05E69F401AED4489009144F1 /* LZHHtmlParser.m */,
 				05D128E61B02F0F800CC586E /* UIImage+LZHHIPDA.h */,
 				05D128E71B02F0F800CC586E /* UIImage+LZHHIPDA.m */,
+				05AAA0841B0DA4760007376E /* LZHCustomeTransition.h */,
+				05AAA0851B0DA4760007376E /* LZHCustomeTransition.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -466,6 +476,7 @@
 				059C6FDA1AEB4C7A00E3EBA0 /* LZHThreadViewController.m in Sources */,
 				059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */,
 				05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */,
+				05AAA07D1B0D73650007376E /* LZHSendPmViewController.m in Sources */,
 				05AB1E741AEA928700D139A1 /* AppDelegate.m in Sources */,
 				0589E5D91AFA2A790094E060 /* LZHProfileViewController.m in Sources */,
 				05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */,
@@ -474,6 +485,7 @@
 				05D128E21B0238C500CC586E /* LZHSearchViewController.m in Sources */,
 				059C6FE01AEB4FD300E3EBA0 /* LZHLoginViewController.m in Sources */,
 				059C70121AECBEE200E3EBA0 /* LZHThread.m in Sources */,
+				05AAA0861B0DA4760007376E /* LZHCustomeTransition.m in Sources */,
 				05DF6E6A1B086F3F00485E71 /* LZHMessageDataModel.m in Sources */,
 				05FE9B5E1AFFA6FF00435E2C /* LZHSettings.m in Sources */,
 				05D128E51B02391600CC586E /* LZHSettingsViewController.m in Sources */,
