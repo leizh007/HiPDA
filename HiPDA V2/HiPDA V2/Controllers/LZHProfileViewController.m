@@ -216,6 +216,7 @@ const CGFloat LZHProfileButtonHeight=40.0f;
 
 -(void)blackListButtonPressed:(id)sender{
     LZHBlackList *blackList=[LZHBlackList sharedBlackList];
+    
     if (_isUserInBlackList) {
         [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:@"已将该用户移出黑名单！"];
         [blackList removeUserNameFromBlackList:_user.userName];
