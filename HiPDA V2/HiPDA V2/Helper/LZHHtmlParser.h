@@ -23,4 +23,12 @@
 
 +(void)extractMessagesFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
++(void)extractThreadsNoticeFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)extractMyThreadsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)extractMyPostsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)extractMyFavoritesFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
 @end

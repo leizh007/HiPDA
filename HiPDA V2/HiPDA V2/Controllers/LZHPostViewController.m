@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *postList;
 @property (strong, nonatomic) NSString *htmlFormatString;
 @property (strong, nonatomic) NSString *defaultUserAvatarImageURLString;
+@property (assign, nonatomic) NSInteger totalPageNumber;
 
 @end
 
@@ -50,6 +51,7 @@
     _postList=[[NSMutableArray alloc]init];
     _htmlFormatString=[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LZHPostList" ofType:@"html"] encoding:NSUTF8StringEncoding error:nil];
     _defaultUserAvatarImageURLString=@"http://www.hi-pda.com/forum/uc_server/data/avatar/000/85/69/99_avatar_middle.jpg?random=10.9496039664372802";
+    _totalPageNumber=1;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -70,8 +72,7 @@
     
     //根据是否是最后一页设置footer的内容
     if ([_postList count]!=0) {
-        NSInteger totalPage=[(NSString *)_postList[1] integerValue];
-        if (_page==totalPage) {
+        if (_page==_totalPageNumber) {
             [_webView.scrollView.footer noticeNoMoreData];
         }else{
             [_webView.scrollView.footer resetNoMoreData];
@@ -119,23 +120,6 @@
                                                                   
                                                               }]];
             
-            [alertController addAction:[UIAlertAction actionWithTitle:@"用户信息"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction *action) {
-                                                                  
-                                                              }]];
-            
-            [alertController addAction:[UIAlertAction actionWithTitle:@"加为好友"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction *action) {
-                                                                  
-                                                              }]];
-            
-            [alertController addAction:[UIAlertAction actionWithTitle:@"发短消息"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction *action) {
-                                                                  
-                                                              }]];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"只看该作者"
                                                                 style:UIAlertActionStyleDefault
@@ -166,7 +150,13 @@
             NSRange range=[requestString rangeOfString:@"leizh-scheme://linkClicked_"];
             NSString *linkURLString=[requestString substringFromIndex:range.length];
             if ([linkURLString containsString:@"realURL"]) {
-                linkURLString=[NSString stringWithFormat:@"http://%@",[linkURLString substringFromIndex:7]];
+                if ([linkURLString containsString:@"realSSSSS"]) {
+                    linkURLString=[NSString stringWithFormat:@"https://%@",[linkURLString substringFromIndex:7]];
+                    NSRange ssssRange=[linkURLString rangeOfString:@"realSSSSS"];
+                    linkURLString=[linkURLString substringToIndex:ssssRange.location];
+                }else{
+                    linkURLString=[NSString stringWithFormat:@"http://%@",[linkURLString substringFromIndex:7]];
+                }
             }else{
                 linkURLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",linkURLString];
             }
@@ -236,6 +226,10 @@
             weakSelf.postList=[array mutableCopy];
             [weakSelf prepareDataForUIWebView];
             [weakSelf.webView.scrollView.header endRefreshing];
+            NSInteger totalPage=[(NSString *)_postList[1] integerValue];
+            if (totalPage>weakSelf.totalPageNumber) {
+                weakSelf.totalPageNumber=totalPage;
+            }
             self.page=_page;
         }
     }];

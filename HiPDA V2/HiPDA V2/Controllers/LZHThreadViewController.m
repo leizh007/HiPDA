@@ -66,6 +66,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     _barButton=[[BBBadgeBarButtonItem alloc]initWithCustomUIButton:button];
     _barButton.badgeOriginX=12;
     _barButton.badgeOriginY=-11;
+    _barButton.badgeMinSize=5.0f;
     self.navigationItem.leftBarButtonItem=_barButton;
     
     //注册KVO

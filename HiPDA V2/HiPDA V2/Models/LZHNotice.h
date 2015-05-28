@@ -23,4 +23,6 @@
 //消息总数，用在threadview里
 @property (assign, nonatomic) NSInteger sumPromptPm;
 
+@property (assign, nonatomic) NSInteger myThreads;
+
 @end

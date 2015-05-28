@@ -1088,6 +1088,9 @@
             if(linkURL.indexOf("http://")>-1){
                 linkURL=linkURL.substring(7,linkURL.length);
                 linkURL="realURL"+linkURL;
+            }else if(linkURL.indexOf("https://")>-1){
+                linkURL=linkURL.substring(8,linkURL.length);
+                linkURL="realURL"+linkURL+"realSSSSS";
             }
             loadURL("leizh-scheme://linkClicked_"+linkURL);
             e.stopPropagation();
