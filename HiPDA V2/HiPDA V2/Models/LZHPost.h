@@ -13,6 +13,7 @@
 
 @interface LZHPost : NSObject
 
+@property (copy, nonatomic) NSString *pid;
 @property (strong, nonatomic) LZHUser *user;
 @property (strong, nonatomic) NSString *postTime;
 @property (assign, nonatomic) NSInteger floor;

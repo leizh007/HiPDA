@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class LZHUser;
+
 @interface LZHSearchViewController : UIViewController
+
+@property (strong ,nonatomic) LZHUser *user;
 
 @end

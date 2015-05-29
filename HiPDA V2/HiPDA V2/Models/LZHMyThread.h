@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LZHNetworkFetcher.h"
 
-@interface LZHMyThreads : NSObject
+@interface LZHMyThread : NSObject
 
 @property (copy ,nonatomic) NSString *tid;
 @property (copy ,nonatomic) NSString *title;

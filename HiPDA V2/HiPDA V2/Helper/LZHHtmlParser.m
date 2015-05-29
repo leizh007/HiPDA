@@ -16,10 +16,11 @@
 #import "LZHPost.h"
 #import "LZHPrompt.h"
 #import "JSQMessage.h"
-#import "LZHThreadsNotice.h"
-#import "LZHMyThreads.h"
-#import "LZHMyPosts.h"
-#import "LZHMyFavorites.h"
+#import "LZHThreadNotice.h"
+#import "LZHMyThread.h"
+#import "LZHMyPost.h"
+#import "LZHMyFavorite.h"
+#import "LZHSearchResult.h"
 
 @interface LZHHtmlParser()
 
@@ -135,19 +136,20 @@
         
         
         //列表
-        NSRegularExpression *regexList=[NSRegularExpression regularExpressionWithPattern:@"<div\\sid=\"post_\\d+\">[\\s\\S]*?<td\\sclass=\"postauthor\"[\\s\\S]*?uid=(\\d+)[\\s\\S]*?>([^<]*?)</a>[\\s\\S]*?<em>(\\d+)</em>[\\s\\S]*?<sup>#</sup>[\\s\\S]*?<div\\sclass=\"authorinfo\">[\\s\\S]*?>发表于\\s([\\s\\S]*?)</em>[\\s\\S]*?<div\\sclass=\"t_msgfontfix\">([\\s\\S]*?)</div>[^<]*?<div\\sid=\"post_rate_div_\\d+\"></div>" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSRegularExpression *regexList=[NSRegularExpression regularExpressionWithPattern:@"<div\\sid=\"post_(\\d+)\">[\\s\\S]*?<td\\sclass=\"postauthor\"[\\s\\S]*?uid=(\\d+)[\\s\\S]*?>([^<]*?)</a>[\\s\\S]*?<em>(\\d+)</em>[\\s\\S]*?<sup>#</sup>[\\s\\S]*?<div\\sclass=\"authorinfo\">[\\s\\S]*?>发表于\\s([\\s\\S]*?)</em>[\\s\\S]*?<div\\sclass=\"t_msgfontfix\">([\\s\\S]*?)</div>[^<]*?<div\\sid=\"post_rate_div_\\d+\"></div>" options:NSRegularExpressionCaseInsensitive error:nil];
         NSArray *matchesList=[regexList matchesInString:html options:0 range:NSMakeRange(0, [html length])];
         [matchesList enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
             @autoreleasepool {
-                NSString *uid=[html substringWithRange:[result rangeAtIndex:1]];
-                NSString *userName=[html substringWithRange:[result rangeAtIndex:2]];
-                NSInteger floor=[[html substringWithRange:[result rangeAtIndex:3]]integerValue];
-                NSString *postTime=[html substringWithRange:[result rangeAtIndex:4]];
-                NSString *postMessage=[html substringWithRange:[result rangeAtIndex:5]];
+                NSString *uid=[html substringWithRange:[result rangeAtIndex:2]];
+                NSString *userName=[html substringWithRange:[result rangeAtIndex:3]];
+                NSInteger floor=[[html substringWithRange:[result rangeAtIndex:4]]integerValue];
+                NSString *postTime=[html substringWithRange:[result rangeAtIndex:5]];
+                NSString *postMessage=[html substringWithRange:[result rangeAtIndex:6]];
                 
                 LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:uid,
                                                                    LZHUSERUSERNAME:userName}];
                 LZHPost *post=[[LZHPost alloc]init];
+                post.pid=[html substringWithRange:[result rangeAtIndex:1]];
                 post.user=user;
                 post.floor=floor;
                 post.postTime=postTime;
@@ -315,7 +317,7 @@
             NSString *replyContent=[html substringWithRange:[result rangeAtIndex:7]];
             NSString *URLString=[html substringWithRange:[result rangeAtIndex:8]];
             
-            LZHThreadsNotice *threadsNotice=[[LZHThreadsNotice alloc] init];
+            LZHThreadNotice *threadsNotice=[[LZHThreadNotice alloc] init];
             LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:uid,
                                                                LZHUSERUSERNAME:userName}];
             threadsNotice.user=user;
@@ -364,7 +366,7 @@
         NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, html.length)];
         
         [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
-            LZHMyThreads *myThreads=[[LZHMyThreads alloc]init];
+            LZHMyThread *myThreads=[[LZHMyThread alloc]init];
             myThreads.tid=[html substringWithRange:[result rangeAtIndex:1]];
             myThreads.title=[html substringWithRange:[result rangeAtIndex:2]];
             myThreads.fidName=[html substringWithRange:[result rangeAtIndex:3]];
@@ -391,7 +393,7 @@
         NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, html.length)];
         
         [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
-            LZHMyPosts *myPosts=[[LZHMyPosts alloc]init];
+            LZHMyPost *myPosts=[[LZHMyPost alloc]init];
             myPosts.URLString=[html substringWithRange:[result rangeAtIndex:1]];
             myPosts.title=[html substringWithRange:[result rangeAtIndex:2]];
             myPosts.fidName=[html substringWithRange:[result rangeAtIndex:3]];
@@ -423,7 +425,7 @@
         NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, html.length)];
         
         [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
-            LZHMyFavorites *myFavorites=[[LZHMyFavorites alloc]init];
+            LZHMyFavorite *myFavorites=[[LZHMyFavorite alloc]init];
             myFavorites.URLString=[html substringWithRange:[result rangeAtIndex:1]];
             myFavorites.title=[html substringWithRange:[result rangeAtIndex:2]];
             myFavorites.fidName=[html substringWithRange:[result rangeAtIndex:3]];
@@ -437,6 +439,65 @@
                 completion(nil,[NSError errorWithDomain:@"暂无数据！" code:0 userInfo:nil]);
             }else{
                 completion(myFavoritesArray,nil);
+            }
+        }
+    });
+}
+
++(void)extractSearchResultsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    [LZHHtmlParser extractNoticeFromHtmlString:html];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSMutableArray *searchResultsArray=[[NSMutableArray alloc]init];
+        [searchResultsArray addObject:[NSNumber numberWithInteger:[LZHHtmlParser extractTotalPageNumberFromHtmlString:html]]];
+        
+        NSRegularExpression *regex=[NSRegularExpression regularExpressionWithPattern:@"<th\\sclass=\"subject\">[\\s\\S]*?<a\\shref=\"viewthread.php\\?tid=(\\d+)[^>]+>([\\s\\S]*?)</a>([\\s\\S]*?)<td\\sclass=\"forum\"><a\\shref=\"forumdisplay.php\\?fid=\\d+\">([^<]+)</a>[\\s\\S]*?<a\\shref=\"space.php\\?uid=(\\d+)\">([\\s\\S]*?)</a>[\\s\\S]*?<em>([^<]+)</em>[\\s\\S]*?<strong>(\\d+)</strong>\\s/\\s<em>(\\d+)</em>" options:NSRegularExpressionCaseInsensitive error:nil];
+        
+        NSArray *matches=[regex matchesInString:html options:0 range:NSMakeRange(0, html.length)];
+        
+        [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
+            LZHSearchResult *searchResult=[[LZHSearchResult alloc]init];
+            searchResult.tid=[html substringWithRange:[result rangeAtIndex:1]];
+            searchResult.title=[html substringWithRange:[result rangeAtIndex:2]];
+            NSString *attachString=[html substringWithRange:[result rangeAtIndex:3]];
+            if ([attachString containsString:@"图片附件"]) {
+                searchResult.searchResultThreadAttachType=LZHSearchResultThreadAttachTypeImage;
+            }else if([attachString containsString:@"附件"]){
+                searchResult.searchResultThreadAttachType=LZHSearchResultThreadAttachTypeAttach;
+            }else{
+                searchResult.searchResultThreadAttachType=LZHSearchResultThreadAttachTypeNone;
+            }
+            
+            searchResult.fidName=[html substringWithRange:[result rangeAtIndex:4]];
+            
+            NSString *uid=[html substringWithRange:[result rangeAtIndex:5]];
+            NSString *userName=[html substringWithRange:[result rangeAtIndex:6]];
+            LZHUser *user=[[LZHUser alloc]initWithAttributes:@{LZHUSERUID:uid,
+                                                               LZHUSERUSERNAME:userName}];
+            searchResult.uesr=user;
+            
+            searchResult.postTime=[html substringWithRange:[result rangeAtIndex:7]];
+            searchResult.replyCount=[html substringWithRange:[result rangeAtIndex:8]];
+            searchResult.openCount=[html substringWithRange:[result rangeAtIndex:9]];
+            
+            NSString * titleString = searchResult.title;
+            if (searchResult.searchResultThreadAttachType==LZHSearchResultThreadAttachTypeImage) {
+                titleString=[titleString stringByAppendingString:@"🎑"];
+            }else if(searchResult.searchResultThreadAttachType==LZHSearchResultThreadAttachTypeAttach){
+                titleString=[titleString stringByAppendingString:@"📎"];
+            }
+            titleString=[NSString stringWithFormat:@"<font size=\"5\">%@</font>",titleString];
+            
+            NSAttributedString * attributedString = [[NSAttributedString alloc] initWithData:[titleString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+            searchResult.attributedTitle=attributedString;
+            
+            [searchResultsArray addObject:searchResult];
+        }];
+        
+        if (completion) {
+            if (matches.count==0) {
+                completion(nil,[NSError errorWithDomain:@"暂无数据！" code:0 userInfo:nil]);
+            }else{
+                completion(searchResultsArray,nil);
             }
         }
     });

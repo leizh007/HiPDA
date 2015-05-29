@@ -7,7 +7,7 @@
 //
 
 #import "LZHMyThreadsTableViewCell.h"
-#import "LZHMyThreads.h"
+#import "LZHMyThread.h"
 
 const CGFloat LZHMyThreadsSmallFontSize=16.0;
 const CGFloat LZHMyThreadsBigFontSize=18.0;
@@ -50,7 +50,7 @@ const CGFloat LZHMyThreadsDistanceBetweenViews=13.0f;
     return self;
 }
 
--(void)configureMyThreads:(LZHMyThreads *)myThread{
+-(void)configureMyThreads:(LZHMyThread *)myThread{
     _titleLabel.text=myThread.title;
     _fidNameLabel.text=myThread.fidName;
 }
@@ -65,7 +65,7 @@ const CGFloat LZHMyThreadsDistanceBetweenViews=13.0f;
     _seperatorLabel.frame=CGRectMake(LZHMyThreadsDistanceBetweenViews,_titleLabel.frame.size.height+_titleLabel.frame.origin.y+LZHMyThreadsDistanceBetweenViews , LZHMyThreadsViewWidth-LZHMyThreadsDistanceBetweenViews, 1.0f);
 }
 
-+(CGFloat)cellHeightForMyThreads:(LZHMyThreads *)myThread{
++(CGFloat)cellHeightForMyThreads:(LZHMyThread *)myThread{
     UILabel *titleLabel=[[UILabel alloc]init];
     titleLabel.text=myThread.title;
     titleLabel.numberOfLines=0;

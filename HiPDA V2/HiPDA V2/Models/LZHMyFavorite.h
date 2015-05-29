@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LZHNetworkFetcher.h"
 
-@interface LZHMyFavorites : NSObject
+@interface LZHMyFavorite : NSObject
 
 @property (copy, nonatomic) NSString *URLString;
 @property (copy, nonatomic) NSString *title;

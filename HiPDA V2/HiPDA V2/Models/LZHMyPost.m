@@ -1,29 +1,29 @@
 //
-//  LZHThreadsNotice.m
+//  LZHMyPosts.m
 //  HiPDA V2
 //
 //  Created by leizh007 on 15/5/27.
 //  Copyright (c) 2015年 leizh007. All rights reserved.
 //
 
-#import "LZHThreadsNotice.h"
-#import "LZHHTTPRequestOperationManager.h"
+#import "LZHMyPost.h"
 #import "LZHHtmlParser.h"
+#import "LZHHTTPRequestOperationManager.h"
 #import "NSString+LZHHIPDA.h"
 
-@interface LZHThreadsNotice()
+@interface LZHMyPost()
 
 @end
 
-@implementation LZHThreadsNotice
+@implementation LZHMyPost
 
-+(void)getThreadsNoticeInPage:(NSInteger)page CompletionHandler:(LZHNetworkFetcherCompletionHandler)completion{
++(void)getMyPostsInPage:(NSInteger)page completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
     LZHHTTPRequestOperationManager *manager=[LZHHTTPRequestOperationManager sharedHTTPRequestOperationManager];
-    [manager GET:[NSString stringWithFormat:@"http://www.hi-pda.com/forum/notice.php?filter=threads&page=%ld",page]
+    [manager GET:[NSString stringWithFormat:@"http://www.hi-pda.com/forum/my.php?item=posts&page=%ld",page]
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSString *responseString=[NSString encodingGBKString:responseObject];
-             [LZHHtmlParser extractThreadsNoticeFromHtmlString:responseString completionHandler:completion];
+             [LZHHtmlParser extractMyPostsFromHtmlString:responseString completionHandler:completion];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              if (completion) {

@@ -18,6 +18,7 @@
 #import "LZHReply.h"
 #import "LZHShowMessage.h"
 #import "SVProgressHUD.h"
+#import "LZHSearchViewController.h"
 
 #define LZHProfileDefaultFontColor [UIColor colorWithRed:0.265 green:0.265 blue:0.265 alpha:1]
 #define LZHProfileUserNameFontColor [UIColor colorWithRed:1 green:0.622 blue:0 alpha:1]
@@ -209,9 +210,11 @@ const CGFloat LZHProfileButtonHeight=40.0f;
     }];
 }
 
-//TODO: 完成
+
 -(void)searchThreadsButtonPressed:(id)sender{
-    NSLog(@"search");
+    LZHSearchViewController *searchViewController=[[LZHSearchViewController alloc]init];
+    searchViewController.user=_user;
+    [self.navigationController pushViewController:searchViewController animated:YES];
 }
 
 -(void)blackListButtonPressed:(id)sender{

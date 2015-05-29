@@ -20,4 +20,6 @@
 
 -(NSString *)stringBetweenString:(NSString *)firstString andString:(NSString *)secondString;
 
+-(NSString *)urlEncode;
+
 @end

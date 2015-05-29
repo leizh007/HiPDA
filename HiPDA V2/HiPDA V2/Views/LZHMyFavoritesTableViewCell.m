@@ -7,7 +7,7 @@
 //
 
 #import "LZHMyFavoritesTableViewCell.h"
-#import "LZHMyFavorites.h"
+#import "LZHMyFavorite.h"
 
 static const CGFloat LZHMyFavoritesSmallFontSize=16.0;
 static const CGFloat LZHMyFavoritesBigFontSize=18.0;
@@ -56,7 +56,7 @@ static const CGFloat LZHMyFavoritesDistanceBetweenViews=8.0f;
     return self;
 }
 
--(void)configureMyFavorites:(LZHMyFavorites *)myFavorites{
+-(void)configureMyFavorites:(LZHMyFavorite *)myFavorites{
     _fidNameLabel.text=myFavorites.fidName;
     [_fidNameLabel sizeToFit];
     _fidNameLabel.frame=CGRectMake(LZHMyFavoritesViewWidth-LZHMyFavoritesDistanceBetweenViews-_fidNameLabel.frame.size.width, LZHMyFavoritesDistanceBetweenViews, _fidNameLabel.frame.size.width, _fidNameLabel.frame.size.height);
@@ -72,7 +72,7 @@ static const CGFloat LZHMyFavoritesDistanceBetweenViews=8.0f;
     _seperatorLabel.frame=CGRectMake(LZHMyFavoritesDistanceBetweenViews, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+LZHMyFavoritesDistanceBetweenViews, LZHMyFavoritesViewWidth-LZHMyFavoritesDistanceBetweenViews, 1.0f);
 }
 
-+(CGFloat)cellHeightForMyFavorites:(LZHMyFavorites *)myFavorits{
++(CGFloat)cellHeightForMyFavorites:(LZHMyFavorite *)myFavorits{
     UILabel *fidNameLabel=[[UILabel alloc]init];
     fidNameLabel.font=[UIFont systemFontOfSize:LZHMyFavoritesSmallFontSize];
     fidNameLabel.text=myFavorits.fidName;

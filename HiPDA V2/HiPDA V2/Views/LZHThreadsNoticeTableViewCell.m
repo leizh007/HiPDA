@@ -7,7 +7,7 @@
 //
 
 #import "LZHThreadsNoticeTableViewCell.h"
-#import "LZHThreadsNotice.h"
+#import "LZHThreadNotice.h"
 #import "LZHUser.h"
 
 
@@ -70,7 +70,7 @@ const CGFloat LZHThreadsNoticeDistanceBetweenViews=8.0f;
     return self;
 }
 
--(void)configureThreadsNotice:(LZHThreadsNotice *)threadsNotice{
+-(void)configureThreadsNotice:(LZHThreadNotice *)threadsNotice{
     _titleLabel.text=threadsNotice.title;
     _postTimeLabel.text=threadsNotice.postTime;
     _myReplyLabel.text=[NSString stringWithFormat:@"您的帖子：%@",threadsNotice.myReplyContext];
@@ -107,7 +107,7 @@ const CGFloat LZHThreadsNoticeDistanceBetweenViews=8.0f;
     _seperatorLabel.frame=CGRectMake(LZHThreadsNoticeDistanceBetweenViews, _noticeLabel.frame.origin.y+_noticeLabel.frame.size.height+LZHThreadsNoticeDistanceBetweenViews, _viewWidth-LZHThreadsNoticeDistanceBetweenViews, 1.0f);
 }
 
-+(CGFloat)cellHeightForThreadsNotice:(LZHThreadsNotice *)threadsNotice{
++(CGFloat)cellHeightForThreadsNotice:(LZHThreadNotice *)threadsNotice{
     CGFloat viewWidth=[[UIScreen mainScreen]bounds].size.width;
     
     UILabel *noticeLabel=[[UILabel alloc]init];

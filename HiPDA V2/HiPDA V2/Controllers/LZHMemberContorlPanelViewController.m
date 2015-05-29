@@ -26,6 +26,8 @@ const CGFloat kAvatarImageViewSize   = 45.0f;
 const CGFloat kButtonWidth           = 50.0f;
 const CGFloat kButtonHeight          = 45.5f;
 const CGFloat kImageViewWidth        = 25.0f;
+const NSInteger kThreadBadgeTag      = 1;
+const NSInteger kNoticeBadgeTag      = 2;
 
 #define kBackgroundColor [UIColor colorWithRed:0.134 green:0.162 blue:0.188 alpha:1]
 #define kHighlightedBackgroundColor ([UIColor colorWithRed:0.106 green:0.135 blue:0.162 alpha:1])
@@ -41,10 +43,8 @@ const CGFloat kImageViewWidth        = 25.0f;
 @property (strong, nonatomic) UILabel      *userNameLabel;
 @property (strong, nonatomic) UIButton     *noticeButton;
 @property (weak,   nonatomic) UIImageView  *noticeImageView;
-@property (strong,   nonatomic) CustomBadge  *noticeBadge;
 @property (strong, nonatomic) UIButton     *threadButton;
 @property (weak,   nonatomic) UIImageView  *threadImageView;
-@property (strong,   nonatomic) CustomBadge  *threadBadge;
 @property (strong, nonatomic) UIButton     *searchButton;
 @property (weak,   nonatomic) UIImageView  *searchImageView;
 @property (strong, nonatomic) UILabel      *seperatorLabelUponTableView;
@@ -132,7 +132,7 @@ const CGFloat kImageViewWidth        = 25.0f;
     if (notice.sumPromptPm==0) {
         noticeBadge.hidden=YES;
     }
-    _noticeBadge=noticeBadge;
+    noticeBadge.tag=kNoticeBadgeTag;
     noticeBadge.frame=CGRectMake(noticeImageView.frame.size.width+noticeImageView.frame.origin.x-noticeBadge.frame.size.width/2, noticeImageView.frame.origin.y-noticeBadge.frame.size.height/2, noticeBadge.frame.size.width, noticeBadge.frame.size.height);
     [_noticeButton addSubview:noticeBadge];
     [_noticeButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -148,7 +148,7 @@ const CGFloat kImageViewWidth        = 25.0f;
     [_threadButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_threadButton addSubview:threadImageView];
     CustomBadge *threadBadge=[CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%ld",notice.promptThreads] withScale:0.8];
-    _threadBadge=threadBadge;
+    threadBadge.tag=kThreadBadgeTag;
     if (notice.promptThreads==0) {
         threadBadge.hidden=YES;
     }
@@ -241,6 +241,7 @@ const CGFloat kImageViewWidth        = 25.0f;
     }else if(button == _searchButton){
         _searchImageView.highlighted=YES;
         navigationRootViewController=[[LZHSearchViewController alloc]init];
+        ((LZHSearchViewController *)navigationRootViewController).user=nil;
     }else if(button==_settingsButton){
         _settingsImageView.highlighted=YES;
         navigationRootViewController=[[LZHSettingsViewController alloc]init];
@@ -275,18 +276,20 @@ const CGFloat kImageViewWidth        = 25.0f;
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     LZHNotice *notice=[LZHNotice sharedNotice];
     if ([keyPath isEqualToString:@"sumPromptPm"]) {
+        CustomBadge *badge=(CustomBadge *)[_noticeButton viewWithTag:kNoticeBadgeTag];
         if (notice.sumPromptPm==0) {
-            _noticeBadge.hidden=YES;
+            badge.hidden=YES;
         }else{
-            _noticeBadge.badgeText=[NSString stringWithFormat:@"%ld",notice.sumPromptPm];
-            _noticeBadge.hidden=NO;
+            badge.badgeText=[NSString stringWithFormat:@"%ld",notice.sumPromptPm];
+            badge.hidden=NO;
         }
     }else if([keyPath isEqualToString:@"promptThreads"]){
+        CustomBadge *badge=(CustomBadge*)[_threadButton viewWithTag:kThreadBadgeTag];
         if (notice.promptThreads==0) {
-            _threadBadge.hidden=YES;
+            badge.hidden=YES;
         }else{
-            _threadBadge.badgeText=[NSString stringWithFormat:@"%ld",notice.promptThreads];
-            _threadBadge.hidden=NO;
+            badge.badgeText=[NSString stringWithFormat:@"%ld",notice.promptThreads];
+            badge.hidden=NO;
         }
     }
 }

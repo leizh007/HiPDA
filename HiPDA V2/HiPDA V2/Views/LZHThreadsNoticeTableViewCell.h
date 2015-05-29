@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class LZHThreadsNotice;
+@class LZHThreadNotice;
 
 @interface LZHThreadsNoticeTableViewCell : UITableViewCell
 
--(void)configureThreadsNotice:(LZHThreadsNotice *)threadsNotice;
-+(CGFloat)cellHeightForThreadsNotice:(LZHThreadsNotice *)threadsNotice;
+-(void)configureThreadsNotice:(LZHThreadNotice *)threadsNotice;
++(CGFloat)cellHeightForThreadsNotice:(LZHThreadNotice *)threadsNotice;
 
 @end

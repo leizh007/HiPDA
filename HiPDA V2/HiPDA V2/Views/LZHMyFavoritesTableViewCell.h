@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class LZHMyFavorites;
+@class LZHMyFavorite;
 
 @interface LZHMyFavoritesTableViewCell : UITableViewCell
 
--(void)configureMyFavorites:(LZHMyFavorites *)myFavorites;
+-(void)configureMyFavorites:(LZHMyFavorite *)myFavorites;
 
-+(CGFloat)cellHeightForMyFavorites:(LZHMyFavorites *)myFavorits;
++(CGFloat)cellHeightForMyFavorites:(LZHMyFavorite *)myFavorits;
 
 @end

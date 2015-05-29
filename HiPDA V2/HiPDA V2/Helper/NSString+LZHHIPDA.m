@@ -148,4 +148,12 @@
     return [stringBehindFirstString substringToIndex:rangeSecond.location];
 }
 
+-(NSString*)urlEncode{
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                               (CFStringRef)self,
+                                                               NULL,
+                                                               (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+                                                               kCFStringEncodingGB_18030_2000));
+}
+
 @end

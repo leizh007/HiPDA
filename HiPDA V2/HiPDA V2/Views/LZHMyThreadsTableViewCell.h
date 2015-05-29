@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class LZHMyThreads;
+@class LZHMyThread;
 
 @interface LZHMyThreadsTableViewCell : UITableViewCell
 
--(void)configureMyThreads:(LZHMyThreads *)myThread;
-+(CGFloat)cellHeightForMyThreads:(LZHMyThreads *)myThread;
+-(void)configureMyThreads:(LZHMyThread *)myThread;
++(CGFloat)cellHeightForMyThreads:(LZHMyThread *)myThread;
 
 @end

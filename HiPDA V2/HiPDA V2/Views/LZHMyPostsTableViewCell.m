@@ -7,7 +7,7 @@
 //
 
 #import "LZHMyPostsTableViewCell.h"
-#import "LZHMyPosts.h"
+#import "LZHMyPost.h"
 
 const CGFloat LZHMyPostsSmallFontSize=16.0;
 const CGFloat LZHMyPostsBigFontSize=18.0;
@@ -67,7 +67,7 @@ const CGFloat LZHMyPostsDistanceBetweenViews=8.0f;
 }
 
 
--(void)configureMyPosts:(LZHMyPosts *)myPosts{
+-(void)configureMyPosts:(LZHMyPost *)myPosts{
     _postTimeLabel.text=myPosts.postTime;
     [_postTimeLabel sizeToFit];
     _postTimeLabel.frame=CGRectMake(LZHMyPostsViewWidth-LZHMyPostsDistanceBetweenViews-_postTimeLabel.frame.size.width, LZHMyPostsDistanceBetweenViews, _postTimeLabel.frame.size.width, _postTimeLabel.frame.size.height);
@@ -89,7 +89,7 @@ const CGFloat LZHMyPostsDistanceBetweenViews=8.0f;
     _seperatorLabel.frame=CGRectMake(LZHMyPostsDistanceBetweenViews, _postContentLabel.frame.origin.y+_postContentLabel.frame.size.height+LZHMyPostsDistanceBetweenViews, LZHMyPostsViewWidth-LZHMyPostsDistanceBetweenViews, 1.0f);
 }
 
-+(CGFloat)cellHeightForMyPosts:(LZHMyPosts *)myPosts{
++(CGFloat)cellHeightForMyPosts:(LZHMyPost *)myPosts{
     UILabel *postTimeLabel=[[UILabel alloc]init];
     postTimeLabel.font=[UIFont systemFontOfSize:LZHMyPostsSmallFontSize];
     postTimeLabel.text=myPosts.postTime;

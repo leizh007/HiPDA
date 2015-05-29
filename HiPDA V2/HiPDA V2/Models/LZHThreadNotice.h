@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, LZHThreadsNoticeType){
 
 @class LZHUser;
 
-@interface LZHThreadsNotice : NSObject
+@interface LZHThreadNotice : NSObject
 
 @property (strong, nonatomic) LZHUser  *user;
 @property (copy, nonatomic) NSString *title;

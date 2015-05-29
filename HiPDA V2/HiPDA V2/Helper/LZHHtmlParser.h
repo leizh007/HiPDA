@@ -31,4 +31,6 @@
 
 +(void)extractMyFavoritesFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
++(void)extractSearchResultsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
 @end

@@ -12,14 +12,14 @@
 #import "MJRefresh.h"
 #import "HMSegmentedControl.h"
 #import "UIImage+LZHHIPDA.h"
-#import "LZHThreadsNotice.h"
+#import "LZHThreadNotice.h"
 #import "LZHShowMessage.h"
 #import "LZHThreadsNoticeTableViewCell.h"
-#import "LZHMyThreads.h"
+#import "LZHMyThread.h"
 #import "LZHMyThreadsTableViewCell.h"
-#import "LZHMyPosts.h"
+#import "LZHMyPost.h"
 #import "LZHMyPostsTableViewCell.h"
-#import "LZHMyFavorites.h"
+#import "LZHMyFavorite.h"
 #import "LZHMyFavoritesTableViewCell.h"
 
 #define kBackgroundColor [UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:0.5]
@@ -194,7 +194,7 @@
 {
     __weak UITableView *tableView=_tableViewArray[tag-1];
     if (tag==1) {
-        [LZHThreadsNotice getThreadsNoticeInPage:1 CompletionHandler:^(NSArray *array, NSError *error) {
+        [LZHThreadNotice getThreadsNoticeInPage:1 CompletionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.header endRefreshing];
@@ -205,7 +205,7 @@
             }
         }];
     }else if(tag==2){
-        [LZHMyThreads getMyThreadsInPage:1 completionHandler:^(NSArray *array, NSError *error) {
+        [LZHMyThread getMyThreadsInPage:1 completionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.header endRefreshing];
@@ -216,7 +216,7 @@
             }
         }];
     }else if(tag==3){
-        [LZHMyPosts getMyPostsInPage:1 completionHandler:^(NSArray *array, NSError *error) {
+        [LZHMyPost getMyPostsInPage:1 completionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.header endRefreshing];
@@ -227,7 +227,7 @@
             }
         }];
     }else if(tag==4){
-        [LZHMyFavorites getMyFavoritesInPage:1 completionHandler:^(NSArray *array, NSError *error) {
+        [LZHMyFavorite getMyFavoritesInPage:1 completionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.header endRefreshing];
@@ -256,7 +256,7 @@
 - (void)loadMoreDataWithTag:(NSInteger)tag{
     __weak UITableView *tableView=_tableViewArray[tag-1];
     if (tag==1) {
-        [LZHThreadsNotice getThreadsNoticeInPage:curPage[tag-1]+1 CompletionHandler:^(NSArray *array, NSError *error) {
+        [LZHThreadNotice getThreadsNoticeInPage:curPage[tag-1]+1 CompletionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.footer endRefreshing];
@@ -267,7 +267,7 @@
             }
         }];
     }else if(tag==2){
-        [LZHMyThreads getMyThreadsInPage:curPage[tag-1]+1 completionHandler:^(NSArray *array, NSError *error) {
+        [LZHMyThread getMyThreadsInPage:curPage[tag-1]+1 completionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.footer endRefreshing];
@@ -278,7 +278,7 @@
             }
         }];
     }else if(tag==3){
-        [LZHMyPosts getMyPostsInPage:curPage[tag-1]+1 completionHandler:^(NSArray *array, NSError *error) {
+        [LZHMyPost getMyPostsInPage:curPage[tag-1]+1 completionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.footer endRefreshing];
@@ -289,7 +289,7 @@
             }
         }];
     }else if(tag==4){
-        [LZHMyFavorites getMyFavoritesInPage:curPage[tag-1]+1 completionHandler:^(NSArray *array, NSError *error) {
+        [LZHMyFavorite getMyFavoritesInPage:curPage[tag-1]+1 completionHandler:^(NSArray *array, NSError *error) {
             if (error) {
                 [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
                 [tableView.footer endRefreshing];

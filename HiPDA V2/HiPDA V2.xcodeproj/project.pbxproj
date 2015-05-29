@@ -10,10 +10,10 @@
 		057DF5911AF7A73700FC6360 /* LZHPostList.html in Resources */ = {isa = PBXBuildFile; fileRef = 057DF5901AF7A73700FC6360 /* LZHPostList.html */; };
 		058338511AF33E9D00A20792 /* LZHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 058338501AF33E9D00A20792 /* LZHPost.m */; };
 		0583B12F1B15A6D5004258EB /* LZHThreadsNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B12E1B15A6D5004258EB /* LZHThreadsNoticeTableViewCell.m */; };
-		0583B1321B15A70B004258EB /* LZHThreadsNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B1311B15A70B004258EB /* LZHThreadsNotice.m */; };
-		0583B1351B160116004258EB /* LZHMyThreads.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B1341B160116004258EB /* LZHMyThreads.m */; };
+		0583B1321B15A70B004258EB /* LZHThreadNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B1311B15A70B004258EB /* LZHThreadNotice.m */; };
+		0583B1351B160116004258EB /* LZHMyThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B1341B160116004258EB /* LZHMyThread.m */; };
 		0583B1381B1609FA004258EB /* LZHMyThreadsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B1371B1609FA004258EB /* LZHMyThreadsTableViewCell.m */; };
-		0583B13B1B161C64004258EB /* LZHMyPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B13A1B161C64004258EB /* LZHMyPosts.m */; };
+		0583B13B1B161C64004258EB /* LZHMyPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 0583B13A1B161C64004258EB /* LZHMyPost.m */; };
 		0589E5D91AFA2A790094E060 /* LZHProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589E5D81AFA2A790094E060 /* LZHProfileViewController.m */; };
 		05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05966D8B1AF39F3A0056CA92 /* LZHPostViewController.m */; };
 		059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C6FCA1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m */; };
@@ -41,8 +41,10 @@
 		05AB1E8B1AEA928700D139A1 /* HiPDA_V2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E8A1AEA928700D139A1 /* HiPDA_V2Tests.m */; };
 		05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB1E991AEA93FA00D139A1 /* LZHAccount.m */; };
 		05B51FDB1B17360300CACB03 /* LZHMyPostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B51FDA1B17360300CACB03 /* LZHMyPostsTableViewCell.m */; };
-		05B51FDE1B174AD000CACB03 /* LZHMyFavorites.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B51FDD1B174AD000CACB03 /* LZHMyFavorites.m */; };
+		05B51FDE1B174AD000CACB03 /* LZHMyFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B51FDD1B174AD000CACB03 /* LZHMyFavorite.m */; };
 		05B51FE11B1753FF00CACB03 /* LZHMyFavoritesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B51FE01B1753FF00CACB03 /* LZHMyFavoritesTableViewCell.m */; };
+		05C92D671B180E34004674EE /* LZHSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C92D661B180E34004674EE /* LZHSearchResult.m */; };
+		05C92DA21B188380004674EE /* LZHSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C92DA11B188380004674EE /* LZHSearchResultTableViewCell.m */; };
 		05D128DC1B02388300CC586E /* LZHPersonalMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D128DB1B02388300CC586E /* LZHPersonalMessageViewController.m */; };
 		05D128DF1B0238B100CC586E /* LZHMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D128DE1B0238B100CC586E /* LZHMyThreadViewController.m */; };
 		05D128E21B0238C500CC586E /* LZHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D128E11B0238C500CC586E /* LZHSearchViewController.m */; };
@@ -73,14 +75,14 @@
 		058338501AF33E9D00A20792 /* LZHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPost.m; path = Models/LZHPost.m; sourceTree = "<group>"; };
 		0583B12D1B15A6D5004258EB /* LZHThreadsNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadsNoticeTableViewCell.h; path = Views/LZHThreadsNoticeTableViewCell.h; sourceTree = "<group>"; };
 		0583B12E1B15A6D5004258EB /* LZHThreadsNoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThreadsNoticeTableViewCell.m; path = Views/LZHThreadsNoticeTableViewCell.m; sourceTree = "<group>"; };
-		0583B1301B15A70B004258EB /* LZHThreadsNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadsNotice.h; path = Models/LZHThreadsNotice.h; sourceTree = "<group>"; };
-		0583B1311B15A70B004258EB /* LZHThreadsNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThreadsNotice.m; path = Models/LZHThreadsNotice.m; sourceTree = "<group>"; };
-		0583B1331B160116004258EB /* LZHMyThreads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyThreads.h; path = Models/LZHMyThreads.h; sourceTree = "<group>"; };
-		0583B1341B160116004258EB /* LZHMyThreads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyThreads.m; path = Models/LZHMyThreads.m; sourceTree = "<group>"; };
+		0583B1301B15A70B004258EB /* LZHThreadNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHThreadNotice.h; path = Models/LZHThreadNotice.h; sourceTree = "<group>"; };
+		0583B1311B15A70B004258EB /* LZHThreadNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHThreadNotice.m; path = Models/LZHThreadNotice.m; sourceTree = "<group>"; };
+		0583B1331B160116004258EB /* LZHMyThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyThread.h; path = Models/LZHMyThread.h; sourceTree = "<group>"; };
+		0583B1341B160116004258EB /* LZHMyThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyThread.m; path = Models/LZHMyThread.m; sourceTree = "<group>"; };
 		0583B1361B1609FA004258EB /* LZHMyThreadsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyThreadsTableViewCell.h; path = Views/LZHMyThreadsTableViewCell.h; sourceTree = "<group>"; };
 		0583B1371B1609FA004258EB /* LZHMyThreadsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyThreadsTableViewCell.m; path = Views/LZHMyThreadsTableViewCell.m; sourceTree = "<group>"; };
-		0583B1391B161C64004258EB /* LZHMyPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyPosts.h; path = Models/LZHMyPosts.h; sourceTree = "<group>"; };
-		0583B13A1B161C64004258EB /* LZHMyPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyPosts.m; path = Models/LZHMyPosts.m; sourceTree = "<group>"; };
+		0583B1391B161C64004258EB /* LZHMyPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyPost.h; path = Models/LZHMyPost.h; sourceTree = "<group>"; };
+		0583B13A1B161C64004258EB /* LZHMyPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyPost.m; path = Models/LZHMyPost.m; sourceTree = "<group>"; };
 		0589E5D71AFA2A790094E060 /* LZHProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHProfileViewController.h; path = Controllers/LZHProfileViewController.h; sourceTree = "<group>"; };
 		0589E5D81AFA2A790094E060 /* LZHProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHProfileViewController.m; path = Controllers/LZHProfileViewController.m; sourceTree = "<group>"; };
 		05966D8A1AF39F3A0056CA92 /* LZHPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPostViewController.h; path = Controllers/LZHPostViewController.h; sourceTree = "<group>"; };
@@ -135,10 +137,14 @@
 		05AB1E991AEA93FA00D139A1 /* LZHAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHAccount.m; path = Models/LZHAccount.m; sourceTree = "<group>"; };
 		05B51FD91B17360300CACB03 /* LZHMyPostsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyPostsTableViewCell.h; path = Views/LZHMyPostsTableViewCell.h; sourceTree = "<group>"; };
 		05B51FDA1B17360300CACB03 /* LZHMyPostsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyPostsTableViewCell.m; path = Views/LZHMyPostsTableViewCell.m; sourceTree = "<group>"; };
-		05B51FDC1B174AD000CACB03 /* LZHMyFavorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyFavorites.h; path = Models/LZHMyFavorites.h; sourceTree = "<group>"; };
-		05B51FDD1B174AD000CACB03 /* LZHMyFavorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyFavorites.m; path = Models/LZHMyFavorites.m; sourceTree = "<group>"; };
+		05B51FDC1B174AD000CACB03 /* LZHMyFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyFavorite.h; path = Models/LZHMyFavorite.h; sourceTree = "<group>"; };
+		05B51FDD1B174AD000CACB03 /* LZHMyFavorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyFavorite.m; path = Models/LZHMyFavorite.m; sourceTree = "<group>"; };
 		05B51FDF1B1753FF00CACB03 /* LZHMyFavoritesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyFavoritesTableViewCell.h; path = Views/LZHMyFavoritesTableViewCell.h; sourceTree = "<group>"; };
 		05B51FE01B1753FF00CACB03 /* LZHMyFavoritesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHMyFavoritesTableViewCell.m; path = Views/LZHMyFavoritesTableViewCell.m; sourceTree = "<group>"; };
+		05C92D651B180E34004674EE /* LZHSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHSearchResult.h; path = Models/LZHSearchResult.h; sourceTree = "<group>"; };
+		05C92D661B180E34004674EE /* LZHSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHSearchResult.m; path = Models/LZHSearchResult.m; sourceTree = "<group>"; };
+		05C92DA01B188380004674EE /* LZHSearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHSearchResultTableViewCell.h; path = Views/LZHSearchResultTableViewCell.h; sourceTree = "<group>"; };
+		05C92DA11B188380004674EE /* LZHSearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHSearchResultTableViewCell.m; path = Views/LZHSearchResultTableViewCell.m; sourceTree = "<group>"; };
 		05D128DA1B02388300CC586E /* LZHPersonalMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHPersonalMessageViewController.h; path = Controllers/LZHPersonalMessageViewController.h; sourceTree = "<group>"; };
 		05D128DB1B02388300CC586E /* LZHPersonalMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHPersonalMessageViewController.m; path = Controllers/LZHPersonalMessageViewController.m; sourceTree = "<group>"; };
 		05D128DD1B0238B100CC586E /* LZHMyThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHMyThreadViewController.h; path = Controllers/LZHMyThreadViewController.h; sourceTree = "<group>"; };
@@ -292,6 +298,8 @@
 				05B51FDA1B17360300CACB03 /* LZHMyPostsTableViewCell.m */,
 				05B51FDF1B1753FF00CACB03 /* LZHMyFavoritesTableViewCell.h */,
 				05B51FE01B1753FF00CACB03 /* LZHMyFavoritesTableViewCell.m */,
+				05C92DA01B188380004674EE /* LZHSearchResultTableViewCell.h */,
+				05C92DA11B188380004674EE /* LZHSearchResultTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -321,14 +329,16 @@
 				05DF6E691B086F3F00485E71 /* LZHMessageDataModel.m */,
 				05AAA0751B0A3F320007376E /* LZHReply.h */,
 				05AAA0761B0A3F320007376E /* LZHReply.m */,
-				0583B1301B15A70B004258EB /* LZHThreadsNotice.h */,
-				0583B1311B15A70B004258EB /* LZHThreadsNotice.m */,
-				0583B1331B160116004258EB /* LZHMyThreads.h */,
-				0583B1341B160116004258EB /* LZHMyThreads.m */,
-				0583B1391B161C64004258EB /* LZHMyPosts.h */,
-				0583B13A1B161C64004258EB /* LZHMyPosts.m */,
-				05B51FDC1B174AD000CACB03 /* LZHMyFavorites.h */,
-				05B51FDD1B174AD000CACB03 /* LZHMyFavorites.m */,
+				0583B1301B15A70B004258EB /* LZHThreadNotice.h */,
+				0583B1311B15A70B004258EB /* LZHThreadNotice.m */,
+				0583B1331B160116004258EB /* LZHMyThread.h */,
+				0583B1341B160116004258EB /* LZHMyThread.m */,
+				0583B1391B161C64004258EB /* LZHMyPost.h */,
+				0583B13A1B161C64004258EB /* LZHMyPost.m */,
+				05B51FDC1B174AD000CACB03 /* LZHMyFavorite.h */,
+				05B51FDD1B174AD000CACB03 /* LZHMyFavorite.m */,
+				05C92D651B180E34004674EE /* LZHSearchResult.h */,
+				05C92D661B180E34004674EE /* LZHSearchResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -511,10 +521,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				059C70061AECB15500E3EBA0 /* LZHThreadTableViewCell.m in Sources */,
+				05C92DA21B188380004674EE /* LZHSearchResultTableViewCell.m in Sources */,
 				059C70091AECB52600E3EBA0 /* LZHUser.m in Sources */,
 				059C6FCB1AEB293500E3EBA0 /* LZHHTTPRequestOperationManager.m in Sources */,
 				059C6FDA1AEB4C7A00E3EBA0 /* LZHThreadViewController.m in Sources */,
-				0583B13B1B161C64004258EB /* LZHMyPosts.m in Sources */,
+				0583B13B1B161C64004258EB /* LZHMyPost.m in Sources */,
 				059C6FE31AEB658300E3EBA0 /* LZHShowMessage.m in Sources */,
 				05966D8C1AF39F3A0056CA92 /* LZHPostViewController.m in Sources */,
 				05AAA07D1B0D73650007376E /* LZHSendPmViewController.m in Sources */,
@@ -522,15 +533,15 @@
 				0589E5D91AFA2A790094E060 /* LZHProfileViewController.m in Sources */,
 				05AB1E9A1AEA93FA00D139A1 /* LZHAccount.m in Sources */,
 				059C70031AEBE08100E3EBA0 /* LZHCookieManager.m in Sources */,
-				0583B1321B15A70B004258EB /* LZHThreadsNotice.m in Sources */,
+				0583B1321B15A70B004258EB /* LZHThreadNotice.m in Sources */,
 				05D128DF1B0238B100CC586E /* LZHMyThreadViewController.m in Sources */,
 				0583B12F1B15A6D5004258EB /* LZHThreadsNoticeTableViewCell.m in Sources */,
-				0583B1351B160116004258EB /* LZHMyThreads.m in Sources */,
+				0583B1351B160116004258EB /* LZHMyThread.m in Sources */,
 				05D128E21B0238C500CC586E /* LZHSearchViewController.m in Sources */,
 				059C6FE01AEB4FD300E3EBA0 /* LZHLoginViewController.m in Sources */,
 				059C70121AECBEE200E3EBA0 /* LZHThread.m in Sources */,
 				05AAA0861B0DA4760007376E /* LZHCustomeTransition.m in Sources */,
-				05B51FDE1B174AD000CACB03 /* LZHMyFavorites.m in Sources */,
+				05B51FDE1B174AD000CACB03 /* LZHMyFavorite.m in Sources */,
 				05DF6E6A1B086F3F00485E71 /* LZHMessageDataModel.m in Sources */,
 				05FE9B5E1AFFA6FF00435E2C /* LZHSettings.m in Sources */,
 				05D128E51B02391600CC586E /* LZHSettingsViewController.m in Sources */,
@@ -545,6 +556,7 @@
 				05AAA0771B0A3F320007376E /* LZHReply.m in Sources */,
 				05D128E81B02F0F800CC586E /* UIImage+LZHHIPDA.m in Sources */,
 				059C6FCE1AEB2D4C00E3EBA0 /* LZHNetworkFetcher.m in Sources */,
+				05C92D671B180E34004674EE /* LZHSearchResult.m in Sources */,
 				059C6FE91AEBB5B300E3EBA0 /* LZHNotice.m in Sources */,
 				058338511AF33E9D00A20792 /* LZHPost.m in Sources */,
 				059C700C1AECB97900E3EBA0 /* LZHBlackList.m in Sources */,

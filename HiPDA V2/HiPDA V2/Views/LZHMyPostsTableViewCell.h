@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class LZHMyPosts;
+@class LZHMyPost;
 
 @interface LZHMyPostsTableViewCell : UITableViewCell
 
--(void)configureMyPosts:(LZHMyPosts *)myPosts;
-+(CGFloat)cellHeightForMyPosts:(LZHMyPosts *)myPosts;
+-(void)configureMyPosts:(LZHMyPost *)myPosts;
++(CGFloat)cellHeightForMyPosts:(LZHMyPost *)myPosts;
 
 @end
