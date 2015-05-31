@@ -14,4 +14,10 @@
 //直接对_page赋值不会调用setPage:方法
 @property (assign, nonatomic) NSInteger page;
 
+@property (copy, nonatomic) NSString *pid;
+
+@property (assign, nonatomic) BOOL isRedirect;
+
+@property (copy, nonatomic) NSString *URLString;
+
 @end

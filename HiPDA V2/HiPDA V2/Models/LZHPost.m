@@ -16,15 +16,14 @@
 
 @implementation LZHPost
 
-+(void)loadPostTid:(NSString *)tid page:(NSInteger)page completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
++(void)loadPostTid:(NSString *)tid page:(NSInteger)page fullURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion;{
     NSString *requsetURLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/viewthread.php?tid=%@&extra=&page=%ld",tid,page];
-    NSDictionary *requsetParameters=@{@"tid":tid,
-                                  @"extra":@"",
-                                  @"page":[NSString stringWithFormat:@"%ld",page]
-                                  };
+    if (![URLString isEqualToString:@""]) {
+        requsetURLString=URLString;
+    }
     LZHHTTPRequestOperationManager *manager=[LZHHTTPRequestOperationManager sharedHTTPRequestOperationManager];
     [manager GET:requsetURLString
-      parameters:requsetParameters
+      parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSString *responseHtmlstring=[NSString encodingGBKString:responseObject];
              [LZHHtmlParser extractPostListFromHtmlString:responseHtmlstring completionHandler:completion];

@@ -213,6 +213,9 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
     postViewController.tid=thread.tid;
     postViewController.page=1;
+    postViewController.pid=@"";
+    postViewController.isRedirect=NO;
+    postViewController.URLString=@"";
     [self.navigationController pushViewController:postViewController animated:YES];
 }
 

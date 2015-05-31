@@ -13,6 +13,7 @@
 #import "NSString+LZHHIPDA.h"
 #import "LZHUser.h"
 #import "LZHSearchResultTableViewCell.h"
+#import "LZHPostViewController.h"
 
 static const CGFloat kDistanceBetweenViews=8.0f;
 
@@ -191,7 +192,13 @@ static const CGFloat kDistanceBetweenViews=8.0f;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
+    LZHSearchResult *searchResult=_searchResultArray[indexPath.row];
+    postViewController.tid=searchResult.tid;
+    postViewController.page=1;
+    postViewController.isRedirect=NO;
+    postViewController.URLString=@"";
+    [self.navigationController pushViewController:postViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 

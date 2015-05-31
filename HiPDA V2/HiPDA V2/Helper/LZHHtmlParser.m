@@ -395,6 +395,7 @@
         [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
             LZHMyPost *myPosts=[[LZHMyPost alloc]init];
             myPosts.URLString=[html substringWithRange:[result rangeAtIndex:1]];
+            myPosts.URLString=[myPosts.URLString stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
             myPosts.title=[html substringWithRange:[result rangeAtIndex:2]];
             myPosts.fidName=[html substringWithRange:[result rangeAtIndex:3]];
             myPosts.postTime=[html substringWithRange:[result rangeAtIndex:4]];
@@ -427,6 +428,7 @@
         [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *result, NSUInteger idx, BOOL *stop) {
             LZHMyFavorite *myFavorites=[[LZHMyFavorite alloc]init];
             myFavorites.URLString=[html substringWithRange:[result rangeAtIndex:1]];
+            myFavorites.URLString=[myFavorites.URLString stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
             myFavorites.title=[html substringWithRange:[result rangeAtIndex:2]];
             myFavorites.fidName=[html substringWithRange:[result rangeAtIndex:3]];
             myFavorites.replyCount=[html substringWithRange:[result rangeAtIndex:4]];
@@ -501,6 +503,35 @@
             }
         }
     });
+}
+
++(NSArray *)extractPostInfoFromURLString:(NSString *)URLString{
+    NSRegularExpression *regexTid=[NSRegularExpression regularExpressionWithPattern:@"tid=(\\d+)" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *resultTid=[regexTid firstMatchInString:URLString options:0 range:NSMakeRange(0, URLString.length)];
+    if (resultTid==nil) {
+        return @[[NSError errorWithDomain:@"无法获取tid！" code:0 userInfo:nil]];
+    }
+    NSString *tid=[URLString substringWithRange:[resultTid rangeAtIndex:1]];
+    
+    NSRegularExpression *regexPid=[NSRegularExpression regularExpressionWithPattern:@"pid=(\\d+)" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *resultPid=[regexPid firstMatchInString:URLString options:0 range:NSMakeRange(0, URLString.length)];
+    NSString *pid;
+    if (resultPid==nil) {
+        pid=@"";
+    }else{
+        pid=[URLString substringWithRange:[resultPid rangeAtIndex:1]];
+    }
+    
+    NSRegularExpression *regexPage=[NSRegularExpression regularExpressionWithPattern:@"page=(\\d+)" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *resultPage=[regexPage firstMatchInString:URLString options:0 range:NSMakeRange(0, URLString.length)];
+    NSString *page;
+    if (resultPage==nil) {
+        page=@"1";
+    }else{
+        page=[URLString substringWithRange:[resultPage rangeAtIndex:1]];
+    }
+    
+    return @[tid,page,pid];
 }
 
 @end

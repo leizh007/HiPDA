@@ -33,4 +33,6 @@
 
 +(void)extractSearchResultsFromHtmlString:(NSString *)html completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
++(NSArray *)extractPostInfoFromURLString:(NSString *)URLString;
+
 @end

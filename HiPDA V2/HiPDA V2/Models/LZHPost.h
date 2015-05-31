@@ -20,6 +20,6 @@
 @property (strong, nonatomic) NSString *postMessage;
 @property (assign, nonatomic) BOOL isBlocked;
 
-+(void)loadPostTid:(NSString *)tid page:(NSInteger)page completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
++(void)loadPostTid:(NSString *)tid page:(NSInteger)page fullURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
 @end

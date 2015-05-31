@@ -19,6 +19,8 @@
 #import "IDMPhotoBrowser.h"
 #import "SVWebViewController.h"
 #import "NJKWebViewProgress.h"
+#import "LZHHtmlParser.h"
+#import "LZHHTTPRequestOperationManager.h"
 
 @interface LZHPostViewController ()
 
@@ -52,6 +54,12 @@
     _htmlFormatString=[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LZHPostList" ofType:@"html"] encoding:NSUTF8StringEncoding error:nil];
     _defaultUserAvatarImageURLString=@"http://www.hi-pda.com/forum/uc_server/data/avatar/000/85/69/99_avatar_middle.jpg?random=10.9496039664372802";
     _totalPageNumber=1;
+    
+    if ([_tid isEqualToString:@""]) {
+        [self getPostParamters];
+    }else{
+        [_webView.scrollView.header beginRefreshing];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -67,12 +75,15 @@
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
+#pragma mark - setter & getter
+
 -(void)setPage:(NSInteger)page{
     _page=page;
     
     //根据是否是最后一页设置footer的内容
     if ([_postList count]!=0) {
-        if (_page==_totalPageNumber) {
+        if (_page>=_totalPageNumber) {
+            _totalPageNumber=_page;
             [_webView.scrollView.footer noticeNoMoreData];
         }else{
             [_webView.scrollView.footer resetNoMoreData];
@@ -80,6 +91,47 @@
     }
 }
 
+-(void)setTotalPageNumber:(NSInteger)totalPageNumber{
+    if (totalPageNumber>_totalPageNumber) {
+        _totalPageNumber=totalPageNumber;
+    }
+}
+
+#pragma mark - Get Redirected URL
+
+-(void)getPostParamters{
+    [SVProgressHUD showWithStatus:@"正在获取帖子列表参数..." maskType:SVProgressHUDMaskTypeGradient];
+    if (!_isRedirect) {
+        [self extractPostParameters];
+    }else{
+        __weak typeof(self) weakSelf=self;
+        AFHTTPRequestOperation *requestOperation=[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_URLString]]];
+        [requestOperation setRedirectResponseBlock:^NSURLRequest *(NSURLConnection *connection, NSURLRequest *request, NSURLResponse *redirectResponse) {
+            if (redirectResponse) {
+                NSLog(@"%@",request.URL);
+                weakSelf.URLString=[request.URL absoluteString];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self extractPostParameters];
+                });
+            }
+            return request;
+        }];
+        [requestOperation start];
+    }
+}
+
+-(void)extractPostParameters{
+    NSArray *postInfoArray=[LZHHtmlParser extractPostInfoFromURLString:_URLString];
+    if (postInfoArray.count==1) {
+        [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[postInfoArray[0] localizedDescription]];
+    }else{
+        _tid=postInfoArray[0];
+        _page=[postInfoArray[1] integerValue];
+        _pid=postInfoArray[2];
+        [SVProgressHUD dismiss];
+        [_webView.scrollView.header beginRefreshing];
+    }
+}
 
 #pragma mark - UIWebView Delegate
 
@@ -195,8 +247,6 @@
     
     _webView.scrollView.header.font = [UIFont systemFontOfSize:15];
     
-    [_webView.scrollView.header beginRefreshing];
-    
 }
 
 #pragma mark UITableView + 上拉刷新 自定义文字
@@ -219,18 +269,19 @@
 {
     [_webView stopLoading];
     __weak typeof(self) weakSelf=self;
-    [LZHPost loadPostTid:_tid page:_page completionHandler:^(NSArray *array, NSError *error) {
+    [LZHPost loadPostTid:_tid page:_page fullURLString:_URLString completionHandler:^(NSArray *array, NSError *error) {
         if (error!=nil) {
+            [weakSelf.webView.scrollView.header endRefreshing];
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
+            weakSelf.URLString=@"";
+            weakSelf.isRedirect=NO;
             weakSelf.postList=[array mutableCopy];
             [weakSelf prepareDataForUIWebView];
             [weakSelf.webView.scrollView.header endRefreshing];
             NSInteger totalPage=[(NSString *)_postList[1] integerValue];
-            if (totalPage>weakSelf.totalPageNumber) {
-                weakSelf.totalPageNumber=totalPage;
-            }
-            self.page=_page;
+            weakSelf.totalPageNumber=totalPage;
+            weakSelf.page=_page;
         }
     }];
 }
