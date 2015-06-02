@@ -384,7 +384,7 @@
     LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
     if (tag==1) {
         LZHThreadNotice *threadNotice=_myThreadsDataArray[tag-1][indexPath.row];
-        NSLog(@"%@",threadNotice.URLString);
+        //NSLog(@"%@",threadNotice.URLString);
         postViewController.isRedirect=YES;
         postViewController.URLString=threadNotice.URLString;
         postViewController.tid=@"";
@@ -395,21 +395,21 @@
         postViewController.page=1;
         postViewController.URLString=@"";
         postViewController.isRedirect=NO;
-        NSLog(@"%@",myThread.tid);
+        //NSLog(@"%@",myThread.tid);
     }else if(tag==3){
         LZHMyPost *myPost=_myThreadsDataArray[tag-1][indexPath.row];
         postViewController.tid=@"";
         postViewController.page=1;
         postViewController.isRedirect=YES;
         postViewController.URLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",myPost.URLString];
-        NSLog(@"%@",myPost.URLString);
+        //NSLog(@"%@",myPost.URLString);
     }else if(tag==4){
         LZHMyFavorite *myFavorite=_myThreadsDataArray[tag-1][indexPath.row];
         postViewController.tid=@"";
         postViewController.page=1;
         postViewController.isRedirect=NO;
         postViewController.URLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",myFavorite.URLString];
-        NSLog(@"%@",myFavorite.URLString);
+        //NSLog(@"%@",myFavorite.URLString);
     }
     [self.navigationController pushViewController:postViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

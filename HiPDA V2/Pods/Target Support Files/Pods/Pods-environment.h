@@ -90,6 +90,12 @@
 #define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 0
 #define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 1
 
+// KNSemiModalViewController
+#define COCOAPODS_POD_AVAILABLE_KNSemiModalViewController
+#define COCOAPODS_VERSION_MAJOR_KNSemiModalViewController 0
+#define COCOAPODS_VERSION_MINOR_KNSemiModalViewController 3
+#define COCOAPODS_VERSION_PATCH_KNSemiModalViewController 0
+
 // MGSwipeTableCell
 #define COCOAPODS_POD_AVAILABLE_MGSwipeTableCell
 #define COCOAPODS_VERSION_MAJOR_MGSwipeTableCell 1

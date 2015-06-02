@@ -31,6 +31,7 @@ PODS:
   - JSQMessagesViewController (7.0.1):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - KNSemiModalViewController (0.3)
   - MGSwipeTableCell (1.4.3)
   - MJRefresh (1.4.5)
   - MTLog (0.6.1)
@@ -68,6 +69,7 @@ DEPENDENCIES:
   - HMSegmentedControl (~> 1.5.1)
   - IDMPhotoBrowser (~> 1.6.2)
   - JSQMessagesViewController (~> 7.0.1)
+  - KNSemiModalViewController (~> 0.3)
   - MGSwipeTableCell (~> 1.4.3)
   - MJRefresh (~> 1.4.5)
   - MTLog (~> 0.6.1)
@@ -98,6 +100,7 @@ SPEC CHECKSUMS:
   IDMPhotoBrowser: ebbfa6690456b72dd92d93b7bc11d71519f4d06d
   JSQMessagesViewController: 03fba8a3021a3ddc1c91847f180ffe549f2e8cf2
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   MGSwipeTableCell: cb9805df3cc5cad75ad43a5c1eb424be0316f0bf
   MJRefresh: 4b24394e577ea399fbc926e5b6072317aae2c152
   MTLog: a1cb28f66e65172849918a356883558ff176d19c

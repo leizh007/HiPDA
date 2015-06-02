@@ -21,6 +21,10 @@
 #import "NJKWebViewProgress.h"
 #import "LZHHtmlParser.h"
 #import "LZHHTTPRequestOperationManager.h"
+#import "MTLog.h"
+#import "UIViewController+KNSemiModal.h"
+
+static const CGFloat kDistanceBetweenViews=8.0f;
 
 @interface LZHPostViewController ()
 
@@ -29,6 +33,18 @@
 @property (strong, nonatomic) NSString *htmlFormatString;
 @property (strong, nonatomic) NSString *defaultUserAvatarImageURLString;
 @property (assign, nonatomic) NSInteger totalPageNumber;
+@property (strong, nonatomic) UIView *changePageNumberView;
+@property (strong, nonatomic) UIButton *changePageNumberButton;
+
+@property (strong, nonatomic) UISlider *pageSlider;
+@property (strong, nonatomic) UIButton *goButton;
+@property (strong, nonatomic) UIButton *previousPageButton;
+@property (strong, nonatomic) UIButton *firstPageButton;
+@property (strong, nonatomic) UIButton *nextPageButton;
+@property (strong, nonatomic) UIButton *lastPageButton;
+@property (strong, nonatomic) UILabel *pageLabel;
+
+@property (assign, nonatomic) BOOL isPullDownToRefresh;
 
 @end
 
@@ -37,6 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
+    _totalPageNumber=1;
     
     //设置webView
     _webView=[[UIWebView alloc]initWithFrame:self.view.frame];
@@ -49,11 +66,23 @@
     [self pullDownToRefresh];
     [self pullUpToLoadMore];
     
+    //设置navigationBarItem
+    _changePageNumberButton=[[UIButton alloc]init];
+    [_changePageNumberButton addTarget:self action:@selector(changePageNumberButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_changePageNumberButton setTitle:[NSString stringWithFormat:@"%ld/%ld",_page,_totalPageNumber] forState:UIControlStateNormal];
+    [self setButtonTitleColor:_changePageNumberButton];
+    [_changePageNumberButton sizeToFit];
+    _changePageNumberButton.frame=CGRectMake(0, 0, _changePageNumberButton.frame.size.width*3, _changePageNumberButton.frame.size.height);
+    _changePageNumberButton.contentHorizontalAlignment=UIControlContentHorizontalAlignmentRight;
+    UIBarButtonItem *rightBarButtonIterm=[[UIBarButtonItem alloc]initWithCustomView:_changePageNumberButton];
+    self.navigationItem.rightBarButtonItem=rightBarButtonIterm;
+    
     //初始化参数
     _postList=[[NSMutableArray alloc]init];
     _htmlFormatString=[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LZHPostList" ofType:@"html"] encoding:NSUTF8StringEncoding error:nil];
     _defaultUserAvatarImageURLString=@"http://www.hi-pda.com/forum/uc_server/data/avatar/000/85/69/99_avatar_middle.jpg?random=10.9496039664372802";
-    _totalPageNumber=1;
+    _changePageNumberView=self.changePageNumberView;
+    _isPullDownToRefresh=NO;
     
     if ([_tid isEqualToString:@""]) {
         [self getPostParamters];
@@ -75,18 +104,31 @@
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
+-(void)setButtonTitleColor:(UIButton *)button{
+    [button setTitleColor:[UIColor colorWithRed:0 green:0.459 blue:1 alpha:1] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithRed:0 green:0.459 blue:1 alpha:0.2] forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor colorWithRed:0.708 green:0.73 blue:0.71 alpha:1] forState:UIControlStateDisabled];
+}
+
 #pragma mark - setter & getter
 
 -(void)setPage:(NSInteger)page{
     _page=page;
-    
+    [_changePageNumberButton setTitle:[NSString stringWithFormat:@"%ld/%ld",_page,_totalPageNumber] forState:UIControlStateNormal];
+    if (page==1) {
+        _previousPageButton.enabled=NO;
+    }else{
+        _previousPageButton.enabled=YES;
+    }
     //根据是否是最后一页设置footer的内容
     if ([_postList count]!=0) {
         if (_page>=_totalPageNumber) {
             _totalPageNumber=_page;
             [_webView.scrollView.footer noticeNoMoreData];
+            _nextPageButton.enabled=NO;
         }else{
             [_webView.scrollView.footer resetNoMoreData];
+            _nextPageButton.enabled=YES;
         }
     }
 }
@@ -94,7 +136,117 @@
 -(void)setTotalPageNumber:(NSInteger)totalPageNumber{
     if (totalPageNumber>_totalPageNumber) {
         _totalPageNumber=totalPageNumber;
+        [_changePageNumberButton setTitle:[NSString stringWithFormat:@"%ld/%ld",_page,_totalPageNumber] forState:UIControlStateNormal];
     }
+}
+
+-(UIView*)changePageNumberView{
+    if (_changePageNumberView==nil) {
+        _changePageNumberView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 200)];
+        _changePageNumberView.backgroundColor=[UIColor whiteColor];
+        _pageSlider=[[UISlider alloc]init];
+        _pageSlider.maximumValue=0.99f;
+        _pageSlider.minimumValue=0.0f;
+        [_pageSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+        
+        _goButton=[[UIButton alloc]init];
+        [self setButtonTitleColor:_goButton];
+        [_goButton addTarget:self action:@selector(buttonInChangeNumberViewPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_goButton setTitle:@"GO" forState:UIControlStateNormal];
+        [_goButton sizeToFit];
+        _goButton.frame=CGRectMake(_changePageNumberView.frame.size.width-kDistanceBetweenViews-_goButton.frame.size.width*2, kDistanceBetweenViews, _goButton.frame.size.width*2, _goButton.frame.size.height);
+        [_changePageNumberView addSubview:_goButton];
+        
+        _pageSlider.frame=CGRectMake(kDistanceBetweenViews, kDistanceBetweenViews, _changePageNumberView.frame.size.width-3*kDistanceBetweenViews-_goButton.frame.size.width, _goButton.frame.size.height);
+        [_changePageNumberView addSubview:_pageSlider];
+        
+        CGFloat buttonWidth=(_changePageNumberView.frame.size.width-4.0f)/5;
+        
+        _firstPageButton=[[UIButton alloc]init];
+        [self setButtonTitleColor:_firstPageButton];
+        [_firstPageButton addTarget:self action:@selector(buttonInChangeNumberViewPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_firstPageButton setTitle:@"首  页" forState:UIControlStateNormal];
+        _firstPageButton.frame=CGRectMake(0, _pageSlider.frame.origin.y+_pageSlider.frame.size.height+kDistanceBetweenViews, buttonWidth, _goButton.frame.size.height);
+        [_changePageNumberView addSubview:_firstPageButton];
+        
+        _previousPageButton=[[UIButton alloc]init];
+        [self setButtonTitleColor:_previousPageButton];
+        [_previousPageButton setTitle:@"前一页" forState:UIControlStateNormal];
+        _previousPageButton.frame=CGRectMake(buttonWidth+1.0f, _firstPageButton.frame.origin.y, buttonWidth, _firstPageButton.frame.size.height);
+        [_previousPageButton addTarget:self action:@selector(buttonInChangeNumberViewPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_changePageNumberView addSubview:_previousPageButton];
+        
+        _pageLabel=[[UILabel alloc]init];
+        _pageLabel.textColor=[UIColor colorWithRed:0 green:0.459 blue:1 alpha:1];
+        _pageLabel.frame=CGRectMake(buttonWidth*2+2.0f, _previousPageButton.frame.origin.y, buttonWidth, _previousPageButton.frame.size.height);
+        _pageLabel.textAlignment=NSTextAlignmentCenter;
+        [_changePageNumberView addSubview:_pageLabel];
+        
+        _nextPageButton=[[UIButton alloc]init];
+        [self setButtonTitleColor:_nextPageButton];
+        [_nextPageButton setTitle:@"下一页" forState:UIControlStateNormal];
+        _nextPageButton.frame=CGRectMake(3*buttonWidth+3.0, _pageLabel.frame.origin.y, buttonWidth, _pageLabel.frame.size.height);
+        [_nextPageButton addTarget:self action:@selector(buttonInChangeNumberViewPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_changePageNumberView addSubview:_nextPageButton];
+        
+        _lastPageButton=[[UIButton alloc ]init];
+        [self setButtonTitleColor:_lastPageButton];
+        [_lastPageButton setTitle:@"尾  页" forState:UIControlStateNormal];
+        _lastPageButton.frame=CGRectMake(4*buttonWidth+4.0f, _nextPageButton.frame.origin.y, buttonWidth, _nextPageButton.frame.size.height);
+        [_lastPageButton addTarget:self action:@selector(buttonInChangeNumberViewPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_changePageNumberView addSubview:_lastPageButton];
+        
+        UILabel *seperatorUpLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, _firstPageButton.frame.origin.y-1, _changePageNumberView.frame.size.width, 1.0f)];
+        seperatorUpLabel.backgroundColor=[UIColor colorWithRed:0 green:0.459 blue:1 alpha:0.8];
+        [_changePageNumberView addSubview:seperatorUpLabel];
+        
+        UILabel *seperatorDownLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, _firstPageButton.frame.origin.y+_firstPageButton.frame.size.height+1, _changePageNumberView.frame.size.width, 1.0f)];
+        seperatorDownLabel.backgroundColor=[UIColor colorWithRed:0 green:0.459 blue:1 alpha:0.8];
+        [_changePageNumberView addSubview:seperatorDownLabel];
+        
+        _changePageNumberView.frame=CGRectMake(0, 0, _changePageNumberView.frame.size.width, seperatorDownLabel.frame.origin.y+1.0);
+        
+        for (int i=0; i<4; ++i) {
+            UILabel *seperatorLabel=[[UILabel alloc] initWithFrame:CGRectMake((i+1)*buttonWidth, _firstPageButton.frame.origin.y, 1.0, _firstPageButton.frame.size.height)];
+            seperatorLabel.backgroundColor=[UIColor colorWithRed:0 green:0.459 blue:1 alpha:0.8];
+            [_changePageNumberView addSubview:seperatorLabel];
+        }
+    }
+    _pageSlider.value=(CGFloat)_page/(CGFloat)_totalPageNumber;
+    _pageLabel.text=[NSString stringWithFormat:@"%ld/%ld",_page,_totalPageNumber];
+    return _changePageNumberView;
+}
+
+#pragma mark - Button Pressed
+
+-(void)changePageNumberButtonPressed:(id)sender{
+    [self presentSemiView:self.changePageNumberView withOptions:@{
+                                                              KNSemiModalOptionKeys.pushParentBack : @(NO),
+                                                              KNSemiModalOptionKeys.parentAlpha : @(0.8),
+                                                              }];
+}
+
+-(void)sliderValueChanged:(UISlider *)slider{
+    _pageLabel.text=[NSString stringWithFormat:@"%ld/%ld",(NSInteger)(slider.value*_totalPageNumber)+1,_totalPageNumber];
+}
+
+-(void)buttonInChangeNumberViewPressed:(UIButton *)button{
+    NSInteger page;
+    if (button==_goButton) {
+        page=(NSInteger)(_pageSlider.value*_totalPageNumber)+1;
+    }else if(button==_firstPageButton){
+        page=1;
+    }else if(button==_previousPageButton){
+        page=_page-1;
+    }else if(button==_nextPageButton){
+        page=_page+1;
+    }else if(button==_lastPageButton){
+        page=_totalPageNumber;
+    }
+    [self dismissSemiModalView];
+    self.page=page;
+    _isPullDownToRefresh=NO;
+    [_webView.scrollView.header beginRefreshing];
 }
 
 #pragma mark - Get Redirected URL
@@ -108,7 +260,7 @@
         AFHTTPRequestOperation *requestOperation=[[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_URLString]]];
         [requestOperation setRedirectResponseBlock:^NSURLRequest *(NSURLConnection *connection, NSURLRequest *request, NSURLResponse *redirectResponse) {
             if (redirectResponse) {
-                NSLog(@"%@",request.URL);
+                //NSLog(@"%@",request.URL);
                 weakSelf.URLString=[request.URL absoluteString];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self extractPostParameters];
@@ -233,7 +385,11 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    
+    if (![_pid isEqualToString:@""]) {
+        [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.location.hash='#post_%@';",_pid]];
+        [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById(\"post_%@\").style.backgroundColor='#ECECEC';",_pid]];
+        _pid=@"";
+    }
 }
 
 #pragma mark - UITableView  下拉刷新 自定义文字
@@ -254,8 +410,8 @@
 {
     [_webView.scrollView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
-    [_webView.scrollView.footer setTitle:@"点击加载更多" forState:MJRefreshFooterStateIdle];
-    [_webView.scrollView.footer setTitle:@"正在加载更多的数据" forState:MJRefreshFooterStateRefreshing];
+    [_webView.scrollView.footer setTitle:@"点击加载下一页" forState:MJRefreshFooterStateIdle];
+    [_webView.scrollView.footer setTitle:@"正在加载下一页的数据" forState:MJRefreshFooterStateRefreshing];
     [_webView.scrollView.footer setTitle:@"没有更多的数据了" forState:MJRefreshFooterStateNoMoreData];
     
     _webView.scrollView.footer.font = [UIFont systemFontOfSize:15];
@@ -267,21 +423,28 @@
 
 - (void)loadNewData
 {
+    NSInteger page;
+    if (_isPullDownToRefresh) {
+        page=_page>1?_page-1:1;
+    }else{
+        page=_page;
+    }
     [_webView stopLoading];
     __weak typeof(self) weakSelf=self;
-    [LZHPost loadPostTid:_tid page:_page fullURLString:_URLString completionHandler:^(NSArray *array, NSError *error) {
+    [LZHPost loadPostTid:_tid page:page fullURLString:_URLString completionHandler:^(NSArray *array, NSError *error) {
+        [weakSelf.webView.scrollView.header endRefreshing];
+        weakSelf.isPullDownToRefresh=YES;
         if (error!=nil) {
-            [weakSelf.webView.scrollView.header endRefreshing];
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
             weakSelf.URLString=@"";
             weakSelf.isRedirect=NO;
             weakSelf.postList=[array mutableCopy];
             [weakSelf prepareDataForUIWebView];
-            [weakSelf.webView.scrollView.header endRefreshing];
             NSInteger totalPage=[(NSString *)_postList[1] integerValue];
             weakSelf.totalPageNumber=totalPage;
-            weakSelf.page=_page;
+            weakSelf.page=page;
+            [weakSelf setScrollViewHeaderIsPageEqualOne:page==1];
         }
     }];
 }
@@ -289,9 +452,39 @@
 
 - (void)loadMoreData
 {
-    [_webView.scrollView.footer endRefreshing];
+    NSInteger page=_page+1;
+    [_webView stopLoading];
+    __weak typeof(self) weakSelf=self;
+    [LZHPost loadPostTid:_tid page:page fullURLString:_URLString completionHandler:^(NSArray *array, NSError *error) {
+        [_webView.scrollView.footer endRefreshing];
+        if (error!=nil) {
+            [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+        }else{
+            weakSelf.URLString=@"";
+            weakSelf.isRedirect=NO;
+            weakSelf.postList=[array mutableCopy];
+            [weakSelf prepareDataForUIWebView];
+
+            NSInteger totalPage=[(NSString *)_postList[1] integerValue];
+            weakSelf.totalPageNumber=totalPage;
+            weakSelf.page=page;
+            [weakSelf setScrollViewHeaderIsPageEqualOne:page==1];
+        }
+    }];
+    
 }
 
+-(void)setScrollViewHeaderIsPageEqualOne:(BOOL)isOne{
+    if (isOne) {
+        [_webView.scrollView.header setTitle:@"下拉可以刷新" forState:MJRefreshHeaderStateIdle];
+        [_webView.scrollView.header setTitle:@"松开立即刷新" forState:MJRefreshHeaderStatePulling];
+        [_webView.scrollView.header setTitle:@"正在刷新数据中..." forState:MJRefreshHeaderStateRefreshing];
+    }else{
+        [_webView.scrollView.header setTitle:@"下拉加载上一页" forState:MJRefreshHeaderStateIdle];
+        [_webView.scrollView.header setTitle:@"松开加载上一页" forState:MJRefreshHeaderStatePulling];
+        [_webView.scrollView.header setTitle:@"正在加载数据中..." forState:MJRefreshHeaderStateRefreshing];
+    }
+}
 
 #pragma mark - prepare data for UIWebView
 -(void)prepareDataForUIWebView{
@@ -307,9 +500,9 @@
         }else if(idx>1){
             LZHPost *post=(LZHPost *)obj;
             if (post.isBlocked) {
-                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%ld\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" onclick=\"postClicked(this);\" id=\"avatar_%ld\"><img src=\"%@\" onerror=\"this.src='%@';\"></img></span><span class=\"username\" onclick=\"postClicked(this);\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" id=\"postmessage_%ld\"><span class=\"blocked\">该用户已被您屏蔽！</span></div></div>",idx-2,idx-2,idx-2,[post.user.avatarImageURL absoluteString],weakSelf.defaultUserAvatarImageURLString,idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2];
+                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%@\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" onclick=\"postClicked(this);\" id=\"avatar_%ld\"><img src=\"%@\" onerror=\"this.src='%@';\"></img></span><span class=\"username\" onclick=\"postClicked(this);\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" id=\"postmessage_%ld\"><span class=\"blocked\">该用户已被您屏蔽！</span></div></div>",post.pid,idx-2,idx-2,[post.user.avatarImageURL absoluteString],weakSelf.defaultUserAvatarImageURLString,idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2];
             }else{
-                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%ld\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" onclick=\"postClicked(this);\" id=\"avatar_%ld\"><img src=\"%@\" onerror=\"this.src='%@';\"></img></span><span class=\"username\" onclick=\"postClicked(this);\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" onclick=\"postClicked(this);\" id=\"postmessage_%ld\">%@</div></div>",idx-2,idx-2,idx-2,[post.user.avatarImageURL absoluteString],weakSelf.defaultUserAvatarImageURLString,idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2,post.postMessage];
+                htmlString=[htmlString stringByAppendingFormat:@"<div class=\"post\" id=\"post_%@\"><div class=\"postinfo\" id=\"postinfo_%ld\"><span class=\"avatar\" onclick=\"postClicked(this);\" id=\"avatar_%ld\"><img src=\"%@\" onerror=\"this.src='%@';\"></img></span><span class=\"username\" onclick=\"postClicked(this);\" id=\"username_%ld\">%@</span><span class=\"posttime\" id=\"posttime_%ld\">%@</span><span class=\"floor\" id=\"floor_%ld\">%ld#</span></div><div class=\"postmessage\" onclick=\"postClicked(this);\" id=\"postmessage_%ld\">%@</div></div>",post.pid,idx-2,idx-2,[post.user.avatarImageURL absoluteString],weakSelf.defaultUserAvatarImageURLString,idx-2,post.user.userName,idx-2,post.postTime,idx-2,post.floor,idx-2,post.postMessage];
             }
         }
     }];
