@@ -23,18 +23,25 @@
 #import "LZHHTTPRequestOperationManager.h"
 #import "MTLog.h"
 #import "UIViewController+KNSemiModal.h"
+#import "LZHAddFavorite.h"
+#import "LZHReplyViewController.h"
 
 static const CGFloat kDistanceBetweenViews=8.0f;
+static const CGFloat kButtonWidth=18.0f;
 
 @interface LZHPostViewController ()
 
-@property (strong, nonatomic) UIWebView *webView;
+@property (strong, nonatomic) UIWebView      *webView;
 @property (strong, nonatomic) NSMutableArray *postList;
-@property (strong, nonatomic) NSString *htmlFormatString;
-@property (strong, nonatomic) NSString *defaultUserAvatarImageURLString;
-@property (assign, nonatomic) NSInteger totalPageNumber;
-@property (strong, nonatomic) UIView *changePageNumberView;
-@property (strong, nonatomic) UIButton *changePageNumberButton;
+@property (strong, nonatomic) NSString       *htmlFormatString;
+@property (strong, nonatomic) NSString       *defaultUserAvatarImageURLString;
+@property (assign, nonatomic) NSInteger      totalPageNumber;
+@property (strong, nonatomic) UIView         *changePageNumberView;
+@property (strong, nonatomic) UIButton       *changePageNumberButton;
+@property (strong, nonatomic) UIButton       *addFavoriteButton;
+@property (strong, nonatomic) UIImageView    *addFavoriteImageView;
+@property (strong, nonatomic) UIButton       *replyButton;
+@property (strong, nonatomic) UIImageView    *replyImageView;
 
 @property (strong, nonatomic) UISlider *pageSlider;
 @property (strong, nonatomic) UIButton *goButton;
@@ -42,9 +49,11 @@ static const CGFloat kDistanceBetweenViews=8.0f;
 @property (strong, nonatomic) UIButton *firstPageButton;
 @property (strong, nonatomic) UIButton *nextPageButton;
 @property (strong, nonatomic) UIButton *lastPageButton;
-@property (strong, nonatomic) UILabel *pageLabel;
+@property (strong, nonatomic) UILabel  *pageLabel;
 
 @property (assign, nonatomic) BOOL isPullDownToRefresh;
+
+@property (copy, nonatomic) NSString *fid;
 
 @end
 
@@ -74,8 +83,27 @@ static const CGFloat kDistanceBetweenViews=8.0f;
     [_changePageNumberButton sizeToFit];
     _changePageNumberButton.frame=CGRectMake(0, 0, _changePageNumberButton.frame.size.width*3, _changePageNumberButton.frame.size.height);
     _changePageNumberButton.contentHorizontalAlignment=UIControlContentHorizontalAlignmentRight;
-    UIBarButtonItem *rightBarButtonIterm=[[UIBarButtonItem alloc]initWithCustomView:_changePageNumberButton];
-    self.navigationItem.rightBarButtonItem=rightBarButtonIterm;
+    UIBarButtonItem *changePageNumberButtonIterm=[[UIBarButtonItem alloc]initWithCustomView:_changePageNumberButton];
+    
+    _addFavoriteButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _addFavoriteImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorite"] highlightedImage:[UIImage imageNamed:@"favorite_highlighted"]];
+    _addFavoriteImageView.frame=CGRectMake(kButtonWidth/2, 0, kButtonWidth, kButtonWidth);
+    _addFavoriteImageView.contentMode=UIViewContentModeScaleToFill;
+    _addFavoriteButton.frame=CGRectMake(0, 0, kButtonWidth*2, kButtonWidth);
+    [_addFavoriteButton addSubview:_addFavoriteImageView];
+    [_addFavoriteButton addTarget:self action:@selector(addFavoritedButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addFavoriteButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_addFavoriteButton];
+    
+    _replyButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _replyImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"replyBlue"] highlightedImage:[UIImage imageNamed:@"replyBlueHighlighed"]];
+    _replyImageView.contentMode=UIViewContentModeScaleToFill;
+    _replyImageView.frame=CGRectMake(0, 0, kButtonWidth, kButtonWidth);
+    _replyButton.frame=CGRectMake(0, 0, kButtonWidth, kButtonWidth);
+    [_replyButton addTarget:self action:@selector(replyButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_replyButton addSubview:_replyImageView];
+    UIBarButtonItem *replyBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_replyButton];
+    
+    self.navigationItem.rightBarButtonItems=@[replyBarButtonItem,addFavoriteButtonItem,changePageNumberButtonIterm];
     
     //初始化参数
     _postList=[[NSMutableArray alloc]init];
@@ -219,11 +247,37 @@ static const CGFloat kDistanceBetweenViews=8.0f;
 
 #pragma mark - Button Pressed
 
+-(void)replyButtonPressed:(UIButton *)button{
+    _replyImageView.highlighted=YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _replyImageView.highlighted=NO;
+    });
+    [self presentReplyViewControllerWithPid:@"" replyType:LZHreplyTypeNewPost];
+}
+
 -(void)changePageNumberButtonPressed:(id)sender{
     [self presentSemiView:self.changePageNumberView withOptions:@{
                                                               KNSemiModalOptionKeys.pushParentBack : @(NO),
                                                               KNSemiModalOptionKeys.parentAlpha : @(0.8),
                                                               }];
+}
+
+-(void)addFavoritedButtonPressed:(UIButton *)button{
+    _addFavoriteImageView.highlighted=YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _addFavoriteImageView.highlighted=NO;
+    });
+    [SVProgressHUD showWithStatus:@"与服务器通讯..." maskType:SVProgressHUDMaskTypeGradient];
+    [LZHAddFavorite addFavoriteTid:_tid completionHandler:^(NSArray *array, NSError *error) {
+        if (error) {
+            [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+        }else{
+            [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:array[0]];
+            _addFavoriteImageView.image=[UIImage imageNamed:@"favorited"];
+            button.enabled=NO;
+        }
+    }];
+    
 }
 
 -(void)sliderValueChanged:(UISlider *)slider{
@@ -262,10 +316,12 @@ static const CGFloat kDistanceBetweenViews=8.0f;
             if (redirectResponse) {
                 //NSLog(@"%@",request.URL);
                 weakSelf.URLString=[request.URL absoluteString];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self extractPostParameters];
-                });
+            }else{
+                weakSelf.URLString=[request.URL absoluteString];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self extractPostParameters];
+            });
             return request;
         }];
         [requestOperation start];
@@ -285,11 +341,22 @@ static const CGFloat kDistanceBetweenViews=8.0f;
     }
 }
 
+-(void)presentReplyViewControllerWithPid:(NSString *)pid replyType:(LZHReplyType)replyType{
+    LZHReplyViewController *replyViewController=[[LZHReplyViewController alloc]init];
+    replyViewController.fid=_fid;
+    replyViewController.page=_page;
+    replyViewController.pid=pid;
+    replyViewController.replyType=replyType;
+    UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:replyViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
 #pragma mark - UIWebView Delegate
 
 //scheme://host:port/path?
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    __weak typeof(self)weakSelf=self;
     NSString *requestString=[[request URL] absoluteString];
     if (navigationType==UIWebViewNavigationTypeLinkClicked) {
         return NO;
@@ -298,7 +365,7 @@ static const CGFloat kDistanceBetweenViews=8.0f;
         //用户名，用户头像和帖子信息被点击的时候
         NSString *host=[[request URL]host];
         NSArray *clickedInfoArray=[host componentsSeparatedByString:@"_"];
-        //要加2，应为0是帖子标题，1是楼层总数
+        //要加2，应为0是帖子标题，1是楼层数
         LZHPost *clickedPost=(LZHPost *)_postList[[clickedInfoArray[1] integerValue]+2];
         //当用户头像和用户名被点击的时候
         if ([clickedInfoArray[0] isEqualToString:@"username"]||[clickedInfoArray[0] isEqualToString:@"avatar"]) {
@@ -315,12 +382,21 @@ static const CGFloat kDistanceBetweenViews=8.0f;
             [alertController addAction:[UIAlertAction actionWithTitle:@"回复"
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction *action) {
-                                                                  
+                                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                                      NSInteger index=[clickedInfoArray[1] integerValue];
+                                                                      LZHPost *post=weakSelf.postList[index+2];
+                                                                      [self presentReplyViewControllerWithPid:post.pid replyType:LZHReplyTypeReply];
+                                                                  });
                                                               }]];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"引用"
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction *action) {
+                                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                                      NSInteger index=[clickedInfoArray[1] integerValue];
+                                                                      LZHPost *post=weakSelf.postList[index+2];
+                                                                      [self presentReplyViewControllerWithPid:post.pid replyType:LZHReplyTypeQuote];
+                                                                  });
                                                                   
                                                               }]];
             
@@ -328,6 +404,15 @@ static const CGFloat kDistanceBetweenViews=8.0f;
             [alertController addAction:[UIAlertAction actionWithTitle:@"只看该作者"
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction *action) {
+                                                                  LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
+                                                                  postViewController.tid=@"";
+                                                                  postViewController.pid=@"";
+                                                                  postViewController.isRedirect=YES;
+                                                                  postViewController.page=1;
+                                                                  NSInteger index=[clickedInfoArray[1] integerValue];
+                                                                  LZHPost *post=weakSelf.postList[index+2];
+                                                                  postViewController.URLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/viewthread.php?tid=%@&page=%ld&authorid=%@",weakSelf.tid,weakSelf.page,post.user.uid];
+                                                                  [weakSelf.navigationController pushViewController:postViewController animated:YES];
                                                                   
                                                               }]];
             
@@ -365,7 +450,13 @@ static const CGFloat kDistanceBetweenViews=8.0f;
                 linkURLString=[NSString stringWithFormat:@"http://www.hi-pda.com/forum/%@",linkURLString];
             }
             if ([linkURLString containsString:@"hi-pda"]) {
-                
+                LZHPostViewController *postViewController=[[LZHPostViewController alloc]init];
+                postViewController.tid=@"";
+                postViewController.pid=@"";
+                postViewController.page=1;
+                postViewController.isRedirect=YES;
+                postViewController.URLString=linkURLString;
+                [self.navigationController pushViewController:postViewController animated:YES];
             }else{
                 SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:linkURLString];
                 [self.navigationController pushViewController:webViewController animated:YES];
@@ -437,9 +528,16 @@ static const CGFloat kDistanceBetweenViews=8.0f;
         if (error!=nil) {
             [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
         }else{
+            NSMutableArray *mutableArray=[array mutableCopy];
+            if ([mutableArray[0] isEqualToString:@""]) {
+                [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:@"无法获取fid！"];
+            }else{
+                weakSelf.fid=mutableArray[0];
+                [mutableArray removeObjectAtIndex:0];
+            }
             weakSelf.URLString=@"";
             weakSelf.isRedirect=NO;
-            weakSelf.postList=[array mutableCopy];
+            weakSelf.postList=mutableArray;
             [weakSelf prepareDataForUIWebView];
             NSInteger totalPage=[(NSString *)_postList[1] integerValue];
             weakSelf.totalPageNumber=totalPage;

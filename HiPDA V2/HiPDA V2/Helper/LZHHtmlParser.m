@@ -110,6 +110,15 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableArray *postList=[[NSMutableArray alloc]init];
         
+        //fid
+        NSRegularExpression *regexFid=[NSRegularExpression regularExpressionWithPattern:@"fid=(\\d+)" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSTextCheckingResult *resultFid=[regexFid firstMatchInString:html options:0 range:NSMakeRange(0, html.length)];
+        NSString *fid=@"";
+        if (regexFid) {
+            fid=[html substringWithRange:[resultFid rangeAtIndex:1]];
+        }
+        [postList addObject:fid];
+        
         //标题
         NSString *title=@"";
         NSRegularExpression *regexTitleWithTags=[NSRegularExpression regularExpressionWithPattern:@"threadtitle\">([\\s\\S]*?)<div\\sclass=\"threadtags\">" options:NSRegularExpressionCaseInsensitive error:nil];

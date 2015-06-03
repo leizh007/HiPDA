@@ -24,6 +24,7 @@
 #import "LZHBlackList.h"
 #import "LZHPostViewController.h"
 #import "SDImageCache.h"
+#import "LZHReplyViewController.h"
 
 NSString *const LZHThreadDataSourceChange=@"LZHThreadDataSourceChange";
 const NSInteger LZHDiscoveryFid=2;
@@ -36,6 +37,7 @@ NSString *const LZHBuyAndSellFidString=@"LZHBuyAndSellFidString";
 NSString *const LZHGeekTalkFidString=@"LZHGeekTalkFidString";
 NSString *const LZHMachineFidString=@"LZHMachineFidString";
 NSString *const LZHEINKFidString=@"LZHEINKFidString";
+static const CGFloat kButtonSize=22.0f;
 
 @interface LZHThreadViewController ()
 
@@ -45,6 +47,11 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
 @property (assign, nonatomic) NSInteger fid;
 @property (assign, nonatomic) NSInteger page;
 @property (strong, nonatomic) NSDictionary *threadFidDictionary;
+@property (strong, nonatomic) UIImageView *replyImageView;
+@property (strong, nonatomic) UIButton *replyButton;
+@property (strong, nonatomic) UIButton *refreshButton;
+@property (strong, nonatomic) UIImageView *refreshImageView;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -62,12 +69,15 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     UIButton *button=[[UIButton alloc]init];
     [button setBackgroundImage:[UIImage imageNamed:@"RevealToggleImage"] forState:UIControlStateNormal];
     [button sizeToFit];
+    //NSLog(@"%lf",button.frame.size.width);
     [button addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     _barButton=[[BBBadgeBarButtonItem alloc]initWithCustomUIButton:button];
     _barButton.badgeOriginX=12;
     _barButton.badgeOriginY=-11;
     _barButton.badgeMinSize=5.0f;
     self.navigationItem.leftBarButtonItem=_barButton;
+    
+    [self setNavigationBarRightItemsIsRefreshing:NO];
     
     //注册KVO
     LZHNotice *notice=[LZHNotice sharedNotice];
@@ -148,6 +158,65 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
     }
     self.navigationItem.title=navigationTitle;
 }
+
+-(void)setNavigationBarRightItemsIsRefreshing:(BOOL)refresh{
+    if (_replyButton==nil) {
+        _replyButton=[UIButton buttonWithType:UIButtonTypeCustom];
+        _replyImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"replyBlack"] highlightedImage:[UIImage imageNamed:@"replyBlackHighlighted"]];
+        _replyImageView.frame=CGRectMake(0, 0, kButtonSize, kButtonSize);
+        _replyButton.frame=CGRectMake(0, 0, kButtonSize*1.5, kButtonSize);
+        _replyImageView.contentMode=UIViewContentModeScaleToFill;
+        [_replyButton addSubview:_replyImageView];
+        [_replyButton addTarget:self action:@selector(replyButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    if (_refreshButton==nil) {
+        _refreshButton=[UIButton buttonWithType:UIButtonTypeCustom];
+        _refreshImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"refresh"] highlightedImage:[UIImage imageNamed:@"refreshHighlighed"]];
+        _refreshImageView.frame=CGRectMake(0, 0, kButtonSize, kButtonSize);
+        _refreshButton.frame=CGRectMake(0, 0, kButtonSize, kButtonSize);
+        _refreshImageView.contentMode=UIViewContentModeScaleToFill;
+        [_refreshButton addSubview:_refreshImageView];
+        [_refreshButton addTarget:self action:@selector(refreshButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    if (_activityIndicatorView==nil) {
+        _activityIndicatorView=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, kButtonSize, kButtonSize)];
+        _activityIndicatorView.color=[UIColor blackColor];
+        [_activityIndicatorView startAnimating];
+    }
+    if (refresh) {
+        UIBarButtonItem *replyButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_replyButton];
+        UIBarButtonItem *activityButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_activityIndicatorView];
+        self.navigationItem.rightBarButtonItems=@[activityButtonItem,replyButtonItem];
+    }else{
+        UIBarButtonItem *replyButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_replyButton];
+        UIBarButtonItem *refreshButtonItem=[[UIBarButtonItem alloc]initWithCustomView:_refreshButton];
+        self.navigationItem.rightBarButtonItems=@[refreshButtonItem,replyButtonItem];
+    }
+}
+
+#pragma mark - Button Pressed
+
+-(void)replyButtonPressed:(UIButton *)button{
+    _replyImageView.highlighted=YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _replyImageView.highlighted=NO;
+    });
+    
+    LZHReplyViewController *replyViewController=[[LZHReplyViewController alloc]init];
+    replyViewController.fid=[NSString stringWithFormat:@"%ld",_fid];
+    replyViewController.page=1;
+    replyViewController.pid=@"";
+    replyViewController.replyType=LZHReplyTypeNewTopic;
+    UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:replyViewController];
+    [self.revealViewController presentViewController:navigationController animated:YES completion:nil];
+    
+}
+
+-(void)refreshButtonPressed:(UIButton *)button{
+    [self setNavigationBarRightItemsIsRefreshing:YES];
+    [_tableView.header beginRefreshing];
+}
+
 #pragma mark - Notification
 
 -(void)handleNotification:(NSNotification *)notification{
@@ -241,7 +310,7 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
         [weakSelf loadMoreData];
     }];
     
-    
+    self.tableView.footer.hidden=YES;
 }
 
 #pragma mark - 数据处理相关
@@ -258,6 +327,9 @@ NSString *const LZHEINKFidString=@"LZHEINKFidString";
         }
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.header endRefreshing];
+        [weakSelf setNavigationBarRightItemsIsRefreshing:NO];
+        
+        weakSelf.tableView.footer.hidden=NO;
     }];
 }
 
