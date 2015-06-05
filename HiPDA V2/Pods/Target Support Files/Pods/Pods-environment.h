@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// ActionSheetPicker-3.0
+#define COCOAPODS_POD_AVAILABLE_ActionSheetPicker_3_0
+#define COCOAPODS_VERSION_MAJOR_ActionSheetPicker_3_0 1
+#define COCOAPODS_VERSION_MINOR_ActionSheetPicker_3_0 6
+#define COCOAPODS_VERSION_PATCH_ActionSheetPicker_3_0 2
+
 // BBBadgeBarButtonItem
 #define COCOAPODS_POD_AVAILABLE_BBBadgeBarButtonItem
 #define COCOAPODS_VERSION_MAJOR_BBBadgeBarButtonItem 1
@@ -209,6 +215,18 @@
 #define COCOAPODS_VERSION_MAJOR_SWRevealViewController 2
 #define COCOAPODS_VERSION_MINOR_SWRevealViewController 3
 #define COCOAPODS_VERSION_PATCH_SWRevealViewController 0
+
+// SZTextView
+#define COCOAPODS_POD_AVAILABLE_SZTextView
+#define COCOAPODS_VERSION_MAJOR_SZTextView 1
+#define COCOAPODS_VERSION_MINOR_SZTextView 2
+#define COCOAPODS_VERSION_PATCH_SZTextView 1
+
+// WUEmoticonsKeyboard
+#define COCOAPODS_POD_AVAILABLE_WUEmoticonsKeyboard
+#define COCOAPODS_VERSION_MAJOR_WUEmoticonsKeyboard 0
+#define COCOAPODS_VERSION_MINOR_WUEmoticonsKeyboard 3
+#define COCOAPODS_VERSION_PATCH_WUEmoticonsKeyboard 1
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop

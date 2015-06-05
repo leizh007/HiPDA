@@ -1,0 +1,1 @@
+../../../WUEmoticonsKeyboard/WUEmoticonsKeyboard/UIResponder+WriteableInputView.h

@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (1.6.2)
   - AFNetworking (2.5.3):
     - AFNetworking/NSURLConnection (= 2.5.3)
     - AFNetworking/NSURLSession (= 2.5.3)
@@ -61,8 +62,11 @@ PODS:
   - SVWebViewController (1.0):
     - NJKWebViewProgress
   - SWRevealViewController (2.3.0)
+  - SZTextView (1.2.1)
+  - WUEmoticonsKeyboard (0.3.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 1.6.2)
   - AFNetworking (~> 2.5.0)
   - BBBadgeBarButtonItem (~> 1.1)
   - CustomBadge (~> 3.0.0)
@@ -81,6 +85,8 @@ DEPENDENCIES:
   - SVProgressHUD (~> 1.1.2)
   - SVWebViewController (from `https://github.com/pilot34/SVWebViewController.git`)
   - SWRevealViewController (~> 2.3.0)
+  - SZTextView (~> 1.2.1)
+  - WUEmoticonsKeyboard (~> 0.3.1)
 
 EXTERNAL SOURCES:
   SVWebViewController:
@@ -92,6 +98,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/pilot34/SVWebViewController.git
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: cc9f90ae785070623e9b972270013c3242190fb0
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   BBBadgeBarButtonItem: 958744e7c429e467b14af983040dbaae105b3355
   CustomBadge: c60738d213e7ef019b0bf1caa7948333f280ea9b
@@ -117,5 +124,7 @@ SPEC CHECKSUMS:
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SVWebViewController: ba1a015a3de968a6b3419ec38a149dc5eca44dc6
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
+  WUEmoticonsKeyboard: 6e3a0188788aec12da36ab06320046bc0b5dfb74
 
 COCOAPODS: 0.35.0

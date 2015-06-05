@@ -258,7 +258,7 @@ static const CGFloat kButtonSize=22.0f;
     
     //configure right buttons
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"删除" backgroundColor:[UIColor redColor]],
-                          [MGSwipeButton buttonWithTitle:@"黑名单" backgroundColor:[UIColor colorWithRed:0.781 green:0.778 blue:0.801 alpha:1]]];
+                          [MGSwipeButton buttonWithTitle:@" 黑名单 " backgroundColor:[UIColor colorWithRed:0.781 green:0.778 blue:0.801 alpha:1]]];
     cell.rightSwipeSettings.transition = MGSwipeTransitionStatic;
     
     cell.delegate=self;
