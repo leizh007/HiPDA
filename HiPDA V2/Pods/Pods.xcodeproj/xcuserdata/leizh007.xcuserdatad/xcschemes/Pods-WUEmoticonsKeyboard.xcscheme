@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "20363912B989971E9D86AA03"
+               BlueprintIdentifier = "EB52BCFD37EBF2BAA5BE8EAB"
                BuildableName = "libPods-WUEmoticonsKeyboard.a"
                BlueprintName = "Pods-WUEmoticonsKeyboard"
                ReferencedContainer = "container:Pods.xcodeproj">

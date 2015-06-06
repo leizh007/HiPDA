@@ -64,4 +64,14 @@
     
     return newImage;
 }
+
++(NSData *)imageWithImage:(UIImage *)image scaledToFileSize:(NSInteger)fileSize{
+    
+    NSData *rawImageData = UIImageJPEGRepresentation(image, 1.0);
+    CGFloat compression=(CGFloat)fileSize/(CGFloat)rawImageData.length;
+    if (compression>1.0) {
+        compression=1.0;
+    }
+    return UIImageJPEGRepresentation(image, compression);
+}
 @end

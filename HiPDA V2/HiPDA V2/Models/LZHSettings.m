@@ -28,6 +28,7 @@
 -(id)init{
     if (self=[super init]) {
         _fontName=@"Helvetica";
+        _tail=@"[size=1][url=http://www.hi-pda.com/forum/viewthread.php?tid=1598240]人家是超级大丁丁[/url][/size]";
     }
     return self;
 }

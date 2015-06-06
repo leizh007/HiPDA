@@ -22,8 +22,12 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - BBBadgeBarButtonItem (1.1)
+  - CTAssetsPickerController (2.9.4)
   - CustomBadge (3.0.0)
   - DACircularProgress (2.3.1)
+  - DBCamera (2.3.14):
+    - GPUImage (~> 0.1)
+  - GPUImage (0.1.6)
   - HMSegmentedControl (1.5.1)
   - IDMPhotoBrowser (1.6.2):
     - AFNetworking
@@ -69,7 +73,9 @@ DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 1.6.2)
   - AFNetworking (~> 2.5.0)
   - BBBadgeBarButtonItem (~> 1.1)
+  - CTAssetsPickerController (~> 2.9.4)
   - CustomBadge (~> 3.0.0)
+  - DBCamera (~> 2.3.14)
   - HMSegmentedControl (~> 1.5.1)
   - IDMPhotoBrowser (~> 1.6.2)
   - JSQMessagesViewController (~> 7.0.1)
@@ -101,8 +107,11 @@ SPEC CHECKSUMS:
   ActionSheetPicker-3.0: cc9f90ae785070623e9b972270013c3242190fb0
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   BBBadgeBarButtonItem: 958744e7c429e467b14af983040dbaae105b3355
+  CTAssetsPickerController: 3030dc60f5d1a3c4e5b1c0aa9f069220d5bf7008
   CustomBadge: c60738d213e7ef019b0bf1caa7948333f280ea9b
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DBCamera: f9b7938e10fe8479a1bc4bb4a42d694e94c1ee49
+  GPUImage: 4675ce4a5370ca92fcea8623b2a08b8f0c51b940
   HMSegmentedControl: 35460abdd15c3087368db2d3d956717f088b34d1
   IDMPhotoBrowser: ebbfa6690456b72dd92d93b7bc11d71519f4d06d
   JSQMessagesViewController: 03fba8a3021a3ddc1c91847f180ffe549f2e8cf2

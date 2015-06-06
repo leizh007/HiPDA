@@ -153,4 +153,26 @@ NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION=@"LZHUSERINFOLOADCOMPLETENOT
          }];
 }
 
++(void)getParametersFromURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion{
+    LZHHTTPRequestOperationManager *manager=[LZHHTTPRequestOperationManager sharedHTTPRequestOperationManager];
+    [manager GET:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *responseString=[NSString encodingGBKString:responseObject];
+        NSString *hash=[responseString stringBetweenString:@"name=\"hash\" value=\"" andString:@"\""];
+        NSString *formhash=[responseString stringBetweenString:@"formhash=" andString:@"\""];
+        NSString *posttime=[responseString stringBetweenString:@"id=\"posttime\" value=\"" andString:@"\""];
+        NSString *wysiwyg=[responseString stringBetweenString:@"name=\"wysiwyg\" id=\"e_mode\" value=\"" andString:@"\""];
+        NSString *noticeauthor=[responseString stringBetweenString:@"name=\"noticeauthor\" value=\"" andString:@"\""];
+        NSString *noticetrimstr=[responseString stringBetweenString:@"name=\"noticetrimstr\" value=\"" andString:@"\""];
+        noticetrimstr=[noticetrimstr stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+        NSString *noticeauthormsg=[responseString stringBetweenString:@"name=\"noticeauthormsg\" value=\"" andString:@"\""];
+        if (!hash||!formhash||!posttime||!wysiwyg||!noticeauthor||!noticetrimstr||!noticeauthormsg) {
+            completion(nil,[NSError errorWithDomain:@"无法获取参数！" code:0 userInfo:nil]);
+        }else{
+            completion(@[@{@"hash":hash,@"formhash":formhash,@"posttime":posttime,@"wysiwyg":wysiwyg,@"noticeauthor":noticeauthor,@"noticetrimstr":noticetrimstr,@"noticeauthormsg":noticeauthormsg}],nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil,error);
+    }];
+}
+
 @end

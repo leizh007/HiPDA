@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_BBBadgeBarButtonItem 1
 #define COCOAPODS_VERSION_PATCH_BBBadgeBarButtonItem 0
 
+// CTAssetsPickerController
+#define COCOAPODS_POD_AVAILABLE_CTAssetsPickerController
+#define COCOAPODS_VERSION_MAJOR_CTAssetsPickerController 2
+#define COCOAPODS_VERSION_MINOR_CTAssetsPickerController 9
+#define COCOAPODS_VERSION_PATCH_CTAssetsPickerController 4
+
 // CustomBadge
 #define COCOAPODS_POD_AVAILABLE_CustomBadge
 #define COCOAPODS_VERSION_MAJOR_CustomBadge 3
@@ -71,6 +77,18 @@
 #define COCOAPODS_VERSION_MAJOR_DACircularProgress 2
 #define COCOAPODS_VERSION_MINOR_DACircularProgress 3
 #define COCOAPODS_VERSION_PATCH_DACircularProgress 1
+
+// DBCamera
+#define COCOAPODS_POD_AVAILABLE_DBCamera
+#define COCOAPODS_VERSION_MAJOR_DBCamera 2
+#define COCOAPODS_VERSION_MINOR_DBCamera 3
+#define COCOAPODS_VERSION_PATCH_DBCamera 14
+
+// GPUImage
+#define COCOAPODS_POD_AVAILABLE_GPUImage
+#define COCOAPODS_VERSION_MAJOR_GPUImage 0
+#define COCOAPODS_VERSION_MINOR_GPUImage 1
+#define COCOAPODS_VERSION_PATCH_GPUImage 6
 
 // HMSegmentedControl
 #define COCOAPODS_POD_AVAILABLE_HMSegmentedControl

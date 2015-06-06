@@ -347,6 +347,7 @@ static const CGFloat kButtonWidth=18.0f;
     replyViewController.page=_page;
     replyViewController.pid=pid;
     replyViewController.replyType=replyType;
+    replyViewController.tid=_tid;
     UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:replyViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }

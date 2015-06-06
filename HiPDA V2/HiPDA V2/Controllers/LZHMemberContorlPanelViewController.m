@@ -128,7 +128,7 @@ const NSInteger kNoticeBadgeTag      = 2;
     _noticeImageView=noticeImageView;
     _noticeButton.frame=CGRectMake(kDistanceBetweenViews, _avatarImageView.frame.origin.y+_avatarImageView.frame.size.height+kDistanceBetweenViews, kButtonWidth, kButtonHeight);
     [_noticeButton addSubview:noticeImageView];
-    CustomBadge *noticeBadge=[CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%ld",notice.sumPromptPm] withScale:0.8];
+    CustomBadge *noticeBadge=[CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%ld",notice.sumPromptPm] withScale:0.3];
     if (notice.sumPromptPm==0) {
         noticeBadge.hidden=YES;
     }
@@ -147,7 +147,7 @@ const NSInteger kNoticeBadgeTag      = 2;
     _threadButton.frame=CGRectMake(_noticeButton.frame.origin.x+_noticeButton.frame.size.width+kDistanceBetweenViews, _noticeButton.frame.origin.y, kButtonWidth, kButtonHeight);
     [_threadButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_threadButton addSubview:threadImageView];
-    CustomBadge *threadBadge=[CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%ld",notice.promptThreads] withScale:0.8];
+    CustomBadge *threadBadge=[CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%ld",notice.promptThreads] withScale:0.3];
     threadBadge.tag=kThreadBadgeTag;
     if (notice.promptThreads==0) {
         threadBadge.hidden=YES;

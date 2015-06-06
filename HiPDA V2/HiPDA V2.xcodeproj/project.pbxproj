@@ -123,6 +123,7 @@
 		05F9D95C1B221BF4005C4736 /* LZHKeyboardBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9D95B1B221BF4005C4736 /* LZHKeyboardBuilder.m */; };
 		05F9D9611B221BFF005C4736 /* LZHKeyboardPressedCellPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9D95E1B221BFF005C4736 /* LZHKeyboardPressedCellPopupView.m */; };
 		05F9D9621B221BFF005C4736 /* LZHKeyboardTextKeyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9D9601B221BFF005C4736 /* LZHKeyboardTextKeyCell.m */; };
+		05F9D9651B22CE5B005C4736 /* LZHImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9D9641B22CE5B005C4736 /* LZHImagePickerViewController.m */; };
 		05FE9B5E1AFFA6FF00435E2C /* LZHSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE9B5D1AFFA6FF00435E2C /* LZHSettings.m */; };
 		564F40B18AF81CA936455DAE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3204824E7083C9E38B376889 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -306,6 +307,8 @@
 		05F9D95E1B221BFF005C4736 /* LZHKeyboardPressedCellPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHKeyboardPressedCellPopupView.m; path = Views/LZHKeyboardPressedCellPopupView.m; sourceTree = "<group>"; };
 		05F9D95F1B221BFF005C4736 /* LZHKeyboardTextKeyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHKeyboardTextKeyCell.h; path = Views/LZHKeyboardTextKeyCell.h; sourceTree = "<group>"; };
 		05F9D9601B221BFF005C4736 /* LZHKeyboardTextKeyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHKeyboardTextKeyCell.m; path = Views/LZHKeyboardTextKeyCell.m; sourceTree = "<group>"; };
+		05F9D9631B22CE5B005C4736 /* LZHImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHImagePickerViewController.h; path = Controllers/LZHImagePickerViewController.h; sourceTree = "<group>"; };
+		05F9D9641B22CE5B005C4736 /* LZHImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHImagePickerViewController.m; path = Controllers/LZHImagePickerViewController.m; sourceTree = "<group>"; };
 		05FE9B5C1AFFA6FF00435E2C /* LZHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZHSettings.h; path = Models/LZHSettings.h; sourceTree = "<group>"; };
 		05FE9B5D1AFFA6FF00435E2C /* LZHSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZHSettings.m; path = Models/LZHSettings.m; sourceTree = "<group>"; };
 		086E26437F1D9A4204BD3A65 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				05AAA07C1B0D73650007376E /* LZHSendPmViewController.m */,
 				0521315F1B1F46430056EE4C /* LZHReplyViewController.h */,
 				052131601B1F46430056EE4C /* LZHReplyViewController.m */,
+				05F9D9631B22CE5B005C4736 /* LZHImagePickerViewController.h */,
+				05F9D9641B22CE5B005C4736 /* LZHImagePickerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -855,6 +860,7 @@
 				05D128F61B074F8F00CC586E /* LZHPromptPmTableViewCell.m in Sources */,
 				059C6FD41AEB3C9400E3EBA0 /* LZHMemberContorlPanelViewController.m in Sources */,
 				05D128DC1B02388300CC586E /* LZHPersonalMessageViewController.m in Sources */,
+				05F9D9651B22CE5B005C4736 /* LZHImagePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,7 +982,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: quanlan huang (L4MC53BS3Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: quanlan huang (L4MC53BS3Z)";
 				INFOPLIST_FILE = "HiPDA V2/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e9862727-618e-49f8-92c7-c5c8a073428d";
@@ -991,7 +997,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: quanlan huang (L4MC53BS3Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: quanlan huang (L4MC53BS3Z)";
 				INFOPLIST_FILE = "HiPDA V2/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e9862727-618e-49f8-92c7-c5c8a073428d";

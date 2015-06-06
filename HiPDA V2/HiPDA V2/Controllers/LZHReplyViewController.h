@@ -22,5 +22,6 @@ typedef NS_ENUM(NSInteger, LZHReplyType){
 @property (assign, nonatomic) NSInteger page;
 @property (copy, nonatomic) NSString *pid;
 @property (assign, nonatomic) LZHReplyType replyType;
+@property (copy, nonatomic) NSString *tid;
 
 @end

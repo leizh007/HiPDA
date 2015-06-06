@@ -207,6 +207,7 @@ static const CGFloat kButtonSize=22.0f;
     replyViewController.page=1;
     replyViewController.pid=@"";
     replyViewController.replyType=LZHReplyTypeNewTopic;
+    replyViewController.tid=@"";
     UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:replyViewController];
     [self.revealViewController presentViewController:navigationController animated:YES completion:nil];
     

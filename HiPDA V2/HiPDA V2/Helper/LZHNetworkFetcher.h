@@ -22,4 +22,6 @@ extern NSString *const LZHUSERINFOLOADCOMPLETENOTIFICATION;
 
 +(void)beFriendToUser:(LZHUser *)user withURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
++(void)getParametersFromURLString:(NSString *)URLString completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
 @end

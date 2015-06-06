@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LZHNetworkFetcher.h"
+#import "LZHReplyViewController.h"
 
 @class LZHUser;
 
@@ -25,5 +26,9 @@
   completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
 +(void)addFriend:(LZHUser *)user completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)uploadImage:(NSData *)data completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
+
++(void)replyType:(LZHReplyType)replyType parameters:(NSDictionary *)parameters completionHandler:(LZHNetworkFetcherCompletionHandler)completion;
 
 @end

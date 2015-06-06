@@ -11,6 +11,10 @@
 #import "LZHKeyboardBuilder.h"
 #import "ActionSheetPicker.h"
 #import "MTLog.h"
+#import "LZHImagePickerViewController.h"
+#import "LZHReply.h"
+#import "LZHShowMessage.h"
+#import "LZHSettings.h"
 
 static const CGFloat kTitleTextFieldLeftPadding=8.0f;
 
@@ -20,7 +24,7 @@ const NSString *LZHReplyEInkFid=@"59";
 const NSString *LZHReplyGeekTalksFid=@"7";
 const NSString *LZHReplyMachineFid=@"57";
 
-@interface LZHReplyViewController ()
+@interface LZHReplyViewController ()<UITextViewDelegate,LZHImagePickerViewControllerDelegate>
 
 @property (strong, nonatomic) NSDictionary *typeIdArrayForFidDictionary;
 @property (strong, nonatomic) NSDictionary *typeId;
@@ -28,6 +32,10 @@ const NSString *LZHReplyMachineFid=@"57";
 @property (strong, nonatomic) UITextField *titleTextField;
 @property (strong, nonatomic) SZTextView *contentTextView;
 @property (assign, nonatomic) CGFloat contentTextViewFrameOriginY;
+@property (strong, nonatomic) UIToolbar *toolbar;
+@property (strong, nonatomic) UIImageView *addPictureImageView;
+@property (strong, nonatomic) UIImageView *emotionImageView;
+@property (strong, nonatomic) NSArray *imageUploadResponse;
 
 @end
 
@@ -40,11 +48,17 @@ const NSString *LZHReplyMachineFid=@"57";
     
     //初始化参数
     typeIdSelectedIndex=0;
+    _imageUploadResponse=[[NSArray alloc] init];
     
     _typeIdArrayForFidDictionary=@{LZHReplyDiscoveryFid:@[@"分类",@"聚会",@"汽车",@"大杂烩",@"助学",@"Discovery",@"投资",@"职场",@"文艺",@"版喃",@"显摆",@"晒物劝败",@"装修",@"YY",@"站务"],LZHReplyBuyAndSellFid:@[@"分类",@"手机",@"掌上电脑",@"笔记本电脑",@"无线产品",@"数码相机、摄像机",@"MP3随身听",@"各类配件",@"其他好玩的",@"站务"],LZHReplyEInkFid:@[@"分类",@"Kindle",@"SONY",@"国产",@"资源",@"综合",@"交流",@"Nook",@"Kobo",@"求助",@"站务"],LZHReplyGeekTalksFid:@[@"分类",@"Gadgets",@"无线",@"嵌入式Linux",@"业界",@"安卓",@"高清播放器",@"站务"],LZHReplyMachineFid:@[@"分类"]};
     _typeId=@{@"分类":@"0",@"聚会":@"9",@"汽车":@"33",@"大杂烩":@"38",@"助学":@"40",@"Discovery":@"56",@"投资":@"57",@"职场":@"58",@"文艺":@"65",@"版喃":@"66",@"显摆":@"67",@"晒物劝败":@"79",@"装修":@"81",@"YY":@"39",@"站务":@"19",@"手机":@"1",@"掌上电脑":@"2",@"笔记本电脑":@"3",@"无线产品":@"4",@"数码相机、摄像机":@"5",@"MP3随身听":@"6",@"各类配件":@"7",@"其他好玩的":@"8",@"Kindle":@"68",@"SNOY":@"69",@"国产":@"70",@"资源":@"72",@"综合":@"73",@"交流":@"75",@"Nook":@"77",@"Kobo":@"80",@"求助":@"18",@"Gadgets":@"20",@"无线":@"21",@"嵌入式Linux":@"22",@"业界":@"41",@"安卓":@"74",@"高清播放器":@"76"};
     
     [self arrangeViews];
+    
+    //notification
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
+    [center addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - View
@@ -108,7 +122,41 @@ const NSString *LZHReplyMachineFid=@"57";
     _contentTextView=[[SZTextView alloc]initWithFrame:CGRectMake(0, _contentTextViewFrameOriginY, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height-_contentTextViewFrameOriginY)];
     _contentTextView.placeholder=@"content here...";
     _contentTextView.font=[UIFont systemFontOfSize:17.0f];
+    _contentTextView.delegate=self;
+    
     [self.view addSubview:_contentTextView];
+    
+    //toobar
+    _toolbar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, [[UIScreen mainScreen]bounds].size.height-44, [[UIScreen mainScreen]bounds].size.width, 40.0f)];
+    _addPictureImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"addPicture"] highlightedImage:[UIImage imageNamed:@"addPictureHighlighted"]];
+    _emotionImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"emotion"] highlightedImage:[UIImage imageNamed:@"emotionHighlighted"]];
+    UIButton *sendButton=[[UIButton alloc]init];
+    [sendButton setTitle:@"发送" forState:UIControlStateNormal];
+    [sendButton setTitleColor:[UIColor colorWithRed:0.451 green:0.479 blue:0.502 alpha:1] forState:UIControlStateNormal];
+    [sendButton setTitleColor:[UIColor colorWithRed:0.451 green:0.479 blue:0.502 alpha:0.2] forState:UIControlStateHighlighted];
+    [sendButton sizeToFit];
+    [sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *addPictureButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    addPictureButton.frame=_addPictureImageView.frame;
+    [addPictureButton addSubview:_addPictureImageView];
+    [addPictureButton addTarget:self action:@selector(addPictureButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addPicture=[[UIBarButtonItem alloc]initWithCustomView:addPictureButton];
+    
+    UIButton *emotionButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    emotionButton.frame=_emotionImageView.frame;
+    [emotionButton addSubview:_emotionImageView];
+    [emotionButton addTarget:self action:@selector(switchKeyBoard:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *emotion=[[UIBarButtonItem alloc]initWithCustomView:emotionButton];
+    
+    UIBarButtonItem *send=[[UIBarButtonItem alloc]initWithCustomView:sendButton];
+    
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    _toolbar.items=@[addPicture,emotion,flexibleSpace,send];
+    
+    [self.view addSubview:_toolbar];
+    _toolbar.hidden=YES;
 }
 
 #pragma mark - Button Pressed
@@ -127,9 +175,22 @@ const NSString *LZHReplyMachineFid=@"57";
 }
 
 -(void)sendButtonPressed:(UIButton *)button{
-    [self switchKeyBoard:button];
-    
-    //NSLog(@"typeid:%@",_typeId[_typeIdButton.currentTitle]);
+    if ([_titleTextField.text isEqualToString:@""]) {
+        [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:@"标题不能为空！"];
+    }else if(_contentTextView.text.length<5){
+        [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:@"内容过短！"];
+    }else{
+        LZHSettings *setting=[LZHSettings sharedSetting];
+        NSString *message=[NSString stringWithFormat:@"%@    %@",_contentTextView.text,setting.tail];
+        [LZHReply replyType:_replyType parameters:@{@"fid":_fid,@"typeid":_typeIdButton==nil?@"":_typeId[_typeIdButton.currentTitle],@"subject":_titleTextField==nil?@"":_titleTextField.text,@"message":message,@"image":_imageUploadResponse,@"tid":_tid,@"page":[NSNumber numberWithInteger:_page],@"pid":_pid} completionHandler:^(NSArray *array, NSError *error) {
+            if (error) {
+                [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPEERROR message:[error localizedDescription]];
+            }else{
+                [LZHShowMessage showProgressHUDType:SVPROGRESSHUDTYPESUCCESS message:@"发表成功！"];
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            }
+        }];
+    }
 }
 
 -(void)typeIdButtonPressed:(UIButton *)button{
@@ -142,12 +203,14 @@ const NSString *LZHReplyMachineFid=@"57";
     } origin:self.view];
 }
 
--(void)switchKeyBoard:(UIButton *)button{
+-(void)switchKeyBoard:(id)sender{
     if (_contentTextView.isFirstResponder) {
         if (_contentTextView.emoticonsKeyboard) {
             [_contentTextView switchToDefaultKeyboard];
+            _emotionImageView.highlighted=NO;
         }else{
             [_contentTextView switchToEmoticonsKeyboard:[LZHKeyboardBuilder sharedEmoticonsKeyboard]];
+            _emotionImageView.highlighted=YES;
         }
     }else if(!_titleTextField.isFirstResponder){
         [_contentTextView becomeFirstResponder];
@@ -163,4 +226,69 @@ const NSString *LZHReplyMachineFid=@"57";
 //        [self.textView becomeFirstResponder];
 //    }
 //}
+
+-(void)addPictureButtonPressed:(id)sender{
+    _addPictureImageView.highlighted=YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _addPictureImageView.highlighted=NO;
+    });
+    LZHImagePickerViewController *imagePickerViewController=[[LZHImagePickerViewController alloc]init];
+    imagePickerViewController.delegate=self;
+    UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:imagePickerViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+#pragma mark - Notification
+
+-(void)keyboardOnScreen:(NSNotification *)notification
+{
+    NSDictionary *info  = notification.userInfo;
+    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect rawFrame      = [value CGRectValue];
+    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
+    
+    //NSLog(@"keyboardHeight: %lf", keyboardFrame.size.height);
+    _toolbar.frame=CGRectMake(0, [[UIScreen mainScreen]bounds].size.height-keyboardFrame.size.height-_toolbar.frame.size.height, _toolbar.frame.size.width, _toolbar.frame.size.height);
+    if (_contentTextView.isFirstResponder) {
+        _contentTextView.frame=CGRectMake(_contentTextView.frame.origin.x, _contentTextView.frame.origin.y, _contentTextView.frame.size.width, [[UIScreen mainScreen]bounds].size.height-_contentTextView.frame.origin.y-_toolbar.frame.size.height-keyboardFrame.size.height);
+    }
+}
+
+-(void)onKeyboardHide:(NSNotification *)notification
+{
+    _toolbar.frame=CGRectMake(0, [[UIScreen mainScreen]bounds].size.height-_toolbar.frame.size.height, _toolbar.frame.size.width, _toolbar.frame.size.height);
+    _contentTextView.frame=CGRectMake(_contentTextView.frame.origin.x, _contentTextView.frame.origin.y, _contentTextView.frame.size.width, [[UIScreen mainScreen]bounds].size.height-_contentTextView.frame.origin.y);
+}
+
+#pragma  mark - TextView Delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    _toolbar.hidden=NO;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    _toolbar.hidden=YES;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    return TRUE;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    return TRUE;
+}
+
+#pragma mark -LZHImagePickerViewControllerDelegate
+
+-(void)didFinishImagePick:(NSArray *)response{
+    _imageUploadResponse=response;
+    //NSLog(@"%@",response);
+    __block NSString *contentString=[_contentTextView.text copy];
+    [response enumerateObjectsUsingBlock:^(NSString  *reponseString, NSUInteger idx, BOOL *stop) {
+        contentString=[contentString stringByAppendingString:[NSString stringWithFormat:@"\n[attachimg]%@[/attachimg]",reponseString]];
+    }];
+    _contentTextView.text=contentString;
+}
+
 @end
