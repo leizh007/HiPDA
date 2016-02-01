@@ -1,1 +1,0 @@
-../../../DBCamera/DBCamera/Managers/DBLibraryManager.h

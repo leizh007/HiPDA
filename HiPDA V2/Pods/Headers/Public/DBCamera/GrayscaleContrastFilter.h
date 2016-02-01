@@ -1,1 +1,0 @@
-../../../DBCamera/DBCamera/Filters/GrayscaleContrastFilter.h
