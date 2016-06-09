@@ -1,0 +1,716 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05A5FD5A1D08633D00732C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD591D08633D00732C7A /* AppDelegate.swift */; };
+		05A5FD5C1D08633D00732C7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD5B1D08633D00732C7A /* ViewController.swift */; };
+		05A5FD5F1D08633D00732C7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A5FD5D1D08633D00732C7A /* Main.storyboard */; };
+		05A5FD611D08633D00732C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A5FD601D08633D00732C7A /* Assets.xcassets */; };
+		05A5FD641D08633D00732C7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A5FD621D08633D00732C7A /* LaunchScreen.storyboard */; };
+		05A5FD6F1D08633D00732C7A /* Hi_PDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD6E1D08633D00732C7A /* Hi_PDATests.swift */; };
+		05A5FD7A1D08633D00732C7A /* Hi_PDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD791D08633D00732C7A /* Hi_PDAUITests.swift */; };
+		05A5FD881D09078D00732C7A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD871D09078D00732C7A /* Helper.swift */; };
+		67F980AD5DDA84C464BE986E /* Pods_Hi_PDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCADBB2B47BBE5B9F25765C1 /* Pods_Hi_PDATests.framework */; };
+		988910A55442B625FDFB8FE3 /* Pods_Hi_PDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F26BF8263D9F3C3AF82D78 /* Pods_Hi_PDA.framework */; };
+		FFDFD86EF72840BEB23FF99B /* Pods_Hi_PDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDDFFA09FA552F1525F217D /* Pods_Hi_PDAUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05A5FD6B1D08633D00732C7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05A5FD4E1D08633C00732C7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05A5FD551D08633D00732C7A;
+			remoteInfo = "Hi!PDA";
+		};
+		05A5FD761D08633D00732C7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05A5FD4E1D08633C00732C7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05A5FD551D08633D00732C7A;
+			remoteInfo = "Hi!PDA";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05A5FD561D08633D00732C7A /* Hi!PDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hi!PDA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A5FD591D08633D00732C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		05A5FD5B1D08633D00732C7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05A5FD5E1D08633D00732C7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		05A5FD601D08633D00732C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05A5FD631D08633D00732C7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05A5FD651D08633D00732C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05A5FD6A1D08633D00732C7A /* Hi!PDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hi!PDATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A5FD6E1D08633D00732C7A /* Hi_PDATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hi_PDATests.swift; sourceTree = "<group>"; };
+		05A5FD701D08633D00732C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05A5FD751D08633D00732C7A /* Hi!PDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hi!PDAUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A5FD791D08633D00732C7A /* Hi_PDAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hi_PDAUITests.swift; sourceTree = "<group>"; };
+		05A5FD7B1D08633D00732C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05A5FD871D09078D00732C7A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		15683B09E6D82412FB418111 /* Pods-Hi!PDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hi!PDA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hi!PDA/Pods-Hi!PDA.debug.xcconfig"; sourceTree = "<group>"; };
+		3CDDFFA09FA552F1525F217D /* Pods_Hi_PDAUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hi_PDAUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7785F657D07AAF25BFC5FD37 /* Pods-Hi!PDAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hi!PDAUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hi!PDAUITests/Pods-Hi!PDAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		80CE9B01C12542D00BA01702 /* Pods-Hi!PDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hi!PDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hi!PDATests/Pods-Hi!PDATests.release.xcconfig"; sourceTree = "<group>"; };
+		A8F26BF8263D9F3C3AF82D78 /* Pods_Hi_PDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hi_PDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF98E25DE06C57F787B8F39F /* Pods-Hi!PDATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hi!PDATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hi!PDATests/Pods-Hi!PDATests.debug.xcconfig"; sourceTree = "<group>"; };
+		C823E58CE4A7FB7E801851FD /* Pods-Hi!PDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hi!PDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hi!PDAUITests/Pods-Hi!PDAUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DCADBB2B47BBE5B9F25765C1 /* Pods_Hi_PDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hi_PDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F054332A02A79FBA2EF56392 /* Pods-Hi!PDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hi!PDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hi!PDA/Pods-Hi!PDA.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05A5FD531D08633D00732C7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				988910A55442B625FDFB8FE3 /* Pods_Hi_PDA.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05A5FD671D08633D00732C7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67F980AD5DDA84C464BE986E /* Pods_Hi_PDATests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05A5FD721D08633D00732C7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFDFD86EF72840BEB23FF99B /* Pods_Hi_PDAUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		016F850381F005EA04B3ED1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8F26BF8263D9F3C3AF82D78 /* Pods_Hi_PDA.framework */,
+				DCADBB2B47BBE5B9F25765C1 /* Pods_Hi_PDATests.framework */,
+				3CDDFFA09FA552F1525F217D /* Pods_Hi_PDAUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05A5FD4D1D08633C00732C7A = {
+			isa = PBXGroup;
+			children = (
+				05A5FD581D08633D00732C7A /* Hi!PDA */,
+				05A5FD6D1D08633D00732C7A /* Hi!PDATests */,
+				05A5FD781D08633D00732C7A /* Hi!PDAUITests */,
+				05A5FD571D08633D00732C7A /* Products */,
+				788BC5C6B8DFD0E7F2BBCC93 /* Pods */,
+				016F850381F005EA04B3ED1E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		05A5FD571D08633D00732C7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05A5FD561D08633D00732C7A /* Hi!PDA.app */,
+				05A5FD6A1D08633D00732C7A /* Hi!PDATests.xctest */,
+				05A5FD751D08633D00732C7A /* Hi!PDAUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05A5FD581D08633D00732C7A /* Hi!PDA */ = {
+			isa = PBXGroup;
+			children = (
+				05A5FD891D09082E00732C7A /* Helper */,
+				05A5FD591D08633D00732C7A /* AppDelegate.swift */,
+				05A5FD5B1D08633D00732C7A /* ViewController.swift */,
+				05A5FD5D1D08633D00732C7A /* Main.storyboard */,
+				05A5FD601D08633D00732C7A /* Assets.xcassets */,
+				05A5FD621D08633D00732C7A /* LaunchScreen.storyboard */,
+				05A5FD651D08633D00732C7A /* Info.plist */,
+			);
+			path = "Hi!PDA";
+			sourceTree = "<group>";
+		};
+		05A5FD6D1D08633D00732C7A /* Hi!PDATests */ = {
+			isa = PBXGroup;
+			children = (
+				05A5FD6E1D08633D00732C7A /* Hi_PDATests.swift */,
+				05A5FD701D08633D00732C7A /* Info.plist */,
+			);
+			path = "Hi!PDATests";
+			sourceTree = "<group>";
+		};
+		05A5FD781D08633D00732C7A /* Hi!PDAUITests */ = {
+			isa = PBXGroup;
+			children = (
+				05A5FD791D08633D00732C7A /* Hi_PDAUITests.swift */,
+				05A5FD7B1D08633D00732C7A /* Info.plist */,
+			);
+			path = "Hi!PDAUITests";
+			sourceTree = "<group>";
+		};
+		05A5FD891D09082E00732C7A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				05A5FD871D09078D00732C7A /* Helper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		788BC5C6B8DFD0E7F2BBCC93 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15683B09E6D82412FB418111 /* Pods-Hi!PDA.debug.xcconfig */,
+				F054332A02A79FBA2EF56392 /* Pods-Hi!PDA.release.xcconfig */,
+				BF98E25DE06C57F787B8F39F /* Pods-Hi!PDATests.debug.xcconfig */,
+				80CE9B01C12542D00BA01702 /* Pods-Hi!PDATests.release.xcconfig */,
+				7785F657D07AAF25BFC5FD37 /* Pods-Hi!PDAUITests.debug.xcconfig */,
+				C823E58CE4A7FB7E801851FD /* Pods-Hi!PDAUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05A5FD551D08633D00732C7A /* Hi!PDA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05A5FD7E1D08633D00732C7A /* Build configuration list for PBXNativeTarget "Hi!PDA" */;
+			buildPhases = (
+				61160C94E5C3DC382028795F /* 📦 Check Pods Manifest.lock */,
+				05A5FD521D08633D00732C7A /* Sources */,
+				05A5FD531D08633D00732C7A /* Frameworks */,
+				05A5FD541D08633D00732C7A /* Resources */,
+				6BEAF909FF0F0150C80A51C4 /* 📦 Embed Pods Frameworks */,
+				84A7FD9BB8F4C9449055779C /* 📦 Copy Pods Resources */,
+				05A5FD8A1D090D2F00732C7A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hi!PDA";
+			productName = "Hi!PDA";
+			productReference = 05A5FD561D08633D00732C7A /* Hi!PDA.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05A5FD691D08633D00732C7A /* Hi!PDATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05A5FD811D08633D00732C7A /* Build configuration list for PBXNativeTarget "Hi!PDATests" */;
+			buildPhases = (
+				DAFD1ACE53DB11077959CF5B /* 📦 Check Pods Manifest.lock */,
+				05A5FD661D08633D00732C7A /* Sources */,
+				05A5FD671D08633D00732C7A /* Frameworks */,
+				05A5FD681D08633D00732C7A /* Resources */,
+				D06C48D8722766E8F82730D5 /* 📦 Embed Pods Frameworks */,
+				02A8C3F44A8E72CC3800E3FD /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05A5FD6C1D08633D00732C7A /* PBXTargetDependency */,
+			);
+			name = "Hi!PDATests";
+			productName = "Hi!PDATests";
+			productReference = 05A5FD6A1D08633D00732C7A /* Hi!PDATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05A5FD741D08633D00732C7A /* Hi!PDAUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05A5FD841D08633D00732C7A /* Build configuration list for PBXNativeTarget "Hi!PDAUITests" */;
+			buildPhases = (
+				3A19DD602BC52D44C623CA23 /* 📦 Check Pods Manifest.lock */,
+				05A5FD711D08633D00732C7A /* Sources */,
+				05A5FD721D08633D00732C7A /* Frameworks */,
+				05A5FD731D08633D00732C7A /* Resources */,
+				54535E599F8A889CD1F80D70 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05A5FD771D08633D00732C7A /* PBXTargetDependency */,
+			);
+			name = "Hi!PDAUITests";
+			productName = "Hi!PDAUITests";
+			productReference = 05A5FD751D08633D00732C7A /* Hi!PDAUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05A5FD4E1D08633C00732C7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Hi!PDA";
+				TargetAttributes = {
+					05A5FD551D08633D00732C7A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					05A5FD691D08633D00732C7A = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 05A5FD551D08633D00732C7A;
+					};
+					05A5FD741D08633D00732C7A = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 05A5FD551D08633D00732C7A;
+					};
+				};
+			};
+			buildConfigurationList = 05A5FD511D08633C00732C7A /* Build configuration list for PBXProject "Hi!PDA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05A5FD4D1D08633C00732C7A;
+			productRefGroup = 05A5FD571D08633D00732C7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05A5FD551D08633D00732C7A /* Hi!PDA */,
+				05A5FD691D08633D00732C7A /* Hi!PDATests */,
+				05A5FD741D08633D00732C7A /* Hi!PDAUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05A5FD541D08633D00732C7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05A5FD641D08633D00732C7A /* LaunchScreen.storyboard in Resources */,
+				05A5FD611D08633D00732C7A /* Assets.xcassets in Resources */,
+				05A5FD5F1D08633D00732C7A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05A5FD681D08633D00732C7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05A5FD731D08633D00732C7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02A8C3F44A8E72CC3800E3FD /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hi!PDATests/Pods-Hi!PDATests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		05A5FD8A1D090D2F00732C7A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 8ed2b7092d6a6515dc0a79046a030c029cd465b8 e8df426921cf9708066c38a7eeb9b17e6900969af7e937c7848b64b6e4c33011";
+		};
+		3A19DD602BC52D44C623CA23 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		54535E599F8A889CD1F80D70 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hi!PDAUITests/Pods-Hi!PDAUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61160C94E5C3DC382028795F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6BEAF909FF0F0150C80A51C4 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hi!PDA/Pods-Hi!PDA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84A7FD9BB8F4C9449055779C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hi!PDA/Pods-Hi!PDA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D06C48D8722766E8F82730D5 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hi!PDATests/Pods-Hi!PDATests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAFD1ACE53DB11077959CF5B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05A5FD521D08633D00732C7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05A5FD5C1D08633D00732C7A /* ViewController.swift in Sources */,
+				05A5FD5A1D08633D00732C7A /* AppDelegate.swift in Sources */,
+				05A5FD881D09078D00732C7A /* Helper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05A5FD661D08633D00732C7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05A5FD6F1D08633D00732C7A /* Hi_PDATests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05A5FD711D08633D00732C7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05A5FD7A1D08633D00732C7A /* Hi_PDAUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05A5FD6C1D08633D00732C7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05A5FD551D08633D00732C7A /* Hi!PDA */;
+			targetProxy = 05A5FD6B1D08633D00732C7A /* PBXContainerItemProxy */;
+		};
+		05A5FD771D08633D00732C7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05A5FD551D08633D00732C7A /* Hi!PDA */;
+			targetProxy = 05A5FD761D08633D00732C7A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05A5FD5D1D08633D00732C7A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05A5FD5E1D08633D00732C7A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		05A5FD621D08633D00732C7A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05A5FD631D08633D00732C7A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05A5FD7C1D08633D00732C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		05A5FD7D1D08633D00732C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05A5FD7F1D08633D00732C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15683B09E6D82412FB418111 /* Pods-Hi!PDA.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "Hi!PDA/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leizh007.Hi-PDA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05A5FD801D08633D00732C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F054332A02A79FBA2EF56392 /* Pods-Hi!PDA.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "Hi!PDA/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leizh007.Hi-PDA";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		05A5FD821D08633D00732C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF98E25DE06C57F787B8F39F /* Pods-Hi!PDATests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Hi!PDATests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leizh007.Hi-PDATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hi!PDA.app/Hi!PDA";
+			};
+			name = Debug;
+		};
+		05A5FD831D08633D00732C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80CE9B01C12542D00BA01702 /* Pods-Hi!PDATests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Hi!PDATests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leizh007.Hi-PDATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hi!PDA.app/Hi!PDA";
+			};
+			name = Release;
+		};
+		05A5FD851D08633D00732C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7785F657D07AAF25BFC5FD37 /* Pods-Hi!PDAUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "Hi!PDAUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leizh007.Hi-PDAUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Hi!PDA";
+			};
+			name = Debug;
+		};
+		05A5FD861D08633D00732C7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C823E58CE4A7FB7E801851FD /* Pods-Hi!PDAUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "Hi!PDAUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leizh007.Hi-PDAUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Hi!PDA";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05A5FD511D08633C00732C7A /* Build configuration list for PBXProject "Hi!PDA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05A5FD7C1D08633D00732C7A /* Debug */,
+				05A5FD7D1D08633D00732C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05A5FD7E1D08633D00732C7A /* Build configuration list for PBXNativeTarget "Hi!PDA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05A5FD7F1D08633D00732C7A /* Debug */,
+				05A5FD801D08633D00732C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05A5FD811D08633D00732C7A /* Build configuration list for PBXNativeTarget "Hi!PDATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05A5FD821D08633D00732C7A /* Debug */,
+				05A5FD831D08633D00732C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05A5FD841D08633D00732C7A /* Build configuration list for PBXNativeTarget "Hi!PDAUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05A5FD851D08633D00732C7A /* Debug */,
+				05A5FD861D08633D00732C7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05A5FD4E1D08633C00732C7A /* Project object */;
+}

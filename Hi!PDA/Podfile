@@ -1,0 +1,28 @@
+platform :ios, '8.0'
+
+#Debug tools
+def import_debug
+    pod 'Reveal-iOS-SDK', '~> 1.6.2', :configurations => ['Debug']
+    pod 'FLEX', '~> 2.3.0', :configurations => ['Debug']
+end
+
+target 'Hi!PDA' do
+  use_frameworks!
+
+  import_debug
+  pod 'RxSwift', '~> 2.5.0'
+  pod 'RxCocoa', '~> 2.5.0'
+  pod 'Moya', '~> 6.4.0'
+  pod 'Moya/RxSwift'
+  pod 'Fabric', '~> 1.6.7'
+  pod 'Crashlytics', '~> 3.7.0'
+
+  target 'Hi!PDATests' do
+    inherit! :search_paths
+  end
+
+  target 'Hi!PDAUITests' do
+    inherit! :search_paths
+  end
+
+end

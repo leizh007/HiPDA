@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (3.4.0)
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.7)
+  - FLEX (2.3.0)
+  - Moya (6.4.0):
+    - Moya/Core (= 6.4.0)
+  - Moya/Core (6.4.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (6.4.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - Result (2.0.0)
+  - Reveal-iOS-SDK (1.6.2)
+  - RxCocoa (2.5.0):
+    - RxSwift (~> 2.5)
+  - RxSwift (2.5.0)
+
+DEPENDENCIES:
+  - Crashlytics (~> 3.7.0)
+  - Fabric (~> 1.6.7)
+  - FLEX (~> 2.3.0)
+  - Moya (~> 6.4.0)
+  - Moya/RxSwift
+  - Reveal-iOS-SDK (~> 1.6.2)
+  - RxCocoa (~> 2.5.0)
+  - RxSwift (~> 2.5.0)
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
+  Moya: 4d526954c8afd79820991393d40d7d8af756ceee
+  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
+  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+
+PODFILE CHECKSUM: 35c22433ecd37075f84354455846cbf2e76f3d4d
+
+COCOAPODS: 1.0.0
