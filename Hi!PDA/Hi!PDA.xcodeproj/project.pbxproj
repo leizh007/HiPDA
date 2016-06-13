@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05726DA81D0EF55E005F3B67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05726DA71D0EF55E005F3B67 /* User.swift */; };
+		05726DAA1D0EFB34005F3B67 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05726DA91D0EFB34005F3B67 /* UserTests.swift */; };
+		05726DAC1D0F03AE005F3B67 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05726DAB1D0F03AE005F3B67 /* Account.swift */; };
+		05726DAE1D0F0F8A005F3B67 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05726DAD1D0F0F8A005F3B67 /* AccountTests.swift */; };
 		05A5FD5A1D08633D00732C7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD591D08633D00732C7A /* AppDelegate.swift */; };
 		05A5FD5C1D08633D00732C7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD5B1D08633D00732C7A /* ViewController.swift */; };
 		05A5FD5F1D08633D00732C7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A5FD5D1D08633D00732C7A /* Main.storyboard */; };
 		05A5FD611D08633D00732C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A5FD601D08633D00732C7A /* Assets.xcassets */; };
 		05A5FD641D08633D00732C7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A5FD621D08633D00732C7A /* LaunchScreen.storyboard */; };
-		05A5FD6F1D08633D00732C7A /* Hi_PDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD6E1D08633D00732C7A /* Hi_PDATests.swift */; };
 		05A5FD7A1D08633D00732C7A /* Hi_PDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD791D08633D00732C7A /* Hi_PDAUITests.swift */; };
 		05A5FD881D09078D00732C7A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5FD871D09078D00732C7A /* Helper.swift */; };
 		67F980AD5DDA84C464BE986E /* Pods_Hi_PDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCADBB2B47BBE5B9F25765C1 /* Pods_Hi_PDATests.framework */; };
@@ -38,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05726DA71D0EF55E005F3B67 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		05726DA91D0EFB34005F3B67 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		05726DAB1D0F03AE005F3B67 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		05726DAD1D0F0F8A005F3B67 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		05A5FD561D08633D00732C7A /* Hi!PDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hi!PDA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A5FD591D08633D00732C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A5FD5B1D08633D00732C7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +53,6 @@
 		05A5FD631D08633D00732C7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05A5FD651D08633D00732C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05A5FD6A1D08633D00732C7A /* Hi!PDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hi!PDATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A5FD6E1D08633D00732C7A /* Hi_PDATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hi_PDATests.swift; sourceTree = "<group>"; };
 		05A5FD701D08633D00732C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05A5FD751D08633D00732C7A /* Hi!PDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hi!PDAUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A5FD791D08633D00732C7A /* Hi_PDAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hi_PDAUITests.swift; sourceTree = "<group>"; };
@@ -101,6 +107,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		05726DA61D0EF550005F3B67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05726DA71D0EF55E005F3B67 /* User.swift */,
+				05726DAB1D0F03AE005F3B67 /* Account.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		05A5FD4D1D08633C00732C7A = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +141,7 @@
 		05A5FD581D08633D00732C7A /* Hi!PDA */ = {
 			isa = PBXGroup;
 			children = (
+				05726DA61D0EF550005F3B67 /* Model */,
 				05A5FD891D09082E00732C7A /* Helper */,
 				05A5FD591D08633D00732C7A /* AppDelegate.swift */,
 				05A5FD5B1D08633D00732C7A /* ViewController.swift */,
@@ -140,7 +156,8 @@
 		05A5FD6D1D08633D00732C7A /* Hi!PDATests */ = {
 			isa = PBXGroup;
 			children = (
-				05A5FD6E1D08633D00732C7A /* Hi_PDATests.swift */,
+				05726DA91D0EFB34005F3B67 /* UserTests.swift */,
+				05726DAD1D0F0F8A005F3B67 /* AccountTests.swift */,
 				05A5FD701D08633D00732C7A /* Info.plist */,
 			);
 			path = "Hi!PDATests";
@@ -452,7 +469,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05726DAC1D0F03AE005F3B67 /* Account.swift in Sources */,
 				05A5FD5C1D08633D00732C7A /* ViewController.swift in Sources */,
+				05726DA81D0EF55E005F3B67 /* User.swift in Sources */,
 				05A5FD5A1D08633D00732C7A /* AppDelegate.swift in Sources */,
 				05A5FD881D09078D00732C7A /* Helper.swift in Sources */,
 			);
@@ -462,7 +481,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A5FD6F1D08633D00732C7A /* Hi_PDATests.swift in Sources */,
+				05726DAA1D0EFB34005F3B67 /* UserTests.swift in Sources */,
+				05726DAE1D0F0F8A005F3B67 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "Hi!PDA/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -613,6 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = "Hi!PDA/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
