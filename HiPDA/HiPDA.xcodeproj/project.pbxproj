@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05C7FE221D3E7DD6005D0D0B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7FE211D3E7DD6005D0D0B /* Helper.swift */; };
 		05D489751D3E5E23000A086B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D489741D3E5E23000A086B /* AppDelegate.swift */; };
 		05D489771D3E5E23000A086B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D489761D3E5E23000A086B /* ViewController.swift */; };
 		05D4897A1D3E5E23000A086B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D489781D3E5E23000A086B /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05C7FE211D3E7DD6005D0D0B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		05D489711D3E5E23000A086B /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489741D3E5E23000A086B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05D489761D3E5E23000A086B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				05D4897B1D3E5E23000A086B /* Assets.xcassets */,
 				05D4897D1D3E5E23000A086B /* LaunchScreen.storyboard */,
 				05D489801D3E5E23000A086B /* Info.plist */,
+				05C7FE211D3E7DD6005D0D0B /* Helper.swift */,
 			);
 			path = HiPDA;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				05D4896F1D3E5E23000A086B /* Resources */,
 				2427380ED53DC087DDD61F14 /* 📦 Embed Pods Frameworks */,
 				A68560A9DC840911E47F075A /* 📦 Copy Pods Resources */,
+				05C7FE201D3E7BC4005D0D0B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -309,6 +313,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		05C7FE201D3E7BC4005D0D0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 8ed2b7092d6a6515dc0a79046a030c029cd465b8 e8df426921cf9708066c38a7eeb9b17e6900969af7e937c7848b64b6e4c33011";
+		};
 		15EC3954514B4A90795BFBEE /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +455,7 @@
 			files = (
 				05D489771D3E5E23000A086B /* ViewController.swift in Sources */,
 				05D489751D3E5E23000A086B /* AppDelegate.swift in Sources */,
+				05C7FE221D3E7DD6005D0D0B /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,9 +602,11 @@
 			baseConfigurationReference = E3FEE2AD1801A1D516039B47 /* Pods-HiPDA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = HiPDA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -598,6 +618,7 @@
 			baseConfigurationReference = 090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = HiPDA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

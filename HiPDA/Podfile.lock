@@ -1,3 +1,25 @@
-PODFILE CHECKSUM: 5f00002b04a330368b714136d028d43ec25cfc43
+PODS:
+  - Crashlytics (3.7.2):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.7)
+  - FLEX (2.3.0)
+  - Reveal-iOS-SDK (1.6.2)
+  - SSKeychain (1.4.0)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - FLEX
+  - Reveal-iOS-SDK
+  - SSKeychain
+
+SPEC CHECKSUMS:
+  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  SSKeychain: c71293fa57216a40ab06c23f4085387583293de4
+
+PODFILE CHECKSUM: 3dd9c2c870d51c34edb715d02bb8677467d4e986
 
 COCOAPODS: 1.0.0
