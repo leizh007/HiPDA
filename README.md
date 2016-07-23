@@ -14,7 +14,7 @@ Important
 
 TODO
 ---
-- SSKeyChain Error in Xcode8 Beta3
+- SSKeyChain Error in Xcode8 Beta3，无法存储密码！
 
 License
 ---
