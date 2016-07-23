@@ -1,6 +1,6 @@
 HiPDA的iOS APP
 ---
-![](https://img.shields.io/badge/status-developing-red.svg)  ![](https://img.shields.io/badge/language-Swift%202-orange.svg)  ![](https://img.shields.io/github/license/JakeLin/SwiftWeather.svg?style=flat)
+![](https://img.shields.io/badge/status-developing-red.svg) ![](https://img.shields.io/badge/language-Swift%203-orange.svg) ![](https://img.shields.io/badge/compatibility-iPhone-yellowgreen.svg) ![](https://img.shields.io/badge/tool-Xcode8-green.svg) ![](https://img.shields.io/github/license/JakeLin/SwiftWeather.svg?style=flat)
 
 HiPDA的非官方客户端（iOS版）！
 
