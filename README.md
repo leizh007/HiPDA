@@ -18,4 +18,4 @@ TODO
 
 License
 ---
-遵循MIT License. 详情参见LICENSE文件.
+遵循MIT开源协议. 详情参见LICENSE文件.
