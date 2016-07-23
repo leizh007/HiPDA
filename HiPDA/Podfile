@@ -13,7 +13,7 @@ target 'HiPDA' do
   import_debug
   pod 'Fabric'
   pod 'Crashlytics'
-  pod 'SSKeychain'
+  # pod 'SSKeychain'
 
   target 'HiPDATests' do
     inherit! :search_paths

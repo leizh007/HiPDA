@@ -1,8 +1,8 @@
 //
 //  HiPDAUITests.swift
-//  HiPDAUITests
+//  HiPDA
 //
-//  Created by leizh007 on 16/7/19.
+//  Created by leizh007 on 16/7/23.
 //  Copyright © 2016年 HiPDA. All rights reserved.
 //
 

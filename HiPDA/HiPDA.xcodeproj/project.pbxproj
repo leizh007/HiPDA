@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0540659E1D430DE300E460F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540659D1D430DE300E460F6 /* User.swift */; };
+		054065A01D43146000E460F6 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540659F1D43146000E460F6 /* Serializable.swift */; };
+		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
+		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
+		05BC4F331D436642002686E2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F321D436642002686E2 /* Account.swift */; };
+		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
 		05C7FE221D3E7DD6005D0D0B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7FE211D3E7DD6005D0D0B /* Helper.swift */; };
 		05D489751D3E5E23000A086B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D489741D3E5E23000A086B /* AppDelegate.swift */; };
 		05D489771D3E5E23000A086B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D489761D3E5E23000A086B /* ViewController.swift */; };
 		05D4897A1D3E5E23000A086B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D489781D3E5E23000A086B /* Main.storyboard */; };
 		05D4897C1D3E5E23000A086B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D4897B1D3E5E23000A086B /* Assets.xcassets */; };
 		05D4897F1D3E5E23000A086B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D4897D1D3E5E23000A086B /* LaunchScreen.storyboard */; };
-		05D4898A1D3E5E23000A086B /* HiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D489891D3E5E23000A086B /* HiPDATests.swift */; };
-		05D489951D3E5E23000A086B /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D489941D3E5E23000A086B /* HiPDAUITests.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -38,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0540659D1D430DE300E460F6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0540659F1D43146000E460F6 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
+		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
+		05BC4F321D436642002686E2 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		05C7FE211D3E7DD6005D0D0B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		05D489711D3E5E23000A086B /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489741D3E5E23000A086B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,10 +59,8 @@
 		05D4897E1D3E5E23000A086B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05D489801D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05D489851D3E5E23000A086B /* HiPDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		05D489891D3E5E23000A086B /* HiPDATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiPDATests.swift; sourceTree = "<group>"; };
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05D489901D3E5E23000A086B /* HiPDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		05D489941D3E5E23000A086B /* HiPDAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0540659B1D430DB900E460F6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				05C7FE211D3E7DD6005D0D0B /* Helper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		0540659C1D430DC500E460F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0540659F1D43146000E460F6 /* Serializable.swift */,
+				0540659D1D430DE300E460F6 /* User.swift */,
+				05BC4F321D436642002686E2 /* Account.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		05D489681D3E5E23000A086B = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +144,14 @@
 		05D489731D3E5E23000A086B /* HiPDA */ = {
 			isa = PBXGroup;
 			children = (
+				0540659C1D430DC500E460F6 /* Models */,
+				0540659B1D430DB900E460F6 /* Helper */,
 				05D489741D3E5E23000A086B /* AppDelegate.swift */,
 				05D489761D3E5E23000A086B /* ViewController.swift */,
 				05D489781D3E5E23000A086B /* Main.storyboard */,
 				05D4897B1D3E5E23000A086B /* Assets.xcassets */,
 				05D4897D1D3E5E23000A086B /* LaunchScreen.storyboard */,
 				05D489801D3E5E23000A086B /* Info.plist */,
-				05C7FE211D3E7DD6005D0D0B /* Helper.swift */,
 			);
 			path = HiPDA;
 			sourceTree = "<group>";
@@ -130,8 +159,10 @@
 		05D489881D3E5E23000A086B /* HiPDATests */ = {
 			isa = PBXGroup;
 			children = (
-				05D489891D3E5E23000A086B /* HiPDATests.swift */,
 				05D4898B1D3E5E23000A086B /* Info.plist */,
+				054065A21D43167400E460F6 /* UserTests.swift */,
+				05BC4F341D436ADA002686E2 /* AccountTests.swift */,
+				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
 			sourceTree = "<group>";
@@ -139,8 +170,9 @@
 		05D489931D3E5E23000A086B /* HiPDAUITests */ = {
 			isa = PBXGroup;
 			children = (
-				05D489941D3E5E23000A086B /* HiPDAUITests.swift */,
 				05D489961D3E5E23000A086B /* Info.plist */,
+				05BC4F301D431D77002686E2 /* HiPDAUITests.swift */,
+				05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */,
 			);
 			path = HiPDAUITests;
 			sourceTree = "<group>";
@@ -202,6 +234,7 @@
 				05D489831D3E5E23000A086B /* Resources */,
 				2494D127841036271D72C927 /* 📦 Embed Pods Frameworks */,
 				81E809E4DA959951940486BA /* 📦 Copy Pods Resources */,
+				058F4CEB1D4378C5000DEBE4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -247,12 +280,13 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZG65V92KVZ;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					05D489841D3E5E23000A086B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZG65V92KVZ;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 05D489701D3E5E23000A086B;
 					};
@@ -260,6 +294,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZG65V92KVZ;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 05D489701D3E5E23000A086B;
 					};
@@ -313,6 +348,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		058F4CEB1D4378C5000DEBE4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "codesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"";
+		};
 		05C7FE201D3E7BC4005D0D0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,9 +501,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0540659E1D430DE300E460F6 /* User.swift in Sources */,
+				054065A01D43146000E460F6 /* Serializable.swift in Sources */,
 				05D489771D3E5E23000A086B /* ViewController.swift in Sources */,
 				05D489751D3E5E23000A086B /* AppDelegate.swift in Sources */,
 				05C7FE221D3E7DD6005D0D0B /* Helper.swift in Sources */,
+				05BC4F331D436642002686E2 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +514,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05D4898A1D3E5E23000A086B /* HiPDATests.swift in Sources */,
+				054065A31D43167400E460F6 /* UserTests.swift in Sources */,
+				05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05D489951D3E5E23000A086B /* HiPDAUITests.swift in Sources */,
+				05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +654,7 @@
 			baseConfigurationReference = E3FEE2AD1801A1D516039B47 /* Pods-HiPDA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = HiPDA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -609,6 +662,8 @@
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
+				PROVISIONING_PROFILE_SPECIFIER = "33HZMGTRDL/Development All Devices wildchar";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -618,12 +673,15 @@
 			baseConfigurationReference = 090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = HiPDA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
+				PROVISIONING_PROFILE_SPECIFIER = "33HZMGTRDL/Development All Devices wildchar";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -633,10 +691,13 @@
 			baseConfigurationReference = FDD18CDC0CED13B5CC3B7361 /* Pods-HiPDATests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HiPDATests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDATests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiPDATests/HiPDATests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiPDA.app/HiPDA";
 			};
@@ -647,10 +708,12 @@
 			baseConfigurationReference = 4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HiPDATests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDATests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiPDATests/HiPDATests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiPDA.app/HiPDA";
 			};
@@ -660,10 +723,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D730B953B637DA6E5243FFE1 /* Pods-HiPDAUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HiPDAUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDAUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiPDAUITests/HiPDAUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = HiPDA;
 			};
@@ -673,10 +739,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HiPDAUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDAUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiPDAUITests/HiPDAUITests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = HiPDA;
 			};
