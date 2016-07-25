@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0510867B1D44E451006FA048 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510867A1D44E451006FA048 /* Settings.swift */; };
 		0540659E1D430DE300E460F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540659D1D430DE300E460F6 /* User.swift */; };
 		054065A01D43146000E460F6 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540659F1D43146000E460F6 /* Serializable.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
+		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F331D436642002686E2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F321D436642002686E2 /* Account.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
@@ -42,10 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0510867A1D44E451006FA048 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0540659D1D430DE300E460F6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0540659F1D43146000E460F6 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F321D436642002686E2 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				0540659F1D43146000E460F6 /* Serializable.swift */,
 				0540659D1D430DE300E460F6 /* User.swift */,
 				05BC4F321D436642002686E2 /* Account.swift */,
+				0510867A1D44E451006FA048 /* Settings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				05D4898B1D3E5E23000A086B /* Info.plist */,
 				054065A21D43167400E460F6 /* UserTests.swift */,
 				05BC4F341D436ADA002686E2 /* AccountTests.swift */,
+				058DBBB01D4659780045E0FD /* SettingsTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -505,6 +511,7 @@
 				054065A01D43146000E460F6 /* Serializable.swift in Sources */,
 				05D489771D3E5E23000A086B /* ViewController.swift in Sources */,
 				05D489751D3E5E23000A086B /* AppDelegate.swift in Sources */,
+				0510867B1D44E451006FA048 /* Settings.swift in Sources */,
 				05C7FE221D3E7DD6005D0D0B /* Helper.swift in Sources */,
 				05BC4F331D436642002686E2 /* Account.swift in Sources */,
 			);
@@ -514,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,
 				054065A31D43167400E460F6 /* UserTests.swift in Sources */,
 				05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */,
 			);

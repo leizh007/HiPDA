@@ -23,7 +23,6 @@ struct User {
     let name: String
     let uid: Int
     
-    
     /// 根据分辨率获取帖子用户的头像URL
     ///
     /// - parameter resolution: 头像的分辨率
