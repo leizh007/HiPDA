@@ -192,7 +192,7 @@ class Settings {
         isEnabledTail = boolValue(in: userDefaults, key: Self.kIsEnabledTail, defalut: true)
         tailText = (userDefaults.value(forKey: Self.kTailText) as? String) ?? "小尾巴~"
         if boolValue(in: userDefaults, key: "kFirstLaucn", defalut: true) {
-            tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")!
+            tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")
             userDefaults.set(false, forKey: "kFirstLaucn")
         } else {
             if let urlString = userDefaults.value(forKey: Self.kTailURL) as? String {
@@ -252,5 +252,43 @@ class Settings {
         }
         
         userDefaults.synchronize()
+    }
+    
+    /// 恢复到默认设置
+    func resetToDefalut() {
+        /// 清楚所有缓存
+        let userDefaults = UserDefaults.standard
+        let dictionary = userDefaults.dictionaryRepresentation()
+        for key in dictionary.keys {
+            userDefaults.removeObject(forKey: key)
+        }
+        userDefaults.synchronize()
+        
+        /// 设置默认值
+        autoDownloadImageWhenUsingWWAN = true
+        autoDownloadImageSizeThreshold = 256 * 1024
+        fontSize = 17.0
+        lineSpacing = 1.0
+        isEnabledUserBlock = true
+        userBlockList = []
+        isEnabledThreadBlock = false
+        threadBlockWordList = []
+        isEnabledThreadAttention = false
+        threadAttentionWordList = []
+        isEnabledMessagePush = true
+        isEnabledSystemPm = true
+        isEnabledFriendPm = true
+        isEnabledThreadPm = true
+        isEnabledPrivatePm = true
+        isEnabledAnnoucePm = true
+        isEnabledPmDoNotDisturb = true
+        pmDoNotDisturbFromTime = (hour: 22, minute: 0)
+        pmDoNotDisturbToTime = (hour: 9, minute: 0)
+        activeForumNameList = ["Discovery", "Buy & Sell 交易服务区", "E-INK", "Geek Talks · 奇客怪谈", "疑似机器人"]
+        isEnabledUserRemark = false
+        userRemarkDictionary = [:]
+        isEnabledTail = true
+        tailText = "小尾巴~"
+        tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")
     }
 }
