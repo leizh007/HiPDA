@@ -28,7 +28,7 @@ func ==(lhs:Array<Account>, rhs:Array<Account>) -> Bool {
 class SettingsTests: XCTestCase {
     
     func testSettings() {
-        Settings.shared.resetToDefalut()
+        Settings.shared.reset()
         let settings = Settings()
         
         XCTAssert(settings.accountList == [])
@@ -136,6 +136,6 @@ class SettingsTests: XCTestCase {
         let settings2 = Settings()
         XCTAssert(settings2.tailURL! == URL(string: "http://www.hi-pda.com/forum/space.php?uid=697558"))
         
-        Settings.shared.resetToDefalut()
+        Settings.shared.reset()
     }
 }

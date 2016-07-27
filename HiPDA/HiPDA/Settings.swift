@@ -191,9 +191,9 @@ class Settings {
         userRemarkDictionary = (userDefaults.value(forKey: Self.kUserRemarkDictionary) as? [String: String]) ?? [:]
         isEnabledTail = boolValue(in: userDefaults, key: Self.kIsEnabledTail, defalut: true)
         tailText = (userDefaults.value(forKey: Self.kTailText) as? String) ?? "小尾巴~"
-        if boolValue(in: userDefaults, key: "kFirstLaucn", defalut: true) {
+        if boolValue(in: userDefaults, key: "kFirstLaunch", defalut: true) {
             tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")
-            userDefaults.set(false, forKey: "kFirstLaucn")
+            userDefaults.set(false, forKey: "kFirstLaunch")
         } else {
             if let urlString = userDefaults.value(forKey: Self.kTailURL) as? String {
                 tailURL = URL(string: urlString)
@@ -255,7 +255,7 @@ class Settings {
     }
     
     /// 恢复到默认设置
-    func resetToDefalut() {
+    func reset() {
         /// 清楚所有缓存
         let userDefaults = UserDefaults.standard
         let dictionary = userDefaults.dictionaryRepresentation()
