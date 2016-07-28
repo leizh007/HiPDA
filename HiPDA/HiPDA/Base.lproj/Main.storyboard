@@ -98,6 +98,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
+                        <outlet property="delegate" destination="cg1-67-bOD" id="mmj-vi-Dng"/>
                         <segue destination="vo2-hj-Oqe" kind="relationship" relationship="viewControllers" id="K4G-sp-izV"/>
                         <segue destination="Z7L-rC-bdI" kind="relationship" relationship="viewControllers" id="tz1-jy-fXT"/>
                         <segue destination="RNx-R6-fi2" kind="relationship" relationship="viewControllers" id="dga-k0-m2S"/>
@@ -105,6 +106,7 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRg-4C-0p3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="cg1-67-bOD" customClass="HomeTabBarControllerDelegate" customModule="HiPDA" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-446" y="-36"/>
         </scene>

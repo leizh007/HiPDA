@@ -21,6 +21,7 @@
 		05D4897A1D3E5E23000A086B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D489781D3E5E23000A086B /* Main.storyboard */; };
 		05D4897C1D3E5E23000A086B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D4897B1D3E5E23000A086B /* Assets.xcassets */; };
 		05D4897F1D3E5E23000A086B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D4897D1D3E5E23000A086B /* LaunchScreen.storyboard */; };
+		05E327BD1D4A3D81003E76F1 /* HomeTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E327BC1D4A3D81003E76F1 /* HomeTabBarControllerDelegate.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -66,6 +67,7 @@
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05D489901D3E5E23000A086B /* HiPDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05E327BC1D4A3D81003E76F1 /* HomeTabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
 		6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				0540659C1D430DC500E460F6 /* Models */,
 				0540659B1D430DB900E460F6 /* Helper */,
+				05E327BB1D4A3D56003E76F1 /* ViewModels */,
 				05D489741D3E5E23000A086B /* AppDelegate.swift */,
 				05D489761D3E5E23000A086B /* ViewController.swift */,
 				05D489781D3E5E23000A086B /* Main.storyboard */,
@@ -181,6 +184,14 @@
 				05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */,
 			);
 			path = HiPDAUITests;
+			sourceTree = "<group>";
+		};
+		05E327BB1D4A3D56003E76F1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				05E327BC1D4A3D81003E76F1 /* HomeTabBarControllerDelegate.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		85D8DB6094FE49E2B6EA6C7C /* Frameworks */ = {
@@ -512,6 +523,7 @@
 				05D489771D3E5E23000A086B /* ViewController.swift in Sources */,
 				05D489751D3E5E23000A086B /* AppDelegate.swift in Sources */,
 				0510867B1D44E451006FA048 /* Settings.swift in Sources */,
+				05E327BD1D4A3D81003E76F1 /* HomeTabBarControllerDelegate.swift in Sources */,
 				05C7FE221D3E7DD6005D0D0B /* Helper.swift in Sources */,
 				05BC4F331D436642002686E2 /* Account.swift in Sources */,
 			);
