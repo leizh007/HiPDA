@@ -245,7 +245,8 @@ class Settings {
         userDefaults.set(userRemarkDictionary, forKey: Self.kUserRemarkDictionary)
         userDefaults.set(isEnabledTail, forKey: Self.kIsEnabledTail)
         userDefaults.set(tailText, forKey: Self.kTailText)
-        if let url = tailURL, let urlString = url.absoluteString {
+        if let url = tailURL {
+            let urlString = url.absoluteString
             userDefaults.set(urlString, forKey: Self.kTailURL)
         } else {
             userDefaults.removeObject(forKey: Self.kTailURL)

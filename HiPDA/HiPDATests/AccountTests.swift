@@ -36,8 +36,8 @@ class AccountTests: XCTestCase {
     func testAccountSerializable() {
         let account = Account(name: "leizh007",
                                uid: 697558,
-                               questionid: 0,
-                               answer: "",
+                               questionid: 1,
+                               answer: "answer",
                                password: "password")
         let accountData = account.encode()
         let accountFromData = Account(accountData)

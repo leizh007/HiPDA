@@ -7,6 +7,16 @@
 //
 
 import Foundation
+import SAMKeychain
+
+/// 用于从Keychain中获取密码的服务名
+private let passwordService = "HiPDA-password"
+
+/// 用于从Keychain中获取问题id的服务名
+private let questionidService = "HiPDA-questionid"
+
+/// 用于从Keychain中获取答案的服务名
+private let answerService = "HiPDA-answer"
 
 /// APP登录账户
 struct Account {
@@ -14,9 +24,6 @@ struct Account {
         static let serviceName = "HiPDA"
         static let name = "name"
         static let uid = "uid"
-        static let password = "password"
-        static let questionid = "questionid"
-        static let answer = "answer"
     }
     
     let name: String
@@ -45,9 +52,11 @@ extension Account: Serializable {
         let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as! NSDictionary
         name = dictionary[AccountKeys.name] as! String
         uid = dictionary[AccountKeys.uid] as! Int
-        questionid = dictionary[AccountKeys.questionid] as! Int
-        answer = dictionary[AccountKeys.answer] as! String
-        password = dictionary[AccountKeys.password] as! String
+        
+        questionid = Int(SAMKeychain.password(forService: questionidService, account: name)) ?? 0
+        answer = SAMKeychain.password(forService: answerService, account: name) ?? ""
+        password = SAMKeychain.password(forService: passwordService, account: name)
+        
         avatarImageURL = URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_middle.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100))!
     }
     
@@ -55,10 +64,11 @@ extension Account: Serializable {
         let dictionary = [
             AccountKeys.name: name,
             AccountKeys.uid: uid,
-            AccountKeys.questionid: questionid,
-            AccountKeys.answer: answer,
-            AccountKeys.password: password
         ]
+        
+        SAMKeychain.setPassword(password, forService: passwordService, account: name)
+        SAMKeychain.setPassword(String(questionid), forService: questionidService, account: name)
+        SAMKeychain.setPassword(answer, forService: answerService, account: name)
         
         return NSKeyedArchiver.archivedData(withRootObject: dictionary)
     }

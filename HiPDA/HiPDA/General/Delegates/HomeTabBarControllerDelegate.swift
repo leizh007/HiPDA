@@ -27,11 +27,11 @@ class HomeTabBarControllerDelegate: NSObject, UITabBarControllerDelegate {
         /// 给imageView添加动画，动画参数待优化！
         UIView.animate(withDuration: 0.15,
                        animations: {
-                        imageView.transform = CGAffineTransform.init(scaleX: 0.85, y: 0.85)
+                        imageView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
             }, completion: { (_) in
                 UIView.animate(withDuration: 0.1,
                                animations: {
-                                imageView.transform = CGAffineTransform.init(scaleX: 1.05, y: 1.05)
+                                imageView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
                     }, completion: { (_) in
                         UIView.animate(withDuration: 0.03,
                                        animations: { 
