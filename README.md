@@ -12,10 +12,6 @@ Important
 ---
 - 运行前请先了解一下cocoapods的使用！
 
-TODO
----
-- SSKeyChain Error in Xcode8 Beta3，无法存储密码！
-
 License
 ---
 遵循MIT开源协议. 详情参见LICENSE文件.
