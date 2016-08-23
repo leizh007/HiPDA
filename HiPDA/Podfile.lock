@@ -1,7 +1,7 @@
 PODS:
-  - Crashlytics (3.7.2):
+  - Crashlytics (3.7.3):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
+  - Fabric (1.6.8)
   - FLEX (2.3.0)
   - Reveal-iOS-SDK (1.6.2)
   - SAMKeychain (1.5.0)
@@ -14,8 +14,8 @@ DEPENDENCIES:
   - SAMKeychain
 
 SPEC CHECKSUMS:
-  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SAMKeychain: 1fc9ae02f576365395758b12888c84704eebc423

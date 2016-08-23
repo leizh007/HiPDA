@@ -17,9 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// 待启动组件数组
     let bootstrappingComponents = [ CrashAnalysis() ]
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         bootstrap()
-        
         return true
     }
 }

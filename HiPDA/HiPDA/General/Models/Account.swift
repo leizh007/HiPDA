@@ -20,7 +20,7 @@ private let answerService = "HiPDA-answer"
 
 /// APP登录账户
 struct Account {
-    private struct AccountKeys {
+    struct AccountKeys {
         static let serviceName = "HiPDA"
         static let name = "name"
         static let uid = "uid"
@@ -61,10 +61,10 @@ extension Account: Serializable {
     }
     
     func encode() -> Data {
-        let dictionary = [
+        let dictionary: [String : Any] = [
             AccountKeys.name: name,
             AccountKeys.uid: uid,
-        ]
+            ]
         
         SAMKeychain.setPassword(password, forService: passwordService, account: name)
         SAMKeychain.setPassword(String(questionid), forService: questionidService, account: name)

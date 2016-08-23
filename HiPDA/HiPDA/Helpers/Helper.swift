@@ -24,6 +24,6 @@ func console(message: String, filename: String = #file, line: Int = #line, funct
 ///
 /// - parameter seconds:    延时时间，单位秒
 /// - parameter completion: 延时执行的closure
-func delay(seconds: Double, completion:()->()) {
+func delay(seconds: Double, completion:@escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: completion)
 }

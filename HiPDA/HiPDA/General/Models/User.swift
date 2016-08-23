@@ -43,8 +43,8 @@ extension User: Serializable {
     }
     
     func encode() -> Data {
-        let dictionary = ["name": name,
-                          "uid": uid]
+        let dictionary: [String : Any] = ["name": name,
+                                          "uid": uid]
         
         return NSKeyedArchiver.archivedData(withRootObject: dictionary)
     }
