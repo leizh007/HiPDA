@@ -52,10 +52,10 @@ extension User: Serializable {
 
 // MARK: - Equalable
 
-func ==(lhs: User, rhs: User) -> Bool {
-    return lhs.uid == rhs.uid && lhs.name == rhs.name
+extension User: Equatable {
+    
 }
 
-func !=(lhs: User, rhs: User) -> Bool {
-    return !(lhs.uid == rhs.uid)
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.uid == rhs.uid && lhs.name == rhs.name
 }

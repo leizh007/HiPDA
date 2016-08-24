@@ -9,16 +9,12 @@
 import XCTest
 @testable import HiPDA
 
-class TestView: UIView {
-    
-}
-
-extension TestView: NibLoadableView {
+class TestView: UIView, NibLoadableView {
     
 }
 
 class NibLoadableViewTests: XCTestCase {
-    
+    // 测试NibName
     func testNibName() {
         XCTAssert(TestView.NibName == "TestView")
     }

@@ -2,7 +2,10 @@ PODS:
   - Crashlytics (3.7.3):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.8)
+  - FBRetainCycleDetector (0.1.3)
   - FLEX (2.3.0)
+  - MLeaksFinder (0.2.0):
+    - FBRetainCycleDetector
   - Reveal-iOS-SDK (1.6.2)
   - SAMKeychain (1.5.0)
 
@@ -10,16 +13,19 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - FLEX
+  - MLeaksFinder
   - Reveal-iOS-SDK
   - SAMKeychain
 
 SPEC CHECKSUMS:
   Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
+  MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SAMKeychain: 1fc9ae02f576365395758b12888c84704eebc423
 
-PODFILE CHECKSUM: 3523ae420ae10a4bec3a3e8c1295c911cbe99919
+PODFILE CHECKSUM: 71bcd7e339baeb026d17398e85e45f52de71b4e2
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

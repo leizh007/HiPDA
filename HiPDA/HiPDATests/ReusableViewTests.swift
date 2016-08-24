@@ -14,7 +14,7 @@ class TestTableViewCell: UITableViewCell {
 }
 
 class ReusableViewTests: XCTestCase {
-    
+    // 测试重用identifier
     func testReuseIdentifier() {
         XCTAssert(TestTableViewCell.reuseIdentifier == "TestTableViewCell")
     }

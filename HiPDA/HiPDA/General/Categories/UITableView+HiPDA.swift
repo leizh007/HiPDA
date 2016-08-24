@@ -9,7 +9,6 @@
 import UIKit
 
 extension UITableView {
-    
     /// 注册Nib
     ///
     /// - parameter _: Nib对应的class类型

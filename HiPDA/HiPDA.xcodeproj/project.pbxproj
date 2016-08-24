@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969A1D50DB3800057CF6 /* AppDelegate.swift */; };
 		055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */; };
@@ -26,8 +27,11 @@
 		05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506791D6C92A7004D573D /* ReusableViewTests.swift */; };
 		05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5067B1D6C9386004D573D /* NibLoadableViewTests.swift */; };
 		05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */; };
+		05B506801D6C9FA2004D573D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5067F1D6C9FA2004D573D /* Result.swift */; };
+		05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506831D6CA4C4004D573D /* ResultTests.swift */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
+		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -51,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		0559969A1D50DB3800057CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,9 +78,14 @@
 		05B506791D6C92A7004D573D /* ReusableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewTests.swift; sourceTree = "<group>"; };
 		05B5067B1D6C9386004D573D /* NibLoadableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableViewTests.swift; sourceTree = "<group>"; };
 		05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+HiPDA.swift"; sourceTree = "<group>"; };
+		05B5067F1D6C9FA2004D573D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		05B506831D6CA4C4004D573D /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
+		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
+		05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
 		05D489711D3E5E23000A086B /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489851D3E5E23000A086B /* HiPDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +130,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0507EB271D6DD6ED00D4D23F /* FPSView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FPSView;
+			sourceTree = "<group>";
+		};
 		055996991D50DB3800057CF6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +183,7 @@
 				055996A21D50DB4500057CF6 /* Serializable.swift */,
 				055996A31D50DB4500057CF6 /* Settings.swift */,
 				055996A41D50DB4500057CF6 /* User.swift */,
+				05B5067F1D6C9FA2004D573D /* Result.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				055996AD1D50DB5A00057CF6 /* Helper.swift */,
+				05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */,
+				05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -202,6 +222,7 @@
 		055996B01D50DB6500057CF6 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				0507EB271D6DD6ED00D4D23F /* FPSView */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -221,6 +242,7 @@
 				055996BF1D50DD0900057CF6 /* LaunchScreen.storyboard */,
 				055996C11D50DD0900057CF6 /* Main.storyboard */,
 				055996C31D50DD0900057CF6 /* Info.plist */,
+				05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -279,6 +301,8 @@
 				058DBBB01D4659780045E0FD /* SettingsTests.swift */,
 				05B506791D6C92A7004D573D /* ReusableViewTests.swift */,
 				05B5067B1D6C9386004D573D /* NibLoadableViewTests.swift */,
+				05B506831D6CA4C4004D573D /* ResultTests.swift */,
+				0507EB281D6DD80200D4D23F /* HelperTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -324,12 +348,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05D489991D3E5E23000A086B /* Build configuration list for PBXNativeTarget "HiPDA" */;
 			buildPhases = (
-				C95C3B42383B0E09365FF564 /* 📦 Check Pods Manifest.lock */,
+				C95C3B42383B0E09365FF564 /* [CP] Check Pods Manifest.lock */,
 				05D4896D1D3E5E23000A086B /* Sources */,
 				05D4896E1D3E5E23000A086B /* Frameworks */,
 				05D4896F1D3E5E23000A086B /* Resources */,
-				2427380ED53DC087DDD61F14 /* 📦 Embed Pods Frameworks */,
-				A68560A9DC840911E47F075A /* 📦 Copy Pods Resources */,
+				2427380ED53DC087DDD61F14 /* [CP] Embed Pods Frameworks */,
+				A68560A9DC840911E47F075A /* [CP] Copy Pods Resources */,
 				05C7FE201D3E7BC4005D0D0B /* ShellScript */,
 			);
 			buildRules = (
@@ -345,12 +369,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05D4899C1D3E5E23000A086B /* Build configuration list for PBXNativeTarget "HiPDATests" */;
 			buildPhases = (
-				15EC3954514B4A90795BFBEE /* 📦 Check Pods Manifest.lock */,
+				15EC3954514B4A90795BFBEE /* [CP] Check Pods Manifest.lock */,
 				05D489811D3E5E23000A086B /* Sources */,
 				05D489821D3E5E23000A086B /* Frameworks */,
 				05D489831D3E5E23000A086B /* Resources */,
-				2494D127841036271D72C927 /* 📦 Embed Pods Frameworks */,
-				81E809E4DA959951940486BA /* 📦 Copy Pods Resources */,
+				2494D127841036271D72C927 /* [CP] Embed Pods Frameworks */,
+				81E809E4DA959951940486BA /* [CP] Copy Pods Resources */,
 				058F4CEB1D4378C5000DEBE4 /* ShellScript */,
 			);
 			buildRules = (
@@ -367,11 +391,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05D4899F1D3E5E23000A086B /* Build configuration list for PBXNativeTarget "HiPDAUITests" */;
 			buildPhases = (
-				F26777E2EE7C9699EB1D9F9F /* 📦 Check Pods Manifest.lock */,
+				F26777E2EE7C9699EB1D9F9F /* [CP] Check Pods Manifest.lock */,
 				05D4898C1D3E5E23000A086B /* Sources */,
 				05D4898D1D3E5E23000A086B /* Frameworks */,
 				05D4898E1D3E5E23000A086B /* Resources */,
-				43768148ADB475793B84B66C /* 📦 Copy Pods Resources */,
+				43768148ADB475793B84B66C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -397,6 +421,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZG65V92KVZ;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -496,14 +521,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 8ed2b7092d6a6515dc0a79046a030c029cd465b8 e8df426921cf9708066c38a7eeb9b17e6900969af7e937c7848b64b6e4c33011";
 		};
-		15EC3954514B4A90795BFBEE /* 📦 Check Pods Manifest.lock */ = {
+		15EC3954514B4A90795BFBEE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,14 +536,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2427380ED53DC087DDD61F14 /* 📦 Embed Pods Frameworks */ = {
+		2427380ED53DC087DDD61F14 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,14 +551,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2494D127841036271D72C927 /* 📦 Embed Pods Frameworks */ = {
+		2494D127841036271D72C927 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,14 +566,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		43768148ADB475793B84B66C /* 📦 Copy Pods Resources */ = {
+		43768148ADB475793B84B66C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,14 +581,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		81E809E4DA959951940486BA /* 📦 Copy Pods Resources */ = {
+		81E809E4DA959951940486BA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,14 +596,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A68560A9DC840911E47F075A /* 📦 Copy Pods Resources */ = {
+		A68560A9DC840911E47F075A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,14 +611,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C95C3B42383B0E09365FF564 /* 📦 Check Pods Manifest.lock */ = {
+		C95C3B42383B0E09365FF564 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,14 +626,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F26777E2EE7C9699EB1D9F9F /* 📦 Check Pods Manifest.lock */ = {
+		F26777E2EE7C9699EB1D9F9F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,10 +649,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
+				05B506801D6C9FA2004D573D /* Result.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
+				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
@@ -642,10 +669,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,
 				054065A31D43167400E460F6 /* UserTests.swift in Sources */,
 				05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */,
+				0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */,
 				05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,17 +818,20 @@
 			baseConfigurationReference = E3FEE2AD1801A1D516039B47 /* Pods-HiPDA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = "$(SRCROOT)/HiPDA/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
 				PROVISIONING_PROFILE_SPECIFIER = "33HZMGTRDL/Development All Devices wildchar";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -809,16 +841,18 @@
 			baseConfigurationReference = 090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = "$(SRCROOT)/HiPDA/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
 				PROVISIONING_PROFILE_SPECIFIER = "33HZMGTRDL/Development All Devices wildchar";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -18,14 +18,15 @@ private let questionidService = "HiPDA-questionid"
 /// 用于从Keychain中获取答案的服务名
 private let answerService = "HiPDA-answer"
 
+/// 存取键
+private struct AccountKeys {
+    static let serviceName = "HiPDA"
+    static let name = "name"
+    static let uid = "uid"
+}
+
 /// APP登录账户
 struct Account {
-    struct AccountKeys {
-        static let serviceName = "HiPDA"
-        static let name = "name"
-        static let uid = "uid"
-    }
-    
     let name: String
     let uid: Int
     let questionid: Int
@@ -76,14 +77,14 @@ extension Account: Serializable {
 
 // MARK: - Equalable
 
+extension Account: Equatable {
+    
+}
+
 func ==(lhs: Account, rhs: Account) -> Bool {
     return lhs.name == rhs.name &&
     lhs.uid == rhs.uid &&
     lhs.questionid == rhs.questionid &&
     lhs.answer == rhs.answer &&
     lhs.password == rhs.password
-}
-
-func !=(lhs: Account, rhs: Account) -> Bool {
-    return !(lhs == rhs)
 }
