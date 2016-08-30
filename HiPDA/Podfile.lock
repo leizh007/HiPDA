@@ -7,6 +7,9 @@ PODS:
   - MLeaksFinder (0.2.0):
     - FBRetainCycleDetector
   - Reveal-iOS-SDK (1.6.2)
+  - RxCocoa (3.0.0.alpha.1):
+    - RxSwift (~> 3.0.0.alpha.1)
+  - RxSwift (3.0.0.alpha.1)
   - SAMKeychain (1.5.0)
 
 DEPENDENCIES:
@@ -15,6 +18,8 @@ DEPENDENCIES:
   - FLEX
   - MLeaksFinder
   - Reveal-iOS-SDK
+  - RxCocoa (~> 3.0.0.alpha.1)
+  - RxSwift (~> 3.0.0.alpha.1)
   - SAMKeychain
 
 SPEC CHECKSUMS:
@@ -24,8 +29,10 @@ SPEC CHECKSUMS:
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
   MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  RxCocoa: 37b3b167eaa14446a315493ef6a188b277942b15
+  RxSwift: 0bccfee1e979c1b72a5d1dffdf96119303b5d111
   SAMKeychain: 1fc9ae02f576365395758b12888c84704eebc423
 
-PODFILE CHECKSUM: 71bcd7e339baeb026d17398e85e45f52de71b4e2
+PODFILE CHECKSUM: 91c44da4bfe7d580c6b6f6395f5a5776d22e0367
 
 COCOAPODS: 1.0.1

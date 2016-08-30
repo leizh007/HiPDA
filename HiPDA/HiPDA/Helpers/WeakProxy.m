@@ -19,7 +19,6 @@
 }
 #pragma GCC diagnostic pop
 
-
 + (instancetype)proxyWithTarget:(id)target {
     return [[WeakProxy alloc] initWithTarget:target];
 }
