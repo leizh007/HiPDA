@@ -1,5 +1,5 @@
 PODS:
-  - Crashlytics (3.7.3):
+  - Crashlytics (3.8.0):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.8)
   - FBRetainCycleDetector (0.1.3)
@@ -11,6 +11,7 @@ PODS:
     - RxSwift (~> 3.0.0.alpha.1)
   - RxSwift (3.0.0.alpha.1)
   - SAMKeychain (1.5.0)
+  - YYKeyboardManager (1.0.1)
 
 DEPENDENCIES:
   - Crashlytics
@@ -21,9 +22,10 @@ DEPENDENCIES:
   - RxCocoa (~> 3.0.0.alpha.1)
   - RxSwift (~> 3.0.0.alpha.1)
   - SAMKeychain
+  - YYKeyboardManager
 
 SPEC CHECKSUMS:
-  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Crashlytics: 8601d9c74a4c4d28f3e7f408bf4c0e490c70e8b4
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
@@ -32,7 +34,8 @@ SPEC CHECKSUMS:
   RxCocoa: 37b3b167eaa14446a315493ef6a188b277942b15
   RxSwift: 0bccfee1e979c1b72a5d1dffdf96119303b5d111
   SAMKeychain: 1fc9ae02f576365395758b12888c84704eebc423
+  YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: 91c44da4bfe7d580c6b6f6395f5a5776d22e0367
+PODFILE CHECKSUM: a90c7e3f82353d5a332585bc73caf00c8a546081
 
 COCOAPODS: 1.0.1

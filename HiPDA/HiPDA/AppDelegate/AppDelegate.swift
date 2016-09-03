@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     /// 待启动组件数组
-    let bootstrappingComponents = [ CrashAnalysis() ]
+    let bootstrappingComponents: [Bootstrapping] = [
+        CrashAnalysis(),
+        LoginManager()
+    ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         bootstrap()

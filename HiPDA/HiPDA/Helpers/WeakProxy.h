@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak, readonly) id<NSObject> target;
 
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (instancetype)new UNAVAILABLE_ATTRIBUTE;
+
 /**
  对目标对象创建一个代理
 

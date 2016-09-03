@@ -25,7 +25,7 @@ class FPSAssistiveTouch: UIWindow {
                                                   width: 0,
                                                   height: 0))
         fps.backgroundColor = UIColor.clear
-        fps.windowLevel = UIWindowLevelNormal + 1
+        fps.windowLevel = UIWindowLevelNormal + 1001
         fps.isHidden = true
         
         return fps
@@ -34,8 +34,8 @@ class FPSAssistiveTouch: UIWindow {
     // MARK: - Initialization
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: ScreenWidth - FPSAssistiveTouch.size.width,
-                                 y: 2.0 * ScreenHeigh / 3.0,
+        super.init(frame: CGRect(x: ScreenWidth * 2.0 / 3.0,
+                                 y: 0,
                                  width: FPSAssistiveTouch.size.width,
                                  height: FPSAssistiveTouch.size.height))
         
@@ -62,8 +62,8 @@ class FPSAssistiveTouch: UIWindow {
         if center.x > ScreenWidth - FPSAssistiveTouch.size.width / 2.0 {
             center.x = ScreenWidth - FPSAssistiveTouch.size.width / 2.0
         }
-        if center.y < FPSAssistiveTouch.size.height / 2.0 + CGFloat(StatusBarHeight) {
-            center.y = FPSAssistiveTouch.size.height / 2.0 + CGFloat(StatusBarHeight)
+        if center.y < FPSAssistiveTouch.size.height / 2.0 {
+            center.y = FPSAssistiveTouch.size.height / 2.0
         }
         if center.y > ScreenHeigh - FPSAssistiveTouch.size.height / 2.0 {
             center.y = ScreenHeigh - FPSAssistiveTouch.size.height / 2.0

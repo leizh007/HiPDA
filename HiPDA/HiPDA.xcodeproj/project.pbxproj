@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
+		05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA6411D75C2E400819C2D /* FPSLabel.swift */; };
 		054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */; };
@@ -35,6 +36,15 @@
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
+		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
+		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
+		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
+		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
+		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
+		05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2741D7AD0230096878B /* NotificationViewController.swift */; };
+		05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2761D7AD0390096878B /* SearchViewController.swift */; };
+		05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2791D7AD8230096878B /* LoginViewController.swift */; };
+		05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -59,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
+		05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+HiPDA.swift"; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		054AA6411D75C2E400819C2D /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
@@ -97,6 +108,15 @@
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05D489901D3E5E23000A086B /* HiPDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
+		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
+		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		05E9A2741D7AD0230096878B /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		05E9A2761D7AD0390096878B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		05E9A2791D7AD8230096878B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
 		6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */,
+				05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -231,6 +252,11 @@
 		055996B01D50DB6500057CF6 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				05E9A2781D7AD8180096878B /* Login */,
+				05E9A26C1D7ACFDB0096878B /* Home */,
+				05E9A26D1D7ACFDB0096878B /* Me */,
+				05E9A26E1D7ACFDB0096878B /* Notification */,
+				05E9A26F1D7ACFDB0096878B /* Search */,
 				050532F41D75BB790064BD6A /* FPS */,
 			);
 			path = Sections;
@@ -261,6 +287,7 @@
 			children = (
 				05B506731D6C8D64004D573D /* ReusableView.swift */,
 				05B506751D6C91E9004D573D /* NibLoadableView.swift */,
+				05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -312,6 +339,8 @@
 				05B5067B1D6C9386004D573D /* NibLoadableViewTests.swift */,
 				05B506831D6CA4C4004D573D /* ResultTests.swift */,
 				0507EB281D6DD80200D4D23F /* HelperTests.swift */,
+				05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */,
+				05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -325,6 +354,47 @@
 				05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */,
 			);
 			path = HiPDAUITests;
+			sourceTree = "<group>";
+		};
+		05E9A26C1D7ACFDB0096878B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				05E9A2701D7ACFF20096878B /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		05E9A26D1D7ACFDB0096878B /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				05E9A2721D7AD00C0096878B /* MeViewController.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		05E9A26E1D7ACFDB0096878B /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				05E9A2741D7AD0230096878B /* NotificationViewController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		05E9A26F1D7ACFDB0096878B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				05E9A2761D7AD0390096878B /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		05E9A2781D7AD8180096878B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				05E9A2791D7AD8230096878B /* LoginViewController.swift */,
+				05E510151D7B21DD00B55B8F /* LoginManager.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		85D8DB6094FE49E2B6EA6C7C /* Frameworks */ = {
@@ -658,18 +728,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
+				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
+				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				05B506801D6C9FA2004D573D /* Result.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
+				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
+				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
+				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
+				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
+				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
+				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
 				055996AA1D50DB4500057CF6 /* Settings.swift in Sources */,
@@ -681,6 +759,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */,
+				05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,

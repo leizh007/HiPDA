@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cUZ-gd-hzy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cUZ-gd-hzy">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Notification View Controller-->
         <scene sceneID="oFR-7a-xNh">
             <objects>
-                <viewController id="0kv-1P-XwR" sceneMemberID="viewController">
+                <viewController id="0kv-1P-XwR" customClass="NotificationViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nBk-bO-Ns2"/>
                         <viewControllerLayoutGuide type="bottom" id="54D-T2-cCw"/>
@@ -25,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="1444" y="378"/>
         </scene>
-        <!--View Controller-->
+        <!--Me View Controller-->
         <scene sceneID="IbH-gV-Tu8">
             <objects>
-                <viewController id="aO2-XJ-L1C" sceneMemberID="viewController">
+                <viewController id="aO2-XJ-L1C" customClass="MeViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QEK-IG-cjj"/>
                         <viewControllerLayoutGuide type="bottom" id="htb-ag-jXO"/>
@@ -44,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="1444" y="1934"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="Tyz-WO-MMM">
             <objects>
-                <viewController id="VG6-VE-QoL" sceneMemberID="viewController">
+                <viewController id="VG6-VE-QoL" customClass="SearchViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Zq-Sa-4AD"/>
                         <viewControllerLayoutGuide type="bottom" id="Fro-Vg-Wrr"/>
@@ -63,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1444" y="1151"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="5kH-z4-hqO">
             <objects>
-                <viewController id="AOA-Mz-ZIW" sceneMemberID="viewController">
+                <viewController id="AOA-Mz-ZIW" customClass="HomeViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mZs-0u-Cmy"/>
                         <viewControllerLayoutGuide type="bottom" id="2a5-KX-quw"/>
@@ -81,6 +80,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBD-AW-NYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1444" y="-364.7676161919041"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="KWj-Hb-jKa">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="002-ME-N4z" customClass="LoginViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cUS-dD-3AU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ArQ-fl-1Xa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1rk-q9-JHi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ll0-EG-Cup" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1705" y="-36"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W2w-9b-LJA">

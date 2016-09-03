@@ -17,6 +17,11 @@
     
     return self;
 }
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"WeakProxy init error" reason:@"Use 'initWithTarget:' to get instance." userInfo:nil];
+    return self;
+}
 #pragma GCC diagnostic pop
 
 + (instancetype)proxyWithTarget:(id)target {

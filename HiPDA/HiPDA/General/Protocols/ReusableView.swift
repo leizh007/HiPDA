@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// 可充用View
+/// 可重用View
 protocol ReusableView: class {
     
 }
