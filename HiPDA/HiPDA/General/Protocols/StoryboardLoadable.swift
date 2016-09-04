@@ -10,11 +10,15 @@ import Foundation
 
 /// 可以从storyboard中加载
 protocol StoryboardLoadable {
-
+    
 }
 
 extension StoryboardLoadable where Self: UIViewController {
     static var identifier: String {
         return "\(self)"
+    }
+    
+    static func load(from storyboard: UIStoryboard) -> Self {
+        return storyboard.instantiateViewController(withIdentifier: Self.identifier) as! Self
     }
 }

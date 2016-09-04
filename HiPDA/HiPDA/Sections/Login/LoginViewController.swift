@@ -12,7 +12,9 @@ import UIKit
 class LoginViewController: UIViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .green
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// 从Collection中用下标安全的获取元素
 struct SafeCollection<Base: Collection> {
     private var _base: Base
     init(_ base: Base) {

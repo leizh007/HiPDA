@@ -10,7 +10,6 @@ import UIKit
 
 /// 主页的ViewController
 class HomeViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -6,7 +6,7 @@ HiPDA的非官方客户端（iOS版）！
 
 Notices
 ---
-目前的版本是在Xcode8 Beta3， Swift3.0下开发，由于Swift3.0坑实在太多，在探索中前行。
+目前的版本是在Xcode8 Beta6， Swift3.0下开发，由于Swift3.0坑实在太多，在探索中前行。
 
 Important
 ---

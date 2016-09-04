@@ -16,6 +16,3 @@ let ScreenHeigh = UIScreen.main.bounds.size.height
 
 /// 状态栏高度
 let StatusBarHeight = 20.0
-
-/// MainStoryboard
-let MainStroyboard = UIStoryboard(name: "Main", bundle: nil)

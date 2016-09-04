@@ -35,6 +35,8 @@
 		05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506831D6CA4C4004D573D /* ResultTests.swift */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
+		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
+		05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
@@ -100,6 +102,8 @@
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+HiPDA.swift"; sourceTree = "<group>"; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 			children = (
 				05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */,
 				05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */,
+				05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				05E9A2791D7AD8230096878B /* LoginViewController.swift */,
+				05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */,
 				05E510151D7B21DD00B55B8F /* LoginManager.swift */,
 			);
 			path = Login;
@@ -734,7 +740,9 @@
 				05B506801D6C9FA2004D573D /* Result.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
+				05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
+				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,

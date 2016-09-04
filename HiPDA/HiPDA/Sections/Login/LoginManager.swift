@@ -14,7 +14,7 @@ class LoginManager: Bootstrapping {
         if let _ = Settings.shared.activeAccount {
             
         } else {
-            let loginViewController = MainStroyboard.instantiateViewController(withIdentifier: LoginViewController.identifier)
+            let loginViewController = LoginViewController.load(from: UIStoryboard.main)
             guard let window = UIApplication.shared.windows.safe[0] else { return }
             window.rootViewController = loginViewController
         }
