@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
+		05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */; };
+		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
 		05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA6411D75C2E400819C2D /* FPSLabel.swift */; };
@@ -71,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
+		05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextInput+HiPDA.swift"; sourceTree = "<group>"; };
+		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+HiPDA.swift"; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */,
 				05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */,
 				05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */,
+				05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				055996AD1D50DB5A00057CF6 /* Helper.swift */,
+				05082EF81D80629400259707 /* Operators.swift */,
 				05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */,
 				05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */,
 			);
@@ -737,6 +743,7 @@
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
+				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				05B506801D6C9FA2004D573D /* Result.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
@@ -759,6 +766,7 @@
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
 				055996AA1D50DB4500057CF6 /* Settings.swift in Sources */,
+				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
