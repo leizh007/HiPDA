@@ -40,6 +40,8 @@
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
 		05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
+		05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */; };
+		05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */; };
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
 		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
@@ -116,6 +118,8 @@
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05D489901D3E5E23000A086B /* HiPDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerActionSheetController.swift; sourceTree = "<group>"; };
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 		055996A61D50DB4500057CF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			children = (
 				055996AD1D50DB5A00057CF6 /* Helper.swift */,
 				05082EF81D80629400259707 /* Operators.swift */,
+				05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */,
 				05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */,
 				05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */,
 			);
@@ -753,8 +759,10 @@
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
+				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
+				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
