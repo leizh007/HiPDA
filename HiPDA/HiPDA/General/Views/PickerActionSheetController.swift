@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-typealias PickerSelectedCompletionHandler = (Bool, String?) -> Void
+/// 选择结束的block
+typealias PickerSelectedCompletionHandler = (Int?) -> Void
 
 /// 动画持续时间
 private let kAnimationDuration = 0.25
@@ -81,10 +82,9 @@ class PickerActionSheetController: UIViewController, StoryboardLoadable {
                 self.view.layoutIfNeeded()
             }, completion: { _ in
                 if submit {
-                    let title = self.pickerTitles.safe[self.pickerView.selectedRow(inComponent: 0)]
-                    selectedCompletionHandler(true, title)
+                    selectedCompletionHandler(self.pickerView.selectedRow(inComponent: 0))
                 } else {
-                    selectedCompletionHandler(false, nil)
+                    selectedCompletionHandler(nil)
                 }
             })
         }).addDisposableTo(_disposeBag)

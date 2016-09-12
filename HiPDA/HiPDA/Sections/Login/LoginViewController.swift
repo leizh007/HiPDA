@@ -83,10 +83,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         configureTextFields()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -101,18 +97,9 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         
         tapShowMoreName.rx.event.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            self.view.endEditing(true)
             
-            // 旋转90度
-            let layer = self.showMoreNameImageView.layer
-            let rotationAtStart = layer.value(forKeyPath: "transform.rotation")
-            let rotationTransform = CATransform3DRotate(layer.transform, CGFloat(M_PI), 0.0, 0.0, 1.0)
-            layer.transform = rotationTransform
-            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-            rotationAnimation.duration = kAnimationDuration
-            rotationAnimation.fromValue = rotationAtStart
-            rotationAnimation.toValue = Float(M_PI) + (rotationAtStart as? Float ?? 0.0)
-            layer.add(rotationAnimation, forKey: nil)
+            self.view.endEditing(true)
+            self.showMoreNameImageView.layer.rotate(angle: M_PI, duration: kAnimationDuration)
          }).addDisposableTo(_disposeBag)
         
         tapShowPassword.rx.event.subscribe(onNext: { [weak self] _ in
@@ -168,23 +155,21 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         
         questionButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
+            
             self.view.endEditing(true)
             let pickerActionSheetController = PickerActionSheetController.load(from: UIStoryboard.main)
             pickerActionSheetController.pickerTitles = self.questions
             pickerActionSheetController.initialSelelctionIndex = self.questions.index(of: self.questionButton.title(for: .normal)!)
-            pickerActionSheetController.selectedCompletionHandler = { [weak self] (submit, title) in
-                guard let `self` = self else { return }
-                
+            pickerActionSheetController.selectedCompletionHandler = { [unowned self] (index) in
                 self.dismiss(animated: false, completion: nil)
-                if submit {
+                if let index = index, let title = self.questions.safe[index] {
                     self.questionButton.setTitle(title, for: .normal)
-                    let index = self.questions.index(of: self.questionButton.title(for: .normal)!) ?? 0
                     questionVariable.value = index
                 }
             }
             pickerActionSheetController.modalPresentationStyle = .overCurrentContext
             self.present(pickerActionSheetController, animated: false, completion: nil)
-            }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(_disposeBag)
         
         questionDriver = questionVariable.asDriver()
         questionDriver.drive(onNext: { [weak self] (index) in
@@ -198,6 +183,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                 self.passwordTextField.returnKeyType = .next
             }
             self.answerTextField.text = ""
-            }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(_disposeBag)
     }
 }
