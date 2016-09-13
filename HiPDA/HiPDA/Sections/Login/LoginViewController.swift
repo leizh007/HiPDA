@@ -78,6 +78,10 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }
         cancelButton.isHidden = !cancelable
         
+        // FIXME: - fix login view mdel initialization
+        let viewModel = LoginViewModel()
+        showMoreNameImageView.isHidden = viewModel.isShowMoreNameImageViewHidden
+        
         configureQuestionButton()
         configureTapGestureRecognizer()
         configureTextFields()
