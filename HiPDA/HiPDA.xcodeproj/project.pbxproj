@@ -38,6 +38,8 @@
 		05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506831D6CA4C4004D573D /* ResultTests.swift */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
+		05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */; };
+		05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */; };
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
 		05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
@@ -111,6 +113,8 @@
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HiPDA.swift"; sourceTree = "<group>"; };
+		05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+HiPDA.swift"; sourceTree = "<group>"; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				05CB48A61D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift */,
 				05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */,
 				05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */,
+				05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				055996AD1D50DB5A00057CF6 /* Helper.swift */,
 				05082EF81D80629400259707 /* Operators.swift */,
 				05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */,
+				05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */,
 				05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */,
 				05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */,
 			);
@@ -754,6 +760,7 @@
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
 				05AD93861D884E5D0051056C /* EventBus.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
+				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
@@ -762,6 +769,7 @@
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */,
+				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,

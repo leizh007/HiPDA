@@ -12,5 +12,5 @@ import RxSwift
 /// 事件总线
 class EventBus {
     /// 账户变更的Variable
-    let accountChanged: Variable<Account?> = Variable(nil)
+    static let accountChanged: Variable<Account?> = Variable(nil)
 }

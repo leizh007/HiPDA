@@ -13,6 +13,9 @@ import RxCocoa
 /// 动画持续时间
 private let kAnimationDuration = 0.25
 
+/// 默认的容器视图的顶部constraint
+private let kDefaultContainerTopConstraintValue = CGFloat(44.0)
+
 /// 登录的ViewController
 class LoginViewController: UIViewController, StoryboardLoadable {
     /// disposeBag
@@ -69,6 +72,12 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 安全问题的driver
     var questionDriver: Driver<Int>!
     
+    /// 登录按钮
+    @IBOutlet weak var loginButton: UIButton!
+    
+    /// 容器视图的顶部constraint
+    @IBOutlet weak var containerTopConstraint: NSLayoutConstraint!
+    
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +91,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         let viewModel = LoginViewModel()
         showMoreNameImageView.isHidden = viewModel.isShowMoreNameImageViewHidden
         
+        configureKeyboard()
         configureQuestionButton()
         configureTapGestureRecognizer()
         configureTextFields()
@@ -95,21 +105,13 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     
     /// 设置手势识别
     private func configureTapGestureRecognizer() {
-        tapBackground.rx.event.subscribe(onNext: { [weak self] _ in
-            self?.view.endEditing(true)
-        }).addDisposableTo(_disposeBag)
-        
         tapShowMoreName.rx.event.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            
-            self.view.endEditing(true)
-            self.showMoreNameImageView.layer.rotate(angle: M_PI, duration: kAnimationDuration)
+            self.showMoreNameImageView.rotate(angle: M_PI, duration: kAnimationDuration)
          }).addDisposableTo(_disposeBag)
         
         tapShowPassword.rx.event.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            
-            self.view.endEditing(true)
             let isSecureTextEntry = self.passwordTextField.isSecureTextEntry
             self.passwordTextField.isSecureTextEntry = !isSecureTextEntry
             let image: UIImage
@@ -141,7 +143,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }).addDisposableTo(_disposeBag)
         
         nameTextField.rx.controlEvent(.editingDidBegin).subscribe(onNext: { [weak self] _ in
-            self?.showMoreNameImageView.layer.transform = CATransform3DIdentity
+            self?.showMoreNameImageView.rotate(to: .identity, duration: 0.0)
         }).addDisposableTo(_disposeBag)
         
         nameTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
@@ -149,7 +151,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }).addDisposableTo(_disposeBag)
         
         answerTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
-            self?.view.endEditing(true)
+            self?.answerTextField.resignFirstResponder()
         }).addDisposableTo(_disposeBag)
     }
     
@@ -159,8 +161,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         
         questionButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            
-            self.view.endEditing(true)
             let pickerActionSheetController = PickerActionSheetController.load(from: UIStoryboard.main)
             pickerActionSheetController.pickerTitles = self.questions
             pickerActionSheetController.initialSelelctionIndex = self.questions.index(of: self.questionButton.title(for: .normal)!)
@@ -178,7 +178,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         questionDriver = questionVariable.asDriver()
         questionDriver.drive(onNext: { [weak self] (index) in
             guard let `self` = self else { return }
-            
             if index == 0 {
                 self.answerTextField.isEnabled = false
                 self.passwordTextField.returnKeyType = .done
@@ -188,5 +187,55 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             }
             self.answerTextField.text = ""
         }).addDisposableTo(_disposeBag)
+    }
+    
+    /// 处理键盘相关
+    private func configureKeyboard() {
+        let dismissEvents: [Observable<Void>] = [
+                                                  tapBackground.rx.event.map { _ in () },
+                                                  tapShowMoreName.rx.event.map { _ in () },
+                                                  tapShowPassword.rx.event.map { _ in () },
+                                                  questionButton.rx.tap.map { _ in () },
+                                                  cancelButton.rx.tap.map { _ in () },
+                                                  loginButton.rx.tap.map { _ in () }
+                                                  ]
+        Observable.from(dismissEvents).merge().subscribe(onNext: { [weak self] _ in
+            self?.nameTextField.resignFirstResponder()
+            self?.passwordTextField.resignFirstResponder()
+            self?.answerTextField.resignFirstResponder()
+        }).addDisposableTo(_disposeBag)
+        
+        KeyboardManager.shared.keyboardChanged.drive(onNext: { [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
+            guard let `self` = self else { return }
+            guard transition.toVisible.boolValue else {
+                self.containerTopConstraint.constant = kDefaultContainerTopConstraintValue
+                UIView.animate(withDuration: transition.animationDuration, delay: 0.0, options: transition.animationOption, animations: { 
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+                return
+            }
+            guard let textField = self.activeTextField() else { return }
+            let keyboardFrame = keyboardManager.convert(transition.toFrame, to: self.view)
+            let textFieldFrame = textField.convert(textField.frame, to: self.view)
+            let heightGap = textFieldFrame.origin.y + textFieldFrame.size.height - keyboardFrame.origin.y
+            let containerTopConstraintConstant = heightGap > 0 ? self.containerTopConstraint.constant - heightGap : kDefaultContainerTopConstraintValue
+            self.containerTopConstraint.constant = containerTopConstraintConstant
+            UIView.animate(withDuration: transition.animationDuration, delay: 0.0, options: transition.animationOption, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }).addDisposableTo(_disposeBag)
+    }
+    
+    /// 找到激活的textField
+    ///
+    /// - returns: 返回first responser的textField
+    private func activeTextField() -> UITextField? {
+        for textField in [nameTextField, passwordTextField, answerTextField] {
+            if textField!.isFirstResponder {
+                return textField
+            }
+        }
+        
+        return nil
     }
 }

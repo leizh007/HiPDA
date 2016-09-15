@@ -11,5 +11,5 @@ import Foundation
 /// 登录的ViewModel
 class LoginViewModel {
     /// 显示更多用户名的imageView是否隐藏
-    let isShowMoreNameImageViewHidden = Settings.shared.accountList.count == 0
+    let isShowMoreNameImageViewHidden = false// Settings.shared.accountList.count == 0
 }
