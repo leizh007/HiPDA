@@ -10,7 +10,7 @@ Notices
 
 TODO
 ---
-1. Moya还不支持Swift3.0
+1. 键盘会影响animation [link](http://stackoverflow.com/questions/39502233/dismiss-keyboard-while-other-view-is-animating)
 
 Important
 ---
