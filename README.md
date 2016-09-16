@@ -8,9 +8,9 @@ Notices
 ---
 目前的版本是在Xcode8 GM， Swift3.0下开发，由于Swift3.0坑实在太多，在探索中前行。
 
-TODO
----
-1. 键盘会影响animation [link](http://stackoverflow.com/questions/39502233/dismiss-keyboard-while-other-view-is-animating)
+<!-- TODO
+ ---
+-->
 
 Important
 ---
