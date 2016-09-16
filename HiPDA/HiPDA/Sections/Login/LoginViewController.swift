@@ -10,6 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 动画block
+private typealias AnimationBlock = () -> Void
+
 /// 动画持续时间
 private let kAnimationDuration = 0.25
 
@@ -34,49 +37,52 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     ]
     
     /// 分割线的高度constriant
-    @IBOutlet var seperatorsHeightConstraint: [NSLayoutConstraint]!
+    @IBOutlet private var seperatorsHeightConstraint: [NSLayoutConstraint]!
     
     /// 点击背景的手势识别
-    @IBOutlet var tapBackground: UITapGestureRecognizer!
+    @IBOutlet private var tapBackground: UITapGestureRecognizer!
     
     /// 显示更多用户名被点击
-    @IBOutlet var tapShowMoreName: UITapGestureRecognizer!
+    @IBOutlet private var tapShowMoreName: UITapGestureRecognizer!
     
     /// 显示密码被点击
-    @IBOutlet var tapShowPassword: UITapGestureRecognizer!
+    @IBOutlet private var tapShowPassword: UITapGestureRecognizer!
     
     /// 显示更多用户名的imageView
-    @IBOutlet weak var showMoreNameImageView: UIImageView!
+    @IBOutlet private weak var showMoreNameImageView: UIImageView!
     
     /// 输入密码的TextField
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     /// 隐藏显示密码的ImageView
-    @IBOutlet weak var hidePasswordImageView: UIImageView!
+    @IBOutlet private weak var hidePasswordImageView: UIImageView!
     
     /// 输入姓名的TextField
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
     
     /// 输入答案的TextField
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet private weak var answerTextField: UITextField!
     
     /// 安全问题Button
-    @IBOutlet weak var questionButton: UIButton!
+    @IBOutlet private weak var questionButton: UIButton!
     
     /// 是否可取消
     var cancelable = false
     
     /// 取消按钮
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
     
     /// 安全问题的driver
-    var questionDriver: Driver<Int>!
+    private var questionDriver: Driver<Int>!
     
     /// 登录按钮
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet private weak var loginButton: UIButton!
     
     /// 容器视图的顶部constraint
-    @IBOutlet weak var containerTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
+    
+    /// 执行动画的block
+    private var animationBlock: AnimationBlock?
     
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -107,7 +113,14 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     private func configureTapGestureRecognizer() {
         tapShowMoreName.rx.event.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            self.showMoreNameImageView.rotate(angle: M_PI, duration: kAnimationDuration)
+            guard let textField = self.activeTextField() else {
+                self.showMoreNameImageView.rotate(angle: M_PI, delay: 0.0, duration: kAnimationDuration)
+                return
+            }
+            self.animationBlock = { [weak self] in
+                self?.showMoreNameImageView.rotate(angle: M_PI, delay: kAnimationDuration, duration: kAnimationDuration)
+            }
+            textField.resignFirstResponder()
          }).addDisposableTo(_disposeBag)
         
         tapShowPassword.rx.event.subscribe(onNext: { [weak self] _ in
@@ -122,13 +135,28 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                 image = #imageLiteral(resourceName: "login_password_hide")
             }
             
-            UIView.transition(with: self.hidePasswordImageView,
-                              duration: kAnimationDuration,
-                              options: .transitionCrossDissolve,
-                              animations: { 
-                                self.hidePasswordImageView.image = image
-                }, completion: nil)
+            guard let textField = self.activeTextField() else {
+                UIView.transition(with: self.hidePasswordImageView,
+                                  duration: kAnimationDuration,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    self.hidePasswordImageView.image = image
+                    }, completion: nil)
+                return
+            }
             
+            self.animationBlock = { [weak self] in
+                guard let `self` = self else { return }
+                delay(seconds: kAnimationDuration, completion: { 
+                    UIView.transition(with: self.hidePasswordImageView,
+                                      duration: kAnimationDuration,
+                                      options: .transitionCrossDissolve,
+                                      animations: {
+                                        self.hidePasswordImageView.image = image
+                        }, completion: nil)
+                })
+            }
+            textField.resignFirstResponder()
         }).addDisposableTo(_disposeBag)
     }
     
@@ -142,8 +170,16 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             self?.answerTextField.becomeFirstResponder()
         }).addDisposableTo(_disposeBag)
         
-        nameTextField.rx.controlEvent(.editingDidBegin).subscribe(onNext: { [weak self] _ in
-            self?.showMoreNameImageView.rotate(to: .identity, duration: 0.0)
+        let editingDidBeginEvents: [Observable<Void>] = [
+            nameTextField.rx.controlEvent(.editingDidBegin).map { _ in () },
+            passwordTextField.rx.controlEvent(.editingDidBegin).map { _ in () },
+            answerTextField.rx.controlEvent(.editingDidBegin).map { _ in () },
+            questionButton.rx.tap.map { _ in () },
+            loginButton.rx.tap.map { _ in () }
+        ]
+        
+        Observable.from(editingDidBeginEvents).merge().subscribe(onNext: { [weak self] _ in
+            self?.hideNameList()
         }).addDisposableTo(_disposeBag)
         
         nameTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
@@ -192,13 +228,15 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 处理键盘相关
     private func configureKeyboard() {
         let dismissEvents: [Observable<Void>] = [
-                                                  tapBackground.rx.event.map { _ in () },
-                                                  tapShowMoreName.rx.event.map { _ in () },
-                                                  tapShowPassword.rx.event.map { _ in () },
-                                                  questionButton.rx.tap.map { _ in () },
-                                                  cancelButton.rx.tap.map { _ in () },
-                                                  loginButton.rx.tap.map { _ in () }
-                                                  ]
+            tapBackground.rx.event.map { _ in () },
+            // 下面两个会导致动画和键盘的动画冲突了，单独处理！
+            //tapShowMoreName.rx.event.map { _ in () },
+            //tapShowPassword.rx.event.map { _ in () },
+            questionButton.rx.tap.map { _ in () },
+            cancelButton.rx.tap.map { _ in () },
+            loginButton.rx.tap.map { _ in () }
+        ]
+        
         Observable.from(dismissEvents).merge().subscribe(onNext: { [weak self] _ in
             self?.nameTextField.resignFirstResponder()
             self?.passwordTextField.resignFirstResponder()
@@ -207,6 +245,8 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         
         KeyboardManager.shared.keyboardChanged.drive(onNext: { [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
             guard let `self` = self else { return }
+            self.animationBlock?()
+            self.animationBlock = nil
             guard transition.toVisible.boolValue else {
                 self.containerTopConstraint.constant = kDefaultContainerTopConstraintValue
                 UIView.animate(withDuration: transition.animationDuration, delay: 0.0, options: transition.animationOption, animations: { 
@@ -237,5 +277,10 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }
         
         return nil
+    }
+    
+    /// 隐藏用户名列表
+    private func hideNameList() {
+        showMoreNameImageView.rotate(to: .identity, delay: 0.0, duration: kAnimationDuration)
     }
 }
