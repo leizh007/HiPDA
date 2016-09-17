@@ -10,9 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// 动画block
-private typealias AnimationBlock = () -> Void
-
 /// 动画持续时间
 private let kAnimationDuration = 0.25
 
@@ -57,14 +54,14 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 安全问题的driver
     private var questionDriver: Driver<Int>!
     
+    /// 回答的driver
+    private var answerDriver: Driver<String>!
+    
     /// 登录按钮
     @IBOutlet private weak var loginButton: UIButton!
     
     /// 容器视图的顶部constraint
     @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
-    
-    /// 执行动画的block
-    private var animationBlock: AnimationBlock?
     
     // MARK: - life cycle
     
@@ -115,7 +112,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 设置TextFields
     private func configureTextFields() {
         let textValue = Variable("")
-        _ = passwordTextField.rx.textInput <-> textValue
+        (passwordTextField.rx.textInput <-> textValue).addDisposableTo(_disposeBag)
         textValue.asObservable().map { $0.characters.count == 0 }
             .bindTo(hidePasswordImageView.rx.hidden).addDisposableTo(_disposeBag)
         passwordTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
@@ -134,6 +131,8 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 配置安全问题的Button
     private func configureQuestionButton() {
         let questionVariable = Variable(0)
+        let answerVariable = Variable("")
+        (answerTextField.rx.textInput <-> answerVariable).addDisposableTo(_disposeBag)
         
         questionButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
@@ -162,17 +161,17 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                 self.answerTextField.isEnabled = true
                 self.passwordTextField.returnKeyType = .next
             }
-            self.answerTextField.text = ""
+            
+            answerVariable.value = ""
         }).addDisposableTo(_disposeBag)
+        
+        answerDriver = answerVariable.asDriver()
     }
     
     /// 处理键盘相关
     private func configureKeyboard() {
         let dismissEvents: [Observable<Void>] = [
             tapBackground.rx.event.map { _ in () },
-            // 下面两个会导致动画和键盘的动画冲突了，单独处理！
-            //tapShowMoreName.rx.event.map { _ in () },
-            //tapShowPassword.rx.event.map { _ in () },
             questionButton.rx.tap.map { _ in () },
             cancelButton.rx.tap.map { _ in () },
             loginButton.rx.tap.map { _ in () }
@@ -186,8 +185,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         
         KeyboardManager.shared.keyboardChanged.drive(onNext: { [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
             guard let `self` = self else { return }
-            self.animationBlock?()
-            self.animationBlock = nil
             guard transition.toVisible.boolValue else {
                 self.containerTopConstraint.constant = kDefaultContainerTopConstraintValue
                 UIView.animate(withDuration: transition.animationDuration, delay: 0.0, options: transition.animationOption, animations: { 
@@ -213,7 +210,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         let viewModel = LoginViewModel(username: nameTextField.rx.text.asDriver(),
                                        password: passwordTextField.rx.text.asDriver(),
                                        question: questionDriver,
-                                       answer: answerTextField.rx.text.asDriver())
+                                       answer: answerDriver)
         viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(_disposeBag)
     }
     
