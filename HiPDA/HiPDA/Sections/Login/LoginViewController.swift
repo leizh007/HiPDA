@@ -24,18 +24,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// disposeBag
     private let _disposeBag = DisposeBag()
     
-    /// 安全问题数组
-    private let questions = [
-        "安全问题",
-        "母亲的名字",
-        "爷爷的名字",
-        "父亲出生的城市",
-        "您其中一位老师的名字",
-        "您个人计算机的型号",
-        "您最喜欢的餐馆名称",
-        "驾驶执照的最后四位数字"
-    ]
-    
     /// 分割线的高度constriant
     @IBOutlet private var seperatorsHeightConstraint: [NSLayoutConstraint]!
     
@@ -84,7 +72,14 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 执行动画的block
     private var animationBlock: AnimationBlock?
     
+    /// tableView的高度constraint
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    
+    /// 展示name的tableView
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,14 +88,11 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }
         cancelButton.isHidden = !cancelable
         
-        // FIXME: - fix login view mdel initialization
-        let viewModel = LoginViewModel()
-        showMoreNameImageView.isHidden = viewModel.isShowMoreNameImageViewHidden
-        
         configureKeyboard()
         configureQuestionButton()
         configureTapGestureRecognizer()
         configureTextFields()
+        configureViewModel()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -115,10 +107,19 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             guard let `self` = self else { return }
             guard let textField = self.activeTextField() else {
                 self.showMoreNameImageView.rotate(angle: M_PI, delay: 0.0, duration: kAnimationDuration)
+                UIView.animate(withDuration: kAnimationDuration, animations: { 
+                    self.tableView.isHidden = !self.tableView.isHidden
+                })
                 return
             }
             self.animationBlock = { [weak self] in
-                self?.showMoreNameImageView.rotate(angle: M_PI, delay: kAnimationDuration, duration: kAnimationDuration)
+                guard let `self` = self else { return }
+                delay(seconds: kAnimationDuration, completion: { 
+                    self.showMoreNameImageView.rotate(angle: M_PI, delay: 0.0, duration: kAnimationDuration)
+                    UIView.animate(withDuration: kAnimationDuration, animations: {
+                        self.tableView.isHidden = !self.tableView.isHidden
+                    })
+                })
             }
             textField.resignFirstResponder()
          }).addDisposableTo(_disposeBag)
@@ -197,12 +198,13 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         
         questionButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
+            let questions = LoginViewModel.questions
             let pickerActionSheetController = PickerActionSheetController.load(from: UIStoryboard.main)
-            pickerActionSheetController.pickerTitles = self.questions
-            pickerActionSheetController.initialSelelctionIndex = self.questions.index(of: self.questionButton.title(for: .normal)!)
+            pickerActionSheetController.pickerTitles = questions
+            pickerActionSheetController.initialSelelctionIndex = questions.index(of: self.questionButton.title(for: .normal)!)
             pickerActionSheetController.selectedCompletionHandler = { [unowned self] (index) in
                 self.dismiss(animated: false, completion: nil)
-                if let index = index, let title = self.questions.safe[index] {
+                if let index = index, let title = questions.safe[index] {
                     self.questionButton.setTitle(title, for: .normal)
                     questionVariable.value = index
                 }
@@ -266,6 +268,28 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }).addDisposableTo(_disposeBag)
     }
     
+    /// 配置ViewModel相关信息
+    func configureViewModel() {
+        // FIXME: - fix login view mdel initialization
+        let viewModel = LoginViewModel(username: nameTextField.rx.text.asDriver(),
+                                       password: passwordTextField.rx.text.asDriver(),
+                                       question: questionDriver,
+                                       answer: answerTextField.rx.text.asDriver())
+        showMoreNameImageView.isHidden = viewModel.isShowMoreNameImageViewHidden
+        viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(_disposeBag)
+        
+        tableViewHeightConstraint.constant = CGFloat(viewModel.tableViewHeight)
+        tableView.rowHeight = 40.0
+        Observable.just(viewModel.names).bindTo(tableView.rx.items(cellIdentifier: LoginNameTableViewCell.reuseIdentifier, cellType: LoginNameTableViewCell.self)) { (_, element, cell) in
+            cell.name = element
+        }.addDisposableTo(_disposeBag)
+        tableView.rx.modelSelected(String.self).asDriver().drive(onNext: { [weak self] value in
+            console(message: value)
+            self?.hideNameList()
+            self?.nameTextField.rx.text.onNext(value)
+        }).addDisposableTo(_disposeBag)
+    }
+    
     /// 找到激活的textField
     ///
     /// - returns: 返回first responser的textField
@@ -282,5 +306,8 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 隐藏用户名列表
     private func hideNameList() {
         showMoreNameImageView.rotate(to: .identity, delay: 0.0, duration: kAnimationDuration)
+        UIView.animate(withDuration: kAnimationDuration) { 
+            self.tableView.isHidden = true
+        }
     }
 }
