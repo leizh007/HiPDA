@@ -139,15 +139,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
-                                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_name_show_more" translatesAutoresizingMaskIntoConstraints="NO" id="WVu-kc-LBl">
-                                                                <gestureRecognizers/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="40" id="KwJ-ct-cRK"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="4yI-h3-FWf" appends="YES" id="QIo-w1-QT5"/>
-                                                                </connections>
-                                                            </imageView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="dXo-Vr-6sB"/>
@@ -160,41 +151,6 @@
                                                             <constraint firstAttribute="height" constant="1" id="vbe-3L-sD2"/>
                                                         </constraints>
                                                     </view>
-                                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdO-Ld-06G">
-                                                        <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="120" id="AbL-zL-5bQ"/>
-                                                        </constraints>
-                                                        <color key="separatorColor" red="0.83137254900000002" green="0.84705882349999995" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoginNameTableViewCell" rowHeight="40" id="Y3X-28-m2k" customClass="LoginNameTableViewCell" customModule="HiPDA" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="28" width="335" height="40"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y3X-28-m2k" id="Zwf-Pl-Rab">
-                                                                    <frame key="frameInset" width="335" height="40"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa9-00-nyG">
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <gestureRecognizers/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="Fa9-00-nyG" firstAttribute="leading" secondItem="Zwf-Pl-Rab" secondAttribute="leading" constant="77" id="dBu-h6-dfD"/>
-                                                                        <constraint firstItem="Fa9-00-nyG" firstAttribute="centerY" secondItem="Zwf-Pl-Rab" secondAttribute="centerY" id="stB-Ob-qcl"/>
-                                                                    </constraints>
-                                                                </tableViewCellContentView>
-                                                                <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <gestureRecognizers/>
-                                                                <connections>
-                                                                    <outlet property="nameLabel" destination="Fa9-00-nyG" id="rZb-4W-b35"/>
-                                                                </connections>
-                                                            </tableViewCell>
-                                                        </prototypes>
-                                                    </tableView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ex-wz-MDY" userLabel="Password Stack View">
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5f2-bf-pSh">
@@ -300,10 +256,6 @@
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="WdO-Ld-06G" secondAttribute="trailing" id="a4K-FX-bmF"/>
-                                                    <constraint firstItem="WdO-Ld-06G" firstAttribute="leading" secondItem="nyI-AC-hXF" secondAttribute="leading" id="aOX-Fs-LPH"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -389,11 +341,7 @@
                         <outlet property="nameTextField" destination="WJY-Af-LWE" id="aea-Zl-auS"/>
                         <outlet property="passwordTextField" destination="olP-Ot-wAD" id="VCO-73-CDH"/>
                         <outlet property="questionButton" destination="Vba-kh-Qdm" id="dcV-NU-keZ"/>
-                        <outlet property="showMoreNameImageView" destination="WVu-kc-LBl" id="fVo-Ec-pBp"/>
-                        <outlet property="tableView" destination="WdO-Ld-06G" id="tfy-dd-NRj"/>
-                        <outlet property="tableViewHeightConstraint" destination="AbL-zL-5bQ" id="tWt-TW-z6v"/>
                         <outlet property="tapBackground" destination="4Um-ke-gdQ" id="Mdc-dI-QoW"/>
-                        <outlet property="tapShowMoreName" destination="4yI-h3-FWf" id="Nbo-g4-wWn"/>
                         <outlet property="tapShowPassword" destination="Inf-Lw-HT4" id="9gt-5B-nJO"/>
                         <outletCollection property="seperatorsHeightConstraint" destination="vbe-3L-sD2" collectionClass="NSMutableArray" id="a4d-sE-dzG"/>
                         <outletCollection property="seperatorsHeightConstraint" destination="abv-0i-sqX" collectionClass="NSMutableArray" id="eae-YB-CWB"/>
@@ -402,7 +350,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ll0-EG-Cup" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="4Um-ke-gdQ"/>
-                <tapGestureRecognizer id="4yI-h3-FWf"/>
                 <tapGestureRecognizer id="Inf-Lw-HT4"/>
             </objects>
             <point key="canvasLocation" x="-1970.4000000000001" y="376.46176911544228"/>
@@ -609,7 +556,6 @@
         <image name="login_button_background" width="8" height="8"/>
         <image name="login_button_disabled_background" width="229" height="92"/>
         <image name="login_button_highlighted_background" width="8" height="8"/>
-        <image name="login_name_show_more" width="40" height="40"/>
         <image name="login_password_hide" width="40" height="40"/>
     </resources>
 </document>

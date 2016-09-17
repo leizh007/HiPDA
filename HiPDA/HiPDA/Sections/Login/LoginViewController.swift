@@ -30,14 +30,8 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 点击背景的手势识别
     @IBOutlet private var tapBackground: UITapGestureRecognizer!
     
-    /// 显示更多用户名被点击
-    @IBOutlet private var tapShowMoreName: UITapGestureRecognizer!
-    
     /// 显示密码被点击
     @IBOutlet private var tapShowPassword: UITapGestureRecognizer!
-    
-    /// 显示更多用户名的imageView
-    @IBOutlet private weak var showMoreNameImageView: UIImageView!
     
     /// 输入密码的TextField
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -72,12 +66,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     /// 执行动画的block
     private var animationBlock: AnimationBlock?
     
-    /// tableView的高度constraint
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-    
-    /// 展示name的tableView
-    @IBOutlet weak var tableView: UITableView!
-    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -103,27 +91,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     
     /// 设置手势识别
     private func configureTapGestureRecognizer() {
-        tapShowMoreName.rx.event.subscribe(onNext: { [weak self] _ in
-            guard let `self` = self else { return }
-            guard let textField = self.activeTextField() else {
-                self.showMoreNameImageView.rotate(angle: M_PI, delay: 0.0, duration: kAnimationDuration)
-                UIView.animate(withDuration: kAnimationDuration, animations: { 
-                    self.tableView.isHidden = !self.tableView.isHidden
-                })
-                return
-            }
-            self.animationBlock = { [weak self] in
-                guard let `self` = self else { return }
-                delay(seconds: kAnimationDuration, completion: { 
-                    self.showMoreNameImageView.rotate(angle: M_PI, delay: 0.0, duration: kAnimationDuration)
-                    UIView.animate(withDuration: kAnimationDuration, animations: {
-                        self.tableView.isHidden = !self.tableView.isHidden
-                    })
-                })
-            }
-            textField.resignFirstResponder()
-         }).addDisposableTo(_disposeBag)
-        
         tapShowPassword.rx.event.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
             let isSecureTextEntry = self.passwordTextField.isSecureTextEntry
@@ -136,28 +103,12 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                 image = #imageLiteral(resourceName: "login_password_hide")
             }
             
-            guard let textField = self.activeTextField() else {
-                UIView.transition(with: self.hidePasswordImageView,
-                                  duration: kAnimationDuration,
-                                  options: .transitionCrossDissolve,
-                                  animations: {
-                                    self.hidePasswordImageView.image = image
-                    }, completion: nil)
-                return
-            }
-            
-            self.animationBlock = { [weak self] in
-                guard let `self` = self else { return }
-                delay(seconds: kAnimationDuration, completion: { 
-                    UIView.transition(with: self.hidePasswordImageView,
-                                      duration: kAnimationDuration,
-                                      options: .transitionCrossDissolve,
-                                      animations: {
-                                        self.hidePasswordImageView.image = image
-                        }, completion: nil)
-                })
-            }
-            textField.resignFirstResponder()
+            UIView.transition(with: self.hidePasswordImageView,
+                              duration: kAnimationDuration,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                self.hidePasswordImageView.image = image
+            }, completion: nil)
         }).addDisposableTo(_disposeBag)
     }
     
@@ -169,18 +120,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             .bindTo(hidePasswordImageView.rx.hidden).addDisposableTo(_disposeBag)
         passwordTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
             self?.answerTextField.becomeFirstResponder()
-        }).addDisposableTo(_disposeBag)
-        
-        let editingDidBeginEvents: [Observable<Void>] = [
-            nameTextField.rx.controlEvent(.editingDidBegin).map { _ in () },
-            passwordTextField.rx.controlEvent(.editingDidBegin).map { _ in () },
-            answerTextField.rx.controlEvent(.editingDidBegin).map { _ in () },
-            questionButton.rx.tap.map { _ in () },
-            loginButton.rx.tap.map { _ in () }
-        ]
-        
-        Observable.from(editingDidBeginEvents).merge().subscribe(onNext: { [weak self] _ in
-            self?.hideNameList()
         }).addDisposableTo(_disposeBag)
         
         nameTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
@@ -275,19 +214,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                                        password: passwordTextField.rx.text.asDriver(),
                                        question: questionDriver,
                                        answer: answerTextField.rx.text.asDriver())
-        showMoreNameImageView.isHidden = viewModel.isShowMoreNameImageViewHidden
         viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(_disposeBag)
-        
-        tableViewHeightConstraint.constant = CGFloat(viewModel.tableViewHeight)
-        tableView.rowHeight = 40.0
-        Observable.just(viewModel.names).bindTo(tableView.rx.items(cellIdentifier: LoginNameTableViewCell.reuseIdentifier, cellType: LoginNameTableViewCell.self)) { (_, element, cell) in
-            cell.name = element
-        }.addDisposableTo(_disposeBag)
-        tableView.rx.modelSelected(String.self).asDriver().drive(onNext: { [weak self] value in
-            console(message: value)
-            self?.hideNameList()
-            self?.nameTextField.rx.text.onNext(value)
-        }).addDisposableTo(_disposeBag)
     }
     
     /// 找到激活的textField
@@ -301,13 +228,5 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }
         
         return nil
-    }
-    
-    /// 隐藏用户名列表
-    private func hideNameList() {
-        showMoreNameImageView.rotate(to: .identity, delay: 0.0, duration: kAnimationDuration)
-        UIView.animate(withDuration: kAnimationDuration) { 
-            self.tableView.isHidden = true
-        }
     }
 }

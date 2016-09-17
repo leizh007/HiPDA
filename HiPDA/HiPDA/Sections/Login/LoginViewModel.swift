@@ -10,24 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-/// 展示姓名的cell的高度
-private let kNameCellHeight: CGFloat = 40.0
-
-/// 最多在tableView上同时出现的name个数
-private let kNameShowLimit = 3
-
 /// 登录的ViewModel
 class LoginViewModel {
-    // FIXME: - tableView的点击上有个奇怪的问题...没找到解决方法，暂时先隐藏掉
-    /// 显示更多用户名的imageView是否隐藏
-    let isShowMoreNameImageViewHidden = true// Settings.shared.accountList.count == 0
-    
-    /// 用户名列表
-    let names = Settings.shared.accountList.map { $0.name }
-    
-    /// tableView的高度
-    let tableViewHeight: CGFloat = 0.0
-    
     /// 安全问题数组
     static let questions = [
         "安全问题",
