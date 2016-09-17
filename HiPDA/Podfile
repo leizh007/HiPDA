@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 #Debug tools
 def import_debug
@@ -18,8 +18,7 @@ target 'HiPDA' do
   pod 'YYKeyboardManager'
   pod 'RxSwift', '~> 3.0.0-beta.1'
   pod 'RxCocoa', '~> 3.0.0-beta.1'
-  #pod 'Moya', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
-  #pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
+  pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
   
   target 'HiPDATests' do
     inherit! :search_paths
