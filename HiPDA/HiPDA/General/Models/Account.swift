@@ -8,6 +8,9 @@
 
 import Foundation
 import SAMKeychain
+import Argo
+import Runes
+import Curry
 
 /// 用于从Keychain中获取密码的服务名
 private let passwordService = "HiPDA-password"
@@ -87,4 +90,17 @@ func ==(lhs: Account, rhs: Account) -> Bool {
     lhs.questionid == rhs.questionid &&
     lhs.answer == rhs.answer &&
     lhs.password == rhs.password
+}
+
+// MARK: - Decodable
+
+extension Account: Decodable {
+    static func decode(_ json: JSON) -> Decoded<Account> {
+        return curry(Account.init(name:uid:questionid:answer:password:))
+        <^> json <| "name"
+        <*> json <| "uid"
+        <*> json <| "questionid"
+        <*> json <| "answer"
+        <*> json <| "password"
+    }
 }

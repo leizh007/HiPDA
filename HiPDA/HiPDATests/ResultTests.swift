@@ -9,6 +9,8 @@
 import XCTest
 @testable import HiPDA
 
+typealias Result = HiPDA.Result
+
 /// 测试Result失败信息
 ///
 /// - testError: 失败
@@ -29,7 +31,7 @@ infix operator <==: ResultPrecedence
 /// - parameter rhs: 右侧Result
 ///
 /// - returns: 同是.success或同是.failure返回是，否则返回否
-func <==<T, U>(lhs: Result<T>, rhs: Result<U>) -> Bool {
+func <==<T, E1, U, E2>(lhs: Result<T, E1>, rhs: Result<U, E2>) -> Bool {
     switch (lhs, rhs) {
     case (.success(_), .success(_)):
         fallthrough
@@ -43,25 +45,25 @@ func <==<T, U>(lhs: Result<T>, rhs: Result<U>) -> Bool {
 class ResultTests: XCTestCase {
     // 测试初始化方法
     func testInitAndResolve() {
-        let failure = Result<String>.failure(ResultTestError.testError)
-        let result1 = Result<String> { throw ResultTestError.testError }
+        let failure = Result<String, ResultTestError>.failure(ResultTestError.testError)
+        let result1 = Result<String, ResultTestError> { throw ResultTestError.testError }
         XCTAssert(result1 <== failure)
         
-        let result2 = Result<Int> { 1 }
+        let result2 = Result<Int, ResultTestError> { 1 }
         XCTAssert(!(result2 <== failure))
         
-        let success = Result<String>.success("test")
+        let success = Result<String, ResultTestError>.success("test")
         XCTAssert(success <== result2)
         
         do {
-            let value = try success.resolve()
+            let value = try success.dematerialize()
             XCTAssert(value == "test")
         } catch {
             XCTFail("\(error)")
         }
         
         do {
-            _ = try failure.resolve()
+            _ = try failure.dematerialize()
         } catch {
             XCTAssert(error is ResultTestError)
         }
@@ -69,11 +71,11 @@ class ResultTests: XCTestCase {
     
     // 测试map方法
     func testMap() {
-        let success = Result<String>.success("success")
-        let failure = Result<String>.failure(ResultTestError.testError)
+        let success = Result<String, ResultTestError>.success("success")
+        let failure = Result<String, ResultTestError>.failure(ResultTestError.testError)
         
         let successOfMapped = success.map { $0 + "test" }
-        XCTAssert(try! successOfMapped.resolve() == "successtest")
+        XCTAssert(try! successOfMapped.dematerialize() == "successtest")
         
         do {
             _ = try success.map { (_) throws -> String in
@@ -85,7 +87,7 @@ class ResultTests: XCTestCase {
         
         let failureMapped = failure.map { $0 }
         do {
-            _ = try failureMapped.resolve()
+            _ = try failureMapped.dematerialize()
         } catch {
             XCTAssert(error is ResultTestError)
         }
@@ -93,14 +95,14 @@ class ResultTests: XCTestCase {
     
     // 测试flatMap
     func testFlatMap() {
-        let success = Result<String>.success("success")
-        let failure = Result<String>.failure(ResultTestError.testError)
+        let success = Result<String, ResultTestError>.success("success")
+        let failure = Result<String, ResultTestError>.failure(ResultTestError.testError)
         
         let successOfFlatMapped = success.flatMap { .success($0 + "test") }
-        XCTAssert(try! successOfFlatMapped.resolve() == "successtest")
+        XCTAssert(try! successOfFlatMapped.dematerialize() == "successtest")
         
         do {
-            _ = try success.flatMap { (_) throws -> Result<String> in
+            _ = try success.flatMap { (_) throws -> Result<String, ResultTestError> in
                 throw ResultTestError.testError
             }
         } catch {
@@ -109,7 +111,7 @@ class ResultTests: XCTestCase {
         
         let failureFlatMapped = failure.flatMap { .success($0) }
         do {
-            _ = try failureFlatMapped.resolve()
+            _ = try failureFlatMapped.dematerialize()
         } catch {
             XCTAssert(error is ResultTestError)
         }

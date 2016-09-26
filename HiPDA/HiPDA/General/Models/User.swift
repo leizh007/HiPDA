@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Argo
+import Runes
+import Curry
 
 /// 帖子用户头像分辨率
 ///
@@ -36,17 +39,29 @@ struct User {
 // MARK: - Serializable
 
 extension User: Serializable {
-    init(_ data: Data) {
-        let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as! NSDictionary
-        name = dictionary["name"] as! String
-        uid = dictionary["uid"] as! Int
-    }
-    
     func encode() -> Data {
         let dictionary: [String : Any] = ["name": name,
                                           "uid": uid]
         
         return NSKeyedArchiver.archivedData(withRootObject: dictionary)
+    }
+}
+
+// MARK: - Decodable
+
+extension User: Decodable {
+    static func decode(_ json: JSON) -> Decoded<User> {
+        return curry(User.init(name:uid:))
+        <^> json <| "name"
+        <*> json <| "uid"
+    }
+    
+    static func decode(_ data: Data) -> Decoded<User> {
+        guard let json = NSKeyedUnarchiver.unarchiveObject(with: data) else {
+            return .failure(.custom("Data unarchived error!"))
+        }
+        
+        return User.decode(JSON(json))
     }
 }
 

@@ -16,7 +16,7 @@ class HelperTests: XCTestCase {
         let date = Date()
         delay(seconds: 1.0) { 
             let duration = date.timeIntervalSinceNow
-            XCTAssert(fabs(duration + 1.0) <= 0.1)
+            XCTAssert(fabs(duration + 1.0) <= 0.2)
             expect.fulfill()
         }
         

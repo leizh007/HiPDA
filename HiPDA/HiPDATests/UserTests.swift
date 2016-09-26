@@ -8,6 +8,9 @@
 
 import XCTest
 @testable import HiPDA
+import Argo
+import Runes
+import Curry
 
 class UserTests: XCTestCase {
     /// 测试User的相等性
@@ -42,6 +45,11 @@ class UserTests: XCTestCase {
         let user = User(name: "leizh007", uid: 697558)
         let userData = user.encode()
         
-        XCTAssert(User(userData) == user, "User should conform to Serializable protocol!")
+        do {
+            let userDecoded = try User.decode(userData).dematerialize()
+            XCTAssert(userDecoded == user, "User should conform to Serializable protocol!")
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
     }
 }

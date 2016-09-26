@@ -8,6 +8,9 @@
 
 import XCTest
 @testable import HiPDA
+import Argo
+import Runes
+import Curry
 
 class AccountTests: XCTestCase {
     /// 测试账户的相等性
@@ -43,5 +46,20 @@ class AccountTests: XCTestCase {
         let accountFromData = Account(accountData)
         
         XCTAssert(account == accountFromData, "Account should conform to Serializable protocol!")
+        
+        let accountJSON: [String: Any] = [
+            "name": "leizh007",
+            "uid": 697558,
+            "questionid": 1,
+            "answer": "answer",
+            "password": "password"
+        ]
+        
+        do {
+            let accountDecoded = try Account.decode(JSON(accountJSON)).dematerialize()
+            XCTAssert(accountDecoded == account, "User should conform to Serializable protocol!")
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
     }
 }

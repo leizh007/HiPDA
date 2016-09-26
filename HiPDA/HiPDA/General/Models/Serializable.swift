@@ -10,9 +10,6 @@ import Foundation
 
 /// 可序列化
 protocol Serializable {
-    /// 初始化方法
-    init(_ data: Data)
-    
     /// 编码为Data
     func encode() -> Data
 }
