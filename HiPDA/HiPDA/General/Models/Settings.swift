@@ -7,6 +7,16 @@
 //
 
 import Foundation
+import SAMKeychain
+import Argo
+import Runes
+import Curry
+
+/// 用于从Keychain中获取密码的服务名
+private let kAccountListServiceKey = "HiPDA-account-list"
+
+/// 用户从Keychain中获取活跃账户的键
+private let kActiveAccountServiceKey = "HiPDA-active-account"
 
 /// 设置中心
 class Settings {
@@ -136,6 +146,10 @@ class Settings {
     var tailURL: URL?
     private static let kTailURL = "tailURL"
     
+    /// 用户头像的分辨率
+    var avatarImageResolution: UserAvatarImageResolution
+    private static let kUserAvatarImageResolution = "avatarImageResolution"
+    
     init() {
         typealias `Self` = Settings
         
@@ -151,11 +165,18 @@ class Settings {
         }
         
         let userDefaults = UserDefaults.standard
-        let accountArray = (userDefaults.value(forKey: Self.kAccountList) as? [Data]) ?? [Data]()
-        accountList = accountArray
-            .map { Account($0) }
-        activeAccount = (userDefaults.value(forKey: Self.kActiveAccount) as? Data)
-            .flatMap { Account($0) }
+        let accountNameArray = (userDefaults.value(forKey: Self.kAccountList) as? [String]) ?? [String]()
+        accountList = accountNameArray.flatMap { name in
+            let accountData = SAMKeychain.passwordData(forService: kAccountListServiceKey, account: name) ?? Data()
+            let attributes = NSKeyedUnarchiver.unarchiveObject(with: accountData)
+            return try? Account.decode(JSON(attributes)).dematerialize()
+        }
+        
+        activeAccount = (userDefaults.value(forKey: Self.kActiveAccount) as? String).flatMap { name in
+            let accountData = SAMKeychain.passwordData(forService: kActiveAccountServiceKey, account: name) ?? Data()
+            let attributes = NSKeyedUnarchiver.unarchiveObject(with: accountData)
+            return try? Account.decode(JSON(attributes)).dematerialize()
+        }
         autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: Self.kAutoDownloadImageWhenUsingWWAN, defalut: true)
         autoDownloadImageSizeThreshold = (userDefaults.value(forKey: Self.kAutoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
         fontSize = (userDefaults.value(forKey: Self.kFontSize) as? Float) ?? 17.0
@@ -199,6 +220,7 @@ class Settings {
                 tailURL = URL(string: urlString)
             }
         }
+        avatarImageResolution = UserAvatarImageResolution(rawValue: userDefaults.string(forKey: Self.kUserAvatarImageResolution) ?? "middle") ?? .middle
     }
     
     /// 持久化
@@ -206,10 +228,20 @@ class Settings {
         typealias `Self` = Settings
         
         let userDefaults = UserDefaults.standard
-        let accountArray = accountList.map { $0.encode() }
-        userDefaults.setValue(accountArray, forKey: Self.kAccountList)
+        let accountNameArray = accountList.map { $0.name }
+        if accountNameArray.count == 0 {
+            userDefaults.removeObject(forKey: Self.kAccountList)
+        } else {
+            userDefaults.setValue(accountNameArray, forKey: Self.kAccountList)
+            accountList.forEach { account in
+                let data = account.encode()
+                SAMKeychain.setPasswordData(data, forService: kAccountListServiceKey, account: account.name)
+            }
+        }
         if let account = activeAccount {
-            userDefaults.setValue(account.encode(), forKey: Self.kActiveAccount)
+            userDefaults.setValue(account.name, forKey: Self.kActiveAccount)
+            let data = account.encode()
+            SAMKeychain.setPasswordData(data, forService: kActiveAccountServiceKey, account: account.name)
         } else {
             userDefaults.removeObject(forKey: Self.kActiveAccount)
         }
@@ -251,7 +283,7 @@ class Settings {
         } else {
             userDefaults.removeObject(forKey: Self.kTailURL)
         }
-        
+        userDefaults.set(avatarImageResolution.rawValue, forKey: Self.kUserAvatarImageResolution)
         userDefaults.synchronize()
     }
     
@@ -260,7 +292,7 @@ class Settings {
         /// 清楚所有缓存
         let userDefaults = UserDefaults.standard
         let dictionary = userDefaults.dictionaryRepresentation()
-        for key in dictionary.keys {
+        for key in dictionary.keys where key != Settings.kAccountList && key != Settings.kActiveAccount {
             userDefaults.removeObject(forKey: key)
         }
         userDefaults.synchronize()
@@ -291,5 +323,6 @@ class Settings {
         isEnabledTail = true
         tailText = "小尾巴~"
         tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")
+        avatarImageResolution = .middle
     }
 }

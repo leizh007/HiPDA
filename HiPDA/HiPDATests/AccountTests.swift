@@ -43,20 +43,10 @@ class AccountTests: XCTestCase {
                                answer: "answer",
                                password: "password")
         let accountData = account.encode()
-        let accountFromData = Account(accountData)
-        
-        XCTAssert(account == accountFromData, "Account should conform to Serializable protocol!")
-        
-        let accountJSON: [String: Any] = [
-            "name": "leizh007",
-            "uid": 697558,
-            "questionid": 1,
-            "answer": "answer",
-            "password": "password"
-        ]
+        let attributes = NSKeyedUnarchiver.unarchiveObject(with: accountData)
         
         do {
-            let accountDecoded = try Account.decode(JSON(accountJSON)).dematerialize()
+            let accountDecoded = try Account.decode(JSON(attributes)).dematerialize()
             XCTAssert(accountDecoded == account, "User should conform to Serializable protocol!")
         } catch {
             XCTFail(error.localizedDescription)

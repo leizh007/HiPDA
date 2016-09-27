@@ -40,7 +40,7 @@ struct User {
 
 extension User: Serializable {
     func encode() -> Data {
-        let dictionary: [String : Any] = ["name": name,
+        let dictionary: [String: Any] = ["name": name,
                                           "uid": uid]
         
         return NSKeyedArchiver.archivedData(withRootObject: dictionary)
@@ -54,14 +54,6 @@ extension User: Decodable {
         return curry(User.init(name:uid:))
         <^> json <| "name"
         <*> json <| "uid"
-    }
-    
-    static func decode(_ data: Data) -> Decoded<User> {
-        guard let json = NSKeyedUnarchiver.unarchiveObject(with: data) else {
-            return .failure(.custom("Data unarchived error!"))
-        }
-        
-        return User.decode(JSON(json))
     }
 }
 

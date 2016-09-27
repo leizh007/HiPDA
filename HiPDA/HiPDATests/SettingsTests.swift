@@ -26,8 +26,13 @@ func ==(lhs:Array<Account>, rhs:Array<Account>) -> Bool {
 }
 
 class SettingsTests: XCTestCase {
-    
     func testSettings() {
+        let userDefaults = UserDefaults.standard
+        let dictionary = userDefaults.dictionaryRepresentation()
+        for key in dictionary.keys {
+            userDefaults.removeObject(forKey: key)
+        }
+        userDefaults.synchronize()
         Settings.shared.reset()
         let settings = Settings()
         
@@ -59,6 +64,7 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings.isEnabledTail)
         XCTAssert(settings.tailText == "小尾巴~")
         XCTAssert(settings.tailURL == URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")!)
+        XCTAssert(settings.avatarImageResolution == .middle)
         
         /// 改变settings里面参数的值
         let account = Account(name: "leizh007",
@@ -96,6 +102,7 @@ class SettingsTests: XCTestCase {
         settings.isEnabledTail = false
         settings.tailText = "大尾巴"
         settings.tailURL = nil
+        settings.avatarImageResolution = .big
         settings.save()
         
         let setting1 = Settings()
@@ -129,6 +136,7 @@ class SettingsTests: XCTestCase {
         XCTAssert(!setting1.isEnabledTail)
         XCTAssert(setting1.tailText == "大尾巴")
         XCTAssert(setting1.tailURL == nil)
+        XCTAssert(settings.avatarImageResolution == .big)
         
         settings.tailURL = URL(string: "http://www.hi-pda.com/forum/space.php?uid=697558")
         settings.save()
@@ -137,5 +145,10 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings2.tailURL! == URL(string: "http://www.hi-pda.com/forum/space.php?uid=697558"))
         
         Settings.shared.reset()
+        
+        for (key, value) in dictionary {
+            userDefaults.set(value, forKey: key)
+        }
+        userDefaults.synchronize()
     }
 }

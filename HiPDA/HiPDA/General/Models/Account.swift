@@ -7,25 +7,16 @@
 //
 
 import Foundation
-import SAMKeychain
 import Argo
 import Runes
 import Curry
-
-/// 用于从Keychain中获取密码的服务名
-private let passwordService = "HiPDA-password"
-
-/// 用于从Keychain中获取问题id的服务名
-private let questionidService = "HiPDA-questionid"
-
-/// 用于从Keychain中获取答案的服务名
-private let answerService = "HiPDA-answer"
-
 /// 存取键
 private struct AccountKeys {
-    static let serviceName = "HiPDA"
     static let name = "name"
     static let uid = "uid"
+    static let questionid = "questionid"
+    static let answer = "answer"
+    static let password = "password"
 }
 
 /// APP登录账户
@@ -36,7 +27,7 @@ struct Account {
     let answer: String
     let password: String
     
-    /// 默认中分辨率的头像链接
+    /// 默认中高辨率的头像链接
     let avatarImageURL: URL
     
     init(name: String, uid: Int, questionid: Int, answer: String, password: String) {
@@ -45,36 +36,36 @@ struct Account {
         self.questionid = questionid
         self.answer = answer
         self.password = password
-        avatarImageURL = URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_middle.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100))!
+        avatarImageURL = URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_big.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100))!
     }
 }
 
 // MARK: - Serializable Protocol
 
 extension Account: Serializable {
-    init(_ data: Data) {
-        let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as! NSDictionary
-        name = dictionary[AccountKeys.name] as! String
-        uid = dictionary[AccountKeys.uid] as! Int
-        
-        questionid = Int(SAMKeychain.password(forService: questionidService, account: name)) ?? 0
-        answer = SAMKeychain.password(forService: answerService, account: name) ?? ""
-        password = SAMKeychain.password(forService: passwordService, account: name)
-        
-        avatarImageURL = URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_middle.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100))!
-    }
-    
     func encode() -> Data {
         let dictionary: [String : Any] = [
             AccountKeys.name: name,
             AccountKeys.uid: uid,
+            AccountKeys.questionid: questionid,
+            AccountKeys.answer: answer,
+            AccountKeys.password: password
             ]
         
-        SAMKeychain.setPassword(password, forService: passwordService, account: name)
-        SAMKeychain.setPassword(String(questionid), forService: questionidService, account: name)
-        SAMKeychain.setPassword(answer, forService: answerService, account: name)
-        
         return NSKeyedArchiver.archivedData(withRootObject: dictionary)
+    }
+}
+
+// MARK: - Decodable
+
+extension Account: Decodable {
+    static func decode(_ json: JSON) -> Decoded<Account> {
+        return curry(Account.init(name:uid:questionid:answer:password:))
+            <^> json <| AccountKeys.name
+            <*> json <| AccountKeys.uid
+            <*> json <| AccountKeys.questionid
+            <*> json <| AccountKeys.answer
+            <*> json <| AccountKeys.password
     }
 }
 
@@ -90,17 +81,4 @@ func ==(lhs: Account, rhs: Account) -> Bool {
     lhs.questionid == rhs.questionid &&
     lhs.answer == rhs.answer &&
     lhs.password == rhs.password
-}
-
-// MARK: - Decodable
-
-extension Account: Decodable {
-    static func decode(_ json: JSON) -> Decoded<Account> {
-        return curry(Account.init(name:uid:questionid:answer:password:))
-        <^> json <| "name"
-        <*> json <| "uid"
-        <*> json <| "questionid"
-        <*> json <| "answer"
-        <*> json <| "password"
-    }
 }
