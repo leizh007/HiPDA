@@ -24,7 +24,9 @@ enum UserAvatarImageResolution: String {
 /// 帖子用户
 struct User {
     let name: String
+    fileprivate static let kNameKey = "name"
     let uid: Int
+    fileprivate static let kUidKey = "uid"
     
     /// 根据分辨率获取帖子用户的头像URL
     ///
@@ -40,8 +42,8 @@ struct User {
 
 extension User: Serializable {
     func encode() -> Data {
-        let dictionary: [String: Any] = ["name": name,
-                                          "uid": uid]
+        let dictionary: [String: Any] = [User.kNameKey: name,
+                                          User.kUidKey: uid]
         
         return NSKeyedArchiver.archivedData(withRootObject: dictionary)
     }
@@ -52,8 +54,8 @@ extension User: Serializable {
 extension User: Decodable {
     static func decode(_ json: JSON) -> Decoded<User> {
         return curry(User.init(name:uid:))
-        <^> json <| "name"
-        <*> json <| "uid"
+        <^> json <| User.kNameKey
+        <*> json <| User.kUidKey
     }
 }
 
