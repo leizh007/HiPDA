@@ -166,17 +166,16 @@ class Settings {
         
         let userDefaults = UserDefaults.standard
         let accountNameArray = (userDefaults.value(forKey: Self.kAccountList) as? [String]) ?? [String]()
-        accountList = accountNameArray.flatMap { name in
-            let accountData = SAMKeychain.passwordData(forService: kAccountListServiceKey, account: name) ?? Data()
-            let attributes = NSKeyedUnarchiver.unarchiveObject(with: accountData)
-            return try? Account.decode(JSON(attributes)).dematerialize()
-        }
         
-        activeAccount = (userDefaults.value(forKey: Self.kActiveAccount) as? String).flatMap { name in
-            let accountData = SAMKeychain.passwordData(forService: kActiveAccountServiceKey, account: name) ?? Data()
-            let attributes = NSKeyedUnarchiver.unarchiveObject(with: accountData)
+        func account(with name: String) -> Account? {
+            let accountString = SAMKeychain.password(forService: kAccountListServiceKey, account: name) ?? ""
+            let accountData = accountString.data(using: .utf8) ?? Data()
+            let attributes = try? JSONSerialization.jsonObject(with: accountData, options: [])
             return try? Account.decode(JSON(attributes)).dematerialize()
         }
+        accountList = accountNameArray.flatMap(account(with:))
+        activeAccount = (userDefaults.value(forKey: Self.kActiveAccount) as? String).flatMap(account(with:))
+        
         autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: Self.kAutoDownloadImageWhenUsingWWAN, defalut: true)
         autoDownloadImageSizeThreshold = (userDefaults.value(forKey: Self.kAutoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
         fontSize = (userDefaults.value(forKey: Self.kFontSize) as? Float) ?? 17.0
@@ -234,14 +233,12 @@ class Settings {
         } else {
             userDefaults.setValue(accountNameArray, forKey: Self.kAccountList)
             accountList.forEach { account in
-                let data = account.encode()
-                SAMKeychain.setPasswordData(data, forService: kAccountListServiceKey, account: account.name)
+                SAMKeychain.setPassword(account.encode(), forService: kAccountListServiceKey, account: account.name)
             }
         }
         if let account = activeAccount {
             userDefaults.setValue(account.name, forKey: Self.kActiveAccount)
-            let data = account.encode()
-            SAMKeychain.setPasswordData(data, forService: kActiveAccountServiceKey, account: account.name)
+            SAMKeychain.setPassword(account.encode(), forService: kActiveAccountServiceKey, account: account.name)
         } else {
             userDefaults.removeObject(forKey: Self.kActiveAccount)
         }

@@ -28,26 +28,27 @@ class UserTests: XCTestCase {
         let user = User(name: "leizh007", uid: 697558)
         
         let smallResolution = UserAvatarImageResolution.small
-        let smallAvatarImageURLString = user.avatarImageURL(resolution: smallResolution).absoluteString
+        let smallAvatarImageURLString = user.avatarImageURL(with: smallResolution).absoluteString
         XCTAssert(smallAvatarImageURLString == "http://img.hi-pda.com/forum/uc_server/data/avatar/000/69/75/58_avatar_small.jpg", "User avatarImageURL create failed!")
         
         let middleResulution = UserAvatarImageResolution.middle
-        let middleAvatarImageURLString = user.avatarImageURL(resolution: middleResulution).absoluteString
+        let middleAvatarImageURLString = user.avatarImageURL(with: middleResulution).absoluteString
         XCTAssert(middleAvatarImageURLString == "http://img.hi-pda.com/forum/uc_server/data/avatar/000/69/75/58_avatar_middle.jpg", "User avatarImageURL create failed!")
         
         let bigResolution = UserAvatarImageResolution.big
-        let bigAvatarImageURLString = user.avatarImageURL(resolution: bigResolution).absoluteString
+        let bigAvatarImageURLString = user.avatarImageURL(with: bigResolution).absoluteString
         XCTAssert(bigAvatarImageURLString == "http://img.hi-pda.com/forum/uc_server/data/avatar/000/69/75/58_avatar_big.jpg", "User avatarImageURL create failed!")
     }
     
     /// 测试User是否满足序列化
     func testUserSerializable() {
         let user = User(name: "leizh007", uid: 697558)
-        let userData = user.encode()
-        let attribtues = NSKeyedUnarchiver.unarchiveObject(with: userData)
+        let userString = user.encode()
+        let userData = userString.data(using: .utf8)!
+        let attributes = try! JSONSerialization.jsonObject(with: userData, options: [])
         
         do {
-            let userDecoded = try User.decode(JSON(attribtues)).dematerialize()
+            let userDecoded = try User.decode(JSON(attributes)).dematerialize()
             XCTAssert(userDecoded == user, "User should conform to Serializable protocol!")
         } catch {
             XCTFail(error.localizedDescription)

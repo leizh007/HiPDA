@@ -10,6 +10,7 @@ def import_JSONDecode
     pod 'Argo', :git => 'https://github.com/thoughtbot/Argo.git', :branch => 'master'
     pod 'Curry', :git => 'https://github.com/thoughtbot/Curry.git', :branch => 'master'
     pod 'Runes', :git => 'https://github.com/thoughtbot/Runes.git', :branch => 'master'
+    pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :branch => 'master'
 end
 
 target 'HiPDA' do

@@ -28,7 +28,7 @@ struct Account {
     let answer: String
     let password: String
     
-    /// 默认中高辨率的头像链接
+    /// 默认高辨率的头像链接
     let avatarImageURL: URL
     
     init(name: String, uid: Int, questionid: Int, answer: String, password: String) {
@@ -41,21 +41,9 @@ struct Account {
     }
 }
 
-// MARK: - Serializable Protocol
+// MARK: - Serializable
 
-extension Account: Serializable {
-    func encode() -> Data {
-        let dictionary: [String : Any] = [
-            AccountKeys.name: name,
-            AccountKeys.uid: uid,
-            AccountKeys.questionid: questionid,
-            AccountKeys.answer: answer,
-            AccountKeys.password: password
-            ]
-        
-        return NSKeyedArchiver.archivedData(withRootObject: dictionary)
-    }
-}
+extension Account: Serializable { }
 
 // MARK: - Decodable
 

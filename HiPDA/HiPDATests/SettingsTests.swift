@@ -145,8 +145,12 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings2.tailURL! == URL(string: "http://www.hi-pda.com/forum/space.php?uid=697558"))
         
         Settings.shared.reset()
+        for key in dictionary.keys {
+            userDefaults.removeObject(forKey: key)
+        }
+        userDefaults.synchronize()
         
-        for (key, value) in dictionary {
+        for (key, value) in userDefaults.dictionaryRepresentation() {
             userDefaults.set(value, forKey: key)
         }
         userDefaults.synchronize()

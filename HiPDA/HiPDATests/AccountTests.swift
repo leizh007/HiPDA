@@ -42,8 +42,9 @@ class AccountTests: XCTestCase {
                                questionid: 1,
                                answer: "answer",
                                password: "password")
-        let accountData = account.encode()
-        let attributes = NSKeyedUnarchiver.unarchiveObject(with: accountData)
+        let accountString = account.encode()
+        let accountData = accountString.data(using: .utf8)!
+        let attributes = try! JSONSerialization.jsonObject(with: accountData, options: [])
         
         do {
             let accountDecoded = try Account.decode(JSON(attributes)).dematerialize()

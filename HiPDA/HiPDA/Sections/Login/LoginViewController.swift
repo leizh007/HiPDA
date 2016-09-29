@@ -152,7 +152,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         }).addDisposableTo(_disposeBag)
         
         questionDriver = questionVariable.asDriver()
-        questionDriver.drive(onNext: { [weak self] (index) in
+        questionDriver.drive({ [weak self] (index) in
             guard let `self` = self else { return }
             if index == 0 {
                 self.answerTextField.isEnabled = false
@@ -183,7 +183,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             self?.answerTextField.resignFirstResponder()
         }).addDisposableTo(_disposeBag)
         
-        KeyboardManager.shared.keyboardChanged.drive(onNext: { [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
+        KeyboardManager.shared.keyboardChanged.drive({ [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
             guard let `self` = self else { return }
             guard transition.toVisible.boolValue else {
                 self.containerTopConstraint.constant = kDefaultContainerTopConstraintValue

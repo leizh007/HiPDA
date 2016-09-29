@@ -20,7 +20,6 @@ enum UserAvatarImageResolution: String {
     case big, middle, small
 }
 
-
 /// 帖子用户
 struct User {
     let name: String
@@ -33,21 +32,14 @@ struct User {
     /// - parameter resolution: 头像的分辨率
     ///
     /// - returns: 相应分辨率的头像URL
-    func avatarImageURL(resolution: UserAvatarImageResolution) -> URL {
+    func avatarImageURL(with resolution: UserAvatarImageResolution) -> URL {
         return URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_%@.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100, resolution.rawValue))!
     }
 }
 
 // MARK: - Serializable
 
-extension User: Serializable {
-    func encode() -> Data {
-        let dictionary: [String: Any] = [User.kNameKey: name,
-                                          User.kUidKey: uid]
-        
-        return NSKeyedArchiver.archivedData(withRootObject: dictionary)
-    }
-}
+extension User: Serializable { }
 
 // MARK: - Decodable
 

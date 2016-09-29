@@ -7,9 +7,20 @@
 //
 
 import Foundation
+import HandyJSON
 
 /// 可序列化
 protocol Serializable {
-    /// 编码为Data
-    func encode() -> Data
+    /// 编码为String
+    func encode() -> String
+}
+
+extension Serializable {
+    func encode() -> String {
+        guard let result = JSONSerializer.serializeToJSON(object: self) else {
+            fatalError("\(type(of: self)): \(self) cannot encode to String!")
+        }
+        
+        return result
+    }
 }
