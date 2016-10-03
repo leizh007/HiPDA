@@ -19,10 +19,7 @@ private let kAnimationDuration = 0.25
 /// 包含Picker选择器的ActionSheetController
 ///
 /// 在present的时候animation请用false！
-class PickerActionSheetController: UIViewController, StoryboardLoadable {
-    /// disposeBag
-    private let _disposeBag = DisposeBag()
-    
+class PickerActionSheetController: BaseViewController, StoryboardLoadable {
     /// 选择结束时的CompletionHandler
     var selectedCompletionHandler: PickerSelectedCompletionHandler?
     
@@ -60,11 +57,6 @@ class PickerActionSheetController: UIViewController, StoryboardLoadable {
         
         pickerView.selectRow(initialSelelctionIndex ?? 0, inComponent: 0, animated: true)
         
-        seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
-        containerStackViewHeightConstraint.constant -= 1.0 / UIScreen.main.scale
-        containerStackViewBottomConstraint.constant = -containerStackViewHeightConstraint.constant
-        view.layoutIfNeeded()
-        
         let commands: [Observable<Bool>] = [
             tapBackground.rx.event.map { _ in false },
             cancelBarButtonItem.rx.tap.map { _ in false },
@@ -87,7 +79,13 @@ class PickerActionSheetController: UIViewController, StoryboardLoadable {
                     selectedCompletionHandler(nil)
                 }
             })
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
+    }
+    
+    override func setupConstraints() {
+        seperatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
+        containerStackViewHeightConstraint.constant -= 1.0 / UIScreen.main.scale
+        containerStackViewBottomConstraint.constant = -containerStackViewHeightConstraint.constant
     }
     
     override func viewDidAppear(_ animated: Bool) {

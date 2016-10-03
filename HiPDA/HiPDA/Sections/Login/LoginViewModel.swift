@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 /// 登录的ViewModel
-class LoginViewModel {
+struct LoginViewModel {
     /// 安全问题数组
     static let questions = [
         "安全问题",

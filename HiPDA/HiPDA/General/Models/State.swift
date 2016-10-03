@@ -18,5 +18,3 @@ struct State {
     /// 账户变更的Variable
     let accountChanged: Variable<Account?> = Variable(nil)
 }
-
-

@@ -17,10 +17,7 @@ private let kAnimationDuration = 0.25
 private let kDefaultContainerTopConstraintValue = CGFloat(44.0)
 
 /// 登录的ViewController
-class LoginViewController: UIViewController, StoryboardLoadable {
-    /// disposeBag
-    private let _disposeBag = DisposeBag()
-    
+class LoginViewController: BaseViewController, StoryboardLoadable {    
     /// 分割线的高度constriant
     @IBOutlet private var seperatorsHeightConstraint: [NSLayoutConstraint]!
     
@@ -68,9 +65,6 @@ class LoginViewController: UIViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for heightConstraint in seperatorsHeightConstraint {
-            heightConstraint.constant = 1.0 / UIScreen.main.scale
-        }
         cancelButton.isHidden = !cancelable
         
         configureKeyboard()
@@ -78,6 +72,12 @@ class LoginViewController: UIViewController, StoryboardLoadable {
         configureTapGestureRecognizer()
         configureTextFields()
         configureViewModel()
+    }
+    
+    override func setupConstraints() {
+        for heightConstraint in seperatorsHeightConstraint {
+            heightConstraint.constant = 1.0 / UIScreen.main.scale
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -106,33 +106,33 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                               animations: {
                                 self.hidePasswordImageView.image = image
             }, completion: nil)
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
     }
     
     /// 设置TextFields
     private func configureTextFields() {
         let textValue = Variable("")
-        (passwordTextField.rx.textInput <-> textValue).addDisposableTo(_disposeBag)
+        (passwordTextField.rx.textInput <-> textValue).addDisposableTo(disposeBag)
         textValue.asObservable().map { $0.characters.count == 0 }
-            .bindTo(hidePasswordImageView.rx.hidden).addDisposableTo(_disposeBag)
+            .bindTo(hidePasswordImageView.rx.hidden).addDisposableTo(disposeBag)
         passwordTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
             self?.answerTextField.becomeFirstResponder()
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
         
         nameTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
             self?.passwordTextField.becomeFirstResponder()
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
         
         answerTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
             self?.answerTextField.resignFirstResponder()
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
     }
     
     /// 配置安全问题的Button
     private func configureQuestionButton() {
         let questionVariable = Variable(0)
         let answerVariable = Variable("")
-        (answerTextField.rx.textInput <-> answerVariable).addDisposableTo(_disposeBag)
+        (answerTextField.rx.textInput <-> answerVariable).addDisposableTo(disposeBag)
         
         questionButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
@@ -149,7 +149,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             }
             pickerActionSheetController.modalPresentationStyle = .overCurrentContext
             self.present(pickerActionSheetController, animated: false, completion: nil)
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
         
         questionDriver = questionVariable.asDriver()
         questionDriver.drive({ [weak self] (index) in
@@ -163,7 +163,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             }
             
             answerVariable.value = ""
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
         
         answerDriver = answerVariable.asDriver()
     }
@@ -181,7 +181,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             self?.nameTextField.resignFirstResponder()
             self?.passwordTextField.resignFirstResponder()
             self?.answerTextField.resignFirstResponder()
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
         
         KeyboardManager.shared.keyboardChanged.drive({ [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
             guard let `self` = self else { return }
@@ -201,7 +201,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
             UIView.animate(withDuration: transition.animationDuration, delay: 0.0, options: transition.animationOption, animations: {
                 self.view.layoutIfNeeded()
             }, completion: nil)
-        }).addDisposableTo(_disposeBag)
+        }).addDisposableTo(disposeBag)
     }
     
     /// 配置ViewModel相关信息
@@ -211,7 +211,7 @@ class LoginViewController: UIViewController, StoryboardLoadable {
                                        password: passwordTextField.rx.text.asDriver(),
                                        question: questionDriver,
                                        answer: answerDriver)
-        viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(_disposeBag)
+        viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(disposeBag)
     }
     
     /// 找到激活的textField

@@ -21,6 +21,26 @@ enum Result<T, Error: Swift.Error> {
 }
 
 extension Result {
+    var value: T? {
+        switch self {
+        case .success(let value):
+            return value
+        case .failure(_):
+            return nil
+        }
+    }
+    
+    var error: Error? {
+        switch self {
+        case .success(_):
+            return nil
+        case .failure(let error):
+            return error
+        }
+    }
+}
+
+extension Result {
     /// Result的map函数
     ///
     /// - parameter transform: 转换函数

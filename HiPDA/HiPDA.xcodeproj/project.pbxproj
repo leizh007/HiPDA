@@ -31,6 +31,8 @@
 		058A71741DA1E407004992AD /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71731DA1E407004992AD /* Lens.swift */; };
 		058A71761DA1E66D004992AD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71751DA1E66D004992AD /* State.swift */; };
 		058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */; };
+		058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717B1DA1FB22004992AD /* BaseViewController.swift */; };
+		058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717D1DA1FFBD004992AD /* LoginResult.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
 		05AD93861D884E5D0051056C /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD93851D884E5D0051056C /* EventBus.swift */; };
 		05B506741D6C8D64004D573D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506731D6C8D64004D573D /* ReusableView.swift */; };
@@ -108,6 +110,8 @@
 		058A71731DA1E407004992AD /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
 		058A71751DA1E66D004992AD /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
+		058A717B1DA1FB22004992AD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		058A717D1DA1FFBD004992AD /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		05AD93851D884E5D0051056C /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		05B506731D6C8D64004D573D /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */,
+				058A717B1DA1FB22004992AD /* BaseViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 			children = (
 				05E9A2791D7AD8230096878B /* LoginViewController.swift */,
 				05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */,
+				058A717D1DA1FFBD004992AD /* LoginResult.swift */,
 				05E510151D7B21DD00B55B8F /* LoginManager.swift */,
 			);
 			path = Login;
@@ -794,6 +800,7 @@
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
+				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
@@ -808,6 +815,7 @@
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
+				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
