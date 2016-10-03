@@ -13,20 +13,26 @@ def import_JSONDecode
     pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :branch => 'master'
 end
 
+def import_Rx
+    pod 'RxSwift', '~> 3.0.0-beta.1'
+    pod 'RxCocoa', '~> 3.0.0-beta.1'
+    pod 'RxDataSources', '~> 1.0.0-beta.2'
+end
+
 target 'HiPDA' do
   use_frameworks!
 
   # Pods for HiPDA
   import_debug
   import_JSONDecode
+  import_Rx
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'SAMKeychain'
   pod 'MLeaksFinder'
   pod 'YYKeyboardManager'
-  pod 'RxSwift', '~> 3.0.0-beta.1'
-  pod 'RxCocoa', '~> 3.0.0-beta.1'
   pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
+  pod 'Delta', :git => "https://github.com/thoughtbot/Delta.git"
     
   target 'HiPDATests' do
     inherit! :search_paths

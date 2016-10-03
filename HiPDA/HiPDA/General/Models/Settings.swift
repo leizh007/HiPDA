@@ -165,7 +165,7 @@ class Settings {
         }
         
         let userDefaults = UserDefaults.standard
-        let accountNameArray = (userDefaults.value(forKey: Self.kAccountList) as? [String]) ?? [String]()
+        let accountNameArray = (userDefaults.value(forKey: Self.kAccountList) as? [String]) ?? []
         
         func account(with name: String) -> Account? {
             let accountString = SAMKeychain.password(forService: kAccountListServiceKey, account: name) ?? ""
