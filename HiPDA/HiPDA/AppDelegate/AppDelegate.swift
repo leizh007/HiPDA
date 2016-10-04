@@ -37,7 +37,7 @@ extension AppDelegate {
             assertionFailure("组件启动失败！")
         }
     }
-    
+
     /// 启动组件
     ///
     /// - parameter components: 组件数组

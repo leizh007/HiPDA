@@ -25,6 +25,11 @@ def import_Statistics
     pod 'MLeaksFinder'
 end
 
+def import_Thoughtbot
+    pod "Perform", :git => 'https://github.com/thoughtbot/Perform.git', :branch => 'swift-3'
+    pod 'Delta', :git => "https://github.com/thoughtbot/Delta.git"
+end
+
 target 'HiPDA' do
   use_frameworks!
 
@@ -33,11 +38,11 @@ target 'HiPDA' do
   import_JSONDecode
   import_Rx
   import_Statistics
+  import_Thoughtbot
   
   pod 'SAMKeychain'
   pod 'YYKeyboardManager'
   pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
-  pod 'Delta', :git => "https://github.com/thoughtbot/Delta.git"
     
   target 'HiPDATests' do
     inherit! :search_paths
