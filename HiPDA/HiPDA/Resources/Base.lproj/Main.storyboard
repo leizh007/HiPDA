@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cUZ-gd-hzy">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cUZ-gd-hzy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -74,13 +74,43 @@
                     <view key="view" contentMode="scaleToFill" id="e2n-zJ-QAC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kg-1Z-ukX">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="xs4-o3-H27" kind="show" id="9ab-nG-ILi"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7kg-1Z-ukX" firstAttribute="centerX" secondItem="e2n-zJ-QAC" secondAttribute="centerX" id="iqg-pY-xmb"/>
+                            <constraint firstItem="7kg-1Z-ukX" firstAttribute="centerY" secondItem="e2n-zJ-QAC" secondAttribute="centerY" id="v7r-Bp-HCO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C9I-kp-VBl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBD-AW-NYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1444" y="-364.7676161919041"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="dbi-jI-JQI">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="xs4-o3-H27" customClass="TestViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hVD-hU-6ea"/>
+                        <viewControllerLayoutGuide type="bottom" id="lFk-bx-aJr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vca-X2-LaM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1v-W3-7om" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="-365"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="KWj-Hb-jKa">
@@ -487,7 +517,7 @@
         <scene sceneID="bjc-Pw-lJj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z7L-rC-bdI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" image="home_tabbar_message" id="ZuG-Xo-MWT">
+                    <tabBarItem key="tabBarItem" tag="1" title="消息" image="home_tabbar_message" id="ZuG-Xo-MWT">
                         <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
@@ -509,7 +539,7 @@
         <scene sceneID="nHP-3C-xYT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RNx-R6-fi2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="搜索" image="home_tabbar_search" id="MUr-Rv-BmD">
+                    <tabBarItem key="tabBarItem" tag="2" title="搜索" image="home_tabbar_search" id="MUr-Rv-BmD">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -530,7 +560,7 @@
         <scene sceneID="Ldx-az-Pie">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZbO-Hi-ygP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="home_tabbar_me" id="FlA-XB-2n6">
+                    <tabBarItem key="tabBarItem" tag="3" title="我" image="home_tabbar_me" id="FlA-XB-2n6">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
                     <toolbarItems/>

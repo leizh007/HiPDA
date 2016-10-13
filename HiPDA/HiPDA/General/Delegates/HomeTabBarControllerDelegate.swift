@@ -12,17 +12,22 @@ import UIKit
 class HomeTabBarControllerDelegate: NSObject, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBar = tabBarController.tabBar
+        guard let tabbarItem = tabBar.selectedItem else { return }
         
-        /// 获取选中的UITabBarButton
-        /// UITabBar的子视图为背景视图和UITabBarButton的数组，所以这里下标要加1
-        let index = tabBarController.selectedIndex + 1
-        let endIndex = tabBar.subviews.endIndex
-        guard endIndex > index && endIndex > 1 else { return }
-        let tabBarButton = tabBar.subviews[index]
+        var selectedImageView: UIImageView?
         
-        guard let imageView = tabBarButton.subviews.first as? UIImageView else {
-            return
+        for tabBarButton in tabBar.subviews {
+            let (imageView, label) = tabBarButton.subviews.reduce((nil, nil)) { (result, view) in
+                return (result.0 ?? view as? UIImageView, result.1 ?? view as? UILabel)
+            }
+            
+            if imageView != nil && label != nil && tabbarItem.title == label?.text {
+                selectedImageView = imageView
+                break
+            }
         }
+        
+        guard let imageView = selectedImageView else { return }
         
         /// 给imageView添加动画，动画参数待优化！
         UIView.animate(withDuration: 0.15,

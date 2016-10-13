@@ -9,5 +9,5 @@
 import UIKit
 
 /// 搜索的ViewController
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
 }

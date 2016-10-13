@@ -9,5 +9,5 @@
 import UIKit
 
 /// 我的ViewController
-class MeViewController: UIViewController {
+class MeViewController: BaseViewController {
 }

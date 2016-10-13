@@ -54,6 +54,7 @@
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
 		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
+		05E76EAC1DAFCE68009159C3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E76EAB1DAFCE68009159C3 /* TestViewController.swift */; };
 		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
 		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
 		05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2741D7AD0230096878B /* NotificationViewController.swift */; };
@@ -142,6 +143,7 @@
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
+		05E76EAB1DAFCE68009159C3 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		05E9A2741D7AD0230096878B /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				05E9A2701D7ACFF20096878B /* HomeViewController.swift */,
+				05E76EAB1DAFCE68009159C3 /* TestViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
+				05E76EAC1DAFCE68009159C3 /* TestViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
