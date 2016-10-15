@@ -54,7 +54,7 @@ class PickerActionSheetController: BaseViewController, StoryboardLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        useCustomViewControllerTransitioningAnimator = false
         pickerView.selectRow(initialSelelctionIndex ?? 0, inComponent: 0, animated: true)
         
         let commands: [Observable<Bool>] = [

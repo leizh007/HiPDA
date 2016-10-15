@@ -33,7 +33,6 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
         guard let fromView = transitionContext.viewController(forKey: .from)?.ancestorViewContoller.view else { return }
         guard let toView = transitionContext.viewController(forKey: .to)?.ancestorViewContoller.view else { return }
         
-        containerView.addSubview(fromView)
         containerView.addSubview(toView)
         
         if transitioningType == .present {

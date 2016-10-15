@@ -38,6 +38,8 @@ class BaseViewController: UIViewController {
     
     // MARK: - UIViewController Transitioning Animator
     
+    var useCustomViewControllerTransitioningAnimator = true
+    
     var transitioningAnimator = PresentAnimator()
 }
 
@@ -46,11 +48,11 @@ class BaseViewController: UIViewController {
 extension BaseViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transitioningAnimator.transitioningType = .present
-        return transitioningAnimator
+        return useCustomViewControllerTransitioningAnimator ? transitioningAnimator : nil
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transitioningAnimator.transitioningType = .dismiss
-        return transitioningAnimator
+        return useCustomViewControllerTransitioningAnimator ? transitioningAnimator : nil
     }
 }
