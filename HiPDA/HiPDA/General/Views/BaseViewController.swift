@@ -21,6 +21,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         self.view.setNeedsUpdateConstraints()
+        transitioningDelegate = presentingViewController as? UIViewControllerTransitioningDelegate ?? self
     }
     
     override func updateViewConstraints() {
@@ -33,5 +34,23 @@ class BaseViewController: UIViewController {
     
     func setupConstraints() {
         // Override point
+    }
+    
+    // MARK: - UIViewController Transitioning Animator
+    
+    var transitioningAnimator = PresentAnimator()
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension BaseViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitioningAnimator.transitioningType = .present
+        return transitioningAnimator
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitioningAnimator.transitioningType = .dismiss
+        return transitioningAnimator
     }
 }

@@ -24,10 +24,12 @@
 		055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996AD1D50DB5A00057CF6 /* Helper.swift */; };
 		055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055996BE1D50DD0900057CF6 /* Assets.xcassets */; };
 		055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055996BF1D50DD0900057CF6 /* LaunchScreen.storyboard */; };
-		055996C61D50DD0900057CF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055996C11D50DD0900057CF6 /* Main.storyboard */; };
 		055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CB1D50E0D600057CF6 /* Bootstrap.swift */; };
 		055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */; };
 		05645C7B1D75D60900B86D0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05645C7A1D75D60900B86D0A /* Constants.swift */; };
+		0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */; };
+		0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */; };
+		0589EB531DB254770055DBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589EB511DB254770055DBB9 /* Main.storyboard */; };
 		058A71741DA1E407004992AD /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71731DA1E407004992AD /* Lens.swift */; };
 		058A71761DA1E66D004992AD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71751DA1E66D004992AD /* State.swift */; };
 		058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */; };
@@ -103,12 +105,14 @@
 		055996AD1D50DB5A00057CF6 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		055996BE1D50DD0900057CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		055996C01D50DD0900057CF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		055996C21D50DD0900057CF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		055996C31D50DD0900057CF6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055996CA1D50DE1C00057CF6 /* HiPDA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HiPDA.entitlements; path = ../HiPDA.entitlements; sourceTree = "<group>"; };
 		055996CB1D50E0D600057CF6 /* Bootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
 		055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
 		05645C7A1D75D60900B86D0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
+		0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HiPDA.swift"; sourceTree = "<group>"; };
+		0589EB521DB254770055DBB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		058A71731DA1E407004992AD /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
 		058A71751DA1E66D004992AD /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */,
 				05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */,
 				05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */,
+				0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			children = (
 				05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */,
 				058A717B1DA1FB22004992AD /* BaseViewController.swift */,
+				0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,7 +328,7 @@
 				055996CA1D50DE1C00057CF6 /* HiPDA.entitlements */,
 				055996BE1D50DD0900057CF6 /* Assets.xcassets */,
 				055996BF1D50DD0900057CF6 /* LaunchScreen.storyboard */,
-				055996C11D50DD0900057CF6 /* Main.storyboard */,
+				0589EB511DB254770055DBB9 /* Main.storyboard */,
 				055996C31D50DD0900057CF6 /* Info.plist */,
 				05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */,
 			);
@@ -603,7 +609,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				055996C61D50DD0900057CF6 /* Main.storyboard in Resources */,
+				0589EB531DB254770055DBB9 /* Main.storyboard in Resources */,
 				055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */,
 				055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -804,6 +810,7 @@
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
+				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
@@ -834,6 +841,7 @@
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
 				055996AA1D50DB4500057CF6 /* Settings.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
+				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -887,10 +895,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		055996C11D50DD0900057CF6 /* Main.storyboard */ = {
+		0589EB511DB254770055DBB9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				055996C21D50DD0900057CF6 /* Base */,
+				0589EB521DB254770055DBB9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

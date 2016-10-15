@@ -15,4 +15,15 @@ class TestViewController: BaseViewController {
 
         title = "测试"
     }
+    @IBAction func buttonPressed(_ sender: AnyObject) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func aaa(_ sender: AnyObject) {
+        let testViewController = TestViewController.load(from: UIStoryboard.main)
+        present(testViewController, animated: true, completion: nil)
+    }
+}
+
+extension TestViewController: StoryboardLoadable {
+    
 }

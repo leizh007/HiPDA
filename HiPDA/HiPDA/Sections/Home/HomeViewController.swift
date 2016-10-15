@@ -15,4 +15,8 @@ class HomeViewController: BaseViewController {
 
         title = "Discovery"
     }
+    @IBAction func buttonPressed(_ sender: AnyObject) {
+        let testViewController = TestViewController.load(from: UIStoryboard.main)
+        present(testViewController, animated: true, completion: nil)
+    }
 }

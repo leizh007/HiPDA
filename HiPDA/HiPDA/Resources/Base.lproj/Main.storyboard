@@ -78,7 +78,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kg-1Z-ukX">
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="xs4-o3-H27" kind="show" id="9ab-nG-ILi"/>
+                                    <action selector="buttonPressed:" destination="AOA-Mz-ZIW" eventType="touchUpInside" id="Rxq-cx-v4J"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,7 +97,7 @@
         <!--Test View Controller-->
         <scene sceneID="dbi-jI-JQI">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="xs4-o3-H27" customClass="TestViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController" id="xs4-o3-H27" customClass="TestViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hVD-hU-6ea"/>
                         <viewControllerLayoutGuide type="bottom" id="lFk-bx-aJr"/>
@@ -105,7 +105,27 @@
                     <view key="view" contentMode="scaleToFill" id="Vca-X2-LaM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEf-C0-BAv">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="xs4-o3-H27" eventType="touchUpInside" id="jG4-f6-vsq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-Qt-Dh4">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="aaa:" destination="xs4-o3-H27" eventType="touchUpInside" id="lCq-Jg-AL3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3IE-Qt-Dh4" firstAttribute="leading" secondItem="KEf-C0-BAv" secondAttribute="leading" id="8uH-o2-71X"/>
+                            <constraint firstItem="KEf-C0-BAv" firstAttribute="centerX" secondItem="Vca-X2-LaM" secondAttribute="centerX" id="Zzd-kX-mvK"/>
+                            <constraint firstItem="3IE-Qt-Dh4" firstAttribute="top" secondItem="hVD-hU-6ea" secondAttribute="bottom" constant="95" id="dvn-5x-5Q3"/>
+                            <constraint firstItem="KEf-C0-BAv" firstAttribute="centerY" secondItem="Vca-X2-LaM" secondAttribute="centerY" id="ujr-Zf-v3Q"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1v-W3-7om" userLabel="First Responder" sceneMemberID="firstResponder"/>
