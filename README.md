@@ -11,6 +11,7 @@ Notices
 TODO
 ---
 1. 登录界面添加姓名下拉列表时会有奇怪的问题
+2. Custom NavigationBar Animation
 
 Important
 ---
