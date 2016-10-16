@@ -22,6 +22,10 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         self.view.setNeedsUpdateConstraints()
         transitioningDelegate = presentingViewController as? UIViewControllerTransitioningDelegate ?? self
+        
+        if let navigationBar = navigationController?.navigationBar {
+            configureApperance(of: navigationBar)
+        }
     }
     
     override func updateViewConstraints() {
@@ -34,6 +38,13 @@ class BaseViewController: UIViewController {
     
     func setupConstraints() {
         // Override point
+    }
+    
+    /// 配置NavigationBar的外观
+    ///
+    /// - parameter navigationBar: 待配置的navigationBar
+    func configureApperance(of navigationBar: UINavigationBar) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     // MARK: - UIViewController Transitioning Animator

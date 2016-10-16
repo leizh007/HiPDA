@@ -30,6 +30,7 @@
 		0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */; };
 		0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */; };
 		0589EB531DB254770055DBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589EB511DB254770055DBB9 /* Main.storyboard */; };
+		0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */; };
 		058A71741DA1E407004992AD /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71731DA1E407004992AD /* Lens.swift */; };
 		058A71761DA1E66D004992AD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71751DA1E66D004992AD /* State.swift */; };
 		058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */; };
@@ -56,7 +57,6 @@
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
 		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
-		05E76EAC1DAFCE68009159C3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E76EAB1DAFCE68009159C3 /* TestViewController.swift */; };
 		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
 		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
 		05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2741D7AD0230096878B /* NotificationViewController.swift */; };
@@ -113,6 +113,7 @@
 		0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 		0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HiPDA.swift"; sourceTree = "<group>"; };
 		0589EB521DB254770055DBB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+HiPDA.swift"; sourceTree = "<group>"; };
 		058A71731DA1E407004992AD /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
 		058A71751DA1E66D004992AD /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
-		05E76EAB1DAFCE68009159C3 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		05E9A2741D7AD0230096878B /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +236,7 @@
 				05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */,
 				05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */,
 				0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */,
+				0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -414,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				05E9A2701D7ACFF20096878B /* HomeViewController.swift */,
-				05E76EAB1DAFCE68009159C3 /* TestViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -809,6 +809,7 @@
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
+				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */,
@@ -816,7 +817,6 @@
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
-				05E76EAC1DAFCE68009159C3 /* TestViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,

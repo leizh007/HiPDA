@@ -12,11 +12,9 @@ import UIKit
 class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Discovery"
     }
-    @IBAction func buttonPressed(_ sender: AnyObject) {
-        let testViewController = TestViewController.load(from: UIStoryboard.main)
-        present(testViewController, animated: true, completion: nil)
+    override func configureApperance(of navigationBar: UINavigationBar) {
+        super.configureApperance(of: navigationBar)
+        title = "Discovery"
     }
 }
