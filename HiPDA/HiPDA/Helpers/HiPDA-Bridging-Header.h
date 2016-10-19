@@ -4,3 +4,4 @@
 
 #import "WeakProxy.h"
 #import <YYKeyboardManager/YYKeyboardManager.h>
+#import <CommonCrypto/CommonDigest.h>

@@ -8,10 +8,17 @@
 
 import Foundation
 
+/// 登录失败的错误信息
+///
+/// - nameOrPasswordUnCorrect: 密码或用户名不正确
+/// - attempCountExceedsLimit: 失败次数过多
+/// - unKown:                  未知错误
+/// - cannotGetUid:            无法获取uid
 enum LoginError: Error {
     case nameOrPasswordUnCorrect(timesToRetry: Int)
     case attempCountExceedsLimit
-    case unKown(String)
+    case unKnown(String)
+    case cannotGetUid
 }
 
 extension LoginError: CustomStringConvertible {
@@ -21,8 +28,10 @@ extension LoginError: CustomStringConvertible {
             return "登录失败，您还可以尝试 \(count) 次"
         case .attempCountExceedsLimit:
             return "密码错误次数过多，请 15 分钟后重新登录"
-        case .unKown(let value):
+        case .unKnown(let value):
             return value
+        case .cannotGetUid:
+            return "无法获取uid"
         }
     }
 }

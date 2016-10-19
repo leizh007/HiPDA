@@ -9,8 +9,6 @@
 import XCTest
 @testable import HiPDA
 
-typealias Result = HiPDA.Result
-
 /// 测试Result失败信息
 ///
 /// - testError: 失败

@@ -209,9 +209,13 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         // FIXME: - fix login view mdel initialization
         let viewModel = LoginViewModel(username: nameTextField.rx.text.asDriver(),
                                        password: passwordTextField.rx.text.asDriver(),
-                                       question: questionDriver,
-                                       answer: answerDriver)
+                                       questionid: questionDriver,
+                                       answer: answerDriver,
+                                       loginTaps: loginButton.rx.tap.asDriver())
         viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(disposeBag)
+        viewModel.loggedIn.drive({ result in
+            print("\(result)")
+        }).addDisposableTo(disposeBag)
     }
     
     /// 找到激活的textField

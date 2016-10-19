@@ -32,7 +32,7 @@ extension AppDelegate {
     /// 启动
     func bootstrap() {
         do {
-            _ = try bootstrapped(components: bootstrappingComponents)
+            try bootstrapped(components: bootstrappingComponents)
         } catch {
             assertionFailure("组件启动失败！")
         }
@@ -45,6 +45,7 @@ extension AppDelegate {
     /// - throws: 启动失败抛出异常
     ///
     /// - returns: 启动成功返回Bootstrapped类型的实例
+    @discardableResult
     func bootstrapped(components: [Bootstrapping]) throws -> Bootstrapped {
         return try components.reduce(Bootstrapped(), { (bootstrapped, next) -> Bootstrapped in
             return try bootstrapped.bootstrap(component: next)

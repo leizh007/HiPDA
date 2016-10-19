@@ -71,3 +71,8 @@ func ==(lhs: Account, rhs: Account) -> Bool {
     lhs.answer == rhs.answer &&
     lhs.password == rhs.password
 }
+
+// MAKR: - Account Lens
+
+let uidAccountLens: Lens<Account, Int> = Lens(get: { $0.uid },
+                                              set: { Account(name: $1.name, uid: $0, questionid: $1.questionid, answer: $1.answer, password: $1.password) })
