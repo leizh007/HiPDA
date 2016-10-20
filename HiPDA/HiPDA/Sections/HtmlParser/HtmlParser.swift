@@ -44,20 +44,34 @@ struct HtmlParser {
         }
     }
     
+    static func loggedInUserName(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "欢迎您回来，([\\s\\S]*?)。现在将转入登录前页面。")
+        guard result.count == 2 else {
+            throw HtmlParserError.cannotGetUsername
+        }
+        
+        return result[1]
+    }
+    
     /// 获取登录结果
+    ///
+    /// - parameter name: 待登录的账户名
     ///
     /// - parameter html: 返回的html结果页面
     ///
-    /// - throws: 异常
+    /// - throws: 异常: LoginError
     ///
     /// - returns: 成功返回解析出来的uid，否则抛出一场
-    static func loginResult(from html: String) throws -> Int {
-        if html.range(of: "欢迎您回来") != nil {
+    static func loginResult(of name: String, from html: String) throws -> Int {
+        if let username = try? loggedInUserName(from: html) {
+            guard username == name else {
+                throw LoginError.alreadyLoggedInAnotherAccount(username)
+            }
             do {
                 let uid = try HtmlParser.uid(from: html)
                 return uid
             } catch {
-                throw HtmlParserError.unKnown("\(error)")
+                throw LoginError.unKnown("\(error)")
             }
         } else {
             throw HtmlParser.loginError(from: html)

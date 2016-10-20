@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Curry
 
 /// 登录的ViewModel
 struct LoginViewModel {
@@ -43,15 +44,18 @@ struct LoginViewModel {
         let accountInfos = Driver.combineLatest(username, password, questionid, answer) { ($0, $1, $2, $3) }
         
         loggedIn = loginTaps.withLatestFrom(accountInfos)
-            .map { Account(name: $0, uid: 0, questionid: $2, answer: $3, password: $1) }
+            .map { Account(name: $0, uid: 0, questionid: $2, answer: $3, password: $1.md5) } // 这里传密码和密码md5加密后的都能登录成功...
             .flatMapLatest { account in
                 return Observable.create { observer in
                     HiPDAProvider.request(.login(account))
-                        .map(HtmlParser.loginResult)
+                        .mapGBKString()
+                        .map {
+                            return try HtmlParser.loginResult(of: account.name, from: $0)
+                        }
                         .subscribe { event in
                             switch event {
                             case let .next(uid):
-                                let _ = uidAccountLens.set(uid, account) // account
+                                let _ = Account.uidLens.set(uid, account) // account
                                 observer.onNext(.success(true))
                             case let .error(error):
                                 observer.onNext(.failure(error is LoginError ? error as! LoginError : .unKnown(error.localizedDescription)))

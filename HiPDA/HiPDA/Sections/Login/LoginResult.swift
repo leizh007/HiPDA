@@ -19,6 +19,7 @@ enum LoginError: Error {
     case attempCountExceedsLimit
     case unKnown(String)
     case cannotGetUid
+    case alreadyLoggedInAnotherAccount(String)
 }
 
 extension LoginError: CustomStringConvertible {
@@ -32,6 +33,8 @@ extension LoginError: CustomStringConvertible {
             return value
         case .cannotGetUid:
             return "无法获取uid"
+        case .alreadyLoggedInAnotherAccount(let name):
+            return "已登陆其他账户：\(name), 请清理cookie后再试"
         }
     }
 }
