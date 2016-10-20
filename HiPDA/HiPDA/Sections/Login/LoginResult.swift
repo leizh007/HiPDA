@@ -22,6 +22,25 @@ enum LoginError: Error {
     case alreadyLoggedInAnotherAccount(String)
 }
 
+extension LoginError: Equatable {
+    static func ==(lhs: LoginError, rhs: LoginError) -> Bool {
+        switch (lhs, rhs) {
+        case (.nameOrPasswordUnCorrect(let value1), .nameOrPasswordUnCorrect(let value2)):
+            return value1 == value2
+        case (.attempCountExceedsLimit, .attempCountExceedsLimit):
+            return true
+        case (.unKnown(let value1), .unKnown(let value2)):
+            return value1 == value2
+        case (.cannotGetUid, .cannotGetUid):
+            return true
+        case (.alreadyLoggedInAnotherAccount(let value1), .alreadyLoggedInAnotherAccount(let value2)):
+            return value1 == value2
+        default:
+            return false
+        }
+    }
+}
+
 extension LoginError: CustomStringConvertible {
     var description: String {
         switch self {

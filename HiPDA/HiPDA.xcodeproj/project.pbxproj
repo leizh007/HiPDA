@@ -71,6 +71,7 @@
 		05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCDE1DB7B5970061CED1 /* Regex.swift */; };
 		05F3DCE11DB7B5A60061CED1 /* HtmlParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCE01DB7B5A60061CED1 /* HtmlParserError.swift */; };
 		05F3DCE31DB7C2420061CED1 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCE21DB7C2420061CED1 /* RegexTests.swift */; };
+		05F3DCEB1DB90E9D0061CED1 /* HtmlParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -169,6 +170,7 @@
 		05F3DCDE1DB7B5970061CED1 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		05F3DCE01DB7B5A60061CED1 /* HtmlParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParserError.swift; sourceTree = "<group>"; };
 		05F3DCE21DB7C2420061CED1 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParserTests.swift; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
 		6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */,
 				058A717F1DA28865004992AD /* LensTests.swift */,
 				05F3DCE21DB7C2420061CED1 /* RegexTests.swift */,
+				05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -894,6 +897,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */,
+				05F3DCEB1DB90E9D0061CED1 /* HtmlParserTests.swift in Sources */,
 				05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,

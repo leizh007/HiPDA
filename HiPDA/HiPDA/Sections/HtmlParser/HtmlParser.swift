@@ -32,18 +32,27 @@ struct HtmlParser {
     ///
     /// - returns: 失败信息
     static func loginError(from html: String) -> LoginError {
-        if let loginFailedStartIndex = html.range(of: "登录失败，您还可以尝试 ") {
-            let subHtml = html.substring(from: loginFailedStartIndex.upperBound)
-            guard let loginFailedEndIndex = subHtml.range(of: " 次"),
-                let retryCount = Int(subHtml.substring(to: loginFailedEndIndex.lowerBound)) else {
-                return .unKnown("未知错误")
+        do {
+            let retryResult = try Regex.firstMatch(in: html, of: "登录失败，您还可以尝试 (\\d+) 次")
+            if retryResult.count == 2 {
+                return .nameOrPasswordUnCorrect(timesToRetry: Int(retryResult[1])!)
             }
-            return .nameOrPasswordUnCorrect(timesToRetry: retryCount)
-        } else {
-            return .attempCountExceedsLimit
+            if html.range(of: "密码错误次数过多，请 15 分钟后重新登录") != nil {
+                return .attempCountExceedsLimit
+            }
+            return .unKnown("未知错误")
+        } catch {
+            return LoginError.unKnown("\(error)")
         }
     }
     
+    /// 获取登录成功的用户名
+    ///
+    /// - parameter html: html字符串
+    ///
+    /// - throws: 异常：HtmlParserError
+    ///
+    /// - returns: 返回登录成功的用户名
     static func loggedInUserName(from html: String) throws -> String {
         let result = try Regex.firstMatch(in: html, of: "欢迎您回来，([\\s\\S]*?)。现在将转入登录前页面。")
         guard result.count == 2 else {

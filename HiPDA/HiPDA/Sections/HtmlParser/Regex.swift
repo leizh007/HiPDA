@@ -26,7 +26,6 @@ struct Regex {
             guard let result = regex.firstMatch(in: content as String, range: NSRange(location: 0, length: content.length)) else {
                 return []
             }
-            
             return (0..<result.numberOfRanges).map { content.substring(with: result.rangeAt($0)) }
         } catch {
             throw HtmlParserError.regexCreateFailed(pattern)
