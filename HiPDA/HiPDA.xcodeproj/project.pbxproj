@@ -33,13 +33,10 @@
 		0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */; };
 		0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB6B1DB525410055DBB9 /* String+HiPDA.swift */; };
 		058A71741DA1E407004992AD /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71731DA1E407004992AD /* Lens.swift */; };
-		058A71761DA1E66D004992AD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71751DA1E66D004992AD /* State.swift */; };
-		058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */; };
 		058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717B1DA1FB22004992AD /* BaseViewController.swift */; };
 		058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717D1DA1FFBD004992AD /* LoginResult.swift */; };
 		058A71801DA28865004992AD /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717F1DA28865004992AD /* LensTests.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
-		05AD93861D884E5D0051056C /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD93851D884E5D0051056C /* EventBus.swift */; };
 		05B506741D6C8D64004D573D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506731D6C8D64004D573D /* ReusableView.swift */; };
 		05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506751D6C91E9004D573D /* NibLoadableView.swift */; };
 		05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506791D6C92A7004D573D /* ReusableViewTests.swift */; };
@@ -72,6 +69,9 @@
 		05F3DCE11DB7B5A60061CED1 /* HtmlParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCE01DB7B5A60061CED1 /* HtmlParserError.swift */; };
 		05F3DCE31DB7C2420061CED1 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCE21DB7C2420061CED1 /* RegexTests.swift */; };
 		05F3DCEB1DB90E9D0061CED1 /* HtmlParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */; };
+		05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */; };
+		05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEF1DB919070061CED1 /* EventBus.swift */; };
+		05F3DCF31DB919070061CED1 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCF01DB919070061CED1 /* State.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -124,13 +124,10 @@
 		0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+HiPDA.swift"; sourceTree = "<group>"; };
 		0589EB6B1DB525410055DBB9 /* String+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HiPDA.swift"; sourceTree = "<group>"; };
 		058A71731DA1E407004992AD /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
-		058A71751DA1E66D004992AD /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
 		058A717B1DA1FB22004992AD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		058A717D1DA1FFBD004992AD /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		058A717F1DA28865004992AD /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
-		05AD93851D884E5D0051056C /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		05B506731D6C8D64004D573D /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		05B506751D6C91E9004D573D /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		05B506791D6C92A7004D573D /* ReusableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewTests.swift; sourceTree = "<group>"; };
@@ -171,6 +168,9 @@
 		05F3DCE01DB7B5A60061CED1 /* HtmlParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParserError.swift; sourceTree = "<group>"; };
 		05F3DCE21DB7C2420061CED1 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParserTests.swift; sourceTree = "<group>"; };
+		05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
+		05F3DCEF1DB919070061CED1 /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
+		05F3DCF01DB919070061CED1 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
 		6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,10 +274,7 @@
 				055996A31D50DB4500057CF6 /* Settings.swift */,
 				055996A41D50DB4500057CF6 /* User.swift */,
 				05645C7A1D75D60900B86D0A /* Constants.swift */,
-				05AD93851D884E5D0051056C /* EventBus.swift */,
 				058A71731DA1E407004992AD /* Lens.swift */,
-				058A71751DA1E66D004992AD /* State.swift */,
-				058A71771DA1EE3F004992AD /* ChangeAccountAction.swift */,
 				05416C881D903CB200049AA0 /* Result.swift */,
 			);
 			path = Models;
@@ -323,6 +320,7 @@
 		055996B01D50DB6500057CF6 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				05F3DCED1DB918E00061CED1 /* EventBus */,
 				05F3DCDB1DB7B4B60061CED1 /* HtmlParser */,
 				05F3DCD61DB7B46E0061CED1 /* Network */,
 				05E9A2781D7AD8180096878B /* Login */,
@@ -492,6 +490,16 @@
 				05F3DCE01DB7B5A60061CED1 /* HtmlParserError.swift */,
 			);
 			path = HtmlParser;
+			sourceTree = "<group>";
+		};
+		05F3DCED1DB918E00061CED1 /* EventBus */ = {
+			isa = PBXGroup;
+			children = (
+				05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */,
+				05F3DCEF1DB919070061CED1 /* EventBus.swift */,
+				05F3DCF01DB919070061CED1 /* State.swift */,
+			);
+			path = EventBus;
 			sourceTree = "<group>";
 		};
 		85D8DB6094FE49E2B6EA6C7C /* Frameworks */ = {
@@ -841,11 +849,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
-				05AD93861D884E5D0051056C /* EventBus.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
+				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
@@ -860,7 +868,6 @@
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
-				058A71781DA1EE3F004992AD /* ChangeAccountAction.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
@@ -868,17 +875,18 @@
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
-				058A71761DA1E66D004992AD /* State.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
+				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
+				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
 				05F3DCE11DB7B5A60061CED1 /* HtmlParserError.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
