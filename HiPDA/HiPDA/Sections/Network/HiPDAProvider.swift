@@ -52,10 +52,4 @@ extension ObservableType where E == Response {
             return Observable.just(try response.mapGBKString())
         }
     }
-    
-    public func map<T>(_ parser: @escaping (String) throws -> T) -> Observable<T> {
-        return mapGBKString().flatMap { value in
-            return Observable.just(try parser(value))
-        }
-    }
 }
