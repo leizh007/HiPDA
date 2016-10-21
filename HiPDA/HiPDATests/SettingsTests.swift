@@ -150,7 +150,7 @@ class SettingsTests: XCTestCase {
         }
         userDefaults.synchronize()
         
-        for (key, value) in userDefaults.dictionaryRepresentation() {
+        for (key, value) in dictionary {
             userDefaults.set(value, forKey: key)
         }
         userDefaults.synchronize()
