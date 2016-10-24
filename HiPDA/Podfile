@@ -43,6 +43,7 @@ target 'HiPDA' do
   pod 'SAMKeychain'
   pod 'YYKeyboardManager'
   pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
+  pod 'MBProgressHUD'
     
   target 'HiPDATests' do
     inherit! :search_paths

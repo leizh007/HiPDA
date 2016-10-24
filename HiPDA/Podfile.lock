@@ -3,14 +3,15 @@ PODS:
   - Argo (3.0.1):
     - Runes (>= 3.0.0)
   - Aspects (1.4.1)
-  - Crashlytics (3.8.2):
+  - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Curry (2.3.2)
   - Delta (1.0.0)
-  - Fabric (1.6.8)
+  - Fabric (1.6.10)
   - FBRetainCycleDetector (0.1.3)
   - FLEX (2.3.0)
   - HandyJSON (0.2.0)
+  - MBProgressHUD (1.0.0)
   - MLeaksFinder (0.2.0):
     - FBRetainCycleDetector
   - Moya/Core (7.0.0):
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - Fabric
   - FLEX
   - HandyJSON (from `https://github.com/alibaba/HandyJSON.git`, branch `master`)
+  - MBProgressHUD
   - MLeaksFinder
   - Moya/RxSwift (from `https://github.com/Moya/Moya`, branch `swift-3.0`)
   - Perform (from `https://github.com/thoughtbot/Perform.git`, branch `swift-3`)
@@ -101,13 +103,14 @@ SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Argo: f2e633ac01162010a2c3d8c495a59f5c79abe4d5
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Curry: a018288326c97dd2e4f5b37e527d20749e4663c5
   Delta: 35694e6e06a7e5d9dd8a25f3b0768ed66c0579c5
-  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
   HandyJSON: af084a531e852a72374ebdcff1d0eaf15bda1172
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
   Moya: 24236189772d63640d9d2f7c819157f3bc947420
   Perform: c3e2f75ee31db051d5afbe1282d7a48ba68f8747
@@ -120,6 +123,6 @@ SPEC CHECKSUMS:
   SAMKeychain: 6b04852a20684167aea97bdf8ba12c95d3616376
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: 5e71e873453eb67018eda3445e58cdde6af102db
+PODFILE CHECKSUM: b923ff2ef39e06d23e1b46ae57fc90084cf1172a
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.1.1

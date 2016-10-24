@@ -1057,7 +1057,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3FEE2AD1801A1D516039B47 /* Pods-HiPDA.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
@@ -1066,7 +1066,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HiPDA/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
@@ -1081,7 +1081,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
@@ -1090,6 +1090,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HiPDA/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
