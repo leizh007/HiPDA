@@ -58,4 +58,4 @@ extension LoginError: CustomStringConvertible {
     }
 }
 
-typealias LoginResult = Result<Bool, LoginError>
+typealias LoginResult = Result<Account, LoginError>

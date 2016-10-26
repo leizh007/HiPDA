@@ -213,8 +213,21 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
                                        answer: answerDriver,
                                        loginTaps: loginButton.rx.tap.asDriver())
         viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(disposeBag)
-        viewModel.loggedIn.drive({ result in
+        
+        viewModel.loggedIn.drive({ [weak self] result in
+            guard let `self` = self else { return }
+            self.hidePromptInformation()
+            switch result {
+            case .success(_):
+                self.showPromptInformation(of: .success("登录成功"))
+            case .failure(let error):
+                self.showPromptInformation(of: .failure("\(error)"))
+            }
             print("\(result)")
+        }).addDisposableTo(disposeBag)
+        
+        loginButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.showPromptInformation(of: .loading)
         }).addDisposableTo(disposeBag)
     }
     

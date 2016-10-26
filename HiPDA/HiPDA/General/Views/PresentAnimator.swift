@@ -30,8 +30,8 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
 
-        guard let fromView = transitionContext.viewController(forKey: .from)?.ancestorViewContoller.view else { return }
-        guard let toView = transitionContext.viewController(forKey: .to)?.ancestorViewContoller.view else { return }
+        guard let fromView = transitionContext.viewController(forKey: .from)?.ancestor.view else { return }
+        guard let toView = transitionContext.viewController(forKey: .to)?.ancestor.view else { return }
         
         containerView.addSubview(toView)
         

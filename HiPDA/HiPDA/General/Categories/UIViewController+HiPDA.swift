@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     /// 根viewController
-    var ancestorViewContoller: UIViewController {
+    var ancestor: UIViewController {
         var resultViewController = self
         while let controller = resultViewController.parent {
             resultViewController = controller
