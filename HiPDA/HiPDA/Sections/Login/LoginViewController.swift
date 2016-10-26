@@ -223,7 +223,6 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
             case .failure(let error):
                 self.showPromptInformation(of: .failure("\(error)"))
             }
-            print("\(result)")
         }).addDisposableTo(disposeBag)
         
         loginButton.rx.tap.subscribe(onNext: { [weak self] _ in
