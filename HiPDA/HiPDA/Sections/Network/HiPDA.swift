@@ -24,7 +24,7 @@ extension HiPDA: TargetType {
     var method: Moya.Method {
         switch self {
         case .login(_):
-            return .POST
+            return .post
         }
     }
     var parameters: [String : Any]? {

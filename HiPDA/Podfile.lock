@@ -1,53 +1,53 @@
 PODS:
   - Alamofire (4.0.1)
-  - Argo (3.0.1):
-    - Runes (>= 3.0.0)
+  - Argo (4.0.0):
+    - Runes (>= 4.0.0)
   - Aspects (1.4.1)
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
-  - Curry (2.3.2)
+  - Curry (3.0.0)
   - Delta (1.0.0)
   - Fabric (1.6.10)
   - FBRetainCycleDetector (0.1.3)
-  - FLEX (2.3.0)
-  - HandyJSON (0.2.0)
+  - FLEX (2.4.0)
+  - HandyJSON (1.1.0)
   - MBProgressHUD (1.0.0)
   - MLeaksFinder (0.2.0):
     - FBRetainCycleDetector
-  - Moya/Core (7.0.0):
+  - Moya/Core (8.0.0-beta.3):
     - Alamofire (~> 4.0.0)
     - Result
-  - Moya/RxSwift (7.0.0):
+  - Moya/RxSwift (8.0.0-beta.3):
     - Moya/Core
-    - RxSwift (= 3.0.0-beta.1)
+    - RxSwift
   - Perform (1.0.0):
     - Aspects (~> 1.4.1)
   - Result (3.0.0)
   - Reveal-iOS-SDK (1.6.2)
-  - Runes (3.2.1)
-  - RxCocoa (3.0.0-beta.1):
-    - RxSwift (~> 3.0.0-beta.1)
-  - RxDataSources (1.0.0-beta.2):
-    - RxCocoa (~> 3.0.0-beta.1)
-    - RxSwift (~> 3.0.0-beta.1)
-  - RxSwift (3.0.0-beta.1)
-  - SAMKeychain (1.5.1)
+  - Runes (4.0.0)
+  - RxCocoa (3.0.0):
+    - RxSwift (~> 3.0)
+  - RxDataSources (1.0.0):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.0)
+  - SAMKeychain (1.5.2)
   - YYKeyboardManager (1.0.1)
 
 DEPENDENCIES:
-  - Argo (from `https://github.com/thoughtbot/Argo.git`, branch `master`)
+  - Argo (~> 4.0.0)
   - Crashlytics
-  - Curry (from `https://github.com/thoughtbot/Curry.git`, branch `master`)
+  - Curry (~> 3.0.0)
   - Delta (from `https://github.com/thoughtbot/Delta.git`)
   - Fabric
   - FLEX
-  - HandyJSON (from `https://github.com/alibaba/HandyJSON.git`, branch `master`)
+  - HandyJSON (~> 1.1.0)
   - MBProgressHUD
   - MLeaksFinder
-  - Moya/RxSwift (from `https://github.com/Moya/Moya`, branch `swift-3.0`)
+  - Moya/RxSwift (~> 8.0.0-beta.3)
   - Perform (from `https://github.com/thoughtbot/Perform.git`, branch `swift-3`)
   - Reveal-iOS-SDK
-  - Runes (from `https://github.com/thoughtbot/Runes.git`, branch `master`)
+  - Runes (~> 4.0.0)
   - RxCocoa (~> 3.0.0-beta.1)
   - RxDataSources (~> 1.0.0-beta.2)
   - RxSwift (~> 3.0.0-beta.1)
@@ -55,74 +55,44 @@ DEPENDENCIES:
   - YYKeyboardManager
 
 EXTERNAL SOURCES:
-  Argo:
-    :branch: master
-    :git: https://github.com/thoughtbot/Argo.git
-  Curry:
-    :branch: master
-    :git: https://github.com/thoughtbot/Curry.git
   Delta:
     :git: https://github.com/thoughtbot/Delta.git
-  HandyJSON:
-    :branch: master
-    :git: https://github.com/alibaba/HandyJSON.git
-  Moya:
-    :branch: swift-3.0
-    :git: https://github.com/Moya/Moya
   Perform:
     :branch: swift-3
     :git: https://github.com/thoughtbot/Perform.git
-  Runes:
-    :branch: master
-    :git: https://github.com/thoughtbot/Runes.git
 
 CHECKOUT OPTIONS:
-  Argo:
-    :commit: 4b57653f7760bd3eedfd1c1fbc821bde191e603d
-    :git: https://github.com/thoughtbot/Argo.git
-  Curry:
-    :commit: 408134ffa8dd1c09b0050f65eae300381b934bf6
-    :git: https://github.com/thoughtbot/Curry.git
   Delta:
     :commit: bd46119899703e976e655fcde9e668d28df55014
     :git: https://github.com/thoughtbot/Delta.git
-  HandyJSON:
-    :commit: 2766b75e5fab0d316b9aa5dfe21b2fbd6cf0baea
-    :git: https://github.com/alibaba/HandyJSON.git
-  Moya:
-    :commit: 7c41718d1fe2a1e8616264c3361154d9df566e97
-    :git: https://github.com/Moya/Moya
   Perform:
     :commit: 1a09c24db3457d2d7104cfbf99a542666d12b2bc
     :git: https://github.com/thoughtbot/Perform.git
-  Runes:
-    :commit: e00cf681ec03a2dbf2b4cd6dd1e24d522f55474b
-    :git: https://github.com/thoughtbot/Runes.git
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  Argo: f2e633ac01162010a2c3d8c495a59f5c79abe4d5
+  Argo: e808d20ee2e95c4498276ca1812d75d3b0b00090
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
-  Curry: a018288326c97dd2e4f5b37e527d20749e4663c5
+  Curry: eb3d2c75aec678b3cc7fb2729d2ad6dd121531d1
   Delta: 35694e6e06a7e5d9dd8a25f3b0768ed66c0579c5
   Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
-  FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
-  HandyJSON: af084a531e852a72374ebdcff1d0eaf15bda1172
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  HandyJSON: c19dba750f1a8c238c4f47f40b1b5e3efaef7e34
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MLeaksFinder: 07ab450d72d3bf5ef4201b74047d74ceae66d605
-  Moya: 24236189772d63640d9d2f7c819157f3bc947420
+  Moya: f83c7f81eaa28cb0151549dfcf1f3fda4440bb50
   Perform: c3e2f75ee31db051d5afbe1282d7a48ba68f8747
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
-  Runes: 6231c760e43f26bd3fe804f15bc08bd1e40e6c46
-  RxCocoa: 8cecf331302b8ae5381bbab1bccba4ede2eae6a8
-  RxDataSources: 1cd87dc97fd46be002942eb1dcb1b432535141dd
-  RxSwift: 0823e8d7969c23bfa9ddfb2afa4881e424a1a710
-  SAMKeychain: 6b04852a20684167aea97bdf8ba12c95d3616376
+  Runes: 423ee2dac4dedb4626a859c0962c934195ba8433
+  RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
+  RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
+  RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: b923ff2ef39e06d23e1b46ae57fc90084cf1172a
+PODFILE CHECKSUM: 188011002351e45f52b7c4c57c630f62ea40b8b7
 
 COCOAPODS: 1.1.1

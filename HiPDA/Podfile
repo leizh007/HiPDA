@@ -7,10 +7,10 @@ def import_debug
 end
 
 def import_JSONDecode
-    pod 'Argo', :git => 'https://github.com/thoughtbot/Argo.git', :branch => 'master'
-    pod 'Curry', :git => 'https://github.com/thoughtbot/Curry.git', :branch => 'master'
-    pod 'Runes', :git => 'https://github.com/thoughtbot/Runes.git', :branch => 'master'
-    pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :branch => 'master'
+    pod 'Argo', '~> 4.0.0'
+    pod 'Curry', '~> 3.0.0'
+    pod 'Runes', '~> 4.0.0'
+    pod 'HandyJSON', '~> 1.1.0'
 end
 
 def import_Rx
@@ -42,7 +42,7 @@ target 'HiPDA' do
   
   pod 'SAMKeychain'
   pod 'YYKeyboardManager'
-  pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya', :branch => 'swift-3.0'
+  pod 'Moya/RxSwift', '~> 8.0.0-beta.3'
   pod 'MBProgressHUD'
     
   target 'HiPDATests' do

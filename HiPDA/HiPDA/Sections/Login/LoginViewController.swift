@@ -114,7 +114,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         let textValue = Variable("")
         (passwordTextField.rx.textInput <-> textValue).addDisposableTo(disposeBag)
         textValue.asObservable().map { $0.characters.count == 0 }
-            .bindTo(hidePasswordImageView.rx.hidden).addDisposableTo(disposeBag)
+            .bindTo(hidePasswordImageView.rx.isHidden).addDisposableTo(disposeBag)
         passwordTextField.rx.controlEvent(.editingDidEndOnExit).subscribe(onNext: { [weak self] _ in
             self?.answerTextField.becomeFirstResponder()
         }).addDisposableTo(disposeBag)
@@ -152,7 +152,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         }).addDisposableTo(disposeBag)
         
         questionDriver = questionVariable.asDriver()
-        questionDriver.drive({ [weak self] (index) in
+        questionDriver.drive(onNext: { [weak self] (index) in
             guard let `self` = self else { return }
             if index == 0 {
                 self.answerTextField.isEnabled = false
@@ -183,7 +183,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
             self?.answerTextField.resignFirstResponder()
         }).addDisposableTo(disposeBag)
         
-        KeyboardManager.shared.keyboardChanged.drive({ [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
+        KeyboardManager.shared.keyboardChanged.drive(onNext: { [weak self, unowned keyboardManager = KeyboardManager.shared] transition in
             guard let `self` = self else { return }
             guard transition.toVisible.boolValue else {
                 self.containerTopConstraint.constant = kDefaultContainerTopConstraintValue
@@ -207,14 +207,14 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
     /// 配置ViewModel相关信息
     func configureViewModel() {
         // FIXME: - fix login view mdel initialization
-        let viewModel = LoginViewModel(username: nameTextField.rx.text.asDriver(),
-                                       password: passwordTextField.rx.text.asDriver(),
+        let viewModel = LoginViewModel(username: nameTextField.rx.text.orEmpty.asDriver(),
+                                       password: passwordTextField.rx.text.orEmpty.asDriver(),
                                        questionid: questionDriver,
                                        answer: answerDriver,
                                        loginTaps: loginButton.rx.tap.asDriver())
-        viewModel.loginEnabled.drive(loginButton.rx.enabled).addDisposableTo(disposeBag)
+        viewModel.loginEnabled.drive(loginButton.rx.isEnabled).addDisposableTo(disposeBag)
         
-        viewModel.loggedIn.drive({ [weak self] result in
+        viewModel.loggedIn.drive(onNext: { [weak self] result in
             guard let `self` = self else { return }
             self.hidePromptInformation()
             switch result {

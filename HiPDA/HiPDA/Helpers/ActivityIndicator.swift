@@ -37,8 +37,9 @@ private struct ActivityToken<E>: ObservableConvertibleType, Disposable {
 /// 检测活动的状态
 ///
 /// 只要有至少一个序列在执行，将会发送 `true`. 所有活动结束的时候，发送 `false`.
-class ActivityIndicator: DriverConvertibleType {
+class ActivityIndicator: SharedSequenceConvertibleType {
     typealias E = Bool
+    public typealias SharingStrategy = DriverSharingStrategy
     
     private let _lock = NSRecursiveLock()
     private let _variable = Variable(0)
@@ -72,7 +73,7 @@ class ActivityIndicator: DriverConvertibleType {
     }
     
     // MARK: - DriverConvertibleType
-    func asDriver() -> Driver<E> {
+    public func asSharedSequence() -> SharedSequence<SharingStrategy, E> {
         return _loading
     }
 }

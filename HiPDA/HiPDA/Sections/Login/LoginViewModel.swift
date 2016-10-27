@@ -44,7 +44,7 @@ struct LoginViewModel {
             .map { Account(name: $0, uid: 0, questionid: $2, answer: $3, password: $1.md5) } // 这里传密码和密码md5加密后的都能登录成功...
             .flatMapLatest { account in
                 return LoginViewModel.login(with: account)
-                    .asDriver(.failure(.unKnown("未知错误")))
+                    .asDriver(onErrorJustReturn: .failure(.unKnown("未知错误")))
         }
     }
     
