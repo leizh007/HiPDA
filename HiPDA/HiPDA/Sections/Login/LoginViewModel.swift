@@ -56,10 +56,12 @@ struct LoginViewModel {
     static func login(with account: Account) -> Observable<LoginResult> {
         return Observable.create { observer in
             HiPDAProvider.request(.login(account))
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
                 .mapGBKString()
                 .map {
                     return try HtmlParser.loginResult(of: account.name, from: $0)
                 }
+                .observeOn(MainScheduler.instance)
                 .subscribe { event in
                     switch event {
                     case let .next(uid):

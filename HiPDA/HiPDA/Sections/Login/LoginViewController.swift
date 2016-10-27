@@ -10,6 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 登录成功后的回调
+typealias LoggedInCompletionHandler = (Account) -> Void
+
 /// 动画持续时间
 private let kAnimationDuration = 0.25
 
@@ -59,6 +62,9 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
     
     /// 容器视图的顶部constraint
     @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
+    
+    /// 登录成功后的回调
+    var loggedInCompletion: LoggedInCompletionHandler?
     
     // MARK: - life cycle
     
@@ -218,8 +224,11 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
             guard let `self` = self else { return }
             self.hidePromptInformation()
             switch result {
-            case .success(_):
+            case .success(let account):
                 self.showPromptInformation(of: .success("登录成功"))
+                delay(seconds: 1.0) {
+                    self.loggedInCompletion?(account)
+                }
             case .failure(let error):
                 self.showPromptInformation(of: .failure("\(error)"))
             }

@@ -35,6 +35,7 @@ class Settings {
     /// - parameter account: 帐户
     ///
     /// - returns: 返回添加好帐户所在帐户列表中的下标
+    @discardableResult
     func add(account: Account) -> Int {
         for (index, accountElement) in accountList.enumerated() {
             if accountElement == account {

@@ -12,7 +12,7 @@ import Delta
 
 /// 事件总线
 struct EventBus: StoreType {
-    static let shared = EventBus(State())
+    static var shared = EventBus(State())
     var state: Variable<State>
     
     init(_ state: State) {

@@ -16,7 +16,7 @@ import Foundation
 /// - parameter function: 函数描述，默认#function
 func console(message: String, filename: String = #file, line: Int = #line, function: String = #function) {
     #if DEBUG
-        print("\((filename as NSString).lastPathComponent):\(line) \(function):\r\(message)")
+        print("\((filename as NSString).lastPathComponent):\(line) \(function):  \(message)")
     #endif
 }
 
