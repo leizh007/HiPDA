@@ -171,7 +171,7 @@ class Settings {
         func account(with name: String) -> Account? {
             let accountString = SAMKeychain.password(forService: kAccountListServiceKey, account: name) ?? ""
             let accountData = accountString.data(using: .utf8) ?? Data()
-            let attributes = try? JSONSerialization.jsonObject(with: accountData, options: [])
+            guard let attributes = try? JSONSerialization.jsonObject(with: accountData, options: []) else { return nil }
             return try? Account.decode(JSON(attributes)).dematerialize()
         }
         accountList = accountNameArray.flatMap(account(with:))
