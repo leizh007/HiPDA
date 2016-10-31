@@ -21,7 +21,7 @@ struct EventBus: StoreType {
 }
 
 extension EventBus {
-    var activeAccount: Driver<Account?> {
+    var activeAccount: Driver<LoginResult?> {
         return state.value.accountChanged.asDriver()
     }
 }

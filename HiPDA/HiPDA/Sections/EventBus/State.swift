@@ -16,5 +16,5 @@ extension Variable: ObservablePropertyType {
 /// 全局的状态
 struct State {
     /// 账户变更的Variable
-    let accountChanged: Variable<Account?> = Variable(nil)
+    let accountChanged: Variable<LoginResult?> = Variable(nil)
 }

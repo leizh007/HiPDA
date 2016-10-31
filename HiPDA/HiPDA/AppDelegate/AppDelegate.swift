@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        Settings.shared.save()
+    }
 }
 
 // MARK: - 启动相关

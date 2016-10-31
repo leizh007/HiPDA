@@ -13,9 +13,24 @@ import Moya
 class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Settings.shared.activeAccount != nil {
+            self.showPromptInformation(of: .loading)
+            EventBus.shared.activeAccount.drive(onNext: { [weak self] (result) in
+                guard let `self` = self, let result = result else { return }
+                self.hidePromptInformation()
+                switch result {
+                case .success(_):
+                    self.showPromptInformation(of: .success("登录成功"))
+                case .failure(let error):
+                    self.showPromptInformation(of: .failure("\(error)"))
+                }
+            }).addDisposableTo(disposeBag)
+        }
     }
+    
     override func configureApperance(of navigationBar: UINavigationBar) {
         super.configureApperance(of: navigationBar)
-        title = "Discovery"
+        navigationItem.title = "Discovery"
     }
 }

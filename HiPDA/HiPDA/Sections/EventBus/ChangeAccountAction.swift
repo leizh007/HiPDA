@@ -10,7 +10,7 @@ import Delta
 
 /// 改变用户的Action
 struct ChangeAccountAction: ActionType {
-    let account: Account?
+    let account: LoginResult?
     
     func reduce(_ state: State) -> State {
         state.accountChanged.value = account

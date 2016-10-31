@@ -7,15 +7,22 @@
 //
 
 import Foundation
+import RxSwift
 
 /// 登录管理
 class LoginManager: Bootstrapping {
     /// 主页
     private var homeViewController: UIViewController?
     
+    /// disposeBag
+    private var disposeBag = DisposeBag()
+    
     func bootstrap(bootstrapped: Bootstrapped) throws {
-        if let _ = Settings.shared.activeAccount {
-            
+        if let account = Settings.shared.activeAccount {
+            LoginViewModel.login(with: account)
+                .subscribe(onNext: { (result) in
+                    EventBus.shared.dispatch(ChangeAccountAction(account: result))
+            }).addDisposableTo(disposeBag)
         } else {
             let loginViewController = LoginViewController.load(from: UIStoryboard.main)
             guard let window = UIApplication.shared.windows.safe[0] else { return }
@@ -27,7 +34,7 @@ class LoginManager: Bootstrapping {
                 guard let `self` = self else { return }
                 Settings.shared.add(account: account)
                 Settings.shared.activeAccount = account
-                EventBus.shared.dispatch(ChangeAccountAction(account: account))
+                EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
                 
                 guard let window = UIApplication.shared.windows.safe[0] else { return }
                 let windowBackgroundColor = window.backgroundColor
