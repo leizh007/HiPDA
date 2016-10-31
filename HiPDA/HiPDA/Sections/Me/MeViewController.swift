@@ -10,4 +10,8 @@ import UIKit
 
 /// 我的ViewController
 class MeViewController: BaseViewController {
+    override func configureApperance(of navigationBar: UINavigationBar) {
+        super.configureApperance(of: navigationBar)
+        navigationItem.title = "个人中心"
+    }
 }

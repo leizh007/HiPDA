@@ -87,6 +87,11 @@ class Settings {
     var threadAttentionWordList: [String]
     private static let kThreadAttentionWordList = "threadAttentionWordList"
     
+    /// 浏览历史的条数
+    var threadHistoryCountLimit: Int
+    private static let kThreadHistoryCountLimit = "threadHistoryCountLimit"
+    private static let kThreadHistoryCountDefault = 100
+    
     /// 是否开启消息推送
     var isEnabledMessagePush: Bool
     private static let kIsEnabledMessagePush = "isEnabledMessagePush"
@@ -187,6 +192,7 @@ class Settings {
         threadBlockWordList = (userDefaults.value(forKey: Self.kThreadBlockWordList) as? [String]) ?? []
         isEnabledThreadAttention = boolValue(in: userDefaults, key: Self.kIsEnabledThreadAttention, defalut: false)
         threadAttentionWordList = (userDefaults.value(forKey: Self.kThreadAttentionWordList) as? [String]) ?? []
+        threadHistoryCountLimit = (userDefaults.value(forKey: Self.kThreadHistoryCountLimit) as? Int) ?? Self.kThreadHistoryCountDefault
         isEnabledMessagePush = boolValue(in: userDefaults, key: Self.kIsEnabledMessagePush, defalut: true)
         isEnabledSystemPm = boolValue(in: userDefaults, key: Self.kIsEnabledSystemPm, defalut: true)
         isEnabledFriendPm = boolValue(in: userDefaults, key: Self.kIsEnabledFriendPm, defalut: true)
@@ -253,6 +259,7 @@ class Settings {
         userDefaults.set(threadBlockWordList, forKey: Self.kThreadBlockWordList)
         userDefaults.set(isEnabledThreadAttention, forKey: Self.kIsEnabledThreadAttention)
         userDefaults.set(threadAttentionWordList, forKey: Self.kThreadAttentionWordList)
+        userDefaults.set(threadHistoryCountLimit, forKey: Self.kThreadHistoryCountLimit)
         userDefaults.set(isEnabledMessagePush, forKey: Self.kIsEnabledMessagePush)
         userDefaults.set(isEnabledSystemPm, forKey: Self.kIsEnabledSystemPm)
         userDefaults.set(isEnabledFriendPm, forKey: Self.kIsEnabledFriendPm)
@@ -306,6 +313,7 @@ class Settings {
         threadBlockWordList = []
         isEnabledThreadAttention = false
         threadAttentionWordList = []
+        threadHistoryCountLimit = Settings.kThreadHistoryCountDefault
         isEnabledMessagePush = true
         isEnabledSystemPm = true
         isEnabledFriendPm = true

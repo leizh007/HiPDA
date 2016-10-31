@@ -36,8 +36,6 @@ class SettingsTests: XCTestCase {
         Settings.shared.reset()
         let settings = Settings()
         
-        XCTAssert(settings.accountList == [])
-        XCTAssert(settings.activeAccount == nil)
         XCTAssert(settings.autoDownloadImageWhenUsingWWAN)
         XCTAssert(settings.autoDownloadImageSizeThreshold == 256 * 1024)
         XCTAssert(abs(settings.fontSize - 17.0) < 0.01)
@@ -48,6 +46,7 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings.threadBlockWordList == [])
         XCTAssert(!settings.isEnabledThreadAttention)
         XCTAssert(settings.threadAttentionWordList == [])
+        XCTAssert(settings.threadHistoryCountLimit == 100)
         XCTAssert(settings.isEnabledMessagePush)
         XCTAssert(settings.isEnabledSystemPm)
         XCTAssert(settings.isEnabledFriendPm)
@@ -67,13 +66,6 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings.avatarImageResolution == .middle)
         
         /// 改变settings里面参数的值
-        let account = Account(name: "leizh007",
-                               uid: 697558,
-                               questionid: 0,
-                               answer: "",
-                               password: "password")
-        settings.accountList = [account]
-        settings.activeAccount = account
         settings.autoDownloadImageWhenUsingWWAN = false
         settings.autoDownloadImageSizeThreshold = 512
         settings.fontSize = 20.0
@@ -84,6 +76,7 @@ class SettingsTests: XCTestCase {
         settings.threadBlockWordList = ["threadBlockWord1", "threadBlockWord2"]
         settings.isEnabledThreadAttention = true
         settings.threadAttentionWordList = ["threadAttentionWord1", "threadAttentionWord2"]
+        settings.threadHistoryCountLimit = 200
         settings.isEnabledMessagePush = false
         settings.isEnabledSystemPm = false
         settings.isEnabledFriendPm = false
@@ -106,8 +99,6 @@ class SettingsTests: XCTestCase {
         settings.save()
         
         let setting1 = Settings()
-        XCTAssert(setting1.accountList == [account])
-        XCTAssert(setting1.activeAccount! == account)
         XCTAssert(!setting1.autoDownloadImageWhenUsingWWAN)
         XCTAssert(setting1.autoDownloadImageSizeThreshold == 512)
         XCTAssert(abs(setting1.fontSize - 20.0) < 0.01)
@@ -118,6 +109,7 @@ class SettingsTests: XCTestCase {
         XCTAssert(setting1.threadBlockWordList == ["threadBlockWord1", "threadBlockWord2"])
         XCTAssert(setting1.isEnabledThreadAttention)
         XCTAssert(setting1.threadAttentionWordList == ["threadAttentionWord1", "threadAttentionWord2"])
+        XCTAssert(setting1.threadHistoryCountLimit == 200)
         XCTAssert(!setting1.isEnabledMessagePush)
         XCTAssert(!setting1.isEnabledSystemPm)
         XCTAssert(!setting1.isEnabledFriendPm)
