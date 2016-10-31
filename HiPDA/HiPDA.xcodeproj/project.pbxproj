@@ -52,6 +52,7 @@
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */; };
 		05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */; };
+		05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */; };
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
 		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
@@ -151,6 +152,7 @@
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerActionSheetController.swift; sourceTree = "<group>"; };
+		05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+HiPDA.swift"; sourceTree = "<group>"; };
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */,
 				0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */,
 				0589EB6B1DB525410055DBB9 /* String+HiPDA.swift */,
+				05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -860,6 +863,7 @@
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
+				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
 				05CB48A71D7C6E3A000926E6 /* UIStoryboard+HiPDA.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
