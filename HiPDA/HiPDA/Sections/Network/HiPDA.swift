@@ -36,6 +36,7 @@ extension HiPDA: TargetType {
                 "password": account.password,
                 "questionid": account.questionid,
                 "answer": account.answer,
+                "cookietime" : 60 * 60 * 24 * 30
             ]
         }
     }
