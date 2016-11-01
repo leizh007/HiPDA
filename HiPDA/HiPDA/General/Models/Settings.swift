@@ -38,7 +38,9 @@ class Settings {
     @discardableResult
     func add(account: Account) -> Int {
         for (index, accountElement) in accountList.enumerated() {
-            if accountElement == account {
+            if accountElement.uid == account.uid {
+                accountList.remove(at: index)
+                accountList.insert(account, at: index)
                 return index
             }
         }

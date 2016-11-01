@@ -20,38 +20,44 @@ class LoginManager: Bootstrapping {
     func bootstrap(bootstrapped: Bootstrapped) throws {
         if let account = Settings.shared.activeAccount {
             LoginViewModel.login(with: account)
-                .subscribe(onNext: { (result) in
+                .subscribe(onNext: { [weak self] (result) in
+                    if case .failure(_) = result {
+                        self?.changeRootViewControllerToLogin(duration: 0.75, delay: 1.0)
+                    }
                     EventBus.shared.dispatch(ChangeAccountAction(account: result))
             }).addDisposableTo(disposeBag)
         } else {
-            let loginViewController = LoginViewController.load(from: UIStoryboard.main)
-            guard let window = UIApplication.shared.windows.safe[0] else { return }
-            homeViewController = window.rootViewController
-            homeViewController?.view.layoutIfNeeded()
-            window.rootViewController = loginViewController
+            changeRootViewControllerToLogin(duration: 0.0, delay: 0.0)
+        }
+    }
+    
+    /// 将rootViewController切换到登录的ViewController
+    ///
+    /// - Parameters:
+    ///   - duration: 动画持续时间
+    ///   - seconds: 延迟时间
+    private func changeRootViewControllerToLogin(duration: Double, delay seconds: Double) {
+        let loginViewController = LoginViewController.load(from: UIStoryboard.main)
+        guard let window = UIApplication.shared.windows.safe[0] else { return }
+        homeViewController = window.rootViewController
+        homeViewController?.view.layoutIfNeeded()
+        loginViewController.view.frame = window.bounds
+        delay(seconds: seconds) {
+            UIView.transition(with: window, duration: duration, options: [.transitionFlipFromLeft, .curveEaseInOut], animations: {
+                window.rootViewController = loginViewController
+            }, completion: nil)
+        }
+        
+        loginViewController.loggedInCompletion = { [weak self] account in
+            guard let `self` = self else { return }
+            Settings.shared.add(account: account)
+            Settings.shared.activeAccount = account
+            EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
             
-            loginViewController.loggedInCompletion = { [weak self] account in
-                guard let `self` = self else { return }
-                Settings.shared.add(account: account)
-                Settings.shared.activeAccount = account
-                EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
-                
-                guard let window = UIApplication.shared.windows.safe[0] else { return }
-                let windowBackgroundColor = window.backgroundColor
-                /// 这个颜色是navigationBar的颜色
-                window.backgroundColor = #colorLiteral(red: 0.9763647914, green: 0.9765316844, blue: 0.9764705882, alpha: 1)
-                /// 动画过程中没有statusBar，所以navigationBar的高度会少20
-                self.homeViewController?.view.frame = CGRect(x: 0,
-                                                             y: StatusBarHeight,
-                                                             width: ScreenWidth,
-                                                             height: ScreenHeigh - StatusBarHeight)
-                
-                UIView.transition(with: window, duration: 0.75, options: [.transitionFlipFromRight, .curveEaseInOut], animations: {
-                    window.rootViewController = self.homeViewController
-                }, completion: { _ in
-                    window.backgroundColor = windowBackgroundColor
-                })
-            }
+            guard let window = UIApplication.shared.windows.safe[0] else { return }
+            UIView.transition(with: window, duration: 0.75, options: [.transitionFlipFromRight, .curveEaseInOut], animations: {
+                window.rootViewController = self.homeViewController
+            }, completion:nil)
         }
     }
 }

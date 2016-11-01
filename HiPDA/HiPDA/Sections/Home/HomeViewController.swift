@@ -11,6 +11,9 @@ import Moya
 
 /// 主页的ViewController
 class HomeViewController: BaseViewController {
+    /// 是否展示登录成功的提示信息
+    private var showLoginSuccessInformation = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,9 +24,12 @@ class HomeViewController: BaseViewController {
                 self.hidePromptInformation()
                 switch result {
                 case .success(_):
-                    self.showPromptInformation(of: .success("登录成功"))
+                    if self.showLoginSuccessInformation {
+                       self.showPromptInformation(of: .success("登录成功"))
+                    }
                 case .failure(let error):
                     self.showPromptInformation(of: .failure("\(error)"))
+                    self.showLoginSuccessInformation = false
                 }
             }).addDisposableTo(disposeBag)
         }
