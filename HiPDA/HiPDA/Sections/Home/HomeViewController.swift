@@ -32,7 +32,8 @@ class HomeViewController: BaseViewController {
             switch result {
             case .success(_):
                 if self.showLoginSuccessInformation {
-                   self.showPromptInformation(of: .success("登录成功"))
+                    self.showPromptInformation(of: .success("登录成功"))
+                    self.showLoginSuccessInformation = false
                 }
                 // FIXME: - Do load data action
             case .failure(let error):

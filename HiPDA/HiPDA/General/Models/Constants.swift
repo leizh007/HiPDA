@@ -14,6 +14,9 @@ let ScreenWidth = UIScreen.main.bounds.size.width
 /// 屏幕高度
 let ScreenHeigh = UIScreen.main.bounds.size.height
 
+/// 屏幕scale
+let ScreenScale = UIScreen.main.scale
+
 /// 状态栏高度
 let StatusBarHeight: CGFloat = 20.0
 
@@ -22,4 +25,4 @@ let StatusBarHeight: CGFloat = 20.0
 let NavigationBarHeight = 44.0
 
 /// Tabbar的tint color
-let TabbarTintColor = #colorLiteral(red: 0.3958577514, green: 0.734130621, blue: 0.9476895928, alpha: 1)
+let TabbarTintColor = #colorLiteral(red: 0.1137254902, green: 0.6352941176, blue: 0.9490196078, alpha: 1)
