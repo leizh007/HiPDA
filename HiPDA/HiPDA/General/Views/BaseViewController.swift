@@ -58,7 +58,7 @@ class BaseViewController: UIViewController {
     ///
     /// - parameter navigationBar: 待配置的navigationBar
     func configureApperance(of navigationBar: UINavigationBar) {
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     // MARK: - UIViewController Transitioning Animator

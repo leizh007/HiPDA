@@ -27,6 +27,7 @@
 		055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CB1D50E0D600057CF6 /* Bootstrap.swift */; };
 		055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */; };
 		05645C7B1D75D60900B86D0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05645C7A1D75D60900B86D0A /* Constants.swift */; };
+		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */; };
 		0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */; };
 		0589EB531DB254770055DBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589EB511DB254770055DBB9 /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		055996CB1D50E0D600057CF6 /* Bootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
 		055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
 		05645C7A1D75D60900B86D0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 		0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HiPDA.swift"; sourceTree = "<group>"; };
 		0589EB521DB254770055DBB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -356,6 +358,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		057016A31DCA3CFF0024EC3B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		05B506721D6C8D4B004D573D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +454,7 @@
 		05E9A26D1D7ACFDB0096878B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				057016A31DCA3CFF0024EC3B /* Settings */,
 				05E9A2721D7AD00C0096878B /* MeViewController.swift */,
 			);
 			path = Me;
@@ -880,6 +891,7 @@
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
+				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
