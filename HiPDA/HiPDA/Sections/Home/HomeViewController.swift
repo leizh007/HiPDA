@@ -8,6 +8,8 @@
 
 import UIKit
 import Moya
+import RxSwift
+import RxCocoa
 
 /// 主页的ViewController
 class HomeViewController: BaseViewController {
@@ -19,20 +21,25 @@ class HomeViewController: BaseViewController {
         
         if Settings.shared.activeAccount != nil {
             self.showPromptInformation(of: .loading)
-            EventBus.shared.activeAccount.drive(onNext: { [weak self] (result) in
-                guard let `self` = self, let result = result else { return }
-                self.hidePromptInformation()
-                switch result {
-                case .success(_):
-                    if self.showLoginSuccessInformation {
-                       self.showPromptInformation(of: .success("登录成功"))
-                    }
-                case .failure(let error):
-                    self.showPromptInformation(of: .failure("\(error)"))
-                    self.showLoginSuccessInformation = false
-                }
-            }).addDisposableTo(disposeBag)
         }
+        
+        Driver.combineLatest(EventBus.shared.activeAccount, isAppeared.asDriver()) { ($0, $1) }
+            .filter { $0.1 }
+            .map { $0.0 }
+            .drive(onNext: { [weak self] (result) in
+            guard let `self` = self, let result = result else { return }
+            self.hidePromptInformation()
+            switch result {
+            case .success(_):
+                if self.showLoginSuccessInformation {
+                   self.showPromptInformation(of: .success("登录成功"))
+                }
+                // FIXME: - Do load data action
+            case .failure(let error):
+                self.showPromptInformation(of: .failure("\(error)"))
+                self.showLoginSuccessInformation = false
+            }
+        }).addDisposableTo(disposeBag)
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {

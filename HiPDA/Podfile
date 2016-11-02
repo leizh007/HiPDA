@@ -44,6 +44,7 @@ target 'HiPDA' do
   pod 'YYKeyboardManager'
   pod 'Moya/RxSwift', '~> 8.0.0-beta.3'
   pod 'MBProgressHUD'
+  pod 'SDWebImage', '~> 4.0.0-beta2'
     
   target 'HiPDATests' do
     inherit! :search_paths

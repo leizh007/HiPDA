@@ -32,6 +32,9 @@ PODS:
     - RxSwift (~> 3.0)
   - RxSwift (3.0.0)
   - SAMKeychain (1.5.2)
+  - SDWebImage (4.0.0-beta2):
+    - SDWebImage/Core (= 4.0.0-beta2)
+  - SDWebImage/Core (4.0.0-beta2)
   - YYKeyboardManager (1.0.1)
 
 DEPENDENCIES:
@@ -52,6 +55,7 @@ DEPENDENCIES:
   - RxDataSources (~> 1.0.0-beta.2)
   - RxSwift (~> 3.0.0-beta.1)
   - SAMKeychain
+  - SDWebImage (~> 4.0.0-beta2)
   - YYKeyboardManager
 
 EXTERNAL SOURCES:
@@ -91,8 +95,9 @@ SPEC CHECKSUMS:
   RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: 188011002351e45f52b7c4c57c630f62ea40b8b7
+PODFILE CHECKSUM: 1cffa44af515fe705e1e5185efe91ce9f538d642
 
 COCOAPODS: 1.1.1

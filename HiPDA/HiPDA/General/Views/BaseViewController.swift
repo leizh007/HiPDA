@@ -16,6 +16,9 @@ class BaseViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    /// VC是否已经出现在屏幕上
+    let isAppeared = Variable(false)
+    
     // MARK: - Layout Constraints
     
     fileprivate(set) var didSetupConstraints = false
@@ -27,6 +30,16 @@ class BaseViewController: UIViewController {
         if let navigationBar = navigationController?.navigationBar {
             configureApperance(of: navigationBar)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isAppeared.value = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        isAppeared.value = false
     }
     
     override func updateViewConstraints() {
