@@ -54,12 +54,20 @@ struct HtmlParser {
     ///
     /// - returns: 返回登录成功的用户名
     static func loggedInUserName(from html: String) throws -> String {
-        let result = try Regex.firstMatch(in: html, of: "欢迎您回来，([\\s\\S]*?)。现在将转入登录前页面。")
+        let result = try Regex.firstMatch(in: html, of: "欢迎您回来，([\\s\\S]*?)。")
         guard result.count == 2 else {
             throw HtmlParserError.cannotGetUsername
         }
         
         return result[1]
+    }
+    
+    /// 用户是否处于激活状态
+    ///
+    /// - Parameter html: html字符串
+    /// - Returns: 是否激活
+    static func isLoggedInAccountActived(from html: String) -> Bool {
+        return !html.contains("您的帐号处于非激活状态，现在将转入控制面板。")
     }
     
     /// 获取登录结果
@@ -75,6 +83,9 @@ struct HtmlParser {
         if let username = try? loggedInUserName(from: html) {
             guard username == name else {
                 throw LoginError.alreadyLoggedInAnotherAccount(username)
+            }
+            guard isLoggedInAccountActived(from: html) else {
+                throw LoginError.unActived
             }
             do {
                 let uid = try HtmlParser.uid(from: html)

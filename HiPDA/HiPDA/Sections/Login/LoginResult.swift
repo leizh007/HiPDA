@@ -19,6 +19,7 @@ enum LoginError: Error {
     case attempCountExceedsLimit
     case unKnown(String)
     case cannotGetUid
+    case unActived
     case alreadyLoggedInAnotherAccount(String)
 }
 
@@ -32,6 +33,8 @@ extension LoginError: Equatable {
         case (.unKnown(let value1), .unKnown(let value2)):
             return value1 == value2
         case (.cannotGetUid, .cannotGetUid):
+            return true
+        case (.unActived, .unActived):
             return true
         case (.alreadyLoggedInAnotherAccount(let value1), .alreadyLoggedInAnotherAccount(let value2)):
             return value1 == value2
@@ -52,6 +55,8 @@ extension LoginError: CustomStringConvertible {
             return value
         case .cannotGetUid:
             return "无法获取uid"
+        case .unActived:
+            return "您的帐号处于非激活状态，只有激活后才能使用该App！"
         case .alreadyLoggedInAnotherAccount(let name):
             return "已登陆其他账户：\(name), 请清理cookie后再试"
         }
