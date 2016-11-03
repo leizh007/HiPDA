@@ -28,6 +28,7 @@
 		055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */; };
 		05645C7B1D75D60900B86D0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05645C7A1D75D60900B86D0A /* Constants.swift */; };
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
+		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */; };
 		0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */; };
 		0589EB531DB254770055DBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589EB511DB254770055DBB9 /* Main.storyboard */; };
@@ -121,6 +122,7 @@
 		055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
 		05645C7A1D75D60900B86D0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 		0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HiPDA.swift"; sourceTree = "<group>"; };
 		0589EB521DB254770055DBB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				05B506731D6C8D64004D573D /* ReusableView.swift */,
 				05B506751D6C91E9004D573D /* NibLoadableView.swift */,
 				05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */,
+				057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
+				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
