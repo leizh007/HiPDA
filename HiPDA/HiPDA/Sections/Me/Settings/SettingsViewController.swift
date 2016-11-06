@@ -59,16 +59,16 @@ class SettingsViewController: UITableViewController {
     @IBOutlet private weak var userRemarkSwitch: UISwitch!
     
     /// 小尾巴
-    @IBOutlet private  weak var tailSwitch: UISwitch!
+    @IBOutlet private weak var tailSwitch: UISwitch!
     
     /// 浏览历史条数
-    @IBOutlet fileprivate weak var historyCountLimitTextField: UITextField!
+    @IBOutlet private weak var historyCountLimitTextField: UITextField!
     
     /// 小尾巴文字
-    @IBOutlet fileprivate weak var tailTextTextField: UITextField!
+    @IBOutlet private weak var tailTextTextField: UITextField!
     
     /// 小尾巴链接
-    @IBOutlet fileprivate weak var tailURLTextField: UITextField!
+    @IBOutlet private weak var tailURLTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
