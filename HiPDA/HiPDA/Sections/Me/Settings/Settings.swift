@@ -58,11 +58,11 @@ class Settings {
     private static let kAutoDownloadImageSizeThreshold = "autoDownloadImageSizeThreshold"
     
     /// 读帖子界面字体大小
-    var fontSize: Float
+    var fontSize: Int
     private static let kFontSize = "fontSize"
     
     /// 读帖子界面字体行间距
-    var lineSpacing: Float
+    var lineSpacing: Int
     private static let kLineSpacing = "lineSpacing"
     
     /// 是否开启黑名单过滤
@@ -186,8 +186,8 @@ class Settings {
         
         autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: Self.kAutoDownloadImageWhenUsingWWAN, defalut: true)
         autoDownloadImageSizeThreshold = (userDefaults.value(forKey: Self.kAutoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
-        fontSize = (userDefaults.value(forKey: Self.kFontSize) as? Float) ?? 17.0
-        lineSpacing = (userDefaults.value(forKey: Self.kLineSpacing) as? Float) ?? 1.0
+        fontSize = (userDefaults.value(forKey: Self.kFontSize) as? Int) ?? 17
+        lineSpacing = (userDefaults.value(forKey: Self.kLineSpacing) as? Int) ?? 1
         isEnabledUserBlock = boolValue(in: userDefaults, key: Self.kIsEnabledUserBlock, defalut: true)
         userBlockList = (userDefaults.value(forKey: Self.kUserBlockList) as? [String]) ?? []
         isEnabledThreadBlock = boolValue(in: userDefaults, key: Self.kIsEnabledThreadBlock, defalut: false)
@@ -307,8 +307,8 @@ class Settings {
         /// 设置默认值
         autoDownloadImageWhenUsingWWAN = true
         autoDownloadImageSizeThreshold = 256 * 1024
-        fontSize = 17.0
-        lineSpacing = 1.0
+        fontSize = 17
+        lineSpacing = 1
         isEnabledUserBlock = true
         userBlockList = []
         isEnabledThreadBlock = false

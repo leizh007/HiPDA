@@ -29,7 +29,7 @@ class MeViewController: UITableViewController {
         avatarImageView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor
         
         guard let account = Settings.shared.activeAccount else { return }
-        avatarImageView.sd_setImage(with: account.avatarImageURL)
+        avatarImageView.sd_setImage(with: account.avatarImageURL, placeholderImage: #imageLiteral(resourceName: "avatar_placeholder"))
         nameLabel.text = account.name
         uidLabel.text = "UID: \(account.uid)"
     }

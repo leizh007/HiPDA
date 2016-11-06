@@ -21,6 +21,8 @@ class HomeViewController: BaseViewController {
         
         if Settings.shared.activeAccount != nil {
             self.showPromptInformation(of: .loading)
+        } else {
+            showLoginSuccessInformation = false
         }
         
         Driver.combineLatest(EventBus.shared.activeAccount, isAppeared.asDriver()) { ($0, $1) }
