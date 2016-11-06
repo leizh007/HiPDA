@@ -76,7 +76,6 @@ class SettingsViewController: UITableViewController {
         navigationController?.navigationBar.topItem?.title = ""
         navigationItem.title = "设置"
         
-        configureViews()
         configureViewModel()
         configureTableView()
     }
@@ -87,31 +86,26 @@ class SettingsViewController: UITableViewController {
         settings.save()
     }
     
-    /// 初始化配置view的值
-    private func configureViews() {
-        guard let account = settings.activeAccount else { return }
-        avatarImageView.sd_setImage(with: account.avatarImageURL, placeholderImage: #imageLiteral(resourceName: "avatar_placeholder"))
-        
-        userBlockSwitch.isOn = settings.isEnabledUserBlock
-        threadBlockSwitch.isOn = settings.isEnabledThreadBlock
-        threadAttentionSwitch.isOn = settings.isEnabledThreadAttention
-        messagePushSwitch.isOn = settings.isEnabledMessagePush
-        systemPmSwitch.isOn = settings.isEnabledSystemPm
-        friendPmSwitch.isOn = settings.isEnabledFriendPm
-        threadPmSwitch.isOn = settings.isEnabledThreadPm
-        privatePmSwitch.isOn = settings.isEnabledPrivatePm
-        annoucePmSwitch.isOn = settings.isEnabledAnnoucePm
-        pmDoNotDisturbSwitch.isOn = settings.isEnabledPmDoNotDisturb
-        userBlockSwitch.isOn = settings.isEnabledUserBlock
-        userRemarkSwitch.isOn = settings.isEnabledUserRemark
-        tailSwitch.isOn = settings.isEnabledTail
-        historyCountLimitTextField.text = "\(settings.threadHistoryCountLimit)"
-        tailTextTextField.text = settings.tailText
-        tailURLTextField.text = settings.tailURL?.absoluteString ?? ""
-    }
-    
     /// 配置viewModel
     private func configureViewModel() {
+        viewModel = SettingsViewModel(settings: self.settings)
+        userBlockSwitch.isOn = viewModel.isEnabledUserBlock
+        threadBlockSwitch.isOn = viewModel.isEnabledThreadBlock
+        threadAttentionSwitch.isOn = viewModel.isEnabledThreadAttention
+        messagePushSwitch.isOn = viewModel.isEnabledMessagePush
+        systemPmSwitch.isOn = viewModel.isEnabledSystemPm
+        friendPmSwitch.isOn = viewModel.isEnabledFriendPm
+        threadPmSwitch.isOn = viewModel.isEnabledThreadPm
+        privatePmSwitch.isOn = viewModel.isEnabledPrivatePm
+        annoucePmSwitch.isOn = viewModel.isEnabledAnnoucePm
+        pmDoNotDisturbSwitch.isOn = viewModel.isEnabledPmDoNotDisturb
+        userBlockSwitch.isOn = viewModel.isEnabledUserBlock
+        userRemarkSwitch.isOn = viewModel.isEnabledUserRemark
+        tailSwitch.isOn = viewModel.isEnabledTail
+        historyCountLimitTextField.text = viewModel.threadHistoryCountLimitString
+        tailTextTextField.text = viewModel.tailText
+        tailURLTextField.text = viewModel.tailURLString
+        
         let historyCountLimit = historyCountLimitTextField.rx.controlEvent(.editingDidEnd)
             .map { [weak textField = historyCountLimitTextField] in
                 return textField?.text ?? ""
@@ -127,22 +121,21 @@ class SettingsViewController: UITableViewController {
                 return textField?.text ?? ""
             }.asDriver(onErrorJustReturn: "")
         
-        viewModel = SettingsViewModel(settings: settings,
-                                      userBlock: userBlockSwitch.rx.value.asDriver(),
-                                      threadBlock: threadBlockSwitch.rx.value.asDriver(),
-                                      threadAttention: threadAttentionSwitch.rx.value.asDriver(),
-                                      messagePush: messagePushSwitch.rx.value.asDriver(),
-                                      systemPm: systemPmSwitch.rx.value.asDriver(),
-                                      friendPm: friendPmSwitch.rx.value.asDriver(),
-                                      threadPm: threadPmSwitch.rx.value.asDriver(),
-                                      privatePm: privatePmSwitch.rx.value.asDriver(),
-                                      announcePm: annoucePmSwitch.rx.value.asDriver(),
-                                      pmDoNotDisturb: pmDoNotDisturbSwitch.rx.value.asDriver(),
-                                      userRemark: userRemarkSwitch.rx.value.asDriver(),
-                                      historyCountLimit: historyCountLimit,
-                                      tail: tailSwitch.rx.value.asDriver(),
-                                      tailText: tailText,
-                                      tailURL: tailURL)
+        viewModel.handle(userBlock: userBlockSwitch.rx.value.asDriver(),
+                         threadBlock: threadBlockSwitch.rx.value.asDriver(),
+                         threadAttention: threadAttentionSwitch.rx.value.asDriver(),
+                         messagePush: messagePushSwitch.rx.value.asDriver(),
+                         systemPm: systemPmSwitch.rx.value.asDriver(),
+                         friendPm: friendPmSwitch.rx.value.asDriver(),
+                         threadPm: threadPmSwitch.rx.value.asDriver(),
+                         privatePm: privatePmSwitch.rx.value.asDriver(),
+                         announcePm: annoucePmSwitch.rx.value.asDriver(),
+                         pmDoNotDisturb: pmDoNotDisturbSwitch.rx.value.asDriver(),
+                         userRemark: userRemarkSwitch.rx.value.asDriver(),
+                         historyCountLimit: historyCountLimit,
+                         tail: tailSwitch.rx.value.asDriver(),
+                         tailText: tailText,
+                         tailURL: tailURL)
     }
     
     /// 配置tableView相关

@@ -15,51 +15,133 @@ struct SettingsViewModel {
     /// disposeBag
     private let disposeBag = DisposeBag()
     
-    init(settings: Settings, userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>) {
+    /// 设置
+    private let settings: Settings
+    
+    /// 是否开启黑名单过滤
+    var isEnabledUserBlock: Bool {
+        return settings.isEnabledUserBlock
+    }
+    
+    /// 是否开启帖子过滤
+    var isEnabledThreadBlock: Bool {
+        return settings.isEnabledThreadBlock
+    }
+    
+    /// 是否开启帖子关注
+    var isEnabledThreadAttention: Bool {
+        return settings.isEnabledThreadAttention
+    }
+    
+    /// 浏览历史的条数
+    var threadHistoryCountLimitString: String {
+        return "\(settings.threadHistoryCountLimit)"
+    }
+    
+    /// 是否开启消息推送
+    var isEnabledMessagePush: Bool {
+        return settings.isEnabledMessagePush
+    }
+    
+    /// 是否开启系统消息推送
+    var isEnabledSystemPm: Bool {
+        return settings.isEnabledSystemPm
+    }
+    
+    /// 是否开启好友消息推送
+    var isEnabledFriendPm: Bool {
+        return settings.isEnabledFriendPm
+    }
+    
+    /// 是否开启帖子消息推送
+    var isEnabledThreadPm: Bool {
+        return settings.isEnabledThreadPm
+    }
+    
+    /// 是否开启私人消息推送
+    var isEnabledPrivatePm: Bool {
+        return settings.isEnabledPrivatePm
+    }
+    
+    /// 是否开启公共消息推送
+    var isEnabledAnnoucePm: Bool {
+        return settings.isEnabledAnnoucePm
+    }
+    
+    /// 是否开启消息免打扰
+    var isEnabledPmDoNotDisturb: Bool {
+        return settings.isEnabledPmDoNotDisturb
+    }
+    
+    /// 是否开启用户备注
+    var isEnabledUserRemark: Bool {
+        return settings.isEnabledUserRemark
+    }
+    
+    /// 是否开启小尾巴设置
+    var isEnabledTail: Bool {
+        return settings.isEnabledTail
+    }
+    
+    /// 小尾巴文字
+    var tailText: String {
+        return settings.tailText
+    }
+    
+    /// 小尾巴链接
+    var tailURLString: String {
+        return settings.tailURL?.absoluteString ?? ""
+    }
+    
+    init(settings: Settings) {
+        self.settings = settings
+    }
+    
+    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>) {
         userBlock.drive(onNext: { on in
-                settings.isEnabledUserBlock = on
+                self.settings.isEnabledUserBlock = on
             }).addDisposableTo(disposeBag)
         threadBlock.drive(onNext: { on in
-            settings.isEnabledThreadBlock = on
+            self.settings.isEnabledThreadBlock = on
         }).addDisposableTo(disposeBag)
         threadAttention.drive(onNext: { on in
-            settings.isEnabledThreadAttention = on
+            self.settings.isEnabledThreadAttention = on
         }).addDisposableTo(disposeBag)
         messagePush.drive(onNext: { on in
-            settings.isEnabledMessagePush = on
+            self.settings.isEnabledMessagePush = on
         }).addDisposableTo(disposeBag)
         systemPm.drive(onNext: { on in
-            settings.isEnabledSystemPm = on
+            self.settings.isEnabledSystemPm = on
         }).addDisposableTo(disposeBag)
         friendPm.drive(onNext: { on in
-            settings.isEnabledFriendPm = on
+            self.settings.isEnabledFriendPm = on
         }).addDisposableTo(disposeBag)
         threadPm.drive(onNext: { on in
-            settings.isEnabledThreadPm = on
+            self.settings.isEnabledThreadPm = on
         }).addDisposableTo(disposeBag)
         privatePm.drive(onNext: { on in
-            settings.isEnabledPrivatePm = on
+            self.settings.isEnabledPrivatePm = on
         }).addDisposableTo(disposeBag)
         announcePm.drive(onNext: { on in
-            settings.isEnabledAnnoucePm = on
+            self.settings.isEnabledAnnoucePm = on
         }).addDisposableTo(disposeBag)
         pmDoNotDisturb.drive(onNext: { on in
-            settings.isEnabledPmDoNotDisturb = on
+            self.settings.isEnabledPmDoNotDisturb = on
         }).addDisposableTo(disposeBag)
         userRemark.drive(onNext: { on in
-            settings.isEnabledUserRemark = on
+            self.settings.isEnabledUserRemark = on
         }).addDisposableTo(disposeBag)
         historyCountLimit.drive(onNext: { text in
-            settings.threadHistoryCountLimit = Int(text) ?? 100
+            self.settings.threadHistoryCountLimit = Int(text) ?? 100
         }).addDisposableTo(disposeBag)
         tail.drive(onNext: { on in
-            settings.isEnabledTail = on
+            self.settings.isEnabledTail = on
         }).addDisposableTo(disposeBag)
         tailText.drive(onNext: { text in
-            settings.tailText = text
+            self.settings.tailText = text
         }).addDisposableTo(disposeBag)
         tailURL.drive(onNext: { text in
-            settings.tailURL = URL(string: text)
+            self.settings.tailURL = URL(string: text)
         }).addDisposableTo(disposeBag)
     }
 }
