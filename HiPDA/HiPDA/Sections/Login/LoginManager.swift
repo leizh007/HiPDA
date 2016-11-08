@@ -37,7 +37,7 @@ class LoginManager: Bootstrapping {
     ///   - duration: 动画持续时间
     ///   - seconds: 延迟时间
     private func changeRootViewControllerToLogin(duration: Double, delay seconds: Double) {
-        let loginViewController = LoginViewController.load(from: UIStoryboard.main)
+        let loginViewController = LoginViewController.load(from: .login)
         guard let window = UIApplication.shared.windows.safe[0] else { return }
         homeViewController = window.rootViewController
         homeViewController?.view.layoutIfNeeded()

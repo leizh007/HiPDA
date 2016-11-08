@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum StoryBoard: String {
+    case main = "Main"
+    case login = "Login"
+    case pickerActionSheet = "PickerActionSheet"
+}
+
 /// 可以从storyboard中加载
 protocol StoryboardLoadable {
     
@@ -18,7 +24,8 @@ extension StoryboardLoadable where Self: UIViewController {
         return "\(self)"
     }
     
-    static func load(from storyboard: UIStoryboard) -> Self {
-        return storyboard.instantiateViewController(withIdentifier: Self.identifier) as! Self
+    static func load(from storyboard: StoryBoard) -> Self {
+        return UIStoryboard(name: storyboard.rawValue, bundle: nil)
+            .instantiateViewController(withIdentifier: Self.identifier) as! Self
     }
 }
