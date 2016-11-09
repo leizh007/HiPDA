@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V8n-1c-oiE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,7 +13,7 @@
             <objects>
                 <tableViewController id="V8n-1c-oiE" customClass="MeViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Rm7-9Y-bbB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -956,11 +959,30 @@
                         <outlet property="threadPmSwitch" destination="uYX-os-59X" id="gz4-wK-5t3"/>
                         <outlet property="userBlockSwitch" destination="75a-91-kSC" id="cGY-z3-0hd"/>
                         <outlet property="userRemarkSwitch" destination="dyn-7t-hMz" id="O7F-6K-Ixv"/>
+                        <segue destination="kso-PD-7sJ" kind="show" identifier="EditWords" id="vNP-ex-uTo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hna-2b-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2152.8000000000002" y="1933.5832083958023"/>
+        </scene>
+        <!--Edit Word List View Controller-->
+        <scene sceneID="WKA-5p-HKe">
+            <objects>
+                <viewController id="kso-PD-7sJ" customClass="EditWordListViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MsH-HD-wlw"/>
+                        <viewControllerLayoutGuide type="bottom" id="7gY-oG-0SN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3cS-6p-hSY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpM-F6-8nZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908" y="1934"/>
         </scene>
     </scenes>
     <resources>

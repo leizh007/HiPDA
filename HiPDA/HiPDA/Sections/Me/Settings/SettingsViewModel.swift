@@ -23,14 +23,47 @@ struct SettingsViewModel {
         return settings.isEnabledUserBlock
     }
     
+    /// 黑名单列表，屏蔽用户名
+    var userBlockList: [String] {
+        get {
+            return settings.userBlockList
+        }
+        
+        set {
+            settings.userBlockList = newValue
+        }
+    }
+    
     /// 是否开启帖子过滤
     var isEnabledThreadBlock: Bool {
         return settings.isEnabledThreadBlock
     }
     
+    /// 帖子过滤单词列表
+    var threadBlockWordList: [String]{
+        get {
+            return settings.threadBlockWordList
+        }
+        
+        set {
+            settings.threadBlockWordList = newValue
+        }
+    }
+    
     /// 是否开启帖子关注
     var isEnabledThreadAttention: Bool {
         return settings.isEnabledThreadAttention
+    }
+    
+    /// 帖子关注单词列表
+    var threadAttentionWordList: [String]{
+        get {
+            return settings.threadAttentionWordList
+        }
+        
+        set {
+            settings.threadAttentionWordList = newValue
+        }
     }
     
     /// 浏览历史的条数
@@ -97,6 +130,7 @@ struct SettingsViewModel {
         self.settings = settings
     }
     
+    /// 处理事件
     func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>) {
         userBlock.drive(onNext: { on in
                 self.settings.isEnabledUserBlock = on

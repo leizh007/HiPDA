@@ -39,6 +39,11 @@ class MeViewController: UITableViewController {
         
         tableView.isScrollEnabled = tableView.contentSize.height > view.bounds.size.height
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
 }
 
 // MARK: - UITableViewDelegate

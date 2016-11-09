@@ -17,6 +17,8 @@
 		050EE3261DD200DE00C4B18D /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3251DD200DE00C4B18D /* Notification.storyboard */; };
 		050EE3281DD200EB00C4B18D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3271DD200EB00C4B18D /* Search.storyboard */; };
 		050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3291DD2019B00C4B18D /* Me.storyboard */; };
+		050EE32E1DD365B900C4B18D /* EditWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */; };
+		050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */; };
 		05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		05416C891D903CB200049AA0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05416C881D903CB200049AA0 /* Result.swift */; };
@@ -114,6 +116,8 @@
 		050EE3251DD200DE00C4B18D /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		050EE3271DD200EB00C4B18D /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		050EE3291DD2019B00C4B18D /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
+		050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListViewController.swift; sourceTree = "<group>"; };
+		050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+HiPDA.swift"; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -376,7 +380,9 @@
 			children = (
 				057016F01DCB78700024EC3B /* Settings.swift */,
 				057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */,
+				050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */,
 				0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */,
+				050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -892,9 +898,11 @@
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
+				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
+				050EE32E1DD365B900C4B18D /* EditWordListViewController.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,

@@ -49,6 +49,11 @@ class BaseViewController: UIViewController {
         super.updateViewConstraints()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
     func setupConstraints() {
         // Override point
     }
@@ -57,7 +62,6 @@ class BaseViewController: UIViewController {
     ///
     /// - parameter navigationBar: 待配置的navigationBar
     func configureApperance(of navigationBar: UINavigationBar) {
-        navigationController?.navigationBar.topItem?.title = ""
     }
     
     // MARK: - UIViewController Transitioning Animator

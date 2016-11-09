@@ -20,7 +20,7 @@ class SettingsViewController: UITableViewController {
     private let settings = Settings.shared
     
     /// viewModel
-    private var viewModel: SettingsViewModel!
+    var viewModel: SettingsViewModel!
     
     /// 用户头像
     @IBOutlet private weak var avatarImageView: UIImageView!
@@ -73,8 +73,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.title = ""
-        navigationItem.title = "设置"
+        title = "设置"
         
         configureViewModel()
         configureTableView()
@@ -84,6 +83,11 @@ class SettingsViewController: UITableViewController {
         super.viewDidDisappear(animated)
         
         settings.save()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     /// 配置viewModel
@@ -140,6 +144,8 @@ class SettingsViewController: UITableViewController {
     
     /// 配置tableView相关
     private func configureTableView() {
+        let router = SettingsRouter(viewController: self)
+        
         tableView.rx.delegate.methodInvoked(#selector(UIScrollViewDelegate.scrollViewWillBeginDragging(_:)))
             .subscribe(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
@@ -148,6 +154,7 @@ class SettingsViewController: UITableViewController {
             .subscribe(onNext: { [unowned self] indexPath in
                 self.tableView.deselectRow(at: indexPath, animated: true)
                 self.view.endEditing(true)
+                router.handleSelection(for: indexPath)
             }).addDisposableTo(disposeBag)
     }
 }
