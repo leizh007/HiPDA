@@ -72,6 +72,10 @@
 		05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2761D7AD0390096878B /* SearchViewController.swift */; };
 		05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2791D7AD8230096878B /* LoginViewController.swift */; };
 		05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */; };
+		05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */; };
+		05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */; };
+		05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCEE1DDCAB890095E95D /* NoResultView.swift */; };
+		05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCF01DDCB0450095E95D /* XibLoadable.swift */; };
 		05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */; };
 		05F3DCD91DB7B4A00061CED1 /* HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */; };
 		05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCD81DB7B4A00061CED1 /* HiPDAProvider.swift */; };
@@ -182,6 +186,10 @@
 		05E9A2761D7AD0390096878B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		05E9A2791D7AD8230096878B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultView.xib; sourceTree = "<group>"; };
+		05EDDCEE1DDCAB890095E95D /* NoResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
+		05EDDCF01DDCB0450095E95D /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
 		05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+HiPDA.swift"; sourceTree = "<group>"; };
 		05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDA.swift; sourceTree = "<group>"; };
 		05F3DCD81DB7B4A00061CED1 /* HiPDAProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAProvider.swift; sourceTree = "<group>"; };
@@ -315,6 +323,9 @@
 				050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */,
 				058A717B1DA1FB22004992AD /* BaseViewController.swift */,
 				0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */,
+				05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */,
+				05EDDCEE1DDCAB890095E95D /* NoResultView.swift */,
+				05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +404,7 @@
 				05B506731D6C8D64004D573D /* ReusableView.swift */,
 				05B506751D6C91E9004D573D /* NibLoadableView.swift */,
 				05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */,
+				05EDDCF01DDCB0450095E95D /* XibLoadable.swift */,
 				057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */,
 			);
 			path = Protocols;
@@ -704,6 +716,7 @@
 				050EE3281DD200EB00C4B18D /* Search.storyboard in Resources */,
 				055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */,
 				050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */,
+				05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */,
 				050EE3221DD200AA00C4B18D /* Main.storyboard in Resources */,
 				050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */,
 				055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */,
@@ -899,6 +912,7 @@
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
+				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
@@ -909,6 +923,7 @@
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
+				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
@@ -934,6 +949,7 @@
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
+				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,

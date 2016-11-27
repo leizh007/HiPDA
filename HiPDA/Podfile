@@ -30,6 +30,10 @@ def import_Thoughtbot
     pod 'Delta', :git => "https://github.com/thoughtbot/Delta.git"
 end
 
+def import_SyntacticSugar
+    pod 'Then', '~> 2.1.0'
+end
+
 target 'HiPDA' do
   use_frameworks!
 
@@ -39,6 +43,7 @@ target 'HiPDA' do
   import_Rx
   import_Statistics
   import_Thoughtbot
+  import_SyntacticSugar
   
   pod 'SAMKeychain'
   pod 'YYKeyboardManager'

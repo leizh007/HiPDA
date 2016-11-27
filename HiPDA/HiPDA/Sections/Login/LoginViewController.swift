@@ -212,7 +212,6 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
     
     /// 配置ViewModel相关信息
     func configureViewModel() {
-        // FIXME: - fix login view mdel initialization
         let viewModel = LoginViewModel(username: nameTextField.rx.text.orEmpty.asDriver(),
                                        password: passwordTextField.rx.text.orEmpty.asDriver(),
                                        questionid: questionDriver,
@@ -220,8 +219,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
                                        loginTaps: loginButton.rx.tap.asDriver())
         viewModel.loginEnabled.drive(loginButton.rx.isEnabled).addDisposableTo(disposeBag)
         
-        viewModel.loggedIn.drive(onNext: { [weak self] result in
-            guard let `self` = self else { return }
+        viewModel.loggedIn.drive(onNext: { [unowned self] result in
             self.hidePromptInformation()
             switch result {
             case .success(let account):

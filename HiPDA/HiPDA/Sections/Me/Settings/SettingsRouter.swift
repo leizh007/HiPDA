@@ -46,23 +46,14 @@ extension Segue {
 
 /// 设置路由
 struct SettingsRouter {
+    /// disposeBag
+    private let disposeBag = DisposeBag()
+    
     /// viewController
     weak var viewController: SettingsViewController?
     
-    /// 用户黑名单列表
-    let userBlockList: Variable<[String]?>
-    
-    /// 帖子过滤单词列表
-    let threadBlockWordList: Variable<[String]?>
-    
-    /// 帖子关注单词列表
-    let threadAttentionWordList: Variable<[String]?>
-    
     init(viewController: SettingsViewController) {
         self.viewController = viewController
-        userBlockList = Variable(nil)
-        threadBlockWordList = Variable(nil)
-        threadAttentionWordList = Variable(nil)
     }
     
     /// 处理item选择
@@ -101,11 +92,11 @@ struct SettingsRouter {
             editWordsViewController.completion = { words in
                 switch settingsSegue {
                 case .userBlock:
-                    self.userBlockList.value = words
+                    self.viewController?.viewModel.userBlockList = words
                 case .threadBlock:
-                    self.threadBlockWordList.value = words
+                    self.viewController?.viewModel.threadBlockWordList = words
                 case .threadAttention:
-                    self.threadAttentionWordList.value = words
+                    self.viewController?.viewModel.threadAttentionWordList = words
                 }
             }
         }
