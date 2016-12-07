@@ -37,7 +37,7 @@ struct Account {
         self.questionid = questionid
         self.answer = answer
         self.password = password
-        avatarImageURL = URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_big.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100))!
+        avatarImageURL = URL(string: String(format: "https://img02.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_big.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100))!
     }
 }
 

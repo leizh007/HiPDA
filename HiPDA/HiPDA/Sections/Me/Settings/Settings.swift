@@ -221,7 +221,7 @@ class Settings {
         isEnabledTail = boolValue(in: userDefaults, key: Self.kIsEnabledTail, defalut: true)
         tailText = (userDefaults.value(forKey: Self.kTailText) as? String) ?? "小尾巴~"
         if boolValue(in: userDefaults, key: "kFirstLaunch", defalut: true) {
-            tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")
+            tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=1598240")
             userDefaults.set(false, forKey: "kFirstLaunch")
         } else {
             if let urlString = userDefaults.value(forKey: Self.kTailURL) as? String {
@@ -330,7 +330,7 @@ class Settings {
         userRemarkDictionary = [:]
         isEnabledTail = true
         tailText = "小尾巴~"
-        tailURL = URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")
+        tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=1598240")
         avatarImageResolution = .middle
     }
 }

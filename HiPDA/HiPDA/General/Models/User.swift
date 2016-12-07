@@ -33,7 +33,7 @@ struct User {
     ///
     /// - returns: 相应分辨率的头像URL
     func avatarImageURL(with resolution: UserAvatarImageResolution) -> URL {
-        return URL(string: String(format: "http://img.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_%@.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100, resolution.rawValue))!
+        return URL(string: String(format: "https://img02.hi-pda.com/forum/uc_server/data/avatar/%03ld/%02ld/%02ld/%02ld_avatar_%@.jpg", uid/1000000, (uid%1000000)/10000, (uid%10000)/100, uid%100, resolution.rawValue))!
     }
 }
 
