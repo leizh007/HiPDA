@@ -19,6 +19,9 @@
 		050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3291DD2019B00C4B18D /* Me.storyboard */; };
 		050EE32E1DD365B900C4B18D /* EditWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */; };
 		050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */; };
+		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
+		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
+		053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 053067D71DFD80B8009D0154 /* PerformanceMonitor.m */; };
 		05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		05416C891D903CB200049AA0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05416C881D903CB200049AA0 /* Result.swift */; };
@@ -34,7 +37,6 @@
 		055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055996BE1D50DD0900057CF6 /* Assets.xcassets */; };
 		055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055996BF1D50DD0900057CF6 /* LaunchScreen.storyboard */; };
 		055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CB1D50E0D600057CF6 /* Bootstrap.swift */; };
-		055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */; };
 		05645C7B1D75D60900B86D0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05645C7A1D75D60900B86D0A /* Constants.swift */; };
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
@@ -122,6 +124,10 @@
 		050EE3291DD2019B00C4B18D /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListViewController.swift; sourceTree = "<group>"; };
 		050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		053067D01DFD6BCF009D0154 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
+		053067D41DFD808A009D0154 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
+		053067D61DFD80B8009D0154 /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
+		053067D71DFD80B8009D0154 /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
 		05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+HiPDA.swift"; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -140,7 +146,6 @@
 		055996C31D50DD0900057CF6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055996CA1D50DE1C00057CF6 /* HiPDA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HiPDA.entitlements; path = ../HiPDA.entitlements; sourceTree = "<group>"; };
 		055996CB1D50E0D600057CF6 /* Bootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
-		055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
 		05645C7A1D75D60900B86D0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
@@ -218,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */,
+				053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +260,9 @@
 			children = (
 				0559969A1D50DB3800057CF6 /* AppDelegate.swift */,
 				055996CB1D50E0D600057CF6 /* Bootstrap.swift */,
-				055996CD1D50E4E500057CF6 /* CrashAnalysis.swift */,
+				053067D41DFD808A009D0154 /* CrashAnalysis.swift */,
+				053067D61DFD80B8009D0154 /* PerformanceMonitor.h */,
+				053067D71DFD80B8009D0154 /* PerformanceMonitor.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -341,13 +349,6 @@
 				05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		055996AF1D50DB6000057CF6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		055996B01D50DB6500057CF6 /* Sections */ = {
@@ -438,7 +439,6 @@
 				055996BD1D50DD0900057CF6 /* Resources */,
 				055996B11D50DB6A00057CF6 /* Vendors */,
 				055996B01D50DB6500057CF6 /* Sections */,
-				055996AF1D50DB6000057CF6 /* Resources */,
 				055996AC1D50DB5A00057CF6 /* Helpers */,
 				055996991D50DB3800057CF6 /* AppDelegate */,
 				0559969C1D50DB4500057CF6 /* General */,
@@ -561,6 +561,7 @@
 				7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */,
 				77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */,
 				753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */,
+				053067D01DFD6BCF009D0154 /* CrashReporter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -923,10 +924,12 @@
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
+				053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */,
 				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
+				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
@@ -948,7 +951,6 @@
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
-				055996CE1D50E4E500057CF6 /* CrashAnalysis.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
@@ -1131,6 +1133,10 @@
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/HiPDA/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1155,6 +1161,10 @@
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/HiPDA/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
