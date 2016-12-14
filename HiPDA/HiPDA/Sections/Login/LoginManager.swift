@@ -22,30 +22,35 @@ class LoginManager: Bootstrapping {
             LoginViewModel.login(with: account)
                 .subscribe(onNext: { [weak self] (result) in
                     if case .failure(_) = result {
-                        self?.changeRootViewControllerToLogin(duration: 0.75, delay: 1.0)
+                        self?.changeRootViewControllerToLogin(withAnimation: true, duration: 0.75, delay: 1.0)
                     }
                     EventBus.shared.dispatch(ChangeAccountAction(account: result))
             }).addDisposableTo(disposeBag)
         } else {
-            changeRootViewControllerToLogin(duration: 0.0, delay: 0.0)
+            changeRootViewControllerToLogin(withAnimation: false, duration: 0.0, delay: 0.0)
         }
     }
     
     /// 将rootViewController切换到登录的ViewController
     ///
     /// - Parameters:
+    ///   - withAnimation: 是否有动画
     ///   - duration: 动画持续时间
     ///   - seconds: 延迟时间
-    private func changeRootViewControllerToLogin(duration: Double, delay seconds: Double) {
+    private func changeRootViewControllerToLogin(withAnimation: Bool, duration: Double, delay seconds: Double) {
         let loginViewController = LoginViewController.load(from: .login)
         guard let window = UIApplication.shared.windows.safe[0] else { return }
         homeViewController = window.rootViewController
         homeViewController?.view.layoutIfNeeded()
         loginViewController.view.frame = window.bounds
-        delay(seconds: seconds) {
-            UIView.transition(with: window, duration: duration, options: [.transitionFlipFromLeft, .curveEaseInOut], animations: {
-                window.rootViewController = loginViewController
-            }, completion: nil)
+        if withAnimation {
+            delay(seconds: seconds) {
+                UIView.transition(with: window, duration: duration, options: [.transitionFlipFromLeft, .curveEaseInOut], animations: {
+                    window.rootViewController = loginViewController
+                }, completion: nil)
+            }
+        } else {
+            window.rootViewController = loginViewController
         }
         
         loginViewController.loggedInCompletion = { [weak self] account in

@@ -17,7 +17,6 @@
 		050EE3261DD200DE00C4B18D /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3251DD200DE00C4B18D /* Notification.storyboard */; };
 		050EE3281DD200EB00C4B18D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3271DD200EB00C4B18D /* Search.storyboard */; };
 		050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3291DD2019B00C4B18D /* Me.storyboard */; };
-		050EE32E1DD365B900C4B18D /* EditWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */; };
 		050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */; };
 		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
 		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
@@ -62,6 +61,10 @@
 		05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */; };
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
+		05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */; };
+		05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130601E017D21007D3765 /* EditWordListSection.swift */; };
+		05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */; };
+		05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130681E019415007D3765 /* EditWordListViewController.swift */; };
 		05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */; };
 		05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */; };
 		05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */; };
@@ -122,7 +125,6 @@
 		050EE3251DD200DE00C4B18D /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		050EE3271DD200EB00C4B18D /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		050EE3291DD2019B00C4B18D /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
-		050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListViewController.swift; sourceTree = "<group>"; };
 		050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		053067D01DFD6BCF009D0154 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		053067D41DFD808A009D0154 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
@@ -174,6 +176,10 @@
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
+		05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListSectionedTableViewState.swift; sourceTree = "<group>"; };
+		05D130601E017D21007D3765 /* EditWordListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListSection.swift; sourceTree = "<group>"; };
+		05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListTableViewStateTests.swift; sourceTree = "<group>"; };
+		05D130681E019415007D3765 /* EditWordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWordListViewController.swift; sourceTree = "<group>"; };
 		05D489711D3E5E23000A086B /* HiPDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiPDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489851D3E5E23000A086B /* HiPDATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -390,11 +396,11 @@
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				05D1305B1E017BF6007D3765 /* EditWordList */,
 				057016F01DCB78700024EC3B /* Settings.swift */,
 				057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */,
 				050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */,
 				0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */,
-				050EE32D1DD365B900C4B18D /* EditWordListViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -409,6 +415,16 @@
 				057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		05D1305B1E017BF6007D3765 /* EditWordList */ = {
+			isa = PBXGroup;
+			children = (
+				05D130681E019415007D3765 /* EditWordListViewController.swift */,
+				05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */,
+				05D130601E017D21007D3765 /* EditWordListSection.swift */,
+			);
+			path = EditWordList;
 			sourceTree = "<group>";
 		};
 		05D489681D3E5E23000A086B = {
@@ -462,6 +478,7 @@
 				058A717F1DA28865004992AD /* LensTests.swift */,
 				05F3DCE21DB7C2420061CED1 /* RegexTests.swift */,
 				05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */,
+				05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -653,7 +670,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = HiPDA;
 				TargetAttributes = {
 					05D489701D3E5E23000A086B = {
@@ -917,7 +934,6 @@
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
-				050EE32E1DD365B900C4B18D /* EditWordListViewController.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
@@ -938,7 +954,9 @@
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
+				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
+				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
@@ -948,6 +966,7 @@
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
+				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
@@ -977,6 +996,7 @@
 				05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */,
 				05F3DCEB1DB90E9D0061CED1 /* HtmlParserTests.swift in Sources */,
 				05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */,
+				05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,

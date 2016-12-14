@@ -38,8 +38,8 @@ class SettingsTests: XCTestCase {
         
         XCTAssert(settings.autoDownloadImageWhenUsingWWAN)
         XCTAssert(settings.autoDownloadImageSizeThreshold == 256 * 1024)
-        XCTAssert(abs(settings.fontSize - 17.0) < 0.01)
-        XCTAssert(abs(settings.lineSpacing - 1.0) < 0.01)
+        XCTAssert(settings.fontSize == 17)
+        XCTAssert(settings.lineSpacing == 1)
         XCTAssert(settings.isEnabledUserBlock)
         XCTAssert(settings.userBlockList == [])
         XCTAssert(!settings.isEnabledThreadBlock)
@@ -62,14 +62,14 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings.userRemarkDictionary == [:])
         XCTAssert(settings.isEnabledTail)
         XCTAssert(settings.tailText == "小尾巴~")
-        XCTAssert(settings.tailURL == URL(string: "http://www.hi-pda.com/forum/viewthread.php?tid=1598240")!)
+        XCTAssert(settings.tailURL == URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=1598240")!)
         XCTAssert(settings.avatarImageResolution == .middle)
         
         /// 改变settings里面参数的值
         settings.autoDownloadImageWhenUsingWWAN = false
         settings.autoDownloadImageSizeThreshold = 512
-        settings.fontSize = 20.0
-        settings.lineSpacing = 4.0
+        settings.fontSize = 20
+        settings.lineSpacing = 4
         settings.isEnabledUserBlock = false
         settings.userBlockList = ["username1", "username2"]
         settings.isEnabledThreadBlock = true
@@ -101,8 +101,8 @@ class SettingsTests: XCTestCase {
         let setting1 = Settings()
         XCTAssert(!setting1.autoDownloadImageWhenUsingWWAN)
         XCTAssert(setting1.autoDownloadImageSizeThreshold == 512)
-        XCTAssert(abs(setting1.fontSize - 20.0) < 0.01)
-        XCTAssert(abs(setting1.lineSpacing - 4.0) < 0.01)
+        XCTAssert(setting1.fontSize == 20)
+        XCTAssert(setting1.lineSpacing == 4)
         XCTAssert(!setting1.isEnabledUserBlock)
         XCTAssert(setting1.userBlockList == ["username1", "username2"])
         XCTAssert(setting1.isEnabledThreadBlock)
