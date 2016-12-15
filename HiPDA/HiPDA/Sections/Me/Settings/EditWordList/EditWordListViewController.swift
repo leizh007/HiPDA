@@ -38,6 +38,15 @@ class EditWordListViewController: BaseViewController {
     /// tableView是否处在编辑状态
     fileprivate let isTableViewEditing = Variable(false)
     
+    /// 添加
+    fileprivate let addCommand = PublishSubject<EditWordListTableViewEditingCommand>()
+    
+    /// manually delete from custom tableView cell action
+    fileprivate let deleteCommandManually = PublishSubject<EditWordListTableViewEditingCommand>()
+    
+    /// 将要dismiss
+    fileprivate let willDismiss = Variable(false)
+    
     /// 添加按钮
     fileprivate lazy var addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     
@@ -52,11 +61,7 @@ class EditWordListViewController: BaseViewController {
         configureDoneBarButtonItem()
         
         isTableViewEditing.asDriver().drive(onNext: { [unowned self] isEditing in
-            if isEditing {
-                self.navigationItem.rightBarButtonItem = self.doneBarButtonItem
-            } else {
-                self.navigationItem.rightBarButtonItem = self.addBarButtonItem
-            }
+            self.navigationItem.rightBarButtonItem = isEditing ? self.doneBarButtonItem : self.addBarButtonItem
             self.tableView.setEditing(isEditing, animated: true)
         }).addDisposableTo(disposeBag)
     }    
@@ -71,8 +76,8 @@ class EditWordListViewController: BaseViewController {
         super.willMove(toParentViewController: parent)
         
         // 回到上级页面的时候
-        guard parent == nil, let completion = self.completion else { return }
-        completion(words)
+        guard parent == nil else { return }
+        willDismiss.value = true
     }
 }
 
@@ -82,9 +87,64 @@ extension EditWordListViewController {
     /// 设置tableView
     fileprivate func configureTableView() {
         view.addSubview(tableView)
-        tableView.status = words.count == 0 ? .noResult : .normal
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.register(UITableViewCell.self)
+        tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+        
+        tableView.rx.itemSelected.subscribe(onNext: { [unowned self] indexPath in
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }).addDisposableTo(disposeBag)
+        
+        let dataSource = RxTableViewSectionedAnimatedDataSource<EditWordListSection>()
+        skinTableViewDataSource(dataSource)
+        
+        let deleteCommand = tableView.rx.itemDeleted.asObservable()
+            .map(EditWordListTableViewEditingCommand.delete)
+        let moveCommand = tableView.rx.itemMoved.asObservable()
+            .map(EditWordListTableViewEditingCommand.move)
+        let initialState = EditWordListTableViewState(sections: [EditWordListSection(words: words)])
+        let data = Observable.of(addCommand, deleteCommand, deleteCommandManually, moveCommand)
+            .merge()
+            .scan(initialState) {
+                return $0.execute($1)
+            }
+            .startWith(initialState)
+            .map {
+                $0.sections
+            }
+            .do(onNext: { [unowned self] (section) in
+                let itemCount = section.reduce(0) {
+                    return $0 + $1.items.count
+                }
+                self.tableView.status = itemCount == 0 ? .noResult : .normal
+            })
+            .shareReplay(1)
+        data.bindTo(tableView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
+        
+        willDismiss.asObservable()
+            .filter { $0 }
+            .withLatestFrom(data)
+            .subscribe(onNext: { [unowned self] section in
+                self.completion?(section[0].items)
+            }).addDisposableTo(disposeBag)
+    }
+    
+    /// 设置tableView的数据源
+    ///
+    /// - Parameter dataSource: 数据源
+    func skinTableViewDataSource(_ dataSource: RxTableViewSectionedAnimatedDataSource<EditWordListSection>) {
+        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .left)
+        dataSource.configureCell = { (dataSource, tableView, indexPath, item) in
+            return (tableView.dequeueReusableCell(for: indexPath) as UITableViewCell).then {
+                $0.textLabel?.text = "\(item)"
+            }
+        }
+        dataSource.canEditRowAtIndexPath = { _ in
+            return true
+        }
+        dataSource.canMoveRowAtIndexPath = { _ in
+            return true
+        }
     }
     
     /// 设置完成按钮
@@ -105,9 +165,7 @@ extension EditWordListViewController {
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             let confirmAction = UIAlertAction(title: "确定", style: .default) { [unowned self, unowned alert] _ in
                 guard let textField = alert.textFields?.safe[0], let text = textField.text, !text.isEmpty else { return }
-                self.words.append(text)
-                let indexPath = IndexPath(row: self.words.count - 1, section: 0)
-                self.tableView.insertRows(at: [indexPath], with: .right)
+                self.addCommand.onNext(.append(text, in: 0))
             }
             alert.addAction(cancelAction)
             alert.addAction(confirmAction)
@@ -119,67 +177,15 @@ extension EditWordListViewController {
 // MARK: - UITableViewDelegate
 
 extension EditWordListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        var words = self.words
-        let word = words[sourceIndexPath.row]
-        words.remove(at: sourceIndexPath.row)
-        words.insert(word, at: destinationIndexPath.row)
-        self.words = words
-    }
-    
-    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        return proposedDestinationIndexPath
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let sortAction = UITableViewRowAction(style: .normal, title: "编辑") { [unowned self] (action, indexPath) in
-            self.tableView.reloadRows(at: [indexPath], with: .none)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
             self.isTableViewEditing.value = true
         }
         let deleteAction = UITableViewRowAction(style: .destructive, title: "删除") { [unowned self] (action, indexPath) in
-            self.words.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.deleteCommandManually.onNext(EditWordListTableViewEditingCommand.delete(with: indexPath))
         }
         
         return [deleteAction, sortAction]
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension EditWordListViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: kEditWordsCellIdentifier)
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: kEditWordsCellIdentifier)
-            cell?.selectionStyle = .none
-        }
-        cell?.textLabel?.text = words.safe[indexPath.row]
-        
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
 }
