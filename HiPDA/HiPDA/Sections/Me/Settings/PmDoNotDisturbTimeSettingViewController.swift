@@ -103,7 +103,7 @@ class PmDoNotDisturbTimeSettingViewController: BaseViewController {
                 self.toTime = time
             })
             .map {
-                return String(format: "开始时间: %d:%02d", $0.hour, $0.minute)
+                return String(format: "结束时间: %d:%02d", $0.hour, $0.minute)
             }
             .bindTo(self.toTimeDescriptionLabel.rx.text)
             .addDisposableTo(disposeBag)
