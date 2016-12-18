@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Curry
 
 /// 设置完消息免打扰时间的回调block
 typealias PmDoNotDisturbTimeSettingCompletionHandler = (PmDoNotDisturbTime, PmDoNotDisturbTime) -> Void
@@ -83,15 +82,31 @@ class PmDoNotDisturbTimeSettingViewController: BaseViewController {
             return component == 0 ? (hour: row, minute: time.minute) : (hour: time.hour, minute: row)
         }
         
-        fromTimePickerView.rx.itemSelected.asObservable().subscribe(onNext: { [unowned self] (row, component) in
-            self.fromTime = timeFromPickerViewSelection(self.fromTime, row, component)
-            self.fromTimeDescriptionLabel.text = String(format: "开始时间: %d:%02d", self.fromTime.hour, self.fromTime.minute)
-        }).addDisposableTo(disposeBag)
+        fromTimePickerView.rx.itemSelected
+            .map { [unowned self] (row, component) in
+                return timeFromPickerViewSelection(self.fromTime, row, component)
+            }
+            .do(onNext: { [unowned self] time in
+                self.fromTime = time
+            })
+            .map {
+                return String(format: "开始时间: %d:%02d", $0.hour, $0.minute)
+            }
+            .bindTo(self.fromTimeDescriptionLabel.rx.text)
+            .addDisposableTo(disposeBag)
         
-        toTimePickerView.rx.itemSelected.asObservable().subscribe(onNext: { [unowned self] (row, component) in
-            self.toTime = timeFromPickerViewSelection(self.toTime, row, component)
-            self.toTimeDescriptionLabel.text = String(format: "结束时间: %d:%02d", self.toTime.hour, self.toTime.minute)
-        }).addDisposableTo(disposeBag)
+        toTimePickerView.rx.itemSelected
+            .map { [unowned self] (row, component) in
+                return timeFromPickerViewSelection(self.toTime, row, component)
+            }
+            .do(onNext: { [unowned self] time in
+                self.toTime = time
+            })
+            .map {
+                return String(format: "开始时间: %d:%02d", $0.hour, $0.minute)
+            }
+            .bindTo(self.toTimeDescriptionLabel.rx.text)
+            .addDisposableTo(disposeBag)
     }
     
     /// 取消
