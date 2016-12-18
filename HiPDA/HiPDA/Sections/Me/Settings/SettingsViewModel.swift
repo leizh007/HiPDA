@@ -116,7 +116,7 @@ struct SettingsViewModel {
         }
         
         set {
-            settings.pmDoNotDisturbFromTime = pmDoNotDisturbFromTime
+            settings.pmDoNotDisturbFromTime = newValue
             pmDoNotDisturbDescription.value = SettingsViewModel.description(fromTime: settings.pmDoNotDisturbFromTime, toTime: settings.pmDoNotDisturbToTime)
         }
     }
@@ -128,7 +128,7 @@ struct SettingsViewModel {
         }
         
         set {
-            settings.pmDoNotDisturbToTime = pmDoNotDisturbToTime
+            settings.pmDoNotDisturbToTime = newValue
             pmDoNotDisturbDescription.value = SettingsViewModel.description(fromTime: settings.pmDoNotDisturbFromTime, toTime: settings.pmDoNotDisturbToTime)
         }
     }

@@ -13,11 +13,8 @@ import RxCocoa
 
 /// 设置路由
 struct SettingsRouter {
-    /// disposeBag
-    private let disposeBag = DisposeBag()
-    
     /// viewController
-    weak var viewController: SettingsViewController?
+    fileprivate weak var viewController: SettingsViewController?
     
     init(viewController: SettingsViewController) {
         self.viewController = viewController
@@ -95,6 +92,8 @@ extension SettingsRouter {
         
         guard let viewController = self.viewController else { return }
         
+// http://stackoverflow.com/questions/31862935/uitableviewcell-very-slow-response-on-select
+//        DispatchQueue.main.async {
         viewController.perform(.pmDoNotDisturb) { pmDoNotDisturbVC in
             pmDoNotDisturbVC.title = setttingsSegue.rawValue
             pmDoNotDisturbVC.fromTime = viewController.viewModel.pmDoNotDisturbFromTime
@@ -104,5 +103,6 @@ extension SettingsRouter {
                 viewController.viewModel.pmDoNotDisturbToTime = toTime
             }
         }
+//        }
     }
 }
