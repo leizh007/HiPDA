@@ -18,6 +18,8 @@
 		050EE3281DD200EB00C4B18D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3271DD200EB00C4B18D /* Search.storyboard */; };
 		050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3291DD2019B00C4B18D /* Me.storyboard */; };
 		050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */; };
+		052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */; };
+		052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92161E0688FF00856219 /* SettingsSegue.swift */; };
 		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
 		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
 		053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 053067D71DFD80B8009D0154 /* PerformanceMonitor.m */; };
@@ -126,6 +128,8 @@
 		050EE3271DD200EB00C4B18D /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		050EE3291DD2019B00C4B18D /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PmDoNotDisturbTimeSettingViewController.swift; sourceTree = "<group>"; };
+		052F92161E0688FF00856219 /* SettingsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSegue.swift; sourceTree = "<group>"; };
 		053067D01DFD6BCF009D0154 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		053067D41DFD808A009D0154 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
 		053067D61DFD80B8009D0154 /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
@@ -400,7 +404,9 @@
 				057016F01DCB78700024EC3B /* Settings.swift */,
 				057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */,
 				050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */,
+				052F92161E0688FF00856219 /* SettingsSegue.swift */,
 				0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */,
+				052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -954,6 +960,7 @@
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
+				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
@@ -974,6 +981,7 @@
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
+				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,

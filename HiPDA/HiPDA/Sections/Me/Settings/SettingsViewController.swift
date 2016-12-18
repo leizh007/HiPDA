@@ -55,6 +55,9 @@ class SettingsViewController: UITableViewController {
     /// 消息免打扰
     @IBOutlet private weak var pmDoNotDisturbSwitch: UISwitch!
     
+    /// 消息免打扰描述label
+    @IBOutlet private weak var pmDoNotDisturbDescriptionLabel: UILabel!
+    
     /// 用户备注
     @IBOutlet private weak var userRemarkSwitch: UISwitch!
     
@@ -109,6 +112,10 @@ class SettingsViewController: UITableViewController {
         historyCountLimitTextField.text = viewModel.threadHistoryCountLimitString
         tailTextTextField.text = viewModel.tailText
         tailURLTextField.text = viewModel.tailURLString
+        
+        viewModel.pmDoNotDisturbDescription.asObservable()
+            .bindTo(pmDoNotDisturbDescriptionLabel.rx.text)
+            .addDisposableTo(disposeBag)
         
         let historyCountLimit = historyCountLimitTextField.rx.controlEvent(.editingDidEnd)
             .map { [weak textField = historyCountLimitTextField] in

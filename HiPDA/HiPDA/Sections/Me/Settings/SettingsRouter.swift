@@ -11,39 +11,6 @@ import Perform
 import RxSwift
 import RxCocoa
 
-/// 创建SettingsSegue错误
-///
-/// - unRecognizedIndexPath: indexPath无法识别
-enum SettingsSugueError: Error {
-    case unRecognizedIndexPath
-}
-
-enum SettingsSegue: String {
-    case userBlock = "黑名单列表"
-    case threadBlock = "帖子过滤词组"
-    case threadAttention = "帖子关注词组"
-    
-    init(indexPath: IndexPath) throws {
-        switch (indexPath.section, indexPath.row) {
-        case (2, 1):
-            self = .userBlock
-        case (3, 1):
-            self = .threadBlock
-        case (4, 1):
-            self = .threadAttention
-        default:
-            throw SettingsSugueError.unRecognizedIndexPath
-        }
-    }
-}
-
-extension Segue {
-    /// 编辑词组
-    static var editWords: Segue<EditWordListViewController> {
-        return .init(identifier: "EditWords")
-    }
-}
-
 /// 设置路由
 struct SettingsRouter {
     /// disposeBag
@@ -67,14 +34,20 @@ struct SettingsRouter {
         case .threadBlock:
             fallthrough
         case .threadAttention:
-            gotoEditWordsViewController(with: settingsSegue)
+            showEditWordsViewController(with: settingsSegue)
+        case .pmDoNotDisturb:
+            showPmDoNotDisturbViewController(with: settingsSegue)
         }
     }
-    
+}
+
+// MARK: - EditWords
+
+extension SettingsRouter {
     /// 跳转到编辑词组页面
     ///
     /// - Parameter settingsSegue: 页面类型
-    private func gotoEditWordsViewController(with settingsSegue: SettingsSegue) {
+    fileprivate func showEditWordsViewController(with settingsSegue: SettingsSegue) {
         guard let viewController = self.viewController else { return }
         let words: [String]
         switch settingsSegue {
@@ -84,6 +57,9 @@ struct SettingsRouter {
             words = viewController.viewModel.threadBlockWordList
         case .threadAttention:
             words = viewController.viewModel.threadAttentionWordList
+        default:
+            assertionFailure("Unmatched case!")
+            words = []
         }
         
         viewController.perform(.editWords) { editWordsViewController in
@@ -97,7 +73,35 @@ struct SettingsRouter {
                     self.viewController?.viewModel.threadBlockWordList = words
                 case .threadAttention:
                     self.viewController?.viewModel.threadAttentionWordList = words
+                default:
+                    break
                 }
+            }
+        }
+    }
+}
+
+// MARK: - PmDoNotDisturb
+
+extension SettingsRouter {
+    /// 跳转到编辑消息免打扰的的界面
+    ///
+    /// - Parameter setttingsSegue: 页面类型
+    fileprivate func showPmDoNotDisturbViewController(with setttingsSegue: SettingsSegue) {
+        guard case .pmDoNotDisturb = setttingsSegue else {
+            assertionFailure("Unmatched case!")
+            return
+        }
+        
+        guard let viewController = self.viewController else { return }
+        
+        viewController.perform(.pmDoNotDisturb) { pmDoNotDisturbVC in
+            pmDoNotDisturbVC.title = setttingsSegue.rawValue
+            pmDoNotDisturbVC.fromTime = viewController.viewModel.pmDoNotDisturbFromTime
+            pmDoNotDisturbVC.toTime = viewController.viewModel.pmDoNotDisturbToTime
+            pmDoNotDisturbVC.completion = { (fromTime, toTime) in
+                viewController.viewModel.pmDoNotDisturbFromTime = fromTime
+                viewController.viewModel.pmDoNotDisturbToTime = toTime
             }
         }
     }

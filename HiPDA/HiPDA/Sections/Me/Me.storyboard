@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V8n-1c-oiE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V8n-1c-oiE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -948,6 +948,7 @@
                         <outlet property="friendPmSwitch" destination="H58-Op-g9X" id="weZ-Ez-Y16"/>
                         <outlet property="historyCountLimitTextField" destination="jcd-Lt-7d2" id="Qsz-LU-pSz"/>
                         <outlet property="messagePushSwitch" destination="01C-RB-Nev" id="Lef-Qw-T7d"/>
+                        <outlet property="pmDoNotDisturbDescriptionLabel" destination="UHw-5b-Tve" id="q6a-Hj-uf3"/>
                         <outlet property="pmDoNotDisturbSwitch" destination="uow-fS-Sug" id="1qo-09-PA9"/>
                         <outlet property="privatePmSwitch" destination="W0X-6P-iyj" id="J0f-7I-3qE"/>
                         <outlet property="systemPmSwitch" destination="gQp-zX-25I" id="Ka2-lD-bWp"/>
@@ -960,6 +961,7 @@
                         <outlet property="userBlockSwitch" destination="75a-91-kSC" id="cGY-z3-0hd"/>
                         <outlet property="userRemarkSwitch" destination="dyn-7t-hMz" id="O7F-6K-Ixv"/>
                         <segue destination="kso-PD-7sJ" kind="show" identifier="EditWords" id="vNP-ex-uTo"/>
+                        <segue destination="mxJ-6H-VOP" kind="show" identifier="PmDoNotDisturb" id="HIq-2b-Ynw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hna-2b-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -983,6 +985,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpM-F6-8nZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2908" y="1934"/>
+        </scene>
+        <!--Pm Do Not Disturb Time Setting View Controller-->
+        <scene sceneID="pB6-aw-s9w">
+            <objects>
+                <viewController id="mxJ-6H-VOP" customClass="PmDoNotDisturbTimeSettingViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="daI-eJ-sJZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xl4-Q5-asU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JUE-S2-qjs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueg-1t-FX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908" y="2704"/>
         </scene>
     </scenes>
     <resources>

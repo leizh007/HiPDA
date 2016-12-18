@@ -18,6 +18,9 @@ private let kAccountListServiceKey = "HiPDA-account-list"
 /// 用户从Keychain中获取活跃账户的键
 private let kActiveAccountServiceKey = "HiPDA-active-account"
 
+/// 消息免打扰时间
+typealias PmDoNotDisturbTime = (hour: Int, minute: Int)
+
 /// 设置中心
 class Settings {
     static let shared = Settings()
@@ -123,11 +126,11 @@ class Settings {
     private static let kIsEnabledPmDoNotDisturb = "isEnabledPmDoNotDisturb"
     
     /// 免打扰的开始时间
-    var pmDoNotDisturbFromTime: (hour:Int, minute: Int)
+    var pmDoNotDisturbFromTime: PmDoNotDisturbTime
     private static let kPmDoNotDisturbFromTime = "pmDoNotDisturbFromTime"
     
     /// 免打扰的结束时间
-    var pmDoNotDisturbToTime: (hour: Int, minute: Int)
+    var pmDoNotDisturbToTime: PmDoNotDisturbTime
     private static let kPmDoNotDisturbToTime = "pmDoNotDisturbToTime"
     
     /// 板块列表

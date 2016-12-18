@@ -106,6 +106,33 @@ struct SettingsViewModel {
         return settings.isEnabledPmDoNotDisturb
     }
     
+    /// 消息免打扰描述字符串
+    let pmDoNotDisturbDescription: Variable<String>
+    
+    /// 消息免打扰开始时间
+    var pmDoNotDisturbFromTime: PmDoNotDisturbTime {
+        get {
+            return settings.pmDoNotDisturbFromTime
+        }
+        
+        set {
+            settings.pmDoNotDisturbFromTime = pmDoNotDisturbFromTime
+            pmDoNotDisturbDescription.value = SettingsViewModel.description(fromTime: settings.pmDoNotDisturbFromTime, toTime: settings.pmDoNotDisturbToTime)
+        }
+    }
+    
+    /// 消息免打扰结束时间
+    var pmDoNotDisturbToTime: PmDoNotDisturbTime {
+        get {
+            return settings.pmDoNotDisturbToTime
+        }
+        
+        set {
+            settings.pmDoNotDisturbToTime = pmDoNotDisturbToTime
+            pmDoNotDisturbDescription.value = SettingsViewModel.description(fromTime: settings.pmDoNotDisturbFromTime, toTime: settings.pmDoNotDisturbToTime)
+        }
+    }
+    
     /// 是否开启用户备注
     var isEnabledUserRemark: Bool {
         return settings.isEnabledUserRemark
@@ -128,6 +155,17 @@ struct SettingsViewModel {
     
     init(settings: Settings) {
         self.settings = settings
+        pmDoNotDisturbDescription = Variable(SettingsViewModel.description(fromTime: settings.pmDoNotDisturbFromTime, toTime: settings.pmDoNotDisturbToTime))
+    }
+    
+    /// 消息免打扰的描述字符串
+    ///
+    /// - Parameters:
+    ///   - fromTime: 开始时间
+    ///   - toTime: 结束时间
+    /// - Returns: 描述字符串
+    private static func description(fromTime: PmDoNotDisturbTime, toTime: PmDoNotDisturbTime) -> String {
+        return String(format: "%d:%02d~%d:%02d", fromTime.hour, fromTime.minute, toTime.hour, toTime.minute)
     }
     
     /// 处理事件
