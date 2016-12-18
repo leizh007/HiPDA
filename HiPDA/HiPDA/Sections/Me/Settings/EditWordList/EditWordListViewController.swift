@@ -15,14 +15,12 @@ import RxDataSources
 /// 编辑单词数组完后的回调block
 typealias EditWordListCompletion = ([String]) -> ()
 
-/// cell的identifier
-private let kEditWordsCellIdentifier = "cell"
-
 /// 编辑单词列表的viewController
 class EditWordListViewController: BaseViewController {
     /// 单词列表
     var words = [String]() {
         didSet {
+            replaceCommand.onNext(.replace(EditWordListTableViewState(sections:[EditWordListSection(words:words)])))
             tableView.status = words.count == 0 ? .noResult : .normal
         }
     }
@@ -39,10 +37,13 @@ class EditWordListViewController: BaseViewController {
     fileprivate let isTableViewEditing = Variable(false)
     
     /// 添加
-    fileprivate let addCommand = PublishSubject<EditWordListTableViewEditingCommand>()
+    fileprivate let appendCommand = PublishSubject<EditWordListTableViewEditingCommand>()
     
     /// manually delete from custom tableView cell action
     fileprivate let deleteCommandManually = PublishSubject<EditWordListTableViewEditingCommand>()
+    
+    /// 替换command
+    fileprivate let replaceCommand = PublishSubject<EditWordListTableViewEditingCommand>()
     
     /// 将要dismiss
     fileprivate let willDismiss = Variable(false)
@@ -102,7 +103,7 @@ extension EditWordListViewController {
         let moveCommand = tableView.rx.itemMoved.asObservable()
             .map(EditWordListTableViewEditingCommand.move)
         let initialState = EditWordListTableViewState(sections: [EditWordListSection(words: words)])
-        let data = Observable.of(addCommand, deleteCommand, deleteCommandManually, moveCommand)
+        let data = Observable.of(replaceCommand, appendCommand, deleteCommand, deleteCommandManually, moveCommand)
             .merge()
             .scan(initialState) {
                 return $0.execute($1)
@@ -132,7 +133,7 @@ extension EditWordListViewController {
     /// 设置tableView的数据源
     ///
     /// - Parameter dataSource: 数据源
-    func skinTableViewDataSource(_ dataSource: RxTableViewSectionedAnimatedDataSource<EditWordListSection>) {
+    fileprivate func skinTableViewDataSource(_ dataSource: RxTableViewSectionedAnimatedDataSource<EditWordListSection>) {
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .left)
         dataSource.configureCell = { (dataSource, tableView, indexPath, item) in
             return (tableView.dequeueReusableCell(for: indexPath) as UITableViewCell).then {
@@ -165,7 +166,7 @@ extension EditWordListViewController {
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             let confirmAction = UIAlertAction(title: "确定", style: .default) { [unowned self, unowned alert] _ in
                 guard let textField = alert.textFields?.safe[0], let text = textField.text, !text.isEmpty else { return }
-                self.addCommand.onNext(.append(text, in: 0))
+                self.appendCommand.onNext(.append(text, in: 0))
             }
             alert.addAction(cancelAction)
             alert.addAction(confirmAction)
@@ -183,7 +184,7 @@ extension EditWordListViewController: UITableViewDelegate {
             self.isTableViewEditing.value = true
         }
         let deleteAction = UITableViewRowAction(style: .destructive, title: "删除") { [unowned self] (action, indexPath) in
-            self.deleteCommandManually.onNext(EditWordListTableViewEditingCommand.delete(with: indexPath))
+            self.deleteCommandManually.onNext(.delete(with: indexPath))
         }
         
         return [deleteAction, sortAction]

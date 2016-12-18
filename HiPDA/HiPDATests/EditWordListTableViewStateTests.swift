@@ -45,6 +45,13 @@ class EditWordListTableViewStateTests: XCTestCase {
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     
+    lazy var state5: EditWordListTableViewState = {
+        let section1 = EditWordListSection(words: ["1"])
+        let section2 = EditWordListSection(words: ["3", "5", "6"])
+        let section3 = EditWordListSection(words: ["8", "7"])
+        return EditWordListTableViewState(sections: [section1, section2, section3])
+    }()
+    
     func testStateCommands() {
         let addCommand = EditWordListTableViewEditingCommand.append("10", in: 0)
         let state1 = self.state.execute(addCommand)
@@ -61,5 +68,9 @@ class EditWordListTableViewStateTests: XCTestCase {
         let moveCommand2 = EditWordListTableViewEditingCommand.move(from: IndexPath(row: 1, section: 2), to: IndexPath(row: 2, section: 0))
         let state4 = state3.execute(moveCommand2)
         XCTAssert(state4 == self.state4)
+        
+        let replaceCommand = EditWordListTableViewEditingCommand.replace(self.state5)
+        let state5 = state4.execute(replaceCommand)
+        XCTAssert(state5 == self.state5)
     }
 }

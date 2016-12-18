@@ -14,6 +14,7 @@ import Foundation
 /// - move: 移动
 /// - delete: 删除
 enum EditWordListTableViewEditingCommand {
+    case replace(EditWordListTableViewState)
     case append(String, in: Int)
     case move(from: IndexPath, to: IndexPath)
     case delete(with: IndexPath)
@@ -23,8 +24,14 @@ enum EditWordListTableViewEditingCommand {
 struct EditWordListTableViewState {
     let sections: [EditWordListSection]
     
+    /// 执行command
+    ///
+    /// - Parameter command: 指令
+    /// - Returns: 返回执行后的状态
     func execute(_ command: EditWordListTableViewEditingCommand) -> EditWordListTableViewState {
         switch command {
+        case let .replace(state):
+            return state
         case let .append(item, in: section):
             var sections = self.sections
             let items = sections[section].items + item
