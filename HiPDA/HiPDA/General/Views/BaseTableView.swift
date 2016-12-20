@@ -7,6 +7,18 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
+
+/// BaseTableView的Rx扩展
+extension Reactive where Base: BaseTableView {
+    var status: UIBindingObserver<Base, BaseTableViewStatus> {
+        return UIBindingObserver(UIElement: base) { (tableView, status) in
+            tableView.status = status
+        }
+    }
+}
 
 /// Base列表视图的状态
 ///

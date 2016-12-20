@@ -112,15 +112,15 @@ extension EditWordListViewController {
             .map {
                 $0.sections
             }
-            .do(onNext: { [unowned self] (section) in
-                let itemCount = section.reduce(0) {
-                    return $0 + $1.items.count
-                }
-                self.tableView.status = itemCount == 0 ? .noResult : .normal
-            })
             .shareReplay(1)
         data.bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
+        
+        data.map { sections in
+            return sections.reduce(0) {
+                return $0 + $1.items.count
+            } == 0 ? .noResult : .normal
+        }.bindTo(tableView.rx.status).addDisposableTo(disposeBag)
         
         willDismiss.asObservable()
             .filter { $0 }
