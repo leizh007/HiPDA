@@ -16,7 +16,7 @@ struct UserRemarkSection {
 
 // MARK: - AnimatableSectionModelType
 
-extension UserRemarkSection: AnimatableSectionModelType {
+extension UserRemarkSection: AnimatableSection {
     typealias Item = UserRemark
     typealias Identity = String
     
@@ -34,21 +34,7 @@ extension UserRemarkSection: AnimatableSectionModelType {
     }
 }
 
-// MARK: - Equatable
-
-extension UserRemarkSection: Equatable {
-    static func ==(lhs: UserRemarkSection, rhs: UserRemarkSection) -> Bool {
-        if lhs.items.count != rhs.items.count {
-            return false
-        }
-        
-        return (0..<lhs.items.count).reduce(true) {
-            $0 && (lhs.items[$1] == rhs.items[$1])
-        }
-    }
-}
-
-// MARK: - CustomDebugStringConvertible
+// MARK: - CustomStringConvertible
 
 extension UserRemarkSection: CustomStringConvertible {
     var description: String {

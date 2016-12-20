@@ -28,7 +28,7 @@ enum TableViewEditingCommand<State: TableViewState> {
 
 /// TableView状态
 protocol TableViewState: Equatable {
-    associatedtype Section: AnimatableSectionModelType, Equatable
+    associatedtype Section: AnimatableSection, Equatable
     
     var sections: [Section] { get }
     init(sections: [Section])

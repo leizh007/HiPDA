@@ -12,6 +12,7 @@
 		05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF31E096F2C0070E044 /* UserRemark.swift */; };
 		05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */; };
 		05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF91E097A8C0070E044 /* TableViewState.swift */; };
+		05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AFD1E0988090070E044 /* AnimatableSection.swift */; };
 		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
 		05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */; };
 		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
@@ -127,6 +128,7 @@
 		05068AF31E096F2C0070E044 /* UserRemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemark.swift; sourceTree = "<group>"; };
 		05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkTableViewState.swift; sourceTree = "<group>"; };
 		05068AF91E097A8C0070E044 /* TableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
+		05068AFD1E0988090070E044 /* AnimatableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSection.swift; sourceTree = "<group>"; };
 		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextInput+HiPDA.swift"; sourceTree = "<group>"; };
 		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				058A71731DA1E407004992AD /* Lens.swift */,
 				05416C881D903CB200049AA0 /* Result.swift */,
 				05068AF91E097A8C0070E044 /* TableViewState.swift */,
+				05068AFD1E0988090070E044 /* AnimatableSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
+				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,

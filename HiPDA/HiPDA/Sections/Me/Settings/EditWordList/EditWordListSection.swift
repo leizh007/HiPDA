@@ -16,7 +16,7 @@ struct EditWordListSection {
 
 // MARK: - AnimatableSectionModelType
 
-extension EditWordListSection: AnimatableSectionModelType {
+extension EditWordListSection: AnimatableSection {
     typealias Item = String
     typealias Identity = String
     
@@ -34,24 +34,10 @@ extension EditWordListSection: AnimatableSectionModelType {
     }
 }
 
-// MARK: - Equatable
+// MARK: - CustomStringConvertible
 
-extension EditWordListSection: Equatable {
-    static func ==(lhs: EditWordListSection, rhs: EditWordListSection) -> Bool {
-        if lhs.items.count != rhs.items.count {
-            return false
-        }
-        
-        return (0..<lhs.items.count).reduce(true) {
-            $0 && (lhs.items[$1] == rhs.items[$1])
-        }
-    }
-}
-
-// MARK: - CustomDebugStringConvertible
-
-extension EditWordListSection: CustomDebugStringConvertible {
-    var debugDescription: String {
+extension EditWordListSection: CustomStringConvertible {
+    var description: String {
         return "EditWordListSection(words:\(words))"
     }
 }
