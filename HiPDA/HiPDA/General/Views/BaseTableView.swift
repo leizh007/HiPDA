@@ -13,6 +13,7 @@ import RxDataSources
 
 /// BaseTableView的Rx扩展
 extension Reactive where Base: BaseTableView {
+    /// 状态
     var status: UIBindingObserver<Base, BaseTableViewStatus> {
         return UIBindingObserver(UIElement: base) { (tableView, status) in
             tableView.status = status

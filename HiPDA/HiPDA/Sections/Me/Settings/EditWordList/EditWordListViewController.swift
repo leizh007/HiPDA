@@ -21,7 +21,6 @@ class EditWordListViewController: BaseViewController {
     var words = [String]() {
         didSet {
             replaceCommand.onNext(.replace(EditWordListTableViewState(sections:[EditWordListSection(words:words)])))
-            tableView.status = words.count == 0 ? .noResult : .normal
         }
     }
     
@@ -116,11 +115,21 @@ extension EditWordListViewController {
         data.bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
         
-        data.map { sections in
+        let itemsCount = data.map { sections in
             return sections.reduce(0) {
                 return $0 + $1.items.count
-            } == 0 ? .noResult : .normal
+            }
+        }
+        
+        itemsCount.map {
+            $0 == 0 ? .noResult : .normal
         }.bindTo(tableView.rx.status).addDisposableTo(disposeBag)
+        
+        itemsCount.map {
+            $0 != 0
+        }.filter {
+            !$0
+        }.bindTo(self.isTableViewEditing).addDisposableTo(disposeBag)
         
         willDismiss.asObservable()
             .filter { $0 }
@@ -187,6 +196,6 @@ extension EditWordListViewController: UITableViewDelegate {
             self.deleteCommandManually.onNext(.delete(with: indexPath))
         }
         
-        return [deleteAction, sortAction]
+        return self.isTableViewEditing.value ? nil : [deleteAction, sortAction]
     }
 }
