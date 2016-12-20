@@ -11,7 +11,7 @@
 		05068AF21E096D8F0070E044 /* UserRemarkSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF11E096D8F0070E044 /* UserRemarkSection.swift */; };
 		05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF31E096F2C0070E044 /* UserRemark.swift */; };
 		05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */; };
-		05068AFA1E097A8C0070E044 /* TableViewEditingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF91E097A8C0070E044 /* TableViewEditingCommand.swift */; };
+		05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF91E097A8C0070E044 /* TableViewState.swift */; };
 		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
 		05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */; };
 		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
@@ -126,7 +126,7 @@
 		05068AF11E096D8F0070E044 /* UserRemarkSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkSection.swift; sourceTree = "<group>"; };
 		05068AF31E096F2C0070E044 /* UserRemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemark.swift; sourceTree = "<group>"; };
 		05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkTableViewState.swift; sourceTree = "<group>"; };
-		05068AF91E097A8C0070E044 /* TableViewEditingCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewEditingCommand.swift; sourceTree = "<group>"; };
+		05068AF91E097A8C0070E044 /* TableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
 		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextInput+HiPDA.swift"; sourceTree = "<group>"; };
 		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 				05645C7A1D75D60900B86D0A /* Constants.swift */,
 				058A71731DA1E407004992AD /* Lens.swift */,
 				05416C881D903CB200049AA0 /* Result.swift */,
-				05068AF91E097A8C0070E044 /* TableViewEditingCommand.swift */,
+				05068AF91E097A8C0070E044 /* TableViewState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -980,7 +980,7 @@
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
-				05068AFA1E097A8C0070E044 /* TableViewEditingCommand.swift in Sources */,
+				05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */,
 				05F3DCD91DB7B4A00061CED1 /* HiPDA.swift in Sources */,
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
