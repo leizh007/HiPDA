@@ -34,6 +34,8 @@ struct SettingsRouter {
             showEditWordsViewController(with: settingsSegue)
         case .pmDoNotDisturb:
             showPmDoNotDisturbViewController(with: settingsSegue)
+        case .userRemark:
+            showUserRemarkViewController(with: settingsSegue)
         }
     }
 }
@@ -104,5 +106,28 @@ extension SettingsRouter {
             }
         }
 //        }
+    }
+}
+
+// MARK: - UserRemark
+
+extension SettingsRouter {
+    /// 跳转到编辑用户备注界面
+    ///
+    /// - Parameter setttingsSegue: 页面类型
+    fileprivate func showUserRemarkViewController(with setttingsSegue: SettingsSegue) {
+        guard case .userRemark = setttingsSegue else {
+            assertionFailure("Unmatched case!")
+            return
+        }
+        guard let viewController = self.viewController else { return }
+        
+        viewController.perform(.userRemark) { userRemarkViewController in
+            userRemarkViewController.title = setttingsSegue.rawValue
+            userRemarkViewController.userRemarkDictionary = viewController.viewModel.userRemarkDictionary
+            userRemarkViewController.complation = { userRemarkDictionary in
+                viewController.viewModel.userRemarkDictionary = userRemarkDictionary
+            }
+        }
     }
 }

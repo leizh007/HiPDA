@@ -27,3 +27,17 @@ func console(message: String, filename: String = #file, line: Int = #line, funct
 func delay(seconds: Double, completion:@escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: completion)
 }
+
+// MARK: - Array Convenience Function
+
+/// 数组添加元素
+///
+/// - Parameters:
+///   - lhs: 数组
+///   - rhs: 元素
+/// - Returns: 返回添加完的数组的拷贝
+func +<T>(lhs: [T], rhs: T) -> [T] {
+    var copy = lhs
+    copy.append(rhs)
+    return copy
+}

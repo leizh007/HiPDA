@@ -138,6 +138,17 @@ struct SettingsViewModel {
         return settings.isEnabledUserRemark
     }
     
+    /// 用户备注字典
+    var userRemarkDictionary: [String: String] {
+        get {
+            return settings.userRemarkDictionary
+        }
+        
+        set {
+            settings.userRemarkDictionary = newValue
+        }
+    }
+    
     /// 是否开启小尾巴设置
     var isEnabledTail: Bool {
         return settings.isEnabledTail

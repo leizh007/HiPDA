@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05068AF01E09696C0070E044 /* UserRemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AEF1E09696C0070E044 /* UserRemarkViewController.swift */; };
+		05068AF21E096D8F0070E044 /* UserRemarkSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF11E096D8F0070E044 /* UserRemarkSection.swift */; };
+		05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF31E096F2C0070E044 /* UserRemark.swift */; };
+		05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */; };
+		05068AFA1E097A8C0070E044 /* TableViewEditingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05068AF91E097A8C0070E044 /* TableViewEditingCommand.swift */; };
 		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
 		05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */; };
 		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
@@ -117,6 +122,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05068AEF1E09696C0070E044 /* UserRemarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkViewController.swift; sourceTree = "<group>"; };
+		05068AF11E096D8F0070E044 /* UserRemarkSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkSection.swift; sourceTree = "<group>"; };
+		05068AF31E096F2C0070E044 /* UserRemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemark.swift; sourceTree = "<group>"; };
+		05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkTableViewState.swift; sourceTree = "<group>"; };
+		05068AF91E097A8C0070E044 /* TableViewEditingCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewEditingCommand.swift; sourceTree = "<group>"; };
 		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextInput+HiPDA.swift"; sourceTree = "<group>"; };
 		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -265,6 +275,17 @@
 			path = FPS;
 			sourceTree = "<group>";
 		};
+		05068AEE1E09693B0070E044 /* UserRemark */ = {
+			isa = PBXGroup;
+			children = (
+				05068AEF1E09696C0070E044 /* UserRemarkViewController.swift */,
+				05068AF11E096D8F0070E044 /* UserRemarkSection.swift */,
+				05068AF31E096F2C0070E044 /* UserRemark.swift */,
+				05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */,
+			);
+			path = UserRemark;
+			sourceTree = "<group>";
+		};
 		055996991D50DB3800057CF6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +344,7 @@
 				05645C7A1D75D60900B86D0A /* Constants.swift */,
 				058A71731DA1E407004992AD /* Lens.swift */,
 				05416C881D903CB200049AA0 /* Result.swift */,
+				05068AF91E097A8C0070E044 /* TableViewEditingCommand.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +422,7 @@
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				05068AEE1E09693B0070E044 /* UserRemark */,
 				05D1305B1E017BF6007D3765 /* EditWordList */,
 				057016F01DCB78700024EC3B /* Settings.swift */,
 				057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */,
@@ -934,12 +957,14 @@
 			files = (
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
+				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
 				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
+				05068AF21E096D8F0070E044 /* UserRemarkSection.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
@@ -955,6 +980,7 @@
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
+				05068AFA1E097A8C0070E044 /* TableViewEditingCommand.swift in Sources */,
 				05F3DCD91DB7B4A00061CED1 /* HiPDA.swift in Sources */,
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
@@ -975,6 +1001,7 @@
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
+				05068AF01E09696C0070E044 /* UserRemarkViewController.swift in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
@@ -985,6 +1012,7 @@
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
+				05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */,
 				05F3DCE11DB7B5A60061CED1 /* HtmlParserError.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
