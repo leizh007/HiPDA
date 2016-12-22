@@ -144,7 +144,7 @@ extension EditWordListViewController {
     /// - Parameter dataSource: 数据源
     fileprivate func skinTableViewDataSource(_ dataSource: RxTableViewSectionedAnimatedDataSource<EditWordListSection>) {
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .left)
-        dataSource.configureCell = { (dataSource, tableView, indexPath, item) in
+        dataSource.configureCell = { (_, tableView, indexPath, item) in
             return (tableView.dequeueReusableCell(for: indexPath) as UITableViewCell).then {
                 $0.textLabel?.text = "\(item)"
             }
