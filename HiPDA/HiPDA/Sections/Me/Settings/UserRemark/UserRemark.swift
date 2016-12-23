@@ -32,7 +32,7 @@ extension UserRemark: IdentifiableType {
 
 extension UserRemark: Equatable {
     static func ==(lhs: UserRemark, rhs: UserRemark) -> Bool {
-        return lhs.userName == rhs.userName && lhs.remarkName == rhs.userName
+        return lhs.userName == rhs.userName && lhs.remarkName == rhs.remarkName
     }
 }
 

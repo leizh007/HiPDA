@@ -36,6 +36,7 @@
 		0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */; };
 		054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA6411D75C2E400819C2D /* FPSLabel.swift */; };
 		054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */; };
+		054F97D51E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */; };
 		0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969A1D50DB3800057CF6 /* AppDelegate.swift */; };
 		055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */; };
 		055996A81D50DB4500057CF6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996A11D50DB4500057CF6 /* Account.swift */; };
@@ -155,6 +156,7 @@
 		0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		054AA6411D75C2E400819C2D /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSAssistiveTouch.swift; sourceTree = "<group>"; };
+		054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkTableViewStateTests.swift; sourceTree = "<group>"; };
 		0559969A1D50DB3800057CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		055996A11D50DB4500057CF6 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				05F3DCE21DB7C2420061CED1 /* RegexTests.swift */,
 				05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */,
 				05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */,
+				054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -1045,6 +1048,7 @@
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,
 				058A71801DA28865004992AD /* LensTests.swift in Sources */,
+				054F97D51E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift in Sources */,
 				054065A31D43167400E460F6 /* UserTests.swift in Sources */,
 				05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */,
 				0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */,

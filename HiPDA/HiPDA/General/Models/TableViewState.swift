@@ -41,6 +41,14 @@ extension TableViewState {
     /// - Parameter command: 指令
     /// - Returns: 返回执行后的状态
     func execute(_ command: TableViewEditingCommand<Self>) -> Self {
+        return _defaultImplementOfExecute(command)
+    }
+    
+    /// 执行指令的默认实现方式
+    ///
+    /// - Parameter command: 指令
+    /// - Returns: 返回执行后的状态
+    func _defaultImplementOfExecute(_ command: TableViewEditingCommand<Self>) -> Self {
         switch command {
         case let .replace(state):
             return state

@@ -26,10 +26,7 @@ extension UserRemarkTableViewState: TableViewState {
     
     func execute(_ command: TableViewEditingCommand<UserRemarkTableViewState>) -> UserRemarkTableViewState {
         typealias `Self` = UserRemarkTableViewState
-        switch command {
-        case let .replace(state):
-            return state
-        case let .append(item, in: section):
+        if case let .append(item, in: section) = command {
             var sections = self.sections
             var items = sections[section].items
             if let index = items.index(where: { $0.userName == item.userName }) {
@@ -39,31 +36,8 @@ extension UserRemarkTableViewState: TableViewState {
             }
             sections[section] = Section(original: sections[section], items: items)
             return Self(sections: sections)
-        case let .delete(with: indexPath):
-            var sections = self.sections
-            var items = sections[indexPath.section].items
-            items.remove(at: indexPath.row)
-            sections[indexPath.section] = Section(original: sections[indexPath.section], items: items)
-            return Self(sections: sections)
-        case let .move(from: sourceIndexPath, to: destinationIndexPath):
-            var sections = self.sections
-            var sourceItems = sections[sourceIndexPath.section].items
-            var destinationItems = sections[destinationIndexPath.section].items
-            
-            if sourceIndexPath.section == destinationIndexPath.section {
-                destinationItems.insert(destinationItems.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
-                let destinationSection = Section(original: sections[destinationIndexPath.section], items: destinationItems)
-                sections[sourceIndexPath.section] = destinationSection
-                return Self(sections: sections)
-            } else {
-                let item = sourceItems.remove(at: sourceIndexPath.row)
-                destinationItems.insert(item, at: destinationIndexPath.row)
-                let sourceSection = Section(original: sections[sourceIndexPath.section], items: sourceItems)
-                let destinationSection = Section(original: sections[destinationIndexPath.section], items: destinationItems)
-                sections[sourceIndexPath.section] = sourceSection
-                sections[destinationIndexPath.section] = destinationSection
-                return Self(sections: sections)
-            }
+        } else {
+            return _defaultImplementOfExecute(command)
         }
     }
 }
