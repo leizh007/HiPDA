@@ -149,6 +149,17 @@ struct SettingsViewModel {
         }
     }
     
+    /// 是否显示置顶贴
+    var isShowStickThreads: Bool {
+        get {
+            return settings.isShowStickThreads
+        }
+        
+        set {
+            settings.isShowStickThreads = newValue
+        }
+    }
+    
     /// 是否开启小尾巴设置
     var isEnabledTail: Bool {
         return settings.isEnabledTail
@@ -180,7 +191,7 @@ struct SettingsViewModel {
     }
     
     /// 处理事件
-    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>) {
+    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, isShowStickThreads: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>) {
         userBlock.drive(onNext: { on in
                 self.settings.isEnabledUserBlock = on
             }).addDisposableTo(disposeBag)
@@ -210,6 +221,9 @@ struct SettingsViewModel {
         }).addDisposableTo(disposeBag)
         pmDoNotDisturb.drive(onNext: { on in
             self.settings.isEnabledPmDoNotDisturb = on
+        }).addDisposableTo(disposeBag)
+        isShowStickThreads.drive(onNext: { on in
+            self.settings.isShowStickThreads = on
         }).addDisposableTo(disposeBag)
         userRemark.drive(onNext: { on in
             self.settings.isEnabledUserRemark = on

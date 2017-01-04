@@ -70,6 +70,7 @@
 		05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */; };
 		05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */; };
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
+		05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CEB74D1E1D0F7300ACB773 /* ForumList.plist */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */; };
 		05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130601E017D21007D3765 /* EditWordListSection.swift */; };
@@ -193,6 +194,7 @@
 		05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HiPDA.swift"; sourceTree = "<group>"; };
 		05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		05CEB74D1E1D0F7300ACB773 /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				055996BF1D50DD0900057CF6 /* LaunchScreen.storyboard */,
 				050EE3201DD200AA00C4B18D /* Main.storyboard */,
 				055996C31D50DD0900057CF6 /* Info.plist */,
+				05CEB74D1E1D0F7300ACB773 /* ForumList.plist */,
 				05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */,
 			);
 			path = Resources;
@@ -770,6 +773,7 @@
 				050EE3261DD200DE00C4B18D /* Notification.storyboard in Resources */,
 				050EE3241DD200C800C4B18D /* Home.storyboard in Resources */,
 				050EE3281DD200EB00C4B18D /* Search.storyboard in Resources */,
+				05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */,
 				055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */,
 				050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */,
 				05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */,
