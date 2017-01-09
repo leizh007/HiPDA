@@ -390,7 +390,7 @@
 			<key>subForumList</key>
 			<array>
 				<dict>
-					<key>forumList</key>
+					<key>forumName</key>
 					<string>改版建议</string>
 					<key>forumId</key>
 					<integer>65</integer>

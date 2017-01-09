@@ -23,10 +23,10 @@ struct ForumManager {
     }()
     
     fileprivate static let typeidDictionary: [String: Int] = {
-        return ForumManager.attributes[kForumTypeIdDictionaryKey] as? [String: Int] ?? [:]
+        ForumManager.attributes[kForumTypeIdDictionaryKey] as? [String: Int] ?? [:]
     }()
     
-    fileprivate static let forums: [Forum] = {
+    static let forums: [Forum] = {
         let forumList = ForumManager.attributes[kForumListKey] as? [[String: Any]] ?? []
         return forumList.lazy
             .map {

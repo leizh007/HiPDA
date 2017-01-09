@@ -61,6 +61,7 @@
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
+		05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */; };
 		05B506741D6C8D64004D573D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506731D6C8D64004D573D /* ReusableView.swift */; };
 		05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506751D6C91E9004D573D /* NibLoadableView.swift */; };
 		05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506791D6C92A7004D573D /* ReusableViewTests.swift */; };
@@ -186,6 +187,7 @@
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
+		05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManagerTests.swift; sourceTree = "<group>"; };
 		05B506731D6C8D64004D573D /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		05B506751D6C91E9004D573D /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		05B506791D6C92A7004D573D /* ReusableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewTests.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */,
 				05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */,
 				054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */,
+				05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -1065,6 +1068,7 @@
 				05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */,
 				05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
+				05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,
 				058A71801DA28865004992AD /* LensTests.swift in Sources */,
