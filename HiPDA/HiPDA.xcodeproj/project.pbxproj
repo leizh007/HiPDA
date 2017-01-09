@@ -59,6 +59,8 @@
 		058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717D1DA1FFBD004992AD /* LoginResult.swift */; };
 		058A71801DA28865004992AD /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717F1DA28865004992AD /* LensTests.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
+		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
+		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
 		05B506741D6C8D64004D573D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506731D6C8D64004D573D /* ReusableView.swift */; };
 		05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506751D6C91E9004D573D /* NibLoadableView.swift */; };
 		05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506791D6C92A7004D573D /* ReusableViewTests.swift */; };
@@ -182,6 +184,8 @@
 		058A717D1DA1FFBD004992AD /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		058A717F1DA28865004992AD /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
+		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
 		05B506731D6C8D64004D573D /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		05B506751D6C91E9004D573D /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		05B506791D6C92A7004D573D /* ReusableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewTests.swift; sourceTree = "<group>"; };
@@ -433,6 +437,7 @@
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				05CEB7541E1D5E5900ACB773 /* ForumList */,
 				05068AEE1E09693B0070E044 /* UserRemark */,
 				05D1305B1E017BF6007D3765 /* EditWordList */,
 				057016F01DCB78700024EC3B /* Settings.swift */,
@@ -455,6 +460,15 @@
 				057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		05CEB7541E1D5E5900ACB773 /* ForumList */ = {
+			isa = PBXGroup;
+			children = (
+				05A2AF961E2385B00048508C /* Forum.swift */,
+				05A2AF971E2385B00048508C /* ForumManager.swift */,
+			);
+			path = ForumList;
 			sourceTree = "<group>";
 		};
 		05D1305B1E017BF6007D3765 /* EditWordList */ = {
@@ -977,6 +991,7 @@
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
+				05A2AF981E2385B00048508C /* Forum.swift in Sources */,
 				05068AF21E096D8F0070E044 /* UserRemarkSection.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
@@ -992,6 +1007,7 @@
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
+				05A2AF991E2385B00048508C /* ForumManager.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
 				05068B001E0AC0010070E044 /* UserRemarkTableViewCell.swift in Sources */,
 				05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */,

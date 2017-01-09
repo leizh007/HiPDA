@@ -2,199 +2,152 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>forumIdDictionary</key>
-	<dict>
-		<key>Discovery</key>
-		<string>2</string>
-		<key>Hi!PDA站务与公告</key>
-		<string>5</string>
-		<key>Buy &amp; Sell 交易服务区</key>
-		<string>6</string>
-		<key>Geek Talks · 奇客怪谈</key>
-		<string>7</string>
-		<key>Smartphone</key>
-		<string>9</string>
-		<key>PalmOS ，Treo</key>
-		<string>12</string>
-		<key>Windows Mobile，PocketPC，HPC</key>
-		<string>14</string>
-		<key>麦客爱苹果</key>
-		<string>22</string>
-		<key>随笔与个人文集</key>
-		<string>23</string>
-		<key>意欲蔓延</key>
-		<string>24</string>
-		<key>吃喝玩乐</key>
-		<string>25</string>
-		<key>Palm芝麻宝典</key>
-		<string>40</string>
-		<key>DC,NB,MP3,Gadgets...</key>
-		<string>50</string>
-		<key>La Femme</key>
-		<string>51</string>
-		<key>iPhone, iPod Touch，iPad</key>
-		<string>56</string>
-		<key>疑似机器人</key>
-		<string>57</string>
-		<key>E-INK</key>
-		<string>59</string>
-		<key>Android, Chrome, &amp; Google</key>
-		<string>60</string>
-		<key>Joggler</key>
-		<string>62</string>
-		<key>已完成交易</key>
-		<string>63</string>
-		<key>只讨论2.0</key>
-		<string>64</string>
-		<key>改版建议</key>
-		<string>65</string>
-	</dict>
 	<key>typeIdDictionary</key>
 	<dict>
 		<key>手机</key>
-		<string>1</string>
+		<integer>1</integer>
 		<key>掌上电脑</key>
-		<string>2</string>
+		<integer>2</integer>
 		<key>笔记本电脑</key>
-		<string>3</string>
+		<integer>3</integer>
 		<key>无线产品</key>
-		<string>4</string>
+		<integer>4</integer>
 		<key>数码相机、摄像机</key>
-		<string>5</string>
+		<integer>5</integer>
 		<key>MP3随身听</key>
-		<string>6</string>
+		<integer>6</integer>
 		<key>各类配件</key>
-		<string>7</string>
+		<integer>7</integer>
 		<key>其他好玩的</key>
-		<string>8</string>
+		<integer>8</integer>
 		<key>聚会</key>
-		<string>9</string>
+		<integer>9</integer>
 		<key>心得技巧</key>
-		<string>10</string>
+		<integer>10</integer>
 		<key>绿色汉化</key>
-		<string>11</string>
+		<integer>11</integer>
 		<key>游戏</key>
-		<string>12</string>
+		<integer>12</integer>
 		<key>多媒体</key>
-		<string>13</string>
+		<integer>13</integer>
 		<key>数据库</key>
-		<string>14</string>
+		<integer>14</integer>
 		<key>实用工具</key>
-		<string>15</string>
+		<integer>15</integer>
 		<key>ROM</key>
-		<string>16</string>
+		<integer>16</integer>
 		<key>硬件报告</key>
-		<string>17</string>
+		<integer>17</integer>
 		<key>Kobo</key>
-		<string>18</string>
+		<integer>18</integer>
 		<key>站务</key>
-		<string>19</string>
+		<integer>19</integer>
 		<key>Gadgets</key>
-		<string>20</string>
+		<integer>20</integer>
 		<key>无线</key>
-		<string>21</string>
+		<integer>21</integer>
 		<key>嵌入式Linux</key>
-		<string>22</string>
+		<integer>22</integer>
 		<key>Symbian</key>
-		<string>23</string>
+		<integer>23</integer>
 		<key>PalmOS</key>
-		<string>24</string>
+		<integer>24</integer>
 		<key>Linux</key>
-		<string>25</string>
+		<integer>25</integer>
 		<key>Windows Mobile</key>
-		<string>26</string>
+		<integer>26</integer>
 		<key>运营商</key>
-		<string>27</string>
+		<integer>27</integer>
 		<key>Other</key>
-		<string>28</string>
+		<integer>28</integer>
 		<key>电影</key>
-		<string>29</string>
+		<integer>29</integer>
 		<key>音乐</key>
-		<string>30</string>
+		<integer>30</integer>
 		<key>读书</key>
-		<string>31</string>
+		<integer>31</integer>
 		<key>美术</key>
-		<string>32</string>
+		<integer>32</integer>
 		<key>汽车</key>
-		<string>33</string>
+		<integer>33</integer>
 		<key>美食</key>
-		<string>34</string>
+		<integer>34</integer>
 		<key>出游</key>
-		<string>35</string>
+		<integer>35</integer>
 		<key>English</key>
-		<string>36</string>
+		<integer>36</integer>
 		<key>大杂烩</key>
-		<string>38</string>
+		<integer>38</integer>
 		<key>YY</key>
-		<string>39</string>
+		<integer>39</integer>
 		<key>助学</key>
-		<string>40</string>
+		<integer>40</integer>
 		<key>业界</key>
-		<string>41</string>
+		<integer>41</integer>
 		<key>Treo</key>
-		<string>43</string>
+		<integer>43</integer>
 		<key>HPC</key>
-		<string>44</string>
+		<integer>44</integer>
 		<key>Palm硬件</key>
-		<string>45</string>
+		<integer>45</integer>
 		<key>Clie</key>
-		<string>46</string>
+		<integer>46</integer>
 		<key>各类软件</key>
-		<string>47</string>
+		<integer>47</integer>
 		<key>汉化</key>
-		<string>48</string>
+		<integer>48</integer>
 		<key>摄影</key>
-		<string>51</string>
+		<integer>51</integer>
 		<key>DC</key>
-		<string>52</string>
+		<integer>52</integer>
 		<key>游戏机</key>
-		<string>53</string>
+		<integer>53</integer>
 		<key>兴趣</key>
-		<string>54</string>
+		<integer>54</integer>
 		<key>Discovery</key>
-		<string>56</string>
+		<integer>56</integer>
 		<key>投资</key>
-		<string>57</string>
+		<integer>57</integer>
 		<key>职场</key>
-		<string>58</string>
+		<integer>58</integer>
 		<key>BlackBerry</key>
-		<string>59</string>
+		<integer>59</integer>
 		<key>UMPC</key>
-		<string>62</string>
+		<integer>62</integer>
 		<key>Pre</key>
-		<string>63</string>
+		<integer>63</integer>
 		<key>WebOS</key>
-		<string>64</string>
+		<integer>64</integer>
 		<key>文艺</key>
-		<string>65</string>
+		<integer>65</integer>
 		<key>版喃</key>
-		<string>66</string>
+		<integer>66</integer>
 		<key>显摆</key>
-		<string>67</string>
+		<integer>67</integer>
 		<key>Kindle</key>
-		<string>68</string>
+		<integer>68</integer>
 		<key>SONY</key>
-		<string>70</string>
+		<integer>70</integer>
 		<key>国产</key>
-		<string>72</string>
+		<integer>72</integer>
 		<key>资源</key>
-		<string>73</string>
+		<integer>73</integer>
 		<key>安卓</key>
-		<string>74</string>
+		<integer>74</integer>
 		<key>综合</key>
-		<string>75</string>
+		<integer>75</integer>
 		<key>高清播放器</key>
-		<string>76</string>
+		<integer>76</integer>
 		<key>交流</key>
-		<string>77</string>
+		<integer>77</integer>
 		<key>pixi</key>
-		<string>78</string>
+		<integer>78</integer>
 		<key>晒物劝败</key>
-		<string>79</string>
+		<integer>79</integer>
 		<key>Nook</key>
-		<string>80</string>
+		<integer>80</integer>
 		<key>装修</key>
-		<string>81</string>
+		<integer>81</integer>
 	</dict>
 	<key>forumList</key>
 	<array>
@@ -203,10 +156,14 @@
 			<string>Hi!PDA站务与公告</string>
 			<key>description</key>
 			<string>Hi!PDA的站务，版面划分，申诉，建议等等。</string>
+			<key>forumId</key>
+			<integer>5</integer>
 		</dict>
 		<dict>
 			<key>forumName</key>
 			<string>Buy &amp; Sell 交易服务区</string>
+			<key>forumId</key>
+			<integer>6</integer>
 			<key>description</key>
 			<string>最IN数码产品热卖场，易手产品交易区，Hot!</string>
 			<key>typeidList</key>
@@ -228,92 +185,297 @@
 					<string>已完成交易</string>
 					<key>description</key>
 					<string>已完成的、成功的交易都放在这里留存。</string>
+					<key>forumId</key>
+					<integer>63</integer>
 				</dict>
 			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>Geek Talks · 奇客怪谈</string>
+			<key>forumId</key>
+			<integer>7</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>业界、Bluetooth、WiFi、嵌入Linux、看法、非主流设备。</string>
+			<key>subForumList</key>
+			<array>
+				<dict>
+					<key>forumName</key>
+					<string>E-INK</string>
+					<key>forumId</key>
+					<integer>59</integer>
+					<key>description</key>
+					<string>黑白世界 锦绣文章</string>
+					<key>typeidList</key>
+					<array>
+						<string>Kindle</string>
+						<string>SNOY</string>
+						<string>国产</string>
+						<string>资源</string>
+						<string></string>
+						<string>综合</string>
+						<string>交流</string>
+						<string>Nook</string>
+						<string>Kobo</string>
+						<string>求助</string>
+						<string>站务</string>
+					</array>
+				</dict>
+				<dict>
+					<key>forumName</key>
+					<string>Joggler</string>
+					<key>forumId</key>
+					<integer>62</integer>
+					<key>typeidList</key>
+					<array>
+						<string>各类配件</string>
+						<string>ROM</string>
+						<string>硬件报告</string>
+						<string>业界</string>
+						<string>各类软件</string>
+						<string>综合</string>
+						<string>安卓</string>
+						<string>交流</string>
+						<string>求助</string>
+						<string>站务</string>
+					</array>
+				</dict>
+			</array>
+			<key>typeidList</key>
+			<array>
+				<string>Gadgets</string>
+				<string>无线</string>
+				<string>嵌入式Linux</string>
+				<string>业界</string>
+				<string>安卓</string>
+				<string>高清播放器</string>
+				<string>站务</string>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>Smartphone</string>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>智能手机：Windows Mobile/Windows Phone, Android, iOS, webOS, Symbian, and other</string>
+			<key>forumId</key>
+			<integer>9</integer>
+			<key>typeidList</key>
+			<array>
+				<string>Symbian</string>
+				<string>PalmOS</string>
+				<string>Linux</string>
+				<string>Windows Mobile</string>
+				<string>运营商</string>
+				<string>Other</string>
+				<string>BlackBerry</string>
+				<string>站务</string>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>iPhone, iPod Touch，iPad</string>
+			<key>forumId</key>
+			<integer>57</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>可以用两根手指头同时摸的手机和上网设备</string>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>Android, Chrome, &amp; Google</string>
+			<key>forumId</key>
+			<integer>60</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>Cloud Computing of Titan</string>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>PalmOS ，Treo</string>
+			<key>forumId</key>
+			<integer>12</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>PalmOS的各种软件、硬件，Treo手机</string>
+			<key>typeidList</key>
+			<array>
+				<string>Treo</string>
+				<string>Palm硬件</string>
+				<string>Clie</string>
+				<string>各类软件</string>
+				<string>汉化</string>
+				<string>Pre</string>
+				<string>WebOS</string>
+				<string>pixi</string>
+				<string>求助</string>
+				<string>站务</string>
+			</array>
+			<key>subForumList</key>
+			<array>
+				<dict>
+					<key>forumName</key>
+					<string>Palm芝麻宝典</string>
+					<key>forumId</key>
+					<integer>40</integer>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
-			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>Windows Mobile，PocketPC，HPC</string>
+			<key>forumId</key>
+			<integer>14</integer>
+			<key>typeidList</key>
+			<array>
+				<string>心得技巧</string>
+				<string>绿色汉化</string>
+				<string>游戏</string>
+				<string>多媒体</string>
+				<string>数据库</string>
+				<string>实用工具</string>
+				<string>ROM</string>
+				<string>硬件报告</string>
+				<string>HPC</string>
+				<string>求助</string>
+				<string>站务</string>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>麦客爱苹果</string>
+			<key>forumId</key>
+			<integer>22</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>G4，Powerbook，iMac，iPod，OS X...Think Different，Live Elegant</string>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>DC,NB,MP3,Gadgets...</string>
+			<key>forumId</key>
+			<integer>50</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>笔记本电脑、数码相机、MP3，各种电子玩具、游戏机</string>
+			<key>typeidList</key>
+			<array>
+				<string>UMPC</string>
+				<string>笔记本电脑</string>
+				<string>MP3随身听</string>
+				<string>Gadgets</string>
+				<string>DC</string>
+				<string>游戏机</string>
+				<string>站务</string>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>Discovery</string>
+			<key>forumId</key>
+			<integer>2</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>每一位Hi-PDA公民的空气与水</string>
+			<key>typeidList</key>
+			<array>
+				<string>聚会</string>
+				<string>汽车</string>
+				<string>大杂烩</string>
+				<string>助学</string>
+				<string>Discovery</string>
+				<string>投资</string>
+				<string>职场</string>
+				<string>文艺</string>
+				<string>版喃</string>
+				<string>显摆</string>
+				<string>晒物劝败</string>
+				<string>装修</string>
+				<string>YY</string>
+				<string>站务</string>
+			</array>
+			<key>subForumList</key>
+			<array>
+				<dict>
+					<key>forumList</key>
+					<string>改版建议</string>
+					<key>forumId</key>
+					<integer>65</integer>
+					<key>typeidList</key>
+					<array>
+						<string>聚会</string>
+						<string>汽车</string>
+						<string>大杂烩</string>
+						<string>助学</string>
+						<string>Discovery</string>
+						<string>投资</string>
+						<string>职场</string>
+						<string>文艺</string>
+						<string>版喃</string>
+						<string>显摆</string>
+						<string>晒物劝败</string>
+						<string>装修</string>
+						<string>YY</string>
+						<string>站务</string>
+					</array>
+				</dict>
+				<dict>
+					<key>forumName</key>
+					<string>只讨论2.0</string>
+					<key>forumId</key>
+					<integer>64</integer>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>意欲蔓延</string>
+			<key>forumId</key>
+			<integer>24</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>电影、音乐、读书、美术、摄影、English</string>
+			<key>typeidList</key>
+			<array>
+				<string>电影</string>
+				<string>音乐</string>
+				<string>读书</string>
+				<string>美术</string>
+				<string>English</string>
+				<string>摄影</string>
+				<string>站务</string>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>随笔与个人文集</string>
+			<key>forumId</key>
+			<integer>23</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>在岁月的书签上，留下我的痕迹</string>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>吃喝玩乐</string>
+			<key>forumId</key>
+			<integer>25</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>美食、旅行~~~</string>
+			<key>typeidList</key>
+			<array>
+				<string>美食</string>
+				<string>出游</string>
+				<string>兴趣</string>
+				<string>站务</string>
+			</array>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>La Femme</string>
+			<key>forumId</key>
+			<integer>51</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>三月三日天气新，HP里多丽人</string>
 		</dict>
 		<dict>
 			<key>forumName</key>
-			<string>Hi!PDA站务与公告</string>
+			<string>疑似机器人</string>
+			<key>forumId</key>
+			<integer>57</integer>
 			<key>description</key>
-			<string>Hi!PDA的站务，版面划分，申诉，建议等等</string>
+			<string>一、不得伤人或任人受伤而袖手旁观；二、除非违背一，必须服从人的命令；三、除非违背一及二，必须保护自己。</string>
 		</dict>
 	</array>
 </dict>
