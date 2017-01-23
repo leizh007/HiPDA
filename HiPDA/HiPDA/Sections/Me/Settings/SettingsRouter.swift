@@ -149,7 +149,7 @@ extension SettingsRouter {
             activeForumNameListViewController.title = setttingsSegue.rawValue
             activeForumNameListViewController.activeForumNameList = viewController.viewModel.activeForumNameList
             activeForumNameListViewController.completion = { activeForumNames in
-                viewController.viewModel.activeForumNameList = activeForumNames
+                viewController.viewModel.activeForumNameList = activeForumNames.count == 0 ? ForumManager.defalutForumNameList : activeForumNames
             }
         }
     }
