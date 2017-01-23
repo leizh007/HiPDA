@@ -30,7 +30,7 @@ private func HiPDAManager() -> Manager {
 
 private func HiPDAEndpointMapping<Target: TargetType>(_ target: Target) -> Endpoint<Target> {
     let url = "\(target.baseURL.absoluteString)\(target.path)"
-    return Endpoint(URL: url, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+    return Endpoint(url: url, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
 }
 
 let HiPDAProvider = RxMoyaProvider<HiPDA>(endpointClosure:HiPDAEndpointMapping, manager: HiPDAManager())
