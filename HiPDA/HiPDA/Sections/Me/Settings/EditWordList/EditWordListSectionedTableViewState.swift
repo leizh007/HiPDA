@@ -22,5 +22,4 @@ struct EditWordListTableViewState {
 // MARK: - TableViewState
 
 extension EditWordListTableViewState: TableViewState {
-    typealias Section = EditWordListSection
 }
