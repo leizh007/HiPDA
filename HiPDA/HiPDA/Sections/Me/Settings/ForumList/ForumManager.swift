@@ -34,4 +34,6 @@ struct ForumManager {
             }
             .flatMap { $0 }
     }()
+    
+    static let defalutForumNameList = ["Discovery", "Buy & Sell 交易服务区", "E-INK", "Geek Talks · 奇客怪谈", "疑似机器人"]
 }

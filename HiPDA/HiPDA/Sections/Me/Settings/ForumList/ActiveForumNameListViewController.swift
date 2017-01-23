@@ -25,7 +25,7 @@ class ActiveForumNameListViewController: BaseViewController {
     }
     
     /// 编辑完后的回调函数
-    var completionHandler: ActiveForumNameListCompletionHandler?
+    var completion: ActiveForumNameListCompletionHandler?
     
     /// 替换指令
     fileprivate let replaceCommand = PublishSubject<ActiveForumNameTableViewEditingCommand>()
@@ -34,8 +34,8 @@ class ActiveForumNameListViewController: BaseViewController {
     fileprivate let willDismiss = PublishSubject<Void>()
     
     /// tableView
-    fileprivate let tableView = BaseTableView(frame: .zero, style: .grouped).then {
-        $0.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height:CGFloat.leastNormalMagnitude))
+    fileprivate let tableView = BaseTableView(frame: .zero, style: .grouped).then { tableView in
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height:CGFloat.leastNormalMagnitude))
     }
     
     override func viewDidLoad() {
@@ -51,6 +51,8 @@ class ActiveForumNameListViewController: BaseViewController {
     }
     
     override func didMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        
         guard parent == nil else { return }
         
         willDismiss.onNext(())
@@ -63,5 +65,55 @@ extension ActiveForumNameListViewController {
     /// 设置tableView的属性
     fileprivate func configureTableView() {
         view.addSubview(tableView)
+        tableView.register(UITableViewCell.self)
+        
+        let dataSource = RxTableViewSectionedAnimatedDataSource<ActiveForumNameSection>()
+        skinTableViewDataSource(dataSource)
+        
+        let deleteCommand = tableView.rx.itemDeleted
+            .map(ActiveForumNameTableViewEditingCommand.delete)
+        let initialState = ActiveForumNameTableViewState(forumNames: activeForumNameList)
+        let data = Observable.of(replaceCommand, deleteCommand)
+            .merge()
+            .scan(initialState) {
+                $0.execute($1)
+            }
+            .startWith(initialState)
+            .map {
+                $0.sections
+            }
+            .shareReplay(1)
+        
+        data.bindTo(tableView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
+        
+        let itemsCount = data.map { sections in
+            return sections.reduce(0) {
+                return $0 + $1.items.count
+            }
+        }
+        itemsCount.map {
+            $0 == 0 ? .noResult : .normal
+        }.bindTo(tableView.rx.status).addDisposableTo(disposeBag)
+
+        willDismiss.withLatestFrom(data).subscribe(onNext: { [unowned self] sections in
+            self.completion?(sections[0].items.count == 0 ? ForumManager.defalutForumNameList : sections[0].items)
+        }).addDisposableTo(disposeBag)
+    }
+    
+    /// 设置tableView的数据源
+    ///
+    /// - Parameter dataSource: 数据源
+    fileprivate func skinTableViewDataSource(_ dataSource: RxTableViewSectionedAnimatedDataSource<ActiveForumNameSection>) {
+        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .left)
+        dataSource.configureCell = { (_, tableView, indexPath, item) in
+            return (tableView.dequeueReusableCell(for: indexPath) as UITableViewCell).then {
+                $0.textLabel?.text = "\(item)"
+                $0.selectionStyle = .none
+            }
+        }
+        dataSource.canEditRowAtIndexPath = { _ in
+            return true
+        }
     }
 }

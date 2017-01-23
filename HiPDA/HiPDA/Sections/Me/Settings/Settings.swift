@@ -222,8 +222,7 @@ class Settings {
         } else {
             pmDoNotDisturbToTime = (hour: 9, minute: 0)
         }
-        let defalutForumNameList = ["Discovery", "Buy & Sell 交易服务区", "E-INK", "Geek Talks · 奇客怪谈", "疑似机器人"]
-        activeForumNameList = (userDefaults.value(forKey: Self.kActiveForumNameList) as? [String]) ?? defalutForumNameList
+        activeForumNameList = (userDefaults.value(forKey: Self.kActiveForumNameList) as? [String]) ?? ForumManager.defalutForumNameList
         isEnabledUserRemark = boolValue(in: userDefaults, key: Self.kIsEnabledUserRemark, defalut: false)
         userRemarkDictionary = (userDefaults.value(forKey: Self.kUserRemarkDictionary) as? [String: String]) ?? [:]
         isEnabledTail = boolValue(in: userDefaults, key: Self.kIsEnabledTail, defalut: true)
@@ -335,7 +334,7 @@ class Settings {
         pmDoNotDisturbFromTime = (hour: 22, minute: 0)
         pmDoNotDisturbToTime = (hour: 9, minute: 0)
         isShowStickThreads = false
-        activeForumNameList = ["Discovery", "Buy & Sell 交易服务区", "E-INK", "Geek Talks · 奇客怪谈", "疑似机器人"]
+        activeForumNameList = ForumManager.defalutForumNameList
         isEnabledUserRemark = false
         userRemarkDictionary = [:]
         isEnabledTail = true

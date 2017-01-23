@@ -23,11 +23,12 @@ struct ActiveForumNameTableViewState {
     }
     
     init(forumNames: [String]) {
-        self.sections = [ActiveForumNameSection(forumNames: forumNames)]
+        sections = [ActiveForumNameSection(forumNames: forumNames)]
     }
 }
 
 // MARK: - TableViewState
 
 extension ActiveForumNameTableViewState: TableViewState {
+    typealias Section = ActiveForumNameSection
 }
