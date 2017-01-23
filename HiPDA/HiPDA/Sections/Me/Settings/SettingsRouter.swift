@@ -34,6 +34,8 @@ struct SettingsRouter {
             showEditWordsViewController(with: settingsSegue)
         case .pmDoNotDisturb:
             showPmDoNotDisturbViewController(with: settingsSegue)
+        case .activeForumNameList:
+            showActiveForumNameListViewController(with: settingsSegue)
         case .userRemark:
             showUserRemarkViewController(with: settingsSegue)
         }
@@ -128,6 +130,23 @@ extension SettingsRouter {
             userRemarkViewController.complation = { userRemarkDictionary in
                 viewController.viewModel.userRemarkDictionary = userRemarkDictionary
             }
+        }
+    }
+}
+
+extension SettingsRouter {
+    /// 跳转到版块列表界面
+    ///
+    /// - Parameter setttingsSegue: 页面类型
+    fileprivate func showActiveForumNameListViewController(with setttingsSegue: SettingsSegue) {
+        guard case .activeForumNameList = setttingsSegue else {
+            assertionFailure("Unmatched case!")
+            return
+        }
+        guard let viewController = self.viewController else { return }
+        
+        viewController.perform(.activeForumNameList) { activeForumNameListViewController in
+            activeForumNameListViewController.title = setttingsSegue.rawValue
         }
     }
 }

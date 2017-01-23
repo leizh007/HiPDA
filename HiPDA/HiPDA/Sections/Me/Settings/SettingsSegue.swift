@@ -22,6 +22,7 @@ enum SettingsSegue: String {
     case threadAttention = "帖子关注词组"
     case pmDoNotDisturb = "消息免打扰"
     case userRemark = "用户备注"
+    case activeForumNameList = "版块列表"
     
     init(indexPath: IndexPath) throws {
         switch (indexPath.section, indexPath.row) {
@@ -33,6 +34,8 @@ enum SettingsSegue: String {
             self = .threadAttention
         case (6, 7):
             self = .pmDoNotDisturb
+        case (7, 1):
+            self = .activeForumNameList
         case (8, 1):
             self = .userRemark
         default:
@@ -55,5 +58,10 @@ extension Segue {
     /// 用户备注
     static var userRemark: Segue<UserRemarkViewController> {
         return .init(identifier: "UserRemark")
+    }
+    
+    /// 版块列表
+    static var activeForumNameList: Segue<ActiveForumNameListViewController> {
+        return .init(identifier: "ActiveForumNameList")
     }
 }
