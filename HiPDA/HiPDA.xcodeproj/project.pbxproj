@@ -60,8 +60,6 @@
 		058A71801DA28865004992AD /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717F1DA28865004992AD /* LensTests.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
 		05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */; };
-		05A1C82F1E35DECE004A95B1 /* ActiveForumNameSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1C82E1E35DECE004A95B1 /* ActiveForumNameSection.swift */; };
-		05A1C8311E35DF4C004A95B1 /* ActiveForumNameTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1C8301E35DF4C004A95B1 /* ActiveForumNameTableViewState.swift */; };
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
 		05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */; };
@@ -189,8 +187,6 @@
 		058A717F1DA28865004992AD /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveForumNameListViewController.swift; sourceTree = "<group>"; };
-		05A1C82E1E35DECE004A95B1 /* ActiveForumNameSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveForumNameSection.swift; sourceTree = "<group>"; };
-		05A1C8301E35DF4C004A95B1 /* ActiveForumNameTableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveForumNameTableViewState.swift; sourceTree = "<group>"; };
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
 		05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManagerTests.swift; sourceTree = "<group>"; };
@@ -476,8 +472,6 @@
 				05A2AF961E2385B00048508C /* Forum.swift */,
 				05A2AF971E2385B00048508C /* ForumManager.swift */,
 				05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */,
-				05A1C82E1E35DECE004A95B1 /* ActiveForumNameSection.swift */,
-				05A1C8301E35DF4C004A95B1 /* ActiveForumNameTableViewState.swift */,
 			);
 			path = ForumList;
 			sourceTree = "<group>";
@@ -1032,7 +1026,6 @@
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
-				05A1C8311E35DF4C004A95B1 /* ActiveForumNameTableViewState.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
@@ -1040,7 +1033,6 @@
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
-				05A1C82F1E35DECE004A95B1 /* ActiveForumNameSection.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,

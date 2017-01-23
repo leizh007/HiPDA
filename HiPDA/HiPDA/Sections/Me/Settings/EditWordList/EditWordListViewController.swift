@@ -165,7 +165,7 @@ extension EditWordListViewController {
     }
     
     /// 设置添加按钮
-    fileprivate func configureAddBarButtonItem() {
+    func configureAddBarButtonItem() {
         addBarButtonItem.rx.tap.subscribe(onNext: { [unowned self] _ in
             self.tableView.setEditing(false, animated: true)
             let alert = UIAlertController(title: "添加", message: nil, preferredStyle: .alert)
