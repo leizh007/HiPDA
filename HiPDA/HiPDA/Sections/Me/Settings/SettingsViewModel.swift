@@ -160,6 +160,17 @@ struct SettingsViewModel {
         }
     }
     
+    /// 板块列表
+    var activeForumNameList: [String] {
+        get {
+            return settings.activeForumNameList
+        }
+        
+        set {
+            settings.activeForumNameList = newValue
+        }
+    }
+    
     /// 是否开启小尾巴设置
     var isEnabledTail: Bool {
         return settings.isEnabledTail

@@ -147,6 +147,10 @@ extension SettingsRouter {
         
         viewController.perform(.activeForumNameList) { activeForumNameListViewController in
             activeForumNameListViewController.title = setttingsSegue.rawValue
+            activeForumNameListViewController.activeForumNameList = viewController.viewModel.activeForumNameList
+            activeForumNameListViewController.completionHandler = { activeForumNames in
+                viewController.viewModel.activeForumNameList = activeForumNames
+            }
         }
     }
 }

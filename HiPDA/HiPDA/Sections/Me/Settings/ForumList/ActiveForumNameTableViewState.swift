@@ -17,6 +17,14 @@ typealias ActiveForumNameTableViewEditingCommand = TableViewEditingCommand<Activ
 /// 编辑词组的TableView的状态
 struct ActiveForumNameTableViewState {
     var sections: [ActiveForumNameSection]
+    
+    init(sections: [ActiveForumNameSection]) {
+        self.sections = sections
+    }
+    
+    init(forumNames: [String]) {
+        self.sections = [ActiveForumNameSection(forumNames: forumNames)]
+    }
 }
 
 // MARK: - TableViewState
