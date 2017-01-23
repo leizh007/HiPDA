@@ -12,7 +12,6 @@ TODO
 ---
 - 登录界面添加姓名下拉列表时会有奇怪的问题
 - Custom NavigationBar Animation
-- RxDataSources 在版块列表编辑界面可能存在奇怪的内存泄漏
 - RxTableViewSectionedAnimatedDataSource 的动画很奇怪
 
 Important
