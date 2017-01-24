@@ -12,6 +12,7 @@ enum StoryBoard: String {
     case main = "Main"
     case login = "Login"
     case pickerActionSheet = "PickerActionSheet"
+    case me = "Me"
 }
 
 /// 可以从storyboard中加载

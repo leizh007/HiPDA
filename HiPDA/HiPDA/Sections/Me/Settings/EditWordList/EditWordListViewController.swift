@@ -53,6 +53,9 @@ class EditWordListViewController: BaseViewController {
     /// 完成按钮
     fileprivate lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
     
+    /// 供tableView使用的数据
+    var data: Observable<[EditWordListSection]>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,7 +105,7 @@ extension EditWordListViewController {
         let moveCommand = tableView.rx.itemMoved.asObservable()
             .map(EditWordListTableViewEditingCommand.move)
         let initialState = EditWordListTableViewState(sections: [EditWordListSection(words: words)])
-        let data = Observable.of(replaceCommand, appendCommand, deleteCommand, deleteCommandManually, moveCommand)
+        data = Observable.of(replaceCommand, appendCommand, deleteCommand, deleteCommandManually, moveCommand)
             .merge()
             .scan(initialState) {
                 return $0.execute($1)
