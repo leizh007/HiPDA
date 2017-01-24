@@ -9,20 +9,24 @@
 import UIKit
 
 /// 屏幕宽度
-let ScreenWidth = UIScreen.main.bounds.size.width
+let kScreenWidth = UIScreen.main.bounds.size.width
 
 /// 屏幕高度
-let ScreenHeigh = UIScreen.main.bounds.size.height
+let kScreenHeigh = UIScreen.main.bounds.size.height
 
 /// 屏幕scale
-let ScreenScale = UIScreen.main.scale
+let kScreenScale = UIScreen.main.scale
 
 /// 状态栏高度
-let StatusBarHeight: CGFloat = 20.0
+let kStatusBarHeight: CGFloat = 20.0
 
 /// NavigationBar的高度
 
-let NavigationBarHeight = 44.0
+let kNavigationBarHeight = 44.0
 
 /// Tabbar的tint color
-let TabbarTintColor = #colorLiteral(red: 0.1137254902, green: 0.6352941176, blue: 0.9490196078, alpha: 1)
+let kTabbarTintColor = #colorLiteral(red: 0.1137254902, green: 0.6352941176, blue: 0.9490196078, alpha: 1)
+
+
+/// NavigationBar的tint color
+let kNavigationBarTintColor = #colorLiteral(red: 0.1137254902, green: 0.6352941176, blue: 0.9490196078, alpha: 1)

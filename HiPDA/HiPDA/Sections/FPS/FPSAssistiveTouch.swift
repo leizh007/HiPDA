@@ -34,7 +34,7 @@ class FPSAssistiveTouch: UIWindow {
     // MARK: - Initialization
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: ScreenWidth * 2.0 / 3.0,
+        super.init(frame: CGRect(x: kScreenWidth * 2.0 / 3.0,
                                  y: 0,
                                  width: FPSAssistiveTouch.size.width,
                                  height: FPSAssistiveTouch.size.height))
@@ -59,14 +59,14 @@ class FPSAssistiveTouch: UIWindow {
         if center.x < FPSAssistiveTouch.size.width / 2.0 {
             center.x = FPSAssistiveTouch.size.width / 2.0
         }
-        if center.x > ScreenWidth - FPSAssistiveTouch.size.width / 2.0 {
-            center.x = ScreenWidth - FPSAssistiveTouch.size.width / 2.0
+        if center.x > kScreenWidth - FPSAssistiveTouch.size.width / 2.0 {
+            center.x = kScreenWidth - FPSAssistiveTouch.size.width / 2.0
         }
         if center.y < FPSAssistiveTouch.size.height / 2.0 {
             center.y = FPSAssistiveTouch.size.height / 2.0
         }
-        if center.y > ScreenHeigh - FPSAssistiveTouch.size.height / 2.0 {
-            center.y = ScreenHeigh - FPSAssistiveTouch.size.height / 2.0
+        if center.y > kScreenHeigh - FPSAssistiveTouch.size.height / 2.0 {
+            center.y = kScreenHeigh - FPSAssistiveTouch.size.height / 2.0
         }
         
         FPSAssistiveTouch.shared.center = center

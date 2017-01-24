@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 /// 选择版块列表后的回调block
 typealias ForumListChoosenCompletionHandler = ([String]) -> Void
@@ -22,13 +25,24 @@ class ForumListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(cancel))
-        console(message: "\(activeForumList)")
     }
     
-    func cancel() {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+    override func configureApperance(of navigationBar: UINavigationBar) {
+        super.configureApperance(of: navigationBar)
+        
+        let cancel = UIBarButtonItem(title: "取消", style: .plain, target: nil, action: nil)
+        cancel.rx.tap.subscribe(onNext: { [unowned self] _ in
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
+        navigationItem.leftBarButtonItem = cancel
+        
+        let confirm = UIBarButtonItem(title: "确定", style: .plain, target: nil, action: nil)
+        confirm.rx.tap.subscribe(onNext: { [unowned self] _ in
+            self.presentingViewController?.dismiss(animated: true) {
+                self.completion?(self.activeForumList)
+            }
+        }).addDisposableTo(disposeBag)
+        navigationItem.rightBarButtonItem = confirm
     }
 }
 

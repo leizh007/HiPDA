@@ -25,7 +25,7 @@ class MeViewController: UITableViewController {
         
         navigationItem.title = "个人中心"
         
-        avatarImageView.layer.borderWidth = 1.0 / ScreenScale
+        avatarImageView.layer.borderWidth = 1.0 / kScreenScale
         avatarImageView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor
         
         guard let account = Settings.shared.activeAccount else { return }
