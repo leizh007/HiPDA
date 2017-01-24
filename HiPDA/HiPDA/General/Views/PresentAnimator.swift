@@ -29,7 +29,8 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-
+        containerView.backgroundColor = .black
+        
         guard let fromView = transitionContext.viewController(forKey: .from)?.ancestor.view else { return }
         guard let toView = transitionContext.viewController(forKey: .to)?.ancestor.view else { return }
         
@@ -75,6 +76,7 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
                 toView.layer.transform = CATransform3DIdentity
             }, completion: { _ in
                 toView.layer.shouldRasterize = false
+                containerView.backgroundColor = .white
                 transitionContext.completeTransition(true)
             })
         }

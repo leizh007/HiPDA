@@ -23,8 +23,9 @@ class BaseViewController: UIViewController {
     fileprivate(set) var didSetupConstraints = false
     
     override func viewDidLoad() {
-        self.view.setNeedsUpdateConstraints()
-        transitioningDelegate = presentingViewController as? UIViewControllerTransitioningDelegate ?? self
+        super.viewDidLoad()
+        
+        view.setNeedsUpdateConstraints()
         
         if let navigationBar = navigationController?.navigationBar {
             configureApperance(of: navigationBar)
@@ -68,7 +69,7 @@ class BaseViewController: UIViewController {
     
     var useCustomViewControllerTransitioningAnimator = true
     
-    var transitioningAnimator = PresentAnimator()
+    lazy var transitioningAnimator = PresentAnimator()
 }
 
 // MARK: - UIViewControllerTransitioningDelegate

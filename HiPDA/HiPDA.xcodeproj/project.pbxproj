@@ -97,6 +97,7 @@
 		05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCEE1DDCAB890095E95D /* NoResultView.swift */; };
 		05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCF01DDCB0450095E95D /* XibLoadable.swift */; };
 		05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */; };
+		05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */; };
 		05F3DCD91DB7B4A00061CED1 /* HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */; };
 		05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCD81DB7B4A00061CED1 /* HiPDAProvider.swift */; };
 		05F3DCDD1DB7B4CB0061CED1 /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCDC1DB7B4CB0061CED1 /* HtmlParser.swift */; };
@@ -232,6 +233,7 @@
 		05EDDCEE1DDCAB890095E95D /* NoResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
 		05EDDCF01DDCB0450095E95D /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
 		05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+HiPDA.swift"; sourceTree = "<group>"; };
+		05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumListViewController.swift; sourceTree = "<group>"; };
 		05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDA.swift; sourceTree = "<group>"; };
 		05F3DCD81DB7B4A00061CED1 /* HiPDAProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAProvider.swift; sourceTree = "<group>"; };
 		05F3DCDC1DB7B4CB0061CED1 /* HtmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				05A2AF961E2385B00048508C /* Forum.swift */,
 				05A2AF971E2385B00048508C /* ForumManager.swift */,
 				05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */,
+				05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */,
 			);
 			path = ForumList;
 			sourceTree = "<group>";
@@ -1056,6 +1059,7 @@
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
+				05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */,
 				05F3DCDD1DB7B4CB0061CED1 /* HtmlParser.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,

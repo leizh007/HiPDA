@@ -27,6 +27,12 @@ class ActiveForumNameListViewController: EditWordListViewController {
 extension ActiveForumNameListViewController {
     /// 设置添加按钮
     override func configureAddBarButtonItem() {
-        // TODO: - 添加版块
+        addBarButtonItem.rx.tap.subscribe(onNext: { [unowned self] _ in
+            self.tableView.setEditing(false, animated: true)
+            let forumListVC = ForumListViewController()
+            let navigationController = UINavigationController(rootViewController: forumListVC)
+            navigationController.transitioningDelegate = self
+            self.present(navigationController, animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
     }
 }

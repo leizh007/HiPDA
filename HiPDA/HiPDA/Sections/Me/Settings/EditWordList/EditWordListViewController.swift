@@ -28,7 +28,7 @@ class EditWordListViewController: BaseViewController {
     var completion: EditWordListCompletion?
     
     /// tableView
-    fileprivate let tableView = BaseTableView(frame: .zero, style: .grouped).then { tableView in
+    let tableView = BaseTableView(frame: .zero, style: .grouped).then { tableView in
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height:CGFloat.leastNormalMagnitude))
     }
     
@@ -48,7 +48,7 @@ class EditWordListViewController: BaseViewController {
     fileprivate let willDismiss = Variable(false)
     
     /// 添加按钮
-    fileprivate lazy var addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+    lazy var addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     
     /// 完成按钮
     fileprivate lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
