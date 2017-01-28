@@ -108,6 +108,9 @@
 		05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */; };
 		05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEF1DB919070061CED1 /* EventBus.swift */; };
 		05F3DCF31DB919070061CED1 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCF01DB919070061CED1 /* State.swift */; };
+		05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */; };
+		05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */; };
+		05F8BCAB1E37593800F9EC1B /* ForumNameSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -244,6 +247,9 @@
 		05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
 		05F3DCEF1DB919070061CED1 /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		05F3DCF01DB919070061CED1 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameTableViewCell.swift; sourceTree = "<group>"; };
+		05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameModel.swift; sourceTree = "<group>"; };
+		05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameSection.swift; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
 		6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -475,6 +481,9 @@
 				05A2AF971E2385B00048508C /* ForumManager.swift */,
 				05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */,
 				05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */,
+				05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */,
+				05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */,
+				05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */,
 			);
 			path = ForumList;
 			sourceTree = "<group>";
@@ -739,10 +748,10 @@
 				TargetAttributes = {
 					05D489701D3E5E23000A086B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZG65V92KVZ;
+						DevelopmentTeam = 33HZMGTRDL;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -994,6 +1003,7 @@
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
+				05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
 				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,
@@ -1002,6 +1012,7 @@
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
 				05A2AF981E2385B00048508C /* Forum.swift in Sources */,
 				05068AF21E096D8F0070E044 /* UserRemarkSection.swift in Sources */,
+				05F8BCAB1E37593800F9EC1B /* ForumNameSection.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
@@ -1061,6 +1072,7 @@
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
 				05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */,
 				05F3DCDD1DB7B4CB0061CED1 /* HtmlParser.swift in Sources */,
+				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
@@ -1232,7 +1244,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 33HZMGTRDL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1243,8 +1257,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
-				PROVISIONING_PROFILE_SPECIFIER = "33HZMGTRDL/Development All Devices wildchar";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1260,7 +1274,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 33HZMGTRDL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1271,8 +1287,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9c531102-3159-4089-b0b4-507a00a966c4";
-				PROVISIONING_PROFILE_SPECIFIER = "33HZMGTRDL/Development All Devices wildchar";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

@@ -22,9 +22,13 @@ class ForumListViewController: BaseViewController {
     /// 选择完后的回调
     var completion: ForumListChoosenCompletionHandler?
     
+    /// tableView
+    @IBOutlet fileprivate weak var tableView: BaseTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTableView()
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -49,3 +53,12 @@ class ForumListViewController: BaseViewController {
 // MARK: - StoryboardLoadable
 
 extension ForumListViewController: StoryboardLoadable { }
+
+// MARK: - Configurations
+
+extension ForumListViewController {
+    /// 设置tabelView
+    fileprivate func configureTableView() {
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height:CGFloat.leastNormalMagnitude))
+    }
+}
