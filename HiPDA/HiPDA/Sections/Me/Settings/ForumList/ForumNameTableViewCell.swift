@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 /// 展示一级版块名称的cell
 class ForumNameTableViewCell: UITableViewCell {
@@ -17,6 +19,15 @@ class ForumNameTableViewCell: UITableViewCell {
     }
     
     @IBOutlet fileprivate var forumNameLabel: UILabel!
+    @IBOutlet weak var detailDisclosureButton: UIButton!
+    
+    var disposeBagCell = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBagCell = DisposeBag()
+    }
 }
 
 /// 展示二级版块名称的cell

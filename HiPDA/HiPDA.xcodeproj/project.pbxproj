@@ -111,6 +111,7 @@
 		05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */; };
 		05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */; };
 		05F8BCAB1E37593800F9EC1B /* ForumNameSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */; };
+		05F8BCAD1E3C7BC400F9EC1B /* ForumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCAC1E3C7BC400F9EC1B /* ForumListViewModel.swift */; };
 		1CBC1F5503355BA9AA93653B /* Pods_HiPDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */; };
 		355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */; };
 		47E407AD567DB9F1CE87E03E /* Pods_HiPDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */; };
@@ -250,6 +251,7 @@
 		05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameTableViewCell.swift; sourceTree = "<group>"; };
 		05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameModel.swift; sourceTree = "<group>"; };
 		05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameSection.swift; sourceTree = "<group>"; };
+		05F8BCAC1E3C7BC400F9EC1B /* ForumListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumListViewModel.swift; sourceTree = "<group>"; };
 		090F1397F1C40589BDE73F3B /* Pods-HiPDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA.release.xcconfig"; sourceTree = "<group>"; };
 		4CD05B98D0E7B40DEEAAEF8C /* Pods-HiPDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDATests/Pods-HiPDATests.release.xcconfig"; sourceTree = "<group>"; };
 		6B60E63009E9B59B012B6606 /* Pods-HiPDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiPDAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiPDAUITests/Pods-HiPDAUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				05A2AF971E2385B00048508C /* ForumManager.swift */,
 				05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */,
 				05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */,
+				05F8BCAC1E3C7BC400F9EC1B /* ForumListViewModel.swift */,
 				05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */,
 				05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */,
 				05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */,
@@ -1066,6 +1069,7 @@
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
 				05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */,
 				05F3DCE11DB7B5A60061CED1 /* HtmlParserError.swift in Sources */,
+				05F8BCAD1E3C7BC400F9EC1B /* ForumListViewModel.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,

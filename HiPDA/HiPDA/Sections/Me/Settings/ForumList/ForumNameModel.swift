@@ -14,6 +14,9 @@ struct ForumNameModel {
     /// 版块名称
     let forumName: String
     
+    /// 版块的描述信息
+    let forumDescription: String?
+    
     /// 等级
     ///
     /// - first: 一级
