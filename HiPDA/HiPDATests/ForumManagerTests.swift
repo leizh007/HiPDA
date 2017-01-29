@@ -12,5 +12,6 @@ import XCTest
 class ForumManagerTests: XCTestCase {
     func testNumberOfForums() {
         XCTAssert(ForumManager.forums.count == 16)
+        XCTAssert(ForumManager.fid(ofForumName: "Discovery") == 2)
     }
 }

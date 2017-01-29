@@ -35,5 +35,24 @@ struct ForumManager {
             .flatMap { $0 }
     }()
     
+    static fileprivate let fidDictionary: [String: Int] = {
+        var dictionary = [String: Int]()
+        for forum in ForumManager.forums {
+            dictionary[forum.name] = forum.id
+            for subForum in forum.subForums ?? [] {
+                dictionary[subForum.name] = subForum.id
+            }
+        }
+        return dictionary
+    }()
+    
+    /// 根据版块名称获取版块id
+    ///
+    /// - Parameter name: 版块名称
+    /// - Returns: 版块id
+    static func fid(ofForumName name: String) -> Int {
+        return ForumManager.fidDictionary[name] ?? 0
+    }
+    
     static let defalutForumNameList = ["Discovery", "Buy & Sell 交易服务区", "E-INK", "Geek Talks · 奇客怪谈", "疑似机器人"]
 }
