@@ -1,4 +1,4 @@
 /HiPDA/Pods/*
 .DS_Store
 HiPDA/HiPDA.xcworkspace/xcuserdata/
-/HiPDA/build/Debug-iphonesimulator/*
+/HiPDA/build/*

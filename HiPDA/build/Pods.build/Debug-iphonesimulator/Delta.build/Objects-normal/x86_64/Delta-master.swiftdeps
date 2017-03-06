@@ -1,8 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "1dd055fda825c109c770a30f6589649e"
-build_time: [541680575, 670225000]
-inputs:
-  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Delta/Sources/Action.swift": [538461565, 0]
-  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Delta/Sources/DynamicAction.swift": [538461409, 0]
-  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Delta/Sources/ObservableProperty.swift": [538461409, 0]
-  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Delta/Sources/Store.swift": [538461989, 0]
