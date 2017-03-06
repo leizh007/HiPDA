@@ -1,0 +1,366 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Forum"
+- "=="
+provides-nominal:
+- "V5HiPDA5Forum"
+provides-member:
+- ["V5HiPDA5Forum", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "kForumIdKey"
+- "Equatable"
+- !private "<|"
+- !private "kSubForumsKey"
+- !private "<^>"
+- "Decoded"
+- "String"
+- "StringLiteralType"
+- !private "kForumNameKey"
+- "Bool"
+- !private "kForumDescriptionKey"
+- !private "<*>"
+- "Forum"
+- "Serializable"
+- "Int"
+- "=="
+- !private "curry"
+- "Decodable"
+- "JSON"
+- !private "<|?"
+- !private "kForumTypenamesKey"
+- !private "<||?"
+depends-member:
+- ["Ps9AnyObject", "init"]
+- !private ["P9HandyJSON20BasePropertyProtocol", "DecodedType"]
+- ["P9HandyJSON20BasePropertyProtocol", "init"]
+- !private ["Ps17BitwiseOperations", "DecodedType"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "DecodedType"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps10Comparable", "DecodedType"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "DecodedType"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "DecodedType"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "DecodedType"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "DecodedType"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["P4Argo9Decodable", "DecodedType"]
+- !private ["P4Argo9Decodable", "Forum"]
+- !private ["P4Argo9Decodable", "curry"]
+- ["P4Argo9Decodable", "decode"]
+- ["P4Argo9Decodable", "encode"]
+- !private ["P4Argo9Decodable", "id"]
+- ["P4Argo9Decodable", "init"]
+- !private ["P4Argo9Decodable", "kForumDescriptionKey"]
+- !private ["P4Argo9Decodable", "kForumIdKey"]
+- !private ["P4Argo9Decodable", "kForumNameKey"]
+- !private ["P4Argo9Decodable", "kForumTypenamesKey"]
+- !private ["P4Argo9Decodable", "kSubForumsKey"]
+- ["P4Argo9Decodable", ""]
+- ["O4Argo7Decoded", "deinit"]
+- ["Ps9Equatable", "DecodedType"]
+- !private ["Ps9Equatable", "Forum"]
+- !private ["Ps9Equatable", "curry"]
+- ["Ps9Equatable", "decode"]
+- ["Ps9Equatable", "encode"]
+- !private ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "kForumDescriptionKey"]
+- !private ["Ps9Equatable", "kForumIdKey"]
+- !private ["Ps9Equatable", "kForumNameKey"]
+- !private ["Ps9Equatable", "kForumTypenamesKey"]
+- !private ["Ps9Equatable", "kSubForumsKey"]
+- ["Ps9Equatable", ""]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "DecodedType"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "DecodedType"]
+- !private ["Ps32ExpressibleByStringInterpolation", "DecodedType"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "DecodedType"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "DecodedType"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["V5HiPDA5Forum", "=="]
+- ["V5HiPDA5Forum", "Bool"]
+- ["V5HiPDA5Forum", "Decoded"]
+- ["V5HiPDA5Forum", "DecodedType"]
+- ["V5HiPDA5Forum", "Forum"]
+- ["V5HiPDA5Forum", "Int"]
+- ["V5HiPDA5Forum", "JSON"]
+- ["V5HiPDA5Forum", "String"]
+- !private ["V5HiPDA5Forum", "curry"]
+- ["V5HiPDA5Forum", "decode"]
+- ["V5HiPDA5Forum", "deinit"]
+- ["V5HiPDA5Forum", "description"]
+- ["V5HiPDA5Forum", "encode"]
+- ["V5HiPDA5Forum", "id"]
+- ["V5HiPDA5Forum", "init"]
+- !private ["V5HiPDA5Forum", "kForumDescriptionKey"]
+- !private ["V5HiPDA5Forum", "kForumIdKey"]
+- !private ["V5HiPDA5Forum", "kForumNameKey"]
+- !private ["V5HiPDA5Forum", "kForumTypenamesKey"]
+- !private ["V5HiPDA5Forum", "kSubForumsKey"]
+- ["V5HiPDA5Forum", "name"]
+- ["V5HiPDA5Forum", "subForums"]
+- ["V5HiPDA5Forum", "typeNames"]
+- !private ["P9HandyJSON9HandyJSON", "DecodedType"]
+- ["P9HandyJSON9HandyJSON", "init"]
+- !private ["Ps8Hashable", "DecodedType"]
+- ["Ps8Hashable", "init"]
+- !private ["P13RxDataSources16IdentifiableType", "DecodedType"]
+- ["P13RxDataSources16IdentifiableType", "init"]
+- !private ["Si", "DecodedType"]
+- ["Si", "deinit"]
+- !private ["Ps7Integer", "DecodedType"]
+- !private ["Ps17IntegerArithmetic", "DecodedType"]
+- ["O4Argo4JSON", "deinit"]
+- !private ["P7RxCocoa16KVORepresentable", "DecodedType"]
+- !private ["Ps25LosslessStringConvertible", "DecodedType"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "DecodedType"]
+- ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "init"]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "init"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- ["Sq", "deinit"]
+- !private ["P9HandyJSON8Property", "DecodedType"]
+- ["P9HandyJSON8Property", "init"]
+- ["P7RxSwift18ReactiveCompatible", "init"]
+- ["P5HiPDA12Serializable", "DecodedType"]
+- !private ["P5HiPDA12Serializable", "Forum"]
+- !private ["P5HiPDA12Serializable", "curry"]
+- ["P5HiPDA12Serializable", "decode"]
+- ["P5HiPDA12Serializable", "encode"]
+- !private ["P5HiPDA12Serializable", "id"]
+- !private ["P5HiPDA12Serializable", "init"]
+- !private ["P5HiPDA12Serializable", "kForumDescriptionKey"]
+- !private ["P5HiPDA12Serializable", "kForumIdKey"]
+- !private ["P5HiPDA12Serializable", "kForumNameKey"]
+- !private ["P5HiPDA12Serializable", "kForumTypenamesKey"]
+- !private ["P5HiPDA12Serializable", "kSubForumsKey"]
+- ["P5HiPDA12Serializable", ""]
+- !private ["Ps13SignedInteger", "DecodedType"]
+- !private ["Ps12SignedNumber", "DecodedType"]
+- !private ["Ps10Strideable", "DecodedType"]
+- !private ["SS", "DecodedType"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- !private ["Ps16TextOutputStream", "DecodedType"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "DecodedType"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["P4Then4Then", "init"]
+- !private ["P9Alamofire14URLConvertible", "DecodedType"]
+- ["P9Alamofire14URLConvertible", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "DecodedType"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "DecodedType"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "DecodedType"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "DecodedType"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "DecodedType"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "DecodedType"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps14_Incrementable", "DecodedType"]
+- !private ["Ps8_Integer", "DecodedType"]
+- !private ["Ps18_IntegerArithmetic", "DecodedType"]
+- !private ["Ps21_ObjectiveCBridgeable", "DecodedType"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps14_SignedInteger", "DecodedType"]
+- !private ["Ps11_Strideable", "DecodedType"]
+depends-nominal:
+- "Ps9AnyObject"
+- "P9HandyJSON20BasePropertyProtocol"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "P4Argo9Decodable"
+- "O4Argo7Decoded"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "V5HiPDA5Forum"
+- "P9HandyJSON9HandyJSON"
+- "Ps8Hashable"
+- "P13RxDataSources16IdentifiableType"
+- "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- "O4Argo4JSON"
+- !private "P7RxCocoa16KVORepresentable"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "Sq"
+- "P9HandyJSON8Property"
+- "P7RxSwift18ReactiveCompatible"
+- "P5HiPDA12Serializable"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "P4Then4Then"
+- "P9Alamofire14URLConvertible"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/Helpers/HiPDA-Bridging-Header.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/Helpers/WeakProxy.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Headers/YYKeyboardManager.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Headers/YYKeyboardManager-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.2.sdk/usr/include/CommonCrypto/CommonDigest.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/AppDelegate/PerformanceMonitor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Modules/RxDataSources.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/RxCocoa.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoaRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXObjCRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXKVOObserver.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXDelegateProxy.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RX.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Headers/RxDataSources-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Headers/RxDataSources-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychainQuery.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychain.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychain-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Modules/Argo.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Modules/Runes.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Headers/Runes-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Headers/Runes-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Modules/Curry.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Headers/Curry-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Headers/Curry-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Modules/Perform.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Headers/Aspects.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Headers/Aspects-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Headers/Perform-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Headers/Perform-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Modules/Delta.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIView+WebCacheOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIView+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImageView+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImageView+HighlightedWebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImage+MultiFormat.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImage+GIF.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIButton+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImagePrefetcher.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageManager.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloaderOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloader.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDecoder.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDImageCacheConfig.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDImageCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/NSImage+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageCompat.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/NSData+ImageContentType.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImage-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Headers/MBProgressHUD.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Headers/MBProgressHUD-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Headers/FABAttributes.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Headers/Fabric.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/ANSCompatibility.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Answers.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSStackFrame.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSReport.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSLogging.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSAttributes.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Crashlytics.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Modules/Moya.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Headers/Moya-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Headers/Moya-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/Result.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Modules/HandyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Modules/Then.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Headers/Then-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Headers/Then-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Modules/module.modulemap"
+interface-hash: "c0d26573399bb702f87bc2cca05b02ac"

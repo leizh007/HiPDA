@@ -1,0 +1,38 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "AnonymousInvocable"
+provides-nominal:
+- "V7RxSwift18AnonymousInvocable"
+provides-member:
+- ["V7RxSwift18AnonymousInvocable", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "InvocableType"
+- "AssignmentPrecedence"
+- "AnonymousInvocable"
+depends-member:
+- !private ["V7RxSwift18AnonymousInvocable", "_action"]
+- ["V7RxSwift18AnonymousInvocable", "deinit"]
+- ["V7RxSwift18AnonymousInvocable", "init"]
+- ["V7RxSwift18AnonymousInvocable", "invoke"]
+- !private ["P7RxSwift13InvocableType", "_action"]
+- ["P7RxSwift13InvocableType", "invoke"]
+- ["P7RxSwift13InvocableType", ""]
+depends-nominal:
+- "V7RxSwift18AnonymousInvocable"
+- "P7RxSwift13InvocableType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxSwift/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxSwift.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "6da07571204f2f47b0d81d2b9fa52041"

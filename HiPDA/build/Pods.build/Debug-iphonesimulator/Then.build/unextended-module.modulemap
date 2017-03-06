@@ -1,0 +1,10 @@
+framework module Then {
+  umbrella header "Then-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Then.__Swift {
+    exclude header "Then-Swift.h"
+}

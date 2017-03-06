@@ -1,0 +1,784 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SettingsRouter"
+provides-nominal:
+- "V5HiPDA14SettingsRouter"
+provides-member:
+- ["V5HiPDA14SettingsRouter", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "SettingsViewController"
+- !private "Array"
+- !private "ForumManager"
+- !private "String"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "TernaryPrecedence"
+- "IndexPath"
+- !private "assertionFailure"
+- !private "SettingsSegue"
+- "SettingsRouter"
+- !private "StringLiteralType"
+depends-member:
+- !private ["C5HiPDA33ActiveForumNameListViewController", "activeForumNameList"]
+- !private ["C5HiPDA33ActiveForumNameListViewController", "completion"]
+- !private ["C5HiPDA33ActiveForumNameListViewController", "deinit"]
+- !private ["C5HiPDA33ActiveForumNameListViewController", "title"]
+- !private ["Ps9AnyObject", "activeForumNameList"]
+- !private ["Ps9AnyObject", "complation"]
+- !private ["Ps9AnyObject", "completion"]
+- !private ["Ps9AnyObject", "fromTime"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "perform"]
+- !private ["Ps9AnyObject", "title"]
+- !private ["Ps9AnyObject", "toTime"]
+- !private ["Ps9AnyObject", "userRemarkDictionary"]
+- !private ["Ps9AnyObject", "viewModel"]
+- !private ["Ps9AnyObject", "words"]
+- !private ["Sa", "Element"]
+- !private ["Sa", "IndexDistance"]
+- !private ["Sa", "count"]
+- !private ["Sa", "deinit"]
+- !private ["P9HandyJSON17ArrayTypeProtocol", "Element"]
+- !private ["P9HandyJSON17ArrayTypeProtocol", "IndexDistance"]
+- !private ["P9HandyJSON17ArrayTypeProtocol", "count"]
+- !private ["P9HandyJSON20BasePropertyProtocol", "_getBuiltinLogicValue"]
+- !private ["P9HandyJSON20BasePropertyProtocol", "init"]
+- !private ["C5HiPDA18BaseViewController", "activeForumNameList"]
+- !private ["C5HiPDA18BaseViewController", "complation"]
+- !private ["C5HiPDA18BaseViewController", "completion"]
+- !private ["C5HiPDA18BaseViewController", "fromTime"]
+- !private ["C5HiPDA18BaseViewController", "title"]
+- !private ["C5HiPDA18BaseViewController", "toTime"]
+- !private ["C5HiPDA18BaseViewController", "userRemarkDictionary"]
+- !private ["C5HiPDA18BaseViewController", "words"]
+- !private ["Ps23BidirectionalCollection", "Element"]
+- !private ["Ps23BidirectionalCollection", "IndexDistance"]
+- !private ["Ps23BidirectionalCollection", "count"]
+- !private ["Ps22BidirectionalIndexable", "Element"]
+- !private ["Ps22BidirectionalIndexable", "IndexDistance"]
+- !private ["Ps22BidirectionalIndexable", "count"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "IndexDistance"]
+- !private ["Ps7CVarArg", "activeForumNameList"]
+- !private ["Ps7CVarArg", "complation"]
+- !private ["Ps7CVarArg", "completion"]
+- !private ["Ps7CVarArg", "count"]
+- !private ["Ps7CVarArg", "fromTime"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "perform"]
+- !private ["Ps7CVarArg", "title"]
+- !private ["Ps7CVarArg", "toTime"]
+- !private ["Ps7CVarArg", "userRemarkDictionary"]
+- !private ["Ps7CVarArg", "viewModel"]
+- !private ["Ps7CVarArg", "words"]
+- !private ["Ps10Collection", "Element"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "count"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "activeForumNameList"]
+- !private ["Ps28CustomDebugStringConvertible", "complation"]
+- !private ["Ps28CustomDebugStringConvertible", "completion"]
+- !private ["Ps28CustomDebugStringConvertible", "count"]
+- !private ["Ps28CustomDebugStringConvertible", "editWords"]
+- !private ["Ps28CustomDebugStringConvertible", "fromTime"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "perform"]
+- !private ["Ps28CustomDebugStringConvertible", "pmDoNotDisturb"]
+- !private ["Ps28CustomDebugStringConvertible", "title"]
+- !private ["Ps28CustomDebugStringConvertible", "toTime"]
+- !private ["Ps28CustomDebugStringConvertible", "userRemark"]
+- !private ["Ps28CustomDebugStringConvertible", "userRemarkDictionary"]
+- !private ["Ps28CustomDebugStringConvertible", "viewModel"]
+- !private ["Ps28CustomDebugStringConvertible", "words"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "IndexDistance"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "activeForumNameList"]
+- !private ["Ps17CustomReflectable", "count"]
+- !private ["Ps17CustomReflectable", "editWords"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "pmDoNotDisturb"]
+- !private ["Ps17CustomReflectable", "userRemark"]
+- !private ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "IndexDistance"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "activeForumNameList"]
+- !private ["Ps23CustomStringConvertible", "complation"]
+- !private ["Ps23CustomStringConvertible", "completion"]
+- !private ["Ps23CustomStringConvertible", "count"]
+- !private ["Ps23CustomStringConvertible", "editWords"]
+- !private ["Ps23CustomStringConvertible", "fromTime"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "perform"]
+- !private ["Ps23CustomStringConvertible", "pmDoNotDisturb"]
+- !private ["Ps23CustomStringConvertible", "title"]
+- !private ["Ps23CustomStringConvertible", "toTime"]
+- !private ["Ps23CustomStringConvertible", "userRemark"]
+- !private ["Ps23CustomStringConvertible", "userRemarkDictionary"]
+- !private ["Ps23CustomStringConvertible", "viewModel"]
+- !private ["Ps23CustomStringConvertible", "words"]
+- !private ["P4Argo9Decodable", "_getBuiltinLogicValue"]
+- !private ["P4Argo9Decodable", "init"]
+- !private ["Vs10Dictionary", "deinit"]
+- !private ["C5HiPDA26EditWordListViewController", "activeForumNameList"]
+- !private ["C5HiPDA26EditWordListViewController", "completion"]
+- !private ["C5HiPDA26EditWordListViewController", "deinit"]
+- !private ["C5HiPDA26EditWordListViewController", "title"]
+- !private ["C5HiPDA26EditWordListViewController", "words"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "activeForumNameList"]
+- !private ["Ps9Equatable", "complation"]
+- !private ["Ps9Equatable", "completion"]
+- !private ["Ps9Equatable", "editWords"]
+- !private ["Ps9Equatable", "fromTime"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "perform"]
+- ["Ps9Equatable", "pmDoNotDisturb"]
+- !private ["Ps9Equatable", "rawValue"]
+- ["Ps9Equatable", "threadAttention"]
+- ["Ps9Equatable", "threadBlock"]
+- !private ["Ps9Equatable", "title"]
+- !private ["Ps9Equatable", "toTime"]
+- ["Ps9Equatable", "userBlock"]
+- ["Ps9Equatable", "userRemark"]
+- !private ["Ps9Equatable", "userRemarkDictionary"]
+- !private ["Ps9Equatable", "viewModel"]
+- !private ["Ps9Equatable", "words"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
+- !private ["Ps25ExpressibleByArrayLiteral", "count"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "activeForumNameList"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "editWords"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "pmDoNotDisturb"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "userRemark"]
+- !private ["Ps23ExpressibleByNilLiteral", "activeForumNameList"]
+- !private ["Ps23ExpressibleByNilLiteral", "editWords"]
+- !private ["Ps23ExpressibleByNilLiteral", "pmDoNotDisturb"]
+- !private ["Ps23ExpressibleByNilLiteral", "userRemark"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "activeForumNameList"]
+- !private ["Ps26ExpressibleByStringLiteral", "editWords"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "pmDoNotDisturb"]
+- !private ["Ps26ExpressibleByStringLiteral", "userRemark"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "activeForumNameList"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "editWords"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "pmDoNotDisturb"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "userRemark"]
+- !private ["V5HiPDA12ForumManager", "defalutForumNameList"]
+- !private ["P9HandyJSON9HandyJSON", "Element"]
+- !private ["P9HandyJSON9HandyJSON", "IndexDistance"]
+- !private ["P9HandyJSON9HandyJSON", "_getBuiltinLogicValue"]
+- !private ["P9HandyJSON9HandyJSON", "activeForumNameList"]
+- !private ["P9HandyJSON9HandyJSON", "count"]
+- !private ["P9HandyJSON9HandyJSON", "editWords"]
+- !private ["P9HandyJSON9HandyJSON", "init"]
+- !private ["P9HandyJSON9HandyJSON", "pmDoNotDisturb"]
+- !private ["P9HandyJSON9HandyJSON", "userRemark"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "activeForumNameList"]
+- !private ["Ps8Hashable", "complation"]
+- !private ["Ps8Hashable", "completion"]
+- !private ["Ps8Hashable", "editWords"]
+- !private ["Ps8Hashable", "fromTime"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "perform"]
+- ["Ps8Hashable", "pmDoNotDisturb"]
+- !private ["Ps8Hashable", "rawValue"]
+- ["Ps8Hashable", "threadAttention"]
+- ["Ps8Hashable", "threadBlock"]
+- !private ["Ps8Hashable", "title"]
+- !private ["Ps8Hashable", "toTime"]
+- ["Ps8Hashable", "userBlock"]
+- ["Ps8Hashable", "userRemark"]
+- !private ["Ps8Hashable", "userRemarkDictionary"]
+- !private ["Ps8Hashable", "viewModel"]
+- !private ["Ps8Hashable", "words"]
+- !private ["P13RxDataSources16IdentifiableType", "init"]
+- !private ["SQ", "activeForumNameList"]
+- !private ["SQ", "editWords"]
+- !private ["SQ", "pmDoNotDisturb"]
+- !private ["SQ", "userRemark"]
+- !private ["P9HandyJSON31ImplicitlyUnwrappedTypeProtocol", "activeForumNameList"]
+- !private ["P9HandyJSON31ImplicitlyUnwrappedTypeProtocol", "editWords"]
+- !private ["P9HandyJSON31ImplicitlyUnwrappedTypeProtocol", "pmDoNotDisturb"]
+- !private ["P9HandyJSON31ImplicitlyUnwrappedTypeProtocol", "userRemark"]
+- ["V10Foundation9IndexPath", "deinit"]
+- !private ["Ps9Indexable", "Element"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "count"]
+- !private ["Ps13IndexableBase", "Element"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "count"]
+- !private ["Si", "deinit"]
+- !private ["P7RxCocoa16KVORepresentable", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Element"]
+- !private ["Ps17MutableCollection", "IndexDistance"]
+- !private ["Ps17MutableCollection", "count"]
+- !private ["Ps16MutableIndexable", "Element"]
+- !private ["Ps16MutableIndexable", "IndexDistance"]
+- !private ["Ps16MutableIndexable", "count"]
+- !private ["PSo8NSCoding", "activeForumNameList"]
+- !private ["PSo8NSCoding", "complation"]
+- !private ["PSo8NSCoding", "completion"]
+- !private ["PSo8NSCoding", "fromTime"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "perform"]
+- !private ["PSo8NSCoding", "title"]
+- !private ["PSo8NSCoding", "toTime"]
+- !private ["PSo8NSCoding", "userRemarkDictionary"]
+- !private ["PSo8NSCoding", "viewModel"]
+- !private ["PSo8NSCoding", "words"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "activeForumNameList"]
+- !private ["PSo26NSExtensionRequestHandling", "complation"]
+- !private ["PSo26NSExtensionRequestHandling", "completion"]
+- !private ["PSo26NSExtensionRequestHandling", "fromTime"]
+- !private ["PSo26NSExtensionRequestHandling", "perform"]
+- !private ["PSo26NSExtensionRequestHandling", "title"]
+- !private ["PSo26NSExtensionRequestHandling", "toTime"]
+- !private ["PSo26NSExtensionRequestHandling", "userRemarkDictionary"]
+- !private ["PSo26NSExtensionRequestHandling", "viewModel"]
+- !private ["PSo26NSExtensionRequestHandling", "words"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "activeForumNameList"]
+- !private ["CSo8NSObject", "complation"]
+- !private ["CSo8NSObject", "completion"]
+- !private ["CSo8NSObject", "fromTime"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "perform"]
+- !private ["CSo8NSObject", "title"]
+- !private ["CSo8NSObject", "toTime"]
+- !private ["CSo8NSObject", "userRemarkDictionary"]
+- !private ["CSo8NSObject", "viewModel"]
+- !private ["CSo8NSObject", "words"]
+- !private ["PSo16NSObjectProtocol", "activeForumNameList"]
+- !private ["PSo16NSObjectProtocol", "complation"]
+- !private ["PSo16NSObjectProtocol", "completion"]
+- !private ["PSo16NSObjectProtocol", "fromTime"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "perform"]
+- !private ["PSo16NSObjectProtocol", "title"]
+- !private ["PSo16NSObjectProtocol", "toTime"]
+- !private ["PSo16NSObjectProtocol", "userRemarkDictionary"]
+- !private ["PSo16NSObjectProtocol", "viewModel"]
+- !private ["PSo16NSObjectProtocol", "words"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- ["Sq", "deinit"]
+- !private ["C5HiPDA39PmDoNotDisturbTimeSettingViewController", "completion"]
+- !private ["C5HiPDA39PmDoNotDisturbTimeSettingViewController", "deinit"]
+- !private ["C5HiPDA39PmDoNotDisturbTimeSettingViewController", "fromTime"]
+- !private ["C5HiPDA39PmDoNotDisturbTimeSettingViewController", "title"]
+- !private ["C5HiPDA39PmDoNotDisturbTimeSettingViewController", "toTime"]
+- !private ["P5HiPDA25PromptInformationShowable", "activeForumNameList"]
+- !private ["P5HiPDA25PromptInformationShowable", "complation"]
+- !private ["P5HiPDA25PromptInformationShowable", "completion"]
+- !private ["P5HiPDA25PromptInformationShowable", "fromTime"]
+- !private ["P5HiPDA25PromptInformationShowable", "perform"]
+- !private ["P5HiPDA25PromptInformationShowable", "title"]
+- !private ["P5HiPDA25PromptInformationShowable", "toTime"]
+- !private ["P5HiPDA25PromptInformationShowable", "userRemarkDictionary"]
+- !private ["P5HiPDA25PromptInformationShowable", "viewModel"]
+- !private ["P5HiPDA25PromptInformationShowable", "words"]
+- !private ["P9HandyJSON8Property", "Element"]
+- !private ["P9HandyJSON8Property", "IndexDistance"]
+- !private ["P9HandyJSON8Property", "_getBuiltinLogicValue"]
+- !private ["P9HandyJSON8Property", "activeForumNameList"]
+- !private ["P9HandyJSON8Property", "count"]
+- !private ["P9HandyJSON8Property", "editWords"]
+- !private ["P9HandyJSON8Property", "init"]
+- !private ["P9HandyJSON8Property", "pmDoNotDisturb"]
+- !private ["P9HandyJSON8Property", "userRemark"]
+- !private ["Ps22RandomAccessCollection", "Element"]
+- !private ["Ps22RandomAccessCollection", "IndexDistance"]
+- !private ["Ps22RandomAccessCollection", "count"]
+- !private ["Ps21RandomAccessIndexable", "Element"]
+- !private ["Ps21RandomAccessIndexable", "IndexDistance"]
+- !private ["Ps21RandomAccessIndexable", "count"]
+- !private ["Ps26RangeReplaceableCollection", "Element"]
+- !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
+- !private ["Ps26RangeReplaceableCollection", "count"]
+- !private ["Ps25RangeReplaceableIndexable", "Element"]
+- !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
+- !private ["Ps25RangeReplaceableIndexable", "count"]
+- ["Ps16RawRepresentable", "activeForumNameList"]
+- !private ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "pmDoNotDisturb"]
+- !private ["Ps16RawRepresentable", "rawValue"]
+- ["Ps16RawRepresentable", "threadAttention"]
+- ["Ps16RawRepresentable", "threadBlock"]
+- ["Ps16RawRepresentable", "userBlock"]
+- ["Ps16RawRepresentable", "userRemark"]
+- !private ["P7RxSwift18ReactiveCompatible", "activeForumNameList"]
+- !private ["P7RxSwift18ReactiveCompatible", "complation"]
+- !private ["P7RxSwift18ReactiveCompatible", "completion"]
+- !private ["P7RxSwift18ReactiveCompatible", "fromTime"]
+- !private ["P7RxSwift18ReactiveCompatible", "init"]
+- !private ["P7RxSwift18ReactiveCompatible", "perform"]
+- !private ["P7RxSwift18ReactiveCompatible", "title"]
+- !private ["P7RxSwift18ReactiveCompatible", "toTime"]
+- !private ["P7RxSwift18ReactiveCompatible", "userRemarkDictionary"]
+- !private ["P7RxSwift18ReactiveCompatible", "viewModel"]
+- !private ["P7RxSwift18ReactiveCompatible", "words"]
+- !private ["V7Perform5Segue", "activeForumNameList"]
+- !private ["V7Perform5Segue", "deinit"]
+- !private ["V7Perform5Segue", "editWords"]
+- !private ["V7Perform5Segue", "pmDoNotDisturb"]
+- !private ["V7Perform5Segue", "userRemark"]
+- !private ["V10ObjectiveC8Selector", "activeForumNameList"]
+- !private ["V10ObjectiveC8Selector", "editWords"]
+- !private ["V10ObjectiveC8Selector", "pmDoNotDisturb"]
+- !private ["V10ObjectiveC8Selector", "userRemark"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "count"]
+- !private ["V5HiPDA14SettingsRouter", "ForumManager"]
+- ["V5HiPDA14SettingsRouter", "IndexPath"]
+- !private ["V5HiPDA14SettingsRouter", "SettingsSegue"]
+- ["V5HiPDA14SettingsRouter", "SettingsViewController"]
+- !private ["V5HiPDA14SettingsRouter", "String"]
+- !private ["V5HiPDA14SettingsRouter", "assertionFailure"]
+- ["V5HiPDA14SettingsRouter", "deinit"]
+- ["V5HiPDA14SettingsRouter", "handleSelection"]
+- ["V5HiPDA14SettingsRouter", "init"]
+- !private ["V5HiPDA14SettingsRouter", "showActiveForumNameListViewController"]
+- !private ["V5HiPDA14SettingsRouter", "showEditWordsViewController"]
+- !private ["V5HiPDA14SettingsRouter", "showPmDoNotDisturbViewController"]
+- !private ["V5HiPDA14SettingsRouter", "showUserRemarkViewController"]
+- !private ["V5HiPDA14SettingsRouter", "viewController"]
+- ["O5HiPDA13SettingsSegue", "activeForumNameList"]
+- ["O5HiPDA13SettingsSegue", "deinit"]
+- !private ["O5HiPDA13SettingsSegue", "init"]
+- ["O5HiPDA13SettingsSegue", "pmDoNotDisturb"]
+- !private ["O5HiPDA13SettingsSegue", "rawValue"]
+- ["O5HiPDA13SettingsSegue", "threadAttention"]
+- ["O5HiPDA13SettingsSegue", "threadBlock"]
+- ["O5HiPDA13SettingsSegue", "userBlock"]
+- ["O5HiPDA13SettingsSegue", "userRemark"]
+- ["C5HiPDA22SettingsViewController", "deinit"]
+- !private ["C5HiPDA22SettingsViewController", "perform"]
+- !private ["C5HiPDA22SettingsViewController", "viewModel"]
+- !private ["V5HiPDA17SettingsViewModel", "activeForumNameList"]
+- !private ["V5HiPDA17SettingsViewModel", "pmDoNotDisturbFromTime"]
+- !private ["V5HiPDA17SettingsViewModel", "pmDoNotDisturbToTime"]
+- !private ["V5HiPDA17SettingsViewModel", "threadAttentionWordList"]
+- !private ["V5HiPDA17SettingsViewModel", "threadBlockWordList"]
+- !private ["V5HiPDA17SettingsViewModel", "userBlockList"]
+- !private ["V5HiPDA17SettingsViewModel", "userRemarkDictionary"]
+- !private ["Vs12StaticString", "deinit"]
+- !private ["Vs12StaticString", "init"]
+- !private ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["P4Then4Then", "activeForumNameList"]
+- !private ["P4Then4Then", "complation"]
+- !private ["P4Then4Then", "completion"]
+- !private ["P4Then4Then", "fromTime"]
+- !private ["P4Then4Then", "init"]
+- !private ["P4Then4Then", "perform"]
+- !private ["P4Then4Then", "title"]
+- !private ["P4Then4Then", "toTime"]
+- !private ["P4Then4Then", "userRemarkDictionary"]
+- !private ["P4Then4Then", "viewModel"]
+- !private ["P4Then4Then", "words"]
+- !private ["PSo21UIAppearanceContainer", "activeForumNameList"]
+- !private ["PSo21UIAppearanceContainer", "complation"]
+- !private ["PSo21UIAppearanceContainer", "completion"]
+- !private ["PSo21UIAppearanceContainer", "fromTime"]
+- !private ["PSo21UIAppearanceContainer", "perform"]
+- !private ["PSo21UIAppearanceContainer", "title"]
+- !private ["PSo21UIAppearanceContainer", "toTime"]
+- !private ["PSo21UIAppearanceContainer", "userRemarkDictionary"]
+- !private ["PSo21UIAppearanceContainer", "viewModel"]
+- !private ["PSo21UIAppearanceContainer", "words"]
+- !private ["PSo18UIContentContainer", "activeForumNameList"]
+- !private ["PSo18UIContentContainer", "complation"]
+- !private ["PSo18UIContentContainer", "completion"]
+- !private ["PSo18UIContentContainer", "fromTime"]
+- !private ["PSo18UIContentContainer", "perform"]
+- !private ["PSo18UIContentContainer", "title"]
+- !private ["PSo18UIContentContainer", "toTime"]
+- !private ["PSo18UIContentContainer", "userRemarkDictionary"]
+- !private ["PSo18UIContentContainer", "viewModel"]
+- !private ["PSo18UIContentContainer", "words"]
+- !private ["PSo18UIFocusEnvironment", "activeForumNameList"]
+- !private ["PSo18UIFocusEnvironment", "complation"]
+- !private ["PSo18UIFocusEnvironment", "completion"]
+- !private ["PSo18UIFocusEnvironment", "fromTime"]
+- !private ["PSo18UIFocusEnvironment", "perform"]
+- !private ["PSo18UIFocusEnvironment", "title"]
+- !private ["PSo18UIFocusEnvironment", "toTime"]
+- !private ["PSo18UIFocusEnvironment", "userRemarkDictionary"]
+- !private ["PSo18UIFocusEnvironment", "viewModel"]
+- !private ["PSo18UIFocusEnvironment", "words"]
+- !private ["PSo22UIPickerViewDataSource", "completion"]
+- !private ["PSo22UIPickerViewDataSource", "fromTime"]
+- !private ["PSo22UIPickerViewDataSource", "title"]
+- !private ["PSo22UIPickerViewDataSource", "toTime"]
+- !private ["PSo20UIPickerViewDelegate", "completion"]
+- !private ["PSo20UIPickerViewDelegate", "fromTime"]
+- !private ["PSo20UIPickerViewDelegate", "title"]
+- !private ["PSo20UIPickerViewDelegate", "toTime"]
+- !private ["CSo11UIResponder", "activeForumNameList"]
+- !private ["CSo11UIResponder", "complation"]
+- !private ["CSo11UIResponder", "completion"]
+- !private ["CSo11UIResponder", "fromTime"]
+- !private ["CSo11UIResponder", "perform"]
+- !private ["CSo11UIResponder", "title"]
+- !private ["CSo11UIResponder", "toTime"]
+- !private ["CSo11UIResponder", "userRemarkDictionary"]
+- !private ["CSo11UIResponder", "viewModel"]
+- !private ["CSo11UIResponder", "words"]
+- !private ["PSo30UIResponderStandardEditActions", "activeForumNameList"]
+- !private ["PSo30UIResponderStandardEditActions", "complation"]
+- !private ["PSo30UIResponderStandardEditActions", "completion"]
+- !private ["PSo30UIResponderStandardEditActions", "fromTime"]
+- !private ["PSo30UIResponderStandardEditActions", "perform"]
+- !private ["PSo30UIResponderStandardEditActions", "title"]
+- !private ["PSo30UIResponderStandardEditActions", "toTime"]
+- !private ["PSo30UIResponderStandardEditActions", "userRemarkDictionary"]
+- !private ["PSo30UIResponderStandardEditActions", "viewModel"]
+- !private ["PSo30UIResponderStandardEditActions", "words"]
+- !private ["PSo20UIScrollViewDelegate", "activeForumNameList"]
+- !private ["PSo20UIScrollViewDelegate", "complation"]
+- !private ["PSo20UIScrollViewDelegate", "completion"]
+- !private ["PSo20UIScrollViewDelegate", "perform"]
+- !private ["PSo20UIScrollViewDelegate", "title"]
+- !private ["PSo20UIScrollViewDelegate", "userRemarkDictionary"]
+- !private ["PSo20UIScrollViewDelegate", "viewModel"]
+- !private ["PSo20UIScrollViewDelegate", "words"]
+- !private ["PSo16UIStateRestoring", "activeForumNameList"]
+- !private ["PSo16UIStateRestoring", "complation"]
+- !private ["PSo16UIStateRestoring", "completion"]
+- !private ["PSo16UIStateRestoring", "fromTime"]
+- !private ["PSo16UIStateRestoring", "perform"]
+- !private ["PSo16UIStateRestoring", "title"]
+- !private ["PSo16UIStateRestoring", "toTime"]
+- !private ["PSo16UIStateRestoring", "userRemarkDictionary"]
+- !private ["PSo16UIStateRestoring", "viewModel"]
+- !private ["PSo16UIStateRestoring", "words"]
+- !private ["CSo21UITableViewController", "perform"]
+- !private ["CSo21UITableViewController", "viewModel"]
+- !private ["PSo21UITableViewDataSource", "perform"]
+- !private ["PSo21UITableViewDataSource", "viewModel"]
+- !private ["PSo19UITableViewDelegate", "activeForumNameList"]
+- !private ["PSo19UITableViewDelegate", "complation"]
+- !private ["PSo19UITableViewDelegate", "completion"]
+- !private ["PSo19UITableViewDelegate", "perform"]
+- !private ["PSo19UITableViewDelegate", "title"]
+- !private ["PSo19UITableViewDelegate", "userRemarkDictionary"]
+- !private ["PSo19UITableViewDelegate", "viewModel"]
+- !private ["PSo19UITableViewDelegate", "words"]
+- !private ["PSo18UITraitEnvironment", "activeForumNameList"]
+- !private ["PSo18UITraitEnvironment", "complation"]
+- !private ["PSo18UITraitEnvironment", "completion"]
+- !private ["PSo18UITraitEnvironment", "fromTime"]
+- !private ["PSo18UITraitEnvironment", "perform"]
+- !private ["PSo18UITraitEnvironment", "title"]
+- !private ["PSo18UITraitEnvironment", "toTime"]
+- !private ["PSo18UITraitEnvironment", "userRemarkDictionary"]
+- !private ["PSo18UITraitEnvironment", "viewModel"]
+- !private ["PSo18UITraitEnvironment", "words"]
+- !private ["CSo16UIViewController", "activeForumNameList"]
+- !private ["CSo16UIViewController", "complation"]
+- !private ["CSo16UIViewController", "completion"]
+- !private ["CSo16UIViewController", "fromTime"]
+- !private ["CSo16UIViewController", "perform"]
+- !private ["CSo16UIViewController", "title"]
+- !private ["CSo16UIViewController", "toTime"]
+- !private ["CSo16UIViewController", "userRemarkDictionary"]
+- !private ["CSo16UIViewController", "viewModel"]
+- !private ["CSo16UIViewController", "words"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "activeForumNameList"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "complation"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "completion"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "fromTime"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "title"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "toTime"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "userRemarkDictionary"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "words"]
+- !private ["Su", "deinit"]
+- !private ["P9Alamofire14URLConvertible", "init"]
+- !private ["C5HiPDA24UserRemarkViewController", "complation"]
+- !private ["C5HiPDA24UserRemarkViewController", "deinit"]
+- !private ["C5HiPDA24UserRemarkViewController", "title"]
+- !private ["C5HiPDA24UserRemarkViewController", "userRemarkDictionary"]
+- !private ["Ps14_ArrayProtocol", "Element"]
+- !private ["Ps14_ArrayProtocol", "IndexDistance"]
+- !private ["Ps14_ArrayProtocol", "count"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
+- !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
+- !private ["Ps24_DestructorSafeContainer", "count"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "activeForumNameList"]
+- !private ["Ps9_Hashable", "complation"]
+- !private ["Ps9_Hashable", "completion"]
+- !private ["Ps9_Hashable", "editWords"]
+- !private ["Ps9_Hashable", "fromTime"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "perform"]
+- ["Ps9_Hashable", "pmDoNotDisturb"]
+- !private ["Ps9_Hashable", "rawValue"]
+- ["Ps9_Hashable", "threadAttention"]
+- ["Ps9_Hashable", "threadBlock"]
+- !private ["Ps9_Hashable", "title"]
+- !private ["Ps9_Hashable", "toTime"]
+- ["Ps9_Hashable", "userBlock"]
+- ["Ps9_Hashable", "userRemark"]
+- !private ["Ps9_Hashable", "userRemarkDictionary"]
+- !private ["Ps9_Hashable", "viewModel"]
+- !private ["Ps9_Hashable", "words"]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "activeForumNameList"]
+- !private ["Ps21_ObjectiveCBridgeable", "count"]
+- !private ["Ps21_ObjectiveCBridgeable", "editWords"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "pmDoNotDisturb"]
+- !private ["Ps21_ObjectiveCBridgeable", "userRemark"]
+depends-nominal:
+- !private "C5HiPDA33ActiveForumNameListViewController"
+- !private "Ps9AnyObject"
+- !private "Sa"
+- !private "P9HandyJSON17ArrayTypeProtocol"
+- !private "P9HandyJSON20BasePropertyProtocol"
+- !private "C5HiPDA18BaseViewController"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "Sb"
+- !private "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "P4Argo9Decodable"
+- !private "Vs10Dictionary"
+- !private "C5HiPDA26EditWordListViewController"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "V5HiPDA12ForumManager"
+- !private "P9HandyJSON9HandyJSON"
+- "Ps8Hashable"
+- !private "P13RxDataSources16IdentifiableType"
+- !private "SQ"
+- !private "P9HandyJSON31ImplicitlyUnwrappedTypeProtocol"
+- "V10Foundation9IndexPath"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Si"
+- !private "P7RxCocoa16KVORepresentable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "Sq"
+- !private "C5HiPDA39PmDoNotDisturbTimeSettingViewController"
+- !private "P5HiPDA25PromptInformationShowable"
+- !private "P9HandyJSON8Property"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- "Ps16RawRepresentable"
+- !private "P7RxSwift18ReactiveCompatible"
+- !private "V7Perform5Segue"
+- !private "V10ObjectiveC8Selector"
+- !private "Ps8Sequence"
+- "V5HiPDA14SettingsRouter"
+- "O5HiPDA13SettingsSegue"
+- "C5HiPDA22SettingsViewController"
+- !private "V5HiPDA17SettingsViewModel"
+- !private "Vs12StaticString"
+- !private "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "P4Then4Then"
+- !private "PSo21UIAppearanceContainer"
+- !private "PSo18UIContentContainer"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo22UIPickerViewDataSource"
+- !private "PSo20UIPickerViewDelegate"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "PSo20UIScrollViewDelegate"
+- !private "PSo16UIStateRestoring"
+- !private "CSo21UITableViewController"
+- !private "PSo21UITableViewDataSource"
+- !private "PSo19UITableViewDelegate"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo16UIViewController"
+- !private "PSo37UIViewControllerTransitioningDelegate"
+- !private "Su"
+- !private "P9Alamofire14URLConvertible"
+- !private "C5HiPDA24UserRemarkViewController"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/Helpers/HiPDA-Bridging-Header.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/Helpers/WeakProxy.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Headers/YYKeyboardManager.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Headers/YYKeyboardManager-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.2.sdk/usr/include/CommonCrypto/CommonDigest.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/AppDelegate/PerformanceMonitor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Modules/RxDataSources.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/RxCocoa.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoaRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXObjCRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXKVOObserver.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXDelegateProxy.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RX.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Headers/RxDataSources-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Headers/RxDataSources-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychainQuery.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychain.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychain-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Modules/Argo.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Modules/Runes.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Headers/Runes-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Headers/Runes-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Modules/Curry.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Headers/Curry-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Headers/Curry-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Modules/Perform.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Headers/Aspects.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Headers/Aspects-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Headers/Perform-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Headers/Perform-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Modules/Delta.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIView+WebCacheOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIView+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImageView+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImageView+HighlightedWebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImage+MultiFormat.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImage+GIF.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIButton+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImagePrefetcher.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageManager.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloaderOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloader.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDecoder.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDImageCacheConfig.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDImageCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/NSImage+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageCompat.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/NSData+ImageContentType.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImage-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Headers/MBProgressHUD.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Headers/MBProgressHUD-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Headers/FABAttributes.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Headers/Fabric.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/ANSCompatibility.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Answers.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSStackFrame.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSReport.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSLogging.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSAttributes.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Crashlytics.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Modules/Moya.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Headers/Moya-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Headers/Moya-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/Result.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Modules/HandyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Modules/Then.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Headers/Then-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Headers/Then-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Modules/module.modulemap"
+interface-hash: "1d900ec56d8b77cfc4d28f85c55fd668"

@@ -1,0 +1,686 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "HomeViewController"
+provides-nominal:
+- "C5HiPDA18HomeViewController"
+provides-member:
+- ["C5HiPDA18HomeViewController", ""]
+provides-dynamic-lookup:
+- "viewDidLoad"
+- "configureApperance"
+depends-top-level:
+- !private "!="
+- !private "Driver"
+- !private "EventBus"
+- "AssignmentPrecedence"
+- "UINavigationBar"
+- "BaseViewController"
+- !private "Settings"
+- "StringLiteralType"
+- "HomeViewController"
+- "BooleanLiteralType"
+depends-member:
+- !private ["V5HiPDA7Account", "deinit"]
+- !private ["Ps9AnyObject", "Driver"]
+- !private ["Ps9AnyObject", "EventBus"]
+- !private ["Ps9AnyObject", "Settings"]
+- !private ["Ps9AnyObject", "activeAccount"]
+- !private ["Ps9AnyObject", "asDriver"]
+- ["Ps9AnyObject", "configureApperance"]
+- !private ["Ps9AnyObject", "disposeBag"]
+- !private ["Ps9AnyObject", "hidePromptInformation"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isAppeared"]
+- !private ["Ps9AnyObject", "navigationItem"]
+- !private ["Ps9AnyObject", "shared"]
+- ["Ps9AnyObject", "showLoginSuccessInformation"]
+- !private ["Ps9AnyObject", "showPromptInformation"]
+- !private ["Ps9AnyObject", "title"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["P9HandyJSON20BasePropertyProtocol", "_getBuiltinLogicValue"]
+- !private ["P9HandyJSON20BasePropertyProtocol", "init"]
+- !private ["C5HiPDA18BaseViewController", "Driver"]
+- !private ["C5HiPDA18BaseViewController", "EventBus"]
+- !private ["C5HiPDA18BaseViewController", "Settings"]
+- ["C5HiPDA18BaseViewController", "UINavigationBar"]
+- ["C5HiPDA18BaseViewController", "configureApperance"]
+- ["C5HiPDA18BaseViewController", "deinit"]
+- !private ["C5HiPDA18BaseViewController", "disposeBag"]
+- !private ["C5HiPDA18BaseViewController", "hidePromptInformation"]
+- ["C5HiPDA18BaseViewController", "init"]
+- !private ["C5HiPDA18BaseViewController", "isAppeared"]
+- !private ["C5HiPDA18BaseViewController", "navigationItem"]
+- ["C5HiPDA18BaseViewController", "showLoginSuccessInformation"]
+- !private ["C5HiPDA18BaseViewController", "showPromptInformation"]
+- ["C5HiPDA18BaseViewController", "viewDidLoad"]
+- ["C5HiPDA18BaseViewController", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "Driver"]
+- !private ["Ps7CVarArg", "EventBus"]
+- !private ["Ps7CVarArg", "Settings"]
+- ["Ps7CVarArg", "configureApperance"]
+- !private ["Ps7CVarArg", "disposeBag"]
+- !private ["Ps7CVarArg", "hidePromptInformation"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isAppeared"]
+- !private ["Ps7CVarArg", "navigationItem"]
+- ["Ps7CVarArg", "showLoginSuccessInformation"]
+- !private ["Ps7CVarArg", "showPromptInformation"]
+- !private ["Ps7CVarArg", "title"]
+- ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Vs9Character", "deinit"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Driver"]
+- !private ["Ps28CustomDebugStringConvertible", "EventBus"]
+- !private ["Ps28CustomDebugStringConvertible", "Settings"]
+- ["Ps28CustomDebugStringConvertible", "configureApperance"]
+- !private ["Ps28CustomDebugStringConvertible", "disposeBag"]
+- !private ["Ps28CustomDebugStringConvertible", "hidePromptInformation"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isAppeared"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationItem"]
+- ["Ps28CustomDebugStringConvertible", "showLoginSuccessInformation"]
+- !private ["Ps28CustomDebugStringConvertible", "showPromptInformation"]
+- !private ["Ps28CustomDebugStringConvertible", "title"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Driver"]
+- !private ["Ps23CustomStringConvertible", "EventBus"]
+- !private ["Ps23CustomStringConvertible", "Settings"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "configureApperance"]
+- !private ["Ps23CustomStringConvertible", "disposeBag"]
+- !private ["Ps23CustomStringConvertible", "hidePromptInformation"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isAppeared"]
+- !private ["Ps23CustomStringConvertible", "navigationItem"]
+- ["Ps23CustomStringConvertible", "showLoginSuccessInformation"]
+- !private ["Ps23CustomStringConvertible", "showPromptInformation"]
+- !private ["Ps23CustomStringConvertible", "title"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["P4Argo9Decodable", "_getBuiltinLogicValue"]
+- !private ["P4Argo9Decodable", "init"]
+- !private ["P7RxSwift10Disposable", "addDisposableTo"]
+- ["P7RxSwift10Disposable", "deinit"]
+- ["C7RxSwift10DisposeBag", "deinit"]
+- !private ["Sd", "deinit"]
+- !private ["Ps9Equatable", "Driver"]
+- !private ["Ps9Equatable", "EventBus"]
+- !private ["Ps9Equatable", "Settings"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "configureApperance"]
+- !private ["Ps9Equatable", "disposeBag"]
+- !private ["Ps9Equatable", "hidePromptInformation"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isAppeared"]
+- !private ["Ps9Equatable", "navigationItem"]
+- ["Ps9Equatable", "showLoginSuccessInformation"]
+- !private ["Ps9Equatable", "showPromptInformation"]
+- !private ["Ps9Equatable", "title"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["V5HiPDA8EventBus", "activeAccount"]
+- !private ["V5HiPDA8EventBus", "shared"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Sf", "deinit"]
+- !private ["P9HandyJSON9HandyJSON", "_getBuiltinLogicValue"]
+- !private ["P9HandyJSON9HandyJSON", "init"]
+- !private ["Ps8Hashable", "Driver"]
+- !private ["Ps8Hashable", "EventBus"]
+- !private ["Ps8Hashable", "Settings"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "configureApperance"]
+- !private ["Ps8Hashable", "disposeBag"]
+- !private ["Ps8Hashable", "hidePromptInformation"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isAppeared"]
+- !private ["Ps8Hashable", "navigationItem"]
+- ["Ps8Hashable", "showLoginSuccessInformation"]
+- !private ["Ps8Hashable", "showPromptInformation"]
+- !private ["Ps8Hashable", "title"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- !private ["C5HiPDA18HomeViewController", "Driver"]
+- !private ["C5HiPDA18HomeViewController", "EventBus"]
+- !private ["C5HiPDA18HomeViewController", "Settings"]
+- ["C5HiPDA18HomeViewController", "UINavigationBar"]
+- ["C5HiPDA18HomeViewController", "configureApperance"]
+- ["C5HiPDA18HomeViewController", "deinit"]
+- !private ["C5HiPDA18HomeViewController", "disposeBag"]
+- !private ["C5HiPDA18HomeViewController", "hidePromptInformation"]
+- ["C5HiPDA18HomeViewController", "init"]
+- !private ["C5HiPDA18HomeViewController", "isAppeared"]
+- !private ["C5HiPDA18HomeViewController", "navigationItem"]
+- !private ["C5HiPDA18HomeViewController", "showLoginSuccessInformation"]
+- !private ["C5HiPDA18HomeViewController", "showPromptInformation"]
+- ["C5HiPDA18HomeViewController", "viewDidLoad"]
+- !private ["P13RxDataSources16IdentifiableType", "init"]
+- !private ["Si", "deinit"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["P7RxCocoa16KVORepresentable", "_getBuiltinLogicValue"]
+- !private ["O5HiPDA10LoginError", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- ["CSo7NSCoder", "deinit"]
+- !private ["PSo8NSCoding", "Driver"]
+- !private ["PSo8NSCoding", "EventBus"]
+- !private ["PSo8NSCoding", "Settings"]
+- ["PSo8NSCoding", "configureApperance"]
+- !private ["PSo8NSCoding", "disposeBag"]
+- !private ["PSo8NSCoding", "hidePromptInformation"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isAppeared"]
+- !private ["PSo8NSCoding", "navigationItem"]
+- ["PSo8NSCoding", "showLoginSuccessInformation"]
+- !private ["PSo8NSCoding", "showPromptInformation"]
+- !private ["PSo8NSCoding", "title"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "Driver"]
+- !private ["PSo26NSExtensionRequestHandling", "EventBus"]
+- !private ["PSo26NSExtensionRequestHandling", "Settings"]
+- ["PSo26NSExtensionRequestHandling", "configureApperance"]
+- !private ["PSo26NSExtensionRequestHandling", "disposeBag"]
+- !private ["PSo26NSExtensionRequestHandling", "hidePromptInformation"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "isAppeared"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationItem"]
+- ["PSo26NSExtensionRequestHandling", "showLoginSuccessInformation"]
+- !private ["PSo26NSExtensionRequestHandling", "showPromptInformation"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "Driver"]
+- !private ["CSo8NSObject", "EventBus"]
+- !private ["CSo8NSObject", "Settings"]
+- ["CSo8NSObject", "UINavigationBar"]
+- ["CSo8NSObject", "configureApperance"]
+- !private ["CSo8NSObject", "disposeBag"]
+- !private ["CSo8NSObject", "hidePromptInformation"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isAppeared"]
+- !private ["CSo8NSObject", "navigationItem"]
+- ["CSo8NSObject", "showLoginSuccessInformation"]
+- !private ["CSo8NSObject", "showPromptInformation"]
+- !private ["CSo8NSObject", "title"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "Driver"]
+- !private ["PSo16NSObjectProtocol", "EventBus"]
+- !private ["PSo16NSObjectProtocol", "Settings"]
+- ["PSo16NSObjectProtocol", "configureApperance"]
+- !private ["PSo16NSObjectProtocol", "disposeBag"]
+- !private ["PSo16NSObjectProtocol", "hidePromptInformation"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isAppeared"]
+- !private ["PSo16NSObjectProtocol", "navigationItem"]
+- ["PSo16NSObjectProtocol", "showLoginSuccessInformation"]
+- !private ["PSo16NSObjectProtocol", "showPromptInformation"]
+- !private ["PSo16NSObjectProtocol", "title"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["P7RxSwift25ObservableConvertibleType", "E"]
+- !private ["P7RxSwift25ObservableConvertibleType", "SharingStrategy"]
+- !private ["P7RxSwift25ObservableConvertibleType", "combineLatest"]
+- !private ["P7RxSwift25ObservableConvertibleType", "drive"]
+- !private ["P7RxSwift25ObservableConvertibleType", "filter"]
+- !private ["P7RxSwift25ObservableConvertibleType", "map"]
+- !private ["P5Delta22ObservablePropertyType", "asDriver"]
+- ["Sq", "deinit"]
+- ["O5HiPDA16ProgressHUDStyle", "deinit"]
+- !private ["O5HiPDA16ProgressHUDStyle", "failure"]
+- !private ["O5HiPDA16ProgressHUDStyle", "loading"]
+- !private ["O5HiPDA16ProgressHUDStyle", "success"]
+- !private ["P5HiPDA25PromptInformationShowable", "Driver"]
+- !private ["P5HiPDA25PromptInformationShowable", "EventBus"]
+- !private ["P5HiPDA25PromptInformationShowable", "Settings"]
+- ["P5HiPDA25PromptInformationShowable", "configureApperance"]
+- !private ["P5HiPDA25PromptInformationShowable", "disposeBag"]
+- !private ["P5HiPDA25PromptInformationShowable", "hidePromptInformation"]
+- !private ["P5HiPDA25PromptInformationShowable", "init"]
+- !private ["P5HiPDA25PromptInformationShowable", "isAppeared"]
+- !private ["P5HiPDA25PromptInformationShowable", "navigationItem"]
+- ["P5HiPDA25PromptInformationShowable", "showLoginSuccessInformation"]
+- !private ["P5HiPDA25PromptInformationShowable", "showPromptInformation"]
+- ["P5HiPDA25PromptInformationShowable", "viewDidLoad"]
+- ["P5HiPDA25PromptInformationShowable", ""]
+- !private ["P9HandyJSON8Property", "_getBuiltinLogicValue"]
+- !private ["P9HandyJSON8Property", "init"]
+- !private ["P7RxSwift18ReactiveCompatible", "Driver"]
+- !private ["P7RxSwift18ReactiveCompatible", "EventBus"]
+- !private ["P7RxSwift18ReactiveCompatible", "Settings"]
+- ["P7RxSwift18ReactiveCompatible", "configureApperance"]
+- !private ["P7RxSwift18ReactiveCompatible", "disposeBag"]
+- !private ["P7RxSwift18ReactiveCompatible", "hidePromptInformation"]
+- !private ["P7RxSwift18ReactiveCompatible", "init"]
+- !private ["P7RxSwift18ReactiveCompatible", "isAppeared"]
+- !private ["P7RxSwift18ReactiveCompatible", "navigationItem"]
+- ["P7RxSwift18ReactiveCompatible", "showLoginSuccessInformation"]
+- !private ["P7RxSwift18ReactiveCompatible", "showPromptInformation"]
+- !private ["P7RxSwift18ReactiveCompatible", "title"]
+- ["P7RxSwift18ReactiveCompatible", "viewDidLoad"]
+- ["P7RxSwift18ReactiveCompatible", ""]
+- !private ["O5HiPDA6Result", "deinit"]
+- !private ["O5HiPDA6Result", "failure"]
+- !private ["O5HiPDA6Result", "success"]
+- !private ["C5HiPDA8Settings", "activeAccount"]
+- ["C5HiPDA8Settings", "deinit"]
+- !private ["C5HiPDA8Settings", "shared"]
+- !private ["V7RxCocoa14SharedSequence", "E"]
+- !private ["V7RxCocoa14SharedSequence", "SharingStrategy"]
+- !private ["V7RxCocoa14SharedSequence", "combineLatest"]
+- ["V7RxCocoa14SharedSequence", "deinit"]
+- !private ["V7RxCocoa14SharedSequence", "drive"]
+- !private ["V7RxCocoa14SharedSequence", "filter"]
+- !private ["V7RxCocoa14SharedSequence", "map"]
+- !private ["P7RxCocoa29SharedSequenceConvertibleType", "E"]
+- !private ["P7RxCocoa29SharedSequenceConvertibleType", "SharingStrategy"]
+- !private ["P7RxCocoa29SharedSequenceConvertibleType", "combineLatest"]
+- !private ["P7RxCocoa29SharedSequenceConvertibleType", "drive"]
+- !private ["P7RxCocoa29SharedSequenceConvertibleType", "filter"]
+- !private ["P7RxCocoa29SharedSequenceConvertibleType", "map"]
+- !private ["P5Delta9StoreType", "activeAccount"]
+- !private ["P5Delta9StoreType", "shared"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["P4Then4Then", "Driver"]
+- !private ["P4Then4Then", "EventBus"]
+- !private ["P4Then4Then", "Settings"]
+- ["P4Then4Then", "configureApperance"]
+- !private ["P4Then4Then", "disposeBag"]
+- !private ["P4Then4Then", "hidePromptInformation"]
+- !private ["P4Then4Then", "init"]
+- !private ["P4Then4Then", "isAppeared"]
+- !private ["P4Then4Then", "navigationItem"]
+- ["P4Then4Then", "showLoginSuccessInformation"]
+- !private ["P4Then4Then", "showPromptInformation"]
+- !private ["P4Then4Then", "title"]
+- ["P4Then4Then", "viewDidLoad"]
+- ["P4Then4Then", ""]
+- !private ["PSo21UIAppearanceContainer", "Driver"]
+- !private ["PSo21UIAppearanceContainer", "EventBus"]
+- !private ["PSo21UIAppearanceContainer", "Settings"]
+- ["PSo21UIAppearanceContainer", "configureApperance"]
+- !private ["PSo21UIAppearanceContainer", "disposeBag"]
+- !private ["PSo21UIAppearanceContainer", "hidePromptInformation"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isAppeared"]
+- !private ["PSo21UIAppearanceContainer", "navigationItem"]
+- ["PSo21UIAppearanceContainer", "showLoginSuccessInformation"]
+- !private ["PSo21UIAppearanceContainer", "showPromptInformation"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo18UIContentContainer", "Driver"]
+- !private ["PSo18UIContentContainer", "EventBus"]
+- !private ["PSo18UIContentContainer", "Settings"]
+- ["PSo18UIContentContainer", "configureApperance"]
+- !private ["PSo18UIContentContainer", "disposeBag"]
+- !private ["PSo18UIContentContainer", "hidePromptInformation"]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "isAppeared"]
+- !private ["PSo18UIContentContainer", "navigationItem"]
+- ["PSo18UIContentContainer", "showLoginSuccessInformation"]
+- !private ["PSo18UIContentContainer", "showPromptInformation"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo18UIFocusEnvironment", "Driver"]
+- !private ["PSo18UIFocusEnvironment", "EventBus"]
+- !private ["PSo18UIFocusEnvironment", "Settings"]
+- ["PSo18UIFocusEnvironment", "configureApperance"]
+- !private ["PSo18UIFocusEnvironment", "disposeBag"]
+- !private ["PSo18UIFocusEnvironment", "hidePromptInformation"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isAppeared"]
+- !private ["PSo18UIFocusEnvironment", "navigationItem"]
+- ["PSo18UIFocusEnvironment", "showLoginSuccessInformation"]
+- !private ["PSo18UIFocusEnvironment", "showPromptInformation"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["CSo15UINavigationBar", "deinit"]
+- ["CSo16UINavigationItem", "deinit"]
+- !private ["CSo16UINavigationItem", "title"]
+- !private ["CSo11UIResponder", "Driver"]
+- !private ["CSo11UIResponder", "EventBus"]
+- !private ["CSo11UIResponder", "Settings"]
+- ["CSo11UIResponder", "UINavigationBar"]
+- ["CSo11UIResponder", "configureApperance"]
+- !private ["CSo11UIResponder", "disposeBag"]
+- !private ["CSo11UIResponder", "hidePromptInformation"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isAppeared"]
+- !private ["CSo11UIResponder", "navigationItem"]
+- ["CSo11UIResponder", "showLoginSuccessInformation"]
+- !private ["CSo11UIResponder", "showPromptInformation"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "Driver"]
+- !private ["PSo30UIResponderStandardEditActions", "EventBus"]
+- !private ["PSo30UIResponderStandardEditActions", "Settings"]
+- ["PSo30UIResponderStandardEditActions", "configureApperance"]
+- !private ["PSo30UIResponderStandardEditActions", "disposeBag"]
+- !private ["PSo30UIResponderStandardEditActions", "hidePromptInformation"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isAppeared"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationItem"]
+- ["PSo30UIResponderStandardEditActions", "showLoginSuccessInformation"]
+- !private ["PSo30UIResponderStandardEditActions", "showPromptInformation"]
+- ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "Driver"]
+- !private ["PSo16UIStateRestoring", "EventBus"]
+- !private ["PSo16UIStateRestoring", "Settings"]
+- ["PSo16UIStateRestoring", "configureApperance"]
+- !private ["PSo16UIStateRestoring", "disposeBag"]
+- !private ["PSo16UIStateRestoring", "hidePromptInformation"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "isAppeared"]
+- !private ["PSo16UIStateRestoring", "navigationItem"]
+- ["PSo16UIStateRestoring", "showLoginSuccessInformation"]
+- !private ["PSo16UIStateRestoring", "showPromptInformation"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "Driver"]
+- !private ["PSo18UITraitEnvironment", "EventBus"]
+- !private ["PSo18UITraitEnvironment", "Settings"]
+- ["PSo18UITraitEnvironment", "configureApperance"]
+- !private ["PSo18UITraitEnvironment", "disposeBag"]
+- !private ["PSo18UITraitEnvironment", "hidePromptInformation"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isAppeared"]
+- !private ["PSo18UITraitEnvironment", "navigationItem"]
+- ["PSo18UITraitEnvironment", "showLoginSuccessInformation"]
+- !private ["PSo18UITraitEnvironment", "showPromptInformation"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo16UIViewController", "Driver"]
+- !private ["CSo16UIViewController", "EventBus"]
+- !private ["CSo16UIViewController", "Settings"]
+- ["CSo16UIViewController", "UINavigationBar"]
+- ["CSo16UIViewController", "configureApperance"]
+- !private ["CSo16UIViewController", "disposeBag"]
+- !private ["CSo16UIViewController", "hidePromptInformation"]
+- ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "isAppeared"]
+- !private ["CSo16UIViewController", "navigationItem"]
+- ["CSo16UIViewController", "showLoginSuccessInformation"]
+- !private ["CSo16UIViewController", "showPromptInformation"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "Driver"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "EventBus"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "Settings"]
+- ["PSo37UIViewControllerTransitioningDelegate", "configureApperance"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "disposeBag"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "hidePromptInformation"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "init"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "isAppeared"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "navigationItem"]
+- ["PSo37UIViewControllerTransitioningDelegate", "showLoginSuccessInformation"]
+- !private ["PSo37UIViewControllerTransitioningDelegate", "showPromptInformation"]
+- ["PSo37UIViewControllerTransitioningDelegate", "viewDidLoad"]
+- ["PSo37UIViewControllerTransitioningDelegate", ""]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- !private ["P9Alamofire14URLConvertible", "init"]
+- !private ["Sc", "deinit"]
+- !private ["C7RxSwift8Variable", "asDriver"]
+- ["C7RxSwift8Variable", "deinit"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Driver"]
+- !private ["Ps9_Hashable", "EventBus"]
+- !private ["Ps9_Hashable", "Settings"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "configureApperance"]
+- !private ["Ps9_Hashable", "disposeBag"]
+- !private ["Ps9_Hashable", "hidePromptInformation"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isAppeared"]
+- !private ["Ps9_Hashable", "navigationItem"]
+- ["Ps9_Hashable", "showLoginSuccessInformation"]
+- !private ["Ps9_Hashable", "showPromptInformation"]
+- !private ["Ps9_Hashable", "title"]
+- ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+depends-nominal:
+- !private "V5HiPDA7Account"
+- "Ps9AnyObject"
+- !private "P9HandyJSON20BasePropertyProtocol"
+- "C5HiPDA18BaseViewController"
+- "Sb"
+- "Ps7CVarArg"
+- !private "Vs9Character"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "P4Argo9Decodable"
+- "P7RxSwift10Disposable"
+- "C7RxSwift10DisposeBag"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "V5HiPDA8EventBus"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Sf"
+- !private "P9HandyJSON9HandyJSON"
+- "Ps8Hashable"
+- "C5HiPDA18HomeViewController"
+- !private "P13RxDataSources16IdentifiableType"
+- !private "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "P7RxCocoa16KVORepresentable"
+- !private "O5HiPDA10LoginError"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "P7RxSwift25ObservableConvertibleType"
+- !private "P5Delta22ObservablePropertyType"
+- "Sq"
+- "O5HiPDA16ProgressHUDStyle"
+- "P5HiPDA25PromptInformationShowable"
+- !private "P9HandyJSON8Property"
+- "P7RxSwift18ReactiveCompatible"
+- !private "O5HiPDA6Result"
+- "C5HiPDA8Settings"
+- "V7RxCocoa14SharedSequence"
+- !private "P7RxCocoa29SharedSequenceConvertibleType"
+- !private "P5Delta9StoreType"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "P4Then4Then"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- "PSo18UIFocusEnvironment"
+- "CSo15UINavigationBar"
+- "CSo16UINavigationItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- "CSo16UIViewController"
+- "PSo37UIViewControllerTransitioningDelegate"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- !private "P9Alamofire14URLConvertible"
+- !private "Sc"
+- "C7RxSwift8Variable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/Helpers/HiPDA-Bridging-Header.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/Helpers/WeakProxy.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Headers/YYKeyboardManager.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Headers/YYKeyboardManager-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/YYKeyboardManager/YYKeyboardManager.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.2.sdk/usr/include/CommonCrypto/CommonDigest.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/HiPDA/AppDelegate/PerformanceMonitor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Modules/RxDataSources.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/RxCocoa.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoaRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXObjCRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXKVOObserver.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RXDelegateProxy.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/_RX.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Headers/RxDataSources-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Headers/RxDataSources-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxDataSources/RxDataSources.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychainQuery.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychain.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Headers/SAMKeychain-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SAMKeychain/SAMKeychain.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Modules/Argo.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Headers/Argo-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Argo/Argo.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Modules/Runes.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Headers/Runes-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Headers/Runes-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Runes/Runes.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Modules/Curry.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Headers/Curry-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Headers/Curry-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Curry/Curry.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Modules/Perform.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Headers/Aspects.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Headers/Aspects-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Aspects/Aspects.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Headers/Perform-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Headers/Perform-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Perform/Perform.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Modules/Delta.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Headers/Delta-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Delta/Delta.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIView+WebCacheOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIView+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImageView+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImageView+HighlightedWebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImage+MultiFormat.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIImage+GIF.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/UIButton+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImagePrefetcher.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageManager.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloaderOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageOperation.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloader.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageDecoder.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDImageCacheConfig.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDImageCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/NSImage+WebCache.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImageCompat.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/NSData+ImageContentType.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Headers/SDWebImage-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/SDWebImage/SDWebImage.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Headers/MBProgressHUD.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Headers/MBProgressHUD-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Headers/FABAttributes.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Headers/Fabric.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Fabric/iOS/Fabric.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/ANSCompatibility.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Answers.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSStackFrame.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSReport.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSLogging.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSAttributes.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Crashlytics.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Crashlytics/iOS/Crashlytics.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Modules/Moya.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Headers/Moya-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Headers/Moya-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Moya/Moya.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/Result.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Modules/HandyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Headers/HandyJSON-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/HandyJSON/HandyJSON.framework/Modules/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Modules/Then.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Headers/Then-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Headers/Then-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Then/Then.framework/Modules/module.modulemap"
+interface-hash: "bcc276ff544bd8ec2c0c0555d3f145ec"

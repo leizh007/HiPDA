@@ -1,0 +1,12 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "042be0f82c08dbfffd3d41c6d19d9edc"
+build_time: [541680612, 677572000]
+inputs:
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/Aspects.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/Collection.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/Perform.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/Segue.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/SequenceType.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/UIStoryboardSegue.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/UITabBarController.swift": [538461302, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Perform/Sources/Perform/UIViewController.swift": [538461302, 0]

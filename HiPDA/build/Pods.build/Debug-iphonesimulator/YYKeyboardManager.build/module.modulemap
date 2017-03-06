@@ -1,0 +1,6 @@
+framework module YYKeyboardManager {
+  umbrella header "YYKeyboardManager-umbrella.h"
+
+  export *
+  module * { export * }
+}

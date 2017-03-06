@@ -1,0 +1,191 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["C4Moya12MoyaProvider", ""]
+- ["C4Moya12MoyaProvider", "defaultEndpointMapping"]
+- ["C4Moya12MoyaProvider", "defaultRequestMapping"]
+- ["C4Moya12MoyaProvider", "defaultAlamofireManager"]
+provides-dynamic-lookup:
+depends-top-level:
+- "Manager"
+- "AssignmentPrecedence"
+- !private "URLSessionConfiguration"
+- !private "Error"
+- "MoyaProvider"
+- "Endpoint"
+- !private "BooleanLiteralType"
+depends-member:
+- !private ["Ps9AnyObject", "Endpoint"]
+- !private ["Ps9AnyObject", "Error"]
+- !private ["Ps9AnyObject", "Manager"]
+- !private ["Ps9AnyObject", "URLSessionConfiguration"]
+- !private ["Ps9AnyObject", "default"]
+- !private ["Ps9AnyObject", "defaultHTTPHeaders"]
+- !private ["Ps9AnyObject", "httpAdditionalHeaders"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "startRequestsImmediately"]
+- !private ["Ps9AnyObject", "url"]
+- !private ["Ps9AnyObject", "urlRequest"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "default"]
+- !private ["Ps7CVarArg", "httpAdditionalHeaders"]
+- !private ["Ps28CustomDebugStringConvertible", "absoluteString"]
+- !private ["Ps28CustomDebugStringConvertible", "appendingPathComponent"]
+- !private ["Ps28CustomDebugStringConvertible", "default"]
+- !private ["Ps28CustomDebugStringConvertible", "failure"]
+- !private ["Ps28CustomDebugStringConvertible", "httpAdditionalHeaders"]
+- !private ["Ps28CustomDebugStringConvertible", "success"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "absoluteString"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "appendingPathComponent"]
+- !private ["Ps23CustomStringConvertible", "absoluteString"]
+- !private ["Ps23CustomStringConvertible", "appendingPathComponent"]
+- !private ["Ps23CustomStringConvertible", "default"]
+- !private ["Ps23CustomStringConvertible", "failure"]
+- !private ["Ps23CustomStringConvertible", "httpAdditionalHeaders"]
+- !private ["Ps23CustomStringConvertible", "success"]
+- !private ["V10Foundation4Data", "deinit"]
+- ["Vs10Dictionary", "deinit"]
+- ["C4Moya8Endpoint", "deinit"]
+- !private ["C4Moya8Endpoint", "init"]
+- !private ["C4Moya8Endpoint", "url"]
+- !private ["C4Moya8Endpoint", "urlRequest"]
+- !private ["O4Moya22EndpointSampleResponse", "deinit"]
+- !private ["O4Moya22EndpointSampleResponse", "networkResponse"]
+- !private ["Ps9Equatable", "absoluteString"]
+- !private ["Ps9Equatable", "appendingPathComponent"]
+- !private ["Ps9Equatable", "default"]
+- !private ["Ps9Equatable", "httpAdditionalHeaders"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "url"]
+- !private ["Ps9Equatable", "urlRequest"]
+- ["O4Moya5Error", "deinit"]
+- !private ["O4Moya5Error", "requestMapping"]
+- !private ["Ps5Error", "requestMapping"]
+- ["O9Alamofire10HTTPMethod", "deinit"]
+- !private ["Ps8Hashable", "absoluteString"]
+- !private ["Ps8Hashable", "appendingPathComponent"]
+- !private ["Ps8Hashable", "default"]
+- !private ["Ps8Hashable", "httpAdditionalHeaders"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "url"]
+- !private ["Ps8Hashable", "urlRequest"]
+- !private ["Si", "deinit"]
+- ["C4Moya12MoyaProvider", "Endpoint"]
+- !private ["C4Moya12MoyaProvider", "Error"]
+- ["C4Moya12MoyaProvider", "Manager"]
+- ["C4Moya12MoyaProvider", "RequestResultClosure"]
+- ["C4Moya12MoyaProvider", "Target"]
+- !private ["C4Moya12MoyaProvider", "URLSessionConfiguration"]
+- ["C4Moya12MoyaProvider", "defaultAlamofireManager"]
+- ["C4Moya12MoyaProvider", "defaultEndpointMapping"]
+- ["C4Moya12MoyaProvider", "defaultRequestMapping"]
+- !private ["PSo9NSCopying", "default"]
+- !private ["PSo9NSCopying", "httpAdditionalHeaders"]
+- !private ["CSo8NSObject", "default"]
+- !private ["CSo8NSObject", "httpAdditionalHeaders"]
+- !private ["PSo16NSObjectProtocol", "default"]
+- !private ["PSo16NSObjectProtocol", "httpAdditionalHeaders"]
+- ["Sq", "deinit"]
+- !private ["P7RxSwift18ReactiveCompatible", "default"]
+- !private ["P7RxSwift18ReactiveCompatible", "httpAdditionalHeaders"]
+- !private ["P10Foundation20ReferenceConvertible", "absoluteString"]
+- !private ["P10Foundation20ReferenceConvertible", "appendingPathComponent"]
+- ["O6Result6Result", "deinit"]
+- !private ["O6Result6Result", "failure"]
+- !private ["O6Result6Result", "success"]
+- !private ["P6Result14ResultProtocol", "failure"]
+- !private ["P6Result14ResultProtocol", "success"]
+- !private ["C9Alamofire14SessionManager", "defaultHTTPHeaders"]
+- ["C9Alamofire14SessionManager", "deinit"]
+- !private ["C9Alamofire14SessionManager", "init"]
+- !private ["C9Alamofire14SessionManager", "startRequestsImmediately"]
+- ["SS", "deinit"]
+- !private ["P4Moya10TargetType", "baseURL"]
+- !private ["P4Moya10TargetType", "method"]
+- !private ["P4Moya10TargetType", "parameters"]
+- !private ["P4Moya10TargetType", "path"]
+- !private ["P4Moya10TargetType", "sampleData"]
+- !private ["V10Foundation3URL", "absoluteString"]
+- !private ["V10Foundation3URL", "appendingPathComponent"]
+- ["V10Foundation3URL", "deinit"]
+- !private ["P9Alamofire14URLConvertible", "absoluteString"]
+- !private ["P9Alamofire14URLConvertible", "appendingPathComponent"]
+- ["V10Foundation10URLRequest", "deinit"]
+- !private ["CSo23URLSessionConfiguration", "default"]
+- ["CSo23URLSessionConfiguration", "deinit"]
+- !private ["CSo23URLSessionConfiguration", "httpAdditionalHeaders"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "absoluteString"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "appendingPathComponent"]
+- !private ["Ps9_Hashable", "absoluteString"]
+- !private ["Ps9_Hashable", "appendingPathComponent"]
+- !private ["Ps9_Hashable", "default"]
+- !private ["Ps9_Hashable", "httpAdditionalHeaders"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "url"]
+- !private ["Ps9_Hashable", "urlRequest"]
+- !private ["Ps21_ObjectiveCBridgeable", "absoluteString"]
+- !private ["Ps21_ObjectiveCBridgeable", "appendingPathComponent"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- "Sb"
+- !private "Ps7CVarArg"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps23CustomStringConvertible"
+- !private "V10Foundation4Data"
+- "Vs10Dictionary"
+- "C4Moya8Endpoint"
+- !private "O4Moya22EndpointSampleResponse"
+- !private "Ps9Equatable"
+- "O4Moya5Error"
+- !private "Ps5Error"
+- "O9Alamofire10HTTPMethod"
+- !private "Ps8Hashable"
+- !private "Si"
+- "C4Moya12MoyaProvider"
+- !private "PSo9NSCopying"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- "Sq"
+- !private "P7RxSwift18ReactiveCompatible"
+- !private "P10Foundation20ReferenceConvertible"
+- "O6Result6Result"
+- !private "P6Result14ResultProtocol"
+- "C9Alamofire14SessionManager"
+- "SS"
+- !private "P4Moya10TargetType"
+- "V10Foundation3URL"
+- !private "P9Alamofire14URLConvertible"
+- "V10Foundation10URLRequest"
+- "CSo23URLSessionConfiguration"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/Moya/Moya-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/Moya.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Modules/Result.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Result/Result.framework/Headers/Result-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/Result/Result-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/Result.build/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/Alamofire.build/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxSwift/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxSwift.build/module.modulemap"
+interface-hash: "b70231e9b1aebb11996f2ceeeef592d2"

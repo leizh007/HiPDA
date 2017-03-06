@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "6f0cc75389eff512d7ae7a3865a11cbb"
+build_time: [541680564, 521494000]
+inputs:
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Curry/Source/Curry.swift": [530865125, 0]

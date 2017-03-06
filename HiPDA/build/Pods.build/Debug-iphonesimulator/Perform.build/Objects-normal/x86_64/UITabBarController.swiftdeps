@@ -1,0 +1,302 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["CSo18UITabBarController", ""]
+- ["CSo18UITabBarController", "configureViewControllers"]
+provides-dynamic-lookup:
+- "configureViewControllers"
+depends-top-level:
+- "UIViewController"
+- !private "??"
+- !private "Array"
+- "UITabBarController"
+- "Void"
+depends-member:
+- !private ["Vs11AnyIterator", "Element"]
+- ["Ps9AnyObject", "configureViewControllers"]
+- !private ["Ps9AnyObject", "hierarchy"]
+- !private ["Ps9AnyObject", "viewControllers"]
+- !private ["Vs11AnySequence", "Iterator"]
+- !private ["Vs11AnySequence", "SubSequence"]
+- !private ["Vs11AnySequence", "deinit"]
+- !private ["Sa", "Element"]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- ["Sa", "deinit"]
+- !private ["Sa", "lazy"]
+- !private ["Ps23BidirectionalCollection", "Element"]
+- !private ["Ps23BidirectionalCollection", "Elements"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps23BidirectionalCollection", "flatMap"]
+- !private ["Ps23BidirectionalCollection", "lazy"]
+- !private ["Ps22BidirectionalIndexable", "Element"]
+- !private ["Ps22BidirectionalIndexable", "Elements"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "flatMap"]
+- !private ["Ps22BidirectionalIndexable", "lazy"]
+- !private ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "_Element"]
+- ["Ps7CVarArg", "configureViewControllers"]
+- !private ["Ps7CVarArg", "hierarchy"]
+- !private ["Ps7CVarArg", "lazy"]
+- !private ["Ps7CVarArg", "viewControllers"]
+- !private ["Ps10Collection", "Element"]
+- !private ["Ps10Collection", "Elements"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "flatMap"]
+- !private ["Ps10Collection", "lazy"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- ["Ps28CustomDebugStringConvertible", "configureViewControllers"]
+- !private ["Ps28CustomDebugStringConvertible", "hierarchy"]
+- !private ["Ps28CustomDebugStringConvertible", "lazy"]
+- !private ["Ps28CustomDebugStringConvertible", "viewControllers"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "lazy"]
+- !private ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- ["Ps23CustomStringConvertible", "configureViewControllers"]
+- !private ["Ps23CustomStringConvertible", "hierarchy"]
+- !private ["Ps23CustomStringConvertible", "lazy"]
+- !private ["Ps23CustomStringConvertible", "viewControllers"]
+- ["Ps9Equatable", "configureViewControllers"]
+- !private ["Ps9Equatable", "hierarchy"]
+- !private ["Ps9Equatable", "viewControllers"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "lazy"]
+- !private ["Ps23ExpressibleByNilLiteral", "lazy"]
+- !private ["Vs15FlattenIterator", "Element"]
+- !private ["Vs15FlattenSequence", "Iterator"]
+- ["Ps8Hashable", "configureViewControllers"]
+- !private ["Ps8Hashable", "hierarchy"]
+- !private ["Ps8Hashable", "viewControllers"]
+- !private ["Ps9Indexable", "Element"]
+- !private ["Ps9Indexable", "Elements"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "flatMap"]
+- !private ["Ps9Indexable", "lazy"]
+- !private ["Ps13IndexableBase", "Element"]
+- !private ["Ps13IndexableBase", "Elements"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "flatMap"]
+- !private ["Ps13IndexableBase", "lazy"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["Vs27LazyBidirectionalCollection", "Elements"]
+- !private ["Vs27LazyBidirectionalCollection", "Iterator"]
+- !private ["Vs27LazyBidirectionalCollection", "flatMap"]
+- !private ["Vs14LazyCollection", "Elements"]
+- !private ["Vs14LazyCollection", "Iterator"]
+- !private ["Vs14LazyCollection", "deinit"]
+- !private ["Vs14LazyCollection", "flatMap"]
+- !private ["Ps22LazyCollectionProtocol", "Elements"]
+- !private ["Ps22LazyCollectionProtocol", "Iterator"]
+- !private ["Ps22LazyCollectionProtocol", "flatMap"]
+- !private ["Vs15LazyMapIterator", "Element"]
+- !private ["Vs15LazyMapSequence", "Iterator"]
+- !private ["Vs26LazyRandomAccessCollection", "Elements"]
+- !private ["Vs26LazyRandomAccessCollection", "Iterator"]
+- ["Vs26LazyRandomAccessCollection", "deinit"]
+- !private ["Vs26LazyRandomAccessCollection", "flatMap"]
+- !private ["Vs12LazySequence", "Elements"]
+- !private ["Vs12LazySequence", "Iterator"]
+- ["Vs12LazySequence", "deinit"]
+- !private ["Vs12LazySequence", "flatMap"]
+- !private ["Vs12LazySequence", "forEach"]
+- !private ["Ps20LazySequenceProtocol", "Elements"]
+- !private ["Ps20LazySequenceProtocol", "Iterator"]
+- !private ["Ps20LazySequenceProtocol", "flatMap"]
+- !private ["Ps20LazySequenceProtocol", "forEach"]
+- !private ["Ps17MutableCollection", "Element"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps17MutableCollection", "lazy"]
+- !private ["Ps16MutableIndexable", "Element"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["Ps16MutableIndexable", "lazy"]
+- ["PSo8NSCoding", "configureViewControllers"]
+- !private ["PSo8NSCoding", "hierarchy"]
+- !private ["PSo8NSCoding", "viewControllers"]
+- ["PSo26NSExtensionRequestHandling", "configureViewControllers"]
+- !private ["PSo26NSExtensionRequestHandling", "hierarchy"]
+- !private ["PSo26NSExtensionRequestHandling", "viewControllers"]
+- ["CSo8NSObject", "UIViewController"]
+- ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "configureViewControllers"]
+- !private ["CSo8NSObject", "hierarchy"]
+- !private ["CSo8NSObject", "viewControllers"]
+- ["PSo16NSObjectProtocol", "configureViewControllers"]
+- !private ["PSo16NSObjectProtocol", "hierarchy"]
+- !private ["PSo16NSObjectProtocol", "viewControllers"]
+- !private ["Sq", "lazy"]
+- !private ["Ps22RandomAccessCollection", "Element"]
+- !private ["Ps22RandomAccessCollection", "Elements"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps22RandomAccessCollection", "flatMap"]
+- !private ["Ps22RandomAccessCollection", "lazy"]
+- !private ["Ps21RandomAccessIndexable", "Element"]
+- !private ["Ps21RandomAccessIndexable", "Elements"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "flatMap"]
+- !private ["Ps21RandomAccessIndexable", "lazy"]
+- !private ["Ps26RangeReplaceableCollection", "Element"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "lazy"]
+- !private ["Ps25RangeReplaceableIndexable", "Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "lazy"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Elements"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "flatMap"]
+- !private ["Ps8Sequence", "forEach"]
+- !private ["Ps8Sequence", "lazy"]
+- ["PSo21UIAppearanceContainer", "configureViewControllers"]
+- !private ["PSo21UIAppearanceContainer", "hierarchy"]
+- !private ["PSo21UIAppearanceContainer", "viewControllers"]
+- ["PSo18UIContentContainer", "configureViewControllers"]
+- !private ["PSo18UIContentContainer", "hierarchy"]
+- !private ["PSo18UIContentContainer", "viewControllers"]
+- ["PSo18UIFocusEnvironment", "configureViewControllers"]
+- !private ["PSo18UIFocusEnvironment", "hierarchy"]
+- !private ["PSo18UIFocusEnvironment", "viewControllers"]
+- ["CSo11UIResponder", "UIViewController"]
+- ["CSo11UIResponder", "Void"]
+- ["CSo11UIResponder", "configureViewControllers"]
+- !private ["CSo11UIResponder", "hierarchy"]
+- !private ["CSo11UIResponder", "viewControllers"]
+- ["PSo30UIResponderStandardEditActions", "configureViewControllers"]
+- !private ["PSo30UIResponderStandardEditActions", "hierarchy"]
+- !private ["PSo30UIResponderStandardEditActions", "viewControllers"]
+- ["PSo16UIStateRestoring", "configureViewControllers"]
+- !private ["PSo16UIStateRestoring", "hierarchy"]
+- !private ["PSo16UIStateRestoring", "viewControllers"]
+- ["CSo18UITabBarController", "UIViewController"]
+- ["CSo18UITabBarController", "Void"]
+- ["CSo18UITabBarController", "configureViewControllers"]
+- ["CSo18UITabBarController", "deinit"]
+- !private ["CSo18UITabBarController", "viewControllers"]
+- !private ["PSo16UITabBarDelegate", "viewControllers"]
+- ["PSo18UITraitEnvironment", "configureViewControllers"]
+- !private ["PSo18UITraitEnvironment", "hierarchy"]
+- !private ["PSo18UITraitEnvironment", "viewControllers"]
+- ["CSo16UIViewController", "UIViewController"]
+- ["CSo16UIViewController", "Void"]
+- ["CSo16UIViewController", "configureViewControllers"]
+- !private ["CSo16UIViewController", "deinit"]
+- !private ["CSo16UIViewController", "hierarchy"]
+- !private ["CSo16UIViewController", "viewControllers"]
+- !private ["Ps14_ArrayProtocol", "Element"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps14_ArrayProtocol", "lazy"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "lazy"]
+- ["Ps9_Hashable", "configureViewControllers"]
+- !private ["Ps9_Hashable", "hierarchy"]
+- !private ["Ps9_Hashable", "viewControllers"]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "lazy"]
+- !private ["Ps16_SequenceWrapper", "Elements"]
+- !private ["Ps16_SequenceWrapper", "Iterator"]
+- !private ["Ps16_SequenceWrapper", "flatMap"]
+- !private ["Ps16_SequenceWrapper", "forEach"]
+depends-nominal:
+- !private "Vs11AnyIterator"
+- "Ps9AnyObject"
+- !private "Vs11AnySequence"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- !private "Vs15FlattenIterator"
+- !private "Vs15FlattenSequence"
+- "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- !private "Ps16IteratorProtocol"
+- !private "Vs27LazyBidirectionalCollection"
+- !private "Vs14LazyCollection"
+- !private "Ps22LazyCollectionProtocol"
+- !private "Vs15LazyMapIterator"
+- !private "Vs15LazyMapSequence"
+- "Vs26LazyRandomAccessCollection"
+- "Vs12LazySequence"
+- !private "Ps20LazySequenceProtocol"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps8Sequence"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- "PSo18UIFocusEnvironment"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "CSo18UITabBarController"
+- !private "PSo16UITabBarDelegate"
+- "PSo18UITraitEnvironment"
+- "CSo16UIViewController"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps16_SequenceWrapper"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/Perform/Perform-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/Perform.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Aspects/Aspects.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/Aspects/Aspects-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/Aspects.build/module.modulemap"
+interface-hash: "462122d3cfc5321813be291cdda087fd"

@@ -1,0 +1,10 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "e855e285bd5a0e9e5b73a06cacc3eb60"
+build_time: [541680582, 581424000]
+inputs:
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/HandyJSON/HandyJSON/Converter.swift": [530865141, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/HandyJSON/HandyJSON/Extension.swift": [530865141, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/HandyJSON/HandyJSON/HelpingMapper.swift": [530865141, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/HandyJSON/HandyJSON/JSONDeserializer.swift": [530865141, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/HandyJSON/HandyJSON/JSONSerializer.swift": [530865141, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/HandyJSON/HandyJSON/Property.swift": [530944121, 0]

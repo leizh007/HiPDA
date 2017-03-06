@@ -26,6 +26,8 @@ struct SettingsRouter {
     func handleSelection(for indexPath: IndexPath) {
         guard let settingsSegue = try? SettingsSegue(indexPath: indexPath) else { return }
         switch settingsSegue {
+        case .accountManagement:
+            showAccountManagementViewController(with: settingsSegue)
         case .userBlock:
             fallthrough
         case .threadBlock:
@@ -38,6 +40,25 @@ struct SettingsRouter {
             showActiveForumNameListViewController(with: settingsSegue)
         case .userRemark:
             showUserRemarkViewController(with: settingsSegue)
+        }
+    }
+}
+
+// MARK: - AccountManagement
+
+extension SettingsRouter {
+    /// 跳转到账户管理页面
+    ///
+    /// - Parameter settingsSegue: 页面类型
+    fileprivate func showAccountManagementViewController(with settingsSegue: SettingsSegue) {
+        guard case .accountManagement = settingsSegue else {
+            assertionFailure("Unmatched case!")
+            return
+        }
+        guard let viewController = self.viewController else { return }
+        
+        viewController.perform(.accountManagement) { accountManagementViewController in
+            accountManagementViewController.title = settingsSegue.rawValue
         }
     }
 }
@@ -138,15 +159,15 @@ extension SettingsRouter {
     /// 跳转到版块列表界面
     ///
     /// - Parameter setttingsSegue: 页面类型
-    fileprivate func showActiveForumNameListViewController(with setttingsSegue: SettingsSegue) {
-        guard case .activeForumNameList = setttingsSegue else {
+    fileprivate func showActiveForumNameListViewController(with settingsSegue: SettingsSegue) {
+        guard case .activeForumNameList = settingsSegue else {
             assertionFailure("Unmatched case!")
             return
         }
         guard let viewController = self.viewController else { return }
         
         viewController.perform(.activeForumNameList) { activeForumNameListViewController in
-            activeForumNameListViewController.title = setttingsSegue.rawValue
+            activeForumNameListViewController.title = settingsSegue.rawValue
             activeForumNameListViewController.activeForumNameList = viewController.viewModel.activeForumNameList
             activeForumNameListViewController.completion = { activeForumNames in
                 viewController.viewModel.activeForumNameList = activeForumNames.count == 0 ? ForumManager.defalutForumNameList : activeForumNames

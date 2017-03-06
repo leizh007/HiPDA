@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "2347c50a5342a002d98edeb71d8ec3c2"
+build_time: [541680588, 731417000]
+inputs:
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Result/Result/Result.swift": [538461316, 0]
+  "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Result/Result/ResultProtocol.swift": [538461316, 0]

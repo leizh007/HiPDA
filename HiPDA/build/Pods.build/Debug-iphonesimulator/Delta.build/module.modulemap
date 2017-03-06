@@ -1,0 +1,10 @@
+framework module Delta {
+  umbrella header "Delta-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Delta.Swift {
+    header "Delta-Swift.h"
+}

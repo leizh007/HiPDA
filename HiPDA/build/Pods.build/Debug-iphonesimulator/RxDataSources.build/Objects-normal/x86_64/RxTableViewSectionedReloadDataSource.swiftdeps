@@ -1,0 +1,227 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RxTableViewSectionedReloadDataSource"
+provides-nominal:
+- "C13RxDataSources36RxTableViewSectionedReloadDataSource"
+provides-member:
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "RxTableViewDataSourceType"
+- "Event"
+- "TableViewSectionedDataSource"
+- !private "UIBindingObserver"
+- "RxTableViewSectionedReloadDataSource"
+- "SectionModelType"
+- "UITableView"
+depends-member:
+- ["Ps9AnyObject", "Element"]
+- !private ["Ps9AnyObject", "UIBindingObserver"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "on"]
+- !private ["Ps9AnyObject", "reloadData"]
+- !private ["Ps9AnyObject", "setSections"]
+- ["Ps9AnyObject", "tableView"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "deinit"]
+- !private ["PSo15CALayerDelegate", "reloadData"]
+- ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "UIBindingObserver"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "reloadData"]
+- !private ["Ps7CVarArg", "setSections"]
+- ["Ps7CVarArg", "tableView"]
+- ["Ps7CVarArg", ""]
+- ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "UIBindingObserver"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "reloadData"]
+- !private ["Ps28CustomDebugStringConvertible", "setSections"]
+- ["Ps28CustomDebugStringConvertible", "tableView"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "UIBindingObserver"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "reloadData"]
+- !private ["Ps23CustomStringConvertible", "setSections"]
+- ["Ps23CustomStringConvertible", "tableView"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "UIBindingObserver"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "reloadData"]
+- !private ["Ps9Equatable", "setSections"]
+- ["Ps9Equatable", "tableView"]
+- ["Ps9Equatable", ""]
+- ["O7RxSwift5Event", "deinit"]
+- ["Ps8Hashable", "Element"]
+- !private ["Ps8Hashable", "UIBindingObserver"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "reloadData"]
+- !private ["Ps8Hashable", "setSections"]
+- ["Ps8Hashable", "tableView"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "reloadData"]
+- ["CSo8NSObject", "Element"]
+- ["CSo8NSObject", "Event"]
+- ["CSo8NSObject", "S"]
+- !private ["CSo8NSObject", "UIBindingObserver"]
+- ["CSo8NSObject", "UITableView"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "reloadData"]
+- !private ["CSo8NSObject", "setSections"]
+- ["CSo8NSObject", "tableView"]
+- ["PSo16NSObjectProtocol", "Element"]
+- !private ["PSo16NSObjectProtocol", "UIBindingObserver"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "reloadData"]
+- !private ["PSo16NSObjectProtocol", "setSections"]
+- ["PSo16NSObjectProtocol", "tableView"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["P7RxSwift12ObserverType", "init"]
+- !private ["P7RxSwift12ObserverType", "on"]
+- ["P7RxSwift18ReactiveCompatible", "Element"]
+- !private ["P7RxSwift18ReactiveCompatible", "UIBindingObserver"]
+- ["P7RxSwift18ReactiveCompatible", "init"]
+- !private ["P7RxSwift18ReactiveCompatible", "reloadData"]
+- !private ["P7RxSwift18ReactiveCompatible", "setSections"]
+- ["P7RxSwift18ReactiveCompatible", "tableView"]
+- ["P7RxSwift18ReactiveCompatible", ""]
+- ["P7RxCocoa25RxTableViewDataSourceType", "Element"]
+- !private ["P7RxCocoa25RxTableViewDataSourceType", "UIBindingObserver"]
+- !private ["P7RxCocoa25RxTableViewDataSourceType", "setSections"]
+- ["P7RxCocoa25RxTableViewDataSourceType", "tableView"]
+- ["P7RxCocoa25RxTableViewDataSourceType", ""]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "Element"]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "Event"]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "S"]
+- !private ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "UIBindingObserver"]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "UITableView"]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "deinit"]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "init"]
+- !private ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "setSections"]
+- ["C13RxDataSources36RxTableViewSectionedReloadDataSource", "tableView"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "Element"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "UIBindingObserver"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "init"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "setSections"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "tableView"]
+- ["P7RxCocoa27SectionedViewDataSourceType", ""]
+- !private ["P13RxDataSources17SectionedViewType", "reloadData"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "Element"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "Event"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "S"]
+- !private ["C13RxDataSources28TableViewSectionedDataSource", "UIBindingObserver"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "UITableView"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "deinit"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "init"]
+- !private ["C13RxDataSources28TableViewSectionedDataSource", "setSections"]
+- ["C13RxDataSources28TableViewSectionedDataSource", "tableView"]
+- ["C13RxDataSources28TableViewSectionedDataSource", ""]
+- !private ["PSo29UIAccessibilityIdentification", "reloadData"]
+- !private ["PSo12UIAppearance", "reloadData"]
+- !private ["PSo21UIAppearanceContainer", "reloadData"]
+- ["C7RxCocoa17UIBindingObserver", "deinit"]
+- !private ["C7RxCocoa17UIBindingObserver", "init"]
+- !private ["C7RxCocoa17UIBindingObserver", "on"]
+- !private ["PSo17UICoordinateSpace", "reloadData"]
+- !private ["PSo13UIDynamicItem", "reloadData"]
+- !private ["PSo18UIFocusEnvironment", "reloadData"]
+- !private ["PSo11UIFocusItem", "reloadData"]
+- !private ["CSo11UIResponder", "reloadData"]
+- !private ["PSo30UIResponderStandardEditActions", "reloadData"]
+- !private ["CSo12UIScrollView", "reloadData"]
+- !private ["CSo11UITableView", "deinit"]
+- !private ["CSo11UITableView", "reloadData"]
+- ["PSo21UITableViewDataSource", "Element"]
+- !private ["PSo21UITableViewDataSource", "UIBindingObserver"]
+- ["PSo21UITableViewDataSource", "init"]
+- !private ["PSo21UITableViewDataSource", "setSections"]
+- ["PSo21UITableViewDataSource", "tableView"]
+- ["PSo21UITableViewDataSource", ""]
+- !private ["PSo18UITraitEnvironment", "reloadData"]
+- !private ["CSo6UIView", "reloadData"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "reloadData"]
+- ["Ps9_Hashable", "Element"]
+- !private ["Ps9_Hashable", "UIBindingObserver"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "reloadData"]
+- !private ["Ps9_Hashable", "setSections"]
+- ["Ps9_Hashable", "tableView"]
+- ["Ps9_Hashable", ""]
+- ["C13RxDataSources29_TableViewSectionedDataSource", "Element"]
+- ["C13RxDataSources29_TableViewSectionedDataSource", "Event"]
+- ["C13RxDataSources29_TableViewSectionedDataSource", "S"]
+- !private ["C13RxDataSources29_TableViewSectionedDataSource", "UIBindingObserver"]
+- ["C13RxDataSources29_TableViewSectionedDataSource", "UITableView"]
+- ["C13RxDataSources29_TableViewSectionedDataSource", "init"]
+- !private ["C13RxDataSources29_TableViewSectionedDataSource", "setSections"]
+- ["C13RxDataSources29_TableViewSectionedDataSource", "tableView"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "O7RxSwift5Event"
+- "Ps8Hashable"
+- !private "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "P7RxSwift12ObserverType"
+- "P7RxSwift18ReactiveCompatible"
+- "P7RxCocoa25RxTableViewDataSourceType"
+- "C13RxDataSources36RxTableViewSectionedReloadDataSource"
+- "P7RxCocoa27SectionedViewDataSourceType"
+- !private "P13RxDataSources17SectionedViewType"
+- "C13RxDataSources28TableViewSectionedDataSource"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- "C7RxCocoa17UIBindingObserver"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "CSo12UIScrollView"
+- !private "CSo11UITableView"
+- "PSo21UITableViewDataSource"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps9_Hashable"
+- "C13RxDataSources29_TableViewSectionedDataSource"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxDataSources/RxDataSources-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxDataSources.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxSwift/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxSwift.build/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/RxCocoa.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/RxCocoaRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXObjCRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXKVOObserver.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXDelegateProxy.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RX.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/RxCocoa.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxCocoa/RxCocoa-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxCocoa.build/module.modulemap"
+interface-hash: "9f140f59bdc1dad80557c454602cd627"

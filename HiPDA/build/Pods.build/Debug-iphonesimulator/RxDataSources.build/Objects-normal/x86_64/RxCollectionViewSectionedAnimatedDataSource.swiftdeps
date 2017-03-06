@@ -1,0 +1,625 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RxCollectionViewSectionedAnimatedDataSource"
+provides-nominal:
+- "C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource"
+provides-member:
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "differencesForSectionedView"
+- !private "MainScheduler"
+- "RxCollectionViewDataSourceType"
+- !private "!"
+- "RxCollectionViewSectionedAnimatedDataSource"
+- "BooleanLiteralType"
+- "DisposeBag"
+- !private "UIBindingObserver"
+- "AnimationConfiguration"
+- "AnimatableSectionModelType"
+- "PublishSubject"
+- "CollectionViewSectionedDataSource"
+- "Event"
+- "UICollectionView"
+- !private "=="
+- !private "AssignmentPrecedence"
+depends-member:
+- ["V13RxDataSources22AnimationConfiguration", "deinit"]
+- ["V13RxDataSources22AnimationConfiguration", "init"]
+- ["Ps9AnyObject", "AnimationConfiguration"]
+- ["Ps9AnyObject", "DisposeBag"]
+- !private ["Ps9AnyObject", "E"]
+- ["Ps9AnyObject", "Element"]
+- !private ["Ps9AnyObject", "MainScheduler"]
+- ["Ps9AnyObject", "PublishSubject"]
+- !private ["Ps9AnyObject", "UIBindingObserver"]
+- ["Ps9AnyObject", "animationConfiguration"]
+- !private ["Ps9AnyObject", "asyncInstance"]
+- ["Ps9AnyObject", "collectionView"]
+- ["Ps9AnyObject", "dataSet"]
+- !private ["Ps9AnyObject", "differencesForSectionedView"]
+- ["Ps9AnyObject", "disposeBag"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "instance"]
+- !private ["Ps9AnyObject", "observeOn"]
+- !private ["Ps9AnyObject", "on"]
+- ["Ps9AnyObject", "partialUpdateEvent"]
+- !private ["Ps9AnyObject", "performBatchUpdates"]
+- !private ["Ps9AnyObject", "reloadData"]
+- !private ["Ps9AnyObject", "sectionModels"]
+- !private ["Ps9AnyObject", "setSections"]
+- !private ["Ps9AnyObject", "subscribe"]
+- !private ["Ps9AnyObject", "throttle"]
+- !private ["Ps9AnyObject", "window"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "performBatchUpdates"]
+- !private ["PSo15CALayerDelegate", "reloadData"]
+- !private ["PSo15CALayerDelegate", "window"]
+- ["Ps7CVarArg", "AnimationConfiguration"]
+- ["Ps7CVarArg", "DisposeBag"]
+- ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "MainScheduler"]
+- ["Ps7CVarArg", "PublishSubject"]
+- !private ["Ps7CVarArg", "UIBindingObserver"]
+- !private ["Ps7CVarArg", "_Element"]
+- ["Ps7CVarArg", "animationConfiguration"]
+- ["Ps7CVarArg", "collectionView"]
+- ["Ps7CVarArg", "dataSet"]
+- !private ["Ps7CVarArg", "differencesForSectionedView"]
+- ["Ps7CVarArg", "disposeBag"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "partialUpdateEvent"]
+- !private ["Ps7CVarArg", "performBatchUpdates"]
+- !private ["Ps7CVarArg", "reloadData"]
+- !private ["Ps7CVarArg", "sectionModels"]
+- !private ["Ps7CVarArg", "setSections"]
+- !private ["Ps7CVarArg", "window"]
+- ["Ps7CVarArg", ""]
+- !private ["P7RxSwift10Cancelable", "E"]
+- ["P7RxSwift10Cancelable", "init"]
+- !private ["P7RxSwift10Cancelable", "observeOn"]
+- !private ["P7RxSwift10Cancelable", "on"]
+- !private ["V13RxDataSources9Changeset", "deinit"]
+- !private ["V13RxDataSources9Changeset", "finalSections"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "_Element"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "AnimationConfiguration"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "DisposeBag"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "Element"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "Event"]
+- !private ["C13RxDataSources33CollectionViewSectionedDataSource", "MainScheduler"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "PublishSubject"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "S"]
+- !private ["C13RxDataSources33CollectionViewSectionedDataSource", "UIBindingObserver"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "UICollectionView"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "animationConfiguration"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "collectionView"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "dataSet"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "deinit"]
+- !private ["C13RxDataSources33CollectionViewSectionedDataSource", "differencesForSectionedView"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "disposeBag"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "init"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", "partialUpdateEvent"]
+- !private ["C13RxDataSources33CollectionViewSectionedDataSource", "sectionModels"]
+- !private ["C13RxDataSources33CollectionViewSectionedDataSource", "setSections"]
+- ["C13RxDataSources33CollectionViewSectionedDataSource", ""]
+- ["Ps28CustomDebugStringConvertible", "AnimationConfiguration"]
+- ["Ps28CustomDebugStringConvertible", "DisposeBag"]
+- ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "MainScheduler"]
+- ["Ps28CustomDebugStringConvertible", "PublishSubject"]
+- !private ["Ps28CustomDebugStringConvertible", "UIBindingObserver"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- ["Ps28CustomDebugStringConvertible", "animationConfiguration"]
+- ["Ps28CustomDebugStringConvertible", "collectionView"]
+- ["Ps28CustomDebugStringConvertible", "dataSet"]
+- !private ["Ps28CustomDebugStringConvertible", "differencesForSectionedView"]
+- ["Ps28CustomDebugStringConvertible", "disposeBag"]
+- !private ["Ps28CustomDebugStringConvertible", "finalSections"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "next"]
+- ["Ps28CustomDebugStringConvertible", "partialUpdateEvent"]
+- !private ["Ps28CustomDebugStringConvertible", "performBatchUpdates"]
+- !private ["Ps28CustomDebugStringConvertible", "reloadData"]
+- !private ["Ps28CustomDebugStringConvertible", "sectionModels"]
+- !private ["Ps28CustomDebugStringConvertible", "setSections"]
+- !private ["Ps28CustomDebugStringConvertible", "window"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "AnimationConfiguration"]
+- ["Ps23CustomStringConvertible", "DisposeBag"]
+- ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "MainScheduler"]
+- ["Ps23CustomStringConvertible", "PublishSubject"]
+- !private ["Ps23CustomStringConvertible", "UIBindingObserver"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "animationConfiguration"]
+- ["Ps23CustomStringConvertible", "collectionView"]
+- ["Ps23CustomStringConvertible", "dataSet"]
+- !private ["Ps23CustomStringConvertible", "differencesForSectionedView"]
+- ["Ps23CustomStringConvertible", "disposeBag"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "partialUpdateEvent"]
+- !private ["Ps23CustomStringConvertible", "performBatchUpdates"]
+- !private ["Ps23CustomStringConvertible", "reloadData"]
+- !private ["Ps23CustomStringConvertible", "sectionModels"]
+- !private ["Ps23CustomStringConvertible", "setSections"]
+- !private ["Ps23CustomStringConvertible", "window"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["P7RxSwift10Disposable", "E"]
+- !private ["P7RxSwift10Disposable", "addDisposableTo"]
+- ["P7RxSwift10Disposable", "deinit"]
+- ["P7RxSwift10Disposable", "init"]
+- !private ["P7RxSwift10Disposable", "observeOn"]
+- !private ["P7RxSwift10Disposable", "on"]
+- ["C7RxSwift10DisposeBag", "deinit"]
+- ["C7RxSwift10DisposeBag", "init"]
+- ["C7RxSwift11DisposeBase", "init"]
+- ["Sd", "deinit"]
+- ["Ps9Equatable", "AnimationConfiguration"]
+- ["Ps9Equatable", "DisposeBag"]
+- ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "MainScheduler"]
+- ["Ps9Equatable", "PublishSubject"]
+- !private ["Ps9Equatable", "UIBindingObserver"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "animationConfiguration"]
+- ["Ps9Equatable", "collectionView"]
+- ["Ps9Equatable", "dataSet"]
+- !private ["Ps9Equatable", "differencesForSectionedView"]
+- ["Ps9Equatable", "disposeBag"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "partialUpdateEvent"]
+- !private ["Ps9Equatable", "performBatchUpdates"]
+- !private ["Ps9Equatable", "reloadData"]
+- !private ["Ps9Equatable", "sectionModels"]
+- !private ["Ps9Equatable", "setSections"]
+- !private ["Ps9Equatable", "window"]
+- ["Ps9Equatable", ""]
+- ["O7RxSwift5Event", "deinit"]
+- !private ["O7RxSwift5Event", "next"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "AnimationConfiguration"]
+- ["Ps8Hashable", "DisposeBag"]
+- ["Ps8Hashable", "Element"]
+- !private ["Ps8Hashable", "MainScheduler"]
+- ["Ps8Hashable", "PublishSubject"]
+- !private ["Ps8Hashable", "UIBindingObserver"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "animationConfiguration"]
+- ["Ps8Hashable", "collectionView"]
+- ["Ps8Hashable", "dataSet"]
+- !private ["Ps8Hashable", "differencesForSectionedView"]
+- ["Ps8Hashable", "disposeBag"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "partialUpdateEvent"]
+- !private ["Ps8Hashable", "performBatchUpdates"]
+- !private ["Ps8Hashable", "reloadData"]
+- !private ["Ps8Hashable", "sectionModels"]
+- !private ["Ps8Hashable", "setSections"]
+- !private ["Ps8Hashable", "window"]
+- ["Ps8Hashable", ""]
+- !private ["P7RxSwift22ImmediateSchedulerType", "asyncInstance"]
+- !private ["P7RxSwift22ImmediateSchedulerType", "instance"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["P7RxCocoa16KVORepresentable", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["C7RxSwift13MainScheduler", "asyncInstance"]
+- ["C7RxSwift13MainScheduler", "deinit"]
+- !private ["C7RxSwift13MainScheduler", "instance"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["PSo8NSCoding", "performBatchUpdates"]
+- !private ["PSo8NSCoding", "reloadData"]
+- !private ["PSo8NSCoding", "window"]
+- ["CSo8NSObject", "AnimationConfiguration"]
+- ["CSo8NSObject", "DisposeBag"]
+- ["CSo8NSObject", "Element"]
+- ["CSo8NSObject", "Event"]
+- !private ["CSo8NSObject", "MainScheduler"]
+- ["CSo8NSObject", "PublishSubject"]
+- ["CSo8NSObject", "S"]
+- !private ["CSo8NSObject", "UIBindingObserver"]
+- ["CSo8NSObject", "UICollectionView"]
+- ["CSo8NSObject", "animationConfiguration"]
+- ["CSo8NSObject", "collectionView"]
+- ["CSo8NSObject", "dataSet"]
+- !private ["CSo8NSObject", "differencesForSectionedView"]
+- ["CSo8NSObject", "disposeBag"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "partialUpdateEvent"]
+- !private ["CSo8NSObject", "performBatchUpdates"]
+- !private ["CSo8NSObject", "reloadData"]
+- !private ["CSo8NSObject", "sectionModels"]
+- !private ["CSo8NSObject", "setSections"]
+- !private ["CSo8NSObject", "window"]
+- ["PSo16NSObjectProtocol", "AnimationConfiguration"]
+- ["PSo16NSObjectProtocol", "DisposeBag"]
+- ["PSo16NSObjectProtocol", "Element"]
+- !private ["PSo16NSObjectProtocol", "MainScheduler"]
+- ["PSo16NSObjectProtocol", "PublishSubject"]
+- !private ["PSo16NSObjectProtocol", "UIBindingObserver"]
+- ["PSo16NSObjectProtocol", "animationConfiguration"]
+- ["PSo16NSObjectProtocol", "collectionView"]
+- ["PSo16NSObjectProtocol", "dataSet"]
+- !private ["PSo16NSObjectProtocol", "differencesForSectionedView"]
+- ["PSo16NSObjectProtocol", "disposeBag"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "partialUpdateEvent"]
+- !private ["PSo16NSObjectProtocol", "performBatchUpdates"]
+- !private ["PSo16NSObjectProtocol", "reloadData"]
+- !private ["PSo16NSObjectProtocol", "sectionModels"]
+- !private ["PSo16NSObjectProtocol", "setSections"]
+- !private ["PSo16NSObjectProtocol", "window"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["C7RxSwift10Observable", "E"]
+- ["C7RxSwift10Observable", "deinit"]
+- ["C7RxSwift10Observable", "init"]
+- !private ["C7RxSwift10Observable", "observeOn"]
+- !private ["C7RxSwift10Observable", "on"]
+- !private ["C7RxSwift10Observable", "subscribe"]
+- !private ["C7RxSwift10Observable", "throttle"]
+- !private ["P7RxSwift25ObservableConvertibleType", "E"]
+- ["P7RxSwift25ObservableConvertibleType", "init"]
+- !private ["P7RxSwift25ObservableConvertibleType", "observeOn"]
+- !private ["P7RxSwift25ObservableConvertibleType", "on"]
+- !private ["P7RxSwift25ObservableConvertibleType", "subscribe"]
+- !private ["P7RxSwift25ObservableConvertibleType", "throttle"]
+- !private ["P7RxSwift14ObservableType", "E"]
+- ["P7RxSwift14ObservableType", "init"]
+- !private ["P7RxSwift14ObservableType", "observeOn"]
+- !private ["P7RxSwift14ObservableType", "on"]
+- !private ["P7RxSwift14ObservableType", "subscribe"]
+- !private ["P7RxSwift14ObservableType", "throttle"]
+- !private ["P7RxSwift12ObserverType", "E"]
+- ["P7RxSwift12ObserverType", "init"]
+- !private ["P7RxSwift12ObserverType", "observeOn"]
+- !private ["P7RxSwift12ObserverType", "on"]
+- !private ["Sq", "deinit"]
+- !private ["C7RxSwift14PublishSubject", "E"]
+- ["C7RxSwift14PublishSubject", "deinit"]
+- ["C7RxSwift14PublishSubject", "init"]
+- !private ["C7RxSwift14PublishSubject", "observeOn"]
+- !private ["C7RxSwift14PublishSubject", "on"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- ["P7RxSwift18ReactiveCompatible", "AnimationConfiguration"]
+- ["P7RxSwift18ReactiveCompatible", "DisposeBag"]
+- ["P7RxSwift18ReactiveCompatible", "Element"]
+- !private ["P7RxSwift18ReactiveCompatible", "MainScheduler"]
+- ["P7RxSwift18ReactiveCompatible", "PublishSubject"]
+- !private ["P7RxSwift18ReactiveCompatible", "UIBindingObserver"]
+- ["P7RxSwift18ReactiveCompatible", "animationConfiguration"]
+- ["P7RxSwift18ReactiveCompatible", "collectionView"]
+- ["P7RxSwift18ReactiveCompatible", "dataSet"]
+- !private ["P7RxSwift18ReactiveCompatible", "differencesForSectionedView"]
+- ["P7RxSwift18ReactiveCompatible", "disposeBag"]
+- ["P7RxSwift18ReactiveCompatible", "init"]
+- ["P7RxSwift18ReactiveCompatible", "partialUpdateEvent"]
+- !private ["P7RxSwift18ReactiveCompatible", "performBatchUpdates"]
+- !private ["P7RxSwift18ReactiveCompatible", "reloadData"]
+- !private ["P7RxSwift18ReactiveCompatible", "sectionModels"]
+- !private ["P7RxSwift18ReactiveCompatible", "setSections"]
+- !private ["P7RxSwift18ReactiveCompatible", "window"]
+- ["P7RxSwift18ReactiveCompatible", ""]
+- ["P7RxCocoa30RxCollectionViewDataSourceType", "AnimationConfiguration"]
+- ["P7RxCocoa30RxCollectionViewDataSourceType", "DisposeBag"]
+- ["P7RxCocoa30RxCollectionViewDataSourceType", "Element"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "MainScheduler"]
+- ["P7RxCocoa30RxCollectionViewDataSourceType", "PublishSubject"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "UIBindingObserver"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "animationConfiguration"]
+- ["P7RxCocoa30RxCollectionViewDataSourceType", "collectionView"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "dataSet"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "differencesForSectionedView"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "disposeBag"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "partialUpdateEvent"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "sectionModels"]
+- !private ["P7RxCocoa30RxCollectionViewDataSourceType", "setSections"]
+- ["P7RxCocoa30RxCollectionViewDataSourceType", ""]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "AnimationConfiguration"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "DisposeBag"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "Element"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "Event"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "MainScheduler"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "PublishSubject"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "S"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "UIBindingObserver"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "UICollectionView"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "animationConfiguration"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "collectionView"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "dataSet"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "deinit"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "differencesForSectionedView"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "disposeBag"]
+- ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "init"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "partialUpdateEvent"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "sectionModels"]
+- !private ["C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource", "setSections"]
+- !private ["P7RxSwift13SchedulerType", "asyncInstance"]
+- !private ["P7RxSwift13SchedulerType", "instance"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "AnimationConfiguration"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "DisposeBag"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "Element"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "MainScheduler"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "PublishSubject"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "UIBindingObserver"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "animationConfiguration"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "collectionView"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "dataSet"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "differencesForSectionedView"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "disposeBag"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "init"]
+- ["P7RxCocoa27SectionedViewDataSourceType", "partialUpdateEvent"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "sectionModels"]
+- !private ["P7RxCocoa27SectionedViewDataSourceType", "setSections"]
+- ["P7RxCocoa27SectionedViewDataSourceType", ""]
+- !private ["P13RxDataSources17SectionedViewType", "performBatchUpdates"]
+- !private ["P13RxDataSources17SectionedViewType", "reloadData"]
+- !private ["P13RxDataSources17SectionedViewType", "window"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["C7RxSwift28SerialDispatchQueueScheduler", "asyncInstance"]
+- ["C7RxSwift28SerialDispatchQueueScheduler", "deinit"]
+- !private ["C7RxSwift28SerialDispatchQueueScheduler", "instance"]
+- !private ["P7RxSwift11SubjectType", "E"]
+- ["P7RxSwift11SubjectType", "init"]
+- !private ["P7RxSwift11SubjectType", "observeOn"]
+- !private ["P7RxSwift11SubjectType", "on"]
+- !private ["P7RxSwift27SynchronizedUnsubscribeType", "E"]
+- ["P7RxSwift27SynchronizedUnsubscribeType", "init"]
+- !private ["P7RxSwift27SynchronizedUnsubscribeType", "observeOn"]
+- !private ["P7RxSwift27SynchronizedUnsubscribeType", "on"]
+- !private ["PSo29UIAccessibilityIdentification", "performBatchUpdates"]
+- !private ["PSo29UIAccessibilityIdentification", "reloadData"]
+- !private ["PSo29UIAccessibilityIdentification", "window"]
+- !private ["PSo12UIAppearance", "performBatchUpdates"]
+- !private ["PSo12UIAppearance", "reloadData"]
+- !private ["PSo12UIAppearance", "window"]
+- !private ["PSo21UIAppearanceContainer", "performBatchUpdates"]
+- !private ["PSo21UIAppearanceContainer", "reloadData"]
+- !private ["PSo21UIAppearanceContainer", "window"]
+- ["C7RxCocoa17UIBindingObserver", "deinit"]
+- !private ["C7RxCocoa17UIBindingObserver", "init"]
+- !private ["C7RxCocoa17UIBindingObserver", "on"]
+- !private ["CSo16UICollectionView", "deinit"]
+- !private ["CSo16UICollectionView", "performBatchUpdates"]
+- !private ["CSo16UICollectionView", "reloadData"]
+- !private ["CSo16UICollectionView", "window"]
+- ["PSo26UICollectionViewDataSource", "AnimationConfiguration"]
+- ["PSo26UICollectionViewDataSource", "DisposeBag"]
+- ["PSo26UICollectionViewDataSource", "Element"]
+- !private ["PSo26UICollectionViewDataSource", "MainScheduler"]
+- ["PSo26UICollectionViewDataSource", "PublishSubject"]
+- !private ["PSo26UICollectionViewDataSource", "UIBindingObserver"]
+- ["PSo26UICollectionViewDataSource", "animationConfiguration"]
+- ["PSo26UICollectionViewDataSource", "collectionView"]
+- ["PSo26UICollectionViewDataSource", "dataSet"]
+- !private ["PSo26UICollectionViewDataSource", "differencesForSectionedView"]
+- ["PSo26UICollectionViewDataSource", "disposeBag"]
+- ["PSo26UICollectionViewDataSource", "init"]
+- ["PSo26UICollectionViewDataSource", "partialUpdateEvent"]
+- !private ["PSo26UICollectionViewDataSource", "sectionModels"]
+- !private ["PSo26UICollectionViewDataSource", "setSections"]
+- ["PSo26UICollectionViewDataSource", ""]
+- !private ["PSo17UICoordinateSpace", "performBatchUpdates"]
+- !private ["PSo17UICoordinateSpace", "reloadData"]
+- !private ["PSo17UICoordinateSpace", "window"]
+- !private ["PSo13UIDynamicItem", "performBatchUpdates"]
+- !private ["PSo13UIDynamicItem", "reloadData"]
+- !private ["PSo13UIDynamicItem", "window"]
+- !private ["PSo18UIFocusEnvironment", "performBatchUpdates"]
+- !private ["PSo18UIFocusEnvironment", "reloadData"]
+- !private ["PSo18UIFocusEnvironment", "window"]
+- !private ["PSo11UIFocusItem", "performBatchUpdates"]
+- !private ["PSo11UIFocusItem", "reloadData"]
+- !private ["PSo11UIFocusItem", "window"]
+- !private ["CSo11UIResponder", "performBatchUpdates"]
+- !private ["CSo11UIResponder", "reloadData"]
+- !private ["CSo11UIResponder", "window"]
+- !private ["PSo30UIResponderStandardEditActions", "performBatchUpdates"]
+- !private ["PSo30UIResponderStandardEditActions", "reloadData"]
+- !private ["PSo30UIResponderStandardEditActions", "window"]
+- !private ["CSo12UIScrollView", "performBatchUpdates"]
+- !private ["CSo12UIScrollView", "reloadData"]
+- !private ["CSo12UIScrollView", "window"]
+- !private ["PSo18UITraitEnvironment", "performBatchUpdates"]
+- !private ["PSo18UITraitEnvironment", "reloadData"]
+- !private ["PSo18UITraitEnvironment", "window"]
+- !private ["CSo6UIView", "performBatchUpdates"]
+- !private ["CSo6UIView", "reloadData"]
+- !private ["CSo6UIView", "window"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "AnimationConfiguration"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "DisposeBag"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "Element"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "Event"]
+- !private ["C13RxDataSources34_CollectionViewSectionedDataSource", "MainScheduler"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "PublishSubject"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "S"]
+- !private ["C13RxDataSources34_CollectionViewSectionedDataSource", "UIBindingObserver"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "UICollectionView"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "animationConfiguration"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "collectionView"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "dataSet"]
+- !private ["C13RxDataSources34_CollectionViewSectionedDataSource", "differencesForSectionedView"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "disposeBag"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "init"]
+- ["C13RxDataSources34_CollectionViewSectionedDataSource", "partialUpdateEvent"]
+- !private ["C13RxDataSources34_CollectionViewSectionedDataSource", "sectionModels"]
+- !private ["C13RxDataSources34_CollectionViewSectionedDataSource", "setSections"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "performBatchUpdates"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "reloadData"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "window"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "AnimationConfiguration"]
+- ["Ps9_Hashable", "DisposeBag"]
+- ["Ps9_Hashable", "Element"]
+- !private ["Ps9_Hashable", "MainScheduler"]
+- ["Ps9_Hashable", "PublishSubject"]
+- !private ["Ps9_Hashable", "UIBindingObserver"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "animationConfiguration"]
+- ["Ps9_Hashable", "collectionView"]
+- ["Ps9_Hashable", "dataSet"]
+- !private ["Ps9_Hashable", "differencesForSectionedView"]
+- ["Ps9_Hashable", "disposeBag"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "partialUpdateEvent"]
+- !private ["Ps9_Hashable", "performBatchUpdates"]
+- !private ["Ps9_Hashable", "reloadData"]
+- !private ["Ps9_Hashable", "sectionModels"]
+- !private ["Ps9_Hashable", "setSections"]
+- !private ["Ps9_Hashable", "window"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+depends-nominal:
+- "V13RxDataSources22AnimationConfiguration"
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- "Sb"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "P7RxSwift10Cancelable"
+- !private "V13RxDataSources9Changeset"
+- !private "Ps10Collection"
+- "C13RxDataSources33CollectionViewSectionedDataSource"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "P7RxSwift10Disposable"
+- "C7RxSwift10DisposeBag"
+- "C7RxSwift11DisposeBase"
+- "Sd"
+- "Ps9Equatable"
+- "O7RxSwift5Event"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps8Hashable"
+- !private "P7RxSwift22ImmediateSchedulerType"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- !private "Ps16IteratorProtocol"
+- !private "P7RxCocoa16KVORepresentable"
+- !private "Ps25LosslessStringConvertible"
+- "C7RxSwift13MainScheduler"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "C7RxSwift10Observable"
+- "P7RxSwift25ObservableConvertibleType"
+- "P7RxSwift14ObservableType"
+- "P7RxSwift12ObserverType"
+- !private "Sq"
+- "C7RxSwift14PublishSubject"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- "P7RxSwift18ReactiveCompatible"
+- "P7RxCocoa30RxCollectionViewDataSourceType"
+- "C13RxDataSources43RxCollectionViewSectionedAnimatedDataSource"
+- !private "P7RxSwift13SchedulerType"
+- "P7RxCocoa27SectionedViewDataSourceType"
+- !private "P13RxDataSources17SectionedViewType"
+- !private "Ps8Sequence"
+- "C7RxSwift28SerialDispatchQueueScheduler"
+- "P7RxSwift11SubjectType"
+- "P7RxSwift27SynchronizedUnsubscribeType"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- "C7RxCocoa17UIBindingObserver"
+- !private "CSo16UICollectionView"
+- "PSo26UICollectionViewDataSource"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "CSo12UIScrollView"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "Ps14_ArrayProtocol"
+- "C13RxDataSources34_CollectionViewSectionedDataSource"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxDataSources/RxDataSources-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxDataSources.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxSwift/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxSwift.build/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/RxCocoa.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/RxCocoaRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXObjCRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXKVOObserver.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXDelegateProxy.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RX.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/RxCocoa.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxCocoa/RxCocoa-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxCocoa.build/module.modulemap"
+interface-hash: "c1436c68762102db07482d6d9a64c4ef"

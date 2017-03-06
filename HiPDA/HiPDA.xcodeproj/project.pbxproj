@@ -47,6 +47,7 @@
 		055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055996BF1D50DD0900057CF6 /* LaunchScreen.storyboard */; };
 		055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CB1D50E0D600057CF6 /* Bootstrap.swift */; };
 		05645C7B1D75D60900B86D0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05645C7A1D75D60900B86D0A /* Constants.swift */; };
+		056B3BF41E6D867000843E32 /* AccountManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056B3BF31E6D867000843E32 /* AccountManagementViewController.swift */; };
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
@@ -179,6 +180,7 @@
 		055996CA1D50DE1C00057CF6 /* HiPDA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HiPDA.entitlements; path = ../HiPDA.entitlements; sourceTree = "<group>"; };
 		055996CB1D50E0D600057CF6 /* Bootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
 		05645C7A1D75D60900B86D0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		056B3BF31E6D867000843E32 /* AccountManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementViewController.swift; path = AccountManagement/AccountManagementViewController.swift; sourceTree = "<group>"; };
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -448,9 +450,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		056B3BF21E6D863C00843E32 /* AccountManagement */ = {
+			isa = PBXGroup;
+			children = (
+				056B3BF31E6D867000843E32 /* AccountManagementViewController.swift */,
+			);
+			name = AccountManagement;
+			sourceTree = "<group>";
+		};
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				056B3BF21E6D863C00843E32 /* AccountManagement */,
 				05CEB7541E1D5E5900ACB773 /* ForumList */,
 				05068AEE1E09693B0070E044 /* UserRemark */,
 				05D1305B1E017BF6007D3765 /* EditWordList */,
@@ -1032,6 +1043,7 @@
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05A2AF991E2385B00048508C /* ForumManager.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
+				056B3BF41E6D867000843E32 /* AccountManagementViewController.swift in Sources */,
 				05068B001E0AC0010070E044 /* UserRemarkTableViewCell.swift in Sources */,
 				05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */,
 				05F3DCD91DB7B4A00061CED1 /* HiPDA.swift in Sources */,

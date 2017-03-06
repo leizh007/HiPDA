@@ -1,0 +1,216 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "Si"
+- "Vs4Int8"
+- "Vs5Int16"
+- "Vs5Int32"
+- "Vs5Int64"
+- "Su"
+- "Vs5UInt8"
+- "Vs6UInt16"
+- "Vs6UInt32"
+- "Vs6UInt64"
+provides-member:
+- ["Ps7Integer", ""]
+- ["Si", ""]
+- ["Vs4Int8", ""]
+- ["Vs5Int16", ""]
+- ["Vs5Int32", ""]
+- ["Vs5Int64", ""]
+- ["Su", ""]
+- ["Vs5UInt8", ""]
+- ["Vs6UInt16", ""]
+- ["Vs6UInt32", ""]
+- ["Vs6UInt64", ""]
+- ["Ps7Integer", "identity"]
+- ["Ps7Integer", "identity"]
+provides-dynamic-lookup:
+depends-top-level:
+- "Int64"
+- "UInt32"
+- "Int32"
+- "UInt16"
+- "Int16"
+- "UInt8"
+- "Integer"
+- "Int8"
+- "UInt"
+- "UInt64"
+- "Int"
+- "IdentifiableType"
+depends-member:
+- ["Ps17BitwiseOperations", "Identity"]
+- ["Ps17BitwiseOperations", "Self"]
+- ["Ps17BitwiseOperations", "identity"]
+- ["Ps7CVarArg", "Identity"]
+- ["Ps7CVarArg", "identity"]
+- ["Ps10Comparable", "Identity"]
+- ["Ps10Comparable", "Self"]
+- ["Ps10Comparable", "identity"]
+- ["Ps29CustomPlaygroundQuickLookable", "Identity"]
+- ["Ps29CustomPlaygroundQuickLookable", "identity"]
+- ["Ps17CustomReflectable", "Identity"]
+- ["Ps17CustomReflectable", "identity"]
+- ["Ps23CustomStringConvertible", "Identity"]
+- ["Ps23CustomStringConvertible", "Self"]
+- ["Ps23CustomStringConvertible", "identity"]
+- ["Ps9Equatable", "Identity"]
+- ["Ps9Equatable", "Self"]
+- ["Ps9Equatable", "identity"]
+- ["Ps27ExpressibleByIntegerLiteral", "Identity"]
+- ["Ps27ExpressibleByIntegerLiteral", "Self"]
+- ["Ps27ExpressibleByIntegerLiteral", "identity"]
+- ["Ps8Hashable", "Identity"]
+- ["Ps8Hashable", "Self"]
+- ["Ps8Hashable", "identity"]
+- ["P13RxDataSources16IdentifiableType", "Identity"]
+- ["P13RxDataSources16IdentifiableType", "identity"]
+- ["P13RxDataSources16IdentifiableType", ""]
+- ["Si", "Identity"]
+- ["Si", "deinit"]
+- ["Si", "identity"]
+- ["Vs5Int16", "Identity"]
+- ["Vs5Int16", "deinit"]
+- ["Vs5Int16", "identity"]
+- ["Vs5Int32", "Identity"]
+- ["Vs5Int32", "deinit"]
+- ["Vs5Int32", "identity"]
+- ["Vs5Int64", "Identity"]
+- ["Vs5Int64", "deinit"]
+- ["Vs5Int64", "identity"]
+- ["Vs4Int8", "Identity"]
+- ["Vs4Int8", "deinit"]
+- ["Vs4Int8", "identity"]
+- ["Ps7Integer", "Identity"]
+- ["Ps7Integer", "Self"]
+- ["Ps7Integer", "identity"]
+- ["Ps17IntegerArithmetic", "Identity"]
+- ["Ps17IntegerArithmetic", "Self"]
+- ["Ps17IntegerArithmetic", "identity"]
+- ["P7RxCocoa16KVORepresentable", "Identity"]
+- ["P7RxCocoa16KVORepresentable", "identity"]
+- ["Ps10MirrorPath", "Identity"]
+- ["Ps10MirrorPath", "identity"]
+- ["Ps13SignedInteger", "Identity"]
+- ["Ps13SignedInteger", "identity"]
+- ["Ps12SignedNumber", "Identity"]
+- ["Ps12SignedNumber", "identity"]
+- ["Ps10Strideable", "Identity"]
+- ["Ps10Strideable", "Self"]
+- ["Ps10Strideable", "identity"]
+- ["Su", "Identity"]
+- ["Su", "deinit"]
+- ["Su", "identity"]
+- ["Vs6UInt16", "Identity"]
+- ["Vs6UInt16", "deinit"]
+- ["Vs6UInt16", "identity"]
+- ["Vs6UInt32", "Identity"]
+- ["Vs6UInt32", "deinit"]
+- ["Vs6UInt32", "identity"]
+- ["Vs6UInt64", "Identity"]
+- ["Vs6UInt64", "deinit"]
+- ["Vs6UInt64", "identity"]
+- ["Vs5UInt8", "Identity"]
+- ["Vs5UInt8", "deinit"]
+- ["Vs5UInt8", "identity"]
+- ["Ps15UnsignedInteger", "Identity"]
+- ["Ps15UnsignedInteger", "identity"]
+- ["Ps15_CVarArgAligned", "Identity"]
+- ["Ps15_CVarArgAligned", "identity"]
+- ["Ps28_DisallowMixedSignArithmetic", "Identity"]
+- ["Ps28_DisallowMixedSignArithmetic", "identity"]
+- ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Identity"]
+- ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Self"]
+- ["Ps35_ExpressibleByBuiltinIntegerLiteral", "identity"]
+- ["Ps9_Hashable", "Identity"]
+- ["Ps9_Hashable", "Self"]
+- ["Ps9_Hashable", "identity"]
+- ["Ps14_Incrementable", "Identity"]
+- ["Ps14_Incrementable", "Self"]
+- ["Ps14_Incrementable", "identity"]
+- ["Ps8_Integer", "Identity"]
+- ["Ps8_Integer", "Self"]
+- ["Ps8_Integer", "identity"]
+- ["Ps18_IntegerArithmetic", "Identity"]
+- ["Ps18_IntegerArithmetic", "Self"]
+- ["Ps18_IntegerArithmetic", "identity"]
+- ["Ps21_ObjectiveCBridgeable", "Identity"]
+- ["Ps21_ObjectiveCBridgeable", "identity"]
+- ["Ps14_SignedInteger", "Identity"]
+- ["Ps14_SignedInteger", "identity"]
+- ["Ps11_Strideable", "Identity"]
+- ["Ps11_Strideable", "Self"]
+- ["Ps11_Strideable", "identity"]
+- ["Ps14_StringElement", "Identity"]
+- ["Ps14_StringElement", "identity"]
+depends-nominal:
+- "Ps17BitwiseOperations"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps27ExpressibleByIntegerLiteral"
+- "Ps8Hashable"
+- "P13RxDataSources16IdentifiableType"
+- "Si"
+- "Vs5Int16"
+- "Vs5Int32"
+- "Vs5Int64"
+- "Vs4Int8"
+- "Ps7Integer"
+- "Ps17IntegerArithmetic"
+- "P7RxCocoa16KVORepresentable"
+- "Ps10MirrorPath"
+- "Ps13SignedInteger"
+- "Ps12SignedNumber"
+- "Ps10Strideable"
+- "Su"
+- "Vs6UInt16"
+- "Vs6UInt32"
+- "Vs6UInt64"
+- "Vs5UInt8"
+- "Ps15UnsignedInteger"
+- "Ps15_CVarArgAligned"
+- "Ps28_DisallowMixedSignArithmetic"
+- "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- "Ps14_Incrementable"
+- "Ps8_Integer"
+- "Ps18_IntegerArithmetic"
+- "Ps21_ObjectiveCBridgeable"
+- "Ps14_SignedInteger"
+- "Ps11_Strideable"
+- "Ps14_StringElement"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxDataSources/RxDataSources-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxDataSources.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Modules/RxSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxSwift/RxSwift.framework/Headers/RxSwift-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxSwift/RxSwift-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxSwift.build/module.modulemap"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Modules/RxCocoa.swiftmodule/x86_64.swiftmodule"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Debug-iphonesimulator/RxCocoa/RxCocoa.framework/Headers/RxCocoa-Swift.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/RxCocoaRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXObjCRuntime.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXKVOObserver.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RXDelegateProxy.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/Runtime/include/_RX.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/RxCocoa/RxCocoa/RxCocoa.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/Pods/Target Support Files/RxCocoa/RxCocoa-umbrella.h"
+- "/Users/leizh007/Documents/iOS\u5B66\u4E60/\u9879\u76EE/HiPDA iOS\u5BA2\u6237\u7AEF /HiPDA/build/Pods.build/Debug-iphonesimulator/RxCocoa.build/module.modulemap"
+interface-hash: "99ea12e7f35f467b87c31bc4ea905370"

@@ -17,6 +17,7 @@ enum SettingsSugueError: Error {
 }
 
 enum SettingsSegue: String {
+    case accountManagement = "账号管理"
     case userBlock = "黑名单列表"
     case threadBlock = "帖子过滤词组"
     case threadAttention = "帖子关注词组"
@@ -26,6 +27,8 @@ enum SettingsSegue: String {
     
     init(indexPath: IndexPath) throws {
         switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            self = .accountManagement
         case (2, 1):
             self = .userBlock
         case (3, 1):
@@ -45,6 +48,11 @@ enum SettingsSegue: String {
 }
 
 extension Segue {
+    /// 账号管理
+    static var accountManagement: Segue<AccountManagementViewController> {
+        return .init(identifier: "AccountManagement")
+    }
+    
     /// 编辑词组
     static var editWords: Segue<EditWordListViewController> {
         return .init(identifier: "EditWords")
