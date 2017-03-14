@@ -10,6 +10,7 @@ import Foundation
 import RxDataSources
 
 struct AccountManagementSection {
+    let header: String
     var items: [AccountItemType]
 }
 
@@ -20,7 +21,7 @@ extension AccountManagementSection: AnimatableSectionModelType {
     typealias Identity = String
     
     var identity: String {
-        return String(describing: items)
+        return header
     }
     
     init(original: AccountManagementSection, items: [Item]) {
@@ -42,6 +43,7 @@ extension AccountManagementSection: CustomStringConvertible {
 extension AccountManagementSection: Equatable {
     static func ==(lhs: AccountManagementSection, rhs: AccountManagementSection) -> Bool {
         return lhs.items.count == rhs.items.count &&
+        lhs.header == rhs.header &&
         (0..<lhs.items.count).reduce(true) {
             $0 && lhs.items[$1] == rhs.items[$1]
         }

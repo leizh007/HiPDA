@@ -20,7 +20,7 @@ class EditWordListViewController: BaseViewController {
     /// 单词列表
     var words = [String]() {
         didSet {
-            replaceCommand.onNext(.replace(EditWordListTableViewState(sections:[EditWordListSection(words:words)])))
+            replaceCommand.onNext(.replace(EditWordListTableViewState(sections:[EditWordListSection(header: "0", words:words)])))
         }
     }
     
@@ -104,7 +104,7 @@ extension EditWordListViewController {
             .map(EditWordListTableViewEditingCommand.delete)
         let moveCommand = tableView.rx.itemMoved.asObservable()
             .map(EditWordListTableViewEditingCommand.move)
-        let initialState = EditWordListTableViewState(sections: [EditWordListSection(words: words)])
+        let initialState = EditWordListTableViewState(sections: [EditWordListSection(header: "0", words: words)])
         data = Observable.of(replaceCommand, appendCommand, deleteCommand, deleteCommandManually, moveCommand)
             .merge()
             .scan(initialState) {

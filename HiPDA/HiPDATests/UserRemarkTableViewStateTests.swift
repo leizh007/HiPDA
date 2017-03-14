@@ -18,14 +18,14 @@ class UserRemarkTableViewStateTests: XCTestCase {
     /// UserRemarkTableViewState单独实现了append方法,
     /// 其他默认的方法已经在EditWordListTableViewStateTests测试过了
     func testAppend() {
-        var userRemarkTableViewState = UserRemarkTableViewState(sections: [UserRemarkSection(attributes: [userRemark1])])
+        var userRemarkTableViewState = UserRemarkTableViewState(sections: [UserRemarkSection(header: "0", attributes: [userRemark1])])
         
         let appendCommand1 = UserRemarkTableViewEditingCommand.append(userRemark2, in: 0)
         userRemarkTableViewState = userRemarkTableViewState.execute(appendCommand1)
-        XCTAssert(userRemarkTableViewState == UserRemarkTableViewState(sections: [UserRemarkSection(attributes: [userRemark1, userRemark2])]))
+        XCTAssert(userRemarkTableViewState == UserRemarkTableViewState(sections: [UserRemarkSection(header: "0", attributes: [userRemark1, userRemark2])]))
         
         let appendCommand2 = UserRemarkTableViewEditingCommand.append(userRemark3, in: 0)
         userRemarkTableViewState = userRemarkTableViewState.execute(appendCommand2)
-        XCTAssert(userRemarkTableViewState == UserRemarkTableViewState(sections: [UserRemarkSection(attributes: [userRemark3, userRemark2])]))
+        XCTAssert(userRemarkTableViewState == UserRemarkTableViewState(sections: [UserRemarkSection(header: "0", attributes: [userRemark3, userRemark2])]))
     }
 }

@@ -11,44 +11,44 @@ import XCTest
 
 class EditWordListTableViewStateTests: XCTestCase {
     lazy var state: EditWordListTableViewState = {
-        let section1 = EditWordListSection(words: ["1", "2"])
-        let section2 = EditWordListSection(words: ["3", "4", "5", "6"])
-        let section3 = EditWordListSection(words: ["7", "8", "9"])
+        let section1 = EditWordListSection(header: "0", words: ["1", "2"])
+        let section2 = EditWordListSection(header: "1", words: ["3", "4", "5", "6"])
+        let section3 = EditWordListSection(header: "2", words: ["7", "8", "9"])
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     
     lazy var state1: EditWordListTableViewState = {
-        let section1 = EditWordListSection(words: ["1", "2", "10"])
-        let section2 = EditWordListSection(words: ["3", "4", "5", "6"])
-        let section3 = EditWordListSection(words: ["7", "8", "9"])
+        let section1 = EditWordListSection(header: "0", words: ["1", "2", "10"])
+        let section2 = EditWordListSection(header: "1", words: ["3", "4", "5", "6"])
+        let section3 = EditWordListSection(header: "2", words: ["7", "8", "9"])
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     
     lazy var state2: EditWordListTableViewState = {
-        let section1 = EditWordListSection(words: ["1", "2", "10"])
-        let section2 = EditWordListSection(words: ["3", "5", "6"])
-        let section3 = EditWordListSection(words: ["7", "8", "9"])
+        let section1 = EditWordListSection(header: "0", words: ["1", "2", "10"])
+        let section2 = EditWordListSection(header: "1", words: ["3", "5", "6"])
+        let section3 = EditWordListSection(header: "2", words: ["7", "8", "9"])
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     
     lazy var state3: EditWordListTableViewState = {
-        let section1 = EditWordListSection(words: ["1", "2", "10"])
-        let section2 = EditWordListSection(words: ["3", "5", "6"])
-        let section3 = EditWordListSection(words: ["8", "9", "7"])
+        let section1 = EditWordListSection(header: "0", words: ["1", "2", "10"])
+        let section2 = EditWordListSection(header: "1", words: ["3", "5", "6"])
+        let section3 = EditWordListSection(header: "2", words: ["8", "9", "7"])
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     
     lazy var state4: EditWordListTableViewState = {
-        let section1 = EditWordListSection(words: ["1", "2", "9", "10"])
-        let section2 = EditWordListSection(words: ["3", "5", "6"])
-        let section3 = EditWordListSection(words: ["8", "7"])
+        let section1 = EditWordListSection(header: "0", words: ["1", "2", "9", "10"])
+        let section2 = EditWordListSection(header: "1", words: ["3", "5", "6"])
+        let section3 = EditWordListSection(header: "2", words: ["8", "7"])
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     
     lazy var state5: EditWordListTableViewState = {
-        let section1 = EditWordListSection(words: ["1"])
-        let section2 = EditWordListSection(words: ["3", "5", "6"])
-        let section3 = EditWordListSection(words: ["8", "7"])
+        let section1 = EditWordListSection(header: "0", words: ["1"])
+        let section2 = EditWordListSection(header: "1", words: ["3", "5", "6"])
+        let section3 = EditWordListSection(header: "2", words: ["8", "7"])
         return EditWordListTableViewState(sections: [section1, section2, section3])
     }()
     

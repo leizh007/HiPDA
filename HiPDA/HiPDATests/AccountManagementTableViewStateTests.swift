@@ -26,32 +26,32 @@ class AccountManagementTableViewStateTests: XCTestCase {
     
     func testReplace() {
         let state1 = AccountManagementTableViewState(sections: [])
-        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item1])])
+        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1])])
         XCTAssert(state1.execute(.replace(state2)) == state2)
     }
     
     func testInsert() {
-        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item1, addItem]), AccountManagementSection(items: [logoutItem])])
-        XCTAssert(state1.execute(.insert(item2, at: IndexPath(item: 1, section: 0))) == AccountManagementTableViewState(sections: [AccountManagementSection(items: [item1, item2, addItem]), AccountManagementSection(items: [logoutItem])]))
+        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
+        XCTAssert(state1.execute(.insert(item2, at: IndexPath(item: 1, section: 0))) == AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])]))
     }
     
     func testMove() {
-        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item1, item2, addItem]), AccountManagementSection(items: [logoutItem])])
-        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item2, item1, addItem]), AccountManagementSection(items: [logoutItem])])
+        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
+        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item2, item1, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
         XCTAssert(state1.execute(.move(from: IndexPath(row: 1, section: 0), to: IndexPath(row: 0, section: 0))) == state2)
     }
     
     func testDelete() {
-        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item1, item2, addItem]), AccountManagementSection(items: [logoutItem])])
-        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item2, addItem]), AccountManagementSection(items: [logoutItem])])
+        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
+        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
         XCTAssert(state1.execute(.delete(with: IndexPath(row: 0, section: 0))) == state2)
     }
     
     func testClick() {
-        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [item1, item2, addItem]), AccountManagementSection(items: [logoutItem])])
+        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
         let newModel1 = AccountCellModel.lens.accessoryType.set(.none, model1)
         let newModel22 = AccountCellModel.lens.accessoryType.set(.checkmark, model2)
-        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(items: [.account(newModel1), .account(newModel22), addItem]), AccountManagementSection(items: [logoutItem])])
+        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [.account(newModel1), .account(newModel22), addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
         XCTAssert(state1.execute(.click(with: IndexPath(row: 0, section: 0))).execute(.click(with: IndexPath(row: 1, section: 0))) == state2)
     }
 }

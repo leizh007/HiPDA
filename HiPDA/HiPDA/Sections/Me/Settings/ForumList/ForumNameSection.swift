@@ -11,6 +11,7 @@ import RxDataSources
 
 /// 用户备注的section模型
 struct ForumNameSection {
+    let header: String
     var forumList: [ForumNameModel]
 }
 

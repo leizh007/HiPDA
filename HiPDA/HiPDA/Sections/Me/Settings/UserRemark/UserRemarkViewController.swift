@@ -21,7 +21,7 @@ class UserRemarkViewController: BaseViewController {
     var userRemarkDictionary = [String: String]() {
         didSet {
             let attributes = userRemarkDictionary.map(UserRemark.init)
-            replaceCommand.onNext(.replace(UserRemarkTableViewState(sections: [UserRemarkSection(attributes: attributes)])))
+            replaceCommand.onNext(.replace(UserRemarkTableViewState(sections: [UserRemarkSection(header: "0",attributes: attributes)])))
         }
     }
     
@@ -140,7 +140,7 @@ extension UserRemarkViewController {
         let deleteCommand = tableView.rx.itemDeleted
             .map(UserRemarkTableViewEditingCommand.delete)
         let attributes = userRemarkDictionary.map(UserRemark.init)
-        let initialState = UserRemarkTableViewState(sections: [UserRemarkSection(attributes: attributes)])
+        let initialState = UserRemarkTableViewState(sections: [UserRemarkSection(header: "0",attributes: attributes)])
         let data = Observable.of(replaceCommand, appendCommand, deleteCommand)
             .merge()
             .scan(initialState) {

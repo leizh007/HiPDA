@@ -11,15 +11,14 @@ import RxDataSources
 
 /// AnimatableSection
 protocol AnimatableSection: AnimatableSectionModelType, Equatable {
+    var header: String { get }
 }
 
 extension AnimatableSection {
     static func ==(lhs: Self, rhs: Self) -> Bool {
-        if lhs.items.count != rhs.items.count {
-            return false
-        }
-        
-        return (0..<lhs.items.count).reduce(true) {
+        return lhs.items.count == rhs.items.count &&
+            lhs.header == rhs.header &&
+            (0..<lhs.items.count).reduce(true) {
             $0 && (lhs.items[$1] == rhs.items[$1])
         }
     }

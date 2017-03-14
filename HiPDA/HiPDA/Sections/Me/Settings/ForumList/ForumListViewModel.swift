@@ -33,8 +33,8 @@ struct ForumListViewModel {
         }
         sections = selection.map { indexPath in
             forumNameModels[indexPath.row].isChoosed = !(forumNameModels[indexPath.row].isChoosed)
-            return [ForumNameSection(forumList: forumNameModels)]
-        }.startWith([ForumNameSection(forumList: forumNameModels)])
+            return [ForumNameSection(header: "0", forumList: forumNameModels)]
+            }.startWith([ForumNameSection(header: "0", forumList: forumNameModels)])
         
         selectedForumList = sections.map { sections in
             guard let section = sections.safe[0] else { return [] }

@@ -11,6 +11,7 @@ import RxDataSources
 
 /// 编辑词组TableView的section模型
 struct EditWordListSection {
+    let header: String
     var words: [String]
 }
 
@@ -21,7 +22,7 @@ extension EditWordListSection: AnimatableSection {
     typealias Identity = String
     
     var identity: String {
-        return "\(words)"
+        return header
     }
     
     var items: [String] {

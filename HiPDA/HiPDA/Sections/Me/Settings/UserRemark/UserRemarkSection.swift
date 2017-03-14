@@ -11,6 +11,7 @@ import RxDataSources
 
 /// 用户备注的section模型
 struct UserRemarkSection {
+    let header: String
     var attributes: [UserRemark]
 }
 
@@ -21,7 +22,7 @@ extension UserRemarkSection: AnimatableSection {
     typealias Identity = String
     
     var identity: String {
-        return "\(attributes)"
+        return header
     }
     
     var items: [UserRemark] {
