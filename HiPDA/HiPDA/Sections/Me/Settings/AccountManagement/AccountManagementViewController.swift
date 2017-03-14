@@ -7,7 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxDataSources
+import RxCocoa
 
+typealias AccountManagementCompletion = (AccountInfos) -> ()
+
+/// 账户管理
 class AccountManagementViewController: BaseViewController {
-    
+    @IBOutlet fileprivate weak var tableView: BaseTableView!
+    var accountInfos: AccountInfos!
+    var completion: AccountManagementCompletion?
 }

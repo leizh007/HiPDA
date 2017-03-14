@@ -11,6 +11,8 @@ import Perform
 import RxSwift
 import RxCocoa
 
+fileprivate let kUnMatchedCase = "Unmatched case!"
+
 /// 设置路由
 struct SettingsRouter {
     /// viewController
@@ -52,13 +54,19 @@ extension SettingsRouter {
     /// - Parameter settingsSegue: 页面类型
     fileprivate func showAccountManagementViewController(with settingsSegue: SettingsSegue) {
         guard case .accountManagement = settingsSegue else {
-            assertionFailure("Unmatched case!")
+            assertionFailure(kUnMatchedCase)
             return
         }
         guard let viewController = self.viewController else { return }
         
         viewController.perform(.accountManagement) { accountManagementViewController in
             accountManagementViewController.title = settingsSegue.rawValue
+            let accountInfos = AccountInfos(accounts: viewController.viewModel.accountList, activeAccount: viewController.viewModel.activeAccount)
+            accountManagementViewController.accountInfos = accountInfos
+            accountManagementViewController.completion = { accountInfos in
+                viewController.viewModel.accountList = accountInfos.accounts
+                viewController.viewModel.activeAccount = accountInfos.activeAccount
+            }
         }
     }
 }
@@ -80,7 +88,7 @@ extension SettingsRouter {
         case .threadAttention:
             words = viewController.viewModel.threadAttentionWordList
         default:
-            assertionFailure("Unmatched case!")
+            assertionFailure(kUnMatchedCase)
             words = []
         }
         
@@ -111,7 +119,7 @@ extension SettingsRouter {
     /// - Parameter setttingsSegue: 页面类型
     fileprivate func showPmDoNotDisturbViewController(with setttingsSegue: SettingsSegue) {
         guard case .pmDoNotDisturb = setttingsSegue else {
-            assertionFailure("Unmatched case!")
+            assertionFailure(kUnMatchedCase)
             return
         }
         
@@ -140,7 +148,7 @@ extension SettingsRouter {
     /// - Parameter setttingsSegue: 页面类型
     fileprivate func showUserRemarkViewController(with setttingsSegue: SettingsSegue) {
         guard case .userRemark = setttingsSegue else {
-            assertionFailure("Unmatched case!")
+            assertionFailure(kUnMatchedCase)
             return
         }
         guard let viewController = self.viewController else { return }
@@ -161,7 +169,7 @@ extension SettingsRouter {
     /// - Parameter setttingsSegue: 页面类型
     fileprivate func showActiveForumNameListViewController(with settingsSegue: SettingsSegue) {
         guard case .activeForumNameList = settingsSegue else {
-            assertionFailure("Unmatched case!")
+            assertionFailure(kUnMatchedCase)
             return
         }
         guard let viewController = self.viewController else { return }

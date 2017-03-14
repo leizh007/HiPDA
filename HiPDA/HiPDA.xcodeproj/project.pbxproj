@@ -31,8 +31,15 @@
 		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
 		053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 053067D71DFD80B8009D0154 /* PerformanceMonitor.m */; };
 		05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */; };
+		053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78CA1E7527E8001EFF88 /* AccoutTableViewCell.swift */; };
+		053B78CD1E766E4A001EFF88 /* AccountInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78CC1E766E4A001EFF88 /* AccountInfos.swift */; };
+		053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78CE1E7670D1001EFF88 /* AccountCellModel.swift */; };
+		053B78D11E768800001EFF88 /* AccountManagementSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78D01E768800001EFF88 /* AccountManagementSection.swift */; };
+		053B78D31E768941001EFF88 /* AccountItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78D21E768941001EFF88 /* AccountItemType.swift */; };
+		053B78D51E769EF9001EFF88 /* AccountManagementTableViewEditingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78D41E769EF9001EFF88 /* AccountManagementTableViewEditingCommand.swift */; };
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		05416C891D903CB200049AA0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05416C881D903CB200049AA0 /* Result.swift */; };
+		0541B3B91E727794009CAE6E /* AccountManagementTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541B3B81E727794009CAE6E /* AccountManagementTableViewState.swift */; };
 		0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */; };
 		054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA6411D75C2E400819C2D /* FPSLabel.swift */; };
 		054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */; };
@@ -109,6 +116,7 @@
 		05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */; };
 		05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCEF1DB919070061CED1 /* EventBus.swift */; };
 		05F3DCF31DB919070061CED1 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCF01DB919070061CED1 /* State.swift */; };
+		05F7AD6E1E76FCA6002A00C7 /* AccountManagementTableViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7AD6D1E76FCA6002A00C7 /* AccountManagementTableViewStateTests.swift */; };
 		05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */; };
 		05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */; };
 		05F8BCAB1E37593800F9EC1B /* ForumNameSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */; };
@@ -161,9 +169,16 @@
 		053067D61DFD80B8009D0154 /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
 		053067D71DFD80B8009D0154 /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
 		05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+HiPDA.swift"; sourceTree = "<group>"; };
+		053B78CA1E7527E8001EFF88 /* AccoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccoutTableViewCell.swift; path = AccountManagement/AccoutTableViewCell.swift; sourceTree = "<group>"; };
+		053B78CC1E766E4A001EFF88 /* AccountInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountInfos.swift; path = AccountManagement/AccountInfos.swift; sourceTree = "<group>"; };
+		053B78CE1E7670D1001EFF88 /* AccountCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountCellModel.swift; path = AccountManagement/AccountCellModel.swift; sourceTree = "<group>"; };
+		053B78D01E768800001EFF88 /* AccountManagementSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementSection.swift; path = AccountManagement/AccountManagementSection.swift; sourceTree = "<group>"; };
+		053B78D21E768941001EFF88 /* AccountItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountItemType.swift; path = AccountManagement/AccountItemType.swift; sourceTree = "<group>"; };
+		053B78D41E769EF9001EFF88 /* AccountManagementTableViewEditingCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementTableViewEditingCommand.swift; path = AccountManagement/AccountManagementTableViewEditingCommand.swift; sourceTree = "<group>"; };
 		054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDATests-Bridging-Header.h"; sourceTree = "<group>"; };
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		05416C881D903CB200049AA0 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		0541B3B81E727794009CAE6E /* AccountManagementTableViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManagementTableViewState.swift; sourceTree = "<group>"; };
 		0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		054AA6411D75C2E400819C2D /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSAssistiveTouch.swift; sourceTree = "<group>"; };
@@ -250,6 +265,7 @@
 		05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountAction.swift; sourceTree = "<group>"; };
 		05F3DCEF1DB919070061CED1 /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		05F3DCF01DB919070061CED1 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		05F7AD6D1E76FCA6002A00C7 /* AccountManagementTableViewStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManagementTableViewStateTests.swift; sourceTree = "<group>"; };
 		05F8BCA21E37459800F9EC1B /* ForumNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameTableViewCell.swift; sourceTree = "<group>"; };
 		05F8BCA81E37580F00F9EC1B /* ForumNameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameModel.swift; sourceTree = "<group>"; };
 		05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameSection.swift; sourceTree = "<group>"; };
@@ -454,6 +470,13 @@
 			isa = PBXGroup;
 			children = (
 				056B3BF31E6D867000843E32 /* AccountManagementViewController.swift */,
+				0541B3B81E727794009CAE6E /* AccountManagementTableViewState.swift */,
+				053B78D41E769EF9001EFF88 /* AccountManagementTableViewEditingCommand.swift */,
+				053B78D01E768800001EFF88 /* AccountManagementSection.swift */,
+				053B78D21E768941001EFF88 /* AccountItemType.swift */,
+				053B78CC1E766E4A001EFF88 /* AccountInfos.swift */,
+				053B78CA1E7527E8001EFF88 /* AccoutTableViewCell.swift */,
+				053B78CE1E7670D1001EFF88 /* AccountCellModel.swift */,
 			);
 			name = AccountManagement;
 			sourceTree = "<group>";
@@ -566,6 +589,7 @@
 				05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */,
 				054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */,
 				05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */,
+				05F7AD6D1E76FCA6002A00C7 /* AccountManagementTableViewStateTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -1021,6 +1045,7 @@
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
 				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,
+				053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
@@ -1041,6 +1066,7 @@
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
+				053B78D11E768800001EFF88 /* AccountManagementSection.swift in Sources */,
 				05A2AF991E2385B00048508C /* ForumManager.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
 				056B3BF41E6D867000843E32 /* AccountManagementViewController.swift in Sources */,
@@ -1050,12 +1076,15 @@
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
+				053B78D31E768941001EFF88 /* AccountItemType.swift in Sources */,
 				055996A91D50DB4500057CF6 /* Serializable.swift in Sources */,
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
+				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
+				0541B3B91E727794009CAE6E /* AccountManagementTableViewState.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
@@ -1074,6 +1103,7 @@
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
+				053B78CD1E766E4A001EFF88 /* AccountInfos.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
@@ -1084,6 +1114,7 @@
 				05F8BCAD1E3C7BC400F9EC1B /* ForumListViewModel.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
+				053B78D51E769EF9001EFF88 /* AccountManagementTableViewEditingCommand.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
 				05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */,
@@ -1105,6 +1136,7 @@
 				05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
 				05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */,
+				05F7AD6E1E76FCA6002A00C7 /* AccountManagementTableViewStateTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,
 				058A71801DA28865004992AD /* LensTests.swift in Sources */,

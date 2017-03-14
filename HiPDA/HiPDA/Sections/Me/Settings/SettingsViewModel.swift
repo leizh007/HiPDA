@@ -18,6 +18,28 @@ struct SettingsViewModel {
     /// 设置
     private let settings: Settings
     
+    /// 可用账户列表
+    var accountList: [Account] {
+        get {
+            return settings.accountList
+        }
+        
+        set {
+            settings.accountList = newValue
+        }
+    }
+    
+    /// 当前登录账户
+    var activeAccount: Account? {
+        get {
+            return settings.activeAccount
+        }
+        
+        set {
+            settings.activeAccount = newValue
+        }
+    }
+    
     /// 是否开启黑名单过滤
     var isEnabledUserBlock: Bool {
         return settings.isEnabledUserBlock
