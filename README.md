@@ -12,7 +12,6 @@ TODO
 ---
 - 登录界面添加姓名下拉列表时会有奇怪的问题
 - Custom NavigationBar Animation
-- RxTableViewSectionedAnimatedDataSource 的动画很奇怪
 
 Important
 ---
