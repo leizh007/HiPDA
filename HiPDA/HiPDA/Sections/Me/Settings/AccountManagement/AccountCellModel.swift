@@ -38,7 +38,6 @@ extension AccountCellModel: Equatable {
 
 extension AccountCellModel {
     enum lens {
-        static let accessoryType: Lens<AccountCellModel, UITableViewCellAccessoryType> = Lens(get: { $0.accessoryType },
-                                                                                              set: { AccountCellModel(name: $1.name, uid: $1.uid, avatarImageURL: $1.avatarImageURL, accessoryType: $0) })
+        static let accessoryType = Lens<AccountCellModel, UITableViewCellAccessoryType>(get: { $0.accessoryType }, set: { AccountCellModel(name: $1.name, uid: $1.uid, avatarImageURL: $1.avatarImageURL, accessoryType: $0) })
     }
 }

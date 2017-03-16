@@ -10,7 +10,7 @@ import Foundation
 import RxDataSources
 
 enum AccountItemType {
-    case account(AccountCellModel)
+    case account(Account)
     case addAccount
     case logout
 }
@@ -30,8 +30,8 @@ extension AccountItemType: IdentifiableType {
 extension AccountItemType: Equatable {
     static func ==(lhs: AccountItemType, rhs: AccountItemType) -> Bool {
         switch (lhs, rhs) {
-        case let (.account(modelLhs), .account(modelRhs)):
-            return modelLhs == modelRhs
+        case let (.account(accountLhs), .account(accountRhs)):
+            return accountLhs == accountRhs
         case (.addAccount, .addAccount):
             return true
         case (.logout, .logout):

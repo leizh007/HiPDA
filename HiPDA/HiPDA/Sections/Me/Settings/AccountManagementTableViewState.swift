@@ -21,17 +21,6 @@ struct AccountManagementTableViewState {
             section.items.insert(item, at: indexPath.row)
             sections[indexPath.section] = section
             return AccountManagementTableViewState(sections: sections)
-        case let .replace(state):
-            return state
-        case let  .click(with: indexPath):
-            var sections = self.sections
-            var item = sections[indexPath.section].items[indexPath.row]
-            guard case let .account(model) = item else {
-                return self
-            }
-            item = .account(AccountCellModel.lens.accessoryType.set(model.accessoryType == .checkmark ? .none : .checkmark, model))
-            sections[indexPath.section].items[indexPath.row] = item
-            return AccountManagementTableViewState(sections: sections)
         case .delete(with: let indexPath):
             var sections = self.sections
             sections[indexPath.section].items.remove(at: indexPath.row)

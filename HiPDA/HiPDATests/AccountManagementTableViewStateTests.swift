@@ -10,9 +10,9 @@ import XCTest
 @testable import HiPDA
 
 class AccountManagementTableViewStateTests: XCTestCase {
-    fileprivate let model1 = AccountCellModel(name: "name1", uid: "uid1", avatarImageURL: URL(string: "https://www.hi-pda.com/forum/forumdisplay.php?fid=2")!, accessoryType: .checkmark)
+    fileprivate let model1 = Account(name: "name1", uid: 123, questionid: 0, answer: "", password: "")
     fileprivate var item1: AccountItemType!
-    fileprivate let model2 = AccountCellModel(name: "name2", uid: "uid2", avatarImageURL: URL(string: "https://www.hi-pda.com/forum/forumdisplay.php?fid=2")!, accessoryType: .none)
+    fileprivate let model2 = Account(name: "name2", uid: 234, questionid: 0, answer: "", password: "")
     fileprivate var item2: AccountItemType!
     fileprivate let addItem = AccountItemType.addAccount
     fileprivate let logoutItem = AccountItemType.logout
@@ -22,12 +22,6 @@ class AccountManagementTableViewStateTests: XCTestCase {
         
         item1 = .account(model1)
         item2 = .account(model2)
-    }
-    
-    func testReplace() {
-        let state1 = AccountManagementTableViewState(sections: [])
-        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1])])
-        XCTAssert(state1.execute(.replace(state2)) == state2)
     }
     
     func testInsert() {
@@ -45,13 +39,5 @@ class AccountManagementTableViewStateTests: XCTestCase {
         let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
         let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
         XCTAssert(state1.execute(.delete(with: IndexPath(row: 0, section: 0))) == state2)
-    }
-    
-    func testClick() {
-        let state1 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [item1, item2, addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
-        let newModel1 = AccountCellModel.lens.accessoryType.set(.none, model1)
-        let newModel22 = AccountCellModel.lens.accessoryType.set(.checkmark, model2)
-        let state2 = AccountManagementTableViewState(sections: [AccountManagementSection(header: "0", items: [.account(newModel1), .account(newModel22), addItem]), AccountManagementSection(header: "1", items: [logoutItem])])
-        XCTAssert(state1.execute(.click(with: IndexPath(row: 0, section: 0))).execute(.click(with: IndexPath(row: 1, section: 0))) == state2)
     }
 }

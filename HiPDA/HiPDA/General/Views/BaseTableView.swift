@@ -19,6 +19,13 @@ extension Reactive where Base: BaseTableView {
             tableView.status = status
         }
     }
+    
+    /// 是否正在编辑
+    var isEditing: UIBindingObserver<Base, Bool> {
+        return UIBindingObserver(UIElement: base) { (tableView, isEditing) in
+            tableView.isEditing = isEditing
+        }
+    }
 }
 
 /// Base列表视图的状态
