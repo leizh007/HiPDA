@@ -10,11 +10,9 @@ import Foundation
 
 /// 账户管理tableView编辑操作
 ///
-/// - replace: 替换
 /// - insert: 插入(只会插在section 0处)
 /// - move: 移动
 /// - delete: 删除
-/// - click: 点击
 enum AccountManagementTableViewEditingCommand {
     case insert(AccountItemType, at: IndexPath)
     case move(from: IndexPath, to: IndexPath)

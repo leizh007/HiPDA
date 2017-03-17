@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - Argo (4.0.0):
     - Runes (>= 4.0.0)
   - Aspects (1.4.1)
@@ -14,23 +14,23 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MLeaksFinder (0.2.1):
     - FBRetainCycleDetector
-  - Moya/Core (8.0.0-beta.6):
-    - Alamofire (~> 4.0)
+  - Moya/Core (8.0.2):
+    - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - Moya/RxSwift (8.0.0-beta.6):
+  - Moya/RxSwift (8.0.2):
     - Moya/Core
     - RxSwift (~> 3.0)
   - Perform (1.0.0):
     - Aspects (~> 1.4.1)
-  - Result (3.1.0)
+  - Result (3.2.0)
   - Reveal-iOS-SDK (1.6.2)
   - Runes (4.0.1)
-  - RxCocoa (3.0.1):
-    - RxSwift (~> 3.0)
-  - RxDataSources (1.0.2):
+  - RxCocoa (3.2.0):
+    - RxSwift (~> 3.1)
+  - RxDataSources (1.0.3):
     - RxCocoa (~> 3.0)
     - RxSwift (~> 3.0)
-  - RxSwift (3.0.1)
+  - RxSwift (3.2.0)
   - SAMKeychain (1.5.2)
   - SDWebImage (4.0.0-beta2):
     - SDWebImage/Core (= 4.0.0-beta2)
@@ -48,13 +48,13 @@ DEPENDENCIES:
   - HandyJSON (~> 1.1.0)
   - MBProgressHUD
   - MLeaksFinder
-  - Moya/RxSwift (~> 8.0.0-beta.3)
+  - Moya/RxSwift (~> 8.0.2)
   - Perform (from `https://github.com/thoughtbot/Perform.git`, branch `swift-3`)
   - Reveal-iOS-SDK
   - Runes (~> 4.0.0)
-  - RxCocoa (~> 3.0.0-beta.1)
-  - RxDataSources (~> 1.0.0-beta.2)
-  - RxSwift (~> 3.0.0-beta.1)
+  - RxCocoa (~> 3.0)
+  - RxDataSources (~> 1.0)
+  - RxSwift (~> 3.0)
   - SAMKeychain
   - SDWebImage (~> 4.0.0-beta2)
   - Then (~> 2.1.0)
@@ -76,7 +76,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/thoughtbot/Perform.git
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Argo: e808d20ee2e95c4498276ca1812d75d3b0b00090
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
@@ -88,19 +88,19 @@ SPEC CHECKSUMS:
   HandyJSON: c19dba750f1a8c238c4f47f40b1b5e3efaef7e34
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
-  Moya: a29e2503a0c5067d462ba2f07cc6b6b1f3fc172d
+  Moya: 47f61da5b634aa71f676431b64ee0f81e976296d
   Perform: c3e2f75ee31db051d5afbe1282d7a48ba68f8747
-  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  Result: 5a6705171c0613cc5fbf6ec55ff520cc62a8e81d
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   Runes: ff20f163b478ac2c0e18158d6086fd5b1997f983
-  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
-  RxDataSources: 1de77880bf5b7fcee42102adcd5a5d65e5b81541
-  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
+  RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: ec47fe2e661fb864f131924d9c83976f3592db5e
+PODFILE CHECKSUM: e485f898eca3b808692e947cde90a94fd98e9650
 
 COCOAPODS: 1.2.0

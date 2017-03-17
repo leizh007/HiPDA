@@ -40,6 +40,9 @@ extension HiPDA: TargetType {
             ]
         }
     }
+    var parameterEncoding: ParameterEncoding {
+        return URLEncoding()
+    }
     var task: Task {
         return .request
     }

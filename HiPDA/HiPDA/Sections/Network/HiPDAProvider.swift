@@ -40,7 +40,7 @@ extension Moya.Response {
         let cfEnc = CFStringEncodings.GB_18030_2000
         let gbkEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(cfEnc.rawValue))
         guard let string = NSString(data: data, encoding: gbkEncoding) else {
-            throw Error.stringMapping(self)
+            throw MoyaError.stringMapping(self)
         }
         return string as String
     }
