@@ -7,10 +7,10 @@ def import_debug
 end
 
 def import_JSONDecode
-    pod 'Argo', '~> 4.0.0'
+    pod 'Argo', '~> 4.1'
     pod 'Curry', '~> 3.0.0'
-    pod 'Runes', '~> 4.0.0'
-    pod 'HandyJSON', '~> 1.1.0'
+    pod 'Runes', '~> 4.0'
+    pod 'HandyJSON', '~> 1.6'
 end
 
 def import_Rx
@@ -49,7 +49,7 @@ target 'HiPDA' do
   pod 'YYKeyboardManager'
   pod 'Moya/RxSwift', '~> 8.0.2'
   pod 'MBProgressHUD'
-  pod 'SDWebImage', '~> 4.0.0-beta2'
+  pod 'SDWebImage', '~> 4.0.0'
     
   target 'HiPDATests' do
     inherit! :search_paths
