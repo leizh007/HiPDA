@@ -13,7 +13,7 @@ struct ChangeAccountAction: ActionType {
     let account: LoginResult?
     
     func reduce(_ state: State) -> State {
-        state.accountChanged.value = account
+        state.accountChanged.onNext(account)
         return state
     }
 }

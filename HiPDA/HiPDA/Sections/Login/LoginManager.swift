@@ -18,17 +18,28 @@ class LoginManager: Bootstrapping {
     private var disposeBag = DisposeBag()
     
     func bootstrap(bootstrapped: Bootstrapped) throws {
-        if let account = Settings.shared.activeAccount {
+        if let account = Settings.shared.lastLoggedInAccount {
             LoginViewModel.login(with: account)
-                .subscribe(onNext: { [weak self] (result) in
-                    if case .failure(_) = result {
-                        self?.changeRootViewControllerToLogin(withAnimation: true, duration: 0.75, delay: 1.0)
-                    }
+                .subscribe(onNext: { result in
                     EventBus.shared.dispatch(ChangeAccountAction(account: result))
             }).addDisposableTo(disposeBag)
         } else {
             changeRootViewControllerToLogin(withAnimation: false, duration: 0.0, delay: 0.0)
         }
+        observeEventBus()
+    }
+    
+    /// 订阅eventBus
+    fileprivate func observeEventBus() {
+        EventBus.shared.activeAccount
+            .do(onNext: { [weak self] loginResult in
+                guard let loginResult = loginResult, case .success(_) = loginResult else {
+                    self?.changeRootViewControllerToLogin(withAnimation: true, duration: 0.75, delay: 1.0)
+                    return
+                }
+            })
+            .drive(Settings.shared.rx.activeAccount)
+            .disposed(by: disposeBag)
     }
     
     /// 将rootViewController切换到登录的ViewController

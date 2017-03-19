@@ -19,7 +19,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Settings.shared.activeAccount != nil {
+        if Settings.shared.lastLoggedInAccount != nil {
             self.showPromptInformation(of: .loading)
         } else {
             showLoginSuccessInformation = false

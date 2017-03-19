@@ -11,12 +11,11 @@ import SAMKeychain
 import Argo
 import Runes
 import Curry
+import RxSwift
+import RxCocoa
 
 /// 用于从Keychain中获取密码的服务名
-private let kAccountListServiceKey = "HiPDA-account-list"
-
-/// 用户从Keychain中获取活跃账户的键
-private let kActiveAccountServiceKey = "HiPDA-active-account"
+private let kAccountServiceKey = "HiPDA-account"
 
 /// 消息免打扰时间
 typealias PmDoNotDisturbTime = (hour: Int, minute: Int)
@@ -29,8 +28,16 @@ class Settings {
     var accountList: [Account]
     private static let kAccountList = "accountList"
     
+    /// 上次登录账户
+    var lastLoggedInAccount: Account?
+    private static let kLastLoggedInAccount = "lastLoggedInAccount"
+    
     /// 当前登录账户
-    var activeAccount: Account?
+    var activeAccount: Account? {
+        didSet {
+            lastLoggedInAccount = activeAccount ?? lastLoggedInAccount
+        }
+    }
     private static let kActiveAccount = "activeAccount"
     
     /// 添加账户
@@ -183,14 +190,14 @@ class Settings {
         let accountNameArray = (userDefaults.value(forKey: Self.kAccountList) as? [String]) ?? []
         
         func account(with name: String) -> Account? {
-            let accountString = SAMKeychain.password(forService: kAccountListServiceKey, account: name) ?? ""
+            let accountString = SAMKeychain.password(forService: kAccountServiceKey, account: name) ?? ""
             let accountData = accountString.data(using: .utf8) ?? Data()
             guard let attributes = try? JSONSerialization.jsonObject(with: accountData, options: []) else { return nil }
             return try? Account.decode(JSON(attributes)).dematerialize()
         }
         accountList = accountNameArray.flatMap(account(with:))
         isShowStickThreads = boolValue(in: userDefaults, key: Self.kIsShowStickThreadsKey, defalut: false)
-        activeAccount = (userDefaults.value(forKey: Self.kActiveAccount) as? String).flatMap(account(with:))
+        lastLoggedInAccount = (userDefaults.value(forKey: Self.kLastLoggedInAccount) as? String).flatMap(account(with:))
         
         autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: Self.kAutoDownloadImageWhenUsingWWAN, defalut: true)
         autoDownloadImageSizeThreshold = (userDefaults.value(forKey: Self.kAutoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
@@ -249,12 +256,11 @@ class Settings {
         } else {
             userDefaults.setValue(accountNameArray, forKey: Self.kAccountList)
             accountList.forEach { account in
-                SAMKeychain.setPassword(account.encode(), forService: kAccountListServiceKey, account: account.name)
+                SAMKeychain.setPassword(account.encode(), forService: kAccountServiceKey, account: account.name)
             }
         }
-        if let account = activeAccount {
-            userDefaults.setValue(account.name, forKey: Self.kActiveAccount)
-            SAMKeychain.setPassword(account.encode(), forService: kActiveAccountServiceKey, account: account.name)
+        if let account = lastLoggedInAccount {
+            userDefaults.setValue(account.name, forKey: Self.kLastLoggedInAccount)
         } else {
             userDefaults.removeObject(forKey: Self.kActiveAccount)
         }
@@ -341,5 +347,20 @@ class Settings {
         tailText = "小尾巴~"
         tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=1598240")
         avatarImageResolution = .middle
+    }
+}
+
+// MARK: - Settings的Rx扩展
+
+extension Settings: ReactiveCompatible { }
+
+extension Reactive where Base: Settings {
+    /// 状态
+    var activeAccount: UIBindingObserver<Base, LoginResult?> {
+        return UIBindingObserver(UIElement: base) { (settings, loginResult) in
+            if let loginResult = loginResult, case let .success(account) = loginResult {
+                settings.activeAccount = account
+            }
+        }
     }
 }

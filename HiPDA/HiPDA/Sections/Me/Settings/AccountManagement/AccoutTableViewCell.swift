@@ -27,7 +27,7 @@ class AccoutTableViewCell: UITableViewCell {
             }
             userNameLabel.text = cellModel.name
             uidLabel.text = cellModel.uid
-            avatarImageView.sd_setImage(with: cellModel.avatarImageURL)
+            avatarImageView.sd_setImage(with: cellModel.avatarImageURL, placeholderImage: #imageLiteral(resourceName: "avatar_placeholder"))
             accessoryType = cellModel.accessoryType
         }
     }
