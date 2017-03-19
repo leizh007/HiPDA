@@ -31,8 +31,8 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         containerView.backgroundColor = .black
         
-        guard let fromView = transitionContext.viewController(forKey: .from)?.ancestor.view else { return }
-        guard let toView = transitionContext.viewController(forKey: .to)?.ancestor.view else { return }
+        guard let fromView = transitionContext.viewController(forKey: .from)?.view else { return }
+        guard let toView = transitionContext.viewController(forKey: .to)?.view else { return }
         
         containerView.addSubview(toView)
         
@@ -75,6 +75,7 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
                                       height: containerView.bounds.size.height)
                 toView.layer.transform = CATransform3DIdentity
             }, completion: { _ in
+                toView.layoutIfNeeded()
                 toView.layer.shouldRasterize = false
                 containerView.backgroundColor = .white
                 transitionContext.completeTransition(true)

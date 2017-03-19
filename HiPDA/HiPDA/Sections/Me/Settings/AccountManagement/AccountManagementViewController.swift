@@ -79,7 +79,7 @@ extension AccountManagementViewController: UITableViewDelegate {
                 EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
             }
             loginVC.transitioningDelegate = self
-            present(loginVC, animated: true, completion: nil)
+            navigationController?.present(loginVC, animated: true, completion: nil)
         case .logout:
             break
         }
