@@ -1,0 +1,106 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Argo (4.1.2):
+    - Runes (>= 4.0.0)
+  - Aspects (1.4.1)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Curry (3.0.0)
+  - Delta (1.0.0)
+  - Fabric (1.6.11)
+  - FBRetainCycleDetector (0.1.3)
+  - FLEX (2.4.0)
+  - HandyJSON (1.6.0)
+  - MBProgressHUD (1.0.0)
+  - MLeaksFinder (0.2.1):
+    - FBRetainCycleDetector
+  - Moya/Core (8.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (8.0.2):
+    - Moya/Core
+    - RxSwift (~> 3.0)
+  - Perform (1.0.0):
+    - Aspects (~> 1.4.1)
+  - Result (3.2.0)
+  - Reveal-iOS-SDK (1.6.2)
+  - Runes (4.0.1)
+  - RxCocoa (3.2.0):
+    - RxSwift (~> 3.1)
+  - RxDataSources (1.0.3):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxSwift (3.2.0)
+  - SAMKeychain (1.5.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - Then (2.1.0)
+  - YYKeyboardManager (1.0.1)
+
+DEPENDENCIES:
+  - Argo (~> 4.1)
+  - Crashlytics
+  - Curry (~> 3.0.0)
+  - Delta (from `https://github.com/thoughtbot/Delta.git`)
+  - Fabric
+  - FLEX
+  - HandyJSON (~> 1.6)
+  - MBProgressHUD
+  - MLeaksFinder
+  - Moya/RxSwift (~> 8.0.2)
+  - Perform (from `https://github.com/thoughtbot/Perform.git`, branch `swift-3`)
+  - Reveal-iOS-SDK
+  - Runes (~> 4.0)
+  - RxCocoa (~> 3.0)
+  - RxDataSources (~> 1.0)
+  - RxSwift (~> 3.0)
+  - SAMKeychain
+  - SDWebImage (~> 4.0.0)
+  - Then (~> 2.1.0)
+  - YYKeyboardManager
+
+EXTERNAL SOURCES:
+  Delta:
+    :git: https://github.com/thoughtbot/Delta.git
+  Perform:
+    :branch: swift-3
+    :git: https://github.com/thoughtbot/Perform.git
+
+CHECKOUT OPTIONS:
+  Delta:
+    :commit: bd46119899703e976e655fcde9e668d28df55014
+    :git: https://github.com/thoughtbot/Delta.git
+  Perform:
+    :commit: aa71482dd9dfdc5ce3e8baf91ba08b751a8a04f9
+    :git: https://github.com/thoughtbot/Perform.git
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Argo: 5db06502fc1222d83011f574243089dab25202ff
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Curry: eb3d2c75aec678b3cc7fb2729d2ad6dd121531d1
+  Delta: 35694e6e06a7e5d9dd8a25f3b0768ed66c0579c5
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  HandyJSON: 573a148e2c649d108a8d6fbee1874c5c2d0822ca
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
+  Moya: 47f61da5b634aa71f676431b64ee0f81e976296d
+  Perform: c3e2f75ee31db051d5afbe1282d7a48ba68f8747
+  Result: 5a6705171c0613cc5fbf6ec55ff520cc62a8e81d
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  Runes: ff20f163b478ac2c0e18158d6086fd5b1997f983
+  RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
+  RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  Then: 8496793c8fcac95482b943909b440724c7d8d82c
+  YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
+
+PODFILE CHECKSUM: c0698023ff9708bc68b216fc1b5c08b43c5bcb8a
+
+COCOAPODS: 1.2.0

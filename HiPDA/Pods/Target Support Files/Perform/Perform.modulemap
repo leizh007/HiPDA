@@ -1,0 +1,6 @@
+framework module Perform {
+  umbrella header "Perform-umbrella.h"
+
+  export *
+  module * { export * }
+}

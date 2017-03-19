@@ -41,6 +41,7 @@ class Settings {
     private static let kActiveAccount = "activeAccount"
     
     /// 添加账户
+    /// 因为可能用户更新了账户资料，根据uid来判断用户而不用等于
     ///
     /// - parameter account: 帐户
     ///

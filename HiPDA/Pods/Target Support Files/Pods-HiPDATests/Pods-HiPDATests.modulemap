@@ -1,0 +1,6 @@
+framework module Pods_HiPDATests {
+  umbrella header "Pods-HiPDATests-umbrella.h"
+
+  export *
+  module * { export * }
+}

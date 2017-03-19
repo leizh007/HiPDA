@@ -61,12 +61,6 @@ extension SettingsRouter {
         
         viewController.perform(.accountManagement) { accountManagementViewController in
             accountManagementViewController.title = settingsSegue.rawValue
-            let accountInfos = AccountInfos(accounts: viewController.viewModel.accountList, activeAccount: viewController.viewModel.activeAccount)
-            accountManagementViewController.accountInfos = accountInfos
-            accountManagementViewController.completion = { accountInfos in
-                viewController.viewModel.accountList = accountInfos.accounts
-                viewController.viewModel.activeAccount = accountInfos.activeAccount
-            }
         }
     }
 }

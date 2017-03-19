@@ -235,6 +235,10 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         loginButton.rx.tap.subscribe(onNext: { [weak self] _ in
             self?.showPromptInformation(of: .loading)
         }).addDisposableTo(disposeBag)
+        
+        cancelButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
     }
     
     /// 找到激活的textField
