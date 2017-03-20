@@ -75,6 +75,7 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
                                       height: containerView.bounds.size.height)
                 toView.layer.transform = CATransform3DIdentity
             }, completion: { _ in
+                toView.setNeedsUpdateConstraints()
                 toView.layoutIfNeeded()
                 toView.layer.shouldRasterize = false
                 containerView.backgroundColor = .white

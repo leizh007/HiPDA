@@ -75,6 +75,7 @@
 		05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5067B1D6C9386004D573D /* NibLoadableViewTests.swift */; };
 		05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */; };
 		05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506831D6CA4C4004D573D /* ResultTests.swift */; };
+		05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBBC01E80225100C6E0D3 /* GBKURLEncoding.swift */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
 		05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */; };
@@ -213,6 +214,7 @@
 		05B5067B1D6C9386004D573D /* NibLoadableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableViewTests.swift; sourceTree = "<group>"; };
 		05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+HiPDA.swift"; sourceTree = "<group>"; };
 		05B506831D6CA4C4004D573D /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		05BBBBC01E80225100C6E0D3 /* GBKURLEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBKURLEncoding.swift; sourceTree = "<group>"; };
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 			children = (
 				05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */,
 				05F3DCD81DB7B4A00061CED1 /* HiPDAProvider.swift */,
+				05BBBBC01E80225100C6E0D3 /* GBKURLEncoding.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1070,6 +1073,7 @@
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
+				05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */,
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,

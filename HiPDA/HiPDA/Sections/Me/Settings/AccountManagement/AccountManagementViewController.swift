@@ -74,6 +74,7 @@ extension AccountManagementViewController: UITableViewDelegate {
             let loginVC = LoginViewController.load(from: .login)
             loginVC.cancelable = true
             loginVC.loggedInCompletion = { account in
+                self.navigationController?.dismiss(animated: true, completion: nil)
                 self.viewModel.execute(.append(accoun: account))
                 self.tableView.reloadData()
                 EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))

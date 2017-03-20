@@ -41,7 +41,7 @@ extension HiPDA: TargetType {
         }
     }
     var parameterEncoding: ParameterEncoding {
-        return URLEncoding()
+        return GBKURLEncoding()
     }
     var task: Task {
         return .request
