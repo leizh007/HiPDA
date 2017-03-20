@@ -155,7 +155,7 @@ struct GBKURLEncoding: ParameterEncoding {
         //==========================================================================================================
         
         if #available(iOS 8.3, *) {
-            escaped = string.gbkEncoded//addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? string
+            escaped = string.gbkEscaped//addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? string
         } else {
             let batchSize = 50
             var index = string.startIndex
@@ -167,7 +167,7 @@ struct GBKURLEncoding: ParameterEncoding {
                 
                 let substring = string.substring(with: range)
                 
-                escaped += substring.gbkEncoded//substring.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? substring
+                escaped += substring.gbkEscaped//substring.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? substring
                 
                 index = endIndex
             }
@@ -213,8 +213,7 @@ extension NSNumber {
 }
 
 extension String {
-    var gbkEncoded: String {
-        let cfEnc = CFStringEncodings.GB_18030_2000
-        return CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, self as CFString!, nil, nil, CFStringEncoding(cfEnc.rawValue)) as String
+    var gbkEscaped: String {
+        return (self as NSString).gbkEscaped()
     }
 }

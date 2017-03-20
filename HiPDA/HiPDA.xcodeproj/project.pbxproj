@@ -76,6 +76,7 @@
 		05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */; };
 		05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506831D6CA4C4004D573D /* ResultTests.swift */; };
 		05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBBC01E80225100C6E0D3 /* GBKURLEncoding.swift */; };
+		05BBBBC41E8026F700C6E0D3 /* NSString+HiPDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBBC31E8026F700C6E0D3 /* NSString+HiPDA.m */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
 		05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */; };
@@ -215,6 +216,8 @@
 		05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+HiPDA.swift"; sourceTree = "<group>"; };
 		05B506831D6CA4C4004D573D /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		05BBBBC01E80225100C6E0D3 /* GBKURLEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBKURLEncoding.swift; sourceTree = "<group>"; };
+		05BBBBC21E8026F700C6E0D3 /* NSString+HiPDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HiPDA.h"; sourceTree = "<group>"; };
+		05BBBBC31E8026F700C6E0D3 /* NSString+HiPDA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HiPDA.m"; sourceTree = "<group>"; };
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */,
 				0589EB6B1DB525410055DBB9 /* String+HiPDA.swift */,
 				05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */,
+				05BBBBC21E8026F700C6E0D3 /* NSString+HiPDA.h */,
+				05BBBBC31E8026F700C6E0D3 /* NSString+HiPDA.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1089,6 +1094,7 @@
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
+				05BBBBC41E8026F700C6E0D3 /* NSString+HiPDA.m in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,

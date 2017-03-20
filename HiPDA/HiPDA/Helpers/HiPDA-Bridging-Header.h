@@ -6,3 +6,4 @@
 #import <YYKeyboardManager/YYKeyboardManager.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "PerformanceMonitor.h"
+#import "NSString+HiPDA.h"
