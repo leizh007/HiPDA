@@ -36,7 +36,7 @@ public protocol StoreType {
     /**
      Dispatch an action that will mutate the state of the store.
     */
-    mutating func dispatch<Action: ActionType where Action.StateValueType == ObservableState.ValueType>(_ action: Action)
+    mutating func dispatch<Action: ActionType>(_ action: Action) where Action.StateValueType == ObservableState.ValueType
 
     /**
      Dispatch an async action that when called should trigger another dispatch
@@ -50,7 +50,7 @@ public extension StoreType {
       Dispatches an action by settings the state's value to the result of
       calling it's `reduce` method.
     */
-    public mutating func dispatch<Action: ActionType where Action.StateValueType == ObservableState.ValueType>(_ action: Action) {
+    public mutating func dispatch<Action: ActionType>(_ action: Action) where Action.StateValueType == ObservableState.ValueType {
         state.value = action.reduce(state.value)
     }
 

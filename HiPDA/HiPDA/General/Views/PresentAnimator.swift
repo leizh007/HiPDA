@@ -52,7 +52,7 @@ extension PresentAnimator: UIViewControllerAnimatedTransitioning {
             
             var transform = CATransform3DIdentity
             transform.m34 = -1.0 / 1000
-            transform = CATransform3DRotate(transform, CGFloat(M_PI) / 16.0, 1.0, 0, 0)
+            transform = CATransform3DRotate(transform, CGFloat.pi / 16.0, 1.0, 0, 0)
             
             UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseInOut, animations: {
                 toView.frame = containerView.bounds

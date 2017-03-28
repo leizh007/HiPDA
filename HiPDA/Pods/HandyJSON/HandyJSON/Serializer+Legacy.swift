@@ -24,10 +24,10 @@ import Foundation
 
 public protocol ModelTransformerProtocol {
 
-    @available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
+    //@available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
     func toJSON() -> String?
 
-    @available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
+    //@available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
     func toPrettifyJSON() -> String?
 
     @available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
@@ -216,7 +216,7 @@ extension GenericObjectTransformer {
 
 public class JSONSerializer {
 
-    @available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
+    //@available(*, deprecated, message: "This method will be removed in the future, see the replacement serialization methods at: https://github.com/alibaba/handyjson")
     public static func serialize(model: Any?) -> ModelTransformerProtocol {
         return GenericObjectTransformer(of: model)
     }
