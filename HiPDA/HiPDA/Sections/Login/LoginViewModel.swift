@@ -54,8 +54,11 @@ struct LoginViewModel {
     ///
     /// - returns: 返回Observable包含登录结果
     static func login(with account: Account) -> Observable<LoginResult> {
-        HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
-        // FIXME: - 登录前清理cookie
+        CookieManager.shared.clear()
+        if let cookies = CookieManager.shared.cookies(for: account) {
+            CookieManager.shared.set(cookies: cookies, for: account)
+            return Observable.just(LoginResult.success(account))
+        }
         return Observable.create { observer in
             HiPDAProvider.request(.login(account))
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))

@@ -66,10 +66,22 @@ extension AccountManagementViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch viewModel.item(at: indexPath) {
         case .account(_):
-            // FIXME: - Change account
-            tableView.cellForRow(at: IndexPath(row: viewModel.activeAccountIndex, section: 0))?.accessoryType = .none
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            viewModel.execute(.click(at: indexPath.row))
+            if let account = viewModel.account(at: indexPath.row) {
+                showPromptInformation(of: .loading)
+                LoginViewModel.login(with: account).subscribe(onNext: { [unowned self] loginResult in
+                    self.hidePromptInformation()
+                    switch loginResult {
+                    case .success(_):
+                        self.tableView.cellForRow(at: IndexPath(row: self.viewModel.activeAccountIndex, section: 0))?.accessoryType = .none
+                        self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                        self.viewModel.execute(.click(at: indexPath.row))
+                        EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
+                        self.showPromptInformation(of: .success("账户切换成功!"))
+                    case .failure(let error):
+                        self.showPromptInformation(of: .failure("账户切换失败: \(error)"))
+                    }
+                }).disposed(by: disposeBag)
+            }
         case .addAccount:
             let loginVC = LoginViewController.load(from: .login)
             loginVC.cancelable = true
@@ -116,12 +128,28 @@ extension AccountManagementViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
+        viewModel.execute(.move(from: sourceIndexPath.row, to: destinationIndexPath.row))
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
+            let item = viewModel.item(at: indexPath)
+            guard case let .account(model) = item else { return }
+            if model.accessoryType == .checkmark {
+                let alert = UIAlertController(title: "删除账户", message: "删除当前登录的账户将会退出登录", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                let confirmAction = UIAlertAction(title: "确定", style: .default, handler: { [unowned self] _ in
+                    self.viewModel.execute(.delete(at: indexPath.row))
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    EventBus.shared.dispatch(ChangeAccountAction(account: nil))
+                })
+                alert.addAction(cancelAction)
+                alert.addAction(confirmAction)
+                present(alert, animated: true, completion: nil)
+            } else {
+                viewModel.execute(.delete(at: indexPath.row))
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
     }
     

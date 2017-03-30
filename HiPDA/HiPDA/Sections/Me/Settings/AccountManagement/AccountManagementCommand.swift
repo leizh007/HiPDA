@@ -17,7 +17,7 @@ import Foundation
 /// - changeStatus: 切换编辑状态
 enum AccountManagementCommand {
     case append(accoun: Account)
-    case delete(in: Int)
+    case delete(at: Int)
     case move(from: Int, to: Int)
     case click(at: Int)
     case changeStatus(isEditing: Bool)

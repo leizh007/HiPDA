@@ -58,6 +58,10 @@ struct AccountManagementViewModel {
         return isEditing ? 1 : 2
     }
     
+    func account(at index: Int) -> Account? {
+        return accountList.safe[index]
+    }
+    
     /// 项目个数
     ///
     /// - Parameter section: section
@@ -98,7 +102,7 @@ struct AccountManagementViewModel {
             activeAccount = account
         case let .move(from: sourceIndex, to: destinationIndex):
             accountList.insert(accountList.remove(at: sourceIndex), at: destinationIndex)
-        case let .delete(in: index):
+        case let .delete(at: index):
             accountList.remove(at: index)
         case let .click(at: index):
             activeAccount = accountList[index]
