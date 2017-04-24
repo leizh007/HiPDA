@@ -22,7 +22,7 @@ class HelperTests: XCTestCase {
         
         waitForExpectations(timeout: 2.0) { (error) in
             if error != nil {
-                XCTFail("Expectation Failed with error: \(error)")
+                XCTFail("Expectation Failed with error: \(String(describing: error))")
             }
         }
     }

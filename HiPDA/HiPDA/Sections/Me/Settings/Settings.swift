@@ -35,7 +35,7 @@ class Settings {
     /// 当前登录账户
     var activeAccount: Account? {
         didSet {
-            lastLoggedInAccount = activeAccount ?? lastLoggedInAccount
+            lastLoggedInAccount = activeAccount
         }
     }
     private static let kActiveAccount = "activeAccount"
@@ -263,7 +263,7 @@ class Settings {
         if let account = lastLoggedInAccount {
             userDefaults.setValue(account.name, forKey: Self.kLastLoggedInAccount)
         } else {
-            userDefaults.removeObject(forKey: Self.kActiveAccount)
+            userDefaults.removeObject(forKey: Self.kLastLoggedInAccount)
         }
         userDefaults.set(isShowStickThreads, forKey: Self.kIsShowStickThreadsKey)
         userDefaults.set(autoDownloadImageWhenUsingWWAN, forKey: Self.kAutoDownloadImageWhenUsingWWAN)
@@ -361,6 +361,8 @@ extension Reactive where Base: Settings {
         return UIBindingObserver(UIElement: base) { (settings, loginResult) in
             if let loginResult = loginResult, case let .success(account) = loginResult {
                 settings.activeAccount = account
+            } else {
+                settings.activeAccount = nil
             }
         }
     }
