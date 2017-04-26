@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AOA-Mz-ZIW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AOA-Mz-ZIW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2a5-KX-quw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e2n-zJ-QAC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -29,10 +32,71 @@
                         <size key="portraitSize" width="375" height="667"/>
                         <size key="landscapeSize" width="375" height="667"/>
                     </fixedSimulatedSizeMetrics>
+                    <connections>
+                        <outlet property="titleView" destination="3qd-cd-nUS" id="DEs-6B-yDH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBD-AW-NYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FA5-1W-7Dq">
+                    <connections>
+                        <action selector="titleViewClicked:" destination="3qd-cd-nUS" id="G51-uY-Oxx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <view contentMode="scaleToFill" id="3qd-cd-nUS" customClass="HomeNavigationBarTitleView" customModule="HiPDA" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_navigationbar_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-Ot-ciY">
+                            <rect key="frame" x="48" y="11" width="14" height="9"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.1137254902" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENn-sW-57q">
+                            <rect key="frame" x="8" y="3" width="36" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="cSd-Ot-ciY" firstAttribute="centerY" secondItem="3qd-cd-nUS" secondAttribute="centerY" constant="2" id="W4g-Rb-eMT"/>
+                        <constraint firstItem="ENn-sW-57q" firstAttribute="centerY" secondItem="3qd-cd-nUS" secondAttribute="centerY" id="f8M-Nc-oDc"/>
+                        <constraint firstItem="cSd-Ot-ciY" firstAttribute="leading" secondItem="ENn-sW-57q" secondAttribute="trailing" constant="4" id="hjU-iI-G9U"/>
+                        <constraint firstAttribute="trailing" secondItem="cSd-Ot-ciY" secondAttribute="trailing" constant="8" id="oAT-QH-zfP"/>
+                        <constraint firstItem="ENn-sW-57q" firstAttribute="leading" secondItem="3qd-cd-nUS" secondAttribute="leading" constant="8" id="ryY-Q4-qac"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="disclosureImageView" destination="cSd-Ot-ciY" id="BZy-Xw-bnz"/>
+                        <outlet property="titleLabel" destination="ENn-sW-57q" id="4Yb-Dp-Gcz"/>
+                        <outletCollection property="gestureRecognizers" destination="FA5-1W-7Dq" appends="YES" id="BG7-sX-BMe"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="1444" y="-364.7676161919041"/>
         </scene>
+        <!--Forum Name Selection View Controller-->
+        <scene sceneID="bUy-2W-TRS">
+            <objects>
+                <tableViewController storyboardIdentifier="ForumNameSelectionViewController" id="uS3-iF-ldv" customClass="ForumNameSelectionViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Qdd-3l-YaM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="uS3-iF-ldv" id="qac-jc-Tap"/>
+                            <outlet property="delegate" destination="uS3-iF-ldv" id="vyE-a8-mbx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E14-uC-qbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2305" y="-368"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="home_navigationbar_disclosure" width="14" height="9"/>
+    </resources>
 </document>

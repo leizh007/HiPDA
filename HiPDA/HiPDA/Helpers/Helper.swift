@@ -16,7 +16,10 @@ import Foundation
 /// - parameter function: 函数描述，默认#function
 func console(message: String, filename: String = #file, line: Int = #line, function: String = #function) {
     #if DEBUG
-        print("\((filename as NSString).lastPathComponent):\(line) \(function):  \(message)")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
+        let dateString = dateFormatter.string(from: Date())
+        print("\(dateString) \((filename as NSString).lastPathComponent):\(line) \(function):  \(message)")
     #endif
 }
 
