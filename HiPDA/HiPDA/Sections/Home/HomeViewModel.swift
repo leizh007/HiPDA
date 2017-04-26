@@ -28,4 +28,14 @@ class HomeViewModel {
             _selectedForumName = newValue
         }
     }
+    
+    var shouldRefreshData: Bool {
+        struct Status {
+            static var calledNumber = 0
+        }
+        Status.calledNumber += 1
+        let oldForumName = _selectedForumName
+        let newForumName = selectedForumName
+        return Status.calledNumber == 1 || oldForumName != newForumName
+    }
 }

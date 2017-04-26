@@ -46,12 +46,6 @@ class HomeViewController: BaseViewController {
         titleView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        refreshView()
-    }
-    
     override func configureApperance(of navigationBar: UINavigationBar) {
         super.configureApperance(of: navigationBar)
         titleView.title = viewModel.selectedForumName
@@ -107,9 +101,17 @@ extension HomeViewController {
 extension HomeViewController {
     /// 处理数据自动刷新相关
     fileprivate func handlAutoRefreshData() {
-        Driver.combineLatest(refreshData.asDriver(onErrorJustReturn: ()), EventBus.shared.activeAccount, isAppeared.asDriver()) { ($0, $1, $2) }
+        isAppeared.asObservable()
+            .filter { $0 }
+            .subscribe(onNext: { [weak self] _ in
+                if self?.viewModel.shouldRefreshData ?? false {
+                    self?.refreshView()
+                }
+        }).disposed(by: disposeBag)
+        
+        Driver.combineLatest(refreshData.asDriver(onErrorJustReturn: ()), EventBus.shared.activeAccount) { ($0, $1) }
             .debounce(0.1)
-            .filter { $0.1 != nil && $0.2 }
+            .filter { $0.1 != nil }
             .map { $0.1! }
             .filter { result in
                 switch result {
