@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     /// VC是否已经出现在屏幕上
-    let isAppeared = Variable(false)
+    let viewDidAppear = Variable(false)
     
     // MARK: - Layout Constraints
     
@@ -34,12 +34,12 @@ class BaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        isAppeared.value = true
+        viewDidAppear.value = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        isAppeared.value = false
+        viewDidAppear.value = false
     }
     
     override func updateViewConstraints() {

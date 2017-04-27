@@ -76,7 +76,7 @@ extension HomeViewController {
             self.showLoginSuccessInformation = false
         }
         
-        Driver.combineLatest(EventBus.shared.activeAccount, isAppeared.asDriver()) { ($0, $1) }
+        Driver.combineLatest(EventBus.shared.activeAccount, viewDidAppear.asDriver()) { ($0, $1) }
             .filter { $0.1 }
             .map { $0.0 }
             .drive(onNext: { [weak self] (result) in
@@ -101,7 +101,7 @@ extension HomeViewController {
 extension HomeViewController {
     /// 处理数据自动刷新相关
     fileprivate func handlAutoRefreshData() {
-        isAppeared.asObservable()
+        viewDidAppear.asObservable()
             .filter { $0 }
             .subscribe(onNext: { [weak self] _ in
                 if self?.viewModel.shouldRefreshData ?? false {
@@ -141,9 +141,11 @@ extension HomeViewController: HomeNavigationBarTitleViewDelegate {
     func titleViewClicked(titleView: HomeNavigationBarTitleView) {
         guard let forumNameSelectionViewController = storyboard?.instantiateViewController(withIdentifier: ForumNameSelectionViewController.identifier) as? ForumNameSelectionViewController else { return }
         forumNameSelectionViewController.modalPresentationStyle = .popover
-        forumNameSelectionViewController.preferredContentSize = CGSize(width: 200, height: 250)
+        forumNameSelectionViewController.preferredContentSize = CGSize(width: 200, height: 264) // 200跟titleView的最大宽度差不多，264 = 6 * cell的高度44.0
         forumNameSelectionViewController.popoverPresentationController?.sourceView = titleView
-        forumNameSelectionViewController.popoverPresentationController?.sourceRect = titleView.bounds
+        let sourceRect = CGRect(x: 0, y: 0, width: titleView.bounds.size.width, height: 22.5)
+        forumNameSelectionViewController.popoverPresentationController?.sourceRect = sourceRect // 为了让popOver的上边沿和navigationBar的下边沿对齐
+        forumNameSelectionViewController.popoverPresentationController?.backgroundColor = .groupTableViewBackground
         forumNameSelectionViewController.popoverPresentationController?.delegate = self
         forumNameSelectionViewController.forumNames = viewModel.forumNames
         forumNameSelectionViewController.selectedForumName = viewModel.selectedForumName
