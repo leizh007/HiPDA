@@ -109,6 +109,7 @@ extension HomeViewController {
                 }
         }).disposed(by: disposeBag)
         
+        /// 只有当界面出现和用户都登陆后才能开始加载数据
         Driver.combineLatest(refreshData.asDriver(onErrorJustReturn: ()), EventBus.shared.activeAccount) { ($0, $1) }
             .debounce(0.1)
             .filter { $0.1 != nil }
@@ -120,7 +121,8 @@ extension HomeViewController {
                 case .failure(_):
                     return false
                 }
-            }
+            }.withLatestFrom(viewDidAppear.asDriver())
+            .filter { $0 }
             .drive(onNext: { [weak self] value in
                 // 加载数据
                 console(message: "加载数据: \(String(describing: self?.forumName))")

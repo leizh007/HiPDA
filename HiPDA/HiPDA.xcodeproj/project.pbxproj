@@ -69,6 +69,12 @@
 		058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717D1DA1FFBD004992AD /* LoginResult.swift */; };
 		058A71801DA28865004992AD /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717F1DA28865004992AD /* LensTests.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
+		059D49531EBAF70000BECA18 /* HiPDAThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* HiPDAThread.swift */; };
+		059D49551EBAFD7400BECA18 /* HiPDAThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* HiPDAThreadAttachment.swift */; };
+		059D49591EBB009D00BECA18 /* HiPDAThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */; };
+		059D495B1EBB108F00BECA18 /* HiPDAThreadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D495A1EBB108F00BECA18 /* HiPDAThreadManager.swift */; };
+		059D495D1EBB1B0B00BECA18 /* HtmlParserThreadsData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 059D495C1EBB1B0A00BECA18 /* HtmlParserThreadsData.txt */; };
+		059D495F1EBB1D2900BECA18 /* HiPDAThreadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D495E1EBB1D2900BECA18 /* HiPDAThreadResult.swift */; };
 		05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */; };
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
@@ -213,6 +219,12 @@
 		058A717D1DA1FFBD004992AD /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		058A717F1DA28865004992AD /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		059D49521EBAF70000BECA18 /* HiPDAThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThread.swift; sourceTree = "<group>"; };
+		059D49541EBAFD7400BECA18 /* HiPDAThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadAttachment.swift; sourceTree = "<group>"; };
+		059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadTests.swift; sourceTree = "<group>"; };
+		059D495A1EBB108F00BECA18 /* HiPDAThreadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadManager.swift; sourceTree = "<group>"; };
+		059D495C1EBB1B0A00BECA18 /* HtmlParserThreadsData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HtmlParserThreadsData.txt; sourceTree = "<group>"; };
+		059D495E1EBB1D2900BECA18 /* HiPDAThreadResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadResult.swift; sourceTree = "<group>"; };
 		05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveForumNameListViewController.swift; sourceTree = "<group>"; };
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
@@ -593,9 +605,11 @@
 				058A717F1DA28865004992AD /* LensTests.swift */,
 				05F3DCE21DB7C2420061CED1 /* RegexTests.swift */,
 				05F3DCEA1DB90E9D0061CED1 /* HtmlParserTests.swift */,
+				059D495C1EBB1B0A00BECA18 /* HtmlParserThreadsData.txt */,
 				05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */,
 				054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */,
 				05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */,
+				059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -619,6 +633,10 @@
 				05E9A2701D7ACFF20096878B /* HomeViewController.swift */,
 				0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */,
 				0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */,
+				059D49521EBAF70000BECA18 /* HiPDAThread.swift */,
+				059D49541EBAFD7400BECA18 /* HiPDAThreadAttachment.swift */,
+				059D495A1EBB108F00BECA18 /* HiPDAThreadManager.swift */,
+				059D495E1EBB1D2900BECA18 /* HiPDAThreadResult.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -868,6 +886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059D495D1EBB1B0B00BECA18 /* HtmlParserThreadsData.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,6 +1068,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059D495F1EBB1D2900BECA18 /* HiPDAThreadResult.swift in Sources */,
 				051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */,
 				05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */,
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
@@ -1069,6 +1089,7 @@
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
+				059D49551EBAFD7400BECA18 /* HiPDAThreadAttachment.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
@@ -1100,6 +1121,7 @@
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
+				059D495B1EBB108F00BECA18 /* HiPDAThreadManager.swift in Sources */,
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
@@ -1110,6 +1132,7 @@
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05BBBBC41E8026F700C6E0D3 /* NSString+HiPDA.m in Sources */,
+				059D49531EBAF70000BECA18 /* HiPDAThread.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
@@ -1147,6 +1170,7 @@
 			files = (
 				05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */,
 				05F3DCEB1DB90E9D0061CED1 /* HtmlParserTests.swift in Sources */,
+				059D49591EBB009D00BECA18 /* HiPDAThreadTests.swift in Sources */,
 				05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */,
 				05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,

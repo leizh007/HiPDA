@@ -78,7 +78,7 @@ struct HtmlParser {
     ///
     /// - throws: 异常: LoginError
     ///
-    /// - returns: 成功返回解析出来的uid，否则抛出一场
+    /// - returns: 成功返回解析出来的uid，否则抛出异常
     static func loginResult(of name: String, from html: String) throws -> Int {
         if let username = try? loggedInUserName(from: html) {
             guard username == name else {
@@ -95,6 +95,52 @@ struct HtmlParser {
             }
         } else {
             throw HtmlParser.loginError(from: html)
+        }
+    }
+    
+    /// 帖子列表
+    ///
+    /// - Parameter html: html字符串
+    /// - Returns: 帖子列表
+    /// - Throws: 解析失败的错误信息
+    static func threads(from html: String) throws -> [HiPDAThread] {
+        enum HiPDAThreadPropertyIndex: Int {
+            case id = 1
+            case title
+            case attachment
+            case uid
+            case username
+            case postTime
+            case replyCount
+            case readCount
+            case totalNumber
+        }
+        let results = try Regex.matches(in: html, of: "<tbody\\s*id=\\\"normalthread_\\d+\\\">[\\s\\S]*?<span\\s*id=\\\"thread_\\d+\\\">[^v]+viewthread\\.php\\?tid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>([\\s\\S]*?)<td\\s*class=\\\"author\\\">[\\s\\S]*?space\\.php\\?uid=(\\d+)\\\">([\\s\\S]*?)<\\/a>[\\s\\S]*?<em>([^<]+)<\\/em>[\\s\\S]*?<strong>(\\d+)<\\/strong>\\/<em>(\\d+)<\\/em>")
+        
+        return try results.map { result in
+            guard result.count == HiPDAThreadPropertyIndex.totalNumber.rawValue else {
+                throw HtmlParserError.unKnown("获取帖子信息失败")
+            }
+            guard let tid = Int(result[HiPDAThreadPropertyIndex.id.rawValue]) else {
+                throw HtmlParserError.unKnown("获取帖子id失败")
+            }
+            guard let uid = Int(result[HiPDAThreadPropertyIndex.uid.rawValue]) else {
+                throw HtmlParserError.unKnown("获取用户id失败")
+            }
+            guard let replyCount = Int(result[HiPDAThreadPropertyIndex.replyCount.rawValue]) else {
+                throw HtmlParserError.unKnown("获取帖子回复数失败")
+            }
+            guard let readCount = Int(result[HiPDAThreadPropertyIndex.readCount.rawValue]) else {
+                throw HtmlParserError.unKnown("获取帖子打开数失败")
+            }
+            
+            return HiPDAThread(id: tid,
+                               title: result[HiPDAThreadPropertyIndex.title.rawValue],
+                               attachment: HiPDAThreadAttachment.attacthment(from: result[HiPDAThreadPropertyIndex.attachment.rawValue]),
+                               user: User(name:result[HiPDAThreadPropertyIndex.username.rawValue], uid:uid),
+                               postTime: result[HiPDAThreadPropertyIndex.postTime.rawValue],
+                               replyCount: replyCount,
+                               readCount: readCount)
         }
     }
 }

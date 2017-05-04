@@ -79,4 +79,21 @@ class HtmlParserTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    /// 测试获取帖子列表
+    func testThreads() {
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: "HtmlParserThreadsData", ofType: "txt") else {
+            fatalError("HtmlParserThreadsData.txt not found")
+        }
+        
+        guard let htmlString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) as String else {
+            fatalError("Unable to convert HtmlParserThreadsData.txt to String")
+        }
+        do {
+            let threads = try HtmlParser.threads(from: htmlString)
+            XCTAssert(threads.count == 74)
+        } catch {
+            XCTFail()
+        }
+    }
 }

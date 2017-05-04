@@ -27,6 +27,9 @@ struct User {
     let uid: Int
     fileprivate static let kUidKey = "uid"
     
+    var avatarImageURL: URL {
+        return avatarImageURL(with: .middle)
+    }
     /// 根据分辨率获取帖子用户的头像URL
     ///
     /// - parameter resolution: 头像的分辨率

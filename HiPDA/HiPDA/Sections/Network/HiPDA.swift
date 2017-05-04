@@ -9,8 +9,13 @@
 import Foundation
 import Moya
 
+/// HiPDA网络请求类型
+///
+/// - login: 登陆
+/// - threads: 帖子列表
 enum HiPDA {
     case login(Account)
+    case threads(fid: Int, typeid: Int, page: Int)
 }
 
 extension HiPDA: TargetType {
@@ -19,12 +24,16 @@ extension HiPDA: TargetType {
         switch self {
         case .login(_):
             return "/forum/logging.php?action=login&loginsubmit=yes"
+        case let .threads(fid: fid, typeid: typeid, page: page):
+            return "/forum/forumdisplay.php?fid=\(fid)&filter=type&typeid=\(typeid)&page=\(page)"
         }
     }
     var method: Moya.Method {
         switch self {
         case .login(_):
             return .post
+        case .threads(_):
+            return .get
         }
     }
     var parameters: [String : Any]? {
@@ -38,6 +47,8 @@ extension HiPDA: TargetType {
                 "answer": account.answer,
                 "cookietime" : 60 * 60 * 24 * 30
             ]
+        case .threads(_):
+            return nil
         }
     }
     var parameterEncoding: ParameterEncoding {
