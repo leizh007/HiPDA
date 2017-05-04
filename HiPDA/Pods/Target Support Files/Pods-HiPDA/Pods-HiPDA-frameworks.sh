@@ -98,6 +98,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FLEX/FLEX.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HandyJSON/HandyJSON.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MLeaksFinder/MLeaksFinder.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Moya/Moya.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Perform/Perform.framework"
@@ -109,6 +110,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SAMKeychain/SAMKeychain.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Then/Then.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/YYCache/YYCache.framework"
   install_framework "$BUILT_PRODUCTS_DIR/YYKeyboardManager/YYKeyboardManager.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -120,6 +122,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FBRetainCycleDetector/FBRetainCycleDetector.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HandyJSON/HandyJSON.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MLeaksFinder/MLeaksFinder.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Moya/Moya.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Perform/Perform.framework"
@@ -131,6 +134,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SAMKeychain/SAMKeychain.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Then/Then.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/YYCache/YYCache.framework"
   install_framework "$BUILT_PRODUCTS_DIR/YYKeyboardManager/YYKeyboardManager.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

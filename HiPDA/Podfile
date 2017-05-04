@@ -50,6 +50,8 @@ target 'HiPDA' do
   pod 'Moya/RxSwift', '~> 8.0.2'
   pod 'MBProgressHUD'
   pod 'SDWebImage', '~> 4.0.0'
+  pod 'YYCache', '~> 1.0.4'
+  pod 'MJRefresh', '~> 3.1.12'
     
   target 'HiPDATests' do
     inherit! :search_paths

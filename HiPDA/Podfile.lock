@@ -12,6 +12,7 @@ PODS:
   - FLEX (2.4.0)
   - HandyJSON (1.6.0)
   - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
   - MLeaksFinder (0.2.1):
     - FBRetainCycleDetector
   - Moya/Core (8.0.2):
@@ -36,6 +37,7 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - Then (2.1.0)
+  - YYCache (1.0.4)
   - YYKeyboardManager (1.0.1)
 
 DEPENDENCIES:
@@ -47,6 +49,7 @@ DEPENDENCIES:
   - FLEX
   - HandyJSON (~> 1.6)
   - MBProgressHUD
+  - MJRefresh (~> 3.1.12)
   - MLeaksFinder
   - Moya/RxSwift (~> 8.0.2)
   - Perform (from `https://github.com/thoughtbot/Perform.git`, branch `swift-3`)
@@ -58,6 +61,7 @@ DEPENDENCIES:
   - SAMKeychain
   - SDWebImage (~> 4.0.0)
   - Then (~> 2.1.0)
+  - YYCache (~> 1.0.4)
   - YYKeyboardManager
 
 EXTERNAL SOURCES:
@@ -87,6 +91,7 @@ SPEC CHECKSUMS:
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   HandyJSON: 573a148e2c649d108a8d6fbee1874c5c2d0822ca
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
   Moya: 47f61da5b634aa71f676431b64ee0f81e976296d
   Perform: c3e2f75ee31db051d5afbe1282d7a48ba68f8747
@@ -99,8 +104,9 @@ SPEC CHECKSUMS:
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: c0698023ff9708bc68b216fc1b5c08b43c5bcb8a
+PODFILE CHECKSUM: 2df1706ca63ffc92bf43a73892269da0f53adf16
 
 COCOAPODS: 1.2.0
