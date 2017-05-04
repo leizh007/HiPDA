@@ -25,7 +25,7 @@ private enum HiPDAThreadManagerState {
 }
 
 /// 帖子列表管理
-struct HiPDAThreadManager {
+class HiPDAThreadManager {
     /// 帖子列表
     fileprivate(set) var threads: [HiPDAThread]
     
@@ -44,27 +44,32 @@ struct HiPDAThreadManager {
     /// disposeBag
     private var disposeBag = DisposeBag()
     
+    init(threads: [HiPDAThread], page: Int, fid: Int, typeid: Int) {
+        self.threads = threads
+        self.page = page
+        self.fid = fid
+        self.typeid = typeid
+    }
+    
     /// 获取第一页帖子列表
     ///
     /// - Parameter completion: 返回帖子列表获取结果
-    mutating func firstPageThreads(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
+    func firstPageThreads(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
         disposeBag = DisposeBag()
         state = .refreshing
-        fetchThreads(at: 1).subscribe { [`self` = self] event in
-            var mutaingSelf = self
-            mutaingSelf.handleThreadsFetch(event: event, at: 1, state: .refreshing, completion: completion)
+        fetchThreads(at: 1).subscribe { [weak self] event in
+            self?.handleThreadsFetch(event: event, at: 1, state: .refreshing, completion: completion)
         }.disposed(by: disposeBag)
     }
     
     /// 获取下一页帖子列表
     ///
     /// - Parameter completion: 返回帖子列表获取结果
-    mutating func nextPageThreads(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
+    func nextPageThreads(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
         disposeBag = DisposeBag()
         state = .loadingMore
-        fetchThreads(at: page + 1).subscribe { [`self` = self] event in
-            var mutaingSelf = self
-            mutaingSelf.handleThreadsFetch(event: event, at: 1, state: .loadingMore, completion: completion)
+        fetchThreads(at: page + 1).subscribe { [weak self] event in
+            self?.handleThreadsFetch(event: event, at: 1, state: .loadingMore, completion: completion)
         }.disposed(by: disposeBag)
     }
     
@@ -74,7 +79,7 @@ struct HiPDAThreadManager {
     /// - Parameter page: 请求的帖子页码
     /// - Parameter state: 请求状态
     /// - Parameter completion: 返回帖子列表获取结果
-    private mutating func handleThreadsFetch(event: Event<HiPDAThreadsResult>, at page: Int, state: HiPDAThreadManagerState, completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
+    private func handleThreadsFetch(event: Event<HiPDAThreadsResult>, at page: Int, state: HiPDAThreadManagerState, completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
         guard self.state == state else { return }
         self.state = .idle
         switch event {
@@ -100,8 +105,10 @@ struct HiPDAThreadManager {
     /// - Parameter page: 页数
     /// - Returns: 返回帖子列表获取结果
     private func fetchThreads(at page: Int) -> Observable<HiPDAThreadsResult> {
+        let fid = self.fid
+        let typeid = self.typeid
         return Observable.create { observer in
-            HiPDAProvider.request(.threads(fid: self.fid, typeid: self.typeid, page: page))
+            HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page))
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
                 .mapGBKString()
                 .map {
