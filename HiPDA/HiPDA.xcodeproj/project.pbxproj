@@ -114,6 +114,10 @@
 		05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */; };
 		05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCEE1DDCAB890095E95D /* NoResultView.swift */; };
 		05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCF01DDCB0450095E95D /* XibLoadable.swift */; };
+		05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF20A1EBC566B00C38CAD /* CacheManager.swift */; };
+		05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2111EBC6A8B00C38CAD /* Box.swift */; };
+		05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */; };
+		05EEF2161EBC773700C38CAD /* YYCacheExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2151EBC773700C38CAD /* YYCacheExtensionTests.swift */; };
 		05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */; };
 		05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */; };
 		05F3DCD91DB7B4A00061CED1 /* HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */; };
@@ -273,6 +277,10 @@
 		05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultView.xib; sourceTree = "<group>"; };
 		05EDDCEE1DDCAB890095E95D /* NoResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
 		05EDDCF01DDCB0450095E95D /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
+		05EEF20A1EBC566B00C38CAD /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		05EEF2111EBC6A8B00C38CAD /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+HiPDA.swift"; sourceTree = "<group>"; };
+		05EEF2151EBC773700C38CAD /* YYCacheExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYCacheExtensionTests.swift; sourceTree = "<group>"; };
 		05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+HiPDA.swift"; sourceTree = "<group>"; };
 		05F2F7221E36FDFA00B25D16 /* ForumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumListViewController.swift; sourceTree = "<group>"; };
 		05F3DCD71DB7B4A00061CED1 /* HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDA.swift; sourceTree = "<group>"; };
@@ -405,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				055996A11D50DB4500057CF6 /* Account.swift */,
+				05EEF2111EBC6A8B00C38CAD /* Box.swift */,
 				055996A21D50DB4500057CF6 /* Serializable.swift */,
 				055996A41D50DB4500057CF6 /* User.swift */,
 				05645C7A1D75D60900B86D0A /* Constants.swift */,
@@ -610,6 +619,7 @@
 				054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */,
 				05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */,
 				059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */,
+				05EEF2151EBC773700C38CAD /* YYCacheExtensionTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -637,6 +647,8 @@
 				059D49541EBAFD7400BECA18 /* HiPDAThreadAttachment.swift */,
 				059D495A1EBB108F00BECA18 /* HiPDAThreadManager.swift */,
 				059D495E1EBB1D2900BECA18 /* HiPDAThreadResult.swift */,
+				05EEF20A1EBC566B00C38CAD /* CacheManager.swift */,
+				05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1073,6 +1085,7 @@
 				05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */,
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
+				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
 				05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
@@ -1127,7 +1140,9 @@
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
+				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
+				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
@@ -1177,6 +1192,7 @@
 				05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,
+				05EEF2161EBC773700C38CAD /* YYCacheExtensionTests.swift in Sources */,
 				058A71801DA28865004992AD /* LensTests.swift in Sources */,
 				054F97D51E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift in Sources */,
 				054065A31D43167400E460F6 /* UserTests.swift in Sources */,

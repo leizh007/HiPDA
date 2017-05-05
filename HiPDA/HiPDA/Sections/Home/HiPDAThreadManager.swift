@@ -24,7 +24,7 @@ private enum HiPDAThreadManagerState {
     case loadingMore
 }
 
-/// 帖子列表管理
+/// 帖子列表网络请求管理
 class HiPDAThreadManager {
     /// 帖子列表
     fileprivate(set) var threads: [HiPDAThread]
