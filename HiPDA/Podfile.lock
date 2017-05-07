@@ -37,6 +37,7 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - Then (2.1.0)
+  - UITableView+FDTemplateLayoutCell (1.5.beta)
   - YYCache (1.0.4)
   - YYKeyboardManager (1.0.1)
 
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - SAMKeychain
   - SDWebImage (~> 4.0.0)
   - Then (~> 2.1.0)
+  - UITableView+FDTemplateLayoutCell (~> 1.5.beta)
   - YYCache (~> 1.0.4)
   - YYKeyboardManager
 
@@ -104,9 +106,10 @@ SPEC CHECKSUMS:
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
+  UITableView+FDTemplateLayoutCell: 02b508ab1cb4cea16a8c17ac83d2cd1fd72124f9
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
 
-PODFILE CHECKSUM: 2df1706ca63ffc92bf43a73892269da0f53adf16
+PODFILE CHECKSUM: e8f5c44b19d17d67d6587bce637ef8ad8c06630d
 
 COCOAPODS: 1.2.0
