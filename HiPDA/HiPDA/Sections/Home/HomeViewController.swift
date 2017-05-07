@@ -10,6 +10,7 @@ import UIKit
 import Moya
 import RxSwift
 import RxCocoa
+import UITableView_FDTemplateLayoutCell
 
 /// 主页的ViewController
 class HomeViewController: BaseViewController {
@@ -45,11 +46,12 @@ class HomeViewController: BaseViewController {
         handleLoginStatue()
         handlAutoRefreshData()
         titleView.delegate = self
-        tableView.status = .normal
+        tableView.status = .loading
         tableView.hasRefreshHeader = true
         tableView.hasLoadMoreFooter = true
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.dataLoadDelegate = self
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -131,9 +133,16 @@ extension HomeViewController {
             .filter { $0 }
             .drive(onNext: { [weak self] value in
                 guard let `self` = self else { return }
-                // 加载数据
-                self.tableView.status = .normal//.tapToLoad// self.viewModel.hasData ? .normal : .loading
-                console(message: "加载数据: \(String(describing: self.forumName))")
+                if self.viewModel.hasData {
+                    self.tableView.status = .normal
+                    self.tableView.reloadData()
+                    self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1.0, height: 1.0), animated: true)
+                } else {
+                    self.tableView.status = .loading
+                    self.viewModel.loadData { result in
+                        self.handleDataLoadResult(result)
+                    }
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -142,6 +151,28 @@ extension HomeViewController {
     fileprivate func refreshView() {
         let name = forumName
         forumName = name
+    }
+    
+    fileprivate func handleDataLoadResult(_ result: HiPDAThreadsResult) {
+        switch result {
+        case .success(_):
+            tableView.reloadData()
+            if tableView.status == .pullUpLoading && !viewModel.canLoadMoreData {
+                tableView.mj_footer.endRefreshingWithNoMoreData()
+            } else {
+                tableView.mj_footer.endRefreshing()
+                tableView.mj_footer.resetNoMoreData()
+            }
+            tableView.status = .normal
+            tableView.mj_header.endRefreshing()
+        case .failure(let error):
+            if tableView.status == .loading {
+                tableView.status = .tapToLoad
+            }
+            showPromptInformation(of: .failure("\(error)"))
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+        }
     }
 }
 
@@ -194,32 +225,56 @@ extension HomeViewController: ForumNameSelectionDelegate {
 
 extension HomeViewController: TableViewDataLoadDelegate {
     func loadNewData() {
-        viewModel.refreshData { result in
-            
+        viewModel.refreshData { [weak self] result in
+            self?.handleDataLoadResult(result)
         }
     }
     
     func loadMoreData() {
-        viewModel.loadMoreData { result in
-            
+        viewModel.loadMoreData { [weak self] result in
+            self?.handleDataLoadResult(result)
         }
     }
 }
 
-//// MARK: - UITablViewDelegate
-//
-//extension HomeViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return .leastNormalMagnitude
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return .leastNormalMagnitude
-//    }
-//}
-//
-//// MARK: - UITableViewDataSource
-//
-//extension HomeViewController: UITableViewDataSource {
-//    
-//}
+// MARK: - UITablViewDelegate
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.fd_heightForCell(withIdentifier: HomeThreadTableViewCell.reuseIdentifier, configuration: { [weak self] cell in
+            guard let threadCell = cell as? HomeThreadTableViewCell else { return }
+            threadCell.threadModel = self?.viewModel.threadModel(at: indexPath.row)
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfThreads()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath) as HomeThreadTableViewCell
+        cell.threadModel = viewModel.threadModel(at: indexPath.row)
+        
+        return cell
+    }
+}

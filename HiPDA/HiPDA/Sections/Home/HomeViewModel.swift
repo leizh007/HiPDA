@@ -59,6 +59,7 @@ class HomeViewModel {
         } else {
             manager = HiPDAThreadManager(fid: ForumManager.fid(ofForumName: selectedForumName),
                                          typeid: 0)
+            managerDic[selectedForumName] = manager
         }
         
         return manager
@@ -83,6 +84,16 @@ extension HomeViewModel {
     func numberOfThreads() -> Int {
         return managerDic[selectedForumName]?.threads.count ?? 0
     }
+    
+    func threadModel(at index: Int) -> HomeThreadModel? {
+        guard let thread = manager.threads.safe[index] else { return nil }
+        return HomeThreadModel(avatarImageURL: thread.user.avatarImageURL,
+                               userName: thread.user.name,
+                               replyCount: thread.replyCount,
+                               readCount: thread.readCount,
+                               timeString: thread.postTime.descriptionTimeStringForThread,
+                               title: thread.title)
+    }
 }
 
 // MARK: - 加载数据相关
@@ -94,16 +105,32 @@ extension HomeViewModel {
             completion(.success([]))
             return
         }
-        manager.firstPageThreads(completion: completion)
+        if manager.threads.count > 0 {
+            completion(.success([]))
+            return
+        }
+        let fid = manager.fid
+        manager.firstPageThreads { [weak self] result in
+            guard let `self` = self, fid == `self`.manager.fid else { return }
+            completion(result)
+        }
     }
     
     /// 网络加载数据
     func refreshData(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
-        manager.firstPageThreads(completion: completion)
+        let fid = manager.fid
+        manager.firstPageThreads { [weak self] result in
+            guard let `self` = self, fid == `self`.manager.fid else { return }
+            completion(result)
+        }
     }
     
     /// 加载下一页数据
     func loadMoreData(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
-        manager.nextPageThreads(completion: completion)
+        let fid = manager.fid
+        manager.nextPageThreads { [weak self] result in
+            guard let `self` = self, fid == `self`.manager.fid else { return }
+            completion(result)
+        }
     }
 }

@@ -60,6 +60,8 @@
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
+		0588D8231EBF185A00AC43DD /* HomeThreadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D8221EBF185A00AC43DD /* HomeThreadTableViewCell.swift */; };
+		0588D8251EBF26E000AC43DD /* HomeThreadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D8241EBF26E000AC43DD /* HomeThreadModel.swift */; };
 		0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */; };
 		0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */; };
 		0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */; };
@@ -214,6 +216,8 @@
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0588D8221EBF185A00AC43DD /* HomeThreadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeThreadTableViewCell.swift; sourceTree = "<group>"; };
+		0588D8241EBF26E000AC43DD /* HomeThreadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeThreadModel.swift; sourceTree = "<group>"; };
 		0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 		0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HiPDA.swift"; sourceTree = "<group>"; };
 		0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+HiPDA.swift"; sourceTree = "<group>"; };
@@ -641,6 +645,8 @@
 				050EE3231DD200C800C4B18D /* Home.storyboard */,
 				0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */,
 				05E9A2701D7ACFF20096878B /* HomeViewController.swift */,
+				0588D8221EBF185A00AC43DD /* HomeThreadTableViewCell.swift */,
+				0588D8241EBF26E000AC43DD /* HomeThreadModel.swift */,
 				0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */,
 				0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */,
 				059D49521EBAF70000BECA18 /* HiPDAThread.swift */,
@@ -1094,6 +1100,7 @@
 				053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
+				0588D8251EBF26E000AC43DD /* HomeThreadModel.swift in Sources */,
 				0537AAF71EB039F300A51721 /* HomeNavigationBarTitleView.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
 				05A2AF981E2385B00048508C /* Forum.swift in Sources */,
@@ -1108,6 +1115,7 @@
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
 				053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */,
+				0588D8231EBF185A00AC43DD /* HomeThreadTableViewCell.swift in Sources */,
 				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,

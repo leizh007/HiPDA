@@ -42,7 +42,7 @@ extension Moya.Response {
         guard let string = NSString(data: data, encoding: gbkEncoding) else {
             throw MoyaError.stringMapping(self)
         }
-        return string as String
+        return (string as String).stringByDecodingHTMLEntities
     }
 }
 

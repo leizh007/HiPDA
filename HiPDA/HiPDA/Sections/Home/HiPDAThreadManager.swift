@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Curry
+import SDWebImage
 
 private let kTotalPageKey = "totalPage"
 
@@ -50,7 +51,7 @@ class HiPDAThreadManager {
     private var disposeBag = DisposeBag()
     
     init(fid: Int, typeid: Int, threads: [HiPDAThread]? = nil) {
-        self.threads = threads ?? CacheManager.threads.instance?.threads(forFid: fid, typeid: typeid) ?? []
+        self.threads = threads ?? (CacheManager.threads.instance?.threads(forFid: fid, typeid: typeid) ?? [])
         self.page = 1
         self.fid = fid
         self.typeid = typeid
@@ -63,6 +64,7 @@ class HiPDAThreadManager {
     func firstPageThreads(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
         disposeBag = DisposeBag()
         state = .refreshing
+        
         fetchThreads(at: 1).subscribe { [weak self] event in
             self?.handleThreadsFetch(event: event, at: 1, state: .refreshing, completion: completion)
         }.disposed(by: disposeBag)
@@ -74,8 +76,9 @@ class HiPDAThreadManager {
     func nextPageThreads(completion: @escaping HiPDAThreadsFetchCompletion = { _ in }) {
         disposeBag = DisposeBag()
         state = .loadingMore
+        let page = self.page
         fetchThreads(at: page + 1).subscribe { [weak self] event in
-            self?.handleThreadsFetch(event: event, at: 1, state: .loadingMore, completion: completion)
+            self?.handleThreadsFetch(event: event, at: page + 1, state: .loadingMore, completion: completion)
         }.disposed(by: disposeBag)
     }
     
@@ -141,9 +144,15 @@ class HiPDAThreadManager {
                     /// 添加到关注列表中
                     CacheManager.attention.instance?.addThreadsToAttention(threads: threads)
                     
-                    /// 添加到缓存中
-                    CacheManager.threads.instance?.setThreads(threads: threads, forFid: fid, typeid: typeid)
-                    CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
+                    if page == 1 {
+                        /// 添加到缓存中
+                        CacheManager.threads.instance?.setThreads(threads: threads, forFid: fid, typeid: typeid)
+                        CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
+                    }
+                    
+                    /// 预加载用户头像
+                    let urls = threads.map { $0.user.avatarImageURL }
+                    SDWebImagePrefetcher.shared().prefetchURLs(urls)
                 })
                 .observeOn(MainScheduler.instance)
                 .subscribe { event in
