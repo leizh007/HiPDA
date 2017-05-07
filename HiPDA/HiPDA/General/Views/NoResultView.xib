@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,7 +34,8 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="hMN-Dn-iUp" firstAttribute="top" secondItem="kTF-Xa-uP4" secondAttribute="bottom" id="12r-9C-CPa"/>
                 <constraint firstItem="hMN-Dn-iUp" firstAttribute="centerX" secondItem="kTF-Xa-uP4" secondAttribute="centerX" id="Bld-oX-El3"/>
@@ -47,8 +48,14 @@
             <connections>
                 <outlet property="activityIndicator" destination="9Zw-Ky-h1G" id="sPm-ci-tlb"/>
                 <outlet property="descriptionLabel" destination="hMN-Dn-iUp" id="ce1-6v-7iH"/>
+                <outletCollection property="gestureRecognizers" destination="w9d-6L-W2n" appends="YES" id="97a-gF-WJ2"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
+        <tapGestureRecognizer id="w9d-6L-W2n">
+            <connections>
+                <action selector="tapToLoad:" destination="iN0-l3-epB" id="BTf-10-zwa"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

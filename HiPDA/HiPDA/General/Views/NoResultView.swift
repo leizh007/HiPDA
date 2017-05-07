@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol TapToLoadDelegate: class {
+    func tapToLoad()
+}
+
 /// BaseTableView没有数据时候的显示视图
 class NoResultView: UIView {
+    weak var tapToLoadDelegate: TapToLoadDelegate?
+    
     /// 描述信息的label
     @IBOutlet private weak var descriptionLabel: UILabel!
     
@@ -49,6 +55,10 @@ class NoResultView: UIView {
                 activityIndicator.stopAnimating()
             }
         }
+    }
+    
+    @IBAction func tapToLoad(_ sender: UITapGestureRecognizer) {
+        tapToLoadDelegate?.tapToLoad()
     }
 }
 

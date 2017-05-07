@@ -78,6 +78,11 @@ class YYCacheExtensionTests: XCTestCase {
             cache.setThreads(threads: [thread2, thread1], forFid: 2, typeid: 0)
             let threads2 = cache.threads(forFid: 2, typeid: 0)!
             XCTAssert(threads2 == [thread2, thread1])
+            
+            let kTotalPageKey = "totalPage"
+            let totalPage = 10
+            CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
+            XCTAssert((CacheManager.threads.instance!.object(forKey: kTotalPageKey) as! NSNumber).intValue == totalPage)
         }
     }
 }

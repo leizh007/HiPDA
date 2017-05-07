@@ -143,4 +143,14 @@ struct HtmlParser {
                                readCount: readCount)
         }
     }
+    
+    /// 总页数
+    ///
+    /// - Parameter html: html字符串
+    /// - Returns: 总页数
+    /// - Throws: 解析失败的错误信息
+    static func totalPage(from html: String) throws -> Int {
+        let result = try Regex.firstMatch(in: html, of: "(\\d+)<\\/a>[^<]*<[^>]+>下一页<\\/a>")
+        return result.count == 2 ? (Int(result[1]) ?? 1) : 1
+    }
 }

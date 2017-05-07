@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import Curry
 
+private let kTotalPageKey = "totalPage"
+
 typealias HiPDAThreadsFetchCompletion = (HiPDAThreadsResult) -> ()
 
 /// 获取帖子
@@ -32,6 +34,9 @@ class HiPDAThreadManager {
     /// 当前最大页数
     fileprivate(set) var page: Int
     
+    /// 总页数
+    fileprivate(set) var totalPage: Int
+    
     /// 论坛id
     let fid: Int
     
@@ -44,11 +49,12 @@ class HiPDAThreadManager {
     /// disposeBag
     private var disposeBag = DisposeBag()
     
-    init(page: Int, fid: Int, typeid: Int, threads: [HiPDAThread]?) {
+    init(fid: Int, typeid: Int, threads: [HiPDAThread]? = nil) {
         self.threads = threads ?? CacheManager.threads.instance?.threads(forFid: fid, typeid: typeid) ?? []
-        self.page = page
+        self.page = 1
         self.fid = fid
         self.typeid = typeid
+        self.totalPage = (CacheManager.threads.instance?.object(forKey: kTotalPageKey) as? NSNumber)?.intValue ?? 1
     }
     
     /// 获取第一页帖子列表
@@ -108,10 +114,15 @@ class HiPDAThreadManager {
         let fid = self.fid
         let typeid = self.typeid
         let userBlockSet = Set(Settings.shared.userBlockList)
+        let totalPage = self.totalPage
         return Observable.create { observer in
             HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page))
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
                 .mapGBKString()
+                .do(onNext: { [weak self] htmlString in
+                    guard let `self` = self, page == 1 else { return }
+                    self.totalPage = try HtmlParser.totalPage(from: htmlString)
+                })
                 .map {
                     return try HtmlParser.threads(from: $0).filter {
                             /// 删除在用户黑名单中的帖子
@@ -126,12 +137,13 @@ class HiPDAThreadManager {
                             return true
                         }
                 }
-                .do(onNext: {
+                .do(onNext: { threads in
                     /// 添加到关注列表中
-                    CacheManager.attention.instance?.addThreadsToAttention(threads: $0)
+                    CacheManager.attention.instance?.addThreadsToAttention(threads: threads)
                     
                     /// 添加到缓存中
-                    CacheManager.threads.instance?.setThreads(threads: $0, forFid: fid, typeid: typeid)
+                    CacheManager.threads.instance?.setThreads(threads: threads, forFid: fid, typeid: typeid)
+                    CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
                 })
                 .observeOn(MainScheduler.instance)
                 .subscribe { event in

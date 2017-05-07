@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="5kH-z4-hqO">
             <objects>
-                <viewController id="AOA-Mz-ZIW" customClass="HomeViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="AOA-Mz-ZIW" customClass="HomeViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mZs-0u-Cmy"/>
                         <viewControllerLayoutGuide type="bottom" id="2a5-KX-quw"/>
@@ -19,7 +19,19 @@
                     <view key="view" contentMode="scaleToFill" id="e2n-zJ-QAC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="J7Q-UY-WIs" customClass="BaseTableView" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J7Q-UY-WIs" firstAttribute="top" secondItem="mZs-0u-Cmy" secondAttribute="bottom" id="71w-gO-4d1"/>
+                            <constraint firstItem="J7Q-UY-WIs" firstAttribute="leading" secondItem="e2n-zJ-QAC" secondAttribute="leading" id="FvX-Pr-yaV"/>
+                            <constraint firstItem="2a5-KX-quw" firstAttribute="top" secondItem="J7Q-UY-WIs" secondAttribute="bottom" id="JLu-Kz-cy8"/>
+                            <constraint firstAttribute="trailing" secondItem="J7Q-UY-WIs" secondAttribute="trailing" id="ccM-sW-8Fo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C9I-kp-VBl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
@@ -33,6 +45,7 @@
                         <size key="landscapeSize" width="375" height="667"/>
                     </fixedSimulatedSizeMetrics>
                     <connections>
+                        <outlet property="tableView" destination="J7Q-UY-WIs" id="NY7-4E-kD2"/>
                         <outlet property="titleView" destination="3qd-cd-nUS" id="DEs-6B-yDH"/>
                     </connections>
                 </viewController>

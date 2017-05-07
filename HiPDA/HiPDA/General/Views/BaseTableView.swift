@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import MJRefresh
 
 /// BaseTableView的Rx扩展
 extension Reactive where Base: BaseTableView {
@@ -45,7 +46,36 @@ enum BaseTableViewStatus {
     case pullUpLoading
 }
 
+protocol TableViewDataLoadDelegate: class {
+    func loadNewData()
+    func loadMoreData()
+}
+
 class BaseTableView: UITableView {
+    var hasRefreshHeader = false {
+        didSet {
+            if hasRefreshHeader {
+                let header = MJRefreshNormalHeader { [weak self] _ in
+                    self?.dataLoadDelegate?.loadNewData()
+                }
+                header?.lastUpdatedTimeLabel.isHidden = true
+                mj_header = header
+            } else {
+                mj_header = nil
+            }
+        }
+    }
+    
+    var hasLoadMoreFooter = false {
+        didSet {
+            mj_footer = hasLoadMoreFooter ? MJRefreshAutoNormalFooter { [weak self] _ in
+                self?.dataLoadDelegate?.loadMoreData()
+            } : nil
+        }
+    }
+    
+    weak var dataLoadDelegate: TableViewDataLoadDelegate?
+    
     /// TableView的状态
     var status = BaseTableViewStatus.loading {
         didSet {
@@ -77,7 +107,16 @@ class BaseTableView: UITableView {
         
         if noResultView.superview != nil {
             noResultView.frame = bounds
+            noResultView.tapToLoadDelegate = self
             bringSubview(toFront: noResultView)
         }
+    }
+}
+
+// MARK: - TapToLoadDelegate
+
+extension BaseTableView: TapToLoadDelegate {
+    func tapToLoad() {
+        dataLoadDelegate?.loadNewData()
     }
 }

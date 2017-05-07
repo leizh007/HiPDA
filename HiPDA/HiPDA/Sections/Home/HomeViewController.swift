@@ -22,6 +22,7 @@ class HomeViewController: BaseViewController {
     /// 标题view
     @IBOutlet fileprivate var titleView: HomeNavigationBarTitleView!
     
+    @IBOutlet fileprivate weak var tableView: BaseTableView!
     /// 论坛名称
     fileprivate var forumName: String {
         get {
@@ -44,6 +45,11 @@ class HomeViewController: BaseViewController {
         handleLoginStatue()
         handlAutoRefreshData()
         titleView.delegate = self
+        tableView.status = .normal
+        tableView.hasRefreshHeader = true
+        tableView.hasLoadMoreFooter = true
+//        tableView.delegate = self
+//        tableView.dataSource = self
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -124,8 +130,10 @@ extension HomeViewController {
             }.withLatestFrom(viewDidAppear.asDriver())
             .filter { $0 }
             .drive(onNext: { [weak self] value in
+                guard let `self` = self else { return }
                 // 加载数据
-                console(message: "加载数据: \(String(describing: self?.forumName))")
+                self.tableView.status = .normal//.tapToLoad// self.viewModel.hasData ? .normal : .loading
+                console(message: "加载数据: \(String(describing: self.forumName))")
             })
             .disposed(by: disposeBag)
     }
@@ -181,3 +189,37 @@ extension HomeViewController: ForumNameSelectionDelegate {
         }
     }
 }
+
+// MARK: - TableViewDataLoadDelegate
+
+extension HomeViewController: TableViewDataLoadDelegate {
+    func loadNewData() {
+        viewModel.refreshData { result in
+            
+        }
+    }
+    
+    func loadMoreData() {
+        viewModel.loadMoreData { result in
+            
+        }
+    }
+}
+
+//// MARK: - UITablViewDelegate
+//
+//extension HomeViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return .leastNormalMagnitude
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return .leastNormalMagnitude
+//    }
+//}
+//
+//// MARK: - UITableViewDataSource
+//
+//extension HomeViewController: UITableViewDataSource {
+//    
+//}

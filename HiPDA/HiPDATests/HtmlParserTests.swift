@@ -96,4 +96,27 @@ class HtmlParserTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    /// 测试帖子总数
+    func testTotalPage() {
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: "HtmlParserThreadsData", ofType: "txt") else {
+            fatalError("HtmlParserThreadsData.txt not found")
+        }
+        
+        guard let htmlString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) as String else {
+            fatalError("Unable to convert HtmlParserThreadsData.txt to String")
+        }
+        do {
+            let page = try HtmlParser.totalPage(from: htmlString)
+            XCTAssert(page == 4510)
+        } catch {
+            XCTFail()
+        }
+        do {
+            let page = try HtmlParser.totalPage(from: "测试字符串")
+            XCTAssert(page == 1)
+        } catch {
+            XCTFail()
+        }
+    }
 }
