@@ -6,17 +6,12 @@ HiPDA的非官方客户端（iOS版）！
 
 Notices
 ---
-目前的版本是在Xcode8， Swift3.0下开发，由于Swift3.0坑实在太多，在探索中前行。
+目前的版本是在Xcode8.3.2， Swift3.1下开发，由于Swift3.1坑实在太多，在探索中前行。
 
 TODO
 ---
 - 登录界面添加姓名下拉列表时会有奇怪的问题
 - Custom NavigationBar Animation
-- RxTableViewSectionedAnimatedDataSource 的动画很奇怪
-
-Important
----
-- 运行前请先了解一下cocoapods的使用！
 
 License
 ---
