@@ -44,8 +44,8 @@ class HiPDAThreadManager {
     /// disposeBag
     private var disposeBag = DisposeBag()
     
-    init(threads: [HiPDAThread], page: Int, fid: Int, typeid: Int) {
-        self.threads = threads
+    init(page: Int, fid: Int, typeid: Int, threads: [HiPDAThread]?) {
+        self.threads = threads ?? CacheManager.threads.instance?.threads(forFid: fid, typeid: typeid) ?? []
         self.page = page
         self.fid = fid
         self.typeid = typeid
@@ -107,13 +107,32 @@ class HiPDAThreadManager {
     private func fetchThreads(at page: Int) -> Observable<HiPDAThreadsResult> {
         let fid = self.fid
         let typeid = self.typeid
+        let userBlockSet = Set(Settings.shared.userBlockList)
         return Observable.create { observer in
             HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page))
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
                 .mapGBKString()
                 .map {
-                    return try HtmlParser.threads(from: $0)
+                    return try HtmlParser.threads(from: $0).filter {
+                            /// 删除在用户黑名单中的帖子
+                            return !userBlockSet.contains($0.user.name)
+                        }.filter { thread in
+                            /// 删除包含过滤关键词的帖子
+                            for word in Settings.shared.threadAttentionWordList {
+                                if thread.title.contains(word) {
+                                    return false
+                                }
+                            }
+                            return true
+                        }
                 }
+                .do(onNext: {
+                    /// 添加到关注列表中
+                    CacheManager.attention.instance?.addThreadsToAttention(threads: $0)
+                    
+                    /// 添加到缓存中
+                    CacheManager.threads.instance?.setThreads(threads: $0, forFid: fid, typeid: typeid)
+                })
                 .observeOn(MainScheduler.instance)
                 .subscribe { event in
                     switch event {

@@ -19,6 +19,12 @@ enum CacheManager: String {
     /// 帖子列表
     case threads
     
+    /// 我的关注
+    case attention
+    
+    /// 草稿
+    case draft
+    
     private static var dic = [String: YYCache]()
     
     // FIXME: -  待优化
@@ -55,4 +61,3 @@ enum CacheManager: String {
         cache.useLRUStrategy = self == .threadsReadHistory
     }
 }
-

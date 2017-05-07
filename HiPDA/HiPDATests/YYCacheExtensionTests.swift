@@ -39,10 +39,10 @@ class YYCacheExtensionTests: XCTestCase {
         }
         executeTest(cache: cache) {
             XCTAssert(cache.tids == [])
-            cache.setThread(thread1)
+            cache.addThread(thread1)
             XCTAssert(cache.tids == [thread1.id])
             XCTAssert(cache.thread(for: thread1.id) == thread1)
-            cache.setThread(thread2)
+            cache.addThread(thread2)
             XCTAssert(cache.thread(for: thread2.id) == thread2)
             XCTAssert(cache.tids == [thread2.id, thread1.id])
             XCTAssert(cache.thread(for: thread1.id) == thread1)
@@ -60,10 +60,10 @@ class YYCacheExtensionTests: XCTestCase {
         }
         executeTest(cache: cache) {
             XCTAssert(cache.tids == [])
-            cache.setThread(thread1)
+            cache.addThread(thread1)
             XCTAssert(cache.tids == [thread1.id])
             XCTAssert(cache.thread(for: thread1.id) == thread1)
-            cache.setThread(thread2)
+            cache.addThread(thread2)
             XCTAssert(cache.thread(for: thread2.id) == thread2)
             XCTAssert(cache.tids == [thread2.id, thread1.id])
             XCTAssert(cache.thread(for: thread1.id) == thread1)
@@ -71,6 +71,13 @@ class YYCacheExtensionTests: XCTestCase {
             cache.removeThread(thread1)
             XCTAssert(cache.thread(for: thread1.id) == nil)
             XCTAssert(cache.tids == [thread2.id])
+            
+            cache.setThreads(threads: [thread1, thread2], forFid: 2, typeid: 0)
+            let threads = cache.threads(forFid: 2, typeid: 0)!
+            XCTAssert(threads == [thread1, thread2])
+            cache.setThreads(threads: [thread2, thread1], forFid: 2, typeid: 0)
+            let threads2 = cache.threads(forFid: 2, typeid: 0)!
+            XCTAssert(threads2 == [thread2, thread1])
         }
     }
 }
