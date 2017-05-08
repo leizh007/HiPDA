@@ -123,3 +123,31 @@ extension BaseTableView: TapToLoadDelegate {
         dataLoadDelegate?.loadNewData()
     }
 }
+
+// MARK: - Data Load
+
+extension BaseTableView {
+    func refreshing() {
+        mj_header.beginRefreshing()
+    }
+    
+    func endRefreshing() {
+        mj_header.endRefreshing()
+    }
+    
+    func loadMore() {
+        mj_footer.beginRefreshing()
+    }
+    
+    func endLoadMore() {
+        mj_footer.endRefreshing()
+    }
+    
+    func endLoadMoreWithNoMoreData() {
+        mj_footer.endRefreshingWithNoMoreData()
+    }
+    
+    func resetNoMoreData() {
+        mj_footer.resetNoMoreData()
+    }
+}

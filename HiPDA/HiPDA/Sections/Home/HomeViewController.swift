@@ -138,9 +138,9 @@ extension HomeViewController {
                     self.tableView.reloadData()
                     self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1.0, height: 1.0), animated: true)
                 } else {
-                    self.tableView.mj_header.endRefreshing()
-                    self.tableView.mj_footer.resetNoMoreData()
-                    self.tableView.mj_footer.endRefreshing()
+                    self.tableView.endRefreshing()
+                    self.tableView.resetNoMoreData()
+                    self.tableView.endLoadMore()
                     self.tableView.status = .loading
                     self.viewModel.loadData { result in
                         self.handleDataLoadResult(result)
@@ -163,8 +163,13 @@ extension HomeViewController {
         switch result {
         case .success(_):
             tableView.reloadData()
-            tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1.0, height: 1.0), animated: true)
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             tableView.status = .normal
+            delay(seconds: 0.25) {
+                if self.viewModel.isThreadsOutOfDate {
+                    self.tableView.refreshing()
+                }
+            }
         case .failure(let error):
             tableView.status = .tapToLoad
             showPromptInformation(of: .failure("\(error)"))
@@ -227,7 +232,7 @@ extension HomeViewController: TableViewDataLoadDelegate {
             case .success(_):
                 self.tableView.reloadData()
                 self.tableView.status = .normal
-                self.tableView.mj_header.endRefreshing()
+                self.tableView.endRefreshing()
             case .failure(let error):
                 if self.tableView.status == .loading {
                     self.tableView.status = .tapToLoad
@@ -235,7 +240,7 @@ extension HomeViewController: TableViewDataLoadDelegate {
                     self.tableView.status = .normal
                 }
                 self.showPromptInformation(of: .failure("\(error)"))
-                self.tableView.mj_header.endRefreshing()
+                self.tableView.endRefreshing()
             }
         }
     }
@@ -247,16 +252,16 @@ extension HomeViewController: TableViewDataLoadDelegate {
             case .success(_):
                 self.tableView.reloadData()
                 if !self.viewModel.canLoadMoreData {
-                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                    self.tableView.endLoadMoreWithNoMoreData()
                 } else {
-                    self.tableView.mj_footer.endRefreshing()
-                    self.tableView.mj_footer.resetNoMoreData()
+                    self.tableView.endLoadMore()
+                    self.tableView.resetNoMoreData()
                 }
                 self.tableView.status = .normal
             case .failure(let error):
                 self.tableView.status = .normal
                 self.showPromptInformation(of: .failure("\(error)"))
-                self.tableView.mj_footer.endRefreshing()
+                self.tableView.endLoadMore()
             }
         }
     }

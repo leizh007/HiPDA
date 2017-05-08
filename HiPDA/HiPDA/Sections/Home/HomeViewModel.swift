@@ -9,6 +9,9 @@
 import Foundation
 import RxSwift
 
+/// 帖子列表过时时间为一小时
+private let kThreadsOutOfDateTimeInterval = 60.0 * 60.0
+
 class HomeViewModel {
     var forumNames: [String] {
         return Settings.shared.activeForumNameList
@@ -50,6 +53,11 @@ class HomeViewModel {
     var canLoadMoreData: Bool {
         return managerDic[selectedForumName] != nil &&
             managerDic[selectedForumName]!.totalPage > managerDic[selectedForumName]!.page
+    }
+    
+    /// 帖子数据是否过时
+    var isThreadsOutOfDate: Bool {
+        return Date().timeIntervalSince1970 - manager.timeStamp > kThreadsOutOfDateTimeInterval
     }
     
     fileprivate var manager: HiPDAThreadManager {

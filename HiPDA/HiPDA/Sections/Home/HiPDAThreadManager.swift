@@ -13,6 +13,7 @@ import Curry
 import SDWebImage
 
 private let kTotalPageKey = "totalPage"
+private let kTimeStamp = "timeStamp"
 
 typealias HiPDAThreadsFetchCompletion = (HiPDAThreadsResult) -> ()
 
@@ -27,6 +28,10 @@ private enum HiPDAThreadManagerState {
     case loadingMore
 }
 
+fileprivate func key(forFid fid: Int, typeid: Int, addtionalKey: String) -> String {
+    return "fid=\(fid)&typeid=\(typeid)&addtionalKey=\(addtionalKey)"
+}
+
 /// 帖子列表网络请求管理
 class HiPDAThreadManager {
     /// 帖子列表
@@ -37,6 +42,9 @@ class HiPDAThreadManager {
     
     /// 总页数
     fileprivate(set) var totalPage: Int
+    
+    /// 更新时的时间戳
+    fileprivate(set) var timeStamp: Double
     
     /// 论坛id
     let fid: Int
@@ -55,7 +63,10 @@ class HiPDAThreadManager {
         self.page = 1
         self.fid = fid
         self.typeid = typeid
-        self.totalPage = (CacheManager.threads.instance?.object(forKey: kTotalPageKey) as? NSNumber)?.intValue ?? 1
+        let totalPageKey = key(forFid: fid, typeid: typeid, addtionalKey: kTotalPageKey)
+        self.totalPage = (CacheManager.threads.instance?.object(forKey: totalPageKey) as? NSNumber)?.intValue ?? 1
+        let timeStampKey = key(forFid: fid, typeid: typeid, addtionalKey: kTimeStamp)
+        self.timeStamp = (CacheManager.threads.instance?.object(forKey: timeStampKey) as? NSNumber)?.doubleValue ?? 0.0
     }
     
     /// 获取第一页帖子列表
@@ -141,16 +152,21 @@ class HiPDAThreadManager {
                 }
                 .observeOn(MainScheduler.instance)
                 .do(onNext: { [weak self] threads in
+                    let timeStamp = Date().timeIntervalSince1970
                     /// 添加到关注列表中
                     CacheManager.attention.instance?.addThreadsToAttention(threads: threads)
                     
                     if page == 1 {
                         /// 添加到缓存中
                         CacheManager.threads.instance?.setThreads(threads: threads, forFid: fid, typeid: typeid)
-                        CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
+                        let totalPageKey = key(forFid: fid, typeid: typeid, addtionalKey: kTotalPageKey)
+                        CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: totalPageKey)
+                        let timeStampKey = key(forFid: fid, typeid: typeid, addtionalKey: kTimeStamp)
+                        CacheManager.threads.instance?.setObject(timeStamp as NSNumber, forKey: timeStampKey)
                     }
                     
                     self?.totalPage = totalPage
+                    self?.timeStamp = timeStamp
                     /// 预加载用户头像
                     let urls = threads.map { $0.user.avatarImageURL }
                     SDWebImagePrefetcher.shared().prefetchURLs(urls)
