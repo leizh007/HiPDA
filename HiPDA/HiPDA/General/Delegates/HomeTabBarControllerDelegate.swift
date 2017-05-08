@@ -10,7 +10,15 @@ import UIKit
 
 /// 主页TabBarController的Delegate
 class HomeTabBarControllerDelegate: NSObject, UITabBarControllerDelegate {
+    var lastSelectedIndex = 0
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex != lastSelectedIndex {
+            lastSelectedIndex = tabBarController.selectedIndex
+        } else {
+            NotificationCenter.default.post(name: .HomeViewControllerTabRepeatedSelected, object: nil)
+        }
+        
+        /// 处理动画相关
         let tabBar = tabBarController.tabBar
         guard let tabbarItem = tabBar.selectedItem else { return }
         

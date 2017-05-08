@@ -17,6 +17,7 @@
 		0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507EB281D6DD80200D4D23F /* HelperTests.swift */; };
 		05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */; };
 		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
+		050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */; };
 		050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3141DD1FB7F00C4B18D /* Login.storyboard */; };
 		050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */; };
 		050EE3221DD200AA00C4B18D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3201DD200AA00C4B18D /* Main.storyboard */; };
@@ -169,6 +170,7 @@
 		0507EB281D6DD80200D4D23F /* HelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextInput+HiPDA.swift"; sourceTree = "<group>"; };
 		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+HiPDA.swift"; sourceTree = "<group>"; };
 		050EE3141DD1FB7F00C4B18D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickerActionSheet.storyboard; sourceTree = "<group>"; };
 		050EE3211DD200AA00C4B18D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				05B5067D1D6C9610004D573D /* UITableView+HiPDA.swift */,
+				050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */,
 				05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */,
 				05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */,
 				05EFBF421D86EA220028EC40 /* CALayer+HiPDA.swift */,
@@ -1164,6 +1167,7 @@
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
+				050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,

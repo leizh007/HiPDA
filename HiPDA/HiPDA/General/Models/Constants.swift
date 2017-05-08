@@ -27,6 +27,8 @@ let kNavigationBarHeight = 44.0
 /// Tabbar的tint color
 let kTabbarTintColor = #colorLiteral(red: 0.1137254902, green: 0.6352941176, blue: 0.9490196078, alpha: 1)
 
-
 /// NavigationBar的tint color
 let kNavigationBarTintColor = #colorLiteral(red: 0.1137254902, green: 0.6352941176, blue: 0.9490196078, alpha: 1)
+
+/// 主页在tabbarController中的下标
+let kHomeViewControllerIndex = 0

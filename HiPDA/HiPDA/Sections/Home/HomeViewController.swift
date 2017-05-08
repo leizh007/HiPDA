@@ -52,6 +52,15 @@ class HomeViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.dataLoadDelegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(homeViewControllerTabRepeatedSelected), name: .HomeViewControllerTabRepeatedSelected, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func homeViewControllerTabRepeatedSelected() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -133,14 +142,21 @@ extension HomeViewController {
             .filter { $0 }
             .drive(onNext: { [weak self] value in
                 guard let `self` = self else { return }
+                self.tableView.endRefreshing()
+                self.tableView.resetNoMoreData()
+                self.tableView.endLoadMore()
                 if self.viewModel.hasData {
-                    self.tableView.status = .normal
                     self.tableView.reloadData()
-                    self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1.0, height: 1.0), animated: true)
+                    CATransaction.begin()
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    self.tableView.status = .normal
+                    CATransaction.setCompletionBlock {
+                        if self.viewModel.isThreadsOutOfDate {
+                            self.tableView.refreshing()
+                        }
+                    }
+                    CATransaction.commit()
                 } else {
-                    self.tableView.endRefreshing()
-                    self.tableView.resetNoMoreData()
-                    self.tableView.endLoadMore()
                     self.tableView.status = .loading
                     self.viewModel.loadData { result in
                         self.handleDataLoadResult(result)
@@ -163,13 +179,15 @@ extension HomeViewController {
         switch result {
         case .success(_):
             tableView.reloadData()
+            CATransaction.begin()
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             tableView.status = .normal
-            delay(seconds: 0.25) {
+            CATransaction.setCompletionBlock {
                 if self.viewModel.isThreadsOutOfDate {
                     self.tableView.refreshing()
                 }
             }
+            CATransaction.commit()
         case .failure(let error):
             tableView.status = .tapToLoad
             showPromptInformation(of: .failure("\(error)"))
