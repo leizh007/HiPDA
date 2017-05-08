@@ -14,24 +14,23 @@ import HandyJSON
 // MARK: - Associated Object
 private var kTidsKey: Void?
 private var kLRUKey: Void?
-
-private let _lock = NSRecursiveLock()
+private var kLockKey: Void?
 
 extension YYCache {
     /// 帖子id的数组，0到N-1按时间从近到远
     var tids: [Int] {
         get {
-            _lock.lock()
+            lock?.lock()
             defer {
-                _lock.unlock()
+                lock?.unlock()
             }
             return objc_getAssociatedObject(self, &kTidsKey) as? [Int] ?? []
         }
         
         set {
-            _lock.lock()
+            lock?.lock()
             defer {
-                _lock.unlock()
+                lock?.unlock()
             }
             objc_setAssociatedObject(self, &kTidsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
@@ -45,6 +44,16 @@ extension YYCache {
         
         set {
             objc_setAssociatedObject(self, &kLRUKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    var lock: NSRecursiveLock? {
+        get {
+            return objc_getAssociatedObject(self, &kLockKey) as? NSRecursiveLock
+        }
+        
+        set {
+            objc_setAssociatedObject(self, &kLockKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

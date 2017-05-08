@@ -30,8 +30,14 @@ enum CacheManager: String {
     // FIXME: -  待优化
     private static let cacheCountLimit = UInt(200)
     
+    private static let lock = NSRecursiveLock()
+    
     /// 缓存实例
     var instance: YYCache? {
+        CacheManager.lock.lock()
+        defer {
+            CacheManager.lock.unlock()
+        }
         guard CacheManager.dic[self.rawValue] == nil else {
             return CacheManager.dic[self.rawValue]
         }
@@ -48,6 +54,7 @@ enum CacheManager: String {
     ///
     /// - Parameter cache: YYCache
     private func skinCache(_ cache: YYCache) {
+        cache.lock = NSRecursiveLock()
         var countLimit = CacheManager.cacheCountLimit
         
         /// 目前只有浏览历史的条数可以用户自己设定
