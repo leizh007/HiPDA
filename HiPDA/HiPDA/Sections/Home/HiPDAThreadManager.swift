@@ -150,8 +150,7 @@ class HiPDAThreadManager {
                             return true
                         }
                 }
-                .observeOn(MainScheduler.instance)
-                .do(onNext: { [weak self] threads in
+                .do(onNext: { threads in
                     let timeStamp = Date().timeIntervalSince1970
                     /// 添加到关注列表中
                     CacheManager.attention.instance?.addThreadsToAttention(threads: threads)
@@ -165,11 +164,14 @@ class HiPDAThreadManager {
                         CacheManager.threads.instance?.setObject(timeStamp as NSNumber, forKey: timeStampKey)
                     }
                     
-                    self?.totalPage = totalPage
-                    self?.timeStamp = timeStamp
                     /// 预加载用户头像
                     let urls = threads.map { $0.user.avatarImageURL }
                     SDWebImagePrefetcher.shared().prefetchURLs(urls)
+                })
+                .observeOn(MainScheduler.instance)
+                .do(onNext: { [weak self] threads in
+                    self?.totalPage = totalPage
+                    self?.timeStamp = Date().timeIntervalSince1970
                 })
                 .subscribe { event in
                     switch event {

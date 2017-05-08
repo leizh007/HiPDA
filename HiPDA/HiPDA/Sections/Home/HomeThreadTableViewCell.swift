@@ -37,7 +37,7 @@ class HomeThreadTableViewCell: UITableViewCell {
                 guard let `self` = self else { return }
                 let image = image ?? #imageLiteral(resourceName: "avatar_placeholder")
                 DispatchQueue.global().async {
-                    let corneredImage = image.image(roundCornerRadius: 15.0, borderWidth: 1.0, borderColor: .lightGray)
+                    let corneredImage = image.image(roundCornerRadius: 7.5 * kScreenScale, borderWidth: 1.0, borderColor: .lightGray, size: CGSize(width: 34.0 * kScreenScale, height: 34.0 * kScreenScale))
                     DispatchQueue.main.async {
                         guard threadModel.avatarImageURL.absoluteString == self.threadModel?.avatarImageURL.absoluteString ?? "" else { return }
                         self.avatarImageView.image = corneredImage

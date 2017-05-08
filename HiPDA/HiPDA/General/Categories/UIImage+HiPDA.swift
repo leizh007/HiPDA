@@ -26,7 +26,7 @@ extension UIImage {
     }
     
     //https://github.com/ibireme/YYWebImage/blob/e8009ae33bb30ac6a1158022fa216a932310c857/YYWebImage/Categories/UIImage%2BYYWebImage.m
-    func image(roundCornerRadius radius: CGFloat, corners: UIRectCorner, borderWidth: CGFloat, borderColor: UIColor, borderLineJoin: CGLineJoin) -> UIImage? {
+    func image(roundCornerRadius radius: CGFloat, corners: UIRectCorner, borderWidth: CGFloat, borderColor: UIColor, borderLineJoin: CGLineJoin, size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -65,7 +65,7 @@ extension UIImage {
         return image
     }
     
-    func image(roundCornerRadius radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) -> UIImage? {
-        return image(roundCornerRadius: radius, corners: .allCorners, borderWidth: borderWidth, borderColor: borderColor, borderLineJoin: .miter)
+    func image(roundCornerRadius radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor, size: CGSize) -> UIImage? {
+        return image(roundCornerRadius: radius, corners: .allCorners, borderWidth: borderWidth, borderColor: borderColor, borderLineJoin: .miter, size: size)
     }
 }
