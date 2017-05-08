@@ -69,6 +69,13 @@ class HiPDAThreadManager {
         self.timeStamp = (CacheManager.threads.instance?.object(forKey: timeStampKey) as? NSNumber)?.doubleValue ?? 0.0
     }
     
+    /// 删除帖子
+    ///
+    /// - Parameter index: 帖子所在的下标
+    func deleteThread(at index: Int) {
+        threads.remove(at: index)
+    }
+    
     /// 获取第一页帖子列表
     ///
     /// - Parameter completion: 返回帖子列表获取结果

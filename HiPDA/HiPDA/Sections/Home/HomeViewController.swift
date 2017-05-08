@@ -309,6 +309,20 @@ extension HomeViewController: UITableViewDelegate {
         viewModel.readThread(at: indexPath.row)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "删除") { [weak self] action, index in
+            self?.viewModel.deleteThread(at: editActionsForRowAt.row)
+            self?.tableView.deleteRows(at: [editActionsForRowAt], with: .automatic)
+        }
+        
+        let addThreadUserToUserBlock = UITableViewRowAction(style: .normal, title: "屏蔽") { [weak self] action, index in
+            self?.viewModel.addThreadUserToUserBlock(at: editActionsForRowAt.row)
+            self?.tableView.deleteRows(at: [editActionsForRowAt], with: .automatic)
+        }
+        
+        return [delete, addThreadUserToUserBlock]
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -327,5 +341,9 @@ extension HomeViewController: UITableViewDataSource {
         cell.threadModel = viewModel.threadModel(at: indexPath.row)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }

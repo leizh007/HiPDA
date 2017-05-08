@@ -13,12 +13,14 @@ import RxSwift
 private let kThreadsOutOfDateTimeInterval = 60.0 * 60.0
 
 class HomeViewModel {
+    /// 论坛列表
     var forumNames: [String] {
         return Settings.shared.activeForumNameList
     }
     
     private var _selectedForumName: String = Settings.shared.activeForumNameList.first ?? ""
     
+    /// 当前选择的论坛名称
     var selectedForumName: String {
         get {
             if !forumNames.contains(_selectedForumName) {
@@ -43,6 +45,7 @@ class HomeViewModel {
         return Status.calledNumber == 1 || oldForumName != newForumName || !hasData
     }
     
+    /// 是否有数据
     var hasData: Bool {
         return managerDic[selectedForumName] != nil && managerDic[selectedForumName]!.threads.count > 0
     }
@@ -74,30 +77,57 @@ class HomeViewModel {
     }
     
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMemoryWarning(application:)),
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMemoryWarning),
                                                name: .UIApplicationDidReceiveMemoryWarning,
                                                object: nil)
     }
     
-    @objc func didReceiveMemoryWarning(application: UIApplication) {
+    /// 收到内存警告
+    @objc func didReceiveMemoryWarning() {
         let manager = self.manager
         managerDic = [:]
         managerDic[selectedForumName] = manager
     }
     
+    /// 阅读帖子
+    ///
+    /// - Parameter index: 帖子下标
     func readThread(at index: Int) {
         guard let thread = manager.threads.safe[index] else { return }
         CacheManager.threadsReadHistory.instance?.addThread(thread)
+    }
+    
+    /// 删除帖子
+    ///
+    /// - Parameter index: 帖子所在的下标
+    func deleteThread(at index: Int) {
+        manager.deleteThread(at: index)
+    }
+    
+    /// 将该帖子的作者加到黑名单中
+    ///
+    /// - Parameter index: 帖子所在的下标
+    func addThreadUserToUserBlock(at index: Int) {
+        guard let thread = manager.threads.safe[index] else { return }
+        Settings.shared.userBlockList.append(thread.user.name)
+        deleteThread(at: index)
     }
 }
 
 // MARK: - DataSource
 
 extension HomeViewModel {
+    /// 帖子数目
+    ///
+    /// - Returns: 帖子数目
     func numberOfThreads() -> Int {
         return managerDic[selectedForumName]?.threads.count ?? 0
     }
     
+    /// 返回指定下标的帖子模型
+    ///
+    /// - Parameter index: 下标
+    /// - Returns: 下标所在的帖子模型
     func threadModel(at index: Int) -> HomeThreadModel? {
         guard let thread = manager.threads.safe[index] else { return nil }
         let userName = Settings.shared.isEnabledUserRemark ? (Settings.shared.userRemarkDictionary[thread.user.name] ?? thread.user.name) : thread.user.name
