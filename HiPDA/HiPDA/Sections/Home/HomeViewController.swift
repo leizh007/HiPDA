@@ -305,6 +305,9 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        viewModel.readThread(at: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 

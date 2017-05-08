@@ -84,6 +84,11 @@ class HomeViewModel {
         managerDic = [:]
         managerDic[selectedForumName] = manager
     }
+    
+    func readThread(at index: Int) {
+        guard let thread = manager.threads.safe[index] else { return }
+        CacheManager.threadsReadHistory.instance?.addThread(thread)
+    }
 }
 
 // MARK: - DataSource
@@ -95,8 +100,9 @@ extension HomeViewModel {
     
     func threadModel(at index: Int) -> HomeThreadModel? {
         guard let thread = manager.threads.safe[index] else { return nil }
+        let userName = Settings.shared.isEnabledUserRemark ? (Settings.shared.userRemarkDictionary[thread.user.name] ?? thread.user.name) : thread.user.name
         return HomeThreadModel(avatarImageURL: thread.user.avatarImageURL,
-                               userName: thread.user.name,
+                               userName: userName,
                                replyCount: thread.replyCount,
                                readCount: thread.readCount,
                                timeString: thread.postTime.descriptionTimeStringForThread,

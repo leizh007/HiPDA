@@ -60,6 +60,7 @@ class BaseTableView: UITableView {
                     self?.dataLoadDelegate?.loadNewData()
                 }
                 header?.lastUpdatedTimeLabel.isHidden = true
+                header?.stateLabel.textColor = #colorLiteral(red: 0.3977642059, green: 0.4658440351, blue: 0.5242295265, alpha: 1)
                 mj_header = header
             } else {
                 mj_header = nil
@@ -69,10 +70,16 @@ class BaseTableView: UITableView {
     
     var hasLoadMoreFooter = false {
         didSet {
-            mj_footer = hasLoadMoreFooter ? MJRefreshAutoNormalFooter { [weak self] _ in
-                self?.status = .pullUpLoading
-                self?.dataLoadDelegate?.loadMoreData()
-            } : nil
+            if hasLoadMoreFooter {
+                let footer = MJRefreshAutoNormalFooter { [weak self] _ in
+                    self?.status = .pullUpLoading
+                    self?.dataLoadDelegate?.loadMoreData()
+                }
+                footer?.stateLabel.textColor = #colorLiteral(red: 0.3977642059, green: 0.4658440351, blue: 0.5242295265, alpha: 1)
+                mj_footer = footer
+            } else {
+                mj_footer = nil
+            }
         }
     }
     
