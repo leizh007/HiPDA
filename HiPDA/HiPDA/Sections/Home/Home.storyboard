@@ -95,7 +95,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="TMR-dW-upy" secondAttribute="bottom" constant="8" id="yYq-Oc-4hE"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="avatarImageView" destination="zhB-ZP-8td" id="jSy-HR-O4v"/>
                                             <outlet property="nameLabel" destination="Rm5-BA-6it" id="7Gp-Bs-ZHV"/>

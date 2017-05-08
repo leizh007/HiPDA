@@ -117,14 +117,13 @@ class HiPDAThreadManager {
         let fid = self.fid
         let typeid = self.typeid
         let userBlockSet = Set(Settings.shared.userBlockList)
-        let totalPage = self.totalPage
+        var totalPage = self.totalPage
         return Observable.create { observer in
             HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page))
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
                 .mapGBKString()
-                .do(onNext: { [weak self] htmlString in
-                    guard let `self` = self, page == 1 else { return }
-                    self.totalPage = try HtmlParser.totalPage(from: htmlString)
+                .do(onNext: { htmlString in
+                    totalPage = try HtmlParser.totalPage(from: htmlString)
                 })
                 .map {
                     return try HtmlParser.threads(from: $0).filter {
@@ -140,7 +139,8 @@ class HiPDAThreadManager {
                             return true
                         }
                 }
-                .do(onNext: { threads in
+                .observeOn(MainScheduler.instance)
+                .do(onNext: { [weak self] threads in
                     /// 添加到关注列表中
                     CacheManager.attention.instance?.addThreadsToAttention(threads: threads)
                     
@@ -150,11 +150,11 @@ class HiPDAThreadManager {
                         CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
                     }
                     
+                    self?.totalPage = totalPage
                     /// 预加载用户头像
                     let urls = threads.map { $0.user.avatarImageURL }
                     SDWebImagePrefetcher.shared().prefetchURLs(urls)
                 })
-                .observeOn(MainScheduler.instance)
                 .subscribe { event in
                     switch event {
                     case let .next(threads):

@@ -138,6 +138,9 @@ extension HomeViewController {
                     self.tableView.reloadData()
                     self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1.0, height: 1.0), animated: true)
                 } else {
+                    self.tableView.mj_header.endRefreshing()
+                    self.tableView.mj_footer.resetNoMoreData()
+                    self.tableView.mj_footer.endRefreshing()
                     self.tableView.status = .loading
                     self.viewModel.loadData { result in
                         self.handleDataLoadResult(result)
@@ -153,25 +156,18 @@ extension HomeViewController {
         forumName = name
     }
     
+    /// 处理刷新数据的结果
+    ///
+    /// - Parameter result: 获取帖子列表的结果
     fileprivate func handleDataLoadResult(_ result: HiPDAThreadsResult) {
         switch result {
         case .success(_):
             tableView.reloadData()
-            if tableView.status == .pullUpLoading && !viewModel.canLoadMoreData {
-                tableView.mj_footer.endRefreshingWithNoMoreData()
-            } else {
-                tableView.mj_footer.endRefreshing()
-                tableView.mj_footer.resetNoMoreData()
-            }
+            tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1.0, height: 1.0), animated: true)
             tableView.status = .normal
-            tableView.mj_header.endRefreshing()
         case .failure(let error):
-            if tableView.status == .loading {
-                tableView.status = .tapToLoad
-            }
+            tableView.status = .tapToLoad
             showPromptInformation(of: .failure("\(error)"))
-            tableView.mj_header.endRefreshing()
-            tableView.mj_footer.endRefreshing()
         }
     }
 }
@@ -226,13 +222,42 @@ extension HomeViewController: ForumNameSelectionDelegate {
 extension HomeViewController: TableViewDataLoadDelegate {
     func loadNewData() {
         viewModel.refreshData { [weak self] result in
-            self?.handleDataLoadResult(result)
+            guard let `self` = self else { return }
+            switch result {
+            case .success(_):
+                self.tableView.reloadData()
+                self.tableView.status = .normal
+                self.tableView.mj_header.endRefreshing()
+            case .failure(let error):
+                if self.tableView.status == .loading {
+                    self.tableView.status = .tapToLoad
+                } else {
+                    self.tableView.status = .normal
+                }
+                self.showPromptInformation(of: .failure("\(error)"))
+                self.tableView.mj_header.endRefreshing()
+            }
         }
     }
     
     func loadMoreData() {
         viewModel.loadMoreData { [weak self] result in
-            self?.handleDataLoadResult(result)
+            guard let `self` = self else { return }
+            switch result {
+            case .success(_):
+                self.tableView.reloadData()
+                if !self.viewModel.canLoadMoreData {
+                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self.tableView.mj_footer.endRefreshing()
+                    self.tableView.mj_footer.resetNoMoreData()
+                }
+                self.tableView.status = .normal
+            case .failure(let error):
+                self.tableView.status = .normal
+                self.showPromptInformation(of: .failure("\(error)"))
+                self.tableView.mj_footer.endRefreshing()
+            }
         }
     }
 }

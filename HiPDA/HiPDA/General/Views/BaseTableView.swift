@@ -56,6 +56,7 @@ class BaseTableView: UITableView {
         didSet {
             if hasRefreshHeader {
                 let header = MJRefreshNormalHeader { [weak self] _ in
+                    self?.status = .pullDownRefreshing
                     self?.dataLoadDelegate?.loadNewData()
                 }
                 header?.lastUpdatedTimeLabel.isHidden = true
@@ -69,6 +70,7 @@ class BaseTableView: UITableView {
     var hasLoadMoreFooter = false {
         didSet {
             mj_footer = hasLoadMoreFooter ? MJRefreshAutoNormalFooter { [weak self] _ in
+                self?.status = .pullUpLoading
                 self?.dataLoadDelegate?.loadMoreData()
             } : nil
         }
@@ -117,6 +119,7 @@ class BaseTableView: UITableView {
 
 extension BaseTableView: TapToLoadDelegate {
     func tapToLoad() {
+        status = .loading
         dataLoadDelegate?.loadNewData()
     }
 }

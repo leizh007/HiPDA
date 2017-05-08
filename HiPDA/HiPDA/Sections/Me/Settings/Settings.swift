@@ -361,6 +361,7 @@ extension Reactive where Base: Settings {
         return UIBindingObserver(UIElement: base) { (settings, loginResult) in
             if let loginResult = loginResult, case let .success(account) = loginResult {
                 settings.activeAccount = account
+                settings.save()
             } else {
                 settings.activeAccount = nil
             }
