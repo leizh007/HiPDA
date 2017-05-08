@@ -47,15 +47,15 @@ extension String {
         case let days where days < 24 * 7 * 60 :
             descriptionTimeString = String(format: "%d天前", Int(floor(days / (24 * 60))))
         case let lastWeak where lastWeak < 24 * 14 * 60 :
-            descriptionTimeString = "上周"
+            descriptionTimeString = "1周前"
         case let weaks where weaks < 24 * 60 * 31 :
             descriptionTimeString = String(format: "%d周前", Int(floor(weaks / (24 * 60 * 7))))
         case let lastMonth where lastMonth < 24 * 60 * 61 :
-            descriptionTimeString  = "上个月"
+            descriptionTimeString  = "1个月前"
         case let months where months < 24 * 60 * 365.25 :
-            descriptionTimeString = String(format: "%d月前", Int(floor(months / (24 * 60 * 30))))
+            descriptionTimeString = String(format: "%d个月前", Int(floor(months / (24 * 60 * 30))))
         case let lastYear where lastYear < 24 * 60 * 731 :
-            descriptionTimeString = "去年"
+            descriptionTimeString = "1年前"
         default:
             descriptionTimeString = String(format: "%d年前", Int(floor(deltaMinutes / (24 * 60 * 365))))
         }
