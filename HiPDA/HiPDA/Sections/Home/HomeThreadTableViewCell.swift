@@ -33,11 +33,10 @@ class HomeThreadTableViewCell: UITableViewCell {
             readCountLabel.text = "\(threadModel.readCount)"
             replyCountLabel.text = "\(threadModel.replyCount)"
             titleLabel.text = threadModel.title
-            avatarImageView.sd_setImage(with: threadModel.avatarImageURL, placeholderImage: nil, options: [.avoidAutoSetImage]) { [weak self] (image, _, _, _) in
-                guard let `self` = self else { return }
-                let image = image ?? #imageLiteral(resourceName: "avatar_placeholder")
+            avatarImageView.sd_setImage(with: threadModel.avatarImageURL, placeholderImage: Avatar.placeholder, options: [.avoidAutoSetImage]) { [weak self] (image, _, _, _) in
+                guard let `self` = self, let image = image else { return }
                 DispatchQueue.global().async {
-                    let corneredImage = image.image(roundCornerRadius: 7.5 * kScreenScale, borderWidth: 1.0, borderColor: .lightGray, size: CGSize(width: 34.0 * kScreenScale, height: 34.0 * kScreenScale))
+                    let corneredImage = image.image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))
                     DispatchQueue.main.async {
                         guard threadModel.avatarImageURL.absoluteString == self.threadModel?.avatarImageURL.absoluteString ?? "" else { return }
                         self.avatarImageView.image = corneredImage

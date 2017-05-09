@@ -103,6 +103,7 @@
 		05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130681E019415007D3765 /* EditWordListViewController.swift */; };
 		05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */; };
 		05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */; };
+		05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DD42AD1EC21A5F007F0EBE /* Avatar.swift */; };
 		05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */; };
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
@@ -269,6 +270,7 @@
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerActionSheetController.swift; sourceTree = "<group>"; };
+		05DD42AD1EC21A5F007F0EBE /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+HiPDA.swift"; sourceTree = "<group>"; };
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				055996A21D50DB4500057CF6 /* Serializable.swift */,
 				055996A41D50DB4500057CF6 /* User.swift */,
 				05645C7A1D75D60900B86D0A /* Constants.swift */,
+				05DD42AD1EC21A5F007F0EBE /* Avatar.swift */,
 				058A71731DA1E407004992AD /* Lens.swift */,
 				05416C881D903CB200049AA0 /* Result.swift */,
 				05068AF91E097A8C0070E044 /* TableViewState.swift */,
@@ -1127,6 +1130,7 @@
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
 				051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
+				05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05A2AF991E2385B00048508C /* ForumManager.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
