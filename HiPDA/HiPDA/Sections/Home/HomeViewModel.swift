@@ -82,6 +82,10 @@ class HomeViewModel {
                                                object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     /// 收到内存警告
     @objc func didReceiveMemoryWarning() {
         let manager = self.manager
