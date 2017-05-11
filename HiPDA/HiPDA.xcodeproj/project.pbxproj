@@ -104,6 +104,7 @@
 		05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */; };
 		05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */; };
 		05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DD42AD1EC21A5F007F0EBE /* Avatar.swift */; };
+		05DD42EC1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD42EB1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m */; };
 		05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */; };
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
@@ -271,6 +272,8 @@
 		05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerActionSheetController.swift; sourceTree = "<group>"; };
 		05DD42AD1EC21A5F007F0EBE /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		05DD42EA1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WebKitSupport.h"; sourceTree = "<group>"; };
+		05DD42EB1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
 		05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+HiPDA.swift"; sourceTree = "<group>"; };
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
@@ -488,6 +491,7 @@
 		055996B11D50DB6A00057CF6 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				05DD42E91EC47C23007F0EBE /* NSURLProtocol-WebKitSupport */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -643,6 +647,15 @@
 				05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */,
 			);
 			path = HiPDAUITests;
+			sourceTree = "<group>";
+		};
+		05DD42E91EC47C23007F0EBE /* NSURLProtocol-WebKitSupport */ = {
+			isa = PBXGroup;
+			children = (
+				05DD42EA1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.h */,
+				05DD42EB1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m */,
+			);
+			path = "NSURLProtocol-WebKitSupport";
 			sourceTree = "<group>";
 		};
 		05E9A26C1D7ACFDB0096878B /* Home */ = {
@@ -1192,6 +1205,7 @@
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
+				05DD42EC1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

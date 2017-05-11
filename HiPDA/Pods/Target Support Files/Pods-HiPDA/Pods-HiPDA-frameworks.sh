@@ -111,6 +111,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Then/Then.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/WebViewJavascriptBridge/WebViewJavascriptBridge.framework"
   install_framework "$BUILT_PRODUCTS_DIR/YYCache/YYCache.framework"
   install_framework "$BUILT_PRODUCTS_DIR/YYKeyboardManager/YYKeyboardManager.framework"
 fi
@@ -136,6 +137,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Then/Then.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/WebViewJavascriptBridge/WebViewJavascriptBridge.framework"
   install_framework "$BUILT_PRODUCTS_DIR/YYCache/YYCache.framework"
   install_framework "$BUILT_PRODUCTS_DIR/YYKeyboardManager/YYKeyboardManager.framework"
 fi

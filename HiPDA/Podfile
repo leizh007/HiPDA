@@ -53,6 +53,7 @@ target 'HiPDA' do
   pod 'YYCache', '~> 1.0.4'
   pod 'MJRefresh', '~> 3.1.12'
   pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
+  pod 'WebViewJavascriptBridge', '~> 6.0.2'
     
   target 'HiPDATests' do
     inherit! :search_paths
