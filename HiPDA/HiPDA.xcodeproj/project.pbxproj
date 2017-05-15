@@ -119,6 +119,8 @@
 		05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */; };
 		05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCEE1DDCAB890095E95D /* NoResultView.swift */; };
 		05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCF01DDCB0450095E95D /* XibLoadable.swift */; };
+		05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE51551EC9521700BC81B4 /* PostViewController.swift */; };
+		05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */; };
 		05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF20A1EBC566B00C38CAD /* CacheManager.swift */; };
 		05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2111EBC6A8B00C38CAD /* Box.swift */; };
 		05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */; };
@@ -288,6 +290,8 @@
 		05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultView.xib; sourceTree = "<group>"; };
 		05EDDCEE1DDCAB890095E95D /* NoResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
 		05EDDCF01DDCB0450095E95D /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
+		05EE51551EC9521700BC81B4 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadViewController.swift; sourceTree = "<group>"; };
 		05EEF20A1EBC566B00C38CAD /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		05EEF2111EBC6A8B00C38CAD /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+HiPDA.swift"; sourceTree = "<group>"; };
@@ -674,6 +678,8 @@
 				059D495E1EBB1D2900BECA18 /* HiPDAThreadResult.swift */,
 				05EEF20A1EBC566B00C38CAD /* CacheManager.swift */,
 				05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */,
+				05EE51541EC9517000BC81B4 /* Post */,
+				05EE51571EC9570700BC81B4 /* NewThread */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -716,6 +722,22 @@
 				050EE3141DD1FB7F00C4B18D /* Login.storyboard */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		05EE51541EC9517000BC81B4 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		05EE51571EC9570700BC81B4 /* NewThread */ = {
+			isa = PBXGroup;
+			children = (
+				05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */,
+			);
+			path = NewThread;
 			sourceTree = "<group>";
 		};
 		05F3DCD61DB7B46E0061CED1 /* Network */ = {
@@ -1141,6 +1163,7 @@
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
+				05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */,
 				051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */,
@@ -1159,6 +1182,7 @@
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
+				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,

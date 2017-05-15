@@ -11,6 +11,7 @@ import Moya
 import RxSwift
 import RxCocoa
 import UITableView_FDTemplateLayoutCell
+import Perform
 
 /// 主页的ViewController
 class HomeViewController: BaseViewController {
@@ -78,7 +79,10 @@ class HomeViewController: BaseViewController {
 
 extension HomeViewController {
     func newThreadButtonPressed(_ sender: UIBarButtonItem) {
-        
+        let newThreadVC = NewThreadViewController.load(from: .home)
+        let nav = UINavigationController(rootViewController: newThreadVC)
+        nav.transitioningDelegate = self
+        present(nav, animated: true, completion: nil)
     }
 }
 
@@ -307,7 +311,11 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         viewModel.readThread(at: indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        let tid = viewModel.tid(at: indexPath.row)
+        perform(.readPost) { readPostVC in
+            readPostVC.tid = tid
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
@@ -345,5 +353,19 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+}
+
+// MARK: - Segue Extensions
+
+extension Segue {
+    /// 阅读帖子
+    static var readPost: Segue<PostViewController> {
+        return .init(identifier: "readPost")
+    }
+    
+    /// 新建帖子
+    static var newThread: Segue<NewThreadViewController> {
+        return .init(identifier: "newThread")
     }
 }

@@ -142,6 +142,14 @@ extension HomeViewModel {
                                timeString: thread.postTime.descriptionTimeStringForThread,
                                title: thread.title)
     }
+    
+    /// 帖子id
+    ///
+    /// - Parameter index: 帖子下标
+    /// - Returns: 帖子id
+    func tid(at index: Int) -> Int {
+        return manager.threads.safe[index]?.id ?? 0
+    }
 }
 
 // MARK: - 加载数据相关

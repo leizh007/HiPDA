@@ -137,6 +137,7 @@
                     <connections>
                         <outlet property="tableView" destination="J7Q-UY-WIs" id="NY7-4E-kD2"/>
                         <outlet property="titleView" destination="3qd-cd-nUS" id="DEs-6B-yDH"/>
+                        <segue destination="guR-dM-dX3" kind="show" identifier="readPost" id="ilu-LB-sa1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBD-AW-NYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -196,7 +197,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E14-uC-qbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305" y="-368"/>
+            <point key="canvasLocation" x="2244" y="-824"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="7d6-a0-zcR">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="guR-dM-dX3" customClass="PostViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JDi-nf-2jw"/>
+                        <viewControllerLayoutGuide type="bottom" id="MV6-Jp-U0r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5xi-Qb-Ggg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30J-I4-pVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="72"/>
+        </scene>
+        <!--New Thread View Controller-->
+        <scene sceneID="F27-JR-pW9">
+            <objects>
+                <viewController storyboardIdentifier="NewThreadViewController" id="Aam-EL-m2Z" customClass="NewThreadViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QbZ-gx-R6Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="rG6-NL-Q6X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gkn-1y-G6f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hq6-vL-mxp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xPQ-Ua-3ME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3279" y="-365"/>
         </scene>
     </scenes>
     <resources>
