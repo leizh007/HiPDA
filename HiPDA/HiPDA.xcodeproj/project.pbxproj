@@ -92,6 +92,7 @@
 		05BBBBC41E8026F700C6E0D3 /* NSString+HiPDA.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBBC31E8026F700C6E0D3 /* NSString+HiPDA.m */; };
 		05BC4F311D431D77002686E2 /* HiPDAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F301D431D77002686E2 /* HiPDAUITests.swift */; };
 		05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC4F341D436ADA002686E2 /* AccountTests.swift */; };
+		05BF3C8A1ECA06F6001759E9 /* PostInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BF3C891ECA06F6001759E9 /* PostInfoTests.swift */; };
 		05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */; };
 		05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */; };
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
@@ -121,6 +122,8 @@
 		05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCF01DDCB0450095E95D /* XibLoadable.swift */; };
 		05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE51551EC9521700BC81B4 /* PostViewController.swift */; };
 		05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */; };
+		05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */; };
+		05EE515D1EC9FCBF00BC81B4 /* PostRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */; };
 		05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF20A1EBC566B00C38CAD /* CacheManager.swift */; };
 		05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2111EBC6A8B00C38CAD /* Box.swift */; };
 		05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */; };
@@ -255,6 +258,7 @@
 		05BC4F2F1D431D76002686E2 /* HiPDAUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiPDAUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		05BC4F301D431D77002686E2 /* HiPDAUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAUITests.swift; sourceTree = "<group>"; };
 		05BC4F341D436ADA002686E2 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		05BF3C891ECA06F6001759E9 /* PostInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfoTests.swift; sourceTree = "<group>"; };
 		05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HiPDA.swift"; sourceTree = "<group>"; };
 		05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -292,6 +296,8 @@
 		05EDDCF01DDCB0450095E95D /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
 		05EE51551EC9521700BC81B4 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadViewController.swift; sourceTree = "<group>"; };
+		05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequestInfo.swift; sourceTree = "<group>"; };
 		05EEF20A1EBC566B00C38CAD /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		05EEF2111EBC6A8B00C38CAD /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+HiPDA.swift"; sourceTree = "<group>"; };
@@ -638,6 +644,7 @@
 				05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */,
 				059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */,
 				05EEF2151EBC773700C38CAD /* YYCacheExtensionTests.swift */,
+				05BF3C891ECA06F6001759E9 /* PostInfoTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -728,6 +735,8 @@
 			isa = PBXGroup;
 			children = (
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
+				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
+				05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -1127,6 +1136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
+				05EE515D1EC9FCBF00BC81B4 /* PostRequestInfo.swift in Sources */,
 				059D495F1EBB1D2900BECA18 /* HiPDAThreadResult.swift in Sources */,
 				051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */,
 				05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */,
@@ -1250,6 +1261,7 @@
 				058A71801DA28865004992AD /* LensTests.swift in Sources */,
 				054F97D51E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift in Sources */,
 				054065A31D43167400E460F6 /* UserTests.swift in Sources */,
+				05BF3C8A1ECA06F6001759E9 /* PostInfoTests.swift in Sources */,
 				05BC4F351D436ADA002686E2 /* AccountTests.swift in Sources */,
 				0507EB291D6DD80200D4D23F /* HelperTests.swift in Sources */,
 				05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */,

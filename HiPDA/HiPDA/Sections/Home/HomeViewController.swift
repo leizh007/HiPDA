@@ -314,7 +314,7 @@ extension HomeViewController: UITableViewDelegate {
         
         let tid = viewModel.tid(at: indexPath.row)
         perform(.readPost) { readPostVC in
-            readPostVC.tid = tid
+            readPostVC.postInfo = PostInfo(tid: tid)
         }
     }
     
