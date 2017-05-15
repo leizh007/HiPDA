@@ -47,7 +47,9 @@ struct Regex {
         guard let result = regex.firstMatch(in: content as String, range: NSRange(location: 0, length: content.length)) else {
             return []
         }
-        return (0..<result.numberOfRanges).map { content.substring(with: result.rangeAt($0)) }
+        return (0..<result.numberOfRanges).map { index in
+            return result.rangeAt(index).location != NSNotFound ? content.substring(with: result.rangeAt(index)) : ""
+        }
     }
     
     /// 寻找所有的匹配
@@ -63,7 +65,9 @@ struct Regex {
         let regex = try Regex.regularExpression(of: pattern)
         let results = regex.matches(in: content as String, range: NSRange(location: 0, length: content.length))
         return results.map { result in
-            return (0..<result.numberOfRanges).map { content.substring(with: result.rangeAt($0)) }
+            return (0..<result.numberOfRanges).map { index in
+                return result.rangeAt(index).location != NSNotFound ? content.substring(with: result.rangeAt(index)) : ""
+            }
         }
     }
 }
