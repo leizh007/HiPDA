@@ -54,7 +54,7 @@ class PmDoNotDisturbTimeSettingViewController: BaseViewController {
         super.viewDidLoad()
         
         configurePickerViews()
-        seperatorLineHeightConstraint.constant = 1.0 / kScreenScale
+        seperatorLineHeightConstraint.constant = 1.0 / C.UI.screenScale
         containerViewBottomConstraint.constant = -kContainerViewHeight
         useCustomViewControllerTransitioningAnimator = false
     }

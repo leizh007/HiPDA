@@ -57,7 +57,7 @@ class LoginManager: Bootstrapping {
         guard let window = UIApplication.shared.windows.safe[0] else { return }
         homeViewController = window.rootViewController
         homeViewController?.view.layoutIfNeeded()
-        loginViewController.view.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeigh)
+        loginViewController.view.frame = CGRect(x: 0, y: 0, width: C.UI.screenWidth, height: C.UI.screenHeight)
         loginViewController.view.layoutIfNeeded()
         if withAnimation {
             delay(seconds: seconds) {
@@ -75,7 +75,7 @@ class LoginManager: Bootstrapping {
             // FIXME: - 替换为更有效的解决方法
             // http://stackoverflow.com/questions/7167524/xcode-using-a-uiview-transitionfromview-moves-the-views-up
             if self.isInAppLoading {
-                self.homeViewController?.view.frame = CGRect(x: 0, y: kStatusBarHeight, width: kScreenWidth, height: kScreenHeigh - kStatusBarHeight)
+                self.homeViewController?.view.frame = CGRect(x: 0, y: C.UI.statusBarHeight, width: C.UI.screenWidth, height: C.UI.screenHeight - C.UI.statusBarHeight)
             }
             self.isInAppLoading = false
             Settings.shared.add(account: account)

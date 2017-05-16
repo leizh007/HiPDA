@@ -22,7 +22,7 @@ class HomeThreadTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel.preferredMaxLayoutWidth = kScreenWidth - 2 * kTitleMargin
+        titleLabel.preferredMaxLayoutWidth = C.UI.screenWidth - 2 * kTitleMargin
     }
     
     var threadModel: HomeThreadModel? {

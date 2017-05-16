@@ -14,7 +14,7 @@ class HomeTabBarControllerDelegate: NSObject, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex != lastSelectedIndex {
             lastSelectedIndex = tabBarController.selectedIndex
-        } else {
+        } else if lastSelectedIndex == C.Number.homeViewControllerIndex {
             NotificationCenter.default.post(name: .HomeViewControllerTabRepeatedSelected, object: nil)
         }
         

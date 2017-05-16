@@ -69,7 +69,7 @@ extension ForumNameSelectionViewController {
         let text = forumNames.safe[indexPath.row] ?? ""
         cell.textLabel?.text = text
         cell.accessoryType = text == selectedForumName ? .checkmark : .none
-        cell.tintColor = kNavigationBarTintColor
+        cell.tintColor = C.Color.navigationBarTintColor
         
         return cell
     }
