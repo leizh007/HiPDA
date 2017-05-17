@@ -67,7 +67,7 @@ extension AccountManagementViewController: UITableViewDelegate {
         switch viewModel.item(at: indexPath) {
         case .account(_):
             if let account = viewModel.account(at: indexPath.row) {
-                showPromptInformation(of: .loading)
+                showPromptInformation(of: .loading("正在切换账户..."))
                 LoginViewModel.login(with: account).subscribe(onNext: { [unowned self] loginResult in
                     self.hidePromptInformation()
                     switch loginResult {

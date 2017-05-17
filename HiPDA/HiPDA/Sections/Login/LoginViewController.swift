@@ -233,7 +233,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         }).addDisposableTo(disposeBag)
         
         loginButton.rx.tap.subscribe(onNext: { [weak self] _ in
-            self?.showPromptInformation(of: .loading)
+            self?.showPromptInformation(of: .loading("正在登录..."))
         }).addDisposableTo(disposeBag)
         
         cancelButton.rx.tap.subscribe(onNext: { [weak self] _ in

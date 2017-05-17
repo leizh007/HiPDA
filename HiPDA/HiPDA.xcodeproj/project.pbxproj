@@ -82,6 +82,8 @@
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
 		05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */; };
+		05B35C3B1ECC231000C037A7 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3A1ECC231000C037A7 /* BaseWebView.swift */; };
+		05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */; };
 		05B506741D6C8D64004D573D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506731D6C8D64004D573D /* ReusableView.swift */; };
 		05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506751D6C91E9004D573D /* NibLoadableView.swift */; };
 		05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506791D6C92A7004D573D /* ReusableViewTests.swift */; };
@@ -246,6 +248,8 @@
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
 		05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManagerTests.swift; sourceTree = "<group>"; };
+		05B35C3A1ECC231000C037A7 /* BaseWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
+		05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadable.swift; sourceTree = "<group>"; };
 		05B506731D6C8D64004D573D /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		05B506751D6C91E9004D573D /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		05B506791D6C92A7004D573D /* ReusableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewTests.swift; sourceTree = "<group>"; };
@@ -463,6 +467,7 @@
 				058A717B1DA1FB22004992AD /* BaseViewController.swift */,
 				0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */,
 				05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */,
+				05B35C3A1ECC231000C037A7 /* BaseWebView.swift */,
 				05EDDCEE1DDCAB890095E95D /* NoResultView.swift */,
 				05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */,
 			);
@@ -558,6 +563,7 @@
 				05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */,
 				05EDDCF01DDCB0450095E95D /* XibLoadable.swift */,
 				057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */,
+				05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1150,6 +1156,7 @@
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
 				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,
 				053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */,
+				05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				0588D8251EBF26E000AC43DD /* HomeThreadModel.swift in Sources */,
@@ -1178,6 +1185,7 @@
 				051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
 				05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */,
+				05B35C3B1ECC231000C037A7 /* BaseWebView.swift in Sources */,
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05A2AF991E2385B00048508C /* ForumManager.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,

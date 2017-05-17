@@ -1,51 +1,41 @@
 //
-//  BaseTableView.swift
+//  BaseWebView.swift
 //  HiPDA
 //
-//  Created by leizh007 on 2016/11/16.
-//  Copyright © 2016年 HiPDA. All rights reserved.
+//  Created by leizh007 on 2017/5/17.
+//  Copyright © 2017年 HiPDA. All rights reserved.
 //
 
-import UIKit
-import RxSwift
-import RxCocoa
-import RxDataSources
+import Foundation
+import WebKit
 import MJRefresh
 
-/// BaseTableView的Rx扩展
-extension Reactive where Base: BaseTableView {
-    /// 状态
-    var status: UIBindingObserver<Base, DataLoadStatus> {
-        return UIBindingObserver(UIElement: base) { (tableView, status) in
-            tableView.status = status
-        }
-    }
-    
-    /// 是否正在编辑
-    var isEditing: UIBindingObserver<Base, Bool> {
-        return UIBindingObserver(UIElement: base) { (tableView, isEditing) in
-            tableView.isEditing = isEditing
-        }
-    }
-}
-
-class BaseTableView: UITableView, DataLoadable {
-    var refreshHeader: MJRefreshHeader? {
+class BaseWebView: WKWebView, DataLoadable {
+    var isScrollEnabled: Bool {
         get {
-            return mj_header
+            return scrollView.isScrollEnabled
         }
         
         set {
-            mj_header = newValue
+            scrollView.isScrollEnabled = newValue
+        }
+    }
+    var refreshHeader: MJRefreshHeader? {
+        get {
+            return scrollView.mj_header
+        }
+        
+        set {
+            scrollView.mj_header = newValue
         }
     }
     var loadMoreFooter: MJRefreshFooter? {
         get {
-            return mj_footer
+            return scrollView.mj_footer
         }
         
         set {
-            mj_footer = newValue
+            scrollView.mj_footer = newValue
         }
     }
     

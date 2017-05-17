@@ -15,7 +15,7 @@ import MBProgressHUD
 /// - success: 成功
 /// - failure: 失败
 enum ProgressHUDStyle {
-    case loading
+    case loading(String)
     case success(String)
     case failure(String)
 }
@@ -51,8 +51,8 @@ extension PromptInformationShowable where Self: UIViewController {
         }
         
         switch style {
-        case .loading:
-            hud.label.text = "正在加载..."
+        case .loading(let value):
+            hud.label.text = value 
         case .success(let value):
             custom(of: hud, with: #imageLiteral(resourceName: "hud_success"), title: value, delay: 1.0)
         case .failure(let value):

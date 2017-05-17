@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol TapToLoadDelegate: class {
-    func tapToLoad()
-}
-
 /// BaseTableView没有数据时候的显示视图
 class NoResultView: UIView {
     weak var tapToLoadDelegate: TapToLoadDelegate?
@@ -23,7 +19,7 @@ class NoResultView: UIView {
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     /// TableView的状态
-    var status = BaseTableViewStatus.loading {
+    var status = DataLoadStatus.loading {
         didSet {
             struct Description {
                 static let noResult = "暂无数据"

@@ -9,5 +9,8 @@
 import Foundation
 
 class PostViewModel {
-    
+    var postInfo: PostInfo
+    init(postInfo: PostInfo) {
+        self.postInfo = postInfo
+    }
 }

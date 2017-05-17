@@ -92,7 +92,7 @@ extension HomeViewController {
     /// 处理登陆相关view展示
     fileprivate func handleLoginStatue() {
         if Settings.shared.lastLoggedInAccount != nil {
-            self.showPromptInformation(of: .loading)
+            self.showPromptInformation(of: .loading("正在登录..."))
         } else {
             self.showLoginSuccessInformation = false
         }
@@ -246,7 +246,7 @@ extension HomeViewController: ForumNameSelectionDelegate {
 
 // MARK: - TableViewDataLoadDelegate
 
-extension HomeViewController: TableViewDataLoadDelegate {
+extension HomeViewController: DataLoadDelegate {
     func loadNewData() {
         viewModel.refreshData { [weak self] result in
             guard let `self` = self else { return }
@@ -255,6 +255,7 @@ extension HomeViewController: TableViewDataLoadDelegate {
                 self.tableView.reloadData()
                 self.tableView.status = .normal
                 self.tableView.endRefreshing()
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             case .failure(let error):
                 if self.tableView.status == .loading {
                     self.tableView.status = .tapToLoad
