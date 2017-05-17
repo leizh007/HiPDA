@@ -20,18 +20,18 @@ class BaseWebView: WKWebView, DataLoadable {
             scrollView.isScrollEnabled = newValue
         }
     }
-    var refreshHeader: MJRefreshHeader? {
+    var refreshHeader: MJRefreshNormalHeader? {
         get {
-            return scrollView.mj_header
+            return scrollView.mj_header as? MJRefreshNormalHeader
         }
         
         set {
             scrollView.mj_header = newValue
         }
     }
-    var loadMoreFooter: MJRefreshFooter? {
+    var loadMoreFooter: MJRefreshBackNormalFooter? {
         get {
-            return scrollView.mj_footer
+            return scrollView.mj_footer as? MJRefreshBackNormalFooter
         }
         
         set {

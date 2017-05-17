@@ -84,6 +84,12 @@
 		05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */; };
 		05B35C3B1ECC231000C037A7 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3A1ECC231000C037A7 /* BaseWebView.swift */; };
 		05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */; };
+		05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */; };
+		05B35C411ECC3E3D00C037A7 /* HiPDAURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C401ECC3E3D00C037A7 /* HiPDAURLProtocol.swift */; };
+		05B35C431ECC3F4000C037A7 /* URLProtocolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C421ECC3F4000C037A7 /* URLProtocolManager.swift */; };
+		05B35C451ECC43E100C037A7 /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C441ECC43E100C037A7 /* PostResult.swift */; };
+		05B35C471ECC443700C037A7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C461ECC443700C037A7 /* Post.swift */; };
+		05B35C491ECC700400C037A7 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C481ECC700400C037A7 /* PostManager.swift */; };
 		05B506741D6C8D64004D573D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506731D6C8D64004D573D /* ReusableView.swift */; };
 		05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506751D6C91E9004D573D /* NibLoadableView.swift */; };
 		05B5067A1D6C92A7004D573D /* ReusableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B506791D6C92A7004D573D /* ReusableViewTests.swift */; };
@@ -250,6 +256,12 @@
 		05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManagerTests.swift; sourceTree = "<group>"; };
 		05B35C3A1ECC231000C037A7 /* BaseWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadable.swift; sourceTree = "<group>"; };
+		05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAppearanceManager.swift; sourceTree = "<group>"; };
+		05B35C401ECC3E3D00C037A7 /* HiPDAURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAURLProtocol.swift; sourceTree = "<group>"; };
+		05B35C421ECC3F4000C037A7 /* URLProtocolManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProtocolManager.swift; sourceTree = "<group>"; };
+		05B35C441ECC43E100C037A7 /* PostResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
+		05B35C461ECC443700C037A7 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		05B35C481ECC700400C037A7 /* PostManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		05B506731D6C8D64004D573D /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		05B506751D6C91E9004D573D /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		05B506791D6C92A7004D573D /* ReusableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewTests.swift; sourceTree = "<group>"; };
@@ -389,6 +401,8 @@
 				0559969A1D50DB3800057CF6 /* AppDelegate.swift */,
 				055996CB1D50E0D600057CF6 /* Bootstrap.swift */,
 				053067D41DFD808A009D0154 /* CrashAnalysis.swift */,
+				05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */,
+				05B35C421ECC3F4000C037A7 /* URLProtocolManager.swift */,
 				053067D61DFD80B8009D0154 /* PerformanceMonitor.h */,
 				053067D71DFD80B8009D0154 /* PerformanceMonitor.m */,
 			);
@@ -402,7 +416,6 @@
 				0559969D1D50DB4500057CF6 /* Categories */,
 				0559969E1D50DB4500057CF6 /* Delegates */,
 				055996A01D50DB4500057CF6 /* Models */,
-				055996A51D50DB4500057CF6 /* ViewModels */,
 				055996A61D50DB4500057CF6 /* Views */,
 			);
 			path = General;
@@ -450,13 +463,6 @@
 				05068AFD1E0988090070E044 /* AnimatableSection.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		055996A51D50DB4500057CF6 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		055996A61D50DB4500057CF6 /* Views */ = {
@@ -742,7 +748,11 @@
 			children = (
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
 				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
+				05B35C481ECC700400C037A7 /* PostManager.swift */,
 				05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */,
+				05B35C441ECC43E100C037A7 /* PostResult.swift */,
+				05B35C461ECC443700C037A7 /* Post.swift */,
+				05B35C401ECC3E3D00C037A7 /* HiPDAURLProtocol.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -1189,6 +1199,7 @@
 				058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */,
 				05A2AF991E2385B00048508C /* ForumManager.swift in Sources */,
 				05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */,
+				05B35C431ECC3F4000C037A7 /* URLProtocolManager.swift in Sources */,
 				056B3BF41E6D867000843E32 /* AccountManagementViewController.swift in Sources */,
 				05068B001E0AC0010070E044 /* UserRemarkTableViewCell.swift in Sources */,
 				05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */,
@@ -1202,7 +1213,9 @@
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
+				05B35C491ECC700400C037A7 /* PostManager.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
+				05B35C451ECC43E100C037A7 /* PostResult.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
 				059D495B1EBB108F00BECA18 /* HiPDAThreadManager.swift in Sources */,
@@ -1215,9 +1228,11 @@
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
 				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
+				05B35C471ECC443700C037A7 /* Post.swift in Sources */,
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
 				05E9A2751D7AD0230096878B /* NotificationViewController.swift in Sources */,
 				05BBBBC41E8026F700C6E0D3 /* NSString+HiPDA.m in Sources */,
+				05B35C411ECC3E3D00C037A7 /* HiPDAURLProtocol.swift in Sources */,
 				059D49531EBAF70000BECA18 /* HiPDAThread.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
@@ -1231,6 +1246,7 @@
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,
+				05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,

@@ -16,12 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// 待启动组件数组
     let bootstrappingComponents: [Bootstrapping] = [
         CrashAnalysis(),
+        UIAppearanceManager(),
+        URLProtocolManager(),
         LoginManager()
     ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         window?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        UINavigationBar.appearance().tintColor = C.Color.navigationBarTintColor
         bootstrap()
         
         return true

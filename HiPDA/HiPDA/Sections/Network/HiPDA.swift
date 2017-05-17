@@ -20,7 +20,7 @@ enum HiPDA {
 }
 
 extension HiPDA: TargetType {
-    var baseURL: URL { return URL(string: "https://www.hi-pda.com")! }
+    var baseURL: URL { return C.URL.baseURL }
     var path: String {
         switch self {
         case .login(_):
@@ -28,10 +28,14 @@ extension HiPDA: TargetType {
         case let .threads(fid: fid, typeid: typeid, page: page):
             return "/forum/forumdisplay.php?fid=\(fid)&filter=type&typeid=\(typeid)&page=\(page)"
         case let .posts(postInfo: postInfo):
-            guard let pid = postInfo.pid else {
+            switch (postInfo.pid, postInfo.authorid) {
+            case let (pid?, nil):
+                return "/forum/viewthread.php?tid=\(postInfo.tid)&rpid=\(pid)&ordertype=0&page=\(postInfo.page)#pid\(pid)"
+            case let (nil, authorid?):
+                return "/forum/viewthread.php?tid=\(postInfo.tid)&page=\(postInfo.page)&authorid=\(authorid)"
+            default:
                 return "/forum/viewthread.php?tid=\(postInfo.tid)&extra=page%3D1&page=\(postInfo.page)"
             }
-            return "/forum/viewthread.php?tid=\(postInfo.tid)&rpid=\(pid)&ordertype=0&page=\(postInfo.page)#pid\(pid)"
         }
     }
     var method: Moya.Method {

@@ -41,8 +41,8 @@ protocol DataLoadable: TapToLoadDelegate {
     var hasLoadMoreFooter: Bool { set get }
     var status: DataLoadStatus { set get }
     var noResultView: NoResultView { set get }
-    var refreshHeader: MJRefreshHeader? { set get }
-    var loadMoreFooter: MJRefreshFooter? { set get }
+    var refreshHeader: MJRefreshNormalHeader? { set get }
+    var loadMoreFooter: MJRefreshBackNormalFooter? { set get }
     var isScrollEnabled: Bool { set get }
 }
 
@@ -65,7 +65,7 @@ extension DataLoadable where Self: UIView {
     
     func didSetHasLoadMoreFooter() {
         if hasLoadMoreFooter {
-            let footer = MJRefreshAutoNormalFooter { [weak self] _ in
+            let footer = MJRefreshBackNormalFooter { [weak self] _ in
                 self?.status = .pullUpLoading
                 self?.dataLoadDelegate?.loadMoreData()
             }
@@ -107,7 +107,7 @@ extension DataLoadable {
 
 // MARK: - Data Load
 
-extension DataLoadable where Self: UIScrollView {
+extension DataLoadable {
     func refreshing() {
         refreshHeader?.beginRefreshing()
     }

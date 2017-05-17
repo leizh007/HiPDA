@@ -155,4 +155,58 @@ struct HtmlParser {
         let pageNumberString = result[1].isEmpty ? result[2] : result[1]
         return Int(pageNumberString) ?? 1
     }
+    
+    /// 获取帖子主题
+    ///
+    /// - Parameter html: html字符串
+    /// - Returns: 帖子主题
+    /// - Throws: 解析失败的错误信息
+    static func postTitle(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "<div\\s+id=\\\"threadtitle\\\">[^<]*<h1>([^<]+)<\\/h1>")
+        guard result.count == 2 else {
+            throw HtmlParserError.unKnown("获取帖子主题失败")
+        }
+        return result[1]
+    }
+    
+    /// 获取帖子详情列表
+    ///
+    /// - Parameter html: html字符串
+    /// - Returns: 帖子详情列表
+    /// - Throws: 解析失败的错误信息
+    static func posts(from html: String) throws -> [Post] {
+        let userBlockSet = Set(Settings.shared.userBlockList)
+        enum PostPropertyIndex: Int {
+            case id = 1
+            case uid
+            case username
+            case floor
+            case time
+            case content
+            case totalNumber
+        }
+        let results = try Regex.matches(in: html, of: "<div\\s+id=\\\"post_(\\d+)\\\">[\\s\\S]*?<div\\s+class=\\\"postinfo\\\">[^<]*<a[^h]+href=\"space\\.php\\?uid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[\\s\\S]*?<em>(\\d+)<\\/em><sup>#<\\/sup>[\\s\\S]*?发表于\\s+([^<]+)<\\/em>[\\s\\S]*?<td\\s+class=\\\"t_msgfont\\\"\\s+id=\\\"postmessage_\\d+\\\">([\\s\\S]*?)<\\/td><\\/tr><\\/table>")
+        return try results.map { result in
+            guard result.count == PostPropertyIndex.totalNumber.rawValue else {
+                throw HtmlParserError.unKnown("获取帖子详情列表失败")
+            }
+            guard let pid = Int(result[PostPropertyIndex.id.rawValue]) else {
+                throw HtmlParserError.unKnown("获取帖子id失败")
+            }
+            guard let uid = Int(result[PostPropertyIndex.uid.rawValue]) else {
+                throw HtmlParserError.unKnown("获取用户id失败")
+            }
+            guard let floor = Int(result[PostPropertyIndex.floor.rawValue]) else {
+                throw HtmlParserError.unKnown("获取帖子楼层数失败")
+            }
+            let username = result[PostPropertyIndex.username.rawValue]
+            
+            return Post(id: pid,
+                        user: User(name:username, uid:uid),
+                        time: result[PostPropertyIndex.time.rawValue],
+                        floor: floor,
+                        content: result[PostPropertyIndex.content.rawValue],
+                        isBlocked: userBlockSet.contains(username))
+        }
+    }
 }

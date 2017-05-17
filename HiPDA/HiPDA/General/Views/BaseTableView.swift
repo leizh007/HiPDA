@@ -30,18 +30,18 @@ extension Reactive where Base: BaseTableView {
 }
 
 class BaseTableView: UITableView, DataLoadable {
-    var refreshHeader: MJRefreshHeader? {
+    var refreshHeader: MJRefreshNormalHeader? {
         get {
-            return mj_header
+            return mj_header as? MJRefreshNormalHeader
         }
         
         set {
             mj_header = newValue
         }
     }
-    var loadMoreFooter: MJRefreshFooter? {
+    var loadMoreFooter: MJRefreshBackNormalFooter? {
         get {
-            return mj_footer
+            return mj_footer as? MJRefreshBackNormalFooter
         }
         
         set {

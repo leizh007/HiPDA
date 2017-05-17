@@ -12,41 +12,40 @@ struct PostInfo {
     let tid: Int
     let page: Int
     let pid: Int?
+    let authorid: Int?
     
-    init(tid: Int, page: Int = 1, pid: Int? = nil) {
+    init(tid: Int, page: Int = 1, pid: Int? = nil, authorid: Int? = nil) {
         self.tid = tid
         self.page = page
         self.pid = pid
+        self.authorid = authorid
     }
     
     init?(urlString: String) {
-        guard let result = try? Regex.firstMatch(in: urlString, of: "https:\\/\\/www\\.hi-pda\\.com\\/forum\\/viewthread\\.php\\?tid=(\\d+)&extra=page%3D1&page=(\\d+)|https:\\/\\/www\\.hi-pda\\.com\\/forum\\/viewthread\\.php\\?tid=(\\d+)&rpid=41821617&ordertype=0&page=(\\d+)#pid(\\d+)|https:\\/\\/www\\.hi-pda\\.com\\/forum\\/viewthread\\.php\\?tid=(\\d+)&extra=page%3D1"),
-            result.count == 7 else {
-                return nil
+        enum PropertyKeys: String {
+            case tid
+            case page
+            case pid
+            case authorid
         }
-        
-        switch (result[1].isEmpty, result[2].isEmpty, result[3].isEmpty, result[4].isEmpty, result[5].isEmpty, result[6].isEmpty) {
-        case (false, false, true, true, true, true):
-            guard let tid = Int(result[1]) else { return nil }
-            self.tid = tid
-            guard let page = Int(result[2]) else { return nil }
-            self.page = page
-            pid = nil
-        case (true, true, false, false, false, true):
-            guard let tid = Int(result[3]) else { return nil }
-            self.tid = tid
-            guard let page = Int(result[4]) else { return nil }
-            self.page = page
-            guard let pid = Int(result[5]) else { return nil }
-            self.pid = pid
-        case (true, true, true, true, true, false):
-            guard let tid = Int(result[6]) else { return nil }
-            self.tid = tid
-            page = 1
-            pid = nil
-        default:
-            return nil
+        guard let index = urlString.range(of: "https://www.hi-pda.com/forum/viewthread.php?")?.upperBound else { return nil }
+        var subString = urlString.substring(from: index)
+        if let sharpIndex = subString.range(of: "#pid")?.lowerBound {
+            subString = subString.substring(to: sharpIndex)
         }
+        var dic = [String: Int]()
+        for string in subString.components(separatedBy: "&") {
+            let attribute = string.components(separatedBy: "=")
+            guard attribute.count == 2 else { continue }
+            let key = attribute[0]
+            guard let value = Int(attribute[1]) else { continue }
+            dic[key] = value
+        }
+        guard let tid = dic[PropertyKeys.tid.rawValue] else { return nil }
+        self.tid = tid
+        self.page = dic[PropertyKeys.page.rawValue] ?? 1
+        self.pid = dic[PropertyKeys.pid.rawValue] ?? dic["rpid"]
+        self.authorid = dic[PropertyKeys.authorid.rawValue]
     }
 }
 
@@ -56,7 +55,8 @@ extension PostInfo: Equatable {
     static func ==(lhs: PostInfo, rhs: PostInfo) -> Bool {
         return lhs.tid == rhs.tid &&
         lhs.page == rhs.page &&
-        lhs.pid == rhs.pid
+        lhs.pid == rhs.pid &&
+        lhs.authorid == rhs.authorid
     }
 }
 
@@ -64,7 +64,7 @@ extension PostInfo: Equatable {
 
 extension PostInfo {
     enum lens {
-        static let page = Lens<PostInfo, Int>(get: { $0.page }, set: { return PostInfo(tid: $1.tid, page: $0, pid: $1.pid) })
+        static let page = Lens<PostInfo, Int>(get: { $0.page }, set: { return PostInfo(tid: $1.tid, page: $0, pid: $1.pid, authorid: $1.authorid) })
     }
 }
 

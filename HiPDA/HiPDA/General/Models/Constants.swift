@@ -24,7 +24,7 @@ enum C {
         static let statusBarHeight: CGFloat = 20.0
         
         /// NavigationBar的高度
-        static let navigationBarHeight = 44.0
+        static let navigationBarHeight: CGFloat = 44.0
     }
     
     enum Color {
@@ -38,5 +38,23 @@ enum C {
     enum Number {
         /// 主页在tabbarController中的下标
         static let homeViewControllerIndex = 0
+    }
+    
+    enum URL {
+        /// WebView的baseURL
+        static let baseURL = Foundation.URL(string: "https://www.hi-pda.com")!
+        
+        enum Scheme {
+            /// URLProtocol里用到的基本scheme
+            static let https = "https"
+            
+            /// HiPDA的scheme
+            static let hipda = "hipda"
+            
+            enum HiPDA {
+                /// 标明图片的shceme
+                static let image = "hipda-image"
+            }
+        }
     }
 }

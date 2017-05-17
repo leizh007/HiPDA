@@ -90,6 +90,9 @@ extension YYCache {
             tids.remove(at: index)
         }
         tids.insert(thread.id, at: 0)
+        if tids.count > Int(memoryCache.countLimit) {
+            tids.removeLast()
+        }
         let threadString = thread.encode()
         setObject(threadString as NSString, forKey: "\(thread.id)")
     }

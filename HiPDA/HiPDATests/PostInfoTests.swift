@@ -43,4 +43,13 @@ class PostInfoTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    func testInitialization5() {
+        let urlString = "https://www.hi-pda.com/forum/viewthread.php?tid=1272557&page=3&authorid=644982"
+        guard let postInfo = PostInfo(urlString: urlString) else {
+            XCTFail()
+            return
+        }
+        XCTAssert(postInfo == PostInfo(tid: 1272557, page: 3, pid: nil, authorid: 644982))
+    }
 }
