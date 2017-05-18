@@ -24,7 +24,4 @@ struct Post {
     
     /// 内容
     let content: String
-    
-    /// 用户是否被屏蔽了
-    let isBlocked: Bool
 }

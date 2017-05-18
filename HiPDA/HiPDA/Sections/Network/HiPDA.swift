@@ -16,7 +16,7 @@ import Moya
 enum HiPDA {
     case login(Account)
     case threads(fid: Int, typeid: Int, page: Int)
-    case posts(postInfo: PostInfo)
+    case posts(PostInfo)
 }
 
 extension HiPDA: TargetType {
@@ -27,7 +27,7 @@ extension HiPDA: TargetType {
             return "/forum/logging.php?action=login&loginsubmit=yes"
         case let .threads(fid: fid, typeid: typeid, page: page):
             return "/forum/forumdisplay.php?fid=\(fid)&filter=type&typeid=\(typeid)&page=\(page)"
-        case let .posts(postInfo: postInfo):
+        case let .posts(postInfo):
             switch (postInfo.pid, postInfo.authorid) {
             case let (pid?, nil):
                 return "/forum/viewthread.php?tid=\(postInfo.tid)&rpid=\(pid)&ordertype=0&page=\(postInfo.page)#pid\(pid)"

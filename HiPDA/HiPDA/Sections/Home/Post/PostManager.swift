@@ -52,7 +52,7 @@ class PostManager {
         disposeBag = DisposeBag()
         var totalPage = self.totalPage
         var title = self.title
-        HiPDAProvider.request(.posts(postInfo: postInfo))
+        HiPDAProvider.request(.posts(postInfo))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
             .mapGBKString()
             .do(onNext: { html in
@@ -61,7 +61,8 @@ class PostManager {
                 }
                 guard title == nil && postInfo.page == 1 else { return }
                 title = try HtmlParser.postTitle(from: html)
-            }).map(HtmlParser.posts(from:))
+            })
+            .map(HtmlParser.posts(from:))
             .observeOn(MainScheduler.instance)
             .subscribe { [weak self] event in
                 guard let `self` = self, postInfo == `self`.postInfo else { return }

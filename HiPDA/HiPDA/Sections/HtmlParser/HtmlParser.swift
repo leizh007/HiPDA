@@ -175,7 +175,6 @@ struct HtmlParser {
     /// - Returns: 帖子详情列表
     /// - Throws: 解析失败的错误信息
     static func posts(from html: String) throws -> [Post] {
-        let userBlockSet = Set(Settings.shared.userBlockList)
         enum PostPropertyIndex: Int {
             case id = 1
             case uid
@@ -205,8 +204,7 @@ struct HtmlParser {
                         user: User(name:username, uid:uid),
                         time: result[PostPropertyIndex.time.rawValue],
                         floor: floor,
-                        content: result[PostPropertyIndex.content.rawValue],
-                        isBlocked: userBlockSet.contains(username))
+                        content: result[PostPropertyIndex.content.rawValue])
         }
     }
 }

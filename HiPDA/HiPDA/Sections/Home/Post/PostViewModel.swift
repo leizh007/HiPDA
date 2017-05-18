@@ -107,6 +107,7 @@ extension PostViewModel {
     /// Post列表到html的转换
     fileprivate func parsePosts(_ posts: [Post], title: String? = nil, completion: @escaping PostFetchCompletion = { _ in }) {
         // TODO: - 帖子列表转换到html字符串
+        //let userBlockSet = Set(Settings.shared.userBlockList)
         DispatchQueue.global(qos: .default).async {
             
         }
