@@ -24,7 +24,7 @@ class HomeNavigationBarTitleView: UIView {
     
     /// 恢复提示图的状态
     func resetDisclosureImageViewStatus() {
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: C.UI.animationDuration) {
             self.disclosureImageView.transform = .identity
         }
     }
@@ -47,14 +47,14 @@ class HomeNavigationBarTitleView: UIView {
                            y: frame.origin.y,
                            width: newWidth,
                            height: 27.0)
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: C.UI.animationDuration) {
                 self.disclosureImageView.transform = .identity
             }
         }
     }
     
     @IBAction private func titleViewClicked(_ sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.25) { 
+        UIView.animate(withDuration: C.UI.animationDuration) { 
             self.disclosureImageView.transform = self.disclosureImageView.transform.rotated(by: .pi)
         }
         delegate?.titleViewClicked(titleView: self)

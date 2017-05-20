@@ -48,6 +48,11 @@
 		054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA6411D75C2E400819C2D /* FPSLabel.swift */; };
 		054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */; };
 		054F97D51E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */; };
+		05532B0E1ECDEB4A00FAB176 /* post.css in Resources */ = {isa = PBXBuildFile; fileRef = 05532B0B1ECDEB4A00FAB176 /* post.css */; };
+		05532B0F1ECDEB4A00FAB176 /* post.html in Resources */ = {isa = PBXBuildFile; fileRef = 05532B0C1ECDEB4A00FAB176 /* post.html */; };
+		05532B101ECDEB4A00FAB176 /* post.js in Resources */ = {isa = PBXBuildFile; fileRef = 05532B0D1ECDEB4A00FAB176 /* post.js */; };
+		05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05532B111ECDEBB600FAB176 /* HtmlManager.swift */; };
+		05532B141ECE10BB00FAB176 /* ResourcesInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */; };
 		0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969A1D50DB3800057CF6 /* AppDelegate.swift */; };
 		055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */; };
 		055996A81D50DB4500057CF6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996A11D50DB4500057CF6 /* Account.swift */; };
@@ -217,6 +222,11 @@
 		054AA6411D75C2E400819C2D /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSAssistiveTouch.swift; sourceTree = "<group>"; };
 		054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkTableViewStateTests.swift; sourceTree = "<group>"; };
+		05532B0B1ECDEB4A00FAB176 /* post.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = post.css; sourceTree = "<group>"; };
+		05532B0C1ECDEB4A00FAB176 /* post.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = post.html; sourceTree = "<group>"; };
+		05532B0D1ECDEB4A00FAB176 /* post.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = post.js; sourceTree = "<group>"; };
+		05532B111ECDEBB600FAB176 /* HtmlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlManager.swift; sourceTree = "<group>"; };
+		05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesInitialization.swift; sourceTree = "<group>"; };
 		0559969A1D50DB3800057CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		055996A11D50DB4500057CF6 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -395,6 +405,17 @@
 			path = UserRemark;
 			sourceTree = "<group>";
 		};
+		05532B0A1ECDEB3600FAB176 /* Html */ = {
+			isa = PBXGroup;
+			children = (
+				05532B0C1ECDEB4A00FAB176 /* post.html */,
+				05532B0B1ECDEB4A00FAB176 /* post.css */,
+				05532B0D1ECDEB4A00FAB176 /* post.js */,
+				05532B111ECDEBB600FAB176 /* HtmlManager.swift */,
+			);
+			path = Html;
+			sourceTree = "<group>";
+		};
 		055996991D50DB3800057CF6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +424,7 @@
 				053067D41DFD808A009D0154 /* CrashAnalysis.swift */,
 				05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */,
 				05B35C421ECC3F4000C037A7 /* URLProtocolManager.swift */,
+				05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */,
 				053067D61DFD80B8009D0154 /* PerformanceMonitor.h */,
 				053067D71DFD80B8009D0154 /* PerformanceMonitor.m */,
 			);
@@ -746,6 +768,7 @@
 		05EE51541EC9517000BC81B4 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				05532B0A1ECDEB3600FAB176 /* Html */,
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
 				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
 				05B35C481ECC700400C037A7 /* PostManager.swift */,
@@ -957,6 +980,9 @@
 				050EE3241DD200C800C4B18D /* Home.storyboard in Resources */,
 				050EE3281DD200EB00C4B18D /* Search.storyboard in Resources */,
 				05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */,
+				05532B0F1ECDEB4A00FAB176 /* post.html in Resources */,
+				05532B101ECDEB4A00FAB176 /* post.js in Resources */,
+				05532B0E1ECDEB4A00FAB176 /* post.css in Resources */,
 				055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */,
 				050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */,
 				05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */,
@@ -1188,6 +1214,7 @@
 				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
+				05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
@@ -1223,6 +1250,7 @@
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */,
+				05532B141ECE10BB00FAB176 /* ResourcesInitialization.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,

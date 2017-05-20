@@ -90,7 +90,12 @@ extension DataLoadable where Self: UIView {
             }
         default:
             isScrollEnabled = true
-            noResultView.removeFromSuperview()
+            UIView.animate(withDuration: 0.25, animations: { 
+                self.noResultView.alpha = 0.0
+            }, completion: { _ in
+                self.noResultView.alpha = 1.0
+                self.noResultView.removeFromSuperview()
+            })
         }
     }
 }

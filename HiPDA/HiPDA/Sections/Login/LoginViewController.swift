@@ -13,9 +13,6 @@ import RxCocoa
 /// 登录成功后的回调
 typealias LoggedInCompletionHandler = (Account) -> Void
 
-/// 动画持续时间
-private let kAnimationDuration = 0.25
-
 /// 默认的容器视图的顶部constraint
 private let kDefaultContainerTopConstraintValue = CGFloat(44.0)
 
@@ -107,7 +104,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
             }
             
             UIView.transition(with: self.hidePasswordImageView,
-                              duration: kAnimationDuration,
+                              duration: C.UI.animationDuration,
                               options: .transitionCrossDissolve,
                               animations: {
                                 self.hidePasswordImageView.image = image

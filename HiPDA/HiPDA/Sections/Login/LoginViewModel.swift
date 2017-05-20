@@ -61,7 +61,7 @@ struct LoginViewModel {
         }
         return Observable.create { observer in
             HiPDAProvider.request(.login(account))
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                 .mapGBKString()
                 .map {
                     return try HtmlParser.loginResult(of: account.name, from: $0)

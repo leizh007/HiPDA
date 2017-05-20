@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CrashAnalysis(),
         UIAppearanceManager(),
         URLProtocolManager(),
-        LoginManager()
+        LoginManager(),
+        ResourcesInitialization()
     ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {

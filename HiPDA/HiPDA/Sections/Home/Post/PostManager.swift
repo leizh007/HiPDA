@@ -13,8 +13,14 @@ typealias PostListFetchCompletion = (PostListResult) -> Void
 
 /// 数据的网络请求管理
 class PostManager {
+    var pidSet = Set<Int>()
     fileprivate var disposeBag = DisposeBag()
-    fileprivate var postInfo: PostInfo
+    var postInfo: PostInfo {
+        didSet {
+            title = nil
+            totalPage = .max
+        }
+    }
     init(postInfo: PostInfo) {
         self.postInfo = postInfo
     }
@@ -53,14 +59,19 @@ class PostManager {
         var totalPage = self.totalPage
         var title = self.title
         HiPDAProvider.request(.posts(postInfo))
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .mapGBKString()
             .do(onNext: { html in
                 if totalPage == .max {
                     totalPage = try HtmlParser.totalPage(from: html)
                 }
-                guard title == nil && postInfo.page == 1 else { return }
-                title = try HtmlParser.postTitle(from: html)
+                if postInfo.page == 1 {
+                    if title == nil {
+                        title = try HtmlParser.postTitle(from: html)
+                    }
+                } else {
+                    title = nil
+                }
             })
             .map(HtmlParser.posts(from:))
             .observeOn(MainScheduler.instance)
@@ -70,6 +81,7 @@ class PostManager {
                 self.title = title
                 switch event {
                 case let .next(posts):
+                    self.pidSet = Set(posts.map { $0.id })
                     completion(.success((title: title, posts: posts)))
                 case let .error(error):
                     let postsResultError: PostError = error is HtmlParserError ? .parseError(String(describing: error as! HtmlParserError)) : .unKnown(error.localizedDescription)

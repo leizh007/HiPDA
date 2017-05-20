@@ -11,8 +11,24 @@ import MJRefresh
 
 typealias PostFetchCompletion = (PostResult) -> Void
 
+enum PostViewStatus {
+    case idle
+    case loadingFirstPage
+    case loadingPreviousPage
+    case loadingNextPage
+}
+
 /// view和model之间的桥梁
 class PostViewModel {
+    var status = PostViewStatus.idle
+    var postInfo: PostInfo! {
+        didSet {
+            manager.postInfo = postInfo
+        }
+    }
+    
+    let emptyHtml: String = HtmlManager.html(with: "")
+    
     /// 总页数
     fileprivate var totalPage: Int {
         return manager.totalPage
@@ -22,6 +38,11 @@ class PostViewModel {
     var hasMoreData: Bool {
         return manager.page < totalPage
     }
+    
+    var hasData: Bool {
+        return !manager.pidSet.isEmpty
+    }
+    
     fileprivate var manager: PostManager
         
     init(postInfo: PostInfo) {
@@ -77,10 +98,12 @@ extension PostViewModel {
     /// 获取新数据
     func loadNewData(completion: @escaping PostFetchCompletion = { _ in }) {
         if manager.page == 1 {
+            status = .loadingFirstPage
             manager.loadFirstPage { [weak self] result in
                 self?.handPostListResult(result, completion: completion)
             }
         } else {
+            status = .loadingPreviousPage
             manager.loadPreviousPage { [weak self] result in
                 self?.handPostListResult(result, completion: completion)
             }
@@ -89,6 +112,7 @@ extension PostViewModel {
     
     /// 加载更多的数据
     func loadMoreData(completion: @escaping PostFetchCompletion = { _ in }) {
+        status = .loadingNextPage
         manager.loadNextPage { [weak self] result in
             self?.handPostListResult(result, completion: completion)
         }
@@ -106,10 +130,20 @@ extension PostViewModel {
     
     /// Post列表到html的转换
     fileprivate func parsePosts(_ posts: [Post], title: String? = nil, completion: @escaping PostFetchCompletion = { _ in }) {
-        // TODO: - 帖子列表转换到html字符串
-        //let userBlockSet = Set(Settings.shared.userBlockList)
-        DispatchQueue.global(qos: .default).async {
-            
+        let userBlockSet = Set(Settings.shared.userBlockList)
+        DispatchQueue.global(qos: .userInteractive).async {
+            var content = ""
+            if let title = title {
+                content += "<div class=\"title\">\(title)</div>"
+            }
+            for post in posts {
+                let postContent = userBlockSet.contains(post.user.name) ? "<div class=\"userblock\">该用户已被您屏蔽！</div>" : post.content
+                content += "<div class=\"post\" id=\"post_\(post.id)\"><div class=\"header\"><div class=\"user\"><span><img class=\"avatar\" src=\"\(post.user.avatarImageURL.absoluteString)\" alt=\"\"/></span><span class=\"username\">\(post.user.name)</span></div><div class><span class=\"time\">\(post.time)</span><span class=\"floor\">\(post.floor)#</span></div></div><div class=\"content\">\(postContent)</div></div>"
+            }
+            let html = HtmlManager.html(with: content)
+            DispatchQueue.main.async {
+                completion(.success(html))
+            }
         }
     }
 }

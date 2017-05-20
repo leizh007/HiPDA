@@ -162,11 +162,14 @@ struct HtmlParser {
     /// - Returns: 帖子主题
     /// - Throws: 解析失败的错误信息
     static func postTitle(from html: String) throws -> String {
-        let result = try Regex.firstMatch(in: html, of: "<div\\s+id=\\\"threadtitle\\\">[^<]*<h1>([^<]+)<\\/h1>")
-        guard result.count == 2 else {
+        if html.contains("指定的主题不存在或已被删除或正在被审核，请返回。") {
+            throw HtmlParserError.unKnown("指定的主题不存在或已被删除或正在被审核，请返回。")
+        }
+        let result = try Regex.firstMatch(in: html, of: "<div\\s+id=\\\"threadtitle\\\">[^<]*<h1>(<a[^>]+>[^<]*<\\/a>)?([\\s\\S]*?)<\\/h1>")
+        guard result.count == 3 else {
             throw HtmlParserError.unKnown("获取帖子主题失败")
         }
-        return result[1]
+        return result[2]
     }
     
     /// 获取帖子详情列表
@@ -184,7 +187,7 @@ struct HtmlParser {
             case content
             case totalNumber
         }
-        let results = try Regex.matches(in: html, of: "<div\\s+id=\\\"post_(\\d+)\\\">[\\s\\S]*?<div\\s+class=\\\"postinfo\\\">[^<]*<a[^h]+href=\"space\\.php\\?uid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[\\s\\S]*?<em>(\\d+)<\\/em><sup>#<\\/sup>[\\s\\S]*?发表于\\s+([^<]+)<\\/em>[\\s\\S]*?<td\\s+class=\\\"t_msgfont\\\"\\s+id=\\\"postmessage_\\d+\\\">([\\s\\S]*?)<\\/td><\\/tr><\\/table>")
+        let results = try Regex.matches(in: html, of: "<div\\s+id=\\\"post_(\\d+)\\\">[\\s\\S]*?<div\\s+class=\\\"postinfo\\\">[^<]*<a[^h]+href=\"space\\.php\\?uid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[\\s\\S]*?<em>(\\d+)<\\/em><sup>#<\\/sup>[\\s\\S]*?发表于\\s+([^<]+)<\\/em>[\\s\\S]*?<div\\s*class=\\\"postmessage[^>]+>([\\s\\S]*?)<td\\s*class=\\\"postcontent\\s*postbottom")
         return try results.map { result in
             guard result.count == PostPropertyIndex.totalNumber.rawValue else {
                 throw HtmlParserError.unKnown("获取帖子详情列表失败")

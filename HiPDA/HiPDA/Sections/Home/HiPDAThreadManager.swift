@@ -138,7 +138,7 @@ class HiPDAThreadManager {
         var totalPage = self.totalPage
         return Observable.create { observer in
             HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page))
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background))
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                 .mapGBKString()
                 .do(onNext: { htmlString in
                     totalPage = try HtmlParser.totalPage(from: htmlString)

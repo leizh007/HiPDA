@@ -256,6 +256,11 @@ extension HomeViewController: DataLoadDelegate {
                 self.tableView.status = .normal
                 self.tableView.endRefreshing()
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                if !self.viewModel.canLoadMoreData {
+                    self.tableView.endLoadMoreWithNoMoreData()
+                } else {
+                    self.tableView.resetNoMoreData()
+                }
             case .failure(let error):
                 if self.tableView.status == .loading {
                     self.tableView.status = .tapToLoad
@@ -313,10 +318,14 @@ extension HomeViewController: UITableViewDelegate {
         
         viewModel.readThread(at: indexPath.row)
         
+        // 自言自语2081183
+        // block: 2094735
+        // 大量图片: 2088239
         let tid = viewModel.tid(at: indexPath.row)
-        perform(.readPost) { readPostVC in
-            readPostVC.postInfo = PostInfo(tid: tid)
-        }
+        let readPostVC = PostViewController.getInstance()
+        readPostVC.postInfo = PostInfo(tid: tid)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(readPostVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
@@ -354,19 +363,5 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-}
-
-// MARK: - Segue Extensions
-
-extension Segue {
-    /// 阅读帖子
-    static var readPost: Segue<PostViewController> {
-        return .init(identifier: "readPost")
-    }
-    
-    /// 新建帖子
-    static var newThread: Segue<NewThreadViewController> {
-        return .init(identifier: "newThread")
     }
 }

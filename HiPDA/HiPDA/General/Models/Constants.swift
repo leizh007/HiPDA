@@ -25,6 +25,8 @@ enum C {
         
         /// NavigationBar的高度
         static let navigationBarHeight: CGFloat = 44.0
+        
+        static let animationDuration = 0.25
     }
     
     enum Color {

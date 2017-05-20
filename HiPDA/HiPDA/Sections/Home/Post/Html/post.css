@@ -1,0 +1,193 @@
+@media (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        margin: 0px;
+        font-family: -apple-system, sans-serif;
+        font-size: 17px !important;
+    }
+
+    .title {
+        text-align: center !important;
+        font-size: 19px !important;
+        font-weight: 500 !important;
+        border-style: solid none;
+        border-width: 0.5px;
+        border-color: #C8C7CC;
+        padding: 10px 8px 10px 8px;
+    }
+    
+    .title a {
+        color: inherit !important;
+        text-decoration: none !important;
+        pointer-events: none !important;
+    }
+
+    .post {
+        border-style: solid none;
+        border-width: 0.5px;
+        border-color: #C8C7CC;
+        margin: -0.5px 0px;
+        padding: 8px 8px 8px 8px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #657786;
+        font-size: 15px;
+        height: 34px;
+        line-height: 34px;
+    }
+
+    .user {
+        height: 100%;
+        display: flex; 
+        align-items: stretch;  
+    }
+
+    .avatar {
+        height: 34px;
+        width: 34px;
+        border-style: solid;
+        border-width: 0.5px;
+        border-color: #C8C7CC;
+        border-radius: 7.5px;
+        object-fit: cover;
+    }
+
+    .username {
+        margin-left: 8px;
+        display: inline-block;
+    }
+
+    .floor {
+        color: #3E4D58;
+    }
+
+    .time {
+        margin-right: 8px;
+    }
+
+    .content {
+        margin-top: 8px;
+        font-size: 17px !important;
+        max-width: 100%;
+        word-wrap: break-word !important;
+    }
+    
+    .content img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    .content p {
+        max-width: 100% !important;
+        text-indent: 0px !important;
+        line-height: normal !important;
+    }
+    
+    .content a {
+        text-decoration: none !important;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    blockquote {
+        background-color: #F7F7F7 !important;
+        margin: 16px !important;
+        padding: 8px 16px !important;
+        font-size: 16px !important;
+        color: #666666 !important;
+    }
+    
+    blockquote > font > font {
+        font-size: 16px !important;
+    }
+    
+    .userblock {
+        text-align: center;
+        color: lightgray;
+        font-size: 17px;
+    }
+    
+    .locked {
+        text-align: center;
+        color: lightgray;
+    }
+    
+    .locked em {
+        font-style: normal !important;
+    }
+    
+    td.t_msgfont > strong {
+        max-width: 100% !important;
+        margin: 4px 0px 8px 0px !important;
+        display: flex;
+    }
+    
+    td.t_msgfont > strong + br {
+        display: none;
+    }
+    
+    td.t_msgfont > strong + br + br {
+        display: none;
+    }
+    
+    td.t_msgfont > strong + br + br + br {
+        display: none;
+    }
+    
+    div.quote + br {
+        display: none;
+    }
+    
+    div.quote + br + br {
+        display: none;
+    }
+    
+    div.quote + br + br + br {
+        display: none;
+    }
+    
+    table, tbody {
+        max-width: 100% !important;
+    }
+    
+    .t_msgfontfix > table {
+        width: 100% !important;
+    }
+    
+    .pstatus {
+        display: none;
+/*        text-align: center !important;*/
+/*        color: gray !important;*/
+/*        font-size: 14px;*/
+/*        font-style: normal !important;*/
+/*        display: inline-block !important;*/
+/*        width: 100% !important;*/
+/*        margin-bottom: 8px !important;*/
+    }
+    
+    .pstatus + br {
+        display: none;
+    }
+    
+    .postratings {
+        display: none;
+    }
+    
+    h2 {
+        font-size: 18px !important;
+        font-weight: 400 !important;
+        line-height: normal !important;
+        margin: 8px !important;
+    }
+        
+    #threadtitle {
+        display: none !important;
+    }
+    
+    br:nth-child(3n + 3) {
+        display: none;
+    }
+}

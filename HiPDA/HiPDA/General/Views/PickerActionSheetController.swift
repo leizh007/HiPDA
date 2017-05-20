@@ -13,9 +13,6 @@ import RxCocoa
 /// 选择结束的block
 typealias PickerSelectedCompletionHandler = (Int?) -> Void
 
-/// 动画持续时间
-private let kAnimationDuration = 0.25
-
 /// 包含Picker选择器的ActionSheetController
 ///
 /// 在present的时候animation请用false！
@@ -69,7 +66,7 @@ class PickerActionSheetController: BaseViewController, StoryboardLoadable {
                 else { return }
             
             self.containerStackViewBottomConstraint.constant = -self.containerStackViewHeightConstraint.constant
-            UIView.animate(withDuration: kAnimationDuration, animations: { 
+            UIView.animate(withDuration: C.UI.animationDuration, animations: {
                 self.view.backgroundColor = UIColor.clear
                 self.view.layoutIfNeeded()
             }, completion: { _ in
@@ -92,7 +89,7 @@ class PickerActionSheetController: BaseViewController, StoryboardLoadable {
         super.viewDidAppear(animated)
         
         containerStackViewBottomConstraint.constant = 0.0
-        UIView.animate(withDuration: kAnimationDuration) {
+        UIView.animate(withDuration: C.UI.animationDuration) {
             self.view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.2)
             self.view.layoutIfNeeded()
         }

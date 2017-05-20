@@ -137,7 +137,6 @@
                     <connections>
                         <outlet property="tableView" destination="J7Q-UY-WIs" id="NY7-4E-kD2"/>
                         <outlet property="titleView" destination="3qd-cd-nUS" id="DEs-6B-yDH"/>
-                        <segue destination="guR-dM-dX3" kind="show" identifier="readPost" id="ilu-LB-sa1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBD-AW-NYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,7 +201,7 @@
         <!--Post View Controller-->
         <scene sceneID="7d6-a0-zcR">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="guR-dM-dX3" customClass="PostViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="guR-dM-dX3" customClass="PostViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JDi-nf-2jw"/>
                         <viewControllerLayoutGuide type="bottom" id="MV6-Jp-U0r"/>
