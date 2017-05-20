@@ -11,7 +11,7 @@ function adjustFontSize() {
     for (var i = 0; i < fonts.length; ++i) {
         var font = fonts[i];
         if (font.hasAttribute("size")) {
-            if (font.attributes["size"] >= 2 || font.attributes["size"] >= "2") {
+            if (parseInt(font.getAttribute("size")) >= 2) {
                 font.setAttribute("size", undefined);
                 font.style.fontSize = "17px";
             }

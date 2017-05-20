@@ -15,12 +15,12 @@ import Foundation
 /// - parameter line:     调用改函数所在的行号，默认#line
 /// - parameter function: 函数描述，默认#function
 func console(message: String, filename: String = #file, line: Int = #line, function: String = #function) {
-    #if DEBUG
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
-        let dateString = dateFormatter.string(from: Date())
-        print("\(dateString) \((filename as NSString).lastPathComponent):\(line) \(function):  \(message)")
-    #endif
+#if DEBUG
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
+    let dateString = dateFormatter.string(from: Date())
+    print("\(dateString) \((filename as NSString).lastPathComponent):\(line) \(function):  \(message)")
+#endif
 }
 
 /// 延时执行

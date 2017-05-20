@@ -56,6 +56,13 @@ class PostManager {
     /// 加载指定postInfo的数据
     func load(postInfo: PostInfo, completion: @escaping PostListFetchCompletion = { _ in }) {
         disposeBag = DisposeBag()
+        
+        // 载入空数据
+        guard postInfo.tid != 0 else {
+            completion(.success((title: nil, posts: [])))
+            return
+        }
+        
         var totalPage = self.totalPage
         var title = self.title
         HiPDAProvider.request(.posts(postInfo))

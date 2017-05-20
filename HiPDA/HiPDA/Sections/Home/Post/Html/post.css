@@ -149,23 +149,16 @@
         display: none;
     }
     
-    table, tbody {
-        max-width: 100% !important;
+    .t_msgfontfix > table {
+        max-width: ####max width#### !important;
     }
     
-    .t_msgfontfix > table {
-        width: 100% !important;
+    .t_msgfont {
+        max-width: ####max width#### !important;
     }
     
     .pstatus {
         display: none;
-/*        text-align: center !important;*/
-/*        color: gray !important;*/
-/*        font-size: 14px;*/
-/*        font-style: normal !important;*/
-/*        display: inline-block !important;*/
-/*        width: 100% !important;*/
-/*        margin-bottom: 8px !important;*/
     }
     
     .pstatus + br {

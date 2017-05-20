@@ -13,6 +13,7 @@ struct HtmlManager {
         static let content = "####content here####"
         static let style = "####style here####"
         static let script = "####script here####"
+        static let maxWidth = "####max width####"
     }
     fileprivate static let baseHtml: String = {
         enum HtmlResource {
@@ -27,10 +28,13 @@ struct HtmlManager {
             let cssPath = Bundle.main.path(forResource: HtmlResource.name, ofType: HtmlResource.ResourceType.css),
             let jsPath = Bundle.main.path(forResource: HtmlResource.name, ofType: HtmlResource.ResourceType.js),
             let html = try? String(contentsOfFile: htmlPath, encoding: .utf8),
-            let css = try? String(contentsOfFile: cssPath, encoding: .utf8),
+            var css = try? String(contentsOfFile: cssPath, encoding: .utf8),
             let js = try? String(contentsOfFile: jsPath, encoding: .utf8) else {
                 fatalError("Load Html Error!")
         }
+        
+        let contentMargin = CGFloat(8.0)
+        css = css.replacingOccurrences(of: Attribute.maxWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin))px")
         
         return html.replacingOccurrences(of: Attribute.style, with: css)
                    .replacingOccurrences(of: Attribute.script, with: js)

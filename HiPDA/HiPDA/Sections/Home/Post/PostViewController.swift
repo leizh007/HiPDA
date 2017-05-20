@@ -87,13 +87,13 @@ class PostViewController: BaseViewController {
     fileprivate func animationOptions(of status: PostViewStatus) -> UIViewAnimationOptions {
         switch status {
         case .loadingFirstPage:
-            return [.allowAnimatedContent, .transitionCrossDissolve]
+            return [.allowAnimatedContent]
         case .loadingPreviousPage:
             return [.transitionCurlDown, .allowAnimatedContent]
         case .loadingNextPage:
             return [.transitionCurlUp, .allowAnimatedContent]
         default:
-            return [.allowAnimatedContent, .transitionCrossDissolve]
+            return [.allowAnimatedContent]
         }
     }
     
@@ -104,9 +104,8 @@ class PostViewController: BaseViewController {
                 let options = animationOptions(of: viewModel.status)
                 UIView.transition(with: webView, duration: C.UI.animationDuration * 4.0, options: options, animations: {
                     self.webView.loadHTMLString(html, baseURL: C.URL.baseURL)
-                }, completion: { _ in
                     self.configureWebViewAfterLoadData()
-                })
+                }, completion: nil)
             } else {
                 webView.endRefreshing()
                 webView.endLoadMore()
@@ -161,6 +160,10 @@ extension PostViewController {
         webView.scrollView.delegate = self
         webView.allowsLinkPreview = false
         webView.uiDelegate = self
+        webView.scrollView.backgroundColor = .groupTableViewBackground
+#if RELEASE
+        webView.scrollView.showsHorizontalScrollIndicator = false
+#endif
         let states: [MJRefreshState] = [.idle, .pulling, .refreshing, .noMoreData]
         for state in states {
             webView.loadMoreFooter?.setTitle(viewModel.footerTitle(for: state), for: state)
@@ -200,66 +203,19 @@ extension PostViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return nil
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+#if RELEASE
+        if scrollView.contentOffset.x > 0 || scrollView.contentOffset.x < 0 {
+            scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y)
+        }
+#endif
+    }
 }
 
 // MARK: - WKNavigationDelegate
 
 extension PostViewController: WKNavigationDelegate {
-//    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-//        webView.scrollView.backgroundColor = .groupTableViewBackground
-//        guard let webView = webView as? BaseWebView else { return }
-//        if webView.status == .pullUpLoading {
-//            if viewModel.hasMoreData {
-//                webView.endLoadMore()
-//                webView.resetNoMoreData()
-//            } else {
-//                webView.endLoadMoreWithNoMoreData()
-//            }
-//        } else if webView.status ==  .pullDownRefreshing {
-//            webView.endRefreshing()
-//            if viewModel.hasMoreData {
-//                webView.resetNoMoreData()
-//            } else {
-//                webView.endLoadMoreWithNoMoreData()
-//            }
-//        } else {
-//            if viewModel.hasMoreData {
-//                webView.resetNoMoreData()
-//            } else {
-//                webView.endLoadMoreWithNoMoreData()
-//            }
-//        }
-//        webView.status = .normal
-//        viewModel.status = .idle
-//    }
-    
-//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        webView.scrollView.backgroundColor = .groupTableViewBackground
-//        guard let webView = webView as? BaseWebView else { return }
-//        if webView.status == .pullUpLoading {
-//            if viewModel.hasMoreData {
-//                webView.endLoadMore()
-//                webView.resetNoMoreData()
-//            } else {
-//                webView.endLoadMoreWithNoMoreData()
-//            }
-//        } else if webView.status ==  .pullDownRefreshing {
-//            webView.endRefreshing()
-//            if viewModel.hasMoreData {
-//                webView.resetNoMoreData()
-//            } else {
-//                webView.endLoadMoreWithNoMoreData()
-//            }
-//        } else {
-//            if viewModel.hasMoreData {
-//                webView.resetNoMoreData()
-//            } else {
-//                webView.endLoadMoreWithNoMoreData()
-//            }
-//        }
-//        webView.status = .normal
-//        viewModel.status = .idle
-//    }
 }
 
 // MARK: - WKUIDelegate
