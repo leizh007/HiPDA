@@ -53,7 +53,7 @@ function replaceAttatchImageURLs() {
                 image.setAttribute("src", image.getAttribute("file").replace(/^(https?|ftp):\/\//, "$&--hipda-image--"));
             }
        } else {
-            handleAttachImage(image);
+            handleAttatchImage(image);
        }
        image.setAttribute("style", "display: block !important; margin-left: auto !important; margin-right: auto !important;");
        handleImageSize(attatch.innerText);
@@ -67,14 +67,12 @@ function replaceAttatchImageURLs() {
         handleImageSize(sizeString);
         var image = attatch.getElementsByTagName("img")[0];
         if (image != undefined) {
-            handleAttachImage(image);
+            handleAttatchImage(image);
         }
     }
 }
-                                                                             
-                                                                             
 
-function handleAttachImage(image) {
+function handleAttatchImage(image) {
     if (image.hasAttribute("src")) {
         var imageSrc = image.getAttribute("src");
         if (/^(https?|ftp):\/\//.test(imageSrc)) {
