@@ -93,15 +93,17 @@
     }
     
     blockquote {
+        -webkit-box-sizing: border-box;
+        width: ####blockquote width#### !important;
         background-color: #F7F7F7 !important;
         margin: 16px !important;
         padding: 8px 16px !important;
-        font-size: 16px !important;
+        font-size: 15px !important;
         color: #666666 !important;
     }
     
     blockquote > font > font {
-        font-size: 16px !important;
+        font-size: 15px !important;
     }
     
     .userblock {

@@ -14,6 +14,7 @@ struct HtmlManager {
         static let style = "####style here####"
         static let script = "####script here####"
         static let maxWidth = "####max width####"
+        static let blockQuoteWidth = "####blockquote width####"
     }
     fileprivate static let baseHtml: String = {
         enum HtmlResource {
@@ -34,7 +35,10 @@ struct HtmlManager {
         }
         
         let contentMargin = CGFloat(8.0)
+        let blockquoteMargin = CGFloat(16.0)
         css = css.replacingOccurrences(of: Attribute.maxWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin))px")
+            .replacingOccurrences(of: Attribute.blockQuoteWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin - 2 * blockquoteMargin))px")
+
         
         return html.replacingOccurrences(of: Attribute.style, with: css)
                    .replacingOccurrences(of: Attribute.script, with: js)

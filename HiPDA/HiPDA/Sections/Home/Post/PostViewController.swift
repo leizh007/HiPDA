@@ -216,6 +216,9 @@ extension PostViewController: UIScrollViewDelegate {
 // MARK: - WKNavigationDelegate
 
 extension PostViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.scrollView.backgroundColor = .groupTableViewBackground
+    }
 }
 
 // MARK: - WKUIDelegate
