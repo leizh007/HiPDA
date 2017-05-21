@@ -20,7 +20,7 @@ enum HiPDA {
 }
 
 extension HiPDA: TargetType {
-    var baseURL: URL { return C.URL.baseURL }
+    var baseURL: URL { return URL(string: "https://www.hi-pda.com")! }
     var path: String {
         switch self {
         case .login(_):

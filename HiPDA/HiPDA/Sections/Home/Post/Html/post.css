@@ -101,7 +101,7 @@
         background-color: #F7F7F7 !important;
         margin: 16px !important;
         padding: 8px 16px !important;
-        font-size: 15px !important;
+        font-size: 16px !important;
         color: #666666 !important;
     }
     
@@ -195,5 +195,13 @@
     
     br:nth-child(3n + 3) {
         display: none;
+    }
+    
+    .imgtitle {
+        display: none !important;
+    }
+    
+    .t_attachlist.attachimg dd {
+        margin: 0px !important;
     }
 }

@@ -70,7 +70,7 @@ class PostViewController: BaseViewController {
     override func didMove(toParentViewController parent: UIViewController?) {
         guard parent == nil else { return }
         
-        webView.loadHTMLString(viewModel.emptyHtml, baseURL: C.URL.baseURL)
+        webView.loadHTMLString(viewModel.emptyHtml, baseURL: C.URL.baseWebViewURL)
     }
     
     override func willDealloc() -> Bool {
@@ -103,7 +103,7 @@ class PostViewController: BaseViewController {
             if viewModel.hasData {
                 let options = animationOptions(of: viewModel.status)
                 UIView.transition(with: webView, duration: C.UI.animationDuration * 4.0, options: options, animations: {
-                    self.webView.loadHTMLString(html, baseURL: C.URL.baseURL)
+                    self.webView.loadHTMLString(html, baseURL: C.URL.baseWebViewURL)
                     self.configureWebViewAfterLoadData()
                 }, completion: nil)
             } else {

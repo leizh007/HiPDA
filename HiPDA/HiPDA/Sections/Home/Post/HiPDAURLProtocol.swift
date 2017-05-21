@@ -28,10 +28,10 @@ class HiPDAURLProtocol: URLProtocol {
     }
     
     override func startLoading() {
-        if request.url?.absoluteString.contains(C.URL.HiPDA.avatar) ?? false {
+        if request.url!.absoluteString.contains(C.URL.HiPDA.avatar) {
             loadAvatarImage()
-        } else if request.url?.absoluteString.contains(C.URL.HiPDA.image) ?? false {
-            
+        } else if request.url!.absoluteString.contains(C.URL.HiPDA.image) {
+            loadAttatchImage()
         }
     }
     
@@ -50,7 +50,23 @@ extension HiPDAURLProtocol {
                                    textEncodingName: nil)
         let url = URL(string: request.url!.absoluteString.replacingOccurrences(of: C.URL.HiPDA.avatar,
                                                                                with: ""))!
-        SDWebImageDownloader.shared().downloadImage(with: url, progress: nil, completed: { [weak self] (_, data, _, _) in
+        SDWebImageDownloader.shared().downloadImage(with: url, options: [.highPriority], progress: nil, completed: { [weak self] (_, data, _, _) in
+            guard let `self` = self else { return }
+            let imageData = data ?? HiPDAURLProtocol.avatarPlaceholderData
+            self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            self.client?.urlProtocol(self, didLoad: imageData)
+            self.client?.urlProtocolDidFinishLoading(self)
+        })
+    }
+    
+    fileprivate func loadAttatchImage() {
+        let response = URLResponse(url: request.url!,
+                                   mimeType: "image/jpeg", // FIXME: - 根据图片后缀名设置MIMEType
+                                   expectedContentLength: -1,
+                                   textEncodingName: nil)
+        let url = URL(string: request.url!.absoluteString.replacingOccurrences(of: C.URL.HiPDA.image,
+                                                                               with: ""))!
+        SDWebImageDownloader.shared().downloadImage(with: url, options: [.highPriority], progress: nil, completed: { [weak self] (_, data, _, _) in
             guard let `self` = self else { return }
             let imageData = data ?? HiPDAURLProtocol.avatarPlaceholderData
             self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
