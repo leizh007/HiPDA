@@ -46,17 +46,20 @@ enum C {
         /// WebView的baseURL
         static let baseURL = Foundation.URL(string: "https://www.hi-pda.com")!
         
+        enum HiPDA {
+            /// 标明图片
+            static let image = "--hipda-image--"
+            
+            /// 标示头像
+            static let avatar = "--hipda-avatar--"
+        }
+        
         enum Scheme {
             /// URLProtocol里用到的基本scheme
             static let https = "https"
             
             /// HiPDA的scheme
             static let hipda = "hipda"
-            
-            enum HiPDA {
-                /// 标明图片的shceme
-                static let image = "hipda-image"
-            }
         }
     }
 }
