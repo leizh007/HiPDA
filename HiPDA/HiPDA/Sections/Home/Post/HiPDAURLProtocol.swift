@@ -66,12 +66,18 @@ extension HiPDAURLProtocol {
                                    textEncodingName: nil)
         let url = URL(string: request.url!.absoluteString.replacingOccurrences(of: C.URL.HiPDA.image,
                                                                                with: ""))!
-        SDWebImageDownloader.shared().downloadImage(with: url, options: [.highPriority], progress: nil, completed: { [weak self] (_, data, _, _) in
+        SDWebImageDownloader.shared().downloadImage(with: url, options: [.highPriority], progress: nil, completed: { [weak self] (_, data, error, _) in
             guard let `self` = self else { return }
-            let imageData = data ?? HiPDAURLProtocol.avatarPlaceholderData
-            self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-            self.client?.urlProtocol(self, didLoad: imageData)
-            self.client?.urlProtocolDidFinishLoading(self)
+            if let error = error {
+                self.client?.urlProtocol(self, didFailWithError: error)
+                return
+            }
+            if let data = data {
+                self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+                self.client?.urlProtocol(self, didLoad: data)
+                self.client?.urlProtocolDidFinishLoading(self)
+                return
+            }
         })
     }
 }
