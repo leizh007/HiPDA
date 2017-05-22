@@ -133,3 +133,31 @@ function hideBlockquoteImage() {
         }
     }
 }
+
+// JS Bridge
+
+function setupWebViewJavascriptBridge(callback) {
+    if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+    if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+    window.WVJBCallbacks = [callback];
+    var WVJBIframe = document.createElement('iframe');
+    WVJBIframe.style.display = 'none';
+    WVJBIframe.src = 'https://__bridge_loaded__';
+    document.documentElement.appendChild(WVJBIframe);
+    setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+}
+
+setupWebViewJavascriptBridge(function(bridge) {
+// bridge.registerHandler
+})
+
+// 用户头像/用户名被点击
+function userClicked(user) {
+    var name = user.getElementsByClassName("username")[0];
+    var uid = user.getElementsByClassName("uid")[0];
+    var data = {
+                  "uid" : uid.innerText,
+                  "name" : name.innerText
+                };
+    WebViewJavascriptBridge.callHandler('userClicked', data, null);
+}

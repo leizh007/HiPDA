@@ -11,6 +11,7 @@ import WebKit
 import WebViewJavascriptBridge
 import MJRefresh
 import MLeaksFinder
+import Perform
 
 /// 浏览帖子页面
 class PostViewController: BaseViewController {
@@ -173,7 +174,18 @@ extension PostViewController {
     }
     
     fileprivate func skinWebViewJavascriptBridge(_ bridge: WKWebViewJavascriptBridge) {
-        
+        bridge.registerHandler("userClicked") { [weak self] (data, _) in
+            guard let `self` = self,
+                let data = data as? [String: Any],
+                let name = data["name"] as? String,
+                let uidString = data["uid"] as? String,
+                let uid = Int(uidString)
+                else { return }
+            let user = User(name: name, uid: uid)
+            self.perform(.userProfile) { userProfileVC in
+                userProfileVC.user = user
+            }
+        }
     }
 }
 
@@ -181,11 +193,9 @@ extension PostViewController {
 
 extension PostViewController: DataLoadDelegate {
     func loadNewData() {
-        let date = Date()
         viewModel.loadNewData { [weak self] result in
             self?.updateWebViewState()
             self?.handleDataLoadResult(result)
-            console(message: "\(Date().timeIntervalSince(date))")
         }
     }
     
@@ -233,3 +243,12 @@ extension PostViewController: WKUIDelegate {
 // MARK: - StoryboardLoadable
 
 extension PostViewController: StoryboardLoadable {}
+
+// MARK: - Segue Extesion
+
+extension Segue {
+    /// 查看个人资料
+    fileprivate static var userProfile: Segue<UserProfileViewController> {
+        return .init(identifier: "userProfile")
+    }
+}

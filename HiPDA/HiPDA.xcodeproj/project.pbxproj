@@ -30,6 +30,7 @@
 		051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AA1E7E5F6D0049D31E /* AccountManagementViewModel.swift */; };
 		051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */; };
 		051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */; };
+		0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */; };
 		052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */; };
 		052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92161E0688FF00856219 /* SettingsSegue.swift */; };
 		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
@@ -202,6 +203,7 @@
 		051F41AA1E7E5F6D0049D31E /* AccountManagementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementViewModel.swift; path = AccountManagement/AccountManagementViewModel.swift; sourceTree = "<group>"; };
 		051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementCommand.swift; path = AccountManagement/AccountManagementCommand.swift; sourceTree = "<group>"; };
 		051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementItemtype.swift; path = AccountManagement/AccountManagementItemtype.swift; sourceTree = "<group>"; };
+		0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PmDoNotDisturbTimeSettingViewController.swift; sourceTree = "<group>"; };
 		052F92161E0688FF00856219 /* SettingsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSegue.swift; sourceTree = "<group>"; };
 		053067D01DFD6BCF009D0154 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
@@ -403,6 +405,14 @@
 				05068AF71E0973B60070E044 /* UserRemarkTableViewState.swift */,
 			);
 			path = UserRemark;
+			sourceTree = "<group>";
+		};
+		0521A5911ED32E67005EB96E /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		05532B0A1ECDEB3600FAB176 /* Html */ = {
@@ -768,6 +778,7 @@
 		05EE51541EC9517000BC81B4 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				0521A5911ED32E67005EB96E /* UserProfile */,
 				05532B0A1ECDEB3600FAB176 /* Html */,
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
 				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
@@ -1291,6 +1302,7 @@
 				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
+				0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
 				05DD42EC1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m in Sources */,
 			);
