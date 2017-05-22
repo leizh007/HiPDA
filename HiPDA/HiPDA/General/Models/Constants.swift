@@ -58,6 +58,8 @@ enum C {
             /// URLProtocol里用到的基本scheme
             static let https = "https"
             
+            static let http = "http"
+            
             /// HiPDA的scheme
             static let hipda = "hipda"
         }
