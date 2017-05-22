@@ -131,14 +131,17 @@ extension PostViewModel {
     /// Post列表到html的转换
     fileprivate func parsePosts(_ posts: [Post], title: String? = nil, completion: @escaping PostFetchCompletion = { _ in }) {
         let userBlockSet = Set(Settings.shared.userBlockList)
+        let isEnabledUserRemark = Settings.shared.isEnabledUserRemark
+        let userRemarkDictionary = Settings.shared.userRemarkDictionary
         DispatchQueue.global(qos: .userInteractive).async {
             var content = ""
             if let title = title {
                 content += "<div class=\"title\">\(title)</div>"
             }
             for post in posts {
+                let userName = isEnabledUserRemark ? (userRemarkDictionary[post.user.name] ?? post.user.name) : post.user.name
                 let postContent = userBlockSet.contains(post.user.name) ? "<div class=\"userblock\">该用户已被您屏蔽！</div>" : post.content
-                content += "<div class=\"post\" id=\"post_\(post.id)\"><div class=\"header\"><div class=\"user\"><span><img class=\"avatar\" src=\"\(post.user.avatarImageURL.absoluteString)\" alt=\"\"/></span><span class=\"username\">\(post.user.name)</span></div><div class><span class=\"time\">\(post.time)</span><span class=\"floor\">\(post.floor)#</span></div></div><div class=\"content\">\(postContent)</div></div>"
+                content += "<div class=\"post\" id=\"post_\(post.id)\"><div class=\"header\"><div class=\"user\"><span><img class=\"avatar\" src=\"\(post.user.avatarImageURL.absoluteString)\" alt=\"\"/></span><span class=\"username\">\(userName)</span></div><div class><span class=\"time\">\(post.time)</span><span class=\"floor\">\(post.floor)#</span></div></div><div class=\"content\">\(postContent)</div></div>"
             }
             let html = HtmlManager.html(with: content)
             DispatchQueue.main.async {
