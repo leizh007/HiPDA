@@ -71,7 +71,7 @@ function replaceAttatchImageURLs() {
         var image = attatch.getElementsByTagName("img")[0];
         if (image != undefined) {
             handleImageURL(image);
-            handleImageSize(iamge, sizeString);
+            handleImageSize(image, sizeString);
         }
     }
 }
