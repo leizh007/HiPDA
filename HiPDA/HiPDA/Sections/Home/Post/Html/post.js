@@ -6,6 +6,7 @@ function configureElements() {
     replaceAvatarImageURLs();
     replaceAttatchImageURLs();
     replaceOtherImageURLs();
+    hideBlockquoteImage();
 }
 
 // adjustFontSize
@@ -38,7 +39,6 @@ function replaceAvatarImageURLs() {
 }
 
 // replace attach image urls
-                                                      
 function replaceAttatchImageURLs() {
     // t_attach
     var attatches = document.getElementsByClassName("t_attach");
@@ -69,6 +69,9 @@ function replaceAttatchImageURLs() {
         var attatch = attatchList[i];
         var sizeString = attatch.getElementsByTagName("em")[0].innerText;
         var image = attatch.getElementsByTagName("img")[0];
+        if (image.hasAttribute("file")) {
+            image.setAttribute("src", image.getAttribute("file"));
+        }
         if (image != undefined) {
             handleImageURL(image);
             handleImageSize(image, sizeString);
@@ -76,6 +79,7 @@ function replaceAttatchImageURLs() {
     }
 }
 
+// 处理图片的URL，在URL的scheme后面加上hipda的标识符
 function handleImageURL(image) {
     if (image.hasAttribute("src")) {
         var imageSrc = image.getAttribute("src");
@@ -87,6 +91,7 @@ function handleImageURL(image) {
     }
 }
 
+// 图片大小处理
 function handleImageSize(image, imageDescriptionText) {
     var imageSizeDesciptionArray = imageDescriptionText.match(/\(([\d\.]+)\s*(\w{2})\)/);
     if (imageSizeDesciptionArray != null && imageSizeDesciptionArray.length == 3) {
@@ -95,6 +100,7 @@ function handleImageSize(image, imageDescriptionText) {
     }
 }
    
+// 处理其余图片的URL
 function replaceOtherImageURLs() {
     var images = document.getElementsByTagName("img");
     for (var i = 0; i < images.length; ++i) {
@@ -111,6 +117,19 @@ function replaceOtherImageURLs() {
         } else {
             image.setAttribute("src", image.getAttribute("file"));
             handleImageURL(image);
+        }
+    }
+}
+
+// 隐藏引用中那个丑陋的图标
+function hideBlockquoteImage() {
+    var blockquotes = document.getElementsByTagName("blockquote");
+    for (var i = 0; i < blockquotes.length; ++i) {
+        var blockquote = blockquotes[i];
+        var images = blockquote.getElementsByTagName("img");
+        for (var j = 0; j < images.length; ++j) {
+            var image = images[j];
+            image.setAttribute("style", "display: none !important;")
         }
     }
 }
