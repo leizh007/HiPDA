@@ -178,9 +178,7 @@ extension PostViewController {
             guard let `self` = self,
                 let data = data as? [String: Any],
                 let name = data["name"] as? String,
-                let uidString = data["uid"] as? String,
-                let uid = Int(uidString)
-                else { return }
+                let uid = data["uid"] as? Int else { return }
             let user = User(name: name, uid: uid)
             self.perform(.userProfile) { userProfileVC in
                 userProfileVC.user = user

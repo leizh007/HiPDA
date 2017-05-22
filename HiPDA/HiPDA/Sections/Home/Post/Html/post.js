@@ -156,7 +156,7 @@ function userClicked(user) {
     var name = user.getElementsByClassName("username")[0];
     var uid = user.getElementsByClassName("uid")[0];
     var data = {
-                  "uid" : uid.innerText,
+                  "uid" : parseInt(uid.innerText),
                   "name" : name.innerText
                 };
     WebViewJavascriptBridge.callHandler('userClicked', data, null);
