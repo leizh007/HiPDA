@@ -5,6 +5,7 @@ function configureElements() {
     adjustFontSize();
     replaceAvatarImageURLs();
     replaceAttatchImageURLs();
+    replaceOtherImageURLs();
 }
 
 // adjustFontSize
@@ -43,6 +44,9 @@ function replaceAttatchImageURLs() {
     var attatches = document.getElementsByClassName("t_attach");
     for (var i = 0; i < attatches.length; ++i) {
         var attatch = attatches[i];
+        if (attatch.previousElementSibling.tagName == "SPAN") {
+            attatch.previousElementSibling.setAttribute("style", "white-space: pre-wrap");
+        }
         var image = attatch.previousElementSibling.getElementsByTagName("img")[0];
         if (image == undefined) {
             image = attatch.previousElementSibling;
@@ -53,10 +57,10 @@ function replaceAttatchImageURLs() {
                 image.setAttribute("src", image.getAttribute("file").replace(/^(https?|ftp):\/\//, "$&--hipda-image--"));
             }
        } else {
-            handleAttatchImage(image);
+            handleImageURL(image);
        }
        image.setAttribute("style", "display: block !important; margin-left: auto !important; margin-right: auto !important;");
-       handleImageSize(attatch.innerText);
+       handleImageSize(image, attatch.innerText);
     }
                                                                
     // t_attachlist attachimg
@@ -64,15 +68,15 @@ function replaceAttatchImageURLs() {
     for (var i = 0; i < attatchList.length; ++i) {
         var attatch = attatchList[i];
         var sizeString = attatch.getElementsByTagName("em")[0].innerText;
-        handleImageSize(sizeString);
         var image = attatch.getElementsByTagName("img")[0];
         if (image != undefined) {
-            handleAttatchImage(image);
+            handleImageURL(image);
+            handleImageSize(iamge, sizeString);
         }
     }
 }
 
-function handleAttatchImage(image) {
+function handleImageURL(image) {
     if (image.hasAttribute("src")) {
         var imageSrc = image.getAttribute("src");
         if (/^(https?|ftp):\/\//.test(imageSrc)) {
@@ -83,11 +87,30 @@ function handleAttatchImage(image) {
     }
 }
 
-function handleImageSize(imageDescriptionText) {
+function handleImageSize(image, imageDescriptionText) {
     var imageSizeDesciptionArray = imageDescriptionText.match(/\(([\d\.]+)\s*(\w{2})\)/);
-    if (imageSizeDesciptionArray.length == 3) {
+    if (imageSizeDesciptionArray != null && imageSizeDesciptionArray.length == 3) {
         var imageSize = parseFloat(imageSizeDesciptionArray[1]);
         var imageSizeUnit = imageSizeDesciptionArray[2];
     }
 }
-                                                               
+   
+function replaceOtherImageURLs() {
+    var images = document.getElementsByTagName("img");
+    for (var i = 0; i < images.length; ++i) {
+        var image = images[i];
+        if (image.hasAttribute("src")) {
+            var src = image.getAttribute("src");
+            if (src.indexOf("--hipda-image--") !== -1 || src.indexOf("--hipda-avatar--") !== -1) {
+                continue;
+            }
+            if (image.hasAttribute("file")) {
+                image.setAttribute("src", image.getAttribute("file"));
+            }
+            handleImageURL(image);
+        } else {
+            image.setAttribute("src", image.getAttribute("file"));
+            handleImageURL(image);
+        }
+    }
+}

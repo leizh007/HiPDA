@@ -156,6 +156,7 @@
     
     .t_msgfontfix > table {
         max-width: ####max width#### !important;
+        width: ####max width#### !important;
     }
     
     .t_msgfont {
