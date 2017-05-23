@@ -76,6 +76,12 @@ class SettingsViewController: UITableViewController {
     /// 小尾巴链接
     @IBOutlet private weak var tailURLTextField: UITextField!
     
+    /// 清理缓存的cacheIndicatorView
+    @IBOutlet private weak var cacheIndicatorView: UIActivityIndicatorView!
+    
+    /// 缓存大小
+    @IBOutlet private weak var cacheSizeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,6 +89,7 @@ class SettingsViewController: UITableViewController {
         
         configureViewModel()
         configureTableView()
+        configureClearCache()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -156,17 +163,87 @@ class SettingsViewController: UITableViewController {
     
     /// 配置tableView相关
     private func configureTableView() {
+        enum C {
+            static let clearCacheIndexPath = IndexPath(row: 0, section: 10)
+        }
+        
         let router = SettingsRouter(viewController: self)
         
         tableView.rx.delegate.methodInvoked(#selector(UIScrollViewDelegate.scrollViewWillBeginDragging(_:)))
             .subscribe(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
             }).addDisposableTo(disposeBag)
+        tableView.rx.delegate.methodInvoked(#selector(UITableViewDelegate.tableView(_:didSelectRowAt:)))
+            .subscribe(onNext: { [unowned self] indexPath in
+                // 清理缓存
+                guard let indexPath = indexPath.safe[1] as? IndexPath, indexPath == C.clearCacheIndexPath else { return }
+                self.clearCache()
+            }).addDisposableTo(disposeBag)
+        tableView.rx.delegate.methodInvoked(#selector(UITableViewDelegate.tableView(_:accessoryButtonTappedForRowWith:))).subscribe(onNext: { [unowned self] indexPath in
+            // 清理缓存
+            guard let indexPath = indexPath.safe[1] as? IndexPath, indexPath == C.clearCacheIndexPath else { return }
+            let alert = UIAlertController(title: "说明", message: "只会清理图片缓存。\n浏览历史等缓存内容占空间小且不会动态增大，所以不会清理。", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "确定", style: .default, handler: nil)
+            alert.addAction(confirm)
+            self.present(alert, animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
         tableView.rx.itemSelected
             .subscribe(onNext: { [unowned self] indexPath in
                 self.tableView.deselectRow(at: indexPath, animated: true)
                 self.view.endEditing(true)
                 router.handleSelection(for: indexPath)
             }).addDisposableTo(disposeBag)
+    }
+    
+    private func clearCache() {
+        cacheIndicatorView.isHidden = false
+        cacheIndicatorView.startAnimating()
+        cacheSizeLabel.isHidden = true
+        SDImageCache.shared().clearDisk(onCompletion: {
+            DispatchQueue.global().async {
+                // 缓存大小，Byte为单位
+                let cacheSize = SettingsViewController.memorySizeDescription(of: SDImageCache.shared().getSize())
+                DispatchQueue.main.async {
+                    self.cacheIndicatorView.stopAnimating()
+                    self.cacheIndicatorView.isHidden = true
+                    self.cacheSizeLabel.isHidden = false
+                    self.cacheSizeLabel.text = cacheSize
+                }
+            }
+        })
+    }
+    
+    private func configureClearCache() {
+        cacheIndicatorView.isHidden = false
+        cacheIndicatorView.startAnimating()
+        cacheSizeLabel.text = "--"
+        DispatchQueue.global().async {
+            // 缓存大小，Byte为单位
+            let cacheSize = SettingsViewController.memorySizeDescription(of: SDImageCache.shared().getSize())
+            DispatchQueue.main.async {
+                self.cacheIndicatorView.stopAnimating()
+                self.cacheIndicatorView.isHidden = true
+                self.cacheSizeLabel.text = cacheSize
+            }
+        }
+    }
+    
+    fileprivate static func memorySizeDescription(of size: UInt) -> String {
+        let size = Double(size)
+        let sizeString: String
+        if (size > pow(10, 9)) {
+            // size >= 1GB
+            sizeString = String(format: "%dGB", Int(size / pow(10, 9)))
+        } else if (size > pow(10, 6)) {
+            // size >= 1MB
+            sizeString = String(format: "%dMB", Int(size / pow(10, 6)))
+        } else if (size > pow(10, 3)) {
+            // size >= 1KB
+            sizeString = String(format: "%dKB", Int(size / pow(10, 3)))
+        } else {
+            sizeString = String(format: "%dB", Int(size))
+        }
+        
+        return sizeString
     }
 }
