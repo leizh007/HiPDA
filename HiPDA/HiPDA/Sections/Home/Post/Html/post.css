@@ -213,4 +213,8 @@
     .t_attachlist.attachimg dd {
         margin: 0px !important;
     }
+    
+    a[title="主题操作记录"] {
+        display: none !important;
+    }
 }
