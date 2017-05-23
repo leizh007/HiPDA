@@ -44,40 +44,37 @@ class HiPDAURLProtocol: URLProtocol {
 
 extension HiPDAURLProtocol {
     fileprivate func loadAvatarImage() {
-        let response = URLResponse(url: request.url!,
-                                   mimeType: "image/jpeg",
-                                   expectedContentLength: -1,
-                                   textEncodingName: nil)
-        let url = URL(string: request.url!.absoluteString.replacingOccurrences(of: C.URL.HiPDA.avatar,
-                                                                               with: ""))!
-        SDWebImageDownloader.shared().downloadImage(with: url, options: [.highPriority], progress: nil, completed: { [weak self] (_, data, _, _) in
-            guard let `self` = self else { return }
-            let imageData = data ?? HiPDAURLProtocol.avatarPlaceholderData
-            self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-            self.client?.urlProtocol(self, didLoad: imageData)
-            self.client?.urlProtocolDidFinishLoading(self)
-        })
+        loadImage(url: request.url!, imageFlag: C.URL.HiPDA.avatar, placeHolderData: HiPDAURLProtocol.avatarPlaceholderData)
     }
     
     fileprivate func loadAttatchImage() {
-        let response = URLResponse(url: request.url!,
-                                   mimeType: "image/jpeg", // FIXME: - 根据图片后缀名设置MIMEType
+        loadImage(url: request.url!, imageFlag: C.URL.HiPDA.image, placeHolderData: nil)
+    }
+    
+    fileprivate func loadImage(url: URL, imageFlag: String, placeHolderData: Data?) {
+        let response = URLResponse(url: url,
+                                   mimeType: "image/jpeg",
                                    expectedContentLength: -1,
                                    textEncodingName: nil)
-        let url = URL(string: request.url!.absoluteString.replacingOccurrences(of: C.URL.HiPDA.image,
+        let url = URL(string: request.url!.absoluteString.replacingOccurrences(of: imageFlag,
                                                                                with: ""))!
-        SDWebImageDownloader.shared().downloadImage(with: url, options: [.highPriority], progress: nil, completed: { [weak self] (_, data, error, _) in
+        SDWebImageManager.shared().loadImageData(with: url) { [weak self] result in
             guard let `self` = self else { return }
-            if let error = error {
-                self.client?.urlProtocol(self, didFailWithError: error)
-                return
-            }
-            if let data = data {
+            let successBlock: (Data) -> Void = { data in
                 self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
                 self.client?.urlProtocol(self, didLoad: data)
                 self.client?.urlProtocolDidFinishLoading(self)
-                return
             }
-        })
+            switch result {
+            case .success(let data):
+                successBlock(data)
+            case .failure(let error):
+                if let data = placeHolderData {
+                    successBlock(data)
+                } else {
+                    self.client?.urlProtocol(self, didFailWithError: error)
+                }
+            }
+        }
     }
 }
