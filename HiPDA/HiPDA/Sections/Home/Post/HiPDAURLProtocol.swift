@@ -14,9 +14,12 @@ class HiPDAURLProtocol: URLProtocol {
         return UIImageJPEGRepresentation(#imageLiteral(resourceName: "avatar_placeholder"), 1.0)!
     }()
     
+    fileprivate static let webViewImagePlaceholderData: Data = {
+        return UIImagePNGRepresentation(#imageLiteral(resourceName: "webView_image_placeholder"))!
+    }()
+    
     override class func canInit(with request: URLRequest) -> Bool {
-        return (request.url?.absoluteString.contains(C.URL.HiPDA.avatar) ?? false) ||
-            (request.url?.absoluteString.contains(C.URL.HiPDA.image) ?? false)
+        return true
     }
     
     override class func canonicalRequest(for request: URLRequest) -> URLRequest {
@@ -30,8 +33,13 @@ class HiPDAURLProtocol: URLProtocol {
     override func startLoading() {
         if request.url!.absoluteString.contains(C.URL.HiPDA.avatar) {
             loadAvatarImage()
+        } else if request.url!.absoluteString.contains(C.URL.HiPDA.imagePlaceholder) {
+            loadImagePlaceholder()
         } else if request.url!.absoluteString.contains(C.URL.HiPDA.image) {
             loadAttatchImage()
+        } else {
+            // 其他图片禁止加载
+            client?.urlProtocol(self, didFailWithError: NSError(domain: C.URL.HiPDA.image, code: -1, userInfo: nil))
         }
     }
     
@@ -49,6 +57,16 @@ extension HiPDAURLProtocol {
     
     fileprivate func loadAttatchImage() {
         loadImage(url: request.url!, imageFlag: C.URL.HiPDA.image, placeHolderData: nil)
+    }
+    
+    fileprivate func loadImagePlaceholder() {
+        let response = URLResponse(url: request.url!,
+                                   mimeType: "image/jpeg",
+                                   expectedContentLength: -1,
+                                   textEncodingName: nil)
+        self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        self.client?.urlProtocol(self, didLoad: HiPDAURLProtocol.webViewImagePlaceholderData)
+        self.client?.urlProtocolDidFinishLoading(self)
     }
     
     fileprivate func loadImage(url: URL, imageFlag: String, placeHolderData: Data?) {

@@ -18,6 +18,7 @@
 		05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */; };
 		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
 		050A190E1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190D1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift */; };
+		050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */; };
 		050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */; };
 		050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3141DD1FB7F00C4B18D /* Login.storyboard */; };
 		050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */; };
@@ -193,6 +194,7 @@
 		05082EF61D8061C500259707 /* UITextInput+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextInput+HiPDA.swift"; sourceTree = "<group>"; };
 		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		050A190D1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDWebImageManager+HiPDA.swift"; sourceTree = "<group>"; };
+		050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+HiPDA.swift"; sourceTree = "<group>"; };
 		050EE3141DD1FB7F00C4B18D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickerActionSheet.storyboard; sourceTree = "<group>"; };
@@ -784,6 +786,7 @@
 				0521A5911ED32E67005EB96E /* UserProfile */,
 				05532B0A1ECDEB3600FAB176 /* Html */,
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
+				050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */,
 				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
 				05B35C481ECC700400C037A7 /* PostManager.swift */,
 				05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */,
@@ -1222,6 +1225,7 @@
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
+				050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
 				053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */,
 				0588D8231EBF185A00AC43DD /* HomeThreadTableViewCell.swift in Sources */,

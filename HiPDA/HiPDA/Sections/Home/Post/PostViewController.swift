@@ -12,6 +12,7 @@ import WebViewJavascriptBridge
 import MJRefresh
 import MLeaksFinder
 import Perform
+import Argo
 
 /// 浏览帖子页面
 class PostViewController: BaseViewController {
@@ -176,13 +177,22 @@ extension PostViewController {
     fileprivate func skinWebViewJavascriptBridge(_ bridge: WKWebViewJavascriptBridge) {
         bridge.registerHandler("userClicked") { [weak self] (data, _) in
             guard let `self` = self,
-                let data = data as? [String: Any],
-                let name = data["name"] as? String,
-                let uid = data["uid"] as? Int else { return }
-            let user = User(name: name, uid: uid)
+                let data = data,
+                let user = try? User.decode(JSON(data)).dematerialize() else { return }
             self.perform(.userProfile) { userProfileVC in
                 userProfileVC.user = user
             }
+        }
+        
+        bridge.registerHandler("shouldImageAutoLoad") { (data, callback) in
+            // FIXME: - 图片自动加载策略
+//            console(message: "\(String(describing: data))\n\(String(describing: callback))")
+//            guard let data = data,
+//                let dic = data as? [String: Any],
+//                let url = dic["url"],
+//                !(url is NSNull) else { return }
+//            let size = dic["size"]
+            callback?(true)
         }
     }
 }

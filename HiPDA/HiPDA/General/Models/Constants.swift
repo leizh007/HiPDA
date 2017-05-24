@@ -44,7 +44,7 @@ enum C {
     
     enum URL {
         /// WebView的baseURL
-        static let baseWebViewURL = Foundation.URL(string: "https://www.hi-pda.com/forum")!
+        static let baseWebViewURL = Foundation.URL(string: "https://www.hi-pda.com/forum/")!
         
         enum HiPDA {
             /// 标明图片
@@ -52,6 +52,9 @@ enum C {
             
             /// 标示头像
             static let avatar = "--hipda-avatar--"
+            
+            /// 图像的站位图
+            static let imagePlaceholder = "--hipda-placeholder--"
         }
         
         enum Scheme {

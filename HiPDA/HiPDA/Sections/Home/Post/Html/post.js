@@ -53,42 +53,58 @@ function replaceAttatchImageURLs() {
             if (image == undefined) {
                 continue;
             }
-            if (image.tagName == "IMG") {
-                image.setAttribute("src", image.getAttribute("file").replace(/^(https?|ftp):\/\//, "$&--hipda-image--"));
-            }
-       } else {
-            handleImageURL(image);
-       }
-       image.setAttribute("style", "display: block !important; margin-left: auto !important; margin-right: auto !important;");
-       handleImageSize(image, attatch.innerText);
+        }
+        handleImageSize(image, attatch.innerText);
+        handleImageURL(image);
+        image.setAttribute("style", "display: block !important; margin-left: auto !important; margin-right: auto !important;");
     }
-                                                               
+
     // t_attachlist attachimg
     var attatchList = document.getElementsByClassName("t_attachlist attachimg");
     for (var i = 0; i < attatchList.length; ++i) {
         var attatch = attatchList[i];
         var sizeString = attatch.getElementsByTagName("em")[0].innerText;
         var image = attatch.getElementsByTagName("img")[0];
-        if (image.hasAttribute("file")) {
-            image.setAttribute("src", image.getAttribute("file"));
-        }
         if (image != undefined) {
-            handleImageURL(image);
             handleImageSize(image, sizeString);
+            handleImageURL(image);
         }
     }
 }
 
 // 处理图片的URL，在URL的scheme后面加上hipda的标识符
 function handleImageURL(image) {
-    if (image.hasAttribute("src")) {
-        var imageSrc = image.getAttribute("src");
-        if (/^(https?|ftp):\/\//.test(imageSrc)) {
-            image.setAttribute("src", imageSrc.replace(/^(https?|ftp):\/\//, "$&--hipda-image--"));
-        } else {
-            image.setAttribute("src", "https://--hipda-image--www.hi-pda.com/forum/" + imageSrc);
-        }
+    var src = image.getAttribute("src");
+    if (image.hasAttribute("file")) {
+        src = image.getAttribute("file");
     }
+    if (/^(https?|ftp):\/\//.test(src)) {
+        src = src.replace(/^(https?|ftp):\/\//, "$&--hipda-placeholder--");
+    } else {
+        src = "https://--hipda-placeholder--www.hi-pda.com/forum/" + src;
+    }
+
+    if (isEmoji(src)) {
+        image.setAttribute("src", src.replace(/--hipda-placeholder--/, "--hipda-image--"));
+    } else {
+        image.setAttribute("src", src);
+        document.addEventListener("clientJSApiOnReady", function () {
+            var url = image.getAttribute("src");
+            var size = image.getAttribute("sizeAttributes");
+            var data = { "url" : url, "size" : size};
+            WebViewJavascriptBridge.callHandler("shouldImageAutoLoad", data, function responseCallback(responseData) {
+                if (responseData == true) {
+                    image.setAttribute("src", src.replace(/--hipda-placeholder--/, "--hipda-image--"));
+                }
+            });
+        });
+    }
+    image.setAttribute("width", "auto");
+}
+
+// 是否是表情
+function isEmoji(src) {
+    return /[\w:\/\.-]+images\/smilies\/\w+\/\w+\.gif/.test(src);
 }
 
 // 图片大小处理
@@ -97,9 +113,10 @@ function handleImageSize(image, imageDescriptionText) {
     if (imageSizeDesciptionArray != null && imageSizeDesciptionArray.length == 3) {
         var imageSize = parseFloat(imageSizeDesciptionArray[1]);
         var imageSizeUnit = imageSizeDesciptionArray[2];
+        image.setAttribute("sizeAttributes", imageSize + imageSizeUnit);
     }
 }
-   
+
 // 处理其余图片的URL
 function replaceOtherImageURLs() {
     var images = document.getElementsByTagName("img");
@@ -107,15 +124,11 @@ function replaceOtherImageURLs() {
         var image = images[i];
         if (image.hasAttribute("src")) {
             var src = image.getAttribute("src");
-            if (src.indexOf("--hipda-image--") !== -1 || src.indexOf("--hipda-avatar--") !== -1) {
+            if (src.indexOf("--hipda-image--") !== -1 || src.indexOf("--hipda-avatar--") !== -1 || src.indexOf("--hipda-placeholder--") !== -1) {
                 continue;
-            }
-            if (image.hasAttribute("file")) {
-                image.setAttribute("src", image.getAttribute("file"));
             }
             handleImageURL(image);
         } else {
-            image.setAttribute("src", image.getAttribute("file"));
             handleImageURL(image);
         }
     }
@@ -129,7 +142,7 @@ function hideBlockquoteImage() {
         var images = blockquote.getElementsByTagName("img");
         for (var j = 0; j < images.length; ++j) {
             var image = images[j];
-            image.setAttribute("style", "display: none !important;")
+            image.setAttribute("style", "display: none !important;");
         }
     }
 }
@@ -144,11 +157,11 @@ function setupWebViewJavascriptBridge(callback) {
     WVJBIframe.style.display = 'none';
     WVJBIframe.src = 'https://__bridge_loaded__';
     document.documentElement.appendChild(WVJBIframe);
-    setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    setTimeout(function () { document.documentElement.removeChild(WVJBIframe) }, 0)
 }
 
-setupWebViewJavascriptBridge(function(bridge) {
-// bridge.registerHandler
+setupWebViewJavascriptBridge(function (bridge) {
+    clientJSCodeReady();
 })
 
 // 用户头像/用户名被点击
@@ -156,8 +169,15 @@ function userClicked(user) {
     var name = user.getElementsByClassName("username")[0];
     var uid = user.getElementsByClassName("uid")[0];
     var data = {
-                  "uid" : parseInt(uid.innerText),
-                  "name" : name.innerText
-                };
+        "uid": parseInt(uid.innerText),
+        "name": name.innerText
+    };
     WebViewJavascriptBridge.callHandler('userClicked', data, null);
+}
+
+function clientJSCodeReady() {
+    var doc = document;
+    var readyEvent = doc.createEvent("Events");
+    readyEvent.initEvent("clientJSApiOnReady");
+    doc.dispatchEvent(readyEvent);
 }

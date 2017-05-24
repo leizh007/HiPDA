@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillResignActive(_ application: UIApplication) {
         Settings.shared.save()
+        NetworkReachabilityManager.shared.stopListening()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        NetworkReachabilityManager.shared.startListening()
     }
 }
 

@@ -323,6 +323,7 @@ extension HomeViewController: UITableViewDelegate {
         // 大量图片: 2088239
         // 水平超界: 2090332
         // 超级大图: 2100594
+        // 投票: 2101044
         let tid = viewModel.tid(at: indexPath.row)
         let readPostVC = PostViewController.getInstance()
         readPostVC.postInfo = PostInfo(tid: tid)
