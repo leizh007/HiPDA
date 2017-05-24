@@ -208,6 +208,16 @@ struct SettingsViewModel {
         return settings.tailURL?.absoluteString ?? ""
     }
     
+    var autoLoadImageViaWWAN: Bool {
+        get {
+            return settings.autoLoadImageViaWWAN
+        }
+        
+        set {
+            settings.autoLoadImageViaWWAN = newValue
+        }
+    }
+    
     init(settings: Settings) {
         self.settings = settings
         pmDoNotDisturbDescription = Variable(SettingsViewModel.description(fromTime: settings.pmDoNotDisturbFromTime, toTime: settings.pmDoNotDisturbToTime))
@@ -224,7 +234,7 @@ struct SettingsViewModel {
     }
     
     /// 处理事件
-    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, isShowStickThreads: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>) {
+    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, isShowStickThreads: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>, autoLoadImageViaWWANSwitch: Driver<Bool>) {
         userBlock.drive(onNext: { on in
                 self.settings.isEnabledUserBlock = on
             }).addDisposableTo(disposeBag)
@@ -272,6 +282,9 @@ struct SettingsViewModel {
         }).addDisposableTo(disposeBag)
         tailURL.drive(onNext: { text in
             self.settings.tailURL = URL(string: text)
+        }).addDisposableTo(disposeBag)
+        autoLoadImageViaWWANSwitch.drive(onNext: { on in
+            self.settings.autoLoadImageViaWWAN = on
         }).addDisposableTo(disposeBag)
     }
 }

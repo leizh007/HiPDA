@@ -82,6 +82,9 @@ class SettingsViewController: UITableViewController {
     /// 缓存大小
     @IBOutlet private weak var cacheSizeLabel: UILabel!
     
+    /// 无线网络下自动下载图片的switch
+    @IBOutlet private weak var autoLoadImageViaWWANSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,6 +126,7 @@ class SettingsViewController: UITableViewController {
         tailTextTextField.text = viewModel.tailText
         tailURLTextField.text = viewModel.tailURLString
         isShowStickThreadsSwitch.isOn = viewModel.isShowStickThreads
+        autoLoadImageViaWWANSwitch.isOn = viewModel.autoLoadImageViaWWAN
         
         viewModel.pmDoNotDisturbDescription.asObservable()
             .bindTo(pmDoNotDisturbDescriptionLabel.rx.text)
@@ -158,13 +162,14 @@ class SettingsViewController: UITableViewController {
                          historyCountLimit: historyCountLimit,
                          tail: tailSwitch.rx.value.asDriver(),
                          tailText: tailText,
-                         tailURL: tailURL)
+                         tailURL: tailURL,
+                         autoLoadImageViaWWANSwitch: autoLoadImageViaWWANSwitch.rx.value.asDriver())
     }
     
     /// 配置tableView相关
     private func configureTableView() {
         enum C {
-            static let clearCacheIndexPath = IndexPath(row: 0, section: 10)
+            static let clearCacheIndexPath = IndexPath(row: 0, section: 11)
         }
         
         let router = SettingsRouter(viewController: self)
@@ -173,25 +178,25 @@ class SettingsViewController: UITableViewController {
             .subscribe(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
             }).addDisposableTo(disposeBag)
-        tableView.rx.delegate.methodInvoked(#selector(UITableViewDelegate.tableView(_:didSelectRowAt:)))
+        tableView.rx.itemAccessoryButtonTapped
             .subscribe(onNext: { [unowned self] indexPath in
-                // 清理缓存
-                guard let indexPath = indexPath.safe[1] as? IndexPath, indexPath == C.clearCacheIndexPath else { return }
-                self.clearCache()
-            }).addDisposableTo(disposeBag)
-        tableView.rx.delegate.methodInvoked(#selector(UITableViewDelegate.tableView(_:accessoryButtonTappedForRowWith:))).subscribe(onNext: { [unowned self] indexPath in
-            // 清理缓存
-            guard let indexPath = indexPath.safe[1] as? IndexPath, indexPath == C.clearCacheIndexPath else { return }
-            let alert = UIAlertController(title: "说明", message: "只会清理图片缓存。\n浏览历史等缓存内容占空间小且不会动态增大，所以不会清理。", preferredStyle: .alert)
-            let confirm = UIAlertAction(title: "确定", style: .default, handler: nil)
-            alert.addAction(confirm)
-            self.present(alert, animated: true, completion: nil)
-        }).addDisposableTo(disposeBag)
+                switch indexPath {
+                case C.clearCacheIndexPath:
+                    self.showClearCacheExplaination()
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
         tableView.rx.itemSelected
             .subscribe(onNext: { [unowned self] indexPath in
                 self.tableView.deselectRow(at: indexPath, animated: true)
                 self.view.endEditing(true)
-                router.handleSelection(for: indexPath)
+                if indexPath == C.clearCacheIndexPath {
+                    self.clearCache()
+                } else {
+                    router.handleSelection(for: indexPath)
+                }
             }).addDisposableTo(disposeBag)
     }
     
@@ -245,5 +250,16 @@ class SettingsViewController: UITableViewController {
         }
         
         return sizeString
+    }
+}
+
+// MARK: - Show Explaination
+
+extension SettingsViewController {
+    fileprivate func showClearCacheExplaination() {
+        let alert = UIAlertController(title: "说明", message: "只会清理图片缓存。\n浏览历史等缓存内容占空间小且不会动态增大，所以不会清理。", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "确定", style: .default, handler: nil)
+        alert.addAction(confirm)
+        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -786,13 +786,13 @@
 				0521A5911ED32E67005EB96E /* UserProfile */,
 				05532B0A1ECDEB3600FAB176 /* Html */,
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
-				050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */,
 				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
 				05B35C481ECC700400C037A7 /* PostManager.swift */,
 				05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */,
 				05B35C441ECC43E100C037A7 /* PostResult.swift */,
 				05B35C461ECC443700C037A7 /* Post.swift */,
 				05B35C401ECC3E3D00C037A7 /* HiPDAURLProtocol.swift */,
+				050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";

@@ -173,6 +173,9 @@ class Settings {
     var avatarImageResolution: UserAvatarImageResolution
     private static let kUserAvatarImageResolution = "avatarImageResolution"
     
+    var autoLoadImageViaWWAN: Bool
+    private static let kAutoLoadImageViaWWAN = "autoLoadImageViaWWAN"
+    
     init() {
         typealias `Self` = Settings
         
@@ -244,6 +247,7 @@ class Settings {
             }
         }
         avatarImageResolution = UserAvatarImageResolution(rawValue: userDefaults.string(forKey: Self.kUserAvatarImageResolution) ?? "middle") ?? .middle
+        autoLoadImageViaWWAN = boolValue(in: userDefaults, key: Self.kAutoLoadImageViaWWAN, defalut: true)
     }
     
     /// 持久化
@@ -306,6 +310,7 @@ class Settings {
             userDefaults.removeObject(forKey: Self.kTailURL)
         }
         userDefaults.set(avatarImageResolution.rawValue, forKey: Self.kUserAvatarImageResolution)
+        userDefaults.set(autoLoadImageViaWWAN, forKey: Self.kAutoLoadImageViaWWAN)
         userDefaults.synchronize()
     }
     
@@ -348,6 +353,7 @@ class Settings {
         tailText = "小尾巴~"
         tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=1598240")
         avatarImageResolution = .middle
+        autoLoadImageViaWWAN = true
     }
 }
 
