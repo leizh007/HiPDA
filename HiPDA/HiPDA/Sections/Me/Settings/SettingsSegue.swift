@@ -37,7 +37,7 @@ enum SettingsSegue: String {
             self = .threadAttention
         case (6, 7):
             self = .pmDoNotDisturb
-        case (7, 1):
+        case (7, 0):
             self = .activeForumNameList
         case (8, 1):
             self = .userRemark

@@ -1,8 +1,12 @@
-// Initialization
+// ==========================================================================
+//                            Initialization
+// ==========================================================================
+
 configureElements();
 
 function configureElements() {
     adjustFontSize();
+    addOnClickToLinks();
     replaceAvatarImageURLs();
     replaceAttatchImageURLs();
     replaceOtherImageURLs();
@@ -27,6 +31,10 @@ function adjustFontSize() {
         }
     }
 }
+
+// ==========================================================================
+//                            Image Related
+// ==========================================================================
 
 // replace avatar image url
 function replaceAvatarImageURLs() {
@@ -59,6 +67,7 @@ function replaceAttatchImageURLs() {
         }
         handleImageSize(image, attatch.innerText);
         handleImageURL(image);
+        addOnClickToImage(image);
         image.setAttribute("style", "display: block !important; margin-left: auto !important; margin-right: auto !important;");
     }
 
@@ -71,6 +80,7 @@ function replaceAttatchImageURLs() {
         if (image != undefined) {
             handleImageSize(image, sizeString);
             handleImageURL(image);
+            addOnClickToImage(image);
         }
     }
 }
@@ -105,11 +115,6 @@ function handleImageURL(image) {
     image.setAttribute("width", "auto");
 }
 
-// 是否是表情
-function isEmoji(src) {
-    return /[\w:\/\.-]+images\/smilies\/\w+\/\w+\.gif/.test(src);
-}
-
 // 图片大小处理
 function handleImageSize(image, imageDescriptionText) {
     var imageSizeDesciptionArray = imageDescriptionText.match(/\(([\d\.]+)\s*(\w{2})\)/);
@@ -131,8 +136,10 @@ function replaceOtherImageURLs() {
                 continue;
             }
             handleImageURL(image);
+            addOnClickToImage(image);
         } else {
             handleImageURL(image);
+            addOnClickToImage(image);
         }
     }
 }
@@ -150,7 +157,9 @@ function hideBlockquoteImage() {
     }
 }
 
-// JS Bridge
+// ==========================================================================
+//                            JS Bridge
+// ==========================================================================
 
 function setupWebViewJavascriptBridge(callback) {
     if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
@@ -167,7 +176,63 @@ setupWebViewJavascriptBridge(function (bridge) {
     clientJSCodeReady();
 })
 
-// 用户头像/用户名被点击
+function clientJSCodeReady() {
+    var doc = document;
+    var readyEvent = doc.createEvent("Events");
+    readyEvent.initEvent("clientJSApiOnReady");
+    doc.dispatchEvent(readyEvent);
+}
+
+// ==========================================================================
+//                            Add Element Onclick
+// ==========================================================================
+
+function addOnClickToLinks() {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; ++i) {
+        var link = links[i];
+        link.setAttribute("onclick", "linkClicked(this); event.stopPropagation();");
+    }
+}
+
+function addOnClickToImage(image) {
+    var src = image.getAttribute("src");
+    if (isEmoji(src)) {
+        return;
+    }
+    image.setAttribute("onclick", "imageClicked(this); event.stopPropagation();");
+}
+
+// ==========================================================================
+//                                Element Onclick
+// ==========================================================================
+
+function imageClicked(image) {
+    if (!imgLoaded(image)) {
+        return;
+    }
+    if (image.getAttribute("src").indexOf("--hipda-placeholder--") !== -1) {
+        image.setAttribute("src", image.getAttribute("src").replace("--hipda-placeholder--", "--hipda-image--"));
+        return;
+    }
+    var src = image.getAttribute("src");
+    var post = postDivOfChildElement(image);
+    var imageSrcs = imagesToShowInPost(post);
+    var data = {"imageSrcs": imageSrcs, "clickedImageSrc": src};
+    WebViewJavascriptBridge.callHandler("imageClicked", data, null);
+}
+
+function postClicked(post) {
+    var id = post.getAttribute("id");
+    id = id.replace("post_", "");
+    var pid = parseInt(id);
+    WebViewJavascriptBridge.callHandler("postClicked", pid, null);
+}
+
+function linkClicked(link) {
+    WebViewJavascriptBridge.callHandler("linkActivated", link.getAttribute("href"), null);
+}
+
 function userClicked(user) {
     var name = user.getElementsByClassName("username")[0];
     var uid = user.getElementsByClassName("uid")[0];
@@ -178,13 +243,10 @@ function userClicked(user) {
     WebViewJavascriptBridge.callHandler('userClicked', data, null);
 }
 
-function clientJSCodeReady() {
-    var doc = document;
-    var readyEvent = doc.createEvent("Events");
-    readyEvent.initEvent("clientJSApiOnReady");
-    doc.dispatchEvent(readyEvent);
-}
-              
+// ==========================================================================
+//                                Helper
+// ==========================================================================
+
 // https://stackoverflow.com/questions/9421208/how-to-compare-a-backgroundcolor-in-javascript
 // rgb中间有空格，如下形式: "rgb(255, 255, 255)"
 function hexToRgb(hex) {
@@ -204,3 +266,45 @@ function hexToRgb(hex) {
         parseInt(result[3], 16)
     ].join(', ') + ")" : null;
 }
+
+// 是否是表情
+function isEmoji(src) {
+    return /[\w:\/\.-]+images\/smilies\/\w+\/\w+\.gif/.test(src);
+}
+
+function postDivOfChildElement(element) {
+    var elem = element;
+    while (elem.tagName !== "DIV" || 
+    elem.getAttribute("class") === null || 
+    elem.getAttribute("class") !== "post") {
+        elem = elem.parentElement; 
+    }
+    return elem;
+}
+
+function imagesToShowInPost(post) {
+    var images = post.getElementsByTagName("img");
+    var srcs = []
+    for (var i = 0; i < images.length; ++i) {
+        var src = images[i].getAttribute("src");
+        if (isEmoji(src)) {
+            continue;
+        }
+        if (src.indexOf("--hipda-avatar--") !== -1) {
+            continue;
+        }
+        if (src.indexOf("--hipda-placeholder--") !== -1) {
+            continue;
+        }
+        if (src.indexOf("images/default/attachimg.gif") !== -1) {
+            continue;
+        }
+        srcs[srcs.length] = src;
+    }
+    return srcs;
+}
+
+function imgLoaded(imgElement) {
+  return imgElement.complete && imgElement.naturalHeight !== 0;
+}
+

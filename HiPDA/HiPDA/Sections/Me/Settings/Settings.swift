@@ -141,10 +141,6 @@ class Settings {
     var pmDoNotDisturbToTime: PmDoNotDisturbTime
     private static let kPmDoNotDisturbToTime = "pmDoNotDisturbToTime"
     
-    /// 是否显示置顶贴
-    var isShowStickThreads: Bool
-    private static let kIsShowStickThreadsKey = "isShowStickThreads"
-    
     /// 板块列表
     var activeForumNameList: [String]
     private static let kActiveForumNameList = "activeForumNameList"
@@ -200,7 +196,6 @@ class Settings {
             return try? Account.decode(JSON(attributes)).dematerialize()
         }
         accountList = accountNameArray.flatMap(account(with:))
-        isShowStickThreads = boolValue(in: userDefaults, key: Self.kIsShowStickThreadsKey, defalut: false)
         lastLoggedInAccount = (userDefaults.value(forKey: Self.kLastLoggedInAccount) as? String).flatMap(account(with:))
         
         autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: Self.kAutoDownloadImageWhenUsingWWAN, defalut: true)
@@ -269,7 +264,6 @@ class Settings {
         } else {
             userDefaults.removeObject(forKey: Self.kLastLoggedInAccount)
         }
-        userDefaults.set(isShowStickThreads, forKey: Self.kIsShowStickThreadsKey)
         userDefaults.set(autoDownloadImageWhenUsingWWAN, forKey: Self.kAutoDownloadImageWhenUsingWWAN)
         userDefaults.set(autoDownloadImageSizeThreshold, forKey: Self.kAutoDownloadImageSizeThreshold)
         userDefaults.set(fontSize, forKey: Self.kFontSize)
@@ -345,7 +339,6 @@ class Settings {
         isEnabledPmDoNotDisturb = true
         pmDoNotDisturbFromTime = (hour: 22, minute: 0)
         pmDoNotDisturbToTime = (hour: 9, minute: 0)
-        isShowStickThreads = false
         activeForumNameList = ForumManager.defalutForumNameList
         isEnabledUserRemark = false
         userRemarkDictionary = [:]

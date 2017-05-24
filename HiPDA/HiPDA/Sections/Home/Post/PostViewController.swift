@@ -195,6 +195,42 @@ extension PostViewController {
                 callback?(autoLoad)
             }
         }
+        
+        bridge.registerHandler("linkActivated") { [weak self] (data, _) in
+            guard let data = data, let urlString = data as? String else { return }
+            self?.linkActived(urlString)
+        }
+        
+        bridge.registerHandler("postClicked") { [weak self] (data, _) in
+            guard let data = data, let pid = data as? Int else { return }
+            self?.postClicked(pid: pid)
+        }
+        
+        bridge.registerHandler("imageClicked") { [weak self] (data, _) in
+            guard let data  = data,
+                let dic = data as? [String: Any],
+                let clickedImageURL = dic["clickedImageSrc"] as? String,
+                let imageURLs = dic["imageSrcs"] as? [String] else { return }
+            self?.imageClicked(clickedImageURL: clickedImageURL, imageURLs: imageURLs)
+        }
+    }
+}
+
+// MARK: - Bridge Handler 
+
+extension PostViewController {
+    fileprivate func linkActived(_ url: String) {
+        // FIXME: - Hanlde link actived
+        console(message: url)
+    }
+    
+    fileprivate func postClicked(pid: Int) {
+        // FIEXME: - Handle post clicked
+        console(message: "\(pid)")
+    }
+    
+    fileprivate func imageClicked(clickedImageURL: String, imageURLs: [String]) {
+        console(message: "clickedImageURL: \(clickedImageURL)\nimageURLs: \(imageURLs)")
     }
 }
 
@@ -237,6 +273,10 @@ extension PostViewController: UIScrollViewDelegate {
 extension PostViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.scrollView.backgroundColor = .groupTableViewBackground
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(navigationAction.navigationType == .linkActivated ? .cancel : .allow)
     }
 }
 

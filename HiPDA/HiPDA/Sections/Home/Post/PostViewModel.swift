@@ -41,7 +41,7 @@ class PostViewModel {
     }
     
     var hasData: Bool {
-        return !manager.pidSet.isEmpty
+        return !manager.pidDic.isEmpty
     }
     
     fileprivate var manager: PostManager
@@ -155,7 +155,7 @@ extension PostViewModel {
             for post in posts {
                 let userName = isEnabledUserRemark ? (userRemarkDictionary[post.user.name] ?? post.user.name) : post.user.name
                 let postContent = userBlockSet.contains(post.user.name) ? "<div class=\"userblock\">该用户已被您屏蔽！</div>" : post.content
-                content += "<div class=\"post\" id=\"post_\(post.id)\"><div class=\"header\"><div class=\"user\" onclick=\"userClicked(this)\"><span><img class=\"avatar\" src=\"\(post.user.avatarImageURL.absoluteString)\" alt=\"\"/></span><span class=\"username\">\(userName)</span><span class=\"uid\">\(post.user.uid)</span></div><div class><span class=\"time\">\(post.time)</span><span class=\"floor\">\(post.floor)#</span></div></div><div class=\"content\">\(postContent)</div></div>"
+                content += "<div class=\"post\" id=\"post_\(post.id)\" onclick=\"postClicked(this); event.stopPropagation();\"><div class=\"header\"><div class=\"user\" onclick=\"userClicked(this); event.stopPropagation();\"><span><img class=\"avatar\" src=\"\(post.user.avatarImageURL.absoluteString)\" alt=\"\"/></span><span class=\"username\">\(userName)</span><span class=\"uid\">\(post.user.uid)</span></div><div class><span class=\"time\">\(post.time)</span><span class=\"floor\">\(post.floor)#</span></div></div><div class=\"content\">\(postContent)</div></div>"
             }
             let html = HtmlManager.html(with: content)
             DispatchQueue.main.async {

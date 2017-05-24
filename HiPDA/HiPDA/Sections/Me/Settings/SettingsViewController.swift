@@ -58,9 +58,6 @@ class SettingsViewController: UITableViewController {
     /// 消息免打扰描述label
     @IBOutlet private weak var pmDoNotDisturbDescriptionLabel: UILabel!
     
-    /// 是否展示置顶贴
-    @IBOutlet private weak var isShowStickThreadsSwitch: UISwitch!
-    
     /// 用户备注
     @IBOutlet private weak var userRemarkSwitch: UISwitch!
     
@@ -125,7 +122,6 @@ class SettingsViewController: UITableViewController {
         historyCountLimitTextField.text = viewModel.threadHistoryCountLimitString
         tailTextTextField.text = viewModel.tailText
         tailURLTextField.text = viewModel.tailURLString
-        isShowStickThreadsSwitch.isOn = viewModel.isShowStickThreads
         autoLoadImageViaWWANSwitch.isOn = viewModel.autoLoadImageViaWWAN
         
         viewModel.pmDoNotDisturbDescription.asObservable()
@@ -157,7 +153,6 @@ class SettingsViewController: UITableViewController {
                          privatePm: privatePmSwitch.rx.value.asDriver(),
                          announcePm: annoucePmSwitch.rx.value.asDriver(),
                          pmDoNotDisturb: pmDoNotDisturbSwitch.rx.value.asDriver(),
-                         isShowStickThreads: isShowStickThreadsSwitch.rx.value.asDriver(),
                          userRemark: userRemarkSwitch.rx.value.asDriver(),
                          historyCountLimit: historyCountLimit,
                          tail: tailSwitch.rx.value.asDriver(),

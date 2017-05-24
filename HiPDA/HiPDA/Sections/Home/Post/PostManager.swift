@@ -13,7 +13,8 @@ typealias PostListFetchCompletion = (PostListResult) -> Void
 
 /// 数据的网络请求管理
 class PostManager {
-    var pidSet = Set<Int>()
+    var pidDic = [Int: Int]()
+    var posts = [Post]()
     fileprivate var disposeBag = DisposeBag()
     var postInfo: PostInfo {
         didSet {
@@ -88,7 +89,12 @@ class PostManager {
                 self.title = title
                 switch event {
                 case let .next(posts):
-                    self.pidSet = Set(posts.map { $0.id })
+                    var dic = [Int: Int]()
+                    for i in 0..<posts.count {
+                        dic[i] = posts[i].id
+                    }
+                    self.pidDic = dic
+                    self.posts = posts
                     completion(.success((title: title, posts: posts)))
                 case let .error(error):
                     let postsResultError: PostError = error is HtmlParserError ? .parseError(String(describing: error as! HtmlParserError)) : .unKnown(error.localizedDescription)
