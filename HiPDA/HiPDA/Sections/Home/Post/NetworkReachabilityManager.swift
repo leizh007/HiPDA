@@ -11,11 +11,10 @@ import Alamofire
 
 class NetworkReachabilityManager {
     static let shared = NetworkReachabilityManager()
-    fileprivate init () {
-        
-    }
+    fileprivate init () { }
     
-    let manager = Alamofire.NetworkReachabilityManager(host: "https://www.baidu.com/")
+    // https://github.com/Alamofire/Alamofire/issues/1782
+    let manager = Alamofire.NetworkReachabilityManager(host: "www.baidu.com")
     
     var isReachable: Bool {
         return manager?.isReachable ?? false

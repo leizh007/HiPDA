@@ -204,6 +204,9 @@ class SettingsViewController: UITableViewController {
         cacheIndicatorView.isHidden = false
         cacheIndicatorView.startAnimating()
         cacheSizeLabel.isHidden = true
+#if DEBUG
+        SDImageCache.shared().clearMemory()
+#endif
         SDImageCache.shared().clearDisk(onCompletion: {
             DispatchQueue.global().async {
                 // 缓存大小，Byte为单位

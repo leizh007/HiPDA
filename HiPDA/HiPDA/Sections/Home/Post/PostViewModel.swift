@@ -8,6 +8,7 @@
 
 import Foundation
 import MJRefresh
+import SDWebImage
 
 typealias PostFetchCompletion = (PostResult) -> Void
 
@@ -47,6 +48,19 @@ class PostViewModel {
         
     init(postInfo: PostInfo) {
         manager = PostManager(postInfo: postInfo)
+    }
+    
+    func shouldAutoLoadImage(url: String, completion: @escaping (Bool) -> Void) {
+        if Settings.shared.autoLoadImageViaWWAN || NetworkReachabilityManager.shared.isReachableOnEthernetOrWiFi {
+            completion(true)
+            return
+        }
+        let urlString = url.replacingOccurrences(of: C.URL.HiPDA.image, with: "")
+                           .replacingOccurrences(of: C.URL.HiPDA.imagePlaceholder, with: "")
+        console(message: urlString)
+        SDImageCache.shared().queryCacheOperation(forKey: urlString) { (image, data, _) in
+            completion(image != nil || data != nil)
+        }
     }
 }
 

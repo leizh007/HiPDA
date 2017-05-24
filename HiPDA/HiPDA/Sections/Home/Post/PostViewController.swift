@@ -184,15 +184,16 @@ extension PostViewController {
             }
         }
         
-        bridge.registerHandler("shouldImageAutoLoad") { (data, callback) in
-            // FIXME: - 图片自动加载策略
-//            console(message: "\(String(describing: data))\n\(String(describing: callback))")
-//            guard let data = data,
-//                let dic = data as? [String: Any],
-//                let url = dic["url"],
-//                !(url is NSNull) else { return }
+        bridge.registerHandler("shouldImageAutoLoad") { [weak self] (data, callback) in
+            guard let data = data,
+                let dic = data as? [String: Any],
+                let url = dic["url"],
+                !(url is NSNull),
+                let urlString = url as? String else { return }
 //            let size = dic["size"]
-            callback?(true)
+            self?.viewModel.shouldAutoLoadImage(url: urlString) { autoLoad in
+                callback?(autoLoad)
+            }
         }
     }
 }
