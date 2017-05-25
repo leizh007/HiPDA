@@ -359,19 +359,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as HomeThreadTableViewCell
-        
-        cell.queue.cancelAllOperations()
-        let operation = BlockOperation()
-        operation.addExecutionBlock { [weak operation, weak self] _ in
-            guard let `self` = self else { return }
-            // 这里异步取数据暂时没有发现问题
-            let threadModel = self.viewModel.threadModel(at: indexPath.row)
-            DispatchQueue.main.async {
-                if let operation = operation, operation.isCancelled { return }
-                cell.threadModel = threadModel
-            }
-        }
-        cell.queue.addOperation(operation)
+        cell.threadModel = self.viewModel.threadModel(at: indexPath.row)
         
         return cell
     }

@@ -11,14 +11,6 @@ import SDWebImage
 
 private let kTitleMargin = CGFloat(8.0)
 
-// https://github.com/pepaslabs/GlitchyTable
-class ThreadOperatorQueue: OperationQueue {
-    override init() {
-        super.init()
-        maxConcurrentOperationCount = 1
-    }
-}
-
 class HomeThreadTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var avatarImageView: UIImageView!
     @IBOutlet fileprivate weak var nameLabel: UILabel!
@@ -26,8 +18,6 @@ class HomeThreadTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var readCountLabel: UILabel!
     @IBOutlet fileprivate weak var replyCountLabel: UILabel!
     @IBOutlet fileprivate weak var titleLabel: UILabel!
-    
-    let queue = ThreadOperatorQueue()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,6 +50,5 @@ class HomeThreadTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         avatarImageView.sd_cancelCurrentImageLoad()
-        queue.cancelAllOperations()
     }
 }
