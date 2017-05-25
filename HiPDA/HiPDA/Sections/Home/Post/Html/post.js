@@ -11,6 +11,7 @@ function configureElements() {
     replaceAttatchImageURLs();
     replaceOtherImageURLs();
     hideBlockquoteImage();
+    handleImagesInStrongElement();
 }
 
 var shouldImageAutoLoad = false;
@@ -154,6 +155,18 @@ function hideBlockquoteImage() {
         for (var j = 0; j < images.length; ++j) {
             var image = images[j];
             image.setAttribute("style", "display: none !important;");
+        }
+    }
+}
+
+// 图片包在strong元素内，会导致超出屏幕宽度，见帖子: https://www.hi-pda.com/forum/viewthread.php?tid=1750779&extra=page%3D1
+function handleImagesInStrongElement() {
+    var strongs = document.getElementsByTagName("strong");
+    for (var i = 0; i < strongs.length; ++i) {
+        var strong = strongs[i];
+        var images = strong.getElementsByTagName("img");
+        if (images.length > 0) {
+            strong.setAttribute("style", "display: flex; flex-direction: column;");
         }
     }
 }
