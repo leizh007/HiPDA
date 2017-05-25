@@ -8,10 +8,13 @@
 
 import Foundation
 import RxSwift
+import SDWebImage
 
 class ResourcesInitialization: Bootstrapping {
     private var disposeBag = DisposeBag()
     func bootstrap(bootstrapped: Bootstrapped) throws {
+        // 最大图片缓存100MB
+        SDImageCache.shared().config.maxCacheSize = UInt(pow(10.0, 8.0))
         // 加快帖子浏览页的初次载入速度
         _ = HtmlManager.html(with: "")
         
