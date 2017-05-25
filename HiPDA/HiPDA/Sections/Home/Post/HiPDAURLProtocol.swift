@@ -18,6 +18,11 @@ class HiPDAURLProtocol: URLProtocol {
         return UIImagePNGRepresentation(#imageLiteral(resourceName: "webView_image_placeholder"))!
     }()
     
+    fileprivate static let imageLoadingData: Data = {
+        let loadingGIFPath = Bundle.main.path(forResource: "image_loading_spinner", ofType: "gif")!
+        return try! Data(contentsOf: URL(fileURLWithPath: loadingGIFPath))
+    }()
+    
     override class func canInit(with request: URLRequest) -> Bool {
         return true
     }
@@ -37,6 +42,8 @@ class HiPDAURLProtocol: URLProtocol {
             loadImagePlaceholder()
         } else if request.url!.absoluteString.contains(C.URL.HiPDA.image) {
             loadAttatchImage()
+        } else if request.url!.absoluteString.contains(C.URL.HiPDA.imageLoading) {
+            loadImageLoadingImage()
         } else {
             // 其他图片禁止加载
             client?.urlProtocol(self, didFailWithError: NSError(domain: C.URL.HiPDA.image, code: -1, userInfo: nil))
@@ -60,12 +67,21 @@ extension HiPDAURLProtocol {
     }
     
     fileprivate func loadImagePlaceholder() {
+        loadImage(data: HiPDAURLProtocol.webViewImagePlaceholderData)
+        
+    }
+    
+    fileprivate func loadImageLoadingImage() {
+        loadImage(data: HiPDAURLProtocol.imageLoadingData)
+    }
+    
+    fileprivate func loadImage(data: Data) {
         let response = URLResponse(url: request.url!,
                                    mimeType: "image/jpeg",
                                    expectedContentLength: -1,
                                    textEncodingName: nil)
         self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-        self.client?.urlProtocol(self, didLoad: HiPDAURLProtocol.webViewImagePlaceholderData)
+        self.client?.urlProtocol(self, didLoad: data)
         self.client?.urlProtocolDidFinishLoading(self)
     }
     

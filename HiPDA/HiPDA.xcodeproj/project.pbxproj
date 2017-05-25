@@ -19,6 +19,7 @@
 		05082EF91D80629400259707 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05082EF81D80629400259707 /* Operators.swift */; };
 		050A190E1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190D1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift */; };
 		050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */; };
+		050A19131ED67D6D00EEFD08 /* image_loading_spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = 050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */; };
 		050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */; };
 		050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3141DD1FB7F00C4B18D /* Login.storyboard */; };
 		050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */; };
@@ -195,6 +196,7 @@
 		05082EF81D80629400259707 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		050A190D1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDWebImageManager+HiPDA.swift"; sourceTree = "<group>"; };
 		050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_loading_spinner.gif; sourceTree = "<group>"; };
 		050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+HiPDA.swift"; sourceTree = "<group>"; };
 		050EE3141DD1FB7F00C4B18D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickerActionSheet.storyboard; sourceTree = "<group>"; };
@@ -411,6 +413,14 @@
 			path = UserRemark;
 			sourceTree = "<group>";
 		};
+		050A19111ED67D6800EEFD08 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0521A5911ED32E67005EB96E /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +432,7 @@
 		05532B0A1ECDEB3600FAB176 /* Html */ = {
 			isa = PBXGroup;
 			children = (
+				050A19111ED67D6800EEFD08 /* Resources */,
 				05532B0C1ECDEB4A00FAB176 /* post.html */,
 				05532B0B1ECDEB4A00FAB176 /* post.css */,
 				05532B0D1ECDEB4A00FAB176 /* post.js */,
@@ -1005,6 +1016,7 @@
 				05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */,
 				050EE3221DD200AA00C4B18D /* Main.storyboard in Resources */,
 				050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */,
+				050A19131ED67D6D00EEFD08 /* image_loading_spinner.gif in Resources */,
 				055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

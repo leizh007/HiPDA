@@ -13,6 +13,8 @@ function configureElements() {
     hideBlockquoteImage();
 }
 
+var shouldImageAutoLoad = false;
+
 // adjustFontSize
 function adjustFontSize() {
     var fonts = document.getElementsByTagName("font");
@@ -100,16 +102,15 @@ function handleImageURL(image) {
     if (isEmoji(src)) {
         image.setAttribute("src", src.replace(/--hipda-placeholder--/, "--hipda-image--"));
     } else {
+        image.setAttribute("onload", "");
+        image.setAttribute("onmouseover", "");
         image.setAttribute("src", src);
         document.addEventListener("clientJSApiOnReady", function () {
-            var url = image.getAttribute("src");
-            var size = image.getAttribute("sizeAttributes");
-            var data = { "url" : url, "size" : size};
-            WebViewJavascriptBridge.callHandler("shouldImageAutoLoad", data, function responseCallback(responseData) {
-                if (responseData == true) {
-                    image.setAttribute("src", src.replace(/--hipda-placeholder--/, "--hipda-image--"));
-                }
-            });
+            if (shouldImageAutoLoad == true) {
+                image.setAttribute("src", src.replace("--hipda-placeholder--", "--hipda-image--"));
+            } else {
+                image.setAttribute("src", src.replace("--hipda-placeholder--", "--hipda-placeholder--"));
+            }
         });
     }
     image.setAttribute("width", "auto");
@@ -173,7 +174,10 @@ function setupWebViewJavascriptBridge(callback) {
 }
 
 setupWebViewJavascriptBridge(function (bridge) {
-    clientJSCodeReady();
+    bridge.callHandler("shouldImageAutoLoad", null, function responseCallback(responseData) {
+        shouldImageAutoLoad = responseData;
+        clientJSCodeReady();
+    });
 })
 
 function clientJSCodeReady() {
@@ -211,14 +215,27 @@ function imageClicked(image) {
     if (!imgLoaded(image)) {
         return;
     }
+    if (image.getAttribute("src").indexOf("--hipda-imageloading--") !== -1) {
+        return;
+    }
     if (image.getAttribute("src").indexOf("--hipda-placeholder--") !== -1) {
-        image.setAttribute("src", image.getAttribute("src").replace("--hipda-placeholder--", "--hipda-image--"));
+        var src = image.getAttribute("src");
+        src = src.replace(/--hipda-placeholder--/, "--hipda-imageloading--");
+        image.setAttribute("src", src);
+        WebViewJavascriptBridge.callHandler("loadImage", src, function responseCallback(responseData) {
+            if (responseData === true) {
+                src = src.replace("--hipda-imageloading--", "--hipda-image--");
+            } else {
+                src = src.replace("--hipda-imageloading--", "--hipda-placeholder--");
+            }
+            image.setAttribute("src", src);
+        });
         return;
     }
     var src = image.getAttribute("src");
     var post = postDivOfChildElement(image);
     var imageSrcs = imagesToShowInPost(post);
-    var data = {"imageSrcs": imageSrcs, "clickedImageSrc": src};
+    var data = { "imageSrcs": imageSrcs, "clickedImageSrc": src };
     WebViewJavascriptBridge.callHandler("imageClicked", data, null);
 }
 
@@ -274,10 +291,10 @@ function isEmoji(src) {
 
 function postDivOfChildElement(element) {
     var elem = element;
-    while (elem.tagName !== "DIV" || 
-    elem.getAttribute("class") === null || 
-    elem.getAttribute("class") !== "post") {
-        elem = elem.parentElement; 
+    while (elem.tagName !== "DIV" ||
+        elem.getAttribute("class") === null ||
+        elem.getAttribute("class") !== "post") {
+        elem = elem.parentElement;
     }
     return elem;
 }
@@ -296,6 +313,9 @@ function imagesToShowInPost(post) {
         if (src.indexOf("--hipda-placeholder--") !== -1) {
             continue;
         }
+        if (src.indexOf("--hipda-imageloading--") !== -1) {
+            continue;
+        }
         if (src.indexOf("images/default/attachimg.gif") !== -1) {
             continue;
         }
@@ -305,6 +325,6 @@ function imagesToShowInPost(post) {
 }
 
 function imgLoaded(imgElement) {
-  return imgElement.complete && imgElement.naturalHeight !== 0;
+    return imgElement.complete && imgElement.naturalHeight !== 0;
 }
 

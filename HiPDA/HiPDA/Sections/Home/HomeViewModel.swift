@@ -18,7 +18,10 @@ class HomeViewModel {
         return Settings.shared.activeForumNameList
     }
     
-    private var _selectedForumName: String = Settings.shared.activeForumNameList.first ?? ""
+    private var _selectedForumName: String = {
+        let name = Settings.shared.activeForumNameList.first ?? ""
+        return name
+    }()
     
     /// 当前选择的论坛名称
     var selectedForumName: String {

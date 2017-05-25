@@ -55,6 +55,8 @@ enum C {
             
             /// 图像的站位图
             static let imagePlaceholder = "--hipda-placeholder--"
+            
+            static let imageLoading = "--hipda-imageloading--"
         }
         
         enum Scheme {

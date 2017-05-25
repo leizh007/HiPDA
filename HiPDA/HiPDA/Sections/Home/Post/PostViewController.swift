@@ -58,7 +58,7 @@ class PostViewController: BaseViewController {
             dataOutDated = false
         }
     }
-    
+        
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -184,14 +184,8 @@ extension PostViewController {
             }
         }
         
-        bridge.registerHandler("shouldImageAutoLoad") { [weak self] (data, callback) in
-            guard let data = data,
-                let dic = data as? [String: Any],
-                let url = dic["url"],
-                !(url is NSNull),
-                let urlString = url as? String else { return }
-//            let size = dic["size"]
-            self?.viewModel.shouldAutoLoadImage(url: urlString) { autoLoad in
+        bridge.registerHandler("shouldImageAutoLoad") { [weak self] (_, callback) in
+            self?.viewModel.shouldAutoLoadImage { autoLoad in
                 callback?(autoLoad)
             }
         }
@@ -212,6 +206,16 @@ extension PostViewController {
                 let clickedImageURL = dic["clickedImageSrc"] as? String,
                 let imageURLs = dic["imageSrcs"] as? [String] else { return }
             self?.imageClicked(clickedImageURL: clickedImageURL, imageURLs: imageURLs)
+        }
+        
+        bridge.registerHandler("loadImage") { [weak self] (data, callback) in
+            guard let data = data, let url = data as? String else { return }
+            self?.viewModel.loadImage(url: url) { error in
+                callback?(error == nil)
+                if let error = error {
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                }
+            }
         }
     }
 }

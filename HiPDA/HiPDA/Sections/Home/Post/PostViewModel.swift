@@ -50,16 +50,17 @@ class PostViewModel {
         manager = PostManager(postInfo: postInfo)
     }
     
-    func shouldAutoLoadImage(url: String, completion: @escaping (Bool) -> Void) {
-        if Settings.shared.autoLoadImageViaWWAN || NetworkReachabilityManager.shared.isReachableOnEthernetOrWiFi {
-            completion(true)
-            return
-        }
-        let urlString = url.replacingOccurrences(of: C.URL.HiPDA.image, with: "")
-                           .replacingOccurrences(of: C.URL.HiPDA.imagePlaceholder, with: "")
-        console(message: urlString)
-        SDImageCache.shared().queryCacheOperation(forKey: urlString) { (image, data, _) in
-            completion(image != nil || data != nil)
+    func shouldAutoLoadImage(completion: @escaping (Bool) -> Void) {
+        completion(Settings.shared.autoLoadImageViaWWAN || NetworkReachabilityManager.shared.isReachableOnEthernetOrWiFi)
+    }
+    
+    func loadImage(url: String, completion: @escaping (Error?) -> Void) {
+        let url = url.replacingOccurrences(of: C.URL.HiPDA.imageLoading, with: "")
+            .replacingOccurrences(of: C.URL.HiPDA.avatar, with: "")
+            .replacingOccurrences(of: C.URL.HiPDA.imagePlaceholder, with: "")
+            .replacingOccurrences(of: C.URL.HiPDA.image, with: "")
+        SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil) { (_, _, error, _, _, _) in
+            completion(error)
         }
     }
 }
