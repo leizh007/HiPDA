@@ -95,22 +95,22 @@ function handleImageURL(image) {
         src = image.getAttribute("file");
     }
     if (/^(https?|ftp):\/\//.test(src)) {
-        src = src.replace(/^(https?|ftp):\/\//, "$&--hipda-placeholder--");
+        src = src.replace(/^(https?|ftp):\/\//, "$&--hipda-imageloading--");
     } else {
-        src = "https://--hipda-placeholder--www.hi-pda.com/forum/" + src;
+        src = "https://--hipda-imageloading--www.hi-pda.com/forum/" + src;
     }
 
     if (isEmoji(src)) {
-        image.setAttribute("src", src.replace(/--hipda-placeholder--/, "--hipda-image--"));
+        image.setAttribute("src", src.replace(/--hipda-imageloading--/, "--hipda-image--"));
     } else {
         image.setAttribute("onload", "");
         image.setAttribute("onmouseover", "");
         image.setAttribute("src", src);
         document.addEventListener("clientJSApiOnReady", function () {
             if (shouldImageAutoLoad == true) {
-                image.setAttribute("src", src.replace("--hipda-placeholder--", "--hipda-image--"));
+                image.setAttribute("src", src.replace("--hipda-imageloading--", "--hipda-image--"));
             } else {
-                image.setAttribute("src", src.replace("--hipda-placeholder--", "--hipda-placeholder--"));
+                image.setAttribute("src", src.replace("--hipda-imageloading--", "--hipda-placeholder--"));
             }
         });
     }
@@ -134,7 +134,10 @@ function replaceOtherImageURLs() {
         var image = images[i];
         if (image.hasAttribute("src")) {
             var src = image.getAttribute("src");
-            if (src.indexOf("--hipda-image--") !== -1 || src.indexOf("--hipda-avatar--") !== -1 || src.indexOf("--hipda-placeholder--") !== -1) {
+            if (src.indexOf("--hipda-image--") !== -1 ||
+                src.indexOf("--hipda-avatar--") !== -1 ||
+                src.indexOf("--hipda-placeholder--") !== -1 ||
+                src.indexOf("--hipda-imageloading--") !== -1) {
                 continue;
             }
             handleImageURL(image);
