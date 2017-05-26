@@ -32,10 +32,26 @@ fileprivate func key(forFid fid: Int, typeid: Int, addtionalKey: String) -> Stri
     return "fid=\(fid)&typeid=\(typeid)&addtionalKey=\(addtionalKey)"
 }
 
+fileprivate func threadModel(from thread: HiPDAThread) -> HomeThreadModel {
+        let userName = Settings.shared.isEnabledUserRemark ? (Settings.shared.userRemarkDictionary[thread.user.name] ?? thread.user.name) : thread.user.name
+        return HomeThreadModel(avatarImageURL: thread.user.avatarImageURL,
+                               userName: userName,
+                               replyCount: thread.replyCount,
+                               readCount: thread.readCount,
+                               timeString: thread.postTime.descriptionTimeStringForThread,
+                               title: thread.title)
+}
+
 /// 帖子列表网络请求管理
 class HiPDAThreadManager {
     /// 帖子列表
-    fileprivate(set) var threads: [HiPDAThread]
+    fileprivate(set) var threads: [HiPDAThread] {
+        didSet {
+            threadModels = threads.map(threadModel(from:))
+        }
+    }
+    
+    fileprivate(set) var threadModels: [HomeThreadModel]
     
     /// 当前最大页数
     fileprivate(set) var page: Int
@@ -60,6 +76,7 @@ class HiPDAThreadManager {
     
     init(fid: Int, typeid: Int, threads: [HiPDAThread]? = nil) {
         self.threads = threads ?? (CacheManager.threads.instance?.threads(forFid: fid, typeid: typeid) ?? [])
+        self.threadModels = self.threads.map(threadModel(from:))
         self.page = 1
         self.fid = fid
         self.typeid = typeid

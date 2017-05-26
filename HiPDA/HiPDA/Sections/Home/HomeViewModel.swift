@@ -136,14 +136,7 @@ extension HomeViewModel {
     /// - Parameter index: 下标
     /// - Returns: 下标所在的帖子模型
     func threadModel(at index: Int) -> HomeThreadModel? {
-        guard let thread = manager.threads.safe[index] else { return nil }
-        let userName = Settings.shared.isEnabledUserRemark ? (Settings.shared.userRemarkDictionary[thread.user.name] ?? thread.user.name) : thread.user.name
-        return HomeThreadModel(avatarImageURL: thread.user.avatarImageURL,
-                               userName: userName,
-                               replyCount: thread.replyCount,
-                               readCount: thread.readCount,
-                               timeString: thread.postTime.descriptionTimeStringForThread,
-                               title: thread.title)
+        return manager.threadModels.safe[index]
     }
     
     /// 帖子id
