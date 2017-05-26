@@ -220,12 +220,58 @@ function addOnClickToImage(image) {
     if (isEmoji(src)) {
         return;
     }
-    image.setAttribute("onclick", "imageClicked(this); event.stopPropagation();");
+    var longpress = 800;
+    var intervalID = 0;
+    var start = 0;
+    var moved = false;
+    image.ontouchstart = function (e) {
+        e.stopPropagation();
+        start = new Date().getTime();
+        moved = false
+        intervalID = window.setInterval(
+            function () {
+                window.clearInterval(intervalID);
+                imageLongPressed(e.target);
+            },
+            1000
+        );
+    };
+    image.ontouchend = function (e) {
+        window.clearInterval(intervalID);
+        if (new Date().getTime() - start < longpress && !moved) {
+            imageClicked(e.target);
+        }
+    };
+    image.ontouchcancel = function (e) {
+        window.clearInterval(intervalID);
+    };
+    image.ontouchmove = function (e) {
+        window.clearInterval(intervalID);
+        moved = true;
+    };
+    image.onclick = function (e) {
+        e.stopPropagation();
+    };
+    // image.setAttribute("onclick", "imageClicked(this); event.stopPropagation();");
 }
 
 // ==========================================================================
 //                                Element Onclick
 // ==========================================================================
+
+function imageLongPressed(image) {
+    if (!imgLoaded(image)) {
+        return;
+    }
+    if (image.getAttribute("src").indexOf("--hipda-imageloading--") !== -1) {
+        return;
+    }
+    if (image.getAttribute("src").indexOf("--hipda-placeholder--") !== -1) {
+        return;
+    }
+    WebViewJavascriptBridge.callHandler("imageLongPressed", image.getAttribute("src"), function responseCallback(responseData) {
+    });
+}
 
 function imageClicked(image) {
     if (!imgLoaded(image)) {

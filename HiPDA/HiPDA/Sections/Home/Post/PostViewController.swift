@@ -217,6 +217,11 @@ extension PostViewController {
                 }
             }
         }
+        
+        bridge.registerHandler("imageLongPressed") { [weak self] (data, _) in
+            guard let data = data, let url = data as? String else { return }
+            self?.imageLongPressed(url: url)
+        }
     }
 }
 
@@ -235,6 +240,10 @@ extension PostViewController {
     
     fileprivate func imageClicked(clickedImageURL: String, imageURLs: [String]) {
         console(message: "clickedImageURL: \(clickedImageURL)\nimageURLs: \(imageURLs)")
+    }
+    
+    fileprivate func imageLongPressed(url: String) {
+        console(message: url)
     }
 }
 
