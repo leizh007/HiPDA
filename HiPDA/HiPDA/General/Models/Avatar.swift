@@ -10,9 +10,9 @@ import Foundation
 
 struct Avatar {
     /// 默认头像的图片
-    static let placeholder =  #imageLiteral(resourceName: "avatar_placeholder").image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))!
+    static let placeholder =  #imageLiteral(resourceName: "avatar_placeholder").image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0 / C.UI.screenScale, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))!
     
-    static let width = 34.0 * C.UI.screenScale
-    static let height = 34.0 * C.UI.screenScale
-    static let cornerRadius = 2.5 * C.UI.screenScale
+    static let width = CGFloat(34.0)
+    static let height = CGFloat(34.0)
+    static let cornerRadius = CGFloat(5.0)
 }

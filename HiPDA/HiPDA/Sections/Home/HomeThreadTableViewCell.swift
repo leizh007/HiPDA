@@ -36,7 +36,7 @@ class HomeThreadTableViewCell: UITableViewCell {
             avatarImageView.sd_setImage(with: threadModel.avatarImageURL, placeholderImage: Avatar.placeholder, options: [.avoidAutoSetImage]) { [weak self] (image, _, _, _) in
                 guard let `self` = self, let image = image else { return }
                 DispatchQueue.global().async {
-                    let corneredImage = image.image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))
+                    let corneredImage = image.image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0 / C.UI.screenScale, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))
                     DispatchQueue.main.async {
                         guard threadModel.avatarImageURL.absoluteString == self.threadModel?.avatarImageURL.absoluteString ?? "" else { return }
                         self.avatarImageView.image = corneredImage
