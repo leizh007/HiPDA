@@ -56,7 +56,7 @@ extension PromptInformationShowable where Self: UIViewController {
         case .success(let value):
             custom(of: hud, with: #imageLiteral(resourceName: "hud_success"), title: value, delay: 1.0)
         case .failure(let value):
-            custom(of: hud, with: #imageLiteral(resourceName: "hud_failure"), title: value, delay: 2.0)
+            custom(of: hud, with: #imageLiteral(resourceName: "hud_failure"), title: value, delay: 1.5)
         }
     }
     

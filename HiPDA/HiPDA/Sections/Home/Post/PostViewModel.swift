@@ -63,6 +63,13 @@ class PostViewModel {
             completion(error)
         }
     }
+    
+    static func skinURL(url: String) -> String {
+        if !url.contains("http") && url.contains("attachment.php?aid=") {
+            return "https://www.hi-pda.com/forum/\(url)"
+        }
+        return url
+    }
 }
 
 // MARK: - Header Titles

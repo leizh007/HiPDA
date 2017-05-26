@@ -13,6 +13,7 @@ import MJRefresh
 import MLeaksFinder
 import Perform
 import Argo
+import SafariServices
 
 /// 浏览帖子页面
 class PostViewController: BaseViewController {
@@ -192,7 +193,7 @@ extension PostViewController {
         
         bridge.registerHandler("linkActivated") { [weak self] (data, _) in
             guard let data = data, let urlString = data as? String else { return }
-            self?.linkActived(urlString)
+            self?.linkActived(PostViewModel.skinURL(url: urlString))
         }
         
         bridge.registerHandler("postClicked") { [weak self] (data, _) in
@@ -229,8 +230,30 @@ extension PostViewController {
 
 extension PostViewController {
     fileprivate func linkActived(_ url: String) {
-        // FIXME: - Hanlde link actived
-        console(message: url)
+        guard let url = URL(string: url) else { return }
+        
+        switch url.linkType {
+        case .external:
+            showExternalURL(url: url)
+        case .downloadAttachment:
+            showPromptInformation(of: .failure("暂不支持下载论坛附件！"))
+        default:
+            break
+        }
+    }
+    
+    fileprivate func showExternalURL(url: URL) {
+        guard let scheme = url.scheme, scheme.contains("http") || scheme.contains("https") else {
+            showPromptInformation(of: .failure("无法识别链接：\(url)"))
+            return
+        }
+        let safari = SFSafariViewController(url: url)
+        if #available(iOS 10.0, *) {
+            safari.preferredControlTintColor = C.Color.navigationBarTintColor
+        }
+        safari.delegate = self
+        safari.transitioningDelegate = self
+        present(safari, animated: true, completion: nil)
     }
     
     fileprivate func postClicked(pid: Int) {
@@ -244,6 +267,14 @@ extension PostViewController {
     
     fileprivate func imageLongPressed(url: String) {
         console(message: url)
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+
+extension PostViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
