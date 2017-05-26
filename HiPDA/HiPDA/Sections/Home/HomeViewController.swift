@@ -325,7 +325,7 @@ extension HomeViewController: UITableViewDelegate {
         // 超级大图: 2100594
         // 投票: 2101044
         let tid = viewModel.tid(at: indexPath.row)
-        let readPostVC = PostViewController.getInstance()
+        let readPostVC = PostViewController.load(from: .home)
         readPostVC.postInfo = PostInfo(tid: tid)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(readPostVC, animated: true)

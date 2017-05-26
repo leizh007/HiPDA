@@ -16,11 +16,7 @@ import Argo
 import SafariServices
 
 /// 浏览帖子页面
-class PostViewController: BaseViewController {
-    static func getInstance() -> PostViewController {
-        return PostViewController.shared.parent == nil ? PostViewController.shared : PostViewController.load(from: .home)
-    }
-    
+class PostViewController: BaseViewController {    
     fileprivate static let shared = PostViewController.load(from: .home)
     
     var postInfo: PostInfo! {
@@ -160,6 +156,7 @@ extension PostViewController {
     fileprivate func skinWebView(_ webView: BaseWebView) {
         webView.hasRefreshHeader = true
         webView.hasLoadMoreFooter = true
+        webView.loadMoreFooter?.isHidden = true
         webView.scrollView.delegate = self
         webView.allowsLinkPreview = false
         webView.uiDelegate = self
@@ -317,10 +314,19 @@ extension PostViewController: UIScrollViewDelegate {
 extension PostViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.scrollView.backgroundColor = .groupTableViewBackground
+        (webView as? BaseWebView)?.loadMoreFooter?.isHidden = false
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(navigationAction.navigationType == .linkActivated ? .cancel : .allow)
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        showPromptInformation(of: .failure(error.localizedDescription))
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        showPromptInformation(of: .failure(error.localizedDescription))
     }
 }
 
