@@ -306,7 +306,9 @@ extension PostViewController: WKNavigationDelegate {
 #if DEBUG
         showPromptInformation(of: .failure(String(describing: error)))
 #else
-        showPromptInformation(of: .failure(error.localizedDescription))
+        if (error as NSError).code != NSURLErrorCancelled {
+            showPromptInformation(of: .failure(error.localizedDescription))
+        }
 #endif
     }
     
@@ -314,7 +316,9 @@ extension PostViewController: WKNavigationDelegate {
 #if DEBUG
         showPromptInformation(of: .failure(String(describing: error)))
 #else
-        showPromptInformation(of: .failure(error.localizedDescription))
+        if (error as NSError).code != NSURLErrorCancelled {
+            showPromptInformation(of: .failure(error.localizedDescription))
+        }
 #endif
     }
 }

@@ -83,6 +83,7 @@
 		058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717D1DA1FFBD004992AD /* LoginResult.swift */; };
 		058A71801DA28865004992AD /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717F1DA28865004992AD /* LensTests.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
+		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D49531EBAF70000BECA18 /* HiPDAThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* HiPDAThread.swift */; };
 		059D49551EBAFD7400BECA18 /* HiPDAThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* HiPDAThreadAttachment.swift */; };
 		059D49591EBB009D00BECA18 /* HiPDAThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */; };
@@ -266,6 +267,7 @@
 		058A717D1DA1FFBD004992AD /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		058A717F1DA28865004992AD /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* HiPDAThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThread.swift; sourceTree = "<group>"; };
 		059D49541EBAFD7400BECA18 /* HiPDAThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadAttachment.swift; sourceTree = "<group>"; };
 		059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadTests.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				05BBBBC21E8026F700C6E0D3 /* NSString+HiPDA.h */,
 				05BBBBC31E8026F700C6E0D3 /* NSString+HiPDA.m */,
 				051761C41ED886A8007951DE /* URL+HiPDA.swift */,
+				059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 				051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */,
 				05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */,
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
+				059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
