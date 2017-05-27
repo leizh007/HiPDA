@@ -303,16 +303,14 @@ extension PostViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-#if DEBUG
-        showPromptInformation(of: .failure(String(describing: error)))
-#else
-        if (error as NSError).code != NSURLErrorCancelled {
-            showPromptInformation(of: .failure(error.localizedDescription))
-        }
-#endif
+        handleWebViewError(error)
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        handleWebViewError(error)
+    }
+    
+    private func handleWebViewError(_ error: Error) {
 #if DEBUG
         showPromptInformation(of: .failure(String(describing: error)))
 #else
