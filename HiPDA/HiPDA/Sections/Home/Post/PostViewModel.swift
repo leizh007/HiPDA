@@ -28,8 +28,6 @@ class PostViewModel {
         }
     }
     
-    let emptyHtml: String = HtmlManager.html(with: "")
-    
     /// 总页数
     fileprivate var totalPage: Int {
         return manager.totalPage

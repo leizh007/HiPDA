@@ -23,11 +23,8 @@ class PostViewController: BaseViewController {
         didSet {
             guard let viewModel = viewModel else { return }
             viewModel.postInfo = postInfo
-            dataOutDated = true
         }
     }
-    
-    fileprivate var dataOutDated = false
     
     fileprivate var viewModel: PostViewModel!
     fileprivate var webView: BaseWebView!
@@ -46,16 +43,6 @@ class PostViewController: BaseViewController {
         loadNewData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if dataOutDated {
-            webView.status = .loading
-            loadNewData()
-            dataOutDated = false
-        }
-    }
-        
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -64,12 +51,6 @@ class PostViewController: BaseViewController {
                                y: yOffset,
                                width: view.bounds.size.width,
                                height: view.bounds.size.height - yOffset)
-    }
-    
-    override func didMove(toParentViewController parent: UIViewController?) {
-        guard parent == nil else { return }
-        
-        webView.loadHTMLString(viewModel.emptyHtml, baseURL: C.URL.baseWebViewURL)
     }
     
     override func willDealloc() -> Bool {
@@ -322,11 +303,19 @@ extension PostViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+#if DEBUG
+        showPromptInformation(of: .failure(String(describing: error)))
+#else
         showPromptInformation(of: .failure(error.localizedDescription))
+#endif
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+#if DEBUG
+        showPromptInformation(of: .failure(String(describing: error)))
+#else
         showPromptInformation(of: .failure(error.localizedDescription))
+#endif
     }
 }
 
