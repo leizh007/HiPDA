@@ -45,11 +45,7 @@ fileprivate func threadModel(from thread: HiPDAThread) -> HomeThreadModel {
 /// 帖子列表网络请求管理
 class HiPDAThreadManager {
     /// 帖子列表
-    fileprivate(set) var threads: [HiPDAThread] {
-        didSet {
-            threadModels = threads.map(threadModel(from:))
-        }
-    }
+    fileprivate(set) var threads: [HiPDAThread]
     
     fileprivate(set) var threadModels: [HomeThreadModel]
     
@@ -128,15 +124,25 @@ class HiPDAThreadManager {
         self.state = .idle
         switch event {
         case let .next(result):
-            if case let .success(threads) = result {
-                self.page = page
-                if page == 1 {
-                    self.threads = threads
-                } else {
-                    self.threads.append(contentsOf: threads)
+            var newThreads = self.threads
+            var threadModels = self.threadModels
+            DispatchQueue.global().async {
+                if case let .success(threads) = result {
+                    if page == 1 {
+                        newThreads = threads
+                    } else {
+                        newThreads.reserveCapacity(newThreads.count + threads.count)
+                        newThreads.append(contentsOf: threads)
+                    }
+                    threadModels = newThreads.map(threadModel(from:))
+                }
+                DispatchQueue.main.async {
+                    self.page = page
+                    self.threads = newThreads
+                    self.threadModels = threadModels
+                    completion(result)
                 }
             }
-            completion(result)
         case let .error(error):
             completion(.failure(.unKnown(error.localizedDescription)))
         default:

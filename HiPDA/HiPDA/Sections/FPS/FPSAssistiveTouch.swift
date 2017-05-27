@@ -19,7 +19,7 @@ class FPSAssistiveTouch: UIWindow {
                                                   width: FPSAssistiveTouch.size.width,
                                                   height: FPSAssistiveTouch.size.height))
     
-    private static let shared: FPSAssistiveTouch = {
+    static let shared: FPSAssistiveTouch = {
         let fps = FPSAssistiveTouch(frame: CGRect(x: 0,
                                                   y: 0,
                                                   width: 0,
@@ -75,12 +75,12 @@ class FPSAssistiveTouch: UIWindow {
     // MARK: - Class Methods
     
     /// 展示
-    static func show() {
-        FPSAssistiveTouch.shared.isHidden = false
+    func show() {
+        isHidden = false
     }
     
     /// 隐藏
-    static func dismiss() {
-        FPSAssistiveTouch.shared.isHidden = true
+    func dismiss() {
+        isHidden = true
     }
 }

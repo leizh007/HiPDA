@@ -18,6 +18,11 @@ extension UIWindow {
             if FLEXManager.shared().isHidden {
                 FLEXManager.shared().showExplorer()
             }
+            if FPSAssistiveTouch.shared.isHidden {
+                FPSAssistiveTouch.shared.show()
+            } else {
+                FPSAssistiveTouch.shared.dismiss()
+            }
         }
     }
 }
