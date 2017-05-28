@@ -33,6 +33,8 @@ class PostViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(userDidCopiedContentToPasteBoard), name:
+        .UIPasteboardChanged, object: nil)
         viewModel = PostViewModel(postInfo: postInfo)
         webView = BaseWebView()
         view.addSubview(webView)
@@ -53,8 +55,21 @@ class PostViewController: BaseViewController {
                                height: view.bounds.size.height - yOffset)
     }
     
-    override func willDealloc() -> Bool {
-        return false
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func userDidCopiedContentToPasteBoard() {
+        guard let content = UIPasteboard.general.string else { return }
+        guard let result = try? Regex.firstMatch(in: content, of: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/\\/=]*)"), let url = result.safe[0], url == content else { return }
+        let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(url)", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
+            self?.linkActived(url)
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func updateWebViewState() {
