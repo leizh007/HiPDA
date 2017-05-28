@@ -49,7 +49,7 @@ target 'HiPDA' do
   pod 'YYKeyboardManager'
   pod 'Moya/RxSwift', '~> 8.0.2'
   pod 'MBProgressHUD'
-  pod 'SDWebImage', '~> 4.0.0'
+  pod 'SDWebImage/GIF'
   pod 'YYCache', '~> 1.0.4'
   pod 'MJRefresh', '~> 3.1.12'
   pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'

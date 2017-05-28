@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '485E1EB28298875AFCC1FBF517C335FB'
+               BlueprintIdentifier = 'E0ADFD7D9C1A58DEF9188EACE2D4B612'
                BlueprintName = 'YYKeyboardManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'YYKeyboardManager.framework'>
