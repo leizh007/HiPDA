@@ -94,6 +94,10 @@ class PickerActionSheetController: BaseViewController, StoryboardLoadable {
             self.view.layoutIfNeeded()
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK: - UIPickerViewDataSource
@@ -111,5 +115,19 @@ extension PickerActionSheetController: UIPickerViewDataSource {
 extension PickerActionSheetController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerTitles.safe[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label: UILabel
+        if let view = view as? UILabel {
+            label = view
+        } else {
+            label = UILabel()
+        }
+        label.text = pickerTitles.safe[row]
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 17.0)
+        
+        return label
     }
 }

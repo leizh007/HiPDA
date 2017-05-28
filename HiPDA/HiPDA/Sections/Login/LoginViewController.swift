@@ -140,7 +140,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         questionButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
             let questions = LoginViewModel.questions
-            let pickerActionSheetController = PickerActionSheetController.load(from: .pickerActionSheet)
+            let pickerActionSheetController = PickerActionSheetController.load(from: .views)
             pickerActionSheetController.pickerTitles = questions
             pickerActionSheetController.initialSelelctionIndex = questions.index(of: self.questionButton.title(for: .normal)!)
             pickerActionSheetController.selectedCompletionHandler = { [unowned self] (index) in

@@ -256,6 +256,17 @@ extension PostViewController {
     
     fileprivate func imageClicked(clickedImageURL: String, imageURLs: [String]) {
         console(message: "clickedImageURL: \(clickedImageURL)\nimageURLs: \(imageURLs)")
+        guard let selectedIndex = imageURLs.index(of: clickedImageURL) else { return }
+        let imageBrowser = ImageBrowserViewController.load(from: .views)
+        imageBrowser.imageURLs = imageURLs.map { $0.replacingOccurrences(of: C.URL.HiPDA.avatar, with: "")
+            .replacingOccurrences(of: C.URL.HiPDA.image, with: "")
+            .replacingOccurrences(of: C.URL.HiPDA.imageLoading, with: "")
+            .replacingOccurrences(of: C.URL.HiPDA.imagePlaceholder, with: "") }
+        imageBrowser.selectedIndex = selectedIndex
+        imageBrowser.modalPresentationStyle = .custom
+        imageBrowser.modalTransitionStyle = .crossDissolve
+        imageBrowser.modalPresentationCapturesStatusBarAppearance = true
+        present(imageBrowser, animated: true, completion: nil)
     }
     
     fileprivate func imageLongPressed(url: String) {

@@ -22,7 +22,7 @@
 		050A19131ED67D6D00EEFD08 /* image_loading_spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = 050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */; };
 		050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */; };
 		050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3141DD1FB7F00C4B18D /* Login.storyboard */; };
-		050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */; };
+		050EE3171DD1FEA800C4B18D /* Views.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* Views.storyboard */; };
 		050EE3221DD200AA00C4B18D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3201DD200AA00C4B18D /* Main.storyboard */; };
 		050EE3241DD200C800C4B18D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3231DD200C800C4B18D /* Home.storyboard */; };
 		050EE3261DD200DE00C4B18D /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3251DD200DE00C4B18D /* Notification.storyboard */; };
@@ -127,6 +127,7 @@
 		05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DD42AD1EC21A5F007F0EBE /* Avatar.swift */; };
 		05DD42EC1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD42EB1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m */; };
 		05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */; };
+		05E1BC341EDAAA9900920267 /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1BC331EDAAA9900920267 /* ImageBrowserViewController.swift */; };
 		05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510151D7B21DD00B55B8F /* LoginManager.swift */; };
 		05E510181D7B22E900B55B8F /* StoryboardLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */; };
 		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
@@ -202,7 +203,7 @@
 		050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_loading_spinner.gif; sourceTree = "<group>"; };
 		050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+HiPDA.swift"; sourceTree = "<group>"; };
 		050EE3141DD1FB7F00C4B18D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PickerActionSheet.storyboard; sourceTree = "<group>"; };
+		050EE3161DD1FEA800C4B18D /* Views.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Views.storyboard; sourceTree = "<group>"; };
 		050EE3211DD200AA00C4B18D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		050EE3231DD200C800C4B18D /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		050EE3251DD200DE00C4B18D /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -321,6 +322,7 @@
 		05DD42EA1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WebKitSupport.h"; sourceTree = "<group>"; };
 		05DD42EB1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
 		05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+HiPDA.swift"; sourceTree = "<group>"; };
+		05E1BC331EDAAA9900920267 /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
 		05E510151D7B21DD00B55B8F /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		05E510171D7B22E900B55B8F /* StoryboardLoadableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadableTests.swift; sourceTree = "<group>"; };
 		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
@@ -525,7 +527,8 @@
 			isa = PBXGroup;
 			children = (
 				05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */,
-				050EE3161DD1FEA800C4B18D /* PickerActionSheet.storyboard */,
+				050EE3161DD1FEA800C4B18D /* Views.storyboard */,
+				05E1BC331EDAAA9900920267 /* ImageBrowserViewController.swift */,
 				058A717B1DA1FB22004992AD /* BaseViewController.swift */,
 				0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */,
 				05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */,
@@ -1025,7 +1028,7 @@
 				050EE32A1DD2019B00C4B18D /* Me.storyboard in Resources */,
 				05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */,
 				050EE3221DD200AA00C4B18D /* Main.storyboard in Resources */,
-				050EE3171DD1FEA800C4B18D /* PickerActionSheet.storyboard in Resources */,
+				050EE3171DD1FEA800C4B18D /* Views.storyboard in Resources */,
 				050A19131ED67D6D00EEFD08 /* image_loading_spinner.gif in Resources */,
 				055996C51D50DD0900057CF6 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1228,6 +1231,7 @@
 				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
 				05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */,
+				05E1BC341EDAAA9900920267 /* ImageBrowserViewController.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
 				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,

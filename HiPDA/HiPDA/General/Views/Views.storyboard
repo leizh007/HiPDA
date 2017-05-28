@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -93,5 +93,41 @@
             </objects>
             <point key="canvasLocation" x="-1818.4000000000001" y="1150.9745127436283"/>
         </scene>
+        <!--Image Browser View Controller-->
+        <scene sceneID="LHd-wt-WgT">
+            <objects>
+                <viewController storyboardIdentifier="ImageBrowserViewController" id="9hm-oN-x9H" customClass="ImageBrowserViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bWO-Rx-Awb"/>
+                        <viewControllerLayoutGuide type="bottom" id="1M6-r6-VSU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7U7-6r-Eqp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Hq-SB-bcp">
+                                <rect key="frame" x="16" y="29" width="26" height="26"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="image_browser_close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="9hm-oN-x9H" eventType="touchUpInside" id="OYL-C8-pxA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Hq-SB-bcp" firstAttribute="top" secondItem="bWO-Rx-Awb" secondAttribute="bottom" constant="9" id="JGD-OG-XhN"/>
+                            <constraint firstItem="2Hq-SB-bcp" firstAttribute="leading" secondItem="7U7-6r-Eqp" secondAttribute="leading" constant="16" id="Of9-hy-LtK"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PgM-al-wf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1018" y="1151"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="image_browser_close" width="26" height="26"/>
+    </resources>
 </document>

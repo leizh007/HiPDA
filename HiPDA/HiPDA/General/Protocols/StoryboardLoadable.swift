@@ -11,7 +11,7 @@ import Foundation
 enum StoryBoard: String {
     case main = "Main"
     case login = "Login"
-    case pickerActionSheet = "PickerActionSheet"
+    case views = "Views"
     case me = "Me"
     case home = "Home"
 }
