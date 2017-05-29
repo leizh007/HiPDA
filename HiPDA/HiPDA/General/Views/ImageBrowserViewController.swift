@@ -49,6 +49,7 @@ extension ImageBrowserViewController: UICollectionViewDelegate {
     // MARK: - UIScrollViewDelegate
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        console(message: String(describing: velocity))
         let spacing = CGFloat(20.0)
         var nthCell = Int(floor((scrollView.contentOffset.x + spacing) / (scrollView.frame.size.width + spacing)))
         if velocity.x > 0 {
@@ -67,8 +68,12 @@ extension ImageBrowserViewController: UICollectionViewDelegate {
             nthCell = imageURLs.count - 1
         }
         let contentOffset = CGPoint(x: (scrollView.frame.size.width + spacing) * CGFloat(nthCell), y: 0.0)
-        targetContentOffset.pointee = scrollView.contentOffset
-        scrollView.setContentOffset(contentOffset, animated: true)
+        if fabs(velocity.x) > 1.5 {
+            targetContentOffset.pointee = contentOffset
+        } else {
+            targetContentOffset.pointee = scrollView.contentOffset
+            scrollView.setContentOffset(contentOffset, animated: true)
+        }
     }
 }
 
@@ -88,6 +93,7 @@ extension ImageBrowserViewController: UICollectionViewDataSource {
             fatalError()
         }
         cell.imageURLString = imageURLs[indexPath.row]
+        cell.delegate = self
         
         return cell
     }
@@ -107,6 +113,14 @@ extension ImageBrowserViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let urls = imageURLs.filter { $0.contains(".thumb.jpg") }.map { $0.replacingOccurrences(of: ".thumb.jpg", with: "") }.flatMap { URL(string: $0) }
         SDWebImagePrefetcher.shared().prefetchURLs(urls)
+    }
+}
+
+// MARK: - ImageBrowserCollectionViewCellDelegate
+
+extension ImageBrowserViewController: ImageBrowserCollectionViewCellDelegate {
+    func longPressedCell(_ cell: ImageBrowserCollectionViewCell) {
+        console(message: "")
     }
 }
 

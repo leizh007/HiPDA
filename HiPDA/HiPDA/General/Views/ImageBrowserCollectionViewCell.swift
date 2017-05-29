@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+protocol ImageBrowserCollectionViewCellDelegate: class {
+    func longPressedCell(_ cell: ImageBrowserCollectionViewCell)
+}
+
 private func screenAspectFitSizeOf(image: UIImage?) -> CGSize {
     guard let image = image, image.size.width > 0 && image.size.height > 0 else { return UIScreen.main.bounds.size }
     guard !image.isLongImage else { return CGSize(width: C.UI.screenWidth, height: image.size.height * C.UI.screenWidth / image.size.width) }
@@ -38,6 +42,7 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
     @IBOutlet fileprivate weak var imageViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
+    weak var delegate: ImageBrowserCollectionViewCellDelegate?
     
     // https://github.com/evgenyneu/ios-imagescroll-swift
     private func updateImageViewSize(_ size: CGSize) {
@@ -68,6 +73,10 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
         doubleTap.numberOfTapsRequired = 2
         addGestureRecognizer(doubleTap)
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(_:)))
+        longPressRecognizer.minimumPressDuration = 1.0
+        addGestureRecognizer(longPressRecognizer)
     }
     
     var imageURLString: String = "" {
@@ -111,6 +120,12 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         } else {
             let rect = zoomRect(for: scrollView.maximumZoomScale, with: tapGestureRecognizer.location(in: scrollView))
             scrollView.zoom(to: rect, animated: true)
+        }
+    }
+    
+    func longPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            delegate?.longPressedCell(self)
         }
     }
     
