@@ -255,7 +255,6 @@ extension PostViewController {
     }
     
     fileprivate func imageClicked(clickedImageURL: String, imageURLs: [String]) {
-        console(message: "clickedImageURL: \(clickedImageURL)\nimageURLs: \(imageURLs)")
         guard let selectedIndex = imageURLs.index(of: clickedImageURL) else { return }
         let imageBrowser = ImageBrowserViewController.load(from: .views)
         imageBrowser.imageURLs = imageURLs.map { $0.replacingOccurrences(of: C.URL.HiPDA.avatar, with: "")

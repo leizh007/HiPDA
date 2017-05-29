@@ -68,4 +68,10 @@ extension UIImage {
     func image(roundCornerRadius radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor, size: CGSize) -> UIImage? {
         return image(roundCornerRadius: radius, corners: .allCorners, borderWidth: borderWidth, borderColor: borderColor, borderLineJoin: .miter, size: size)
     }
+    
+    var isLongImage: Bool {
+        return size.width > 0.0 && size.height > 0.0 && size.height / size.width > longImageRatioThreshold
+    }
 }
+
+private let longImageRatioThreshold = CGFloat(3.0)

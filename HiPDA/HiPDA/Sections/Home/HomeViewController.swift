@@ -47,6 +47,9 @@ class HomeViewController: BaseViewController {
         handleLoginStatue()
         handlAutoRefreshData()
         titleView.delegate = self
+        if #available(iOS 10.0, *) {
+            tableView.prefetchDataSource = self
+        }
         tableView.status = .loading
         tableView.hasRefreshHeader = true
         tableView.hasLoadMoreFooter = true
@@ -366,5 +369,18 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+
+extension HomeViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths  {
+            _ = tableView.fd_heightForCell(withIdentifier: HomeThreadTableViewCell.reuseIdentifier, configuration: { [weak self] cell in
+                guard let threadCell = cell as? HomeThreadTableViewCell else { return }
+                threadCell.threadModel = self?.viewModel.threadModel(at: indexPath.row)
+            })
+        }
     }
 }
