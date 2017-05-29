@@ -142,7 +142,7 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
 extension ImageBrowserCollectionViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if imageView.frame.size.height < self.bounds.size.height {
-            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0.0), animated: false)
+            scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0.0)
         }
     }
     
