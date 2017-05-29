@@ -136,9 +136,11 @@
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstItem="hJ2-uF-x1h" firstAttribute="leading" secondItem="pBb-uV-wrt" secondAttribute="leading" id="2YP-HG-UFy"/>
+                                                        <constraint firstAttribute="height" constant="669" id="Ayf-4t-Ebe"/>
                                                         <constraint firstAttribute="bottom" secondItem="hJ2-uF-x1h" secondAttribute="bottom" id="OX0-uP-zah"/>
                                                         <constraint firstAttribute="trailing" secondItem="hJ2-uF-x1h" secondAttribute="trailing" id="OfV-gd-09R"/>
                                                         <constraint firstItem="hJ2-uF-x1h" firstAttribute="top" secondItem="pBb-uV-wrt" secondAttribute="top" id="a9g-tr-EJD"/>
+                                                        <constraint firstAttribute="width" constant="375" id="gDo-tB-PFH"/>
                                                     </constraints>
                                                 </scrollView>
                                             </subviews>
@@ -146,10 +148,8 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="pBb-uV-wrt" secondAttribute="bottom" id="JF1-TS-miF"/>
-                                            <constraint firstAttribute="trailing" secondItem="pBb-uV-wrt" secondAttribute="trailing" id="YNF-nD-scf"/>
-                                            <constraint firstItem="pBb-uV-wrt" firstAttribute="leading" secondItem="A7g-So-pyi" secondAttribute="leading" id="c5V-Co-6De"/>
-                                            <constraint firstItem="pBb-uV-wrt" firstAttribute="top" secondItem="A7g-So-pyi" secondAttribute="top" id="umP-hJ-8Pc"/>
+                                            <constraint firstItem="pBb-uV-wrt" firstAttribute="centerY" secondItem="A7g-So-pyi" secondAttribute="centerY" id="FdW-K8-ySo"/>
+                                            <constraint firstItem="pBb-uV-wrt" firstAttribute="centerX" secondItem="A7g-So-pyi" secondAttribute="centerX" id="OGr-Gc-AM2"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="hJ2-uF-x1h" id="Lo6-0A-gwM"/>
@@ -160,6 +160,8 @@
                                             <outlet property="imageViewTrailingConstraint" destination="OfV-gd-09R" id="zDU-P4-MGs"/>
                                             <outlet property="imageViewWidthConstraint" destination="Bsv-TL-XQW" id="bZ4-CA-o8m"/>
                                             <outlet property="scrollView" destination="pBb-uV-wrt" id="eSY-J0-GSw"/>
+                                            <outlet property="scrollViewHeightConstraint" destination="Ayf-4t-Ebe" id="K48-B0-Yek"/>
+                                            <outlet property="scrollViewWidthConstraint" destination="gDo-tB-PFH" id="Evy-LS-2lU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

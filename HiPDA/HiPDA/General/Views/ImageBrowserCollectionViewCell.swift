@@ -36,6 +36,8 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
     @IBOutlet fileprivate weak var imageViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
     
     // https://github.com/evgenyneu/ios-imagescroll-swift
     private func updateImageViewSize(_ size: CGSize) {
@@ -50,21 +52,8 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         let imageWidth = imageViewWidthConstraint.constant
         let imageHeight = imageViewHeightConstraint.constant
         
-        let viewWidth = bounds.size.width
-        let viewHeight = bounds.size.height
-        
-        // center image if it is smaller than screen
-        var hPadding = (viewWidth - scrollView.zoomScale * imageWidth) / 2
-        if hPadding < 0 { hPadding = 0 }
-        
-        var vPadding = (viewHeight - scrollView.zoomScale * imageHeight) / 2
-        if vPadding < 0 { vPadding = 0 }
-        
-        imageViewLeadingConstraint.constant = hPadding
-        imageViewTrailingConstraint.constant = hPadding
-        
-        imageViewTopConstraint.constant = vPadding
-        imageViewBottomConstraint.constant = vPadding
+        scrollViewWidthConstraint.constant = min(scrollView.zoomScale * imageWidth, bounds.size.width)
+        scrollViewHeightConstraint.constant = min(scrollView.zoomScale * imageHeight, bounds.size.height)
         
         layoutIfNeeded()
     }
@@ -140,12 +129,6 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
 // MARK: - UIScrollViewDelegate
 
 extension ImageBrowserCollectionViewCell: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if imageView.frame.size.height < self.bounds.size.height {
-            scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0.0)
-        }
-    }
-    
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateConstraints()
     }
