@@ -68,10 +68,10 @@ class PostViewController: BaseViewController {
             return
         }
         guard let content = UIPasteboard.general.string else { return }
-        guard let result = try? Regex.firstMatch(in: content, of: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/\\/=]*)"), let url = result.safe[0], url == content else { return }
-        let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(url)", preferredStyle: .alert)
+        guard content.isLink else { return }
+        let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(content)", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
-            self?.linkActived(url)
+            self?.linkActived(content)
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.addAction(confirm)
@@ -295,10 +295,45 @@ extension PostViewController {
                 }
             }
         }
+        let detectQrCode = UIAlertAction(title: "识别图中二维码", style: .default) { [weak self] _ in
+            guard let `self` = self else { return }
+            self.showPromptInformation(of: .loading("正在识别..."))
+            self.imageUtils.qrcode(from: url) { [weak self] result in
+                self?.hidePromptInformation()
+                switch result {
+                case let .success(qrCode):
+                    self?.showQrCode(qrCode)
+                case let .failure(error):
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                }
+            }
+        }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         actionSheet.addAction(look)
         actionSheet.addAction(copy)
         actionSheet.addAction(save)
+        actionSheet.addAction(detectQrCode)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    fileprivate func showQrCode(_ qrCode: String) {
+        shouldHandlePasteBoardChanged = false
+        let actionSheet = UIAlertController(title: "识别二维码", message: "二维码内容为: \(qrCode)", preferredStyle: .actionSheet)
+        let copy = UIAlertAction(title: "复制", style: .default) { _ in
+            UIPasteboard.general.string = qrCode
+        }
+        var openLink: UIAlertAction!
+        if qrCode.isLink {
+            openLink = UIAlertAction(title: "打开链接", style: .default, handler: { [weak self] _ in
+                self?.linkActived(qrCode)
+            })
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        actionSheet.addAction(copy)
+        if qrCode.isLink {
+            actionSheet.addAction(openLink)
+        }
         actionSheet.addAction(cancel)
         present(actionSheet, animated: true, completion: nil)
     }

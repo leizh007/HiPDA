@@ -149,4 +149,11 @@ extension String {
         result.append(self[position ..< endIndex])
         return result
     }
+    
+    var isLink: Bool {
+        if let result = try? Regex.firstMatch(in: self, of: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/\\/=]*)"), let url = result.safe[0], url == self {
+            return true
+        }
+        return false
+    }
 }

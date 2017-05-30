@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 extension UIImage {
     /// 取得view的截图
@@ -71,6 +72,17 @@ extension UIImage {
     
     var isLongImage: Bool {
         return size.width > 0.0 && size.height > 0.0 && size.height / size.width > longImageRatioThreshold
+    }
+    
+    func ciImage() -> CoreImage.CIImage? {
+        if self.ciImage != nil {
+            return self.ciImage
+        }
+        
+        guard let cgImage = self.cgImage else {
+            return nil
+        }
+        return CoreImage.CIImage(cgImage: cgImage)
     }
 }
 
