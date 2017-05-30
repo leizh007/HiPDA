@@ -33,7 +33,7 @@ private func maximumZoomScaleFor(image: UIImage?) -> CGFloat {
 
 class ImageBrowserCollectionViewCell: UICollectionViewCell {
     @IBOutlet fileprivate weak var scrollView: UIScrollView!
-    @IBOutlet fileprivate weak var imageView: UIImageView!
+    @IBOutlet fileprivate weak var imageView: FLAnimatedImageView!
     @IBOutlet fileprivate weak var imageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var imageViewLeadingConstraint: NSLayoutConstraint!

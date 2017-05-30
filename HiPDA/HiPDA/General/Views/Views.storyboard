@@ -125,7 +125,7 @@
                                                 <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="669" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBb-uV-wrt">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="669"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-uF-x1h">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-uF-x1h" customClass="FLAnimatedImageView">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="674"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="375" id="Bsv-TL-XQW"/>
@@ -152,7 +152,7 @@
                                             <constraint firstItem="pBb-uV-wrt" firstAttribute="centerX" secondItem="A7g-So-pyi" secondAttribute="centerX" id="OGr-Gc-AM2"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="hJ2-uF-x1h" id="Lo6-0A-gwM"/>
+                                            <outlet property="imageView" destination="hJ2-uF-x1h" id="qkH-kf-sRr"/>
                                             <outlet property="imageViewBottomConstraint" destination="OX0-uP-zah" id="rdl-u0-Wga"/>
                                             <outlet property="imageViewHeightConstraint" destination="qAv-Qz-CF1" id="h7K-i3-jDP"/>
                                             <outlet property="imageViewLeadingConstraint" destination="2YP-HG-UFy" id="Nru-OE-zyz"/>
