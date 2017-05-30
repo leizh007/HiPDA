@@ -53,10 +53,6 @@ class PostViewModel {
     }
     
     func loadImage(url: String, completion: @escaping (Error?) -> Void) {
-        let url = url.replacingOccurrences(of: C.URL.HiPDA.imageLoading, with: "")
-            .replacingOccurrences(of: C.URL.HiPDA.avatar, with: "")
-            .replacingOccurrences(of: C.URL.HiPDA.imagePlaceholder, with: "")
-            .replacingOccurrences(of: C.URL.HiPDA.image, with: "")
         SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil) { (_, _, error, _, _, _) in
             completion(error)
         }

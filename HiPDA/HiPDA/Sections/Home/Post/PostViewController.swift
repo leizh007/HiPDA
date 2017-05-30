@@ -14,9 +14,10 @@ import MLeaksFinder
 import Perform
 import Argo
 import SafariServices
+import SDWebImage
 
 /// 浏览帖子页面
-class PostViewController: BaseViewController {    
+class PostViewController: BaseViewController {
     fileprivate static let shared = PostViewController.load(from: .home)
     
     var postInfo: PostInfo! {
@@ -29,12 +30,14 @@ class PostViewController: BaseViewController {
     fileprivate var viewModel: PostViewModel!
     fileprivate var webView: BaseWebView!
     fileprivate var bridge: WKWebViewJavascriptBridge!
+    fileprivate var shouldHandlePasteBoardChanged = true
+    fileprivate lazy var imageUtils = ImageUtils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(userDidCopiedContentToPasteBoard), name:
-        .UIPasteboardChanged, object: nil)
+            .UIPasteboardChanged, object: nil)
         viewModel = PostViewModel(postInfo: postInfo)
         webView = BaseWebView()
         view.addSubview(webView)
@@ -60,6 +63,10 @@ class PostViewController: BaseViewController {
     }
     
     func userDidCopiedContentToPasteBoard() {
+        guard shouldHandlePasteBoardChanged else {
+            shouldHandlePasteBoardChanged = true
+            return
+        }
         guard let content = UIPasteboard.general.string else { return }
         guard let result = try? Regex.firstMatch(in: content, of: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&\\/\\/=]*)"), let url = result.safe[0], url == content else { return }
         let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(url)", preferredStyle: .alert)
@@ -157,9 +164,9 @@ extension PostViewController {
         webView.allowsLinkPreview = false
         webView.uiDelegate = self
         webView.scrollView.backgroundColor = .groupTableViewBackground
-#if RELEASE
-        webView.scrollView.showsHorizontalScrollIndicator = false
-#endif
+        #if RELEASE
+            webView.scrollView.showsHorizontalScrollIndicator = false
+        #endif
         let states: [MJRefreshState] = [.idle, .pulling, .refreshing, .noMoreData]
         for state in states {
             webView.loadMoreFooter?.setTitle(viewModel.footerTitle(for: state), for: state)
@@ -219,7 +226,7 @@ extension PostViewController {
     }
 }
 
-// MARK: - Bridge Handler 
+// MARK: - Bridge Handler
 
 extension PostViewController {
     fileprivate func linkActived(_ url: String) {
@@ -255,21 +262,60 @@ extension PostViewController {
     }
     
     fileprivate func imageClicked(clickedImageURL: String, imageURLs: [String]) {
+        showImageBrowser(clickedImageURL: clickedImageURL, imageURLs: imageURLs)
+    }
+    
+    fileprivate func imageLongPressed(url: String) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let look = UIAlertAction(title: "查看", style: .default) { [weak self] _ in
+            self?.showImageBrowser(clickedImageURL: url, imageURLs: [url])
+        }
+        let copy = UIAlertAction(title: "复制", style: .default) { [weak self] _ in
+            guard let `self` = self else { return }
+            self.shouldHandlePasteBoardChanged = false
+            ImageUtils.copyImage(url: url) { (result) in
+                switch result {
+                case let .failure(error):
+                    self.showPromptInformation(of: .failure(error.localizedDescription))
+                case .success(_):
+                    self.showPromptInformation(of: .success("复制成功！"))
+                }
+            }
+        }
+        let save = UIAlertAction(title: "保存", style: .default) { [weak self] _ in
+            guard let `self` = self else { return }
+            self.showPromptInformation(of: .loading("正在保存..."))
+            self.imageUtils.saveImage(url: url) { [weak self] (result) in
+                self?.hidePromptInformation()
+                switch result {
+                case let .failure(error):
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                case .success(_):
+                    self?.showPromptInformation(of: .success("保存成功！"))
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        actionSheet.addAction(look)
+        actionSheet.addAction(copy)
+        actionSheet.addAction(save)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Image Related
+
+extension PostViewController {
+    fileprivate func showImageBrowser(clickedImageURL: String, imageURLs: [String]) {
         guard let selectedIndex = imageURLs.index(of: clickedImageURL) else { return }
         let imageBrowser = ImageBrowserViewController.load(from: .views)
-        imageBrowser.imageURLs = imageURLs.map { $0.replacingOccurrences(of: C.URL.HiPDA.avatar, with: "")
-            .replacingOccurrences(of: C.URL.HiPDA.image, with: "")
-            .replacingOccurrences(of: C.URL.HiPDA.imageLoading, with: "")
-            .replacingOccurrences(of: C.URL.HiPDA.imagePlaceholder, with: "") }
+        imageBrowser.imageURLs = imageURLs
         imageBrowser.selectedIndex = selectedIndex
         imageBrowser.modalPresentationStyle = .custom
         imageBrowser.modalTransitionStyle = .crossDissolve
         imageBrowser.modalPresentationCapturesStatusBarAppearance = true
         present(imageBrowser, animated: true, completion: nil)
-    }
-    
-    fileprivate func imageLongPressed(url: String) {
-        console(message: url)
     }
 }
 
@@ -307,11 +353,11 @@ extension PostViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-#if RELEASE
-        if scrollView.contentOffset.x > 0 || scrollView.contentOffset.x < 0 {
-            scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y)
-        }
-#endif
+        #if RELEASE
+            if scrollView.contentOffset.x > 0 || scrollView.contentOffset.x < 0 {
+                scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y)
+            }
+        #endif
     }
 }
 
@@ -336,13 +382,13 @@ extension PostViewController: WKNavigationDelegate {
     }
     
     private func handleWebViewError(_ error: Error) {
-#if DEBUG
-        showPromptInformation(of: .failure(String(describing: error)))
-#else
-        if (error as NSError).code != NSURLErrorCancelled {
-            showPromptInformation(of: .failure(error.localizedDescription))
-        }
-#endif
+        #if DEBUG
+            showPromptInformation(of: .failure(String(describing: error)))
+        #else
+            if (error as NSError).code != NSURLErrorCancelled {
+                showPromptInformation(of: .failure(error.localizedDescription))
+            }
+        #endif
     }
 }
 

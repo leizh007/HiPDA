@@ -269,7 +269,7 @@ function imageLongPressed(image) {
     if (image.getAttribute("src").indexOf("--hipda-placeholder--") !== -1) {
         return;
     }
-    WebViewJavascriptBridge.callHandler("imageLongPressed", image.getAttribute("src"), function responseCallback(responseData) {
+    WebViewJavascriptBridge.callHandler("imageLongPressed", image.getAttribute("src").replace("--hipda-image--", ""), function responseCallback(responseData) {
     });
 }
 
@@ -284,7 +284,7 @@ function imageClicked(image) {
         var src = image.getAttribute("src");
         src = src.replace(/--hipda-placeholder--/, "--hipda-imageloading--");
         image.setAttribute("src", src);
-        WebViewJavascriptBridge.callHandler("loadImage", src, function responseCallback(responseData) {
+        WebViewJavascriptBridge.callHandler("loadImage", src.replace("--hipda-imageloading--", ""), function responseCallback(responseData) {
             if (responseData === true) {
                 src = src.replace("--hipda-imageloading--", "--hipda-image--");
             } else {
@@ -294,7 +294,7 @@ function imageClicked(image) {
         });
         return;
     }
-    var src = image.getAttribute("src");
+    var src = image.getAttribute("src").replace("--hipda-image--", "");;
     var post = postDivOfChildElement(image);
     var imageSrcs = imagesToShowInPost(post);
     var data = { "imageSrcs": imageSrcs, "clickedImageSrc": src };
@@ -384,7 +384,7 @@ function imagesToShowInPost(post) {
         if (src.indexOf("images/common/back.gif") !== -1) {
             continue;
         }
-        srcs[srcs.length] = src;
+        srcs[srcs.length] = src.replace("--hipda-image--", "");
     }
     return srcs;
 }

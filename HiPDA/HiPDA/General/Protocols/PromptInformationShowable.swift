@@ -24,10 +24,10 @@ protocol PromptInformationShowable {
     /// 展示提示信息
     ///
     /// - parameter style: 提示信息的样式
-    func showPromptInformation(of style: ProgressHUDStyle);
+    func showPromptInformation(of style: ProgressHUDStyle)
     
     /// 隐藏提示信息
-    func hidePromptInformation();
+    func hidePromptInformation()
 }
 
 extension PromptInformationShowable where Self: UIViewController {
