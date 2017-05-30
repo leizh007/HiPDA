@@ -381,6 +381,9 @@ function imagesToShowInPost(post) {
         if (src.indexOf("images/default/attachimg.gif") !== -1) {
             continue;
         }
+        if (src.indexOf("images/common/back.gif") !== -1) {
+            continue;
+        }
         srcs[srcs.length] = src;
     }
     return srcs;
