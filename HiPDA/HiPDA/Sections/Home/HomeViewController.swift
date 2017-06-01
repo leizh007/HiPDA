@@ -64,7 +64,12 @@ class HomeViewController: BaseViewController {
     }
     
     func homeViewControllerTabRepeatedSelected() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        guard tableView.status == .normal else { return }
+        if tableView.contentOffset.y == 0 {
+            tableView.refreshing()
+        } else {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -327,6 +332,7 @@ extension HomeViewController: UITableViewDelegate {
         // 水平超界: 2090332
         // 超级大图: 2100594
         // 投票: 2101044
+        // GIF: 2105608
         let tid = viewModel.tid(at: indexPath.row)
         let readPostVC = PostViewController.load(from: .home)
         readPostVC.postInfo = PostInfo(tid: tid)

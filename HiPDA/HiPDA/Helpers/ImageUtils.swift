@@ -8,10 +8,11 @@
 
 import Foundation
 import SDWebImage
+import Photos
 
 typealias ImageManipulationResult = Result<String, NSError>
 
-class ImageUtils: NSObject {
+class ImageUtils {
     static func copyImage(url: String, completion: @escaping (ImageManipulationResult) -> Void) {
         SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil, completed: { (image, _, error, _, _, _) in
             if let image = image {
@@ -25,30 +26,29 @@ class ImageUtils: NSObject {
         })
     }
     
-    var completion: ((ImageManipulationResult) -> Void)?
-    
-    func saveImage(url: String, completion: @escaping (ImageManipulationResult) -> Void) {
+    static func saveImage(url: String, completion: @escaping (ImageManipulationResult) -> Void) {
         SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil, completed: { (image, _, error, _, _, _) in
-            guard let image = image, error == nil else {
+            guard let _ = image, error == nil, let url = SDImageCache.shared().defaultCachePath(forKey: url) else {
                 let error = error ?? NSError(domain: C.URL.HiPDA.image, code: -1, userInfo: nil)
                 completion(.failure(error  as NSError))
                 return
             }
-            self.completion = completion
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+            let fileURL = URL(fileURLWithPath: url)
+            PHPhotoLibrary.shared().performChanges({ 
+                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: fileURL)
+            }, completionHandler: { (success, error) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        completion(.failure(error as NSError))
+                    } else {
+                        completion(.success(""))
+                    }
+                }
+            })
         })
     }
     
-    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            completion?(.failure(error as NSError))
-        } else {
-            completion?(.success(""))
-        }
-        completion = nil
-    }
-    
-    func qrcode(from url: String, completion: @escaping (ImageManipulationResult) -> Void) {
+    static func qrcode(from url: String, completion: @escaping (ImageManipulationResult) -> Void) {
         SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil, completed: { (image, _, error, _, _, _) in
             guard let image = image, error == nil else {
                 let error = error ?? NSError(domain: C.URL.HiPDA.image, code: -1, userInfo: nil)

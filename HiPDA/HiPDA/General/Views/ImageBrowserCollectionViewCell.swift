@@ -67,7 +67,7 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         imageView.sd_setShowActivityIndicatorView(true)
-        imageView.sd_setIndicatorStyle(.gray)
+        imageView.sd_setIndicatorStyle(.whiteLarge)
         scrollView.delegate = self
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
@@ -77,18 +77,15 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(_:)))
         longPressRecognizer.minimumPressDuration = 1.0
         addGestureRecognizer(longPressRecognizer)
+        
+        updateImageViewSize(UIScreen.main.bounds.size)
     }
     
     var imageURLString: String = "" {
         didSet {
             resetState()
             if imageURLString.hasSuffix(".thumb.jpg") {
-                imageView.sd_setImage(with: URL(string: imageURLString)) { [weak self] (image, error, _, _) in
-                    guard let `self` = self else { return }
-                    self.updateImageViewSize(screenAspectFitSizeOf(image: image))
-                    self.scrollView.maximumZoomScale = maximumZoomScaleFor(image: image)
-                    self.updateImage(with: self.imageURLString.replacingOccurrences(of: ".thumb.jpg", with: ""))
-                }
+                updateImage(with: imageURLString.replacingOccurrences(of: ".thumb.jpg", with: ""))
             } else {
                 updateImage(with: imageURLString)
             }
@@ -96,9 +93,11 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
     }
     
     fileprivate func updateImage(with urlString: String) {
-        imageView.sd_setImage(with: URL(string: imageURLString)) { [weak self] (image, error, _, _) in
+        isImageLoaded = false
+        imageView.sd_setImage(with: URL(string: urlString)) { [weak self] (image, error, _, _) in
             self?.updateImageViewSize(screenAspectFitSizeOf(image: image))
             self?.scrollView.maximumZoomScale = maximumZoomScaleFor(image: image)
+            self?.isImageLoaded = true
         }
     }
     
@@ -113,8 +112,11 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         scrollView.zoomScale = 1.0
     }
     
+    var isImageLoaded = false
+    
     // https://stackoverflow.com/questions/3967971/how-to-zoom-in-out-photo-on-double-tap-in-the-iphone-wwdc-2010-104-photoscroll
     func doubleTapped(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        guard isImageLoaded else { return }
         if (scrollView.zoomScale > scrollView.minimumZoomScale) {
             scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
         } else {
@@ -124,6 +126,7 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
     }
     
     func longPressed(_ sender: UILongPressGestureRecognizer) {
+        guard isImageLoaded else { return }
         if sender.state == .began {
             delegate?.longPressedCell(self)
         }

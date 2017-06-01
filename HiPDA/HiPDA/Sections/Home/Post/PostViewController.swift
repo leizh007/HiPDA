@@ -273,19 +273,21 @@ extension PostViewController {
         let copy = UIAlertAction(title: "复制", style: .default) { [weak self] _ in
             guard let `self` = self else { return }
             self.shouldHandlePasteBoardChanged = false
-            ImageUtils.copyImage(url: url) { (result) in
+            self.showPromptInformation(of: .loading("正在复制..."))
+            ImageUtils.copyImage(url: url) { [weak self] (result) in
+                self?.hidePromptInformation()
                 switch result {
                 case let .failure(error):
-                    self.showPromptInformation(of: .failure(error.localizedDescription))
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
                 case .success(_):
-                    self.showPromptInformation(of: .success("复制成功！"))
+                    self?.showPromptInformation(of: .success("复制成功！"))
                 }
             }
         }
         let save = UIAlertAction(title: "保存", style: .default) { [weak self] _ in
             guard let `self` = self else { return }
             self.showPromptInformation(of: .loading("正在保存..."))
-            self.imageUtils.saveImage(url: url) { [weak self] (result) in
+            ImageUtils.saveImage(url: url) { [weak self] (result) in
                 self?.hidePromptInformation()
                 switch result {
                 case let .failure(error):
@@ -298,7 +300,7 @@ extension PostViewController {
         let detectQrCode = UIAlertAction(title: "识别图中二维码", style: .default) { [weak self] _ in
             guard let `self` = self else { return }
             self.showPromptInformation(of: .loading("正在识别..."))
-            self.imageUtils.qrcode(from: url) { [weak self] result in
+            ImageUtils.qrcode(from: url) { [weak self] result in
                 self?.hidePromptInformation()
                 switch result {
                 case let .success(qrCode):
