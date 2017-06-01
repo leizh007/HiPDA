@@ -36,7 +36,7 @@ class PostViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(userDidCopiedContentToPasteBoard), name:
+        NotificationCenter.default.addObserver(self, selector: #selector(userDidCopiedContentToPasteBoard(_:)), name:
             .UIPasteboardChanged, object: nil)
         viewModel = PostViewModel(postInfo: postInfo)
         webView = BaseWebView()
@@ -62,7 +62,7 @@ class PostViewController: BaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func userDidCopiedContentToPasteBoard() {
+    func userDidCopiedContentToPasteBoard(_ notification: NSNotification) {
         guard shouldHandlePasteBoardChanged else {
             shouldHandlePasteBoardChanged = true
             return
@@ -247,6 +247,7 @@ extension PostViewController {
             showPromptInformation(of: .failure("无法识别链接：\(url)"))
             return
         }
+        shouldHandlePasteBoardChanged = false
         let safari = SFSafariViewController(url: url)
         if #available(iOS 10.0, *) {
             safari.preferredControlTintColor = C.Color.navigationBarTintColor
@@ -345,6 +346,7 @@ extension PostViewController {
 
 extension PostViewController {
     fileprivate func showImageBrowser(clickedImageURL: String, imageURLs: [String]) {
+        shouldHandlePasteBoardChanged = false
         guard let selectedIndex = imageURLs.index(of: clickedImageURL) else { return }
         let imageBrowser = ImageBrowserViewController.load(from: .views)
         imageBrowser.imageURLs = imageURLs

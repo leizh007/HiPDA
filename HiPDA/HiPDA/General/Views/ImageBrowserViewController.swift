@@ -27,11 +27,7 @@ class ImageBrowserViewController: BaseViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    @IBAction func closeButtonPressed(_ sender: Any) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
-    }
+    }    
 }
 
 // MARK: - UICollectionViewDelegate
@@ -114,8 +110,79 @@ extension ImageBrowserViewController: UICollectionViewDataSourcePrefetching {
 // MARK: - ImageBrowserCollectionViewCellDelegate
 
 extension ImageBrowserViewController: ImageBrowserCollectionViewCellDelegate {
+    func pressed(cell: ImageBrowserCollectionViewCell) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     func longPressedCell(_ cell: ImageBrowserCollectionViewCell) {
-        console(message: "")
+        guard let indexPath = collectionView.indexPath(for: cell), var url = imageURLs.safe[indexPath.row] else { return }
+        url = url.replacingOccurrences(of: ".thumb.jpg", with: "")
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let copy = UIAlertAction(title: "复制", style: .default) { [weak self] _ in
+            guard let `self` = self else { return }
+            self.showPromptInformation(of: .loading("正在复制..."))
+            ImageUtils.copyImage(url: url) { [weak self] (result) in
+                self?.hidePromptInformation()
+                switch result {
+                case let .failure(error):
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                case .success(_):
+                    self?.showPromptInformation(of: .success("复制成功！"))
+                }
+            }
+        }
+        let save = UIAlertAction(title: "保存", style: .default) { [weak self] _ in
+            guard let `self` = self else { return }
+            self.showPromptInformation(of: .loading("正在保存..."))
+            ImageUtils.saveImage(url: url) { [weak self] (result) in
+                self?.hidePromptInformation()
+                switch result {
+                case let .failure(error):
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                case .success(_):
+                    self?.showPromptInformation(of: .success("保存成功！"))
+                }
+            }
+        }
+        let detectQrCode = UIAlertAction(title: "识别图中二维码", style: .default) { [weak self] _ in
+            guard let `self` = self else { return }
+            self.showPromptInformation(of: .loading("正在识别..."))
+            ImageUtils.qrcode(from: url) { [weak self] result in
+                self?.hidePromptInformation()
+                switch result {
+                case let .success(qrCode):
+                    self?.showQrCode(qrCode)
+                case let .failure(error):
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        actionSheet.addAction(copy)
+        actionSheet.addAction(save)
+        actionSheet.addAction(detectQrCode)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    fileprivate func showQrCode(_ qrCode: String) {
+        let actionSheet = UIAlertController(title: "识别二维码", message: "二维码内容为: \(qrCode)", preferredStyle: .actionSheet)
+        let copy = UIAlertAction(title: "复制", style: .default) { _ in
+            UIPasteboard.general.string = qrCode
+        }
+        var openLink: UIAlertAction!
+        if qrCode.isLink {
+            openLink = UIAlertAction(title: "打开链接", style: .default, handler: { [weak self] _ in
+                console(message: qrCode)
+            })
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        actionSheet.addAction(copy)
+        if qrCode.isLink {
+            actionSheet.addAction(openLink)
+        }
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
     }
 }
 

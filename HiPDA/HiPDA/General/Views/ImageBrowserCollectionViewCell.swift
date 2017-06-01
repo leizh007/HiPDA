@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 
 protocol ImageBrowserCollectionViewCellDelegate: class {
+    func pressed(cell: ImageBrowserCollectionViewCell)
     func longPressedCell(_ cell: ImageBrowserCollectionViewCell)
 }
 
@@ -74,6 +75,14 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         doubleTap.numberOfTapsRequired = 2
         addGestureRecognizer(doubleTap)
         
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTapped(_:)))
+        singleTap.numberOfTapsRequired = 1
+        addGestureRecognizer(singleTap)
+        singleTap.require(toFail: doubleTap)
+        
+        singleTap.delaysTouchesBegan = true
+        doubleTap.delaysTouchesBegan = true
+        
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(_:)))
         longPressRecognizer.minimumPressDuration = 1.0
         addGestureRecognizer(longPressRecognizer)
@@ -113,6 +122,10 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
     }
     
     var isImageLoaded = false
+    
+    func singleTapped(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        delegate?.pressed(cell: self)
+    }
     
     // https://stackoverflow.com/questions/3967971/how-to-zoom-in-out-photo-on-double-tap-in-the-iphone-wwdc-2010-104-photoscroll
     func doubleTapped(_ tapGestureRecognizer: UITapGestureRecognizer) {
