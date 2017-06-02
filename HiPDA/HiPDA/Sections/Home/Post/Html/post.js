@@ -348,7 +348,9 @@ function hexToRgb(hex) {
 
 // 是否是表情
 function isEmoji(src) {
-    return /[\w:\/\.-]+images\/smilies\/\w+\/\w+\.gif/.test(src);
+    var isUWPTail = src.indexOf("1406211752793e731a4fec8f7b.png") !== -1;
+    var isEmoji = /[\w:\/\.-]+images\/smilies\/\w+\/\w+\.gif/.test(src);
+    return isUWPTail || isEmoji;
 }
 
 function postDivOfChildElement(element) {
