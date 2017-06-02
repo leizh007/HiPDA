@@ -166,16 +166,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHx-fW-hLx">
+                                <rect key="frame" x="16" y="29" width="26" height="26"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="image_browser_close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="9hm-oN-x9H" eventType="touchUpInside" id="2df-KQ-kLO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mHx-fW-hLx" firstAttribute="leading" secondItem="7U7-6r-Eqp" secondAttribute="leading" constant="16" id="0pP-Jy-dfv"/>
                             <constraint firstAttribute="trailing" secondItem="3ab-Up-OOD" secondAttribute="trailing" id="d8Y-i8-4S0"/>
                             <constraint firstAttribute="bottom" secondItem="3ab-Up-OOD" secondAttribute="bottom" id="gts-cD-6EJ"/>
+                            <constraint firstItem="mHx-fW-hLx" firstAttribute="top" secondItem="bWO-Rx-Awb" secondAttribute="bottom" constant="9" id="jta-6I-XXK"/>
                             <constraint firstItem="3ab-Up-OOD" firstAttribute="leading" secondItem="7U7-6r-Eqp" secondAttribute="leading" id="nh0-mi-pb8"/>
                             <constraint firstItem="3ab-Up-OOD" firstAttribute="top" secondItem="7U7-6r-Eqp" secondAttribute="top" id="vPb-ii-zHJ"/>
                         </constraints>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="3ab-Up-OOD" id="acS-5u-jGY"/>
                     </connections>
@@ -185,4 +195,7 @@
             <point key="canvasLocation" x="-1018.4" y="1150.9745127436283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image_browser_close" width="26" height="26"/>
+    </resources>
 </document>
