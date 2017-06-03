@@ -13,6 +13,8 @@ extension URL {
         case `internal`
         case external
         case downloadAttachment
+        case viewThread
+        case redirect
     }
     
     var linkType: LinkType {
@@ -23,6 +25,9 @@ extension URL {
         let downloadResult = try? Regex.firstMatch(in: absoluteString, of: "https?:\\/\\/www.hi-pda.com\\/forum\\/attachment\\.php\\?aid=\\w+")
         if downloadResult != nil && downloadResult!.count > 0 {
             return .downloadAttachment
+        }
+        if let _ = PostInfo(urlString: absoluteString) {
+            return .viewThread
         }
         return .`internal`
     }

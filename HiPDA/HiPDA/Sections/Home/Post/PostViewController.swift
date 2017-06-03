@@ -13,7 +13,6 @@ import MJRefresh
 import MLeaksFinder
 import Perform
 import Argo
-import SafariServices
 import SDWebImage
 
 /// 浏览帖子页面
@@ -30,14 +29,11 @@ class PostViewController: BaseViewController {
     fileprivate var viewModel: PostViewModel!
     fileprivate var webView: BaseWebView!
     fileprivate var bridge: WKWebViewJavascriptBridge!
-    fileprivate var shouldHandlePasteBoardChanged = true
     fileprivate lazy var imageUtils = ImageUtils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(userDidCopiedContentToPasteBoard(_:)), name:
-            .UIPasteboardChanged, object: nil)
         viewModel = PostViewModel(postInfo: postInfo)
         webView = BaseWebView()
         view.addSubview(webView)
@@ -58,32 +54,21 @@ class PostViewController: BaseViewController {
                                height: view.bounds.size.height - yOffset)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    func userDidCopiedContentToPasteBoard(_ notification: NSNotification) {
-        guard shouldHandlePasteBoardChanged else {
-            shouldHandlePasteBoardChanged = true
-            return
-        }
-        guard let content = UIPasteboard.general.string else { return }
-        guard content.isLink else { return }
-        let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(content)", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "确定", style: .default) { [weak self] _ in
-            self?.linkActived(content)
-        }
-        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alert.addAction(confirm)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
-    }
-    
     fileprivate func updateWebViewState() {
         let states: [MJRefreshState] = [.idle, .pulling, .refreshing]
         for state in states {
             webView.refreshHeader?.setTitle(viewModel.headerTitle(for: state), for: state)
         }
+    }
+    
+    override func configureApperance(of navigationBar: UINavigationBar) {
+        if navigationController?.viewControllers.count == 1 {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "image_browser_close"), style: .plain, target: self, action: #selector(close))
+        }
+    }
+    
+    func close() {
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     fileprivate func animationOptions(of status: PostViewStatus) -> UIViewAnimationOptions {
@@ -191,9 +176,9 @@ extension PostViewController {
             }
         }
         
-        bridge.registerHandler("linkActivated") { [weak self] (data, _) in
+        bridge.registerHandler("linkActivated") { (data, _) in
             guard let data = data, let urlString = data as? String else { return }
-            self?.linkActived(PostViewModel.skinURL(url: urlString))
+            URLDispatchManager.shared.linkActived(PostViewModel.skinURL(url: urlString))
         }
         
         bridge.registerHandler("postClicked") { [weak self] (data, _) in
@@ -223,40 +208,16 @@ extension PostViewController {
             guard let data = data, let url = data as? String else { return }
             self?.imageLongPressed(url: url)
         }
+        
+        if let pid =  postInfo.pid {
+            bridge.callHandler("jumpToPid", data: pid)
+        }
     }
 }
 
 // MARK: - Bridge Handler
 
 extension PostViewController {
-    fileprivate func linkActived(_ url: String) {
-        guard let url = URL(string: url) else { return }
-        
-        switch url.linkType {
-        case .external:
-            showExternalURL(url: url)
-        case .downloadAttachment:
-            showPromptInformation(of: .failure("暂不支持下载论坛附件！"))
-        default:
-            break
-        }
-    }
-    
-    fileprivate func showExternalURL(url: URL) {
-        guard let scheme = url.scheme, scheme.contains("http") || scheme.contains("https") else {
-            showPromptInformation(of: .failure("无法识别链接：\(url)"))
-            return
-        }
-        shouldHandlePasteBoardChanged = false
-        let safari = SFSafariViewController(url: url)
-        if #available(iOS 10.0, *) {
-            safari.preferredControlTintColor = C.Color.navigationBarTintColor
-        }
-        safari.delegate = self
-        safari.transitioningDelegate = self
-        present(safari, animated: true, completion: nil)
-    }
-    
     fileprivate func postClicked(pid: Int) {
         // FIEXME: - Handle post clicked
         console(message: "\(pid)")
@@ -273,7 +234,6 @@ extension PostViewController {
         }
         let copy = UIAlertAction(title: "复制", style: .default) { [weak self] _ in
             guard let `self` = self else { return }
-            self.shouldHandlePasteBoardChanged = false
             self.showPromptInformation(of: .loading("正在复制..."))
             ImageUtils.copyImage(url: url) { [weak self] (result) in
                 self?.hidePromptInformation()
@@ -321,15 +281,14 @@ extension PostViewController {
     }
     
     fileprivate func showQrCode(_ qrCode: String) {
-        shouldHandlePasteBoardChanged = false
         let actionSheet = UIAlertController(title: "识别二维码", message: "二维码内容为: \(qrCode)", preferredStyle: .actionSheet)
         let copy = UIAlertAction(title: "复制", style: .default) { _ in
             UIPasteboard.general.string = qrCode
         }
         var openLink: UIAlertAction!
         if qrCode.isLink {
-            openLink = UIAlertAction(title: "打开链接", style: .default, handler: { [weak self] _ in
-                self?.linkActived(qrCode)
+            openLink = UIAlertAction(title: "打开链接", style: .default, handler: { _ in
+                URLDispatchManager.shared.linkActived(qrCode)
             })
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -346,7 +305,6 @@ extension PostViewController {
 
 extension PostViewController {
     fileprivate func showImageBrowser(clickedImageURL: String, imageURLs: [String]) {
-        shouldHandlePasteBoardChanged = false
         guard let selectedIndex = imageURLs.index(of: clickedImageURL) else { return }
         let imageBrowser = ImageBrowserViewController.load(from: .views)
         imageBrowser.imageURLs = imageURLs
@@ -355,14 +313,6 @@ extension PostViewController {
         imageBrowser.modalTransitionStyle = .crossDissolve
         imageBrowser.modalPresentationCapturesStatusBarAppearance = true
         present(imageBrowser, animated: true, completion: nil)
-    }
-}
-
-// MARK: - SFSafariViewControllerDelegate
-
-extension PostViewController: SFSafariViewControllerDelegate {
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        dismiss(animated: true, completion: nil)
     }
 }
 

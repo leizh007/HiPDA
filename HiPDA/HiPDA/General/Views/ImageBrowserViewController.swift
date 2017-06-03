@@ -124,6 +124,7 @@ extension ImageBrowserViewController: ImageBrowserCollectionViewCellDelegate {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let copy = UIAlertAction(title: "复制", style: .default) { [weak self] _ in
             guard let `self` = self else { return }
+            URLDispatchManager.shared.shouldHandlePasteBoardChanged = false
             self.showPromptInformation(of: .loading("正在复制..."))
             ImageUtils.copyImage(url: url) { [weak self] (result) in
                 self?.hidePromptInformation()
@@ -172,12 +173,13 @@ extension ImageBrowserViewController: ImageBrowserCollectionViewCellDelegate {
     fileprivate func showQrCode(_ qrCode: String) {
         let actionSheet = UIAlertController(title: "识别二维码", message: "二维码内容为: \(qrCode)", preferredStyle: .actionSheet)
         let copy = UIAlertAction(title: "复制", style: .default) { _ in
+            URLDispatchManager.shared.shouldHandlePasteBoardChanged = false
             UIPasteboard.general.string = qrCode
         }
         var openLink: UIAlertAction!
         if qrCode.isLink {
-            openLink = UIAlertAction(title: "打开链接", style: .default, handler: { [weak self] _ in
-                console(message: qrCode)
+            openLink = UIAlertAction(title: "打开链接", style: .default, handler: { _ in
+                URLDispatchManager.shared.linkActived(qrCode)
             })
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)

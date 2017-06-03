@@ -194,6 +194,11 @@ setupWebViewJavascriptBridge(function (bridge) {
         shouldImageAutoLoad = responseData;
         clientJSCodeReady();
     });
+
+    bridge.registerHandler("jumpToPid", function(data, responseCallback) {
+        var pid = data;
+        window.location.hash = "#post_"+pid;
+	});
 })
 
 function clientJSCodeReady() {

@@ -28,7 +28,7 @@ struct PostInfo {
             case pid
             case authorid
         }
-        guard let index = urlString.range(of: "https://www.hi-pda.com/forum/viewthread.php?")?.upperBound else { return nil }
+        guard let index = urlString.range(of: "://www.hi-pda.com/forum/viewthread.php?")?.upperBound else { return nil }
         var subString = urlString.substring(from: index)
         if let sharpIndex = subString.range(of: "#pid")?.lowerBound {
             subString = subString.substring(to: sharpIndex)

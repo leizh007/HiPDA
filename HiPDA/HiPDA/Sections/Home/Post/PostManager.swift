@@ -86,6 +86,9 @@ class PostManager {
             .subscribe { [weak self] event in
                 guard let `self` = self, postInfo == `self`.postInfo else { return }
                 self.totalPage = totalPage
+                if self.postInfo.page > self.totalPage {
+                    self.postInfo = PostInfo.lens.page.set(self.totalPage, self.postInfo)
+                }
                 self.title = title
                 switch event {
                 case let .next(posts):
