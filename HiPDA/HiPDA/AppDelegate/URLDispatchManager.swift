@@ -8,25 +8,25 @@
 
 import Foundation
 import SafariServices
+import RxSwift
+import RxCocoa
 
 class URLDispatchManager: NSObject {
     static let shared = URLDispatchManager()
+    let disposeBag = DisposeBag()
     var shouldHandlePasteBoardChanged = true
     private override init() {
         super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(userDidCopiedContentToPasteBoard(_:)), name:
-            .UIPasteboardChanged, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.rx.notification(.UIPasteboardChanged).debounce(0.5, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
+            self?.userDidCopiedContentToPasteBoard()
+        }).disposed(by: disposeBag)
     }
     
     var topVC: UIViewController? {
         return UIApplication.topViewController()
     }
     
-    func userDidCopiedContentToPasteBoard(_ notification: NSNotification) {
+    func userDidCopiedContentToPasteBoard() {
         guard shouldHandlePasteBoardChanged, Settings.shared.activeAccount != nil else {
             shouldHandlePasteBoardChanged = true
             return
