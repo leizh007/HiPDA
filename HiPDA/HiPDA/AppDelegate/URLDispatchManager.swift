@@ -24,8 +24,8 @@ class URLDispatchManager: NSObject {
         NotificationCenter.default.rx.notification(.UIApplicationDidBecomeActive).debounce(0.5, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
             guard let content = UIPasteboard.general.string else { return }
             guard content.isLink else { return }
-            guard let url = URL(string: content), url.linkType != .external else { return }
-            self?.userDidCopiedContentToPasteBoard()
+            guard let url = URL(string: content), url.canOpenInAPP else { return }
+            self?.userDidCopiedContentToPasteBoard(autoClearContent: true)
         }).disposed(by: disposeBag)
     }
     
@@ -33,12 +33,15 @@ class URLDispatchManager: NSObject {
         return UIApplication.topViewController()
     }
     
-    func userDidCopiedContentToPasteBoard() {
+    func userDidCopiedContentToPasteBoard(autoClearContent: Bool = false) {
         guard shouldHandlePasteBoardChanged, Settings.shared.activeAccount != nil else {
             shouldHandlePasteBoardChanged = true
             return
         }
         guard let content = UIPasteboard.general.string else { return }
+        if autoClearContent {
+            UIPasteboard.general.string = ""
+        }
         guard content.isLink else { return }
         let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(content)", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "确定", style: .default) { [unowned self] _ in
@@ -51,8 +54,11 @@ class URLDispatchManager: NSObject {
         topVC?.present(alert, animated: true, completion: nil)
     }
     
-    func linkActived(_ url: String) {
-        guard let url = URL(string: url) else { return }
+    func linkActived(_ urlString: String) {
+        guard let url = URL(string: urlString) else {
+            topVC?.showPromptInformation(of: .failure("无法识别链接类型: \(urlString)"))
+            return
+        }
         
         switch url.linkType {
         case .external:

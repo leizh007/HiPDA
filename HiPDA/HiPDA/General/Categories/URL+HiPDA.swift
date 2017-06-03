@@ -41,4 +41,8 @@ extension URL {
         
         return .`internal`
     }
+    
+    var canOpenInAPP: Bool {
+        return linkType == .viewThread || linkType == .redirect || linkType == .userProfile
+    }
 }
