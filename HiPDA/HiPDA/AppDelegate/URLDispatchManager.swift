@@ -29,7 +29,7 @@ class URLDispatchManager: NSObject {
         }).disposed(by: disposeBag)
     }
     
-    var topVC: UIViewController? {
+    fileprivate var topVC: UIViewController? {
         return UIApplication.topViewController()
     }
     
@@ -62,7 +62,7 @@ class URLDispatchManager: NSObject {
         
         switch url.linkType {
         case .external:
-            showExternalURL(url: url)
+            openExternalURL(url)
         case .downloadAttachment:
             topVC?.showPromptInformation(of: .failure("暂不支持下载论坛附件！"))
         case .viewThread:
@@ -70,34 +70,9 @@ class URLDispatchManager: NSObject {
             readPostVC.postInfo = PostInfo(urlString: url.absoluteString)
             show(readPostVC)
         case .redirect:
-            topVC?.showPromptInformation(of: .loading("正在解析链接..."))
-            HiPDAProvider.manager.delegate.taskWillPerformHTTPRedirectionWithCompletion = { (sesseion, task, response, request, completion) in
-                DispatchQueue.main.async {
-                    self.topVC?.hidePromptInformation()
-                    if let url = request.url?.absoluteString {
-                        URLDispatchManager.shared.linkActived(url)
-                    }
-                    HiPDAProvider.manager.delegate.taskWillPerformHTTPRedirectionWithCompletion = nil
-                    self.redirectDisposeBag = DisposeBag()
-                }
-            }
-            guard let index = url.absoluteString.range(of: "/forum/redirect.php?")?.lowerBound else {
-                topVC?.hidePromptInformation()
-                topVC?.showPromptInformation(of: .failure("链接解析错误！"))
-                return
-            }
-            HiPDAProvider.request(.redirect(url.absoluteString.substring(from: index))).asObservable().subscribe(onNext: { [ weak self] response in
-                self?.redirectDisposeBag = DisposeBag()
-            }).disposed(by: redirectDisposeBag)
+            openRedirectURL(url)
         case .userProfile:
-            do {
-                let uid = try HtmlParser.uid(from: url.absoluteString)
-                let userProfileVC = UserProfileViewController.load(from: .home)
-                userProfileVC.user = User(name: "", uid: uid)
-                show(userProfileVC)
-            } catch {
-                topVC?.showPromptInformation(of: .failure("\(error)"))
-            }
+            openUserProfile(url)
         case .internal:
             topVC?.showPromptInformation(of: .failure("暂不支持在APP内打开该链接!"))
         }
@@ -113,8 +88,45 @@ class URLDispatchManager: NSObject {
             topVC?.present(navi, animated: true, completion: nil)
         }
     }
+}
+
+// MARK: - Open URL
+
+extension URLDispatchManager {
+    fileprivate func openUserProfile(_ url: URL) {
+        do {
+            let uid = try HtmlParser.uid(from: url.absoluteString)
+            let userProfileVC = UserProfileViewController.load(from: .home)
+            userProfileVC.user = User(name: "", uid: uid)
+            show(userProfileVC)
+        } catch {
+            topVC?.showPromptInformation(of: .failure("\(error)"))
+        }
+    }
     
-    func showExternalURL(url: URL) {
+    fileprivate func openRedirectURL(_ url: URL) {
+        topVC?.showPromptInformation(of: .loading("正在解析链接..."))
+        HiPDAProvider.manager.delegate.taskWillPerformHTTPRedirectionWithCompletion = { (sesseion, task, response, request, completion) in
+            DispatchQueue.main.async {
+                self.topVC?.hidePromptInformation()
+                if let url = request.url?.absoluteString {
+                    URLDispatchManager.shared.linkActived(url)
+                }
+                HiPDAProvider.manager.delegate.taskWillPerformHTTPRedirectionWithCompletion = nil
+                self.redirectDisposeBag = DisposeBag()
+            }
+        }
+        guard let index = url.absoluteString.range(of: "/forum/redirect.php?")?.lowerBound else {
+            topVC?.hidePromptInformation()
+            topVC?.showPromptInformation(of: .failure("链接解析错误！"))
+            return
+        }
+        HiPDAProvider.request(.redirect(url.absoluteString.substring(from: index))).asObservable().subscribe(onNext: { [ weak self] response in
+            self?.redirectDisposeBag = DisposeBag()
+        }).disposed(by: redirectDisposeBag)
+    }
+    
+    fileprivate func openExternalURL(_ url: URL) {
         guard let scheme = url.scheme, scheme.contains("http") || scheme.contains("https") else {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
