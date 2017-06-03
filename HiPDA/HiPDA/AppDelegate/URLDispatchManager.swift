@@ -110,7 +110,11 @@ class URLDispatchManager: NSObject {
     
     func showExternalURL(url: URL) {
         guard let scheme = url.scheme, scheme.contains("http") || scheme.contains("https") else {
-            topVC?.showPromptInformation(of: .failure("无法识别链接：\(url)"))
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
             return
         }
         let safari = SFSafariViewController(url: url)
