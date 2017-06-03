@@ -14,10 +14,17 @@ import RxCocoa
 class URLDispatchManager: NSObject {
     static let shared = URLDispatchManager()
     let disposeBag = DisposeBag()
+    var redirectDisposeBag = DisposeBag()
     var shouldHandlePasteBoardChanged = true
     private override init() {
         super.init()
         NotificationCenter.default.rx.notification(.UIPasteboardChanged).debounce(0.5, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
+            self?.userDidCopiedContentToPasteBoard()
+        }).disposed(by: disposeBag)
+        NotificationCenter.default.rx.notification(.UIApplicationDidBecomeActive).debounce(0.5, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
+            guard let content = UIPasteboard.general.string else { return }
+            guard content.isLink else { return }
+            guard let url = URL(string: content), url.linkType != .external else { return }
             self?.userDidCopiedContentToPasteBoard()
         }).disposed(by: disposeBag)
     }
@@ -35,6 +42,7 @@ class URLDispatchManager: NSObject {
         guard content.isLink else { return }
         let alert = UIAlertController(title: "打开链接", message: "是否打开链接： \(content)", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "确定", style: .default) { [unowned self] _ in
+            UIPasteboard.general.string = ""
             self.linkActived(content)
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -54,17 +62,49 @@ class URLDispatchManager: NSObject {
         case .viewThread:
             let readPostVC = PostViewController.load(from: .home)
             readPostVC.postInfo = PostInfo(urlString: url.absoluteString)
-            if let navi = topVC?.navigationController {
-                topVC?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                navi.pushViewController(readPostVC, animated: true)
-            } else {
-                let navi = UINavigationController(rootViewController: readPostVC)
-                navi.transitioningDelegate = topVC as? BaseViewController
-                topVC?.present(navi, animated: true, completion: nil)
+            show(readPostVC)
+        case .redirect:
+            topVC?.showPromptInformation(of: .loading("正在解析链接..."))
+            HiPDAProvider.manager.delegate.taskWillPerformHTTPRedirectionWithCompletion = { (sesseion, task, response, request, completion) in
+                DispatchQueue.main.async {
+                    self.topVC?.hidePromptInformation()
+                    if let url = request.url?.absoluteString {
+                        URLDispatchManager.shared.linkActived(url)
+                    }
+                    HiPDAProvider.manager.delegate.taskWillPerformHTTPRedirectionWithCompletion = nil
+                    self.redirectDisposeBag = DisposeBag()
+                }
             }
-            
-        default:
-            break
+            guard let index = url.absoluteString.range(of: "/forum/redirect.php?")?.lowerBound else {
+                topVC?.hidePromptInformation()
+                topVC?.showPromptInformation(of: .failure("链接解析错误！"))
+                return
+            }
+            HiPDAProvider.request(.redirect(url.absoluteString.substring(from: index))).asObservable().subscribe(onNext: { [ weak self] response in
+                self?.redirectDisposeBag = DisposeBag()
+            }).disposed(by: redirectDisposeBag)
+        case .userProfile:
+            do {
+                let uid = try HtmlParser.uid(from: url.absoluteString)
+                let userProfileVC = UserProfileViewController.load(from: .home)
+                userProfileVC.user = User(name: "", uid: uid)
+                show(userProfileVC)
+            } catch {
+                topVC?.showPromptInformation(of: .failure("\(error)"))
+            }
+        case .internal:
+            topVC?.showPromptInformation(of: .failure("暂不支持在APP内打开该链接!"))
+        }
+    }
+    
+    fileprivate func show(_ viewController: UIViewController) {
+        if let navi = topVC?.navigationController {
+            topVC?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            navi.pushViewController(viewController, animated: true)
+        } else {
+            let navi = UINavigationController(rootViewController: viewController)
+            navi.transitioningDelegate = topVC as? BaseViewController
+            topVC?.present(navi, animated: true, completion: nil)
         }
     }
     

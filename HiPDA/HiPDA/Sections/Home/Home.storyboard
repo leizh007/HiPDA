@@ -225,7 +225,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="iCq-gz-PiP">
             <objects>
-                <viewController id="wYs-8S-laP" customClass="UserProfileViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="wYs-8S-laP" customClass="UserProfileViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fh6-dd-sHE"/>
                         <viewControllerLayoutGuide type="bottom" id="Uwc-Dk-Krf"/>

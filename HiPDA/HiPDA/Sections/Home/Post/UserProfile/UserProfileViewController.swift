@@ -13,6 +13,10 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "\(user.name)的个人资料"
+        title = user.name.isEmpty ? "个人资料" : "\(user.name)的个人资料"
     }
 }
+
+// MARK: - StoryboardLoadable
+
+extension UserProfileViewController: StoryboardLoadable { }

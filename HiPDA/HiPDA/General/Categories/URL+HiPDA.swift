@@ -15,10 +15,11 @@ extension URL {
         case downloadAttachment
         case viewThread
         case redirect
+        case userProfile
     }
     
     var linkType: LinkType {
-        let externalResult = try? Regex.firstMatch(in: absoluteString, of: "https?\\:\\/\\/www\\.hi-pda\\.com\\/forum\\/\\w+")
+        let externalResult = try? Regex.firstMatch(in: absoluteString, of: "https?\\:\\/\\/www\\.hi-pda\\.com\\/forum")
         if externalResult == nil || externalResult!.count == 0 {
             return .external
         }
@@ -29,6 +30,15 @@ extension URL {
         if let _ = PostInfo(urlString: absoluteString) {
             return .viewThread
         }
+        let redirectResult = try? Regex.firstMatch(in: absoluteString, of: "https?:\\/\\/\\www\\.hi-pda\\.com\\/forum\\/redirect\\.php\\?\\w+")
+        if redirectResult != nil && redirectResult!.count > 0 {
+            return .redirect
+        }
+        let userProfile = try? Regex.firstMatch(in: absoluteString, of: "https?:\\/\\/\\www\\.hi-pda\\.com\\/forum\\/space\\.php\\?uid=\\d+")
+        if userProfile != nil && userProfile!.count > 0 {
+            return .userProfile
+        }
+        
         return .`internal`
     }
 }

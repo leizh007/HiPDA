@@ -17,6 +17,7 @@ enum HiPDA {
     case login(Account)
     case threads(fid: Int, typeid: Int, page: Int)
     case posts(PostInfo)
+    case redirect(String)
 }
 
 extension HiPDA: TargetType {
@@ -36,6 +37,8 @@ extension HiPDA: TargetType {
             default:
                 return "/forum/viewthread.php?tid=\(postInfo.tid)&extra=page%3D1&page=\(postInfo.page)"
             }
+        case let .redirect(url):
+            return url
         }
     }
     var method: Moya.Method {
@@ -45,6 +48,8 @@ extension HiPDA: TargetType {
         case .threads(_):
             return .get
         case .posts(_):
+            return .get
+        case .redirect(_):
             return .get
         }
     }
@@ -62,6 +67,8 @@ extension HiPDA: TargetType {
         case .threads(_):
             return nil
         case .posts(_):
+            return nil
+        case .redirect(_):
             return nil
         }
     }

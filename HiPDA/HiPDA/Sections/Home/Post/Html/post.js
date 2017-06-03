@@ -195,10 +195,11 @@ setupWebViewJavascriptBridge(function (bridge) {
         clientJSCodeReady();
     });
 
-    bridge.registerHandler("jumpToPid", function(data, responseCallback) {
+    bridge.registerHandler("jumpToPid", function (data, responseCallback) {
         var pid = data;
-        window.location.hash = "#post_"+pid;
-	});
+        window.location.hash = "#post_" + pid;
+        document.getElementById("post_" + pid).setAttribute("style", "background-color: #eeeeee !important;");
+    });
 })
 
 function clientJSCodeReady() {
