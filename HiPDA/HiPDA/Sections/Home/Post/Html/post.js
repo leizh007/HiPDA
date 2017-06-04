@@ -205,6 +205,17 @@ setupWebViewJavascriptBridge(function (bridge) {
         document.getElementById("post_" + pid).setAttribute("style", "background-color: #eeeeee !important;");
         smoothScroll("post_" + pid);
     });
+
+    bridge.registerHandler("scrollToTop", function (data, responseCallback) {
+        var firstChild = document.body.children[0];
+        smoothScroll(firstChild.id);
+    });
+
+    bridge.registerHandler("scrollToBottom", function (data, responseCallback) {
+        var posts = document.getElementsByClassName("post");
+        var lastPost = posts[posts.length - 1];
+        smoothScroll(lastPost.id);
+    });
 })
 
 function clientJSCodeReady() {
@@ -315,7 +326,9 @@ function postClicked(post) {
     var id = post.getAttribute("id");
     id = id.replace("post_", "");
     var pid = parseInt(id);
-    WebViewJavascriptBridge.callHandler("postClicked", pid, null);
+    id = post.getElementsByClassName("uid")[0].innerText;
+    var uid = parseInt(id);
+    WebViewJavascriptBridge.callHandler("postClicked", { "pid" :pid, "uid" : uid }, null);
 }
 
 function linkClicked(link) {
@@ -426,7 +439,8 @@ function elmYPosition(eID) {
     while (node.offsetParent && node.offsetParent != document.body) {
         node = node.offsetParent;
         y += node.offsetTop;
-    } return y;
+    } 
+    return y;
 }
 
 

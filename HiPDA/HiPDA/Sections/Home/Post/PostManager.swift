@@ -66,6 +66,7 @@ class PostManager {
         
         var totalPage = self.totalPage
         var title = self.title
+        let uid = postInfo.authorid
         HiPDAProvider.request(.posts(postInfo))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .mapGBKString()
@@ -75,7 +76,13 @@ class PostManager {
                 }
                 if postInfo.page == 1 {
                     if title == nil {
-                        title = try HtmlParser.postTitle(from: html)
+                        do {
+                            title = try HtmlParser.postTitle(from: html)
+                        } catch {
+                            if uid == nil {
+                                throw error
+                            }
+                        }
                     }
                 } else {
                     title = nil

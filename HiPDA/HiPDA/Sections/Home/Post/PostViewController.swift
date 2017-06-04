@@ -196,8 +196,11 @@ extension PostViewController {
         }
         
         bridge.registerHandler("postClicked") { [weak self] (data, _) in
-            guard let data = data, let pid = data as? Int else { return }
-            self?.postClicked(pid: pid)
+            guard let data = data,
+                let dic = data as? [String: Int],
+                let pid = dic["pid"],
+                let uid = dic["uid"] else { return }
+            self?.postClicked(pid: pid, uid: uid)
         }
         
         bridge.registerHandler("imageClicked") { [weak self] (data, _) in
@@ -232,9 +235,47 @@ extension PostViewController {
 // MARK: - Bridge Handler
 
 extension PostViewController {
-    fileprivate func postClicked(pid: Int) {
-        // FIEXME: - Handle post clicked
-        console(message: "\(pid)")
+    fileprivate func postClicked(pid: Int, uid: Int) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "回复", style: .default) { _ in
+            
+        })
+        actionSheet.addAction(UIAlertAction(title: "引用", style: .default) { _ in
+            
+        })
+        
+        let look: UIAlertAction
+        if let _ = viewModel.postInfo.authorid {
+            look = UIAlertAction(title: "显示全部帖子", style: .default) { [unowned self] _ in
+                let postInfo = PostInfo(tid: self.viewModel.postInfo.tid, page: 1, pid: nil, authorid: nil)
+                self.viewModel.postInfo = postInfo
+                self.webView.status = .loading
+                self.loadData()
+            }
+        } else {
+            look = UIAlertAction(title: "只看该作者", style: .default) { [unowned self] _ in
+                let postInfo = PostInfo(tid: self.viewModel.postInfo.tid, page: 1, pid: nil, authorid: uid)
+                self.viewModel.postInfo = postInfo
+                self.webView.status = .loading
+                self.loadData()
+            }
+        }
+        actionSheet.addAction(look)
+        
+        actionSheet.addAction(UIAlertAction(title: "回到顶部", style: .default) { [unowned self] _ in
+            self.bridge.callHandler("scrollToTop")
+        })
+        actionSheet.addAction(UIAlertAction(title: "回到底部", style: .default) { [unowned self] _ in
+            self.bridge.callHandler("scrollToBottom")
+        })
+        
+        if uid == Settings.shared.activeAccount?.uid {
+            // FIXME: - 添加编辑功能
+        }
+    
+        actionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true, completion: nil)
     }
     
     fileprivate func imageClicked(clickedImageURL: String, imageURLs: [String]) {

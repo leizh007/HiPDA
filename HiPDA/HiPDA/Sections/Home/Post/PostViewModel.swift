@@ -168,7 +168,7 @@ extension PostViewModel {
         DispatchQueue.global(qos: .userInteractive).async {
             var content = ""
             if let title = title {
-                content += "<div class=\"title\">\(title)</div>"
+                content += "<div class=\"title\" id=\"title\">\(title)</div>"
             }
             for post in posts {
                 let userName = isEnabledUserRemark ? (userRemarkDictionary[post.user.name] ?? post.user.name) : post.user.name
