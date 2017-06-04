@@ -41,6 +41,7 @@
 		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
 		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
 		053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 053067D71DFD80B8009D0154 /* PerformanceMonitor.m */; };
+		0533F1F01EE4186A00DB854B /* UITabBarController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1EF1EE4186A00DB854B /* UITabBarController+HiPDA.swift */; };
 		0537AAF51EAF5D5C00A51721 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */; };
 		0537AAF71EB039F300A51721 /* HomeNavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */; };
 		0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */; };
@@ -226,6 +227,7 @@
 		053067D41DFD808A009D0154 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
 		053067D61DFD80B8009D0154 /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
 		053067D71DFD80B8009D0154 /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
+		0533F1EF1EE4186A00DB854B /* UITabBarController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+HiPDA.swift"; sourceTree = "<group>"; };
 		0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationBarTitleView.swift; sourceTree = "<group>"; };
 		0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameSelectionViewController.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				051761C41ED886A8007951DE /* URL+HiPDA.swift */,
 				059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */,
 				0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */,
+				0533F1EF1EE4186A00DB854B /* UITabBarController+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1348,6 +1351,7 @@
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
+				0533F1F01EE4186A00DB854B /* UITabBarController+HiPDA.swift in Sources */,
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
 				05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */,
 				05F3DCDD1DB7B4CB0061CED1 /* HtmlParser.swift in Sources */,
