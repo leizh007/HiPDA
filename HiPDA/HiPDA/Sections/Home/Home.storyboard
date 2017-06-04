@@ -240,6 +240,101 @@
             </objects>
             <point key="canvasLocation" x="3295" y="400"/>
         </scene>
+        <!--Post Operation View Controller-->
+        <scene sceneID="sUb-ZA-p7J">
+            <objects>
+                <viewController storyboardIdentifier="PostOperationViewController" id="2Oq-vE-HWw" customClass="PostOperationViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V72-Uo-Yp9"/>
+                        <viewControllerLayoutGuide type="bottom" id="vCA-ns-sqb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e4N-dc-OYC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAu-a3-Z0S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="2Oq-vE-HWw" eventType="touchUpInside" id="OMW-zB-mMl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvH-y3-lIn" customClass="PostOperationButton" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="315" y="264" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="post_bottom"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="operationButtonPressed:" destination="2Oq-vE-HWw" eventType="touchUpInside" id="xM6-ma-px2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cW7-UR-hVB" customClass="PostOperationButton" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="315" y="200" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="post_top"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="operationButtonPressed:" destination="2Oq-vE-HWw" eventType="touchUpInside" id="iWm-Q4-s6Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-0D-i2r" customClass="PostOperationButton" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="315" y="136" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="me_attention"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="operationButtonPressed:" destination="2Oq-vE-HWw" eventType="touchUpInside" id="oCw-hB-8Gw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prl-a3-m5V" customClass="PostOperationButton" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="315" y="72" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="me_collection"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="operationButtonPressed:" destination="2Oq-vE-HWw" eventType="touchUpInside" id="wvI-j8-FSm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hAu-a3-Z0S" secondAttribute="trailing" id="IoJ-CX-epx"/>
+                            <constraint firstItem="vCA-ns-sqb" firstAttribute="top" secondItem="hAu-a3-Z0S" secondAttribute="bottom" id="jMp-NE-5s9"/>
+                            <constraint firstItem="hAu-a3-Z0S" firstAttribute="top" secondItem="e4N-dc-OYC" secondAttribute="top" id="krm-gX-Vap"/>
+                            <constraint firstItem="hAu-a3-Z0S" firstAttribute="leading" secondItem="e4N-dc-OYC" secondAttribute="leading" id="tdc-80-KzW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outletCollection property="operationButtons" destination="prl-a3-m5V" collectionClass="NSMutableArray" id="EMd-gO-Zwx"/>
+                        <outletCollection property="operationButtons" destination="mvl-0D-i2r" collectionClass="NSMutableArray" id="LNe-tP-Kf3"/>
+                        <outletCollection property="operationButtons" destination="cW7-UR-hVB" collectionClass="NSMutableArray" id="7St-Fi-yUz"/>
+                        <outletCollection property="operationButtons" destination="AvH-y3-lIn" collectionClass="NSMutableArray" id="6ia-m0-IVd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="act-i3-qUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4221.6000000000004" y="399.85007496251876"/>
+        </scene>
         <!--New Thread View Controller-->
         <scene sceneID="F27-JR-pW9">
             <objects>
@@ -262,5 +357,9 @@
     </scenes>
     <resources>
         <image name="home_navigationbar_disclosure" width="14" height="9"/>
+        <image name="me_attention" width="23" height="23"/>
+        <image name="me_collection" width="23" height="23"/>
+        <image name="post_bottom" width="24" height="24"/>
+        <image name="post_top" width="24" height="24"/>
     </resources>
 </document>

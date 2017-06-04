@@ -30,6 +30,7 @@ class PostViewController: BaseViewController {
     fileprivate var webView: BaseWebView!
     fileprivate var bridge: WKWebViewJavascriptBridge!
     fileprivate lazy var imageUtils = ImageUtils()
+    fileprivate var postOperationViewController: PostOperationViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,7 +162,39 @@ extension PostViewController {
     }
     
     func moreButtonPressed() {
-        
+        if let postOperationViewController = postOperationViewController {
+            postOperationViewController.dismiss()
+            self.postOperationViewController = nil
+        } else {
+            let postOperationViewController = PostOperationViewController.load(from: .home)
+            self.postOperationViewController = postOperationViewController
+            postOperationViewController.display(in: self, frame: view.bounds)
+            postOperationViewController.delegate = self
+        }
+    }
+}
+
+// MARK: - PostOperationDelegate
+
+extension PostViewController: PostOperationDelegate {
+    func operationCancelled() {
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
+    }
+    
+    func didSelected(_ operation: PostOperation) {
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
+        switch operation {
+        case .collection:
+            break
+        case .attention:
+            break
+        case .top:
+            bridge.callHandler("scrollToTop")
+        case .bottom:
+            bridge.callHandler("scrollToBottom")
+        }
     }
 }
 
@@ -274,13 +307,6 @@ extension PostViewController {
             }
         }
         actionSheet.addAction(look)
-        
-        actionSheet.addAction(UIAlertAction(title: "回到顶部", style: .default) { [unowned self] _ in
-            self.bridge.callHandler("scrollToTop")
-        })
-        actionSheet.addAction(UIAlertAction(title: "回到底部", style: .default) { [unowned self] _ in
-            self.bridge.callHandler("scrollToBottom")
-        })
         
         if uid == Settings.shared.activeAccount?.uid {
             // FIXME: - 添加编辑功能
