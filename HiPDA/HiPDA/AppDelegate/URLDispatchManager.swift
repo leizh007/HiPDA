@@ -66,9 +66,7 @@ class URLDispatchManager: NSObject {
         case .downloadAttachment:
             topVC?.showPromptInformation(of: .failure("暂不支持下载论坛附件！"))
         case .viewThread:
-            let readPostVC = PostViewController.load(from: .home)
-            readPostVC.postInfo = PostInfo(urlString: url.absoluteString)
-            show(readPostVC)
+            openViewThread(url)
         case .redirect:
             openRedirectURL(url)
         case .userProfile:
@@ -93,6 +91,17 @@ class URLDispatchManager: NSObject {
 // MARK: - Open URL
 
 extension URLDispatchManager {
+    fileprivate func openViewThread(_ url: URL) {
+        guard let postInfo = PostInfo(urlString: url.absoluteString) else { return }
+        if let readPostVC = topVC as? PostViewController, readPostVC.canJump(to: postInfo) {
+            readPostVC.jump(to: postInfo)
+        } else {
+            let readPostVC = PostViewController.load(from: .home)
+            readPostVC.postInfo = postInfo
+            show(readPostVC)
+        }
+    }
+    
     fileprivate func openUserProfile(_ url: URL) {
         do {
             let uid = try HtmlParser.uid(from: url.absoluteString)

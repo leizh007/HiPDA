@@ -13,7 +13,7 @@ typealias PostListFetchCompletion = (PostListResult) -> Void
 
 /// 数据的网络请求管理
 class PostManager {
-    var pidDic = [Int: Int]()
+    var pidSet = Set<Int>()
     var posts = [Post]()
     fileprivate var disposeBag = DisposeBag()
     var postInfo: PostInfo {
@@ -92,11 +92,7 @@ class PostManager {
                 self.title = title
                 switch event {
                 case let .next(posts):
-                    var dic = [Int: Int]()
-                    for i in 0..<posts.count {
-                        dic[i] = posts[i].id
-                    }
-                    self.pidDic = dic
+                    self.pidSet = Set(posts.map { $0.id })
                     self.posts = posts
                     completion(.success((title: title, posts: posts)))
                 case let .error(error):

@@ -197,8 +197,12 @@ setupWebViewJavascriptBridge(function (bridge) {
 
     bridge.registerHandler("jumpToPid", function (data, responseCallback) {
         var pid = data;
-        window.location.hash = "#post_" + pid;
+        var posts = document.getElementsByClassName("post");
+        for (var i = 0; i < posts.length; ++i) {
+            posts[i].setAttribute("style", "background-color: #ffffff !important;");
+        }
         document.getElementById("post_" + pid).setAttribute("style", "background-color: #eeeeee !important;");
+        scrollTo(document.getElementById("post_" + pid).offsetTop, 250);
     });
 })
 
@@ -258,7 +262,6 @@ function addOnClickToImage(image) {
     image.onclick = function (e) {
         e.stopPropagation();
     };
-    // image.setAttribute("onclick", "imageClicked(this); event.stopPropagation();");
 }
 
 // ==========================================================================
@@ -401,3 +404,19 @@ function imgLoaded(imgElement) {
     return imgElement.complete && imgElement.naturalHeight !== 0;
 }
 
+// https://stackoverflow.com/questions/25020582/scrolling-to-an-anchor-using-transition-css3
+function scrollTo(to, duration) {
+    if (document.body.scrollTop == to) return;
+    var diff = to - document.body.scrollTop;
+    var scrollStep = Math.PI / (duration / 10);
+    var count = 0, currPos;
+    start = window.pageYOffset;
+    scrollInterval = setInterval(function(){
+        if (document.body.scrollTop != to) {
+            count = count + 1;
+            currPos = start + diff * (0.5 - 0.5 * Math.cos(count * scrollStep));
+            document.body.scrollTop = currPos;
+        }
+        else { clearInterval(scrollInterval); }
+    },10);
+}

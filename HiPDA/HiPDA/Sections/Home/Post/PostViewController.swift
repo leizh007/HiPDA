@@ -41,7 +41,7 @@ class PostViewController: BaseViewController {
         bridge.setWebViewDelegate(self)
         skinWebView(webView)
         skinWebViewJavascriptBridge(bridge)
-        loadNewData()
+        loadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,6 +52,20 @@ class PostViewController: BaseViewController {
                                y: yOffset,
                                width: view.bounds.size.width,
                                height: view.bounds.size.height - yOffset)
+    }
+    
+    func canJump(to postInfo: PostInfo) -> Bool {
+        return postInfo.authorid == self.viewModel.postInfo.authorid &&
+            postInfo.tid == self.viewModel.postInfo.tid &&
+            postInfo.page == self.viewModel.postInfo.page &&
+            viewModel.contains(pid: postInfo.pid)
+    }
+    
+    func jump(to postInfo: PostInfo) {
+        guard canJump(to: postInfo) else { return }
+        if let pid =  postInfo.pid {
+            bridge.callHandler("jumpToPid", data: pid)
+        }
     }
     
     fileprivate func updateWebViewState() {
@@ -319,6 +333,13 @@ extension PostViewController {
 // MARK: - DataLoadDelegate
 
 extension PostViewController: DataLoadDelegate {
+    func loadData() {
+        viewModel.loadData { [weak self] result in
+            self?.updateWebViewState()
+            self?.handleDataLoadResult(result)
+        }
+    }
+    
     func loadNewData() {
         viewModel.loadNewData { [weak self] result in
             self?.updateWebViewState()
@@ -400,5 +421,18 @@ extension Segue {
     /// 查看个人资料
     fileprivate static var userProfile: Segue<UserProfileViewController> {
         return .init(identifier: "userProfile")
+    }
+}
+
+// MARK: - Tools
+
+private func ==<T: Equatable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let(l?, r?):
+        return l == r
+    case (nil, nil):
+        return true
+    default:
+        return false
     }
 }

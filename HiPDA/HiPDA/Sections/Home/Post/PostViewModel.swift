@@ -17,14 +17,19 @@ enum PostViewStatus {
     case loadingFirstPage
     case loadingPreviousPage
     case loadingNextPage
+    case loadingFirstEntrance
 }
 
 /// view和model之间的桥梁
 class PostViewModel {
     var status = PostViewStatus.idle
     var postInfo: PostInfo! {
-        didSet {
-            manager.postInfo = postInfo
+        set {
+            manager.postInfo = newValue
+        }
+        
+        get {
+            return manager.postInfo
         }
     }
     
@@ -39,7 +44,11 @@ class PostViewModel {
     }
     
     var hasData: Bool {
-        return !manager.pidDic.isEmpty
+        return !manager.pidSet.isEmpty
+    }
+    
+    func contains(pid: Int?) -> Bool {
+        return pid == nil ? true : manager.pidSet.contains(pid!)
     }
     
     fileprivate var manager: PostManager
@@ -111,6 +120,13 @@ extension PostViewModel {
 // MARK: - Data Load
 
 extension PostViewModel {
+    func loadData(completion: @escaping PostFetchCompletion = { _ in }) {
+        status = .loadingFirstEntrance
+        manager.load(postInfo: manager.postInfo) { [weak self] result in
+            self?.handPostListResult(result, completion: completion)
+        }
+    }
+    
     /// 获取新数据
     func loadNewData(completion: @escaping PostFetchCompletion = { _ in }) {
         if manager.page == 1 {
