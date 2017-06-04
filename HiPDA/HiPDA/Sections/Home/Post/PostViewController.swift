@@ -81,8 +81,9 @@ class PostViewController: BaseViewController {
         }
     }
     
-    func close() {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+    fileprivate func skinRightBarButtonItems() {
+        let more = UIBarButtonItem(image: #imageLiteral(resourceName: "post_more"), style: .plain, target: self, action: #selector(moreButtonPressed))
+        navigationItem.rightBarButtonItems = [more]
     }
     
     fileprivate func animationOptions(of status: PostViewStatus) -> UIViewAnimationOptions {
@@ -149,6 +150,18 @@ class PostViewController: BaseViewController {
         }
         webView.status = .normal
         viewModel.status = .idle
+    }
+}
+
+// MARK: - Button Actions
+
+extension PostViewController {
+    func close() {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func moreButtonPressed() {
+        
     }
 }
 
@@ -374,24 +387,27 @@ extension PostViewController {
 // MARK: - DataLoadDelegate
 
 extension PostViewController: DataLoadDelegate {
+    private func dataLoadCompletion(_ result: PostResult) {
+        updateWebViewState()
+        handleDataLoadResult(result)
+        skinRightBarButtonItems()
+    }
+    
     func loadData() {
         viewModel.loadData { [weak self] result in
-            self?.updateWebViewState()
-            self?.handleDataLoadResult(result)
+            self?.dataLoadCompletion(result)
         }
     }
     
     func loadNewData() {
         viewModel.loadNewData { [weak self] result in
-            self?.updateWebViewState()
-            self?.handleDataLoadResult(result)
+            self?.dataLoadCompletion(result)
         }
     }
     
     func loadMoreData() {
         viewModel.loadMoreData { [weak self] result in
-            self?.updateWebViewState()
-            self?.handleDataLoadResult(result)
+            self?.dataLoadCompletion(result)
         }
     }
 }
