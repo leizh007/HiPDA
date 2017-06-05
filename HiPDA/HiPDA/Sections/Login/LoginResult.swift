@@ -63,4 +63,4 @@ extension LoginError: CustomStringConvertible {
     }
 }
 
-typealias LoginResult = Result<Account, LoginError>
+typealias LoginResult = HiPDAResult<Account, LoginError>

@@ -10,7 +10,7 @@ import Foundation
 import SDWebImage
 import Photos
 
-typealias ImageManipulationResult = Result<String, NSError>
+typealias ImageManipulationResult = HiPDAResult<String, NSError>
 
 class ImageUtils {
     static func copyImage(url: String, completion: @escaping (ImageManipulationResult) -> Void) {

@@ -48,7 +48,7 @@ fileprivate let plugin = NetworkActivityPlugin { change in
 
 let HiPDAProvider = RxMoyaProvider<HiPDA>(endpointClosure:HiPDAEndpointMapping,
                                           manager: HiPDAManager(),
-                                          plugins: [plugin])
+                                          plugins: [plugin, ErrorHandlePlugin()])
 
 extension Moya.Response {
     func mapGBKString() throws -> String {

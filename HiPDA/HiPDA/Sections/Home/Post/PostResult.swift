@@ -26,5 +26,5 @@ extension PostError: CustomStringConvertible {
     }
 }
 
-typealias PostResult = Result<String, PostError>
-typealias PostListResult = Result<(title: String?, posts: [Post]), PostError>
+typealias PostResult = HiPDAResult<String, PostError>
+typealias PostListResult = HiPDAResult<(title: String?, posts: [Post]), PostError>

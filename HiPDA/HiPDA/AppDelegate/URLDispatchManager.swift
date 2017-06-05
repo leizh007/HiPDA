@@ -72,7 +72,7 @@ class URLDispatchManager: NSObject {
         case .userProfile:
             openUserProfile(url)
         case .internal:
-            topVC?.showPromptInformation(of: .failure("暂不支持在APP内打开该链接!"))
+            openInternal(url)
         }
     }
     
@@ -91,6 +91,11 @@ class URLDispatchManager: NSObject {
 // MARK: - Open URL
 
 extension URLDispatchManager {
+    fileprivate func openInternal(_ url: URL) {
+        openExternalURL(url) // 暂时在浏览器中打开
+        //topVC?.showPromptInformation(of: .failure("暂不支持在APP内打开该链接!"))
+    }
+    
     fileprivate func openViewThread(_ url: URL) {
         guard let postInfo = PostInfo(urlString: url.absoluteString) else { return }
         if let readPostVC = topVC as? PostViewController, readPostVC.canJump(to: postInfo) {
