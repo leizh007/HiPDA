@@ -22,6 +22,10 @@ private func HiPDAManager() -> Manager {
     headers["Content-Type"] = "application/x-www-form-urlencoded; charset=gbk"
     
     configuration.httpAdditionalHeaders = headers
+#if DEBUG
+    configuration.timeoutIntervalForRequest = 5 // as seconds, you can set your request timeout
+    configuration.timeoutIntervalForResource = 10 // as seconds, you can set your resource timeout
+#endif
     
     let manager = Manager(configuration: configuration)
     manager.startRequestsImmediately = false

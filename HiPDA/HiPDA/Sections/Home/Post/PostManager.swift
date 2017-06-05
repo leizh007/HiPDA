@@ -38,20 +38,44 @@ class PostManager {
     
     /// 加载第一页数据
     func loadFirstPage(completion: @escaping PostListFetchCompletion = { _ in }) {
+        let oldPostInfo = postInfo
+        let totalPage = self.totalPage
         postInfo = PostInfo.lens.page.set(1, postInfo)
-        load(postInfo: postInfo, completion: completion)
+        load(postInfo: postInfo) { [weak self] result in
+            if case .failure(_) = result {
+                self?.postInfo = oldPostInfo
+                self?.totalPage = totalPage
+            }
+            completion(result)
+        }
     }
     
     /// 加载前一页数据
     func loadPreviousPage(completion: @escaping PostListFetchCompletion = { _ in }) {
+        let oldPostInfo = postInfo
+        let totalPage = self.totalPage
         postInfo = PostInfo.lens.page.set(postInfo.page - 1, postInfo)
-        load(postInfo: postInfo, completion: completion)
+        load(postInfo: postInfo) { [weak self] result in
+            if case .failure(_) = result {
+                self?.postInfo = oldPostInfo
+                self?.totalPage = totalPage
+            }
+            completion(result)
+        }
     }
     
     /// 加载后一页数据
     func loadNextPage(completion: @escaping PostListFetchCompletion = { _ in }) {
+        let oldPostInfo = postInfo
+        let totalPage = self.totalPage
         postInfo = PostInfo.lens.page.set(postInfo.page + 1, postInfo)
-        load(postInfo: postInfo, completion: completion)
+        load(postInfo: postInfo) { [weak self] result in
+            if case .failure(_) = result {
+                self?.postInfo = oldPostInfo
+                self?.totalPage = totalPage
+            }
+            completion(result)
+        }
     }
     
     /// 加载指定postInfo的数据

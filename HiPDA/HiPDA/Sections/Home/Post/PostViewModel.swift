@@ -34,7 +34,7 @@ class PostViewModel {
     }
     
     /// 总页数
-    fileprivate var totalPage: Int {
+    var totalPage: Int {
         return manager.totalPage
     }
     

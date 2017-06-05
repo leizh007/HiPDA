@@ -32,6 +32,47 @@ class PostViewController: BaseViewController {
     fileprivate var bridge: WKWebViewJavascriptBridge!
     fileprivate var postOperationViewController: PostOperationViewController?
     fileprivate var isLoading = false
+    fileprivate lazy var moreButton: UIButton = { [unowned self] _ in
+        let more = UIButton(type: .system)
+        more.tintColor = C.Color.navigationBarTintColor
+        more.setImage(#imageLiteral(resourceName: "post_more"), for: .normal)
+        more.addTarget(self, action: #selector(self.moreButtonPressed), for: .touchUpInside)
+        more.frame = CGRect(x: 0.0, y: 0.0, width: 20.0, height: 24.0)
+        return more
+        }()
+    fileprivate lazy var activityIndicator: UIActivityIndicatorView = { [unowned self] _ in
+        let frame = CGRect(x: 0.0, y: 0.0, width: 30.0, height: 22.0)
+        let indicator = UIActivityIndicatorView(frame: frame)
+        indicator.activityIndicatorViewStyle = .white
+        indicator.color = C.Color.navigationBarTintColor
+        indicator.startAnimating()
+        return indicator
+        }()
+    fileprivate lazy var refreshButton: UIButton = { [unowned self] _ in
+        let frame = CGRect(x: 0.0, y: 0.0, width: 30.0, height: 22.0)
+        let button = UIButton(type: .system)
+        button.tintColor = C.Color.navigationBarTintColor
+        button.setImage(#imageLiteral(resourceName: "post_refresh"), for: .normal)
+        button.addTarget(self, action: #selector(self.refreshButtonPressed), for: .touchUpInside)
+        button.frame = frame
+        button.contentMode = .scaleAspectFit
+        return button
+        }()
+    fileprivate lazy var replyButton: UIButton = { [unowned self] _ in
+        let button = UIButton(type: .system)
+        button.tintColor = C.Color.navigationBarTintColor
+        button.setImage(#imageLiteral(resourceName: "post_reply"), for: .normal)
+        button.addTarget(self, action: #selector(self.replyButtonPressed), for: .touchUpInside)
+        button.frame = CGRect(x: 0.0, y: 0.0, width: 32.0, height: 24.0)
+        return button
+        }()
+    fileprivate lazy var pageNumberButton: UIButton = { [unowned self] _ in
+        let button = UIButton(type: .system)
+        button.tintColor = C.Color.navigationBarTintColor
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19.0)
+        button.addTarget(self, action: #selector(self.pageNumberButtonPressed), for: .touchUpInside)
+        return button
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,30 +125,13 @@ class PostViewController: BaseViewController {
     }
     
     fileprivate func skinRightBarButtonItems() {
-        let frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-        let more = UIButton(type: .system).then { [unowned self] button in
-            button.tintColor = C.Color.navigationBarTintColor
-            button.setImage(#imageLiteral(resourceName: "post_more"), for: .normal)
-            button.addTarget(self, action: #selector(self.moreButtonPressed), for: .touchUpInside)
-            button.frame = frame
-        }
-        let load: UIView
-        if isLoading {
-            load = UIActivityIndicatorView(frame: frame).then { indicator in
-                indicator.activityIndicatorViewStyle = .white
-                indicator.color = C.Color.navigationBarTintColor
-                indicator.startAnimating()
-            }
-        } else {
-            load = UIButton(type: .system).then { [unowned self] button in
-                button.tintColor = C.Color.navigationBarTintColor
-                button.setImage(#imageLiteral(resourceName: "post_refresh"), for: .normal)
-                button.addTarget(self, action: #selector(self.refreshButtonPressed), for: .touchUpInside)
-                button.frame = frame
-            }
-        }
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: more),
-                                              UIBarButtonItem(customView: load)]
+        let title = self.viewModel.totalPage == .max ? "\(self.viewModel.postInfo.page)/?" : "\(self.viewModel.postInfo.page)/\(self.viewModel.totalPage)"
+        pageNumberButton.setTitle(title, for: .normal)
+        pageNumberButton.sizeToFit()
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: moreButton),
+                                              UIBarButtonItem(customView: isLoading ? activityIndicator : refreshButton),
+                                              UIBarButtonItem(customView: replyButton),
+                                              UIBarButtonItem(customView: pageNumberButton)]
     }
     
     fileprivate func animationOptions(of status: PostViewStatus) -> UIViewAnimationOptions {
@@ -179,7 +203,7 @@ class PostViewController: BaseViewController {
     }
 }
 
-// MARK: - Button Actions
+// MARK: - Button & Actions
 
 extension PostViewController {
     func close() {
@@ -202,6 +226,14 @@ extension PostViewController {
         isLoading = true
         skinRightBarButtonItems()
         loadData()
+    }
+    
+    func replyButtonPressed() {
+        
+    }
+    
+    func pageNumberButtonPressed() {
+        guard viewModel.totalPage != .max else { return }
     }
 }
 
@@ -445,8 +477,10 @@ extension PostViewController {
 
 extension PostViewController: DataLoadDelegate {
     private func dataLoadCompletion(_ result: PostResult) {
-        isLoading = true
-        skinRightBarButtonItems()
+        if !isLoading {
+            isLoading = true
+            skinRightBarButtonItems()
+        }
         updateWebViewState()
         handleDataLoadResult(result)
     }
