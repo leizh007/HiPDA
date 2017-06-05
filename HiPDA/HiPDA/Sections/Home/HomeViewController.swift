@@ -50,7 +50,7 @@ class HomeViewController: BaseViewController {
         if #available(iOS 10.0, *) {
             tableView.prefetchDataSource = self
         }
-        tableView.status = .loading
+        tableView.status = .normal
         tableView.hasRefreshHeader = true
         tableView.hasLoadMoreFooter = true
         tableView.delegate = self
