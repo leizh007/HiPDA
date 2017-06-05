@@ -101,7 +101,7 @@ extension PostOperationViewController {
     fileprivate func showButtons(from index: Int) {
         guard let button = operationButtons.safe[index] else { return }
         var frame = button.frame
-        frame.origin.y += (index == 0 ? 40.0 : Constant.buttonTopMargin) + Constant.OperationButtonSize.height
+        frame.origin.y += (index == 0 ? 30.0 : Constant.buttonTopMargin) + Constant.OperationButtonSize.height
         UIView.animate(withDuration: Constant.animationDuration / Double(operationButtons.count), animations: {
             for i in index..<self.operationButtons.count {
                 self.operationButtons.safe[i]?.frame = frame
@@ -119,7 +119,7 @@ extension PostOperationViewController {
             return
         }
         var frame = button.frame
-        frame.origin.y -= (index == 0 ? 40.0 : Constant.buttonTopMargin) + Constant.OperationButtonSize.height
+        frame.origin.y -= (index == 0 ? 30.0 : Constant.buttonTopMargin) + Constant.OperationButtonSize.height
         UIView.animate(withDuration: Constant.animationDuration / Double(operationButtons.count), animations: {
             for i in index..<self.operationButtons.count {
                 self.operationButtons.safe[i]?.frame = frame

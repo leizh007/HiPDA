@@ -14,6 +14,7 @@ import MLeaksFinder
 import Perform
 import Argo
 import SDWebImage
+import Then
 
 /// 浏览帖子页面
 class PostViewController: BaseViewController {
@@ -31,6 +32,7 @@ class PostViewController: BaseViewController {
     fileprivate var bridge: WKWebViewJavascriptBridge!
     fileprivate lazy var imageUtils = ImageUtils()
     fileprivate var postOperationViewController: PostOperationViewController?
+    fileprivate var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,8 +85,30 @@ class PostViewController: BaseViewController {
     }
     
     fileprivate func skinRightBarButtonItems() {
-        let more = UIBarButtonItem(image: #imageLiteral(resourceName: "post_more"), style: .plain, target: self, action: #selector(moreButtonPressed))
-        navigationItem.rightBarButtonItems = [more]
+        let frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        let more = UIButton(type: .system).then { [unowned self] button in
+            button.tintColor = C.Color.navigationBarTintColor
+            button.setImage(#imageLiteral(resourceName: "post_more"), for: .normal)
+            button.addTarget(self, action: #selector(self.moreButtonPressed), for: .touchUpInside)
+            button.frame = frame
+        }
+        let load: UIView
+        if isLoading {
+            load = UIActivityIndicatorView(frame: frame).then { indicator in
+                indicator.activityIndicatorViewStyle = .white
+                indicator.color = C.Color.navigationBarTintColor
+                indicator.startAnimating()
+            }
+        } else {
+            load = UIButton(type: .system).then { [unowned self] button in
+                button.tintColor = C.Color.navigationBarTintColor
+                button.setImage(#imageLiteral(resourceName: "post_refresh"), for: .normal)
+                button.addTarget(self, action: #selector(self.refreshButtonPressed), for: .touchUpInside)
+                button.frame = frame
+            }
+        }
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: more),
+                                              UIBarButtonItem(customView: load)]
     }
     
     fileprivate func animationOptions(of status: PostViewStatus) -> UIViewAnimationOptions {
@@ -171,6 +195,12 @@ extension PostViewController {
             postOperationViewController.display(in: self, frame: view.bounds)
             postOperationViewController.delegate = self
         }
+    }
+    
+    func refreshButtonPressed() {
+        isLoading = true
+        skinRightBarButtonItems()
+        loadData()
     }
 }
 
@@ -416,6 +446,7 @@ extension PostViewController: DataLoadDelegate {
     private func dataLoadCompletion(_ result: PostResult) {
         updateWebViewState()
         handleDataLoadResult(result)
+        isLoading = true
         skinRightBarButtonItems()
     }
     
@@ -460,6 +491,8 @@ extension PostViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.scrollView.backgroundColor = .groupTableViewBackground
         (webView as? BaseWebView)?.loadMoreFooter?.isHidden = false
+        isLoading = false
+        skinRightBarButtonItems()
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
