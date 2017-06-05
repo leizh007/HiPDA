@@ -46,7 +46,7 @@ fileprivate let plugin = NetworkActivityPlugin { change in
     }
 }
 
-let HiPDAProvider = RxMoyaProvider<HiPDA>(endpointClosure:HiPDAEndpointMapping,
+let HiPDAProvider = RxMoyaProvider<HiPDA.API>(endpointClosure:HiPDAEndpointMapping,
                                           manager: HiPDAManager(),
                                           plugins: [plugin, ErrorHandlePlugin()])
 

@@ -11,14 +11,14 @@ import XCTest
 import YYCache
 
 class YYCacheExtensionTests: XCTestCase {
-    let thread1 = HiPDAThread(id: 2089676,
+    let thread1 = HiPDA.Thread(id: 2089676,
                              title: "今天又被查身份证了",
                              attachment: .none,
                              user: User(name: "ttolrats", uid: 681806),
                              postTime: "2017-5-4",
                              replyCount: 22,
                              readCount: 1135)
-    let thread2 = HiPDAThread(id: 1111111,
+    let thread2 = HiPDA.Thread(id: 1111111,
                               title: "Test",
                               attachment: .image,
                               user: User(name: "xxxxx", uid: 22222),

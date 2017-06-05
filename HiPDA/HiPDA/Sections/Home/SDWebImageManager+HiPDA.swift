@@ -9,7 +9,7 @@
 import Foundation
 import SDWebImage
 
-typealias ImageDataLoadResult = HiPDAResult<Data, NSError>
+typealias ImageDataLoadResult = HiPDA.Result<Data, NSError>
 typealias ImageDataLoadCompletion = (ImageDataLoadResult) -> Void
 
 extension SDWebImageManager {

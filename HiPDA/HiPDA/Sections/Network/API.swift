@@ -9,18 +9,16 @@
 import Foundation
 import Moya
 
-/// HiPDA网络请求类型
-///
-/// - login: 登陆
-/// - threads: 帖子列表
-enum HiPDA {
-    case login(Account)
-    case threads(fid: Int, typeid: Int, page: Int)
-    case posts(PostInfo)
-    case redirect(String)
+extension HiPDA {
+    enum API {
+        case login(Account)
+        case threads(fid: Int, typeid: Int, page: Int)
+        case posts(PostInfo)
+        case redirect(String)
+    }
 }
 
-extension HiPDA: TargetType {
+extension HiPDA.API: TargetType {
     var baseURL: URL { return URL(string: "https://www.hi-pda.com")! }
     var path: String {
         switch self {
@@ -82,3 +80,4 @@ extension HiPDA: TargetType {
         return Data()
     }
 }
+

@@ -12,7 +12,7 @@ import Argo
 import Runes
 import Curry
 
-private func strictEqual(_ lhs: HiPDAThread, _ rhs: HiPDAThread) -> Bool {
+private func strictEqual(_ lhs: HiPDA.Thread, _ rhs: HiPDA.Thread) -> Bool {
     return lhs.id == rhs.id &&
     lhs.title == rhs.title &&
     lhs.attachment == rhs.attachment &&
@@ -26,7 +26,7 @@ class HiPDAThreadTests: XCTestCase {
     /// 测试账户是否满足序列化
     func testAccountSerializable() {
         let user = User(name: "ttolrats", uid: 681806)
-        let thread = HiPDAThread(id: 2089676,
+        let thread = HiPDA.Thread(id: 2089676,
                                  title: "今天又被查身份证了",
                                  attachment: .none,
                                  user: user,
@@ -38,7 +38,7 @@ class HiPDAThreadTests: XCTestCase {
         let attributes = try! JSONSerialization.jsonObject(with: threadData, options: [])
         
         do {
-            let threadDecoded = try HiPDAThread.decode(JSON(attributes)).dematerialize()
+            let threadDecoded = try HiPDA.Thread.decode(JSON(attributes)).dematerialize()
             XCTAssert(strictEqual(threadDecoded, thread), "HiPDAThread should conform to Serializable protocol!")
         } catch {
             XCTFail(error.localizedDescription)

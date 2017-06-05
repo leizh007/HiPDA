@@ -63,4 +63,4 @@ extension LoginError: CustomStringConvertible {
     }
 }
 
-typealias LoginResult = HiPDAResult<Account, LoginError>
+typealias LoginResult = HiPDA.Result<Account, LoginError>

@@ -9,18 +9,17 @@
 import Foundation
 
 /// 默认的Result类型，Error类型为NSError
-typealias DefaultResult<T> = HiPDAResult<T, NSError>
+typealias DefaultResult<T> = HiPDA.Result<T, NSError>
 
-/// 各种处理的返回结果
-///
-/// - success: 成功
-/// - failure: 失败
-enum HiPDAResult<T, Error: Swift.Error> {
-    case success(T)
-    case failure(Error)
+extension HiPDA {
+    enum Result<T, Error: Swift.Error> {
+        case success(T)
+        case failure(Error)
+    }
 }
 
-extension HiPDAResult {
+
+extension HiPDA.Result {
     var value: T? {
         switch self {
         case .success(let value):
@@ -40,7 +39,7 @@ extension HiPDAResult {
     }
 }
 
-extension HiPDAResult {
+extension HiPDA.Result {
     /// Result的map函数
     ///
     /// - parameter transform: 转换函数
@@ -48,7 +47,7 @@ extension HiPDAResult {
     /// - throws: 转换过程中的异常
     ///
     /// - returns: 返回转换后的Result实例
-    func map<U>(_ transform: (T) throws -> U) rethrows -> HiPDAResult<U, Error> {
+    func map<U>(_ transform: (T) throws -> U) rethrows -> HiPDA.Result<U, Error> {
         switch self {
         case .success(let t):
             return try .success(transform(t))
@@ -64,7 +63,7 @@ extension HiPDAResult {
     /// - throws: 转换过程中的异常
     ///
     /// - returns: 返回转换后的Result实例
-    func flatMap<U>(_ transform: (T) throws -> HiPDAResult<U, Error>) rethrows -> HiPDAResult<U, Error> {
+    func flatMap<U>(_ transform: (T) throws -> HiPDA.Result<U, Error>) rethrows -> HiPDA.Result<U, Error> {
         switch self {
         case .success(let t):
             return try transform(t)
@@ -74,7 +73,7 @@ extension HiPDAResult {
     }
 }
 
-extension HiPDAResult {
+extension HiPDA.Result {
     /// 初始化方法
     ///
     /// - parameter throwingExpr: 传入初始化block

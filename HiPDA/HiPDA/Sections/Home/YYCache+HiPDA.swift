@@ -61,7 +61,7 @@ extension YYCache {
     ///
     /// - Parameter thread: 帖子
     /// - Returns: 包含返回true，否则返回false
-    func containsThread(_ thread: HiPDAThread) -> Bool {
+    func containsThread(_ thread: HiPDA.Thread) -> Bool {
         return containsObject(forKey: "\(thread.id)")
     }
     
@@ -69,14 +69,14 @@ extension YYCache {
     ///
     /// - Parameter id: 帖子id
     /// - Returns: 找到帖子返回，否则返回nil
-    func thread(for id: Int) -> HiPDAThread? {
+    func thread(for id: Int) -> HiPDA.Thread? {
         if useLRUStrategy, let index = tids.index(of: id) {
             tids.insert(tids.remove(at: index), at: 0)
         }
         guard let threadString = object(forKey: "\(id)") as? String,
             let threadData = threadString.data(using: .utf8),
             let attributes = try? JSONSerialization.jsonObject(with: threadData, options: []),
-            let thread = try? HiPDAThread.decode(JSON(attributes)).dematerialize() else {
+            let thread = try? HiPDA.Thread.decode(JSON(attributes)).dematerialize() else {
                 return nil
         }
         return thread
@@ -85,7 +85,7 @@ extension YYCache {
     /// 添加帖子
     ///
     /// - Parameter thread: 帖子
-    func addThread(_ thread: HiPDAThread) {
+    func addThread(_ thread: HiPDA.Thread) {
         if let index = tids.index(of: thread.id) {
             tids.remove(at: index)
         }
@@ -100,7 +100,7 @@ extension YYCache {
     /// 移除帖子
     ///
     /// - Parameter thread: 帖子
-    func removeThread(_ thread: HiPDAThread) {
+    func removeThread(_ thread: HiPDA.Thread) {
         tids = tids.filter { $0 != thread.id }
         removeObject(forKey: "\(thread.id)")
     }
@@ -113,7 +113,7 @@ extension YYCache {
     /// 添加帖子到我的关注
     ///
     /// - Parameter threads: 帖子列表
-    func addThreadsToAttention(threads: [HiPDAThread]) {
+    func addThreadsToAttention(threads: [HiPDA.Thread]) {
         for thread in threads {
             for word in Settings.shared.threadAttentionWordList {
                 if thread.title.contains(word) {
@@ -129,7 +129,7 @@ extension YYCache {
     ///   - fid: 论坛版块id
     ///   - typeid: 论坛版块子id
     /// - Returns: 论坛版块帖子列表
-    func threads(forFid fid: Int, typeid: Int) -> [HiPDAThread]? {
+    func threads(forFid fid: Int, typeid: Int) -> [HiPDA.Thread]? {
         let key = "fid=\(fid)&typeid=\(typeid)"
         guard let threadsString = object(forKey: key) as? String,
             let threadsData = threadsString.data(using: .utf8),
@@ -139,7 +139,7 @@ extension YYCache {
         }
         
         return arr.flatMap {
-            return try? HiPDAThread.decode(JSON($0)).dematerialize()
+            return try? HiPDA.Thread.decode(JSON($0)).dematerialize()
         }
     }
     
@@ -149,7 +149,7 @@ extension YYCache {
     ///   - threads: 帖子列表
     ///   - fid: 论坛版块id
     ///   - typeid: 论坛版块帖子列表
-    func setThreads(threads: [HiPDAThread], forFid fid: Int, typeid: Int) {
+    func setThreads(threads: [HiPDA.Thread], forFid fid: Int, typeid: Int) {
         let key = "fid=\(fid)&typeid=\(typeid)"
         let threadsString = JSONSerializer.serializeToJSON(object: threads) ?? ""
         setObject(threadsString as NSString, forKey: key)

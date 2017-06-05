@@ -30,4 +30,4 @@ extension HiPDAThreadError: CustomStringConvertible {
     }
 }
 
-typealias HiPDAThreadsResult = HiPDAResult<[HiPDAThread], HiPDAThreadError>
+typealias HiPDAThreadsResult = HiPDA.Result<[HiPDA.Thread], HiPDAThreadError>

@@ -11,19 +11,16 @@ import Argo
 import Runes
 import Curry
 
-/// 帖子列表附件类型
-///
-/// - none: 没有附件
-/// - image: 图片附件
-/// - file: 文件附件
-enum HiPDAThreadAttachment: String {
-    case none
-    case image
-    case file
+extension HiPDA {
+    enum ThreadAttachment: String {
+        case none
+        case image
+        case file
+    }
 }
 
-extension HiPDAThreadAttachment {
-    static func attacthment(from htmlString: String) -> HiPDAThreadAttachment {
+extension HiPDA.ThreadAttachment {
+    static func attacthment(from htmlString: String) -> HiPDA.ThreadAttachment {
         if htmlString.contains("图片附件") {
             return .image
         } else if htmlString.contains("附件") {
@@ -36,8 +33,8 @@ extension HiPDAThreadAttachment {
 
 // MARK: - Serializable
 
-extension HiPDAThreadAttachment: Serializable { }
+extension HiPDA.ThreadAttachment: Serializable { }
 
 // MARK: - Decodable
 
-extension HiPDAThreadAttachment: Decodable { }
+extension HiPDA.ThreadAttachment: Decodable { }

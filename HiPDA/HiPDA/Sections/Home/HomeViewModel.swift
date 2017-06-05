@@ -53,7 +53,7 @@ class HomeViewModel {
         return managerDic[selectedForumName] != nil && managerDic[selectedForumName]!.threads.count > 0
     }
     
-    fileprivate var managerDic = [String: HiPDAThreadManager]()
+    fileprivate var managerDic: [String: HiPDA.ThreadManager] = [:]
     
     /// 是否可以加载下一页的数据，当达到最后一页时不能再加载了
     var canLoadMoreData: Bool {
@@ -66,12 +66,12 @@ class HomeViewModel {
         return Date().timeIntervalSince1970 - manager.timeStamp > kThreadsOutOfDateTimeInterval
     }
     
-    fileprivate var manager: HiPDAThreadManager {
-        let manager: HiPDAThreadManager
+    fileprivate var manager: HiPDA.ThreadManager {
+        let manager: HiPDA.ThreadManager
         if managerDic[selectedForumName] != nil {
             manager = managerDic[selectedForumName]!
         } else {
-            manager = HiPDAThreadManager(fid: ForumManager.fid(ofForumName: selectedForumName),
+            manager = HiPDA.ThreadManager(fid: ForumManager.fid(ofForumName: selectedForumName),
                                          typeid: 0)
             managerDic[selectedForumName] = manager
         }

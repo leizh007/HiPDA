@@ -103,7 +103,7 @@ struct HtmlParser {
     /// - Parameter html: html字符串
     /// - Returns: 帖子列表
     /// - Throws: 解析失败的错误信息
-    static func threads(from html: String) throws -> [HiPDAThread] {
+    static func threads(from html: String) throws -> [HiPDA.Thread] {
         enum HiPDAThreadPropertyIndex: Int {
             case id = 1
             case title
@@ -134,9 +134,9 @@ struct HtmlParser {
                 throw HtmlParserError.unKnown("获取帖子打开数失败")
             }
             
-            return HiPDAThread(id: tid,
+            return HiPDA.Thread(id: tid,
                                title: result[HiPDAThreadPropertyIndex.title.rawValue],
-                               attachment: HiPDAThreadAttachment.attacthment(from: result[HiPDAThreadPropertyIndex.attachment.rawValue]),
+                               attachment: HiPDA.ThreadAttachment.attacthment(from: result[HiPDAThreadPropertyIndex.attachment.rawValue]),
                                user: User(name:result[HiPDAThreadPropertyIndex.username.rawValue], uid:uid),
                                postTime: result[HiPDAThreadPropertyIndex.postTime.rawValue],
                                replyCount: replyCount,
