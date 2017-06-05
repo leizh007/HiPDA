@@ -77,11 +77,17 @@ class PostOperationViewController: UIViewController {
         didMove(toParentViewController: parentViewController)
     }
     
-    func dismiss() {
-        hideButtons(from: operationButtons.count - 1)
-        UIView.animate(withDuration: Constant.animationDuration) {
-            self.view.backgroundColor = .clear
-            self.operationButtons.forEach { $0.alpha = 0.3 }
+    func dismiss(animation: Bool = true) {
+        if animation {
+            hideButtons(from: operationButtons.count - 1)
+            UIView.animate(withDuration: Constant.animationDuration) {
+                self.view.backgroundColor = .clear
+                self.operationButtons.forEach { $0.alpha = 0.3 }
+            }
+        } else {
+            willMove(toParentViewController: nil)
+            view.removeFromSuperview()
+            removeFromParentViewController()
         }
     }
     

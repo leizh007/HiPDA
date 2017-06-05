@@ -69,7 +69,7 @@ class PostViewController: BaseViewController {
     fileprivate lazy var pageNumberButton: UIButton = { [unowned self] _ in
         let button = UIButton(type: .system)
         button.tintColor = C.Color.navigationBarTintColor
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19.0)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
         button.addTarget(self, action: #selector(self.pageNumberButtonPressed), for: .touchUpInside)
         return button
         }()
@@ -95,6 +95,13 @@ class PostViewController: BaseViewController {
                                y: yOffset,
                                width: view.bounds.size.width,
                                height: view.bounds.size.height - yOffset)
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        
+        postOperationViewController?.dismiss(animation: false)
+        postOperationViewController = nil
     }
     
     func canJump(to postInfo: PostInfo) -> Bool {
@@ -207,10 +214,14 @@ class PostViewController: BaseViewController {
 
 extension PostViewController {
     func close() {
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     func moreButtonPressed() {
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
         if let postOperationViewController = postOperationViewController {
             postOperationViewController.dismiss()
             self.postOperationViewController = nil
@@ -223,16 +234,21 @@ extension PostViewController {
     }
     
     func refreshButtonPressed() {
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
         isLoading = true
         skinRightBarButtonItems()
         loadData()
     }
     
     func replyButtonPressed() {
-        
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
     }
     
     func pageNumberButtonPressed() {
+        postOperationViewController?.dismiss()
+        postOperationViewController = nil
         guard viewModel.totalPage != .max else { return }
     }
 }
@@ -477,28 +493,39 @@ extension PostViewController {
 
 extension PostViewController: DataLoadDelegate {
     private func dataLoadCompletion(_ result: PostResult) {
-        if !isLoading {
-            isLoading = true
-            skinRightBarButtonItems()
-        }
         updateWebViewState()
         handleDataLoadResult(result)
     }
     
     func loadData() {
         viewModel.loadData { [weak self] result in
-            self?.dataLoadCompletion(result)
+            guard let `self` = self else { return }
+            if !self.isLoading {
+                self.isLoading = true
+                self.skinRightBarButtonItems()
+            }
+            self.dataLoadCompletion(result)
         }
     }
     
     func loadNewData() {
+        if !isLoading {
+            isLoading = true
+            skinRightBarButtonItems()
+        }
         viewModel.loadNewData { [weak self] result in
+            self?.skinRightBarButtonItems()
             self?.dataLoadCompletion(result)
         }
     }
     
     func loadMoreData() {
+        if !isLoading {
+            isLoading = true
+            skinRightBarButtonItems()
+        }
         viewModel.loadMoreData { [weak self] result in
+            self?.skinRightBarButtonItems()
             self?.dataLoadCompletion(result)
         }
     }
