@@ -30,7 +30,6 @@ class PostViewController: BaseViewController {
     fileprivate var viewModel: PostViewModel!
     fileprivate var webView: BaseWebView!
     fileprivate var bridge: WKWebViewJavascriptBridge!
-    fileprivate lazy var imageUtils = ImageUtils()
     fileprivate var postOperationViewController: PostOperationViewController?
     fileprivate var isLoading = false
     
@@ -148,6 +147,8 @@ class PostViewController: BaseViewController {
                 webView.endRefreshing()
                 webView.endLoadMore()
             }
+            isLoading = false
+            skinRightBarButtonItems()
         }
     }
     
@@ -444,10 +445,10 @@ extension PostViewController {
 
 extension PostViewController: DataLoadDelegate {
     private func dataLoadCompletion(_ result: PostResult) {
-        updateWebViewState()
-        handleDataLoadResult(result)
         isLoading = true
         skinRightBarButtonItems()
+        updateWebViewState()
+        handleDataLoadResult(result)
     }
     
     func loadData() {
