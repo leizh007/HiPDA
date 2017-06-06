@@ -20,6 +20,7 @@
 		050A190E1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190D1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift */; };
 		050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */; };
 		050A19131ED67D6D00EEFD08 /* image_loading_spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = 050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */; };
+		050C940C1EE67FE300FBD18F /* PageNumberSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C940B1EE67FE300FBD18F /* PageNumberSelectionViewController.swift */; };
 		050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */; };
 		050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3141DD1FB7F00C4B18D /* Login.storyboard */; };
 		050EE3171DD1FEA800C4B18D /* Views.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* Views.storyboard */; };
@@ -209,6 +210,7 @@
 		050A190D1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDWebImageManager+HiPDA.swift"; sourceTree = "<group>"; };
 		050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_loading_spinner.gif; sourceTree = "<group>"; };
+		050C940B1EE67FE300FBD18F /* PageNumberSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageNumberSelectionViewController.swift; sourceTree = "<group>"; };
 		050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+HiPDA.swift"; sourceTree = "<group>"; };
 		050EE3141DD1FB7F00C4B18D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		050EE3161DD1FEA800C4B18D /* Views.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Views.storyboard; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				050EE3161DD1FEA800C4B18D /* Views.storyboard */,
 				05E1BC331EDAAA9900920267 /* ImageBrowserViewController.swift */,
 				05E1BC351EDBE98100920267 /* ImageBrowserCollectionViewCell.swift */,
+				050C940B1EE67FE300FBD18F /* PageNumberSelectionViewController.swift */,
 				058A717B1DA1FB22004992AD /* BaseViewController.swift */,
 				0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */,
 				05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */,
@@ -987,7 +990,7 @@
 				TargetAttributes = {
 					05D489701D3E5E23000A086B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 33HZMGTRDL;
+						DevelopmentTeam = ZG65V92KVZ;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
@@ -1325,6 +1328,7 @@
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */,
 				05532B141ECE10BB00FAB176 /* ResourcesInitialization.swift in Sources */,
+				050C940C1EE67FE300FBD18F /* PageNumberSelectionViewController.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
@@ -1546,7 +1550,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 33HZMGTRDL;
+				DEVELOPMENT_TEAM = ZG65V92KVZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1555,7 +1559,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1576,7 +1580,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 33HZMGTRDL;
+				DEVELOPMENT_TEAM = ZG65V92KVZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1590,7 +1594,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
