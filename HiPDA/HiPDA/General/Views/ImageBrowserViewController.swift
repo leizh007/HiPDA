@@ -28,10 +28,6 @@ class ImageBrowserViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    @IBAction func closeButtonPressed(_ sender: Any) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
-    }
 }
 
 // MARK: - UICollectionViewDelegate
