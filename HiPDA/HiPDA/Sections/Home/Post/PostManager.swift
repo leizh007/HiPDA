@@ -19,7 +19,6 @@ class PostManager {
     var postInfo: PostInfo {
         didSet {
             title = nil
-            totalPage = .max
         }
     }
     init(postInfo: PostInfo) {
@@ -39,12 +38,10 @@ class PostManager {
     /// 加载第一页数据
     func loadFirstPage(completion: @escaping PostListFetchCompletion = { _ in }) {
         let oldPostInfo = postInfo
-        let totalPage = self.totalPage
         postInfo = PostInfo.lens.page.set(1, postInfo)
         load(postInfo: postInfo) { [weak self] result in
             if case .failure(_) = result {
                 self?.postInfo = oldPostInfo
-                self?.totalPage = totalPage
             }
             completion(result)
         }
@@ -53,12 +50,10 @@ class PostManager {
     /// 加载前一页数据
     func loadPreviousPage(completion: @escaping PostListFetchCompletion = { _ in }) {
         let oldPostInfo = postInfo
-        let totalPage = self.totalPage
         postInfo = PostInfo.lens.page.set(postInfo.page - 1, postInfo)
         load(postInfo: postInfo) { [weak self] result in
             if case .failure(_) = result {
                 self?.postInfo = oldPostInfo
-                self?.totalPage = totalPage
             }
             completion(result)
         }
@@ -67,12 +62,10 @@ class PostManager {
     /// 加载后一页数据
     func loadNextPage(completion: @escaping PostListFetchCompletion = { _ in }) {
         let oldPostInfo = postInfo
-        let totalPage = self.totalPage
         postInfo = PostInfo.lens.page.set(postInfo.page + 1, postInfo)
         load(postInfo: postInfo) { [weak self] result in
             if case .failure(_) = result {
                 self?.postInfo = oldPostInfo
-                self?.totalPage = totalPage
             }
             completion(result)
         }
@@ -95,9 +88,7 @@ class PostManager {
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .mapGBKString()
             .do(onNext: { html in
-                if totalPage == .max {
-                    totalPage = try HtmlParser.totalPage(from: html)
-                }
+                totalPage = try HtmlParser.totalPage(from: html)
                 if postInfo.page == 1 {
                     if title == nil {
                         do {

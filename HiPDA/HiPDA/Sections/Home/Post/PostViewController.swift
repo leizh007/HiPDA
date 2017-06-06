@@ -135,6 +135,7 @@ class PostViewController: BaseViewController {
         let title = self.viewModel.totalPage == .max ? "\(self.viewModel.postInfo.page)/?" : "\(self.viewModel.postInfo.page)/\(self.viewModel.totalPage)"
         pageNumberButton.setTitle(title, for: .normal)
         pageNumberButton.sizeToFit()
+        refreshButton.imageView?.tintColor = C.Color.navigationBarTintColor
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: moreButton),
                                               UIBarButtonItem(customView: isLoading ? activityIndicator : refreshButton),
                                               UIBarButtonItem(customView: replyButton),
@@ -220,8 +221,6 @@ extension PostViewController {
     }
     
     func moreButtonPressed() {
-        postOperationViewController?.dismiss()
-        postOperationViewController = nil
         if let postOperationViewController = postOperationViewController {
             postOperationViewController.dismiss()
             self.postOperationViewController = nil
@@ -249,7 +248,37 @@ extension PostViewController {
     func pageNumberButtonPressed() {
         postOperationViewController?.dismiss()
         postOperationViewController = nil
-        guard viewModel.totalPage != .max else { return }
+        guard viewModel.totalPage != .max && !isLoading else { return }
+        let pageNumberVC = PageNumberSelectionViewController.load(from: .views)
+        pageNumberVC.modalPresentationStyle = .popover
+        pageNumberVC.preferredContentSize = CGSize(width: 288, height: 143)
+        pageNumberVC.popoverPresentationController?.sourceView = pageNumberButton
+        pageNumberVC.popoverPresentationController?.sourceRect = pageNumberButton.bounds
+        pageNumberVC.popoverPresentationController?.backgroundColor = #colorLiteral(red: 0.07058823529, green: 0.07058823529, blue: 0.07058823529, alpha: 1)
+        pageNumberVC.popoverPresentationController?.delegate = self
+        pageNumberVC.currentPageNumber = viewModel.postInfo.page
+        pageNumberVC.totalPageNumber = viewModel.totalPage
+        pageNumberVC.completion = { [unowned self] pageNumber in
+            guard self.viewModel.postInfo.page != pageNumber else { return }
+            self.viewModel.postInfo = PostInfo.lens.page.set(pageNumber, self.viewModel.postInfo)
+            self.isLoading = true
+            self.skinRightBarButtonItems()
+            self.loadData()
+        }
+        present(pageNumberVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIPopoverPresentationControllerDelegate
+
+extension PostViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        
+        return true
     }
 }
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -260,10 +260,9 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NU6-0b-YAT">
-                                <rect key="frame" x="8" y="27" width="31" height="30"/>
-                                <state key="normal" title="取消">
-                                    <color key="titleColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
-                                </state>
+                                <rect key="frame" x="16" y="27" width="26" height="26"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="image_browser_close"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2017年 leizh007. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oc2-3a-ks1">
                                 <rect key="frame" x="16" y="631" width="343" height="16"/>
@@ -279,11 +278,10 @@
                             <constraint firstItem="oc2-3a-ks1" firstAttribute="trailing" secondItem="44D-6Y-ava" secondAttribute="trailingMargin" id="5Ct-iT-fha"/>
                             <constraint firstAttribute="trailing" secondItem="NP7-g9-xV3" secondAttribute="trailing" id="Bkv-TH-CHR"/>
                             <constraint firstItem="kAa-AH-Alj" firstAttribute="top" secondItem="oc2-3a-ks1" secondAttribute="bottom" constant="20" id="GHi-cl-yaF"/>
-                            <constraint firstItem="NP7-g9-xV3" firstAttribute="top" secondItem="NU6-0b-YAT" secondAttribute="bottom" constant="7" id="Jkj-HW-TvI"/>
                             <constraint firstItem="NP7-g9-xV3" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leading" id="N2Z-2p-OtI"/>
                             <constraint firstItem="NP7-g9-xV3" firstAttribute="top" secondItem="Mj4-dw-xCJ" secondAttribute="bottom" constant="44" id="WDo-2v-TTU"/>
                             <constraint firstItem="oc2-3a-ks1" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leadingMargin" id="XJj-xA-uBr"/>
-                            <constraint firstItem="NU6-0b-YAT" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leading" constant="8" id="jJu-73-ZL9"/>
+                            <constraint firstItem="NU6-0b-YAT" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leading" constant="16" id="jJu-73-ZL9"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="0l5-wo-JPG" appends="YES" id="gAP-qD-HSz"/>
@@ -313,6 +311,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="image_browser_close" width="26" height="26"/>
         <image name="login_button_background" width="8" height="8"/>
         <image name="login_button_disabled_background" width="229" height="92"/>
         <image name="login_button_highlighted_background" width="8" height="8"/>
