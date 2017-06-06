@@ -16,7 +16,7 @@ struct HtmlManager {
         static let maxWidth = "####max width####"
         static let blockQuoteWidth = "####blockquote width####"
         static let screenScale = "####screen scale####"
-        static let lineHeight = "####line height####"
+        static let seperatorLineHeight = "####seperator line height####"
     }
     fileprivate static let baseHtml: String = {
         enum HtmlResource {
@@ -38,9 +38,9 @@ struct HtmlManager {
         
         let contentMargin = CGFloat(8.0)
         let blockquoteMargin = CGFloat(16.0)
-        let lineHeight = 1.0 / C.UI.screenScale
+        let seperatorLineHeight = 1.0 / C.UI.screenScale
         css = css.replacingOccurrences(of: Attribute.maxWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin))px")
-            .replacingOccurrences(of: Attribute.blockQuoteWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin - 2 * blockquoteMargin))px").replacingOccurrences(of: Attribute.screenScale, with: "\(Int(C.UI.screenScale))").replacingOccurrences(of: Attribute.lineHeight, with: String(format:"%.3f", lineHeight))
+            .replacingOccurrences(of: Attribute.blockQuoteWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin - 2 * blockquoteMargin))px").replacingOccurrences(of: Attribute.screenScale, with: "\(Int(C.UI.screenScale))").replacingOccurrences(of: Attribute.seperatorLineHeight, with: String(format:"%.3f", seperatorLineHeight))
 
         
         return html.replacingOccurrences(of: Attribute.style, with: css)

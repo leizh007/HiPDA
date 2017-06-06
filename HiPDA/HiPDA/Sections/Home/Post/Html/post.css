@@ -11,7 +11,7 @@
         font-size: 19px !important;
         font-weight: 500 !important;
         border-style: solid none;
-        border-width: ####line height####px;
+        border-width: ####seperator line height####px;
         border-color: #C8C7CC;
         padding: 10px 8px 10px 8px;
         background-color: #FFFFFF !important;
@@ -25,9 +25,9 @@
 
     .post {
         border-style: solid none;
-        border-width: ####line height####px;
+        border-width: ####seperator line height####px;
         border-color: #C8C7CC;
-        margin: -####line height####px 0px;
+        margin: -####seperator line height####px 0px;
         padding: 8px 8px 8px 8px;
         background-color: #FFFFFF !important;
         -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -57,7 +57,7 @@
         height: 34px;
         width: 34px;
         border-style: solid;
-        border-width: ####line height####px;
+        border-width: ####seperator line height####px;
         border-color: #C8C7CC;
         border-radius: 5.0px;
         object-fit: cover;
