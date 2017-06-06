@@ -259,7 +259,6 @@ extension PostViewController {
         pageNumberVC.currentPageNumber = viewModel.postInfo.page
         pageNumberVC.totalPageNumber = viewModel.totalPage
         pageNumberVC.completion = { [unowned self] pageNumber in
-            guard self.viewModel.postInfo.page != pageNumber else { return }
             self.viewModel.postInfo = PostInfo.lens.page.set(pageNumber, self.viewModel.postInfo)
             self.isLoading = true
             self.skinRightBarButtonItems()
