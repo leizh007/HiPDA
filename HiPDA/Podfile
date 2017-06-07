@@ -47,6 +47,7 @@ target 'HiPDA' do
   
   pod 'SAMKeychain'
   pod 'YYKeyboardManager'
+  pod 'YYText', '~> 1.0.7'
   pod 'Moya/RxSwift', '~> 8.0.2'
   pod 'MBProgressHUD'
   pod 'SDWebImage/GIF'

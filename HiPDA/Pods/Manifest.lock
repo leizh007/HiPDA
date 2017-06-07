@@ -43,6 +43,7 @@ PODS:
   - WebViewJavascriptBridge (6.0.2)
   - YYCache (1.0.4)
   - YYKeyboardManager (1.0.1)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - Argo (~> 4.1)
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - WebViewJavascriptBridge (~> 6.0.2)
   - YYCache (~> 1.0.4)
   - YYKeyboardManager
+  - YYText (~> 1.0.7)
 
 EXTERNAL SOURCES:
   Delta:
@@ -115,7 +117,8 @@ SPEC CHECKSUMS:
   WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 1a20eb2659f878c053eeaf4ef462a93e1a10ecca
+PODFILE CHECKSUM: 17dfbed20391b55b75ff42b450db835a741e7e6d
 
 COCOAPODS: 1.2.0
