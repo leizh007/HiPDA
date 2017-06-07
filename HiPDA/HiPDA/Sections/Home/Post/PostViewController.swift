@@ -32,6 +32,7 @@ class PostViewController: BaseViewController {
     fileprivate var bridge: WKWebViewJavascriptBridge!
     fileprivate var postOperationViewController: PostOperationViewController?
     fileprivate var isLoading = false
+    fileprivate var isErrorOccured = false
     fileprivate lazy var moreButton: UIButton = { [unowned self] _ in
         let more = UIButton(type: .system)
         more.tintColor = C.Color.navigationBarTintColor
@@ -136,10 +137,15 @@ class PostViewController: BaseViewController {
         pageNumberButton.setTitle(title, for: .normal)
         pageNumberButton.sizeToFit()
         refreshButton.imageView?.tintColor = C.Color.navigationBarTintColor
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: moreButton),
-                                              UIBarButtonItem(customView: isLoading ? activityIndicator : refreshButton),
-                                              UIBarButtonItem(customView: replyButton),
-                                              UIBarButtonItem(customView: pageNumberButton)]
+        
+        if isErrorOccured {
+            navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: isLoading ? activityIndicator : refreshButton)]
+        } else {
+            navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: moreButton),
+                                                  UIBarButtonItem(customView: isLoading ? activityIndicator : refreshButton),
+                                                  UIBarButtonItem(customView: replyButton),
+                                                  UIBarButtonItem(customView: pageNumberButton)]
+        }
     }
     
     fileprivate func animationOptions(of status: PostViewStatus) -> UIViewAnimationOptions {
@@ -158,6 +164,7 @@ class PostViewController: BaseViewController {
     fileprivate func  handleDataLoadResult(_ result: PostResult) {
         switch result {
         case .success(let html):
+            isErrorOccured = false
             if viewModel.hasData {
                 let options = animationOptions(of: viewModel.status)
                 UIView.transition(with: webView, duration: C.UI.animationDuration * 4.0, options: options, animations: {
@@ -171,6 +178,7 @@ class PostViewController: BaseViewController {
                 viewModel.status = .idle
             }
         case .failure(let error):
+            isErrorOccured = true
             showPromptInformation(of: .failure("\(error)"))
             viewModel.status = .idle
             if webView.status == .loading {
@@ -526,6 +534,9 @@ extension PostViewController: DataLoadDelegate {
     }
     
     func loadData() {
+        if webView.status == .tapToLoad || webView.status == .noResult {
+            webView.status = .loading
+        }
         viewModel.loadData { [weak self] result in
             guard let `self` = self else { return }
             if !self.isLoading {
