@@ -13,6 +13,7 @@ class ImageBrowserViewController: BaseViewController {
     var imageURLs: [String]!
     var selectedIndex: Int!
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,11 @@ class ImageBrowserViewController: BaseViewController {
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
         }
+        pageControl.numberOfPages = imageURLs.count
+        pageControl.currentPage = selectedIndex
+        pageControl.isHidden = imageURLs.count == 1
+        // https://stackoverflow.com/questions/14977896/xcode-collectionviewcontroller-scrolltoitematindexpath-not-working
+        view.layoutIfNeeded()
         collectionView.scrollToItem(at: IndexPath(row: selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
     
@@ -65,6 +71,7 @@ extension ImageBrowserViewController: UICollectionViewDelegate {
         let contentOffset = CGPoint(x: (scrollView.frame.size.width + spacing) * CGFloat(nthCell), y: 0.0)
         targetContentOffset.pointee = scrollView.contentOffset
         scrollView.setContentOffset(contentOffset, animated: true)
+        pageControl.currentPage = nthCell
     }
 }
 

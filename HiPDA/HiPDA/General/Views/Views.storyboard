@@ -166,18 +166,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TDE-sT-wzG">
+                                <rect key="frame" x="168" y="614" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TDE-sT-wzG" firstAttribute="centerX" secondItem="7U7-6r-Eqp" secondAttribute="centerX" id="3kb-l8-upq"/>
+                            <constraint firstItem="TDE-sT-wzG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7U7-6r-Eqp" secondAttribute="leading" constant="16" id="SMa-Na-zvN"/>
                             <constraint firstAttribute="trailing" secondItem="3ab-Up-OOD" secondAttribute="trailing" id="d8Y-i8-4S0"/>
                             <constraint firstAttribute="bottom" secondItem="3ab-Up-OOD" secondAttribute="bottom" id="gts-cD-6EJ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TDE-sT-wzG" secondAttribute="trailing" constant="16" id="iiQ-Sx-soa"/>
                             <constraint firstItem="3ab-Up-OOD" firstAttribute="leading" secondItem="7U7-6r-Eqp" secondAttribute="leading" id="nh0-mi-pb8"/>
+                            <constraint firstItem="1M6-r6-VSU" firstAttribute="top" secondItem="TDE-sT-wzG" secondAttribute="bottom" constant="16" id="tXW-U7-DVr"/>
                             <constraint firstItem="3ab-Up-OOD" firstAttribute="top" secondItem="7U7-6r-Eqp" secondAttribute="top" id="vPb-ii-zHJ"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="3ab-Up-OOD" id="acS-5u-jGY"/>
+                        <outlet property="pageControl" destination="TDE-sT-wzG" id="1D4-Xn-nzc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgM-al-wf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
