@@ -150,10 +150,16 @@ struct HtmlParser {
     /// - Returns: 总页数
     /// - Throws: 解析失败的错误信息
     static func totalPage(from html: String) throws -> Int {
-        let result = try Regex.firstMatch(in: html, of: "(\\d+)<\\/a>[^<]*<[^>]+>下一页<\\/a>|<div[^c]*class=\"pages\">[\\s\\S]*?<strong>(\\d+)<\\/strong>[^<]*<\\/div>")
-        guard result.count == 3 else { return 1 }
-        let pageNumberString = result[1].isEmpty ? result[2] : result[1]
-        return Int(pageNumberString) ?? 1
+        let result1 = try Regex.firstMatch(in: html, of: "(\\d+)<\\/a>[^<]*<[^>]+>下一页<\\/a>")
+        if result1.count == 2 {
+            return Int(result1[1]) ?? 1
+        }
+        let result2 = try Regex.firstMatch(in: html, of: "<div[^c]*class=\"pages\">[\\s\\S]*?<strong>(\\d+)<\\/strong>[^<]*<\\/div>")
+        if result2.count == 2 {
+            return Int(result2[1]) ?? 1
+        }
+        
+        return 1
     }
     
     /// 获取帖子主题
