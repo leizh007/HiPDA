@@ -17,9 +17,9 @@ class NewThreadViewController: BaseViewController {
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
-        let cancelButton = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancel))
-        let postButton = UIBarButtonItem(title: "发表", style: .plain, target: self, action: #selector(post))
-        navigationItem.leftBarButtonItem = cancelButton
+        let closeButton =  UIBarButtonItem(image: #imageLiteral(resourceName: "navigationbar_close"), style: .plain, target: self, action: #selector(close))
+        let postButton = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_sent"), style: .plain, target: self, action: #selector(post))
+        navigationItem.leftBarButtonItem = closeButton
         navigationItem.rightBarButtonItem = postButton
     }
     
@@ -28,7 +28,7 @@ class NewThreadViewController: BaseViewController {
 // MARK: - Button Action
 
 extension NewThreadViewController {
-    func cancel() {
+    func close() {
         navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

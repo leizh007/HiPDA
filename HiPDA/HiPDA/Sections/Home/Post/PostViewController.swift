@@ -128,7 +128,7 @@ class PostViewController: BaseViewController {
     
     override func configureApperance(of navigationBar: UINavigationBar) {
         if navigationController?.viewControllers.count == 1 {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "image_browser_close"), style: .plain, target: self, action: #selector(close))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationbar_close"), style: .plain, target: self, action: #selector(close))
         }
     }
     

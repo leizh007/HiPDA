@@ -260,9 +260,9 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NU6-0b-YAT">
-                                <rect key="frame" x="16" y="27" width="26" height="26"/>
+                                <rect key="frame" x="16" y="27" width="24" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="image_browser_close"/>
+                                <state key="normal" image="navigationbar_close"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2017年 leizh007. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oc2-3a-ks1">
                                 <rect key="frame" x="16" y="631" width="343" height="16"/>
@@ -311,10 +311,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image_browser_close" width="26" height="26"/>
         <image name="login_button_background" width="8" height="8"/>
         <image name="login_button_disabled_background" width="229" height="92"/>
         <image name="login_button_highlighted_background" width="8" height="8"/>
         <image name="login_password_hide" width="40" height="40"/>
+        <image name="navigationbar_close" width="24" height="24"/>
     </resources>
 </document>
