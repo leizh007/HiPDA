@@ -30,8 +30,12 @@ struct PostInfo {
         }
         guard let index = urlString.range(of: "://www.hi-pda.com/forum/viewthread.php?")?.upperBound else { return nil }
         var subString = urlString.substring(from: index)
+        var pid: Int?
         if let sharpIndex = subString.range(of: "#pid")?.lowerBound {
             subString = subString.substring(to: sharpIndex)
+            if let pidResult = try? Regex.firstMatch(in: urlString, of: "#pid(\\d+)"), pidResult.count == 2, let value = Int(pidResult[1]) {
+                pid = value
+            }
         }
         var dic = [String: Int]()
         for string in subString.components(separatedBy: "&") {
@@ -44,7 +48,7 @@ struct PostInfo {
         guard let tid = dic[PropertyKeys.tid.rawValue] else { return nil }
         self.tid = tid
         self.page = dic[PropertyKeys.page.rawValue] ?? 1
-        self.pid = dic[PropertyKeys.pid.rawValue] ?? dic["rpid"]
+        self.pid = pid ?? (dic[PropertyKeys.pid.rawValue] ?? dic["rpid"])
         self.authorid = dic[PropertyKeys.authorid.rawValue]
     }
 }
