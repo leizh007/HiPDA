@@ -21,6 +21,7 @@
 		050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */; };
 		050A19131ED67D6D00EEFD08 /* image_loading_spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = 050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */; };
 		050C940C1EE67FE300FBD18F /* PageNumberSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C940B1EE67FE300FBD18F /* PageNumberSelectionViewController.swift */; };
+		050C940E1EEA399800FBD18F /* NewThreadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C940D1EEA399800FBD18F /* NewThreadType.swift */; };
 		050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */; };
 		050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3141DD1FB7F00C4B18D /* Login.storyboard */; };
 		050EE3171DD1FEA800C4B18D /* Views.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050EE3161DD1FEA800C4B18D /* Views.storyboard */; };
@@ -211,6 +212,7 @@
 		050A190F1ED550E200EEFD08 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		050A19121ED67D6D00EEFD08 /* image_loading_spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image_loading_spinner.gif; sourceTree = "<group>"; };
 		050C940B1EE67FE300FBD18F /* PageNumberSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageNumberSelectionViewController.swift; sourceTree = "<group>"; };
+		050C940D1EEA399800FBD18F /* NewThreadType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadType.swift; sourceTree = "<group>"; };
 		050E483C1EC0749600BB6904 /* Notification.Name+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification.Name+HiPDA.swift"; sourceTree = "<group>"; };
 		050EE3141DD1FB7F00C4B18D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		050EE3161DD1FEA800C4B18D /* Views.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Views.storyboard; sourceTree = "<group>"; };
@@ -850,6 +852,7 @@
 			isa = PBXGroup;
 			children = (
 				05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */,
+				050C940D1EEA399800FBD18F /* NewThreadType.swift */,
 			);
 			path = NewThread;
 			sourceTree = "<group>";
@@ -1276,6 +1279,7 @@
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
+				050C940E1EEA399800FBD18F /* NewThreadType.swift in Sources */,
 				059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,

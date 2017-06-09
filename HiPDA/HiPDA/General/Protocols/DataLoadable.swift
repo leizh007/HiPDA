@@ -100,13 +100,14 @@ extension DataLoadable where Self: UIView {
     }
 }
 
-
 // MARK: - TapToLoadDelegate
 
 extension DataLoadable {
     func tapToLoad() {
-        status = .loading
-        dataLoadDelegate?.loadNewData()
+        if let delegate = dataLoadDelegate {
+            status = .loading
+            delegate.loadNewData()
+        }
     }
 }
 

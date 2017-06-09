@@ -63,6 +63,8 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
     /// 登录成功后的回调
     var loggedInCompletion: LoggedInCompletionHandler?
     
+    var cancelCompletion: ((Void) -> Void)?
+    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -234,6 +236,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         }).addDisposableTo(disposeBag)
         
         cancelButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.cancelCompletion?()
             self?.presentingViewController?.dismiss(animated: true, completion: nil)
         }).addDisposableTo(disposeBag)
     }

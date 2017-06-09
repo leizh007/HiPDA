@@ -91,6 +91,10 @@ extension AccountManagementViewController: UITableViewDelegate {
                 self.tableView.reloadData()
                 EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
             }
+            loginVC.cancelCompletion = { _ in
+                guard let account = Settings.shared.activeAccount else { return }
+                CookieManager.shared.set(cookies: CookieManager.shared.cookies(for: account), for: account)
+            }
             loginVC.transitioningDelegate = self
             navigationController?.present(loginVC, animated: true, completion: nil)
         case .logout:

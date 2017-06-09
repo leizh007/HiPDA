@@ -191,15 +191,19 @@ extension HomeViewController {
         switch result {
         case .success(_):
             tableView.reloadData()
-            CATransaction.begin()
-            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            tableView.status = .normal
-            CATransaction.setCompletionBlock {
-                if self.viewModel.isThreadsOutOfDate {
-                    self.tableView.refreshing()
+            if self.viewModel.numberOfThreads() > 0 {
+                tableView.status = .normal
+                CATransaction.begin()
+                tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                CATransaction.setCompletionBlock {
+                    if self.viewModel.isThreadsOutOfDate {
+                        self.tableView.refreshing()
+                    }
                 }
+                CATransaction.commit()
+            } else {
+                self.tableView.status = .noResult
             }
-            CATransaction.commit()
         case .failure(let error):
             tableView.status = .tapToLoad
             showPromptInformation(of: .failure("\(error)"))
@@ -261,9 +265,13 @@ extension HomeViewController: DataLoadDelegate {
             switch result {
             case .success(_):
                 self.tableView.reloadData()
-                self.tableView.status = .normal
                 self.tableView.endRefreshing()
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                if self.viewModel.numberOfThreads() > 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    self.tableView.status = .normal
+                } else {
+                    self.tableView.status = .noResult
+                }
                 if !self.viewModel.canLoadMoreData {
                     self.tableView.endLoadMoreWithNoMoreData()
                 } else {
