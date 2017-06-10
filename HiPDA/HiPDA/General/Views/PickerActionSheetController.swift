@@ -96,7 +96,7 @@ class PickerActionSheetController: BaseViewController, StoryboardLoadable {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return presentingViewController?.preferredStatusBarStyle ?? .lightContent
     }
 }
 

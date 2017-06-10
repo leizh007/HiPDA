@@ -46,6 +46,10 @@ struct ForumManager {
         return dictionary
     }()
     
+    static func typeNames(of fid: Int) -> [String] {
+        return ForumManager.forums.filter { $0.id == fid }.first?.typeNames ?? []
+    }
+    
     /// 根据版块名称获取版块id
     ///
     /// - Parameter name: 版块名称

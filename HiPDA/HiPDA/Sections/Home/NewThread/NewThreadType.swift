@@ -9,7 +9,7 @@
 import Foundation
 
 enum NewThreadType {
-    case new
+    case new(fid: Int)
     case reply
     case quote
 }
@@ -19,7 +19,7 @@ enum NewThreadType {
 extension NewThreadType: CustomStringConvertible {
     var description: String {
         switch self {
-        case .new:
+        case .new(_):
             return "发表新帖"
         case .reply:
             return "回复"

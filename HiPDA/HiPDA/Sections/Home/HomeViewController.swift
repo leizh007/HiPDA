@@ -88,6 +88,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     func newThreadButtonPressed(_ sender: UIBarButtonItem) {
         let newThreadVC = NewThreadViewController.load(from: .home)
+        newThreadVC.type = .new(fid: ForumManager.fid(ofForumName: forumName))
         let nav = UINavigationController(rootViewController: newThreadVC)
         nav.transitioningDelegate = self
         present(nav, animated: true, completion: nil)

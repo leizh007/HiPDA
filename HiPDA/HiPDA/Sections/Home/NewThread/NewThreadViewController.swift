@@ -9,19 +9,51 @@
 import UIKit
 import YYText
 
+private enum Constant {
+    static let classification = "分类"
+}
+
 enum TextViewType: Int {
     case title
     case content
 }
 
 class NewThreadViewController: BaseViewController {
-    var type = NewThreadType.new
+    var type = NewThreadType.new(fid: 0)
+    var typeNames = [String]()
     @IBOutlet fileprivate weak var titleTextView: YYTextView!
+    @IBOutlet fileprivate weak var contentTextView: YYTextView!
+    fileprivate var activeTextView: YYTextView?
+    @IBOutlet fileprivate var seperatorLineHeightConstraints: [NSLayoutConstraint]!
+    @IBOutlet weak var titleContainerView: UIView!
+    @IBOutlet weak var classificationButton: UIButton!
+    var typeName = Constant.classification {
+        didSet {
+            classificationButton.setTitle(typeName, for: .normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = type.description
+        if case .new(fid: let fid) = type {
+            typeNames = ForumManager.typeNames(of: fid)
+        }
+        classificationButton.isHidden = typeNames.count == 0
+        typeNames.insert(Constant.classification, at: 0)
+        
         skinTextView(titleTextView)
+        skinTextView(contentTextView)
+        for constraint in seperatorLineHeightConstraints {
+            constraint.constant = 1.0 / C.UI.screenScale
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        titleTextView.becomeFirstResponder()
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -48,17 +80,34 @@ class NewThreadViewController: BaseViewController {
             textView.returnKeyType = .next
         }
     }
+    
+    @IBAction fileprivate func classificationButtonPressed(_ sender: UIButton) {
+        activeTextView?.resignFirstResponder()
+        let pickerActionSheetController = PickerActionSheetController.load(from: .views)
+        pickerActionSheetController.pickerTitles = typeNames
+        pickerActionSheetController.initialSelelctionIndex = typeNames.index(of: typeName) ?? 0
+        pickerActionSheetController.selectedCompletionHandler = { [unowned self] index in
+            self.dismiss(animated: false, completion: nil)
+            if let index = index, let typeName = self.typeNames.safe[index] {
+                self.typeName = typeName
+            }
+            self.activeTextView?.becomeFirstResponder()
+        }
+        pickerActionSheetController.modalPresentationStyle = .overCurrentContext
+        present(pickerActionSheetController, animated: false, completion: nil)
+    }
 }
 
 // MARK: - Button Action
 
 extension NewThreadViewController {
     func close() {
+        view.endEditing(true)
         navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     func post() {
-        
+        view.endEditing(true)
     }
 }
 
@@ -71,9 +120,32 @@ extension NewThreadViewController: StoryboardLoadable {}
 extension NewThreadViewController: YYTextViewDelegate {
     func textView(_ textView: YYTextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard textView == titleTextView else { return true }
-        if text == "\n" {
-            textView.resignFirstResponder()
+        if text == "\n" && textView == titleTextView {
+            titleTextView.resignFirstResponder()
+            contentTextView.becomeFirstResponder()
         }
         return !text.contains("\n")
+    }
+    
+    func textViewDidChange(_ textView: YYTextView) {
+        if textView == titleTextView {
+            textView.isScrollEnabled = textView.contentSize.height > textView.frame.size.height
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: YYTextView) {
+        if textView == titleTextView {
+            textView.scrollRangeToVisible(NSRange(location: 0, length: 0))
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: YYTextView) {
+        activeTextView = textView
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if scrollView == activeTextView {
+            view.endEditing(true)
+        }
     }
 }
