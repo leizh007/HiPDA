@@ -13,7 +13,7 @@ extension UITabBarController {
         super.viewDidLoad()
         
         if #available(iOS 10.0, *) {
-            tabBar.unselectedItemTintColor = #colorLiteral(red: 0.3977642059, green: 0.4658440351, blue: 0.5242295265, alpha: 1)
+            tabBar.unselectedItemTintColor = #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
         }
     }
 }

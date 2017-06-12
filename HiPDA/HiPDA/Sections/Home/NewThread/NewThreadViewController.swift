@@ -13,9 +13,23 @@ private enum Constant {
     static let classification = "分类"
 }
 
-enum TextViewType: Int {
+private enum TextViewType: Int {
     case title
     case content
+}
+
+private enum InputViewType {
+    case text
+    case emoticon
+    
+    var opposition: InputViewType {
+        switch self {
+        case .text:
+            return .emoticon
+        case .emoticon:
+            return .text
+        }
+    }
 }
 
 class NewThreadViewController: BaseViewController {
@@ -27,6 +41,9 @@ class NewThreadViewController: BaseViewController {
     @IBOutlet fileprivate var seperatorLineHeightConstraints: [NSLayoutConstraint]!
     @IBOutlet weak var titleContainerView: UIView!
     @IBOutlet weak var classificationButton: UIButton!
+    fileprivate var contentInputViewType = InputViewType.text
+    fileprivate var contentInputView: UIView?
+    
     var typeName = Constant.classification {
         didSet {
             classificationButton.setTitle(typeName, for: .normal)
@@ -45,6 +62,7 @@ class NewThreadViewController: BaseViewController {
         
         skinTextView(titleTextView)
         skinTextView(contentTextView)
+        configureAccessoryView()
         for constraint in seperatorLineHeightConstraints {
             constraint.constant = 1.0 / C.UI.screenScale
         }
@@ -81,6 +99,19 @@ class NewThreadViewController: BaseViewController {
         }
     }
     
+    fileprivate func configureAccessoryView() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: C.UI.screenWidth, height: 44.0))
+        toolbar.tintColor = #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
+        let photo = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_toolbar_image"), style: .plain, target: self, action: #selector(photoButtonPressed))
+        let emoji = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_switch_emoji"), style: .plain, target: self, action: #selector(emojiButtonPressed(_:)))
+        let sent = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_sent"), style: .plain, target: self, action: #selector(post))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.items = [photo, space, emoji, space, sent]
+        
+        contentTextView.inputAccessoryView = toolbar
+        
+    }
+    
     @IBAction fileprivate func classificationButtonPressed(_ sender: UIButton) {
         activeTextView?.resignFirstResponder()
         let pickerActionSheetController = PickerActionSheetController.load(from: .views)
@@ -108,6 +139,33 @@ extension NewThreadViewController {
     
     func post() {
         view.endEditing(true)
+    }
+    
+    func photoButtonPressed() {
+        
+    }
+    
+    func emojiButtonPressed(_ sender: UIBarButtonItem) {
+        contentInputViewType = contentInputViewType.opposition
+        let image: UIImage
+        let inputView: UIView?
+        switch contentInputViewType {
+        case .text:
+            image = #imageLiteral(resourceName: "new_thread_switch_emoji")
+            inputView = nil
+        case .emoticon:
+            image = #imageLiteral(resourceName: "new_thread_switch_keyboard")
+            if let view = contentInputView {
+                inputView = view
+            } else {
+                inputView = EmoticonInputView()
+                contentInputView = inputView
+            }
+        }
+        sender.image = image
+        contentTextView.inputView = inputView
+        contentTextView.reloadInputViews()
+        contentTextView.becomeFirstResponder()
     }
 }
 

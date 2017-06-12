@@ -42,6 +42,9 @@ PODS:
   - UITableView+FDTemplateLayoutCell (1.5.beta)
   - WebViewJavascriptBridge (6.0.2)
   - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
   - YYKeyboardManager (1.0.1)
   - YYText (1.0.7)
 
@@ -69,6 +72,7 @@ DEPENDENCIES:
   - UITableView+FDTemplateLayoutCell (~> 1.5.beta)
   - WebViewJavascriptBridge (~> 6.0.2)
   - YYCache (~> 1.0.4)
+  - YYImage (~> 1.0.4)
   - YYKeyboardManager
   - YYText (~> 1.0.7)
 
@@ -116,9 +120,10 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: 02b508ab1cb4cea16a8c17ac83d2cd1fd72124f9
   WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 17dfbed20391b55b75ff42b450db835a741e7e6d
+PODFILE CHECKSUM: 5f90816e19bc9e2710735459daedaacd424952cc
 
 COCOAPODS: 1.2.0

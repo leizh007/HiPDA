@@ -1,4 +1,5 @@
 platform :ios, '9.0'
+inhibit_all_warnings!
 
 #Debug tools
 def import_debug
@@ -47,7 +48,8 @@ target 'HiPDA' do
   
   pod 'SAMKeychain'
   pod 'YYKeyboardManager'
-  pod 'YYText', '~> 1.0.7'
+  pod 'YYText', '~> 1.0.7', :inhibit_warnings => true
+  pod 'YYImage', '~> 1.0.4'
   pod 'Moya/RxSwift', '~> 8.0.2'
   pod 'MBProgressHUD'
   pod 'SDWebImage/GIF'
