@@ -10,12 +10,15 @@ import Foundation
 import RxSwift
 
 enum NewThreadError: Error {
+    case cannotGetTid
     case unKnown(String)
 }
 
 extension NewThreadError: CustomStringConvertible {
     var description: String {
         switch self {
+        case .cannotGetTid:
+            return "无法获取tid"
         case .unKnown(let value):
             return value
         }
@@ -59,7 +62,7 @@ class NewThreadViewModel {
             if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: result) {
                 completion(.failure(.unKnown(errorMessage)))
             } else {
-                completion(.failure(.unKnown(error.localizedDescription)))
+                completion(.failure(.cannotGetTid))
             }
         }
     }
