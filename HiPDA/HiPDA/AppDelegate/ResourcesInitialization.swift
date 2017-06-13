@@ -13,9 +13,9 @@ import SDWebImage
 class ResourcesInitialization: Bootstrapping {
     private var disposeBag = DisposeBag()
     func bootstrap(bootstrapped: Bootstrapped) throws {
+        let _ = EmoticonHelper.groups
         let _ = URLDispatchManager.shared
         // 最大图片缓存100MB
         SDImageCache.shared().config.maxCacheSize = UInt(pow(10.0, 8.0))
     }
 }
-

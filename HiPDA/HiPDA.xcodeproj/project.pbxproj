@@ -38,6 +38,10 @@
 		051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */; };
 		051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */; };
 		0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */; };
+		0527FA3E1EEEEE8F00230290 /* EmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0527FA3D1EEEEE8F00230290 /* EmoticonCollectionViewCell.swift */; };
+		0527FA401EEEEEA200230290 /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0527FA3F1EEEEEA200230290 /* Emoticon.swift */; };
+		0527FA421EEEF24C00230290 /* EmoticonScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0527FA411EEEF24C00230290 /* EmoticonScrollView.swift */; };
+		0527FA441EEEFCD200230290 /* EmoticonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0527FA431EEEFCD200230290 /* EmoticonHelper.swift */; };
 		052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */; };
 		052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92161E0688FF00856219 /* SettingsSegue.swift */; };
 		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
@@ -292,6 +296,10 @@
 		051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementCommand.swift; path = AccountManagement/AccountManagementCommand.swift; sourceTree = "<group>"; };
 		051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementItemtype.swift; path = AccountManagement/AccountManagementItemtype.swift; sourceTree = "<group>"; };
 		0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		0527FA3D1EEEEE8F00230290 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
+		0527FA3F1EEEEEA200230290 /* Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		0527FA411EEEF24C00230290 /* EmoticonScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonScrollView.swift; sourceTree = "<group>"; };
+		0527FA431EEEFCD200230290 /* EmoticonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonHelper.swift; sourceTree = "<group>"; };
 		052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PmDoNotDisturbTimeSettingViewController.swift; sourceTree = "<group>"; };
 		052F92161E0688FF00856219 /* SettingsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSegue.swift; sourceTree = "<group>"; };
 		053067D01DFD6BCF009D0154 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
@@ -689,6 +697,10 @@
 				05EDDCEE1DDCAB890095E95D /* NoResultView.swift */,
 				05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */,
 				05B918771EEE97AB007339F6 /* EmoticonInputView.swift */,
+				0527FA3D1EEEEE8F00230290 /* EmoticonCollectionViewCell.swift */,
+				0527FA3F1EEEEEA200230290 /* Emoticon.swift */,
+				0527FA411EEEF24C00230290 /* EmoticonScrollView.swift */,
+				0527FA431EEEFCD200230290 /* EmoticonHelper.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1567,6 +1579,7 @@
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
 				050C940E1EEA399800FBD18F /* NewThreadType.swift in Sources */,
 				059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */,
+				0527FA401EEEEEA200230290 /* Emoticon.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
@@ -1650,11 +1663,14 @@
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
 				0537AAF51EAF5D5C00A51721 /* HomeViewModel.swift in Sources */,
+				0527FA421EEEF24C00230290 /* EmoticonScrollView.swift in Sources */,
+				0527FA3E1EEEEE8F00230290 /* EmoticonCollectionViewCell.swift in Sources */,
 				05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */,
 				05E1BC361EDBE98100920267 /* ImageBrowserCollectionViewCell.swift in Sources */,
 				05F3DCE11DB7B5A60061CED1 /* HtmlParserError.swift in Sources */,
 				05F8BCAD1E3C7BC400F9EC1B /* ForumListViewModel.swift in Sources */,
 				0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */,
+				0527FA441EEEFCD200230290 /* EmoticonHelper.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,

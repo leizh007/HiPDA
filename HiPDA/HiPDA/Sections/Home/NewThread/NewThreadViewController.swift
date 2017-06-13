@@ -8,6 +8,7 @@
 
 import UIKit
 import YYText
+import YYImage
 
 private enum Constant {
     static let classification = "分类"
@@ -93,6 +94,13 @@ class NewThreadViewController: BaseViewController {
         switch type {
         case .content:
             textView.placeholderText = "Content here..."
+            let parser = YYTextSimpleEmoticonParser()
+            var mapper = [String: YYImage]()
+            EmoticonHelper.groups.flatMap { $0.emoticons }.forEach { emocation in
+                mapper[emocation.code] = YYImage(named: emocation.name)
+            }
+            parser.emoticonMapper = mapper
+            textView.textParser = parser
         case .title:
             textView.placeholderText = "Title here..."
             textView.returnKeyType = .next
@@ -159,6 +167,7 @@ extension NewThreadViewController {
                 inputView = view
             } else {
                 inputView = EmoticonInputView()
+                (inputView as? EmoticonInputView)?.delegate = self
                 contentInputView = inputView
             }
         }
@@ -166,6 +175,20 @@ extension NewThreadViewController {
         contentTextView.inputView = inputView
         contentTextView.reloadInputViews()
         contentTextView.becomeFirstResponder()
+    }
+}
+
+// MARK: - EmoticonViewDelegate
+
+extension NewThreadViewController: EmoticonViewDelegate {
+    func emoticonInputDidTapText(_ text: String) {
+        if !text.isEmpty, let range = contentTextView.selectedTextRange as? YYTextRange {
+            contentTextView.replace(range, withText: text)
+        }
+    }
+    
+    func emoticonInputDidTapBackspace() {
+        contentTextView.deleteBackward()
     }
 }
 

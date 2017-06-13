@@ -7,7 +7,7 @@
 		<string>default</string>
 		<key>displayName</key>
 		<string>默认</string>
-		<key>images</key>
+		<key>emoticons</key>
 		<array>
 			<dict>
 				<key>name</key>
@@ -142,7 +142,7 @@
 		<string>coolmonkey</string>
 		<key>displayName</key>
 		<string>酷猴</string>
-		<key>images</key>
+		<key>emoticons</key>
 		<array>
 			<dict>
 				<key>name</key>
@@ -247,7 +247,7 @@
 		<string>grapeman</string>
 		<key>displayName</key>
 		<string>呆呆男</string>
-		<key>images</key>
+		<key>emoticons</key>
 		<array>
 			<dict>
 				<key>name</key>
