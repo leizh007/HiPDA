@@ -136,6 +136,8 @@ extension URLDispatchManager {
             return
         }
         HiPDAProvider.request(.redirect(url.absoluteString.substring(from: index))).asObservable().subscribe(onNext: { [ weak self] response in
+            self?.topVC?.hidePromptInformation()
+            self?.topVC?.showPromptInformation(of: .failure("指定的帖子不存在或已被删除或正在被审核。"))
             self?.redirectDisposeBag = DisposeBag()
         }).disposed(by: redirectDisposeBag)
     }

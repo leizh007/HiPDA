@@ -805,10 +805,10 @@
 		05B919641EEEE32E007339F6 /* Emoticon */ = {
 			isa = PBXGroup;
 			children = (
-				05B919651EEEE32E007339F6 /* coolmonkey */,
 				05B919761EEEE32E007339F6 /* default */,
-				05B9198C1EEEE32F007339F6 /* Emoticon.plist */,
+				05B919651EEEE32E007339F6 /* coolmonkey */,
 				05B9198D1EEEE32F007339F6 /* grapeman */,
+				05B9198C1EEEE32F007339F6 /* Emoticon.plist */,
 			);
 			path = Emoticon;
 			sourceTree = "<group>";
