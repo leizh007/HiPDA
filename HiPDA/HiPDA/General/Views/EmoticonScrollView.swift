@@ -18,6 +18,7 @@ class EmoticonScrollView: UICollectionView {
     fileprivate var magnifier: UIImageView!
     fileprivate var magnifierContent: YYAnimatedImageView!
     fileprivate weak var currentMagnifierCell: EmoticonCollectionViewCell?
+    fileprivate weak var previousTouchedCell: EmoticonCollectionViewCell?
     fileprivate var backspaceTimer: Timer?
     weak var emoticonScrollViewDelegate: EmoticonScrollViewDelegate?
     
@@ -54,6 +55,7 @@ class EmoticonScrollView: UICollectionView {
             return
         }
         currentMagnifierCell = cell
+        previousTouchedCell = cell
         showMagnifier(for: cell)
         if let _ = cell.imageView.image, !cell.isDelete {
             UIDevice.current.playInputClick()
@@ -70,11 +72,15 @@ class EmoticonScrollView: UICollectionView {
             return
         }
         guard let cell = cellForTouches(touches), !cell.isDelete else {
+            previousTouchedCell = cellForTouches(touches)
             hideMagnifier()
             return
         }
-        currentMagnifierCell = cell
-        showMagnifier(for: cell)
+        if currentMagnifierCell != cell || (previousTouchedCell?.isDelete ?? false) {
+            currentMagnifierCell = cell
+            previousTouchedCell = cell
+            showMagnifier(for: cell)
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
