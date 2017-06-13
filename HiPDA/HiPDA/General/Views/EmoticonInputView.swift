@@ -140,7 +140,7 @@ extension EmoticonInputView {
 
 extension EmoticonInputView {
     fileprivate func _createToolbarButton() -> UIButton {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.isExclusiveTouch = true
         button.frame.size = CGSize(width: C.UI.screenWidth / CGFloat(emoticonGroups.count), height: Constant.toolbarHeight)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
