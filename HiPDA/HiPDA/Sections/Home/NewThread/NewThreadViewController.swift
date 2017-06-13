@@ -9,9 +9,11 @@
 import UIKit
 import YYText
 import YYImage
+import RxSwift
 
 private enum Constant {
     static let classification = "分类"
+    static let contentLengthThreshold = 5
 }
 
 private enum TextViewType: Int {
@@ -44,11 +46,25 @@ class NewThreadViewController: BaseViewController {
     @IBOutlet weak var classificationButton: UIButton!
     fileprivate var contentInputViewType = InputViewType.text
     fileprivate var contentInputView: UIView?
+    fileprivate var viewModel = NewThreadViewModel()
+    fileprivate var isSendButtonEnable: Bool {
+        switch type {
+        case .new(fid: _):
+            return !titleTextView.text.isEmpty && contentTextView.text.characters.count > Constant.contentLengthThreshold
+        default:
+            return contentTextView.text.characters.count > Constant.contentLengthThreshold
+        }
+    }
+    fileprivate var sendButtons = [UIBarButtonItem]()
     
     var typeName = Constant.classification {
         didSet {
             classificationButton.setTitle(typeName, for: .normal)
         }
+    }
+    
+    fileprivate var typeid: Int {
+        return ForumManager.typeid(of: typeName)
     }
     
     override func viewDidLoad() {
@@ -67,6 +83,7 @@ class NewThreadViewController: BaseViewController {
         for constraint in seperatorLineHeightConstraints {
             constraint.constant = 1.0 / C.UI.screenScale
         }
+        sendButtons.forEach { $0.isEnabled = self.isSendButtonEnable }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,6 +95,7 @@ class NewThreadViewController: BaseViewController {
     override func configureApperance(of navigationBar: UINavigationBar) {
         let closeButton =  UIBarButtonItem(image: #imageLiteral(resourceName: "navigationbar_close"), style: .plain, target: self, action: #selector(close))
         let postButton = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_sent"), style: .plain, target: self, action: #selector(post))
+        sendButtons.append(postButton)
         navigationItem.leftBarButtonItem = closeButton
         navigationItem.rightBarButtonItem = postButton
     }
@@ -107,6 +125,21 @@ class NewThreadViewController: BaseViewController {
         }
     }
     
+    fileprivate func skinContent(_ content: String) -> String {
+        if Settings.shared.isEnabledTail {
+            if let urlString = Settings.shared.tailURL?.absoluteString, !urlString.isEmpty {
+                let text = Settings.shared.tailText.isEmpty ? urlString : Settings.shared.tailText
+                return "\(content)    [url=\(urlString)][size=1]\(text)[/size][/url]"
+            } else if !Settings.shared.tailText.isEmpty {
+                return "\(content)    [size=1]\(Settings.shared.tailText)[/size]"
+            } else {
+                return content
+            }
+        } else {
+            return content
+        }
+    }
+    
     fileprivate func configureAccessoryView() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: C.UI.screenWidth, height: 44.0))
         toolbar.tintColor = #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
@@ -115,9 +148,9 @@ class NewThreadViewController: BaseViewController {
         let sent = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_sent"), style: .plain, target: self, action: #selector(post))
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolbar.items = [photo, space, emoji, space, sent]
+        sendButtons.append(sent)
         
         contentTextView.inputAccessoryView = toolbar
-        
     }
     
     @IBAction fileprivate func classificationButtonPressed(_ sender: UIButton) {
@@ -147,6 +180,29 @@ extension NewThreadViewController {
     
     func post() {
         view.endEditing(true)
+        showPromptInformation(of: .loading("正在发送..."))
+        switch type {
+        case let .new(fid):
+            let typeid = self.typeid
+            let title = titleTextView.text ?? ""
+            let content = contentTextView.text ?? ""
+            viewModel.postNewThread(fid: fid, typeid: typeid, title: title, content: skinContent(content)) { [unowned self] result in
+                self.hidePromptInformation()
+                switch result {
+                case .success(let tid):
+                    self.showPromptInformation(of: .success("发送成功!"))
+                    delay(seconds: 0.25) {
+                        self.presentingViewController?.dismiss(animated: true) {
+                            URLDispatchManager.shared.linkActived("https://www.hi-pda.com/forum/viewthread.php?tid=\(tid)&extra=page%3D1")
+                        }
+                    }
+                case .failure(let error):
+                    self.showPromptInformation(of: .failure(error.description))
+                }
+            }
+        default:
+            break
+        }
     }
     
     func photoButtonPressed() {
@@ -212,6 +268,7 @@ extension NewThreadViewController: YYTextViewDelegate {
         if textView == titleTextView {
             textView.isScrollEnabled = textView.contentSize.height > textView.frame.size.height
         }
+        sendButtons.forEach { $0.isEnabled = self.isSendButtonEnable }
     }
     
     func textViewDidEndEditing(_ textView: YYTextView) {

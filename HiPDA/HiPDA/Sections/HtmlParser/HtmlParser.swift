@@ -216,4 +216,28 @@ struct HtmlParser {
                         content: result[PostPropertyIndex.content.rawValue])
         }
     }
+    
+    static func formhash(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "formhash=(\\w+)")
+        guard result.count == 2, !result[1].isEmpty else {
+            throw HtmlParserError.unKnown("获取formhash失败")
+        }
+        return result[1]
+    }
+    
+    static func tid(from html: String) throws -> Int {
+        let result = try Regex.firstMatch(in: html, of: "tid=(\\d+)")
+        guard result.count == 2, let tid = Int(result[1]) else {
+            throw HtmlParserError.unKnown("获取postnum失败")
+        }
+        return tid
+    }
+    
+    static func newThreadErrorMessage(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "<div\\s+class=\\\"postbox\\\"><div\\s+class=\\\"alert_\\w+\\\">[^<]*<p>([^<]+)<\\/p>")
+        guard result.count == 2, !result[1].isEmpty else {
+            throw HtmlParserError.unKnown("获取提示信息失败")
+        }
+        return result[1]
+    }
 }

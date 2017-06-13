@@ -50,6 +50,10 @@ struct ForumManager {
         return ForumManager.forums.filter { $0.id == fid }.first?.typeNames ?? []
     }
     
+    static func typeid(of name: String) -> Int {
+        return typeidDictionary[name] ?? 0
+    }
+    
     /// 根据版块名称获取版块id
     ///
     /// - Parameter name: 版块名称

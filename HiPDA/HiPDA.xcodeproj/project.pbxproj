@@ -82,6 +82,8 @@
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
+		0572261C1EF03ADC00397829 /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572261B1EF03ADC00397829 /* NetworkUtilities.swift */; };
+		0572261E1EF03C1200397829 /* NewThreadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572261D1EF03C1200397829 /* NewThreadViewModel.swift */; };
 		0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */; };
 		0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */; };
 		0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */; };
@@ -345,6 +347,8 @@
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0572261B1EF03ADC00397829 /* NetworkUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
+		0572261D1EF03C1200397829 /* NewThreadViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadViewModel.swift; sourceTree = "<group>"; };
 		0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDispatchManager.swift; sourceTree = "<group>"; };
 		0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+HiPDA.swift"; sourceTree = "<group>"; };
@@ -1088,6 +1092,7 @@
 			isa = PBXGroup;
 			children = (
 				05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */,
+				0572261D1EF03C1200397829 /* NewThreadViewModel.swift */,
 				050C940D1EEA399800FBD18F /* NewThreadType.swift */,
 			);
 			path = NewThread;
@@ -1101,6 +1106,7 @@
 				0533F1F71EE560FA00DB854B /* ErrorHandlePlugin.swift */,
 				05BBBBC01E80225100C6E0D3 /* GBKURLEncoding.swift */,
 				05407F3E1E8D09B100E4EA5F /* CookieManager.swift */,
+				0572261B1EF03ADC00397829 /* NetworkUtilities.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1567,6 +1573,7 @@
 				05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
+				0572261E1EF03C1200397829 /* NewThreadViewModel.swift in Sources */,
 				0588D8251EBF26E000AC43DD /* HomeThreadModel.swift in Sources */,
 				0537AAF71EB039F300A51721 /* HomeNavigationBarTitleView.swift in Sources */,
 				05645C7B1D75D60900B86D0A /* Constants.swift in Sources */,
@@ -1645,6 +1652,7 @@
 				05B35C411ECC3E3D00C037A7 /* HiPDAURLProtocol.swift in Sources */,
 				059D49531EBAF70000BECA18 /* Thread.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
+				0572261C1EF03ADC00397829 /* NetworkUtilities.swift in Sources */,
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				05068AF01E09696C0070E044 /* UserRemarkViewController.swift in Sources */,
