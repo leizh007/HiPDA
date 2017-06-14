@@ -76,6 +76,11 @@ class NewThreadViewController: BaseViewController {
         }
         classificationButton.isHidden = typeNames.count == 0
         typeNames.insert(Constant.classification, at: 0)
+        if case .new(_) = type {
+            titleContainerView.isHidden = false
+        } else {
+            titleContainerView.isHidden = true
+        }
         
         skinTextView(titleTextView)
         skinTextView(contentTextView)
@@ -89,7 +94,11 @@ class NewThreadViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        titleTextView.becomeFirstResponder()
+        if titleContainerView.isHidden {
+            contentTextView.becomeFirstResponder()
+        } else {
+            titleTextView.becomeFirstResponder()
+        }
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -182,24 +191,10 @@ extension NewThreadViewController {
         view.endEditing(true)
         showPromptInformation(of: .loading("正在发送..."))
         switch type {
-        case let .new(fid):
-            let typeid = self.typeid
-            let title = titleTextView.text ?? ""
-            let content = contentTextView.text ?? ""
-            viewModel.postNewThread(fid: fid, typeid: typeid, title: title, content: skinContent(content)) { [unowned self] result in
-                self.hidePromptInformation()
-                switch result {
-                case .success(let tid):
-                    self.showPromptInformation(of: .success("发送成功!"))
-                    delay(seconds: 0.25) {
-                        self.presentingViewController?.dismiss(animated: true) {
-                            URLDispatchManager.shared.linkActived("https://www.hi-pda.com/forum/viewthread.php?tid=\(tid)&extra=page%3D1")
-                        }
-                    }
-                case .failure(let error):
-                    self.showPromptInformation(of: .failure(error.description))
-                }
-            }
+        case let .new(fid: fid):
+            postNewThread(fid: fid)
+        case let .replyPost(fid: fid, tid: tid):
+            replyPost(fid: fid, tid: tid)
         default:
             break
         }
@@ -231,6 +226,46 @@ extension NewThreadViewController {
         contentTextView.inputView = inputView
         contentTextView.reloadInputViews()
         contentTextView.becomeFirstResponder()
+    }
+}
+
+// MARK: - Post Action
+
+extension NewThreadViewController {
+    fileprivate func postNewThread(fid: Int) {
+        let typeid = self.typeid
+        let title = titleTextView.text ?? ""
+        let content = contentTextView.text ?? ""
+        viewModel.postNewThread(fid: fid, typeid: typeid, title: title, content: skinContent(content)) { [unowned self] result in
+            self.hidePromptInformation()
+            switch result {
+            case .success(let tid):
+                self.showPromptInformation(of: .success("发送成功!"))
+                delay(seconds: 0.25) {
+                    self.presentingViewController?.dismiss(animated: true) {
+                        URLDispatchManager.shared.linkActived("https://www.hi-pda.com/forum/viewthread.php?tid=\(tid)&extra=page%3D1")
+                    }
+                }
+            case .failure(let error):
+                self.showPromptInformation(of: .failure(error.description))
+            }
+        }
+    }
+    
+    fileprivate func replyPost(fid: Int, tid: Int) {
+        let content = contentTextView.text ?? ""
+        viewModel.replyPost(fid: fid, tid: tid, content: skinContent(content)) { [unowned self] result in
+            self.hidePromptInformation()
+            switch result {
+            case .success(_):
+                self.showPromptInformation(of: .success("发送成功!"))
+                delay(seconds: 0.25) {
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let error):
+                self.showPromptInformation(of: .failure(error.description))
+            }
+        }
     }
 }
 

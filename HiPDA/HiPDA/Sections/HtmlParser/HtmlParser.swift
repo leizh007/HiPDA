@@ -240,4 +240,12 @@ struct HtmlParser {
         }
         return result[1]
     }
+    
+    static func fid(from html: String) throws -> Int {
+        let result = try Regex.firstMatch(in: html, of: "post\\.php\\?action=reply[^f]+fid=(\\d+)[^t]+tid=\\d+")
+        guard result.count == 2, let fid = Int(result[1]) else {
+            throw HtmlParserError.unKnown("获取fid失败")
+        }
+        return fid
+    }
 }

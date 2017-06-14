@@ -17,6 +17,7 @@ extension HiPDA {
         case redirect(String)
         case newThread(fid: Int, typeid: Int, title: String, content: String, formhash: String)
         case formhash(String)
+        case replyPost(fid: Int, tid: Int, content: String, formhash: String)
     }
 }
 
@@ -43,6 +44,8 @@ extension HiPDA.API: TargetType {
             return "/forum/post.php?action=newthread&fid=\(fid)&extra=&topicsubmit=yes"
         case let .formhash(url):
             return url
+        case let .replyPost(fid: fid, tid: tid, content: _, formhash: _):
+            return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&extra=&replysubmit=yes"
         }
     }
     var method: Moya.Method {
@@ -59,6 +62,8 @@ extension HiPDA.API: TargetType {
             return .post
         case .formhash(_):
             return .get
+        case .replyPost(_):
+            return .post
         }
     }
     var parameters: [String : Any]? {
@@ -90,6 +95,13 @@ extension HiPDA.API: TargetType {
             ]
         case .formhash(_):
             return nil
+        case let .replyPost(fid: _, tid: _, content: content, formhash: formhash):
+            return [
+                "formhash": formhash,
+                "posttime": Int(Date().timeIntervalSince1970),
+                "wysiwyg": 1,
+                "message": content
+            ]
         }
     }
     var parameterEncoding: ParameterEncoding {

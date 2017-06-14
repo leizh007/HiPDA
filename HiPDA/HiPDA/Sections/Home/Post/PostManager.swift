@@ -15,10 +15,12 @@ typealias PostListFetchCompletion = (PostListResult) -> Void
 class PostManager {
     var pidSet = Set<Int>()
     var posts = [Post]()
+    var fid: Int? = nil
     fileprivate var disposeBag = DisposeBag()
     var postInfo: PostInfo {
         didSet {
             title = nil
+            fid = nil
         }
     }
     init(postInfo: PostInfo) {
@@ -84,6 +86,7 @@ class PostManager {
         var totalPage = self.totalPage
         var title = self.title
         let uid = postInfo.authorid
+        var fid = self.fid
         HiPDAProvider.request(.posts(postInfo))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .mapGBKString()
@@ -102,6 +105,7 @@ class PostManager {
                 } else {
                     title = nil
                 }
+                fid = try HtmlParser.fid(from: html)
             })
             .map(HtmlParser.posts(from:))
             .observeOn(MainScheduler.instance)
@@ -116,8 +120,10 @@ class PostManager {
                 case let .next(posts):
                     self.pidSet = Set(posts.map { $0.id })
                     self.posts = posts
+                    self.fid = fid
                     completion(.success((title: title, posts: posts)))
                 case let .error(error):
+                    self.fid = nil
                     let postsResultError: PostError = error is HtmlParserError ? .parseError(String(describing: error as! HtmlParserError)) : .unKnown(error.localizedDescription)
                     completion(.failure(postsResultError))
                 case .completed:

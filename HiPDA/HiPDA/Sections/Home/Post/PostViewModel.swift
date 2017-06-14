@@ -47,6 +47,10 @@ class PostViewModel {
         return !manager.pidSet.isEmpty
     }
     
+    var fid: Int? {
+        return manager.fid
+    }
+    
     func contains(pid: Int?) -> Bool {
         return pid == nil ? true : manager.pidSet.contains(pid!)
     }

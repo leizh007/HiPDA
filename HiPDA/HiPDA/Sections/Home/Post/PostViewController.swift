@@ -251,6 +251,15 @@ extension PostViewController {
     func replyButtonPressed() {
         postOperationViewController?.dismiss()
         postOperationViewController = nil
+        guard let fid = viewModel.fid else {
+            showPromptInformation(of: .failure("获取fid失败!"))
+            return
+        }
+        let vc = NewThreadViewController.load(from: .home)
+        vc.type = .replyPost(fid: fid, tid: viewModel.postInfo.tid)
+        let navi = UINavigationController(rootViewController: vc)
+        navi.transitioningDelegate = self
+        present(navi, animated: true, completion: nil)
     }
     
     func pageNumberButtonPressed() {

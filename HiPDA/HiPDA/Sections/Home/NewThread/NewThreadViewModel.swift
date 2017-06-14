@@ -66,4 +66,33 @@ class NewThreadViewModel {
             }
         }
     }
+    
+    func replyPost(fid: Int, tid: Int, content: String, completion: @escaping (NewTheadResult) -> Void) {
+        NetworkUtilities.formhash(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)") { [weak self] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let formhash):
+                HiPDAProvider.request(.replyPost(fid: fid, tid: tid, content: content, formhash: formhash))
+                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+                    .mapGBKString()
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { event in
+                        switch event {
+                        case .next(let html):
+                            if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: html) {
+                                completion(.failure(.unKnown(errorMessage)))
+                            } else {
+                                completion(.success(0))
+                            }
+                        case .error(let error):
+                            completion(.failure(.unKnown(error.localizedDescription)))
+                        default:
+                            break
+                        }
+                    }.disposed(by: self.disposeBag)
+            case .failure(let error):
+                completion(.failure(.unKnown(error.localizedDescription)))
+            }
+        }
+    }
 }
