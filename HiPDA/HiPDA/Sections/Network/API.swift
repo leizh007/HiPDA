@@ -20,6 +20,7 @@ extension HiPDA {
         case replyPost(fid: Int, tid: Int, content: String, formhash: String)
         case html(String)
         case replyAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
+        case quoteAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
     }
 }
 
@@ -52,6 +53,8 @@ extension HiPDA.API: TargetType {
             return urlPath
         case let .replyAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _):
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)&extra=page%3D1&replysubmit=yes"
+        case let .quoteAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _):
+            return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&repquote=\(pid)&extra=page%3D1&replysubmit=yes"
         }
     }
     var method: Moya.Method {
@@ -73,6 +76,8 @@ extension HiPDA.API: TargetType {
         case .html(_):
             return .get
         case .replyAuthor(_):
+            return .post
+        case .quoteAuthor(_):
             return .post
         }
     }
@@ -115,6 +120,17 @@ extension HiPDA.API: TargetType {
         case .html(_):
             return nil
         case let .replyAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content):
+            return [
+                "formhash": formhash,
+                "posttime": Int(Date().timeIntervalSince1970),
+                "wysiwyg": 1,
+                "noticeauthor": noticeauthor,
+                "noticetrimstr": noticetrimstr,
+                "noticeauthormsg": noticeauthormsg,
+                "subject": "",
+                "message": content
+            ]
+        case let .quoteAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content):
             return [
                 "formhash": formhash,
                 "posttime": Int(Date().timeIntervalSince1970),

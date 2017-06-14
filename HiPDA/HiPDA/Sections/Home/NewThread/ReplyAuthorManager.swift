@@ -46,5 +46,4 @@ struct ReplyAuthorManager {
             }
         }
     }
-
 }

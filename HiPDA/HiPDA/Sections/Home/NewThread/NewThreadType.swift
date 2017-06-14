@@ -12,7 +12,7 @@ enum NewThreadType {
     case new(fid: Int)
     case replyPost(fid: Int, tid: Int)
     case replyAuthor(fid: Int, tid: Int, pid: Int)
-    case quote
+    case quote(fid: Int, tid: Int, pid: Int)
 }
 
 // MARK: - CustomStringConvertible

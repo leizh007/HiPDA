@@ -59,10 +59,10 @@ class NewThreadViewModel {
                 NewThreadManager.postNewThread(fid: fid, typeid: typeid, title: title, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyPost(fid: fid, tid: tid):
                 ReplyPostManager.replyPost(fid: fid, tid: tid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
-            case let  .replyAuthor(fid: fid, tid: tid, pid: pid):
+            case let .replyAuthor(fid: fid, tid: tid, pid: pid):
                 ReplyAuthorManager.replyAuthor(fid: fid, tid: tid, pid: pid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
-            default:
-                break
+            case let .quote(fid: fid, tid: tid, pid: pid):
+                QuoteAuthorManager.quoteAuthor(fid: fid, tid: tid, pid: pid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             }
         }).disposed(by: disposeBag)
     }
