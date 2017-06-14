@@ -214,6 +214,11 @@ extension NSNumber {
 
 extension String {
     var gbkEscaped: String {
-        return (self as NSString).gbkEscaped()
+        return (self as NSString).gbkEscaped() ?? self.characters.flatMap { character in
+            if let escaped = (String(character) as NSString).gbkEscaped() {
+                return escaped
+            }
+            return (String(character).unicodeScalars.map { "\\u{\(String($0.value, radix: 16, uppercase: false))}" }.reduce("", +) as NSString).gbkEscaped()
+        }.reduce("", +)
     }
 }

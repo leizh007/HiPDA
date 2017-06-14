@@ -10,6 +10,6 @@
 
 @interface NSString (HiPDA)
 
-- (NSString *)gbkEscaped;
+- (nullable NSString *)gbkEscaped;
 
 @end
