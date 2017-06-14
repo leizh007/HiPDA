@@ -53,85 +53,18 @@ class NewThreadViewModel {
         failure = PublishSubject<String>()
         let attribute = Driver.combineLatest(typeName, title, content) { (ForumManager.typeid(of: $0), $1, NewThreadViewModel.skinContent($2)) }
         sendButtonPresed.withLatestFrom(attribute).asObservable().subscribe(onNext: { [weak self] (typeid, title, content) in
+            guard let `self` = self else { return }
             switch type {
             case let .new(fid: fid):
-                self?.postNewThread(fid: fid, typeid: typeid, title: title, content: content)
+                NewThreadManager.postNewThread(fid: fid, typeid: typeid, title: title, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyPost(fid: fid, tid: tid):
-                self?.replyPost(fid: fid, tid: tid, content: content)
+                ReplyPostManager.replyPost(fid: fid, tid: tid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let  .replyAuthor(fid: fid, tid: tid, pid: pid):
-                self?.replyAuthor(fid: fid, tid: tid, pid: pid, content: content)
+                ReplyAuthorManager.replyAuthor(fid: fid, tid: tid, pid: pid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             default:
                 break
             }
         }).disposed(by: disposeBag)
-    }
-    
-    
-    fileprivate func postNewThread(fid: Int, typeid: Int, title: String, content: String) {
-        NetworkUtilities.formhash(from: "/forum/post.php?action=newthread&fid=\(fid)") { [weak self] result in
-            guard let `self` = self else { return }
-            switch result {
-            case .success(let formhash):
-                HiPDAProvider.request(.newThread(fid: fid, typeid: typeid, title: title, content: content, formhash: formhash))
-                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
-                    .mapGBKString()
-                    .observeOn(MainScheduler.instance)
-                    .subscribe { event in
-                        switch event {
-                        case .next(let html):
-                            self.handleNewThreadResult(html)
-                        case .error(let error):
-                            self.failure.onNext(error.localizedDescription)
-                        default:
-                            break
-                        }
-                    }.disposed(by: self.disposeBag)
-            case .failure(let error):
-                self.failure.onNext(error.localizedDescription)
-            }
-        }
-    }
-    
-    fileprivate func handleNewThreadResult(_ result: String) {
-        do {
-            let tid = try HtmlParser.tid(from: result)
-            success.onNext(tid)
-        } catch {
-            if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: result) {
-                failure.onNext(errorMessage)
-            } else {
-                failure.onNext(NewThreadError.cannotGetTid.description)
-            }
-        }
-    }
-    
-    fileprivate func replyPost(fid: Int, tid: Int, content: String) {
-        NetworkUtilities.formhash(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)") { [weak self] result in
-            guard let `self` = self else { return }
-            switch result {
-            case .success(let formhash):
-                HiPDAProvider.request(.replyPost(fid: fid, tid: tid, content: content, formhash: formhash))
-                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
-                    .mapGBKString()
-                    .observeOn(MainScheduler.instance)
-                    .subscribe { event in
-                        switch event {
-                        case .next(let html):
-                            if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: html) {
-                                self.failure.onNext(errorMessage)
-                            } else {
-                                self.success.onNext(tid)
-                            }
-                        case .error(let error):
-                            self.failure.onNext(error.localizedDescription)
-                        default:
-                            break
-                        }
-                    }.disposed(by: self.disposeBag)
-            case .failure(let error):
-                self.failure.onNext(error.localizedDescription)
-            }
-        }
     }
     
     fileprivate static func skinContent(_ content: String) -> String {
@@ -148,50 +81,12 @@ class NewThreadViewModel {
             return content
         }
     }
-    
-    fileprivate func replyAuthor(fid: Int, tid: Int, pid: Int, content: String) {
-        NetworkUtilities.html(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)") { [weak self] result in
-            guard let `self` = self else { return }
-            switch result {
-            case let .success(html):
-                do {
-                    let formhash = try NewThreadViewModel.value(for: "formhash", in: html)
-                    let noticeauthor = try NewThreadViewModel.value(for: "noticeauthor", in: html)
-                    let noticetrimstr = try NewThreadViewModel.value(for: "noticetrimstr", in: html)
-                    let noticeauthormsg = try NewThreadViewModel.value(for: "noticeauthormsg", in: html)
-                    let content = "\(noticetrimstr)\n\(content)"
-                    HiPDAProvider.request(.replyAuthor(fid: fid, tid: tid, pid: pid, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content))
-                        .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
-                        .mapGBKString()
-                        .observeOn(MainScheduler.instance)
-                        .subscribe { event in
-                            switch event {
-                            case .next(let html):
-                                if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: html) {
-                                    self.failure.onNext(errorMessage)
-                                } else {
-                                    self.success.onNext(tid)
-                                }
-                            case .error(let error):
-                                self.failure.onNext(error.localizedDescription)
-                            default:
-                                break
-                            }
-                        }.disposed(by: self.disposeBag)
-                } catch {
-                    self.failure.onNext(error.localizedDescription)
-                }
-            case let .failure(error):
-                self.failure.onNext(error.localizedDescription)
-            }
-        }
-    }
 }
 
 // MARK: - Utilities
 
 extension NewThreadViewModel {
-    static fileprivate func value(for key: String, in html: String) throws -> String {
+    static func value(for key: String, in html: String) throws -> String {
         let result = try Regex.firstMatch(in: html, of: "name=\\\"\(key)\\\"[\\s\\S]*?value=\\\"([\\s\\S]*?)\\\"\\s+\\/>")
         guard result.count == 2 else {
             throw NewThreadError.unKnown("无法获取\(key)")

@@ -84,6 +84,10 @@
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
 		0572261C1EF03ADC00397829 /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572261B1EF03ADC00397829 /* NetworkUtilities.swift */; };
 		0572261E1EF03C1200397829 /* NewThreadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572261D1EF03C1200397829 /* NewThreadViewModel.swift */; };
+		057226221EF1817B00397829 /* NewThreadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226211EF1817B00397829 /* NewThreadManager.swift */; };
+		057226241EF1818500397829 /* ReplyPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226231EF1818500397829 /* ReplyPostManager.swift */; };
+		057226261EF1818E00397829 /* ReplyAuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226251EF1818E00397829 /* ReplyAuthorManager.swift */; };
+		057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226271EF1819700397829 /* QuoteAuthorManager.swift */; };
 		0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */; };
 		0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */; };
 		0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */; };
@@ -349,6 +353,10 @@
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0572261B1EF03ADC00397829 /* NetworkUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
 		0572261D1EF03C1200397829 /* NewThreadViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadViewModel.swift; sourceTree = "<group>"; };
+		057226211EF1817B00397829 /* NewThreadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadManager.swift; sourceTree = "<group>"; };
+		057226231EF1818500397829 /* ReplyPostManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyPostManager.swift; sourceTree = "<group>"; };
+		057226251EF1818E00397829 /* ReplyAuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyAuthorManager.swift; sourceTree = "<group>"; };
+		057226271EF1819700397829 /* QuoteAuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteAuthorManager.swift; sourceTree = "<group>"; };
 		0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDispatchManager.swift; sourceTree = "<group>"; };
 		0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+HiPDA.swift"; sourceTree = "<group>"; };
@@ -1094,6 +1102,10 @@
 				05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */,
 				0572261D1EF03C1200397829 /* NewThreadViewModel.swift */,
 				050C940D1EEA399800FBD18F /* NewThreadType.swift */,
+				057226211EF1817B00397829 /* NewThreadManager.swift */,
+				057226231EF1818500397829 /* ReplyPostManager.swift */,
+				057226251EF1818E00397829 /* ReplyAuthorManager.swift */,
+				057226271EF1819700397829 /* QuoteAuthorManager.swift */,
 			);
 			path = NewThread;
 			sourceTree = "<group>";
@@ -1620,8 +1632,10 @@
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
+				057226221EF1817B00397829 /* NewThreadManager.swift in Sources */,
 				05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */,
 				0533F1FD1EE5939700DB854B /* HiPDA.swift in Sources */,
+				057226241EF1818500397829 /* ReplyPostManager.swift in Sources */,
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
@@ -1656,6 +1670,7 @@
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
 				05068AF01E09696C0070E044 /* UserRemarkViewController.swift in Sources */,
+				057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */,
 				0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
@@ -1671,6 +1686,7 @@
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
 				0537AAF51EAF5D5C00A51721 /* HomeViewModel.swift in Sources */,
+				057226261EF1818E00397829 /* ReplyAuthorManager.swift in Sources */,
 				0527FA421EEEF24C00230290 /* EmoticonScrollView.swift in Sources */,
 				0527FA3E1EEEEE8F00230290 /* EmoticonCollectionViewCell.swift in Sources */,
 				05068AF41E096F2C0070E044 /* UserRemark.swift in Sources */,
