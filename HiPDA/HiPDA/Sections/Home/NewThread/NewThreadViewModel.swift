@@ -51,13 +51,15 @@ class NewThreadViewModel {
         }
         success = PublishSubject<Int>()
         failure = PublishSubject<String>()
-        let attribute = Driver.combineLatest(typeName, title, content) { (ForumManager.typeid(of: $0), $1, $2) }
+        let attribute = Driver.combineLatest(typeName, title, content) { (ForumManager.typeid(of: $0), $1, NewThreadViewModel.skinContent($2)) }
         sendButtonPresed.withLatestFrom(attribute).asObservable().subscribe(onNext: { [weak self] (typeid, title, content) in
             switch type {
             case let .new(fid: fid):
                 self?.postNewThread(fid: fid, typeid: typeid, title: title, content: content)
             case let .replyPost(fid: fid, tid: tid):
                 self?.replyPost(fid: fid, tid: tid, content: content)
+            case let  .replyAuthor(fid: fid, tid: tid, pid: pid):
+                self?.replyAuthor(fid: fid, tid: tid, pid: pid, content: content)
             default:
                 break
             }
@@ -65,8 +67,7 @@ class NewThreadViewModel {
     }
     
     
-    func postNewThread(fid: Int, typeid: Int, title: String, content: String) {
-        let content = skinContent(content)
+    fileprivate func postNewThread(fid: Int, typeid: Int, title: String, content: String) {
         NetworkUtilities.formhash(from: "/forum/post.php?action=newthread&fid=\(fid)") { [weak self] result in
             guard let `self` = self else { return }
             switch result {
@@ -104,8 +105,7 @@ class NewThreadViewModel {
         }
     }
     
-    func replyPost(fid: Int, tid: Int, content: String) {
-        let content = skinContent(content)
+    fileprivate func replyPost(fid: Int, tid: Int, content: String) {
         NetworkUtilities.formhash(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)") { [weak self] result in
             guard let `self` = self else { return }
             switch result {
@@ -134,7 +134,7 @@ class NewThreadViewModel {
         }
     }
     
-    fileprivate func skinContent(_ content: String) -> String {
+    fileprivate static func skinContent(_ content: String) -> String {
         if Settings.shared.isEnabledTail {
             if let urlString = Settings.shared.tailURL?.absoluteString, !urlString.isEmpty {
                 let text = Settings.shared.tailText.isEmpty ? urlString : Settings.shared.tailText
@@ -147,5 +147,55 @@ class NewThreadViewModel {
         } else {
             return content
         }
+    }
+    
+    fileprivate func replyAuthor(fid: Int, tid: Int, pid: Int, content: String) {
+        NetworkUtilities.html(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)") { [weak self] result in
+            guard let `self` = self else { return }
+            switch result {
+            case let .success(html):
+                do {
+                    let formhash = try NewThreadViewModel.value(for: "formhash", in: html)
+                    let noticeauthor = try NewThreadViewModel.value(for: "noticeauthor", in: html)
+                    let noticetrimstr = try NewThreadViewModel.value(for: "noticetrimstr", in: html)
+                    let noticeauthormsg = try NewThreadViewModel.value(for: "noticeauthormsg", in: html)
+                    let content = "\(noticetrimstr)\n\(content)"
+                    HiPDAProvider.request(.replyAuthor(fid: fid, tid: tid, pid: pid, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content))
+                        .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+                        .mapGBKString()
+                        .observeOn(MainScheduler.instance)
+                        .subscribe { event in
+                            switch event {
+                            case .next(let html):
+                                if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: html) {
+                                    self.failure.onNext(errorMessage)
+                                } else {
+                                    self.success.onNext(tid)
+                                }
+                            case .error(let error):
+                                self.failure.onNext(error.localizedDescription)
+                            default:
+                                break
+                            }
+                        }.disposed(by: self.disposeBag)
+                } catch {
+                    self.failure.onNext(error.localizedDescription)
+                }
+            case let .failure(error):
+                self.failure.onNext(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: - Utilities
+
+extension NewThreadViewModel {
+    static fileprivate func value(for key: String, in html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "name=\\\"\(key)\\\"[\\s\\S]*?value=\\\"([\\s\\S]*?)\\\"\\s+\\/>")
+        guard result.count == 2 && !result[1].isEmpty else {
+            throw NewThreadError.unKnown("无法获取\(key)")
+        }
+        return result[1].trimmingCharacters(in: CharacterSet(charactersIn: "\n "))
     }
 }

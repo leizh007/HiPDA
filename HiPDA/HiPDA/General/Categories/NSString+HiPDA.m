@@ -13,10 +13,11 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (NSString *)gbkEscaped {
+    // http://www.cnblogs.com/meyers/archive/2012/04/26/2471669.html
     return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                  (__bridge CFStringRef)self,
                                                                                  NULL,
-                                                                                 NULL,
+                                                                                 CFSTR(":/?#[]@!$&’()*+,;="),
                                                                                  kCFStringEncodingGB_18030_2000);
 }
 #pragma clang diagnostic pop

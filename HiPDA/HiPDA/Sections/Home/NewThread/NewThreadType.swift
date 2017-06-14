@@ -11,7 +11,7 @@ import Foundation
 enum NewThreadType {
     case new(fid: Int)
     case replyPost(fid: Int, tid: Int)
-    case replyAuthor(fid: Int, tid: Int, pid: Int, user: User, floor: Int, postContent: String)
+    case replyAuthor(fid: Int, tid: Int, pid: Int)
     case quote
 }
 
@@ -24,8 +24,8 @@ extension NewThreadType: CustomStringConvertible {
             return "发表新帖"
         case .replyPost(_):
             return "回复"
-        case let .replyAuthor(fid: _, tid: _, pid: _, user: user, floor: _, postContent: _):
-            return "回复\(user.name)"
+        case .replyAuthor(_):
+            return "回复"
         case .quote:
             return "引用"
         }

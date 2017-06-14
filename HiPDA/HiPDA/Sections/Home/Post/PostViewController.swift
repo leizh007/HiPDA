@@ -408,7 +408,15 @@ extension PostViewController {
     fileprivate func postClicked(pid: Int, uid: Int) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "回复", style: .default) { _ in
-            
+            guard let fid = self.viewModel.fid else {
+                self.showPromptInformation(of: .failure("获取fid失败!"))
+                return
+            }
+            let vc = NewThreadViewController.load(from: .home)
+            vc.type = .replyAuthor(fid: fid, tid: self.viewModel.postInfo.tid, pid: pid)
+            let navi = UINavigationController(rootViewController: vc)
+            navi.transitioningDelegate = self
+            self.present(navi, animated: true, completion: nil)
         })
         actionSheet.addAction(UIAlertAction(title: "引用", style: .default) { _ in
             

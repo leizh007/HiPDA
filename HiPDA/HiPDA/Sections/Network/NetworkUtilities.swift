@@ -9,11 +9,11 @@
 import Foundation
 import RxSwift
 
-typealias FormhashResult = HiPDA.Result<String, NSError>
+typealias NetworkUtilitiesResult = HiPDA.Result<String, NSError>
 
 class NetworkUtilities {
     fileprivate static var disposeBag = DisposeBag()
-    static func formhash(from url: String, completion: @escaping (FormhashResult) -> Void = { _ in }) {
+    static func formhash(from url: String, completion: @escaping (NetworkUtilitiesResult) -> Void = { _ in }) {
         NetworkUtilities.disposeBag = DisposeBag()
         HiPDAProvider.request(.formhash(url))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
@@ -28,6 +28,26 @@ class NetworkUtilities {
                     } catch {
                         completion(.failure(error as NSError))
                     }
+                    break
+                case .error(let error):
+                    completion(.failure(error as NSError))
+                    break
+                default:
+                    break
+                }
+            }.disposed(by: NetworkUtilities.disposeBag)
+    }
+    
+    static func html(from urlPath: String, completion: @escaping (NetworkUtilitiesResult) -> Void = { _ in }) {
+        NetworkUtilities.disposeBag = DisposeBag()
+        HiPDAProvider.request(.html(urlPath))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .mapGBKString()
+            .observeOn(MainScheduler.instance)
+            .subscribe { event in
+                switch event {
+                case .next(let html):
+                    completion(.success(html))
                     break
                 case .error(let error):
                     completion(.failure(error as NSError))

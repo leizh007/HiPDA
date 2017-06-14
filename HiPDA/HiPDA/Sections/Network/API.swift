@@ -18,6 +18,8 @@ extension HiPDA {
         case newThread(fid: Int, typeid: Int, title: String, content: String, formhash: String)
         case formhash(String)
         case replyPost(fid: Int, tid: Int, content: String, formhash: String)
+        case html(String)
+        case replyAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
     }
 }
 
@@ -42,10 +44,14 @@ extension HiPDA.API: TargetType {
             return url
         case let .newThread(fid: fid, typeid: _, title: _, content: _, formhash: _):
             return "/forum/post.php?action=newthread&fid=\(fid)&extra=&topicsubmit=yes"
-        case let .formhash(url):
-            return url
+        case let .formhash(urlPath):
+            return urlPath
         case let .replyPost(fid: fid, tid: tid, content: _, formhash: _):
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&extra=&replysubmit=yes"
+        case let .html(urlPath):
+            return urlPath
+        case let .replyAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _):
+            return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)&extra=page%3D1&replysubmit=yes"
         }
     }
     var method: Moya.Method {
@@ -63,6 +69,10 @@ extension HiPDA.API: TargetType {
         case .formhash(_):
             return .get
         case .replyPost(_):
+            return .post
+        case .html(_):
+            return .get
+        case .replyAuthor(_):
             return .post
         }
     }
@@ -100,6 +110,19 @@ extension HiPDA.API: TargetType {
                 "formhash": formhash,
                 "posttime": Int(Date().timeIntervalSince1970),
                 "wysiwyg": 1,
+                "message": content
+            ]
+        case .html(_):
+            return nil
+        case let .replyAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content):
+            return [
+                "formhash": formhash,
+                "posttime": Int(Date().timeIntervalSince1970),
+                "wysiwyg": 1,
+                "noticeauthor": noticeauthor,
+                "noticetrimstr": noticetrimstr,
+                "noticeauthormsg": noticeauthormsg,
+                "subject": "",
                 "message": content
             ]
         }
