@@ -142,6 +142,7 @@ class NewThreadViewController: BaseViewController {
             self?.showPromptInformation(of: .failure(errorMesssage))
         }).disposed(by: disposeBag)
         viewModel.success.subscribe(onNext: { [unowned self] tid in
+            self.hidePromptInformation()
             self.showPromptInformation(of: .success("发送成功!"))
             delay(seconds: 0.25) {
                 self.presentingViewController?.dismiss(animated: true) {
