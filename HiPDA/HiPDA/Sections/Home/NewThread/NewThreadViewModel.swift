@@ -193,7 +193,7 @@ class NewThreadViewModel {
 extension NewThreadViewModel {
     static fileprivate func value(for key: String, in html: String) throws -> String {
         let result = try Regex.firstMatch(in: html, of: "name=\\\"\(key)\\\"[\\s\\S]*?value=\\\"([\\s\\S]*?)\\\"\\s+\\/>")
-        guard result.count == 2 && !result[1].isEmpty else {
+        guard result.count == 2 else {
             throw NewThreadError.unKnown("无法获取\(key)")
         }
         return result[1].trimmingCharacters(in: CharacterSet(charactersIn: "\n "))
