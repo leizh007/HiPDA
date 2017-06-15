@@ -21,6 +21,8 @@ extension HiPDA {
         case html(String)
         case replyAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
         case quoteAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
+        case addToFavorites(tid: Int)
+        case addToAttentions(tid: Int)
     }
 }
 
@@ -55,6 +57,10 @@ extension HiPDA.API: TargetType {
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)&extra=page%3D1&replysubmit=yes"
         case let .quoteAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _):
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&repquote=\(pid)&extra=page%3D1&replysubmit=yes"
+        case let .addToFavorites(tid: tid):
+            return "/forum/my.php?item=favorites&tid=\(tid)&inajax=1&ajaxtarget=favorite_msg"
+        case let .addToAttentions(tid: tid):
+            return "/forum/my.php?item=attention&action=add&tid=\(tid)&inajax=1&ajaxtarget=favorite_msg"
         }
     }
     var method: Moya.Method {
@@ -79,6 +85,10 @@ extension HiPDA.API: TargetType {
             return .post
         case .quoteAuthor(_):
             return .post
+        case .addToFavorites(_):
+            return .get
+        case .addToAttentions(_):
+            return .get
         }
     }
     var parameters: [String : Any]? {
@@ -141,6 +151,10 @@ extension HiPDA.API: TargetType {
                 "subject": "",
                 "message": content
             ]
+        case .addToFavorites(_):
+            return nil
+        case .addToAttentions(_):
+            return nil
         }
     }
     var parameterEncoding: ParameterEncoding {

@@ -9,6 +9,7 @@
 import Foundation
 import MJRefresh
 import SDWebImage
+import RxSwift
 
 typealias PostFetchCompletion = (PostResult) -> Void
 
@@ -22,6 +23,7 @@ enum PostViewStatus {
 
 /// view和model之间的桥梁
 class PostViewModel {
+    fileprivate var disposeBag = DisposeBag()
     var status = PostViewStatus.idle
     var postInfo: PostInfo! {
         set {
@@ -183,6 +185,77 @@ extension PostViewModel {
             DispatchQueue.main.async {
                 completion(.success(html))
             }
+        }
+    }
+}
+
+// MARK: - NetWork Request
+
+typealias FavoriteAndAttentionCompletion = (HiPDA.Result<String, FavoriteAndAttentionError>) -> Void
+
+extension PostViewModel {
+    func addToFavorites(completion: @escaping FavoriteAndAttentionCompletion) {
+        request(with: .addToFavorites(tid: postInfo.tid), completion: completion)
+    }
+    
+    func addToAttentions(completion: @escaping FavoriteAndAttentionCompletion) {
+        request(with: .addToAttentions(tid: postInfo.tid), completion: completion)
+    }
+    
+    fileprivate func request(with api: HiPDA.API, completion: @escaping FavoriteAndAttentionCompletion) {
+        disposeBag = DisposeBag()
+        HiPDAProvider.request(api)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .mapGBKString()
+            .observeOn(MainScheduler.instance).subscribe { event in
+                switch event {
+                case let .next(html):
+                    do {
+                        let msg = try PostViewModel.favoriteMessage(from: html)
+                        completion(.success(msg))
+                    } catch {
+                        completion(.failure(.unKnown(error.localizedDescription)))
+                    }
+                case let .error(error):
+                    completion(.failure(.unKnown(error.localizedDescription)))
+                default:
+                    break
+                }
+            }.disposed(by: disposeBag)
+    }
+    
+    fileprivate static func favoriteMessage(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "<root><!\\[CDATA\\[([^<]+)<br")
+        guard result.count == 2 && !result[1].isEmpty else { throw FavoriteAndAttentionError.unableToGetFavoriteMsg }
+        return result[1]
+    }
+}
+
+// MARK: - Error
+
+enum FavoriteAndAttentionError: Error {
+    case unableToGetFavoriteMsg
+    case unKnown(String)
+}
+
+extension FavoriteAndAttentionError: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .unableToGetFavoriteMsg:
+            return "获取返回结果出错"
+        case let .unKnown(value):
+            return value
+        }
+    }
+}
+
+extension FavoriteAndAttentionError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .unableToGetFavoriteMsg:
+            return "获取返回结果出错"
+        case let .unKnown(value):
+            return value
         }
     }
 }

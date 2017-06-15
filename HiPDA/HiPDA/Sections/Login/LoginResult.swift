@@ -63,4 +63,10 @@ extension LoginError: CustomStringConvertible {
     }
 }
 
+extension LoginError: LocalizedError {
+    var errorDescription: String? {
+        return description
+    }
+}
+
 typealias LoginResult = HiPDA.Result<Account, LoginError>

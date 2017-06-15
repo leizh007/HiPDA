@@ -30,6 +30,12 @@ extension NewThreadError: CustomStringConvertible {
     }
 }
 
+extension NewThreadError: LocalizedError {
+    var errorDescription: String? {
+        return description
+    }
+}
+
 typealias NewTheadResult = HiPDA.Result<Int, NewThreadError>
 
 class NewThreadViewModel {

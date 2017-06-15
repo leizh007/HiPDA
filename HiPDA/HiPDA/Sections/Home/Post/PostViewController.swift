@@ -311,13 +311,30 @@ extension PostViewController: PostOperationDelegate {
         postOperationViewController = nil
         switch operation {
         case .collection:
-            break
+            showPromptInformation(of: .loading("正在加入收藏夹..."))
+            viewModel.addToFavorites { [unowned self] result in
+                self.hidePromptInformation()
+                self.handleAddFavoriteAndAttentionResult(result)
+            }
         case .attention:
-            break
+            showPromptInformation(of: .loading("正在加入关注列表..."))
+            viewModel.addToAttentions { [unowned self] result in
+                self.hidePromptInformation()
+                self.handleAddFavoriteAndAttentionResult(result)
+            }
         case .top:
             bridge.callHandler("scrollToTop")
         case .bottom:
             bridge.callHandler("scrollToBottom")
+        }
+    }
+    
+    fileprivate func handleAddFavoriteAndAttentionResult(_ result: HiPDA.Result<String, FavoriteAndAttentionError>) {
+        switch result {
+        case let .success(msg):
+            showPromptInformation(of: .success(msg))
+        case let .failure(error):
+            showPromptInformation(of: .failure(error.localizedDescription))
         }
     }
 }

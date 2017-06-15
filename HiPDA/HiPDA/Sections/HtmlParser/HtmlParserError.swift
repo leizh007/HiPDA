@@ -35,3 +35,9 @@ extension HtmlParserError: CustomStringConvertible {
         }
     }
 }
+
+extension HtmlParserError: LocalizedError {
+    var errorDescription: String? {
+        return description
+    }
+}

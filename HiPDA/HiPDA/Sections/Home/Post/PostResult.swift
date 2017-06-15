@@ -26,5 +26,11 @@ extension PostError: CustomStringConvertible {
     }
 }
 
+extension PostError: LocalizedError {
+    var errorDescription: String? {
+        return description
+    }
+}
+
 typealias PostResult = HiPDA.Result<String, PostError>
 typealias PostListResult = HiPDA.Result<(title: String?, posts: [Post]), PostError>

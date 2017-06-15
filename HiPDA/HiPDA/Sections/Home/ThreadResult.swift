@@ -30,4 +30,10 @@ extension HiPDAThreadError: CustomStringConvertible {
     }
 }
 
+extension HiPDAThreadError: LocalizedError {
+    var errorDescription: String? {
+        return description
+    }
+}
+
 typealias HiPDAThreadsResult = HiPDA.Result<[HiPDA.Thread], HiPDAThreadError>

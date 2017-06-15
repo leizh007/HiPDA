@@ -29,6 +29,12 @@ extension NetworkError: CustomStringConvertible {
     }
 }
 
+extension NetworkError: LocalizedError {
+    var errorDescription: String? {
+        return description
+    }
+}
+
 public final class ErrorHandlePlugin: PluginType {
     public func process(_ result: Result<Moya.Response, MoyaError>, target: Moya.TargetType) -> Result<Moya.Response, MoyaError> {
         if case let .failure(requestError) = result,
