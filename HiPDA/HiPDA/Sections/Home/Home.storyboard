@@ -115,11 +115,11 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="J7Q-UY-WIs" firstAttribute="top" secondItem="mZs-0u-Cmy" secondAttribute="bottom" id="71w-gO-4d1"/>
                             <constraint firstItem="J7Q-UY-WIs" firstAttribute="leading" secondItem="e2n-zJ-QAC" secondAttribute="leading" id="FvX-Pr-yaV"/>
                             <constraint firstItem="2a5-KX-quw" firstAttribute="top" secondItem="J7Q-UY-WIs" secondAttribute="bottom" id="JLu-Kz-cy8"/>
+                            <constraint firstItem="J7Q-UY-WIs" firstAttribute="top" secondItem="e2n-zJ-QAC" secondAttribute="top" constant="64" id="RbZ-aT-tt4"/>
                             <constraint firstAttribute="trailing" secondItem="J7Q-UY-WIs" secondAttribute="trailing" id="ccM-sW-8Fo"/>
                         </constraints>
                     </view>
@@ -348,7 +348,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R7K-SU-s2G">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igk-ws-P5i">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
@@ -402,7 +402,7 @@
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-Vu-7Yq" customClass="YYTextView">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="602"/>
+                                        <rect key="frame" x="0.0" y="45" width="375" height="558"/>
                                     </scrollView>
                                 </subviews>
                             </stackView>
@@ -410,8 +410,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="R7K-SU-s2G" firstAttribute="leading" secondItem="gkn-1y-G6f" secondAttribute="leading" id="CBp-1d-osP"/>
-                            <constraint firstItem="R7K-SU-s2G" firstAttribute="top" secondItem="QbZ-gx-R6Q" secondAttribute="bottom" id="Gvp-9L-XlA"/>
                             <constraint firstAttribute="bottom" secondItem="R7K-SU-s2G" secondAttribute="bottom" id="KIa-kN-upb"/>
+                            <constraint firstItem="R7K-SU-s2G" firstAttribute="top" secondItem="gkn-1y-G6f" secondAttribute="top" constant="64" id="Y4B-fQ-Lyy"/>
                             <constraint firstAttribute="trailing" secondItem="R7K-SU-s2G" secondAttribute="trailing" id="rT9-jj-Lj1"/>
                         </constraints>
                     </view>

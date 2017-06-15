@@ -10,6 +10,7 @@ import UIKit
 import YYText
 import YYImage
 import RxSwift
+import Photos
 
 private enum Constant {
     static let classification = "分类"
@@ -199,7 +200,21 @@ extension NewThreadViewController {
     }
     
     func photoButtonPressed() {
-        
+        PHPhotoLibrary.checkPhotoLibraryPermission { status in
+            switch status {
+            case .denied:
+                fallthrough
+            case .notDetermined:
+                fallthrough
+            case .restricted:
+                self.showPromptInformation(of: .failure("已拒绝相册的访问申请，请到设置中开启相册的访问权限！"))
+            case .authorized:
+                let vc = ImagePickerViewController.load(from: .views)
+                let navi = UINavigationController(rootViewController: vc)
+                navi.transitioningDelegate = self
+                self.present(navi, animated: true, completion: nil)
+            }
+        }
     }
     
     func emojiButtonPressed(_ sender: UIBarButtonItem) {

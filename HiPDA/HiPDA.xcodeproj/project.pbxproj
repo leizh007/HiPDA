@@ -33,6 +33,7 @@
 		050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */; };
 		051761C51ED886A8007951DE /* URL+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051761C41ED886A8007951DE /* URL+HiPDA.swift */; };
 		051761C71ED88912007951DE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051761C61ED88912007951DE /* SafariServices.framework */; };
+		051BFDD11EF2DAF700EA77EB /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BFDD01EF2DAF700EA77EB /* ImagePickerViewController.swift */; };
 		051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996A21D50DB4500057CF6 /* Serializable.swift */; };
 		051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AA1E7E5F6D0049D31E /* AccountManagementViewModel.swift */; };
 		051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */; };
@@ -300,6 +301,7 @@
 		050EE32F1DD3680C00C4B18D /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		051761C41ED886A8007951DE /* URL+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+HiPDA.swift"; sourceTree = "<group>"; };
 		051761C61ED88912007951DE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		051BFDD01EF2DAF700EA77EB /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		051F41AA1E7E5F6D0049D31E /* AccountManagementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementViewModel.swift; path = AccountManagement/AccountManagementViewModel.swift; sourceTree = "<group>"; };
 		051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementCommand.swift; path = AccountManagement/AccountManagementCommand.swift; sourceTree = "<group>"; };
 		051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementItemtype.swift; path = AccountManagement/AccountManagementItemtype.swift; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 				0527FA3F1EEEEEA200230290 /* Emoticon.swift */,
 				0527FA411EEEF24C00230290 /* EmoticonScrollView.swift */,
 				0527FA431EEEFCD200230290 /* EmoticonHelper.swift */,
+				051BFDD01EF2DAF700EA77EB /* ImagePickerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1690,6 +1693,7 @@
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,
 				05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */,
+				051BFDD11EF2DAF700EA77EB /* ImagePickerViewController.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,

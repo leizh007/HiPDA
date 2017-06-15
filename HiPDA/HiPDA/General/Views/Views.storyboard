@@ -331,6 +331,24 @@
             </objects>
             <point key="canvasLocation" x="-226.40000000000001" y="1150.9745127436283"/>
         </scene>
+        <!--Image Picker View Controller-->
+        <scene sceneID="kt0-VC-EKn">
+            <objects>
+                <viewController storyboardIdentifier="ImagePickerViewController" id="1Va-qc-ycJ" customClass="ImagePickerViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RlM-1a-4VF"/>
+                        <viewControllerLayoutGuide type="bottom" id="UYQ-g5-CIM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bq6-N5-z80">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKy-bI-Q77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="587" y="1154"/>
+        </scene>
     </scenes>
     <resources>
         <image name="page_first" width="38" height="23"/>
