@@ -215,7 +215,10 @@ extension NSNumber {
 
 extension String {
     var gbkEscaped: String {
-        let str = characters.map { String($0).isSingleEmoji ? String($0).addingASCIIEntities : String($0) }.reduce("", +)
+        let str = characters.map { character in
+                let s = String(character)
+                return s.containsEmoji ? s.addingASCIIEntities : s
+            }.reduce("", +)
         return (str as NSString).gbkEscaped() ?? str.characters.flatMap { (String($0) as NSString).gbkEscaped() }.reduce("", +)
     }
 }
