@@ -88,6 +88,7 @@
 		057226241EF1818500397829 /* ReplyPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226231EF1818500397829 /* ReplyPostManager.swift */; };
 		057226261EF1818E00397829 /* ReplyAuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226251EF1818E00397829 /* ReplyAuthorManager.swift */; };
 		057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226271EF1819700397829 /* QuoteAuthorManager.swift */; };
+		057226371EF223AB00397829 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226361EF223AB00397829 /* String+Emoji.swift */; };
 		0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */; };
 		0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */; };
 		0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */; };
@@ -357,6 +358,7 @@
 		057226231EF1818500397829 /* ReplyPostManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyPostManager.swift; sourceTree = "<group>"; };
 		057226251EF1818E00397829 /* ReplyAuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyAuthorManager.swift; sourceTree = "<group>"; };
 		057226271EF1819700397829 /* QuoteAuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteAuthorManager.swift; sourceTree = "<group>"; };
+		057226361EF223AB00397829 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 		0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDispatchManager.swift; sourceTree = "<group>"; };
 		0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+HiPDA.swift"; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 				0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */,
 				0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */,
 				0589EB6B1DB525410055DBB9 /* String+HiPDA.swift */,
+				057226361EF223AB00397829 /* String+Emoji.swift */,
 				05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */,
 				05BBBBC21E8026F700C6E0D3 /* NSString+HiPDA.h */,
 				05BBBBC31E8026F700C6E0D3 /* NSString+HiPDA.m */,
@@ -1569,6 +1572,7 @@
 				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
 				05EE515D1EC9FCBF00BC81B4 /* PostRequestInfo.swift in Sources */,
 				059D495F1EBB1D2900BECA18 /* ThreadResult.swift in Sources */,
+				057226371EF223AB00397829 /* String+Emoji.swift in Sources */,
 				051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */,
 				05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */,
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,

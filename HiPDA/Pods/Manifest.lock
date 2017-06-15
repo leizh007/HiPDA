@@ -12,6 +12,7 @@ PODS:
   - FLAnimatedImage (1.0.12)
   - FLEX (2.4.0)
   - HandyJSON (1.6.0)
+  - HTMLString (3.0.0)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - MLeaksFinder (0.2.1):
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - Fabric
   - FLEX
   - HandyJSON (~> 1.6)
+  - HTMLString (~> 3.0.0)
   - MBProgressHUD
   - MJRefresh (~> 3.1.12)
   - MLeaksFinder
@@ -103,6 +105,7 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   HandyJSON: 573a148e2c649d108a8d6fbee1874c5c2d0822ca
+  HTMLString: 57f421a65b10c4eba75a16c329d1cc82a2167ab3
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
@@ -124,6 +127,6 @@ SPEC CHECKSUMS:
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 5f90816e19bc9e2710735459daedaacd424952cc
+PODFILE CHECKSUM: 928fd3eae60d29a8cf8137825aa89cb4de385ed6
 
 COCOAPODS: 1.2.0

@@ -57,7 +57,8 @@ target 'HiPDA' do
   pod 'MJRefresh', '~> 3.1.12'
   pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
   pod 'WebViewJavascriptBridge', '~> 6.0.2'
-    
+  pod 'HTMLString', '~> 3.0.0'
+
   target 'HiPDATests' do
     inherit! :search_paths
     # Pods for testing
