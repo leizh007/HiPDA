@@ -89,6 +89,7 @@
 		057226261EF1818E00397829 /* ReplyAuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226251EF1818E00397829 /* ReplyAuthorManager.swift */; };
 		057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226271EF1819700397829 /* QuoteAuthorManager.swift */; };
 		057226371EF223AB00397829 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226361EF223AB00397829 /* String+Emoji.swift */; };
+		057226391EF2987000397829 /* PHPhotoLibrary+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057226381EF2987000397829 /* PHPhotoLibrary+HiPDA.swift */; };
 		0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */; };
 		0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */; };
 		0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */; };
@@ -359,6 +360,7 @@
 		057226251EF1818E00397829 /* ReplyAuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyAuthorManager.swift; sourceTree = "<group>"; };
 		057226271EF1819700397829 /* QuoteAuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteAuthorManager.swift; sourceTree = "<group>"; };
 		057226361EF223AB00397829 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
+		057226381EF2987000397829 /* PHPhotoLibrary+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+HiPDA.swift"; sourceTree = "<group>"; };
 		0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDispatchManager.swift; sourceTree = "<group>"; };
 		0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+HiPDA.swift"; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 				059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */,
 				0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */,
 				0533F1EF1EE4186A00DB854B /* UITabBarController+HiPDA.swift */,
+				057226381EF2987000397829 /* PHPhotoLibrary+HiPDA.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1681,6 +1684,7 @@
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
+				057226391EF2987000397829 /* PHPhotoLibrary+HiPDA.swift in Sources */,
 				050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,

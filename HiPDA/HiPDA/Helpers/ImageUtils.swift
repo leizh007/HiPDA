@@ -34,17 +34,28 @@ class ImageUtils {
                 return
             }
             let fileURL = URL(fileURLWithPath: url)
-            PHPhotoLibrary.shared().performChanges({ 
-                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: fileURL)
-            }, completionHandler: { (success, error) in
-                DispatchQueue.main.async {
-                    if let error = error {
-                        completion(.failure(error as NSError))
-                    } else {
-                        completion(.success(""))
-                    }
+            PHPhotoLibrary.checkPhotoLibraryPermission { status in
+                switch status {
+                case .denied:
+                    fallthrough
+                case .restricted:
+                    fallthrough
+                case .notDetermined:
+                    completion(.failure(ImageUtils.error(with: "已拒绝相册的访问申请，请到设置中开启相册的访问权限！")))
+                case .authorized:
+                    PHPhotoLibrary.shared().performChanges({
+                        PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: fileURL)
+                    }, completionHandler: { (success, error) in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                completion(.failure(error as NSError))
+                            } else {
+                                completion(.success(""))
+                            }
+                        }
+                    })
                 }
-            })
+            }
         })
     }
     
@@ -73,5 +84,9 @@ class ImageUtils {
             return nil
         }
         return feature.messageString
+    }
+    
+    fileprivate static func error(with localizedDescription: String) -> NSError {
+        return NSError(domain: "HiPDA-Image", code: -1, userInfo: [NSLocalizedDescriptionKey: localizedDescription])
     }
 }
