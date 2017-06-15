@@ -242,14 +242,14 @@ function addOnClickToImage(image) {
     if (isEmoji(src)) {
         return;
     }
-    var longpress = 800;
+    var longpress = 500;
     var intervalID = 0;
     var start = 0;
     var moved = false;
     image.ontouchstart = function (e) {
         e.stopPropagation();
         start = new Date().getTime();
-        moved = false
+        moved = false;
         intervalID = window.setInterval(
             function () {
                 window.clearInterval(intervalID);
