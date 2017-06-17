@@ -38,6 +38,7 @@ class AccountManagementViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+        tabBarController?.tabBar.isHidden = true
     }
     
     func editButtonPressed(sender: UIBarButtonItem) {

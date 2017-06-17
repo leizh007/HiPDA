@@ -342,15 +342,49 @@
                     <view key="view" contentMode="scaleToFill" id="bq6-N5-z80">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfV-o7-BIU">
+                                <rect key="frame" x="38" y="607" width="299" height="44"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-GO-GQO">
+                                        <rect key="frame" x="0.0" y="8" width="259" height="29"/>
+                                        <segments>
+                                            <segment title="~200KB"/>
+                                            <segment title="~400KB"/>
+                                            <segment title="~800KB"/>
+                                            <segment title="无损"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.1137254902" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bef-1n-Sgg">
+                                        <rect key="frame" x="275" y="10" width="24" height="24"/>
+                                        <state key="normal" image="detail_disclosure"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aVi-GO-GQO" firstAttribute="centerY" secondItem="sfV-o7-BIU" secondAttribute="centerY" id="JMy-PP-2zO"/>
+                                    <constraint firstAttribute="height" constant="44" id="KXu-Gl-fHa"/>
+                                    <constraint firstItem="bef-1n-Sgg" firstAttribute="centerY" secondItem="sfV-o7-BIU" secondAttribute="centerY" id="UFa-wW-sfE"/>
+                                    <constraint firstItem="bef-1n-Sgg" firstAttribute="leading" secondItem="aVi-GO-GQO" secondAttribute="trailing" constant="16" id="amY-ON-gsC"/>
+                                    <constraint firstAttribute="trailing" secondItem="bef-1n-Sgg" secondAttribute="trailing" id="qHf-5I-lHF"/>
+                                    <constraint firstItem="aVi-GO-GQO" firstAttribute="leading" secondItem="sfV-o7-BIU" secondAttribute="leading" id="whf-TB-x8Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="UYQ-g5-CIM" firstAttribute="top" secondItem="sfV-o7-BIU" secondAttribute="bottom" constant="16" id="J0G-ai-SpL"/>
+                            <constraint firstItem="sfV-o7-BIU" firstAttribute="centerX" secondItem="bq6-N5-z80" secondAttribute="centerX" id="Qci-fa-EU6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKy-bI-Q77" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="587" y="1154"/>
+            <point key="canvasLocation" x="586.39999999999998" y="1153.6731634182909"/>
         </scene>
     </scenes>
     <resources>
+        <image name="detail_disclosure" width="24" height="24"/>
         <image name="page_first" width="38" height="23"/>
         <image name="page_last" width="38" height="23"/>
         <image name="page_next" width="19" height="23"/>

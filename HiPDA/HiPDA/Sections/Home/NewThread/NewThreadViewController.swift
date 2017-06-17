@@ -91,6 +91,8 @@ class NewThreadViewController: BaseViewController {
         
         if titleContainerView.isHidden {
             contentTextView.becomeFirstResponder()
+        } else if let textView = activeTextView {
+            textView.becomeFirstResponder()
         } else {
             titleTextView.becomeFirstResponder()
         }
@@ -263,6 +265,11 @@ extension NewThreadViewController: StoryboardLoadable {}
 // MARK: - YYTextViewDelegate
 
 extension NewThreadViewController: YYTextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: YYTextView) -> Bool {
+        activeTextView = textView
+        return true
+    }
+    
     func textView(_ textView: YYTextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard textView == titleTextView else { return true }
         if text == "\n" && textView == titleTextView {
