@@ -202,6 +202,7 @@ extension NewThreadViewController {
     }
     
     func photoButtonPressed() {
+        view.endEditing(true)
         PHPhotoLibrary.checkPhotoLibraryPermission { status in
             switch status {
             case .denied:
