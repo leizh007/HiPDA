@@ -33,11 +33,15 @@ class ImagePickerViewModel {
 // MARK: - UICollectionViewDataSource Related
 
 extension ImagePickerViewModel {
+    func getAssets() -> [ImageAsset] {
+        return dataSource.assets
+    }
+    
     func numberOfItems() -> Int {
-        return dataSource.assets.count
+        return dataSource.assets.count + 1
     }
     
     func asset(at index: Int) -> ImageAsset {
-        return dataSource.assets[index]
+        return dataSource.assets[index - 1]
     }
 }

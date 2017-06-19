@@ -203,19 +203,14 @@ extension NewThreadViewController {
     
     func photoButtonPressed() {
         view.endEditing(true)
-        PHPhotoLibrary.checkPhotoLibraryPermission { status in
-            switch status {
-            case .denied:
-                fallthrough
-            case .notDetermined:
-                fallthrough
-            case .restricted:
-                self.showPromptInformation(of: .failure("已拒绝相册的访问申请，请到设置中开启相册的访问权限！"))
-            case .authorized:
+        PHPhotoLibrary.checkPhotoLibraryPermission { granted in
+            if granted {
                 let vc = ImagePickerViewController.load(from: .views)
                 let navi = UINavigationController(rootViewController: vc)
                 navi.transitioningDelegate = self
                 self.present(navi, animated: true, completion: nil)
+            } else {
+                self.showPromptInformation(of: .failure("已拒绝相册的访问申请，请到设置中开启相册的访问权限！"))
             }
         }
     }

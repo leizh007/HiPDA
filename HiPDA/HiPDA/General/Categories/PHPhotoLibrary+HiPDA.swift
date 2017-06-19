@@ -10,28 +10,28 @@ import Foundation
 import Photos
 
 extension PHPhotoLibrary {
-    static func checkPhotoLibraryPermission(completion: @escaping (PHAuthorizationStatus) -> Void) {
+    static func checkPhotoLibraryPermission(completion: @escaping (Bool) -> Void) {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
         case .authorized:
-            completion(.authorized)
+            completion(true)
         case .denied:
-            completion(.denied)
+            completion(false)
         case .restricted:
-            completion(.restricted)
+            completion(false)
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization { status in
                 DispatchQueue.main.async {
                     switch status {
                     case .authorized:
-                        completion(.authorized)
+                        completion(true)
                     case .denied:
-                        completion(.denied)
+                        completion(false)
                     case .restricted:
-                        completion(.restricted)
+                        completion(false)
                     case .notDetermined:
                         // won't happen but still
-                        completion(.denied)
+                        completion(false)
                     }
                 }
             }

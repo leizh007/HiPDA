@@ -381,7 +381,7 @@
                                 <color key="tintColor" red="0.1137254902" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.14507749676704407" green="0.1451098620891571" blue="0.14507544040679932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QXH-lh-4OS" secondAttribute="trailing" id="Icl-sN-M6u"/>
                             <constraint firstItem="UYQ-g5-CIM" firstAttribute="top" secondItem="QXH-lh-4OS" secondAttribute="bottom" id="YtB-q5-xht"/>

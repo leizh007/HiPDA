@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import Photos
+import AVFoundation
+import MobileCoreServices
+
+private enum Constant {
+    static let cameraIndex = 0
+}
 
 class ImagePickerViewController: BaseViewController {
     fileprivate var viewModel: ImagePickerViewModel!
@@ -21,6 +28,22 @@ class ImagePickerViewController: BaseViewController {
         segmentedControl.selectedSegmentIndex = ImageCompressType.original.rawValue
         skinViewModel()
         skinCollectionView()
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive(_:)), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func didBecomeActive(_ notification: Notification) {
+        viewModel.loadAssets()
+        let allAssets = viewModel.getAssets()
+        for asset in imageAsstesCollection.getAssets() {
+            if !allAssets.contains(asset) {
+                imageAsstesCollection.remove(asset)
+            }
+        }
+        collectionView.reloadData()
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -44,6 +67,7 @@ class ImagePickerViewController: BaseViewController {
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: C.UI.screenWidth, height: C.UI.screenHeight - 113.0), collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.register(ImagePickerCollectionViewCell.self)
+        collectionView.register(ImagePickerCameraCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
@@ -68,6 +92,10 @@ class ImagePickerViewController: BaseViewController {
 
 extension ImagePickerViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row != Constant.cameraIndex else {
+            camereCellPressed()
+            return
+        }
         let asset = viewModel.asset(at: indexPath.row)
         if asset.isDownloading {
             asset.cancelDownloading()
@@ -99,10 +127,20 @@ extension ImagePickerViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as ImagePickerCollectionViewCell
-        cell.asset = viewModel.asset(at: indexPath.row)
-        cell.assetsCollection = imageAsstesCollection
-        cell.updateState()
+        let cell: UICollectionViewCell
+        switch indexPath.row {
+        case Constant.cameraIndex:
+            let cameraCell = collectionView.dequeueReusableCell(for: indexPath) as ImagePickerCameraCollectionViewCell
+            cameraCell.image = #imageLiteral(resourceName: "image_selector_camera")
+            cell = cameraCell
+        default:
+            let imageCell = collectionView.dequeueReusableCell(for: indexPath) as ImagePickerCollectionViewCell
+            imageCell.asset = viewModel.asset(at: indexPath.row)
+            imageCell.assetsCollection = imageAsstesCollection
+            imageCell.imageView.contentMode = .scaleAspectFill
+            imageCell.updateState()
+            cell = imageCell
+        }
         
         return cell
     }
@@ -118,6 +156,63 @@ extension ImagePickerViewController {
     func confirm() {
         
     }
+    
+    func camereCellPressed() {
+        AVCaptureDevice.checkCameraPermission { [weak self] granted in
+            if granted {
+                self?.showCameraPicker()
+            } else {
+                self?.showPromptInformation(of: .failure("已拒绝相机的访问申请，请到设置中开启相机的访问权限！"))
+            }
+        }
+    }
+    
+    fileprivate func showCameraPicker() {
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.sourceType = .camera
+        cameraPicker.mediaTypes = [kUTTypeImage as String]
+        cameraPicker.delegate = self
+        present(cameraPicker, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension ImagePickerViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            var localId: String?
+            PHPhotoLibrary.shared().performChanges({
+                let request = PHAssetChangeRequest.creationRequestForAsset(from: image)
+                localId = request.placeholderForCreatedAsset?.localIdentifier
+            }, completionHandler: { (success, error) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self.showPromptInformation(of: .failure(error.localizedDescription))
+                    } else if let localId = localId {
+                        let result = PHAsset.fetchAssets(withLocalIdentifiers: [localId], options: nil)
+                        if let _ = result.objects(at: IndexSet(integersIn: 0..<result.count)).first {
+                            self.viewModel.loadAssets()
+                            self.collectionView.reloadData()
+                            self.collectionView(self.collectionView, didSelectItemAt: IndexPath(row: 1, section: 0))
+                        } else {
+                            self.showPromptInformation(of: .failure("获取保存后的图片出错!"))
+                        }
+                    }
+                }
+            })
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+
+extension ImagePickerViewController: UINavigationControllerDelegate {
 }
 
 // MARK: - StoryboardLoadable

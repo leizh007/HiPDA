@@ -40,7 +40,10 @@ class ImagePickerCollectionViewCell: UICollectionViewCell {
     }
     
     func updateState() {
-        guard let asset = asset, let assetsCollection = assetsCollection else { return }
+        guard let asset = asset, let assetsCollection = assetsCollection else {
+            stateIndicator.clearState()
+            return
+        }
         stateIndicator.isDownloading = asset.isDownloading
         stateIndicator.downloadProgress = asset.downloadPercent
         if let index = assetsCollection.index(of: asset) {
@@ -58,6 +61,7 @@ class ImagePickerCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(stateIndicator)
+        contentView.backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {

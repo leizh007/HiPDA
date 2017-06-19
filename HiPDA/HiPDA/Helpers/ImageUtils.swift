@@ -36,15 +36,8 @@ class ImageUtils {
                 completion(.failure(error  as NSError))
                 return
             }
-            PHPhotoLibrary.checkPhotoLibraryPermission { status in
-                switch status {
-                case .denied:
-                    fallthrough
-                case .restricted:
-                    fallthrough
-                case .notDetermined:
-                    completion(.failure(ImageUtils.error(with: "已拒绝相册的访问申请，请到设置中开启相册的访问权限！")))
-                case .authorized:
+            PHPhotoLibrary.checkPhotoLibraryPermission { granted in
+                if granted {
                     PHPhotoLibrary.shared().performChanges({
                         // http://www.guanggua.com/question/40370773-how-to-save-gifs-with-the-phphotolibrary.html
                         PHAssetCreationRequest.forAsset().addResource(with: .photo, data: data, options: nil)
@@ -57,6 +50,8 @@ class ImageUtils {
                             }
                         }
                     })
+                } else {
+                    completion(.failure(ImageUtils.error(with: "已拒绝相册的访问申请，请到设置中开启相册的访问权限！")))
                 }
             }
         })
