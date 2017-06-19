@@ -47,7 +47,7 @@
 		051BFE0A1EF58F8300EA77EB /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BFE051EF58F8300EA77EB /* ImagePickerViewModel.swift */; };
 		051BFE0B1EF590D000EA77EB /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1BC331EDAAA9900920267 /* ImageBrowserViewController.swift */; };
 		051BFE0C1EF590D000EA77EB /* ImageBrowserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1BC351EDBE98100920267 /* ImageBrowserCollectionViewCell.swift */; };
-		051BFE0E1EF5A30300EA77EB /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BFE0D1EF5A30300EA77EB /* ImageCollection.swift */; };
+		051BFE0E1EF5A30300EA77EB /* ImageAssetsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BFE0D1EF5A30300EA77EB /* ImageAssetsCollection.swift */; };
 		051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051BFE0F1EF6D11200EA77EB /* ImageSelectorStateIndicator.swift */; };
 		051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996A21D50DB4500057CF6 /* Serializable.swift */; };
 		051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AA1E7E5F6D0049D31E /* AccountManagementViewModel.swift */; };
@@ -322,7 +322,7 @@
 		051BFE031EF58F8300EA77EB /* ImagePickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerDataSource.swift; sourceTree = "<group>"; };
 		051BFE041EF58F8300EA77EB /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		051BFE051EF58F8300EA77EB /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
-		051BFE0D1EF5A30300EA77EB /* ImageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
+		051BFE0D1EF5A30300EA77EB /* ImageAssetsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAssetsCollection.swift; sourceTree = "<group>"; };
 		051BFE0F1EF6D11200EA77EB /* ImageSelectorStateIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectorStateIndicator.swift; sourceTree = "<group>"; };
 		051F41AA1E7E5F6D0049D31E /* AccountManagementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementViewModel.swift; path = AccountManagement/AccountManagementViewModel.swift; sourceTree = "<group>"; };
 		051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementCommand.swift; path = AccountManagement/AccountManagementCommand.swift; sourceTree = "<group>"; };
@@ -641,7 +641,7 @@
 				051BFE031EF58F8300EA77EB /* ImagePickerDataSource.swift */,
 				051BFE051EF58F8300EA77EB /* ImagePickerViewModel.swift */,
 				051BFE011EF58F8300EA77EB /* ImageAsset.swift */,
-				051BFE0D1EF5A30300EA77EB /* ImageCollection.swift */,
+				051BFE0D1EF5A30300EA77EB /* ImageAssetsCollection.swift */,
 				051BFE0F1EF6D11200EA77EB /* ImageSelectorStateIndicator.swift */,
 			);
 			path = ImagePicker;
@@ -1763,7 +1763,7 @@
 				05F2F7231E36FDFA00B25D16 /* ForumListViewController.swift in Sources */,
 				05F3DCDD1DB7B4CB0061CED1 /* HtmlParser.swift in Sources */,
 				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
-				051BFE0E1EF5A30300EA77EB /* ImageCollection.swift in Sources */,
+				051BFE0E1EF5A30300EA77EB /* ImageAssetsCollection.swift in Sources */,
 				051BFE0A1EF58F8300EA77EB /* ImagePickerViewModel.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				051BFE081EF58F8300EA77EB /* ImagePickerDataSource.swift in Sources */,

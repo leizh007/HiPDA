@@ -12,6 +12,7 @@ class ImagePickerViewController: BaseViewController {
     fileprivate var viewModel: ImagePickerViewModel!
     @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl!
     fileprivate var collectionView: UICollectionView!
+    fileprivate let imageAsstesCollection = ImageAssetsCollection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +67,23 @@ class ImagePickerViewController: BaseViewController {
 // MARK: - UICollectionViewDelegate
 
 extension ImagePickerViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return false
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let asset = viewModel.asset(at: indexPath.row)
+        if asset.isDownloading {
+            asset.cancelDownloading()
+        } else if imageAsstesCollection.has(asset) {
+            imageAsstesCollection.remove(asset)
+        } else {
+            asset.downloadAsset { [weak self, weak asset] result in
+                guard let `self` = self, let asset = asset else { return }
+                switch result {
+                case .success(_):
+                    self.imageAsstesCollection.add(asset)
+                case .failure(let error):
+                    self.showPromptInformation(of: .failure(error.localizedDescription))
+                }
+            }
+        }
     }
 }
 
@@ -85,6 +101,8 @@ extension ImagePickerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as ImagePickerCollectionViewCell
         cell.asset = viewModel.asset(at: indexPath.row)
+        cell.assetsCollection = imageAsstesCollection
+        cell.updateState()
         
         return cell
     }

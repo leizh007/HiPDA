@@ -13,4 +13,6 @@ extension Notification.Name {
     static let HomeViewControllerTabRepeatedSelected = Notification.Name(rawValue: "HomeViewControllerTabRepeatedSelected")
     
     static let ImageAssetDownloadProgress = Notification.Name(rawValue: "ImageAssetDownloadProgress")
+    
+    static let ImageAssetsCollectionDidChange = Notification.Name(rawValue: "ImageAssetsCollectionDidChange")
 }

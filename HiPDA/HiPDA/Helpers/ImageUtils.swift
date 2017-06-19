@@ -28,12 +28,14 @@ class ImageUtils {
     
     static func saveImage(url: String, completion: @escaping (ImageManipulationResult) -> Void) {
         SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil, completed: { (image, _, error, _, _, _) in
-            guard let _ = image, error == nil, let url = SDImageCache.shared().defaultCachePath(forKey: url) else {
+            guard let _ = image,
+                error == nil,
+                let url = SDImageCache.shared().defaultCachePath(forKey: url),
+                let data = try? Data(contentsOf: URL(fileURLWithPath: url)) else {
                 let error = error ?? NSError(domain: C.URL.HiPDA.image, code: -1, userInfo: nil)
                 completion(.failure(error  as NSError))
                 return
             }
-            let fileURL = URL(fileURLWithPath: url)
             PHPhotoLibrary.checkPhotoLibraryPermission { status in
                 switch status {
                 case .denied:
@@ -44,7 +46,8 @@ class ImageUtils {
                     completion(.failure(ImageUtils.error(with: "已拒绝相册的访问申请，请到设置中开启相册的访问权限！")))
                 case .authorized:
                     PHPhotoLibrary.shared().performChanges({
-                        PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: fileURL)
+                        // http://www.guanggua.com/question/40370773-how-to-save-gifs-with-the-phphotolibrary.html
+                        PHAssetCreationRequest.forAsset().addResource(with: .photo, data: data, options: nil)
                     }, completionHandler: { (success, error) in
                         DispatchQueue.main.async {
                             if let error = error {
