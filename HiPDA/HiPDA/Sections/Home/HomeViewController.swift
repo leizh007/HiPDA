@@ -326,6 +326,8 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.fd_heightForCell(withIdentifier: HomeThreadTableViewCell.reuseIdentifier, configuration: { [weak self] cell in
             guard let threadCell = cell as? HomeThreadTableViewCell else { return }
+            threadCell.justForHeightCaculation = true
+            threadCell.fd_enforceFrameLayout = true
             threadCell.threadModel = self?.viewModel.threadModel(at: indexPath.row)
         })
     }
@@ -379,6 +381,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as HomeThreadTableViewCell
+        cell.justForHeightCaculation = false
         cell.threadModel = self.viewModel.threadModel(at: indexPath.row)
         
         return cell
