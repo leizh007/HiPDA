@@ -108,6 +108,7 @@
 		0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */; };
 		0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */; };
 		0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */; };
+		057CA1421EF973C7003D2508 /* EmoticonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CA1411EF973C6003D2508 /* EmoticonParser.swift */; };
 		0588D8231EBF185A00AC43DD /* HomeThreadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D8221EBF185A00AC43DD /* HomeThreadTableViewCell.swift */; };
 		0588D8251EBF26E000AC43DD /* HomeThreadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D8241EBF26E000AC43DD /* HomeThreadModel.swift */; };
 		0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */; };
@@ -390,6 +391,7 @@
 		0577A23D1EDD6AAF00FF5D32 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDispatchManager.swift; sourceTree = "<group>"; };
 		0577A24E1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+HiPDA.swift"; sourceTree = "<group>"; };
+		057CA1411EF973C6003D2508 /* EmoticonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonParser.swift; sourceTree = "<group>"; };
 		0588D8221EBF185A00AC43DD /* HomeThreadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeThreadTableViewCell.swift; sourceTree = "<group>"; };
 		0588D8241EBF26E000AC43DD /* HomeThreadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeThreadModel.swift; sourceTree = "<group>"; };
 		0589EB4D1DB249220055DBB9 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
@@ -1160,6 +1162,7 @@
 			isa = PBXGroup;
 			children = (
 				05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */,
+				057CA1411EF973C6003D2508 /* EmoticonParser.swift */,
 				0572261D1EF03C1200397829 /* NewThreadViewModel.swift */,
 				050C940D1EEA399800FBD18F /* NewThreadType.swift */,
 				057226211EF1817B00397829 /* NewThreadManager.swift */,
@@ -1676,6 +1679,7 @@
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
+				057CA1421EF973C7003D2508 /* EmoticonParser.swift in Sources */,
 				05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,

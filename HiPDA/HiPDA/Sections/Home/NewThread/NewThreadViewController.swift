@@ -119,7 +119,7 @@ class NewThreadViewController: BaseViewController {
         switch type {
         case .content:
             textView.placeholderText = "Content here..."
-            let parser = YYTextSimpleEmoticonParser()
+            let parser = EmoticonParser()
             var mapper = [String: YYImage]()
             EmoticonHelper.groups.flatMap { $0.emoticons }.forEach { emocation in
                 mapper[emocation.code] = YYImage(named: emocation.name)
@@ -260,8 +260,26 @@ extension NewThreadViewController: EmoticonViewDelegate {
 extension NewThreadViewController: ImagePickerDelegate {
     func imagePicker(_ imagePicker: ImagePickerViewController, didFinishUpload imageNumbers: [Int]) {
         viewModel.imageNumbers.append(contentsOf: imageNumbers)
-        let str = imageNumbers.map { "\n[attachimg]\($0)[/attachimg]" }.reduce("", +)
-        contentTextView.text.append(str)
+        let selectedRange = contentTextView.selectedRange
+        let text = NSMutableAttributedString()
+        text.append(contentTextView.attributedText ?? NSAttributedString())
+        if imageNumbers.count > 0 {
+            text.yy_appendString("\n")
+        }
+        imageNumbers.forEach { num in
+            text.yy_appendString("\n")
+            
+            let str = NSMutableAttributedString(string: "[attachimg]\(num)[/attachimg]")
+            str.yy_setTextBinding(YYTextBinding(deleteConfirm: false), range: str.yy_rangeOfAll())
+            
+            text.append(str)
+            text.yy_appendString("\n")
+        }
+        if imageNumbers.count > 0 {
+            text.yy_appendString("\n")
+        }
+        contentTextView.attributedText = text
+        contentTextView.selectedRange = selectedRange
     }
 }
 

@@ -29,8 +29,8 @@ extension ImageCompressionError: LocalizedError {
 }
 
 enum DownloadedAsset {
-    case image(UIImage)
-    case gif(Data)
+    case image(DownloadedAssetBox<UIImage>)
+    case gif(DownloadedAssetBox<Data>)
     var mimeType: String {
         switch self {
         case .image(_):
@@ -41,8 +41,29 @@ enum DownloadedAsset {
     }
 }
 
+class DownloadedAssetBox<T> {
+    let value: T
+    var imageCompressType: ImageCompressType? = nil
+    var imageUploadedNumber: Int? = nil
+    init(_ value: T) {
+        self.value = value
+    }
+}
+
 extension DownloadedAsset {
     func upload(hash: String, type: ImageCompressType, completion: @escaping (HiPDA.Result<Int, NSError>) -> Void) -> Disposable? {
+        switch self {
+        case .image(let image):
+            if let compressType = image.imageCompressType, let uploadedNumber = image.imageUploadedNumber, compressType == type {
+                completion(.success(uploadedNumber))
+                return nil
+            }
+        case .gif(let data):
+            if let compressType = data.imageCompressType, let uploadedNumber = data.imageUploadedNumber, compressType == type {
+                completion(.success(uploadedNumber))
+                return nil
+            }
+        }
         do {
             let data = try compressed(with: type)
             return HiPDAProvider.request(.uploadImage(hash: hash, data: data, mimeType: mimeType))
@@ -53,6 +74,14 @@ extension DownloadedAsset {
                     case .next(let html):
                         do {
                             let num = try HtmlParser.attachImageNumber(from: html)
+                            switch self {
+                            case .image(let image):
+                                image.imageUploadedNumber = num
+                                image.imageCompressType = type
+                            case .gif(let data):
+                                data.imageUploadedNumber = num
+                                data.imageCompressType = type
+                            }
                             completion(.success(num))
                         } catch {
                             completion(.failure(error as NSError))
@@ -74,9 +103,9 @@ extension DownloadedAsset {
     func compressed(with type: ImageCompressType) throws -> Data {
         switch self {
         case let .image(image):
-            return try compress(image: image, type: type)
+            return try compress(image: image.value, type: type)
         case let .gif(data):
-            return data
+            return data.value
         }
     }
 }

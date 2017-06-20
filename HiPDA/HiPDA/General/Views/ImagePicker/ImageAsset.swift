@@ -91,9 +91,9 @@ class ImageAsset {
                 let type = NSData.sd_imageFormat(forImageData: data)
                 switch type {
                 case .GIF:
-                    self.downloadedAsset = .gif(data)
+                    self.downloadedAsset = .gif(DownloadedAssetBox(data))
                 default:
-                    self.downloadedAsset = .image(image)
+                    self.downloadedAsset = .image(DownloadedAssetBox(image))
                 }
                 completion(.success(""))
             }
