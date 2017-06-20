@@ -75,6 +75,7 @@
 		0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */; };
 		0546619A1EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054661991EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift */; };
 		0546619C1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546619B1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift */; };
+		0546619E1EF8B7BD00857D33 /* DownloadedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546619D1EF8B7BD00857D33 /* DownloadedAsset.swift */; };
 		054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA6411D75C2E400819C2D /* FPSLabel.swift */; };
 		054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */; };
 		054F97D51E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */; };
@@ -353,6 +354,7 @@
 		0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		054661991EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerCameraCollectionViewCell.swift; sourceTree = "<group>"; };
 		0546619B1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+HiPDA.swift"; sourceTree = "<group>"; };
+		0546619D1EF8B7BD00857D33 /* DownloadedAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadedAsset.swift; sourceTree = "<group>"; };
 		054AA6411D75C2E400819C2D /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
 		054AA64B1D75D0D100819C2D /* FPSAssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSAssistiveTouch.swift; sourceTree = "<group>"; };
 		054F97D41E0CCEED006CF69D /* UserRemarkTableViewStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRemarkTableViewStateTests.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				051BFE031EF58F8300EA77EB /* ImagePickerDataSource.swift */,
 				051BFE051EF58F8300EA77EB /* ImagePickerViewModel.swift */,
 				051BFE011EF58F8300EA77EB /* ImageAsset.swift */,
+				0546619D1EF8B7BD00857D33 /* DownloadedAsset.swift */,
 				051BFE0D1EF5A30300EA77EB /* ImageAssetsCollection.swift */,
 				051BFE0F1EF6D11200EA77EB /* ImageSelectorStateIndicator.swift */,
 			);
@@ -1693,6 +1696,7 @@
 				05F3DCD91DB7B4A00061CED1 /* API.swift in Sources */,
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
+				0546619E1EF8B7BD00857D33 /* DownloadedAsset.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				057226221EF1817B00397829 /* NewThreadManager.swift in Sources */,
 				05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */,

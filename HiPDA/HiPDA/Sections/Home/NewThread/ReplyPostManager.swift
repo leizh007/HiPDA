@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 
 struct ReplyPostManager {
-    static func replyPost(fid: Int, tid: Int, content: String, success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
+    static func replyPost(fid: Int, tid: Int, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
         NetworkUtilities.formhash(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)") { result in
             switch result {
             case .success(let formhash):
-                HiPDAProvider.request(.replyPost(fid: fid, tid: tid, content: content, formhash: formhash))
+                HiPDAProvider.request(.replyPost(fid: fid, tid: tid, content: content, formhash: formhash, imageNumbers: imageNumbers))
                     .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                     .mapGBKString()
                     .observeOn(MainScheduler.instance)

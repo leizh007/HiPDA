@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 
 struct NewThreadManager {
-    static func postNewThread(fid: Int, typeid: Int, title: String, content: String, success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
+    static func postNewThread(fid: Int, typeid: Int, title: String, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
         NetworkUtilities.formhash(from: "/forum/post.php?action=newthread&fid=\(fid)") { result in
             switch result {
             case .success(let formhash):
-                HiPDAProvider.request(.newThread(fid: fid, typeid: typeid, title: title, content: content, formhash: formhash))
+                HiPDAProvider.request(.newThread(fid: fid, typeid: typeid, title: title, content: content, formhash: formhash, imageNumbers: imageNumbers))
                     .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                     .mapGBKString()
                     .observeOn(MainScheduler.instance)

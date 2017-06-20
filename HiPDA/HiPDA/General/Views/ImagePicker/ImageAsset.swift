@@ -12,16 +12,11 @@ import SDWebImage
 
 typealias ImageAssetResult = HiPDA.Result<UIImage, NSError>
 
-enum DownloadedAsset {
-    case image(UIImage)
-    case gif(Data)
-}
-
 class ImageAsset {
     let asset: PHAsset
     private var thumbnailImage: UIImage?
     private var imageRequestID = PHInvalidImageRequestID
-    private var downloadedAsset: DownloadedAsset?
+    var downloadedAsset: DownloadedAsset?
     var downloadPercent = 0.0
     private var isDownloadCancelled = false
     var isDownloading: Bool {

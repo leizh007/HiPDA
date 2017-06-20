@@ -11,6 +11,10 @@ import Photos
 import AVFoundation
 import MobileCoreServices
 
+protocol ImagePickerDelegate: class {
+    func imagePicker(_ imagePicker: ImagePickerViewController, didFinishUpload imageNumbers: [Int])
+}
+
 private enum Constant {
     static let cameraIndex = 0
 }
@@ -19,7 +23,7 @@ class ImagePickerViewController: BaseViewController {
     fileprivate var viewModel: ImagePickerViewModel!
     @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl!
     fileprivate var collectionView: UICollectionView!
-    fileprivate let imageAsstesCollection = ImageAssetsCollection()
+    weak var delegate: ImagePickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +42,9 @@ class ImagePickerViewController: BaseViewController {
     func didBecomeActive(_ notification: Notification) {
         viewModel.loadAssets()
         let allAssets = viewModel.getAssets()
-        for asset in imageAsstesCollection.getAssets() {
+        for asset in viewModel.imageAsstesCollection.getAssets() {
             if !allAssets.contains(asset) {
-                imageAsstesCollection.remove(asset)
+                viewModel.imageAsstesCollection.remove(asset)
             }
         }
         collectionView.reloadData()
@@ -99,14 +103,14 @@ extension ImagePickerViewController: UICollectionViewDelegate {
         let asset = viewModel.asset(at: indexPath.row)
         if asset.isDownloading {
             asset.cancelDownloading()
-        } else if imageAsstesCollection.has(asset) {
-            imageAsstesCollection.remove(asset)
+        } else if viewModel.imageAsstesCollection.has(asset) {
+            viewModel.imageAsstesCollection.remove(asset)
         } else {
             asset.downloadAsset { [weak self, weak asset] result in
                 guard let `self` = self, let asset = asset else { return }
                 switch result {
                 case .success(_):
-                    self.imageAsstesCollection.add(asset)
+                    self.viewModel.imageAsstesCollection.add(asset)
                 case .failure(let error):
                     self.showPromptInformation(of: .failure(error.localizedDescription))
                 }
@@ -136,7 +140,7 @@ extension ImagePickerViewController: UICollectionViewDataSource {
         default:
             let imageCell = collectionView.dequeueReusableCell(for: indexPath) as ImagePickerCollectionViewCell
             imageCell.asset = viewModel.asset(at: indexPath.row)
-            imageCell.assetsCollection = imageAsstesCollection
+            imageCell.assetsCollection = viewModel.imageAsstesCollection
             imageCell.imageView.contentMode = .scaleAspectFill
             imageCell.updateState()
             cell = imageCell
@@ -154,7 +158,18 @@ extension ImagePickerViewController {
     }
     
     func confirm() {
-        
+        showPromptInformation(of: .loading("正在上传..."))
+        viewModel.uploadAssets { [weak self] result in
+            guard let `self` = self else { return }
+            self.hidePromptInformation()
+            switch result {
+            case let .success(imageNumbers):
+                self.delegate?.imagePicker(self, didFinishUpload: imageNumbers)
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
+            case let .failure(error):
+                self.showPromptInformation(of: .failure(error.localizedDescription))
+            }
+        }
     }
     
     func camereCellPressed() {

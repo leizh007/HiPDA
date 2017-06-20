@@ -242,10 +242,40 @@ struct HtmlParser {
     }
     
     static func fid(from html: String) throws -> Int {
+        if html.contains("指定的主题不存在或已被删除或正在被审核，请返回。") {
+            throw HtmlParserError.unKnown("指定的主题不存在或已被删除或正在被审核，请返回。")
+        }
         let result = try Regex.firstMatch(in: html, of: "post\\.php\\?action=newthread&fid=(\\d+)")
         guard result.count == 2, let fid = Int(result[1]) else {
             throw HtmlParserError.unKnown("获取fid失败")
         }
         return fid
+    }
+    
+    static func hash(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "name=\\\"hash\\\"\\s+value=\\\"([^\\\"]+)\\\"")
+        guard result.count == 2 && !result[1].isEmpty else {
+            throw HtmlParserError.unKnown("获取hash失败")
+        }
+        return result[1]
+    }
+    
+    static func replyValue(for key: String, in html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "name=\\\"\(key)\\\"[\\s\\S]*?value=\\\"([\\s\\S]*?)\\\"\\s+\\/>")
+        guard result.count == 2 else {
+            throw NewThreadError.unKnown("无法获取\(key)")
+        }
+        return result[1].trimmingCharacters(in: CharacterSet(charactersIn: "\n "))
+    }
+    
+    static func attachImageNumber(from html: String) throws -> Int {
+        if let num = Int(html) {
+            return num
+        }
+        let result = try Regex.firstMatch(in: html, of: "DISCUZUPLOAD|\\d+|(\\d+)|\\d+")
+        guard result.count == 2 && !result[1].isEmpty, let num = Int(result[1]) else {
+            throw NewThreadError.unKnown("无法获取图片附件号码")
+        }
+        return num
     }
 }

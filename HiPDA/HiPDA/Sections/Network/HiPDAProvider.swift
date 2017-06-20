@@ -23,7 +23,7 @@ private func HiPDAManager() -> Manager {
     
     configuration.httpAdditionalHeaders = headers
 #if DEBUG
-    configuration.timeoutIntervalForRequest = 5 // as seconds, you can set your request timeout
+    configuration.timeoutIntervalForRequest = 10 // as seconds, you can set your request timeout
     configuration.timeoutIntervalForResource = 10 // as seconds, you can set your resource timeout
 #endif
     

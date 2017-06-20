@@ -10,17 +10,17 @@ import Foundation
 import RxSwift
 
 struct ReplyAuthorManager {
-    static func replyAuthor(fid: Int, tid: Int, pid: Int, content: String, success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
+    static func replyAuthor(fid: Int, tid: Int, pid: Int, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
         NetworkUtilities.html(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)") { result in
             switch result {
             case let .success(html):
                 do {
-                    let formhash = try NewThreadViewModel.value(for: "formhash", in: html)
-                    let noticeauthor = try NewThreadViewModel.value(for: "noticeauthor", in: html)
-                    let noticetrimstr = try NewThreadViewModel.value(for: "noticetrimstr", in: html)
-                    let noticeauthormsg = try NewThreadViewModel.value(for: "noticeauthormsg", in: html)
+                    let formhash = try HtmlParser.replyValue(for: "formhash", in: html)
+                    let noticeauthor = try HtmlParser.replyValue(for: "noticeauthor", in: html)
+                    let noticetrimstr = try HtmlParser.replyValue(for: "noticetrimstr", in: html)
+                    let noticeauthormsg = try HtmlParser.replyValue(for: "noticeauthormsg", in: html)
                     let content = "\(noticetrimstr)\n\(content)"
-                    HiPDAProvider.request(.replyAuthor(fid: fid, tid: tid, pid: pid, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content))
+                    HiPDAProvider.request(.replyAuthor(fid: fid, tid: tid, pid: pid, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content, imageNumbers: imageNumbers))
                         .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                         .mapGBKString()
                         .observeOn(MainScheduler.instance)

@@ -15,14 +15,15 @@ extension HiPDA {
         case threads(fid: Int, typeid: Int, page: Int)
         case posts(PostInfo)
         case redirect(String)
-        case newThread(fid: Int, typeid: Int, title: String, content: String, formhash: String)
+        case newThread(fid: Int, typeid: Int, title: String, content: String, formhash: String, imageNumbers: [Int])
         case formhash(String)
-        case replyPost(fid: Int, tid: Int, content: String, formhash: String)
+        case replyPost(fid: Int, tid: Int, content: String, formhash: String, imageNumbers: [Int])
         case html(String)
-        case replyAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
-        case quoteAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String)
+        case replyAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String, imageNumbers: [Int])
+        case quoteAuthor(fid: Int, tid: Int, pid: Int, formhash: String, noticeauthor: String, noticetrimstr: String, noticeauthormsg: String, content: String, imageNumbers: [Int])
         case addToFavorites(tid: Int)
         case addToAttentions(tid: Int)
+        case uploadImage(hash: String, data: Data, mimeType: String)
     }
 }
 
@@ -45,22 +46,24 @@ extension HiPDA.API: TargetType {
             }
         case let .redirect(url):
             return url
-        case let .newThread(fid: fid, typeid: _, title: _, content: _, formhash: _):
+        case let .newThread(fid: fid, typeid: _, title: _, content: _, formhash: _, imageNumbers: _):
             return "/forum/post.php?action=newthread&fid=\(fid)&extra=&topicsubmit=yes"
         case let .formhash(urlPath):
             return urlPath
-        case let .replyPost(fid: fid, tid: tid, content: _, formhash: _):
+        case let .replyPost(fid: fid, tid: tid, content: _, formhash: _, imageNumbers: _):
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&extra=&replysubmit=yes"
         case let .html(urlPath):
             return urlPath
-        case let .replyAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _):
+        case let .replyAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _, imageNumbers: _):
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)&extra=page%3D1&replysubmit=yes"
-        case let .quoteAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _):
+        case let .quoteAuthor(fid: fid, tid: tid, pid: pid, formhash: _, noticeauthor: _, noticetrimstr: _, noticeauthormsg: _, content: _, imageNumbers: _):
             return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&repquote=\(pid)&extra=page%3D1&replysubmit=yes"
         case let .addToFavorites(tid: tid):
             return "/forum/my.php?item=favorites&tid=\(tid)&inajax=1&ajaxtarget=favorite_msg"
         case let .addToAttentions(tid: tid):
             return "/forum/my.php?item=attention&action=add&tid=\(tid)&inajax=1&ajaxtarget=favorite_msg"
+        case .uploadImage(_):
+            return "/forum/misc.php?type=image&action=swfupload&operation=upload"
         }
     }
     var method: Moya.Method {
@@ -89,6 +92,8 @@ extension HiPDA.API: TargetType {
             return .get
         case .addToAttentions(_):
             return .get
+        case .uploadImage(_):
+            return .post
         }
     }
     var parameters: [String : Any]? {
@@ -108,8 +113,8 @@ extension HiPDA.API: TargetType {
             return nil
         case .redirect(_):
             return nil
-        case let .newThread(fid: _, typeid: typeid, title: title, content: content, formhash: formhash):
-            return [
+        case let .newThread(fid: _, typeid: typeid, title: title, content: content, formhash: formhash, imageNumbers: imageNumbers):
+            return update(dic: [
                 "posttime": Int(Date().timeIntervalSince1970),
                 "wysiwyg": 1,
                 "subject": title,
@@ -117,20 +122,20 @@ extension HiPDA.API: TargetType {
                 "message": content,
                 "attention_add": 1,
                 "formhash": formhash
-            ]
+                ], with: imageNumbers)
         case .formhash(_):
             return nil
-        case let .replyPost(fid: _, tid: _, content: content, formhash: formhash):
-            return [
+        case let .replyPost(fid: _, tid: _, content: content, formhash: formhash, imageNumbers: imageNumbers):
+            return update(dic: [
                 "formhash": formhash,
                 "posttime": Int(Date().timeIntervalSince1970),
                 "wysiwyg": 1,
                 "message": content
-            ]
+                ], with: imageNumbers)
         case .html(_):
             return nil
-        case let .replyAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content):
-            return [
+        case let .replyAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content, imageNumbers: imageNumbers):
+            return update(dic: [
                 "formhash": formhash,
                 "posttime": Int(Date().timeIntervalSince1970),
                 "wysiwyg": 1,
@@ -139,9 +144,9 @@ extension HiPDA.API: TargetType {
                 "noticeauthormsg": noticeauthormsg,
                 "subject": "",
                 "message": content
-            ]
-        case let .quoteAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content):
-            return [
+                ], with: imageNumbers)
+        case let .quoteAuthor(fid: _, tid: _, pid: _, formhash: formhash, noticeauthor: noticeauthor, noticetrimstr: noticetrimstr, noticeauthormsg: noticeauthormsg, content: content, imageNumbers: imageNumbers):
+            return update(dic: [
                 "formhash": formhash,
                 "posttime": Int(Date().timeIntervalSince1970),
                 "wysiwyg": 1,
@@ -150,10 +155,12 @@ extension HiPDA.API: TargetType {
                 "noticeauthormsg": noticeauthormsg,
                 "subject": "",
                 "message": content
-            ]
+                ], with: imageNumbers)
         case .addToFavorites(_):
             return nil
         case .addToAttentions(_):
+            return nil
+        case .uploadImage(_):
             return nil
         }
     }
@@ -161,10 +168,30 @@ extension HiPDA.API: TargetType {
         return GBKURLEncoding()
     }
     var task: Task {
-        return .request
+        switch self {
+        case let .uploadImage(hash: hash, data: data, mimeType: mimeType):
+            var uid = Settings.shared.activeAccount?.uid ?? 0
+            let uidData = "\(uid)".data(using: .utf8) ?? Data(bytes: &uid, count: 1)
+            let hashData = hash.data(using: .utf8) ?? Data()
+            let suffix = mimeType.substring(from: mimeType.index(after: (mimeType.range(of: "/")?.lowerBound ?? mimeType.startIndex)))
+            return .upload(.multipart([MultipartFormData(provider: .data(hashData), name: "hash"),
+                                       MultipartFormData(provider: .data(uidData), name: "uid"),
+                                       MultipartFormData(provider: .data(data), name: "Filedata", fileName: "HiPDA-image.\(suffix)", mimeType: mimeType)]))
+        default:
+            return .request
+        }
     }
     var sampleData: Data {
         return Data()
     }
 }
 
+// MARK: - Utilities
+
+private func update(dic: [String: Any], with imageNumbers: [Int]) -> [String: Any] {
+    var dic = dic
+    for num in imageNumbers {
+        dic["attachnew[\(num)][description]"] = ""
+    }
+    return dic
+}

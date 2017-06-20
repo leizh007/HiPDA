@@ -206,6 +206,7 @@ extension NewThreadViewController {
         PHPhotoLibrary.checkPhotoLibraryPermission { granted in
             if granted {
                 let vc = ImagePickerViewController.load(from: .views)
+                vc.delegate = self
                 let navi = UINavigationController(rootViewController: vc)
                 navi.transitioningDelegate = self
                 self.present(navi, animated: true, completion: nil)
@@ -251,6 +252,16 @@ extension NewThreadViewController: EmoticonViewDelegate {
     
     func emoticonInputDidTapBackspace() {
         contentTextView.deleteBackward()
+    }
+}
+
+// MARK: - ImagePickerDelegate
+
+extension NewThreadViewController: ImagePickerDelegate {
+    func imagePicker(_ imagePicker: ImagePickerViewController, didFinishUpload imageNumbers: [Int]) {
+        viewModel.imageNumbers.append(contentsOf: imageNumbers)
+        let str = imageNumbers.map { "\n[attachimg]\($0)[/attachimg]" }.reduce("", +)
+        contentTextView.text.append(str)
     }
 }
 

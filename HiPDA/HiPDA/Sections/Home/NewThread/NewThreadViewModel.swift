@@ -44,6 +44,7 @@ class NewThreadViewModel {
     let success: PublishSubject<Int>
     let failure: PublishSubject<String>
     let isSendButtonEnabled: Driver<Bool>
+    var imageNumbers = [Int]()
     
     init(type: NewThreadType, typeName: Driver<String>, title: Driver<String>, content: Driver<String>, sendButtonPresed: PublishSubject<Void>) {
         self.type = type
@@ -60,15 +61,18 @@ class NewThreadViewModel {
         let attribute = Driver.combineLatest(typeName, title, content) { (ForumManager.typeid(of: $0), $1, NewThreadViewModel.skinContent($2)) }
         sendButtonPresed.withLatestFrom(attribute).asObservable().subscribe(onNext: { [weak self] (typeid, title, content) in
             guard let `self` = self else { return }
+            self.imageNumbers = self.imageNumbers.filter { num in
+                content.contains("[attachimg]\(num)[/attachimg]")
+            }
             switch type {
             case let .new(fid: fid):
-                NewThreadManager.postNewThread(fid: fid, typeid: typeid, title: title, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                NewThreadManager.postNewThread(fid: fid, typeid: typeid, title: title, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyPost(fid: fid, tid: tid):
-                ReplyPostManager.replyPost(fid: fid, tid: tid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                ReplyPostManager.replyPost(fid: fid, tid: tid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyAuthor(fid: fid, tid: tid, pid: pid):
-                ReplyAuthorManager.replyAuthor(fid: fid, tid: tid, pid: pid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                ReplyAuthorManager.replyAuthor(fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .quote(fid: fid, tid: tid, pid: pid):
-                QuoteAuthorManager.quoteAuthor(fid: fid, tid: tid, pid: pid, content: content, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                QuoteAuthorManager.quoteAuthor(fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             }
         }).disposed(by: disposeBag)
     }
@@ -86,17 +90,5 @@ class NewThreadViewModel {
         } else {
             return content
         }
-    }
-}
-
-// MARK: - Utilities
-
-extension NewThreadViewModel {
-    static func value(for key: String, in html: String) throws -> String {
-        let result = try Regex.firstMatch(in: html, of: "name=\\\"\(key)\\\"[\\s\\S]*?value=\\\"([\\s\\S]*?)\\\"\\s+\\/>")
-        guard result.count == 2 else {
-            throw NewThreadError.unKnown("无法获取\(key)")
-        }
-        return result[1].trimmingCharacters(in: CharacterSet(charactersIn: "\n "))
     }
 }
