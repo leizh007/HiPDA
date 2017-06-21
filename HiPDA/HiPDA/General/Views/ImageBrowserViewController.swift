@@ -30,9 +30,9 @@ class ImageBrowserViewController: BaseViewController {
         view.layoutIfNeeded()
         collectionView.scrollToItem(at: IndexPath(row: selectedIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
