@@ -18,10 +18,10 @@ class URLDispatchManager: NSObject {
     var shouldHandlePasteBoardChanged = true
     private override init() {
         super.init()
-        NotificationCenter.default.rx.notification(.UIPasteboardChanged).debounce(0.5, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
+        NotificationCenter.default.rx.notification(.UIPasteboardChanged).debounce(0.1, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
             self?.userDidCopiedContentToPasteBoard()
         }).disposed(by: disposeBag)
-        NotificationCenter.default.rx.notification(.UIApplicationDidBecomeActive).debounce(0.5, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
+        NotificationCenter.default.rx.notification(.UIApplicationDidBecomeActive).debounce(0.1, scheduler: MainScheduler.instance).asObservable().subscribe(onNext: { [weak self] _ in
             guard let content = UIPasteboard.general.string else { return }
             guard content.isLink else { return }
             guard let url = URL(string: content), url.canOpenInAPP else { return }
