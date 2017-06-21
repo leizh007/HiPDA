@@ -320,7 +320,6 @@
 		051BFDE31EF58C8200EA77EB /* EmoticonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonHelper.swift; sourceTree = "<group>"; };
 		051BFDE41EF58C8200EA77EB /* EmoticonInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonInputView.swift; sourceTree = "<group>"; };
 		051BFDE51EF58C8200EA77EB /* EmoticonScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonScrollView.swift; sourceTree = "<group>"; };
-		051BFDF81EF58CD000EA77EB /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
 		051BFE011EF58F8300EA77EB /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		051BFE021EF58F8300EA77EB /* ImagePickerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		051BFE031EF58F8300EA77EB /* ImagePickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerDataSource.swift; sourceTree = "<group>"; };
@@ -773,7 +772,6 @@
 				05B35C3A1ECC231000C037A7 /* BaseWebView.swift */,
 				05EDDCEE1DDCAB890095E95D /* NoResultView.swift */,
 				05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */,
-				051BFDF81EF58CD000EA77EB /* ImageBrowserViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
