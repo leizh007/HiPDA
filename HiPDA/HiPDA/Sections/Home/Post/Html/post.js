@@ -200,8 +200,7 @@ setupWebViewJavascriptBridge(function (bridge) {
 
     bridge.registerHandler("scrollToBottom", function (data, responseCallback) {
         var posts = document.getElementsByClassName("post");
-        var lastPost = posts[posts.length - 1];
-        smoothScroll(lastPost.id);
+        smoothScroll(null);
     });
 })
 
@@ -420,6 +419,9 @@ function currentYPosition() {
 
 
 function elmYPosition(eID) {
+    if (eID == null) {
+        return document.body.scrollHeight;
+    }
     var elm = document.getElementById(eID);
     var y = elm.offsetTop;
     var node = elm;
