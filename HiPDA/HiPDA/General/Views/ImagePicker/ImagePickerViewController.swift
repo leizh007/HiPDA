@@ -195,7 +195,7 @@ extension ImagePickerViewController {
 
 extension ImagePickerViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = (info[UIImagePickerControllerOriginalImage] as? UIImage)?.fixOrientation() {
             var localId: String?
             PHPhotoLibrary.shared().performChanges({
                 let request = PHAssetChangeRequest.creationRequestForAsset(from: image)

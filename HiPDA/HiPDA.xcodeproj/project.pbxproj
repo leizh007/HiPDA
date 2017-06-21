@@ -131,6 +131,7 @@
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
 		05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */; };
+		05A850C01EFA4E8200085B29 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */; };
 		05B35C3B1ECC231000C037A7 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3A1ECC231000C037A7 /* BaseWebView.swift */; };
 		05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */; };
 		05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */; };
@@ -413,6 +414,7 @@
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
 		05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManagerTests.swift; sourceTree = "<group>"; };
+		05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		05B35C3A1ECC231000C037A7 /* BaseWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadable.swift; sourceTree = "<group>"; };
 		05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAppearanceManager.swift; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 				05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */,
 				0589EB4F1DB24BA30055DBB9 /* UIViewController+HiPDA.swift */,
 				0589EB561DB349880055DBB9 /* UIImage+HiPDA.swift */,
+				05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */,
 				0589EB6B1DB525410055DBB9 /* String+HiPDA.swift */,
 				057226361EF223AB00397829 /* String+Emoji.swift */,
 				05DDFB811DC759CD00B7BAE8 /* Optional+HiPDA.swift */,
@@ -1635,6 +1638,7 @@
 				051BFDDF1EF58BA300EA77EB /* UICollectionView+HiPDA.swift in Sources */,
 				05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */,
 				05EFBF431D86EA220028EC40 /* CALayer+HiPDA.swift in Sources */,
+				05A850C01EFA4E8200085B29 /* UIImage+Orientation.swift in Sources */,
 				059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
