@@ -80,9 +80,6 @@ class ImageBrowserCollectionViewCell: UICollectionViewCell {
         addGestureRecognizer(singleTap)
         singleTap.require(toFail: doubleTap)
         
-        singleTap.delaysTouchesBegan = true
-        doubleTap.delaysTouchesBegan = true
-        
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(_:)))
         longPressRecognizer.minimumPressDuration = 1.0
         addGestureRecognizer(longPressRecognizer)
