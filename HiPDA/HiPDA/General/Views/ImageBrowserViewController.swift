@@ -49,29 +49,8 @@ extension ImageBrowserViewController: UICollectionViewDelegate {
     }
     
     // MARK: - UIScrollViewDelegate
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let spacing = CGFloat(20.0)
-        var nthCell = Int(floor((scrollView.contentOffset.x + spacing) / (scrollView.frame.size.width + spacing)))
-        if velocity.x > 0 {
-            nthCell += 1
-        } else if velocity.x < 0 {
-            
-        } else if scrollView.contentOffset.x < (scrollView.frame.size.width + spacing) * (CGFloat(nthCell) + 0.33)  {
-            
-        } else if scrollView.contentOffset.x > (scrollView.frame.size.width + spacing) * (CGFloat(nthCell) + 0.66) {
-            nthCell += 1
-        }
-        if nthCell < 0 {
-            nthCell = 0
-        }
-        if nthCell > imageURLs.count - 1 {
-            nthCell = imageURLs.count - 1
-        }
-        let contentOffset = CGPoint(x: (scrollView.frame.size.width + spacing) * CGFloat(nthCell), y: 0.0)
-        targetContentOffset.pointee = scrollView.contentOffset
-        scrollView.setContentOffset(contentOffset, animated: true)
-        pageControl.currentPage = nthCell
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(floor(scrollView.contentOffset.x / scrollView.frame.size.width + 0.5))
     }
 }
 
