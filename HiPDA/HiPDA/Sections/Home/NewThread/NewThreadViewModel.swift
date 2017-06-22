@@ -66,13 +66,13 @@ class NewThreadViewModel {
             }
             switch type {
             case let .new(fid: fid):
-                NewThreadManager.postNewThread(fid: fid, typeid: typeid, title: title, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                NewThreadManager.postNewThread(pageURLPath: type.pageURLPath, fid: fid, typeid: typeid, title: title, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyPost(fid: fid, tid: tid):
-                ReplyPostManager.replyPost(fid: fid, tid: tid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                ReplyPostManager.replyPost(pageURLPath: type.pageURLPath, fid: fid, tid: tid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyAuthor(fid: fid, tid: tid, pid: pid):
-                ReplyAuthorManager.replyAuthor(fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                ReplyAuthorManager.replyAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             case let .quote(fid: fid, tid: tid, pid: pid):
-                QuoteAuthorManager.quoteAuthor(fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                QuoteAuthorManager.quoteAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             }
         }).disposed(by: disposeBag)
     }

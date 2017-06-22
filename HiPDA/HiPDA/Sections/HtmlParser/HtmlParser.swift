@@ -26,26 +26,6 @@ struct HtmlParser {
         return uid
     }
     
-    /// 获取登录失败信息
-    ///
-    /// - parameter html: html字符串
-    ///
-    /// - returns: 失败信息
-    static func loginError(from html: String) -> LoginError {
-        do {
-            let retryResult = try Regex.firstMatch(in: html, of: "登录失败，您还可以尝试 (\\d+) 次")
-            if retryResult.count == 2 {
-                return .nameOrPasswordUnCorrect(timesToRetry: Int(retryResult[1])!)
-            }
-            if html.range(of: "密码错误次数过多，请 15 分钟后重新登录") != nil {
-                return .attempCountExceedsLimit
-            }
-            return .unKnown("未知错误")
-        } catch {
-            return LoginError.unKnown("\(error)")
-        }
-    }
-    
     /// 获取登录成功的用户名
     ///
     /// - parameter html: html字符串
@@ -94,7 +74,7 @@ struct HtmlParser {
                 throw LoginError.unKnown("\(error)")
             }
         } else {
-            throw HtmlParser.loginError(from: html)
+            throw LoginError.unKnown("未知错误")
         }
     }
     
@@ -168,9 +148,6 @@ struct HtmlParser {
     /// - Returns: 帖子主题
     /// - Throws: 解析失败的错误信息
     static func postTitle(from html: String) throws -> String {
-        if html.contains("指定的主题不存在或已被删除或正在被审核，请返回。") {
-            throw HtmlParserError.unKnown("指定的主题不存在或已被删除或正在被审核，请返回。")
-        }
         let result = try Regex.firstMatch(in: html, of: "<div\\s+id=\\\"threadtitle\\\">[^<]*<h1>(<a[^>]+>[^<]*<\\/a>)?([\\s\\S]*?)<\\/h1>")
         guard result.count == 3 else {
             throw HtmlParserError.unKnown("获取帖子主题失败")
@@ -233,18 +210,20 @@ struct HtmlParser {
         return tid
     }
     
-    static func newThreadErrorMessage(from html: String) throws -> String {
+    static func alertInfo(from html: String) throws -> String {
         let result = try Regex.firstMatch(in: html, of: "<div\\s+class=\\\"postbox\\\"><div\\s+class=\\\"alert_\\w+\\\">[^<]*<p>([^<]+)<\\/p>")
-        guard result.count == 2, !result[1].isEmpty else {
+        if result.count == 2 && !result[1].isEmpty {
+            return result[1]
+        }
+        let result2 = try Regex.firstMatch(in: html, of: "<div\\s+class=\\\"postbox\\\"><div\\s+class=\\\"alert_\\w+\\\">[^<]*<p>([^<]+)<script>")
+        guard result2.count == 2, !result2[1].isEmpty else {
             throw HtmlParserError.unKnown("获取提示信息失败")
         }
-        return result[1]
+        
+        return result2[1]
     }
     
     static func fid(from html: String) throws -> Int {
-        if html.contains("指定的主题不存在或已被删除或正在被审核，请返回。") {
-            throw HtmlParserError.unKnown("指定的主题不存在或已被删除或正在被审核，请返回。")
-        }
         let result = try Regex.firstMatch(in: html, of: "post\\.php\\?action=newthread&fid=(\\d+)")
         guard result.count == 2, let fid = Int(result[1]) else {
             throw HtmlParserError.unKnown("获取fid失败")

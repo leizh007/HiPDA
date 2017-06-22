@@ -217,6 +217,8 @@
 		05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */; };
 		05CA3BCD1D8ABA4B00330ADD /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */; };
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
+		05CB825E1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */; };
+		05CB82601EFBCC470040FC92 /* UserProfileSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */; };
 		05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CEB74D1E1D0F7300ACB773 /* ForumList.plist */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */; };
@@ -502,6 +504,8 @@
 		05C5E8D91D899E0D00E840FE /* UIView+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HiPDA.swift"; sourceTree = "<group>"; };
 		05CA3BCC1D8ABA4B00330ADD /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileSectionHeaderView.swift; sourceTree = "<group>"; };
+		05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileSectionHeaderView.xib; sourceTree = "<group>"; };
 		05CEB74D1E1D0F7300ACB773 /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
@@ -662,6 +666,8 @@
 			isa = PBXGroup;
 			children = (
 				0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */,
+				05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */,
+				05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -1364,6 +1370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CB82601EFBCC470040FC92 /* UserProfileSectionHeaderView.xib in Resources */,
 				05B919CE1EEEE32F007339F6 /* grapeman_03.gif in Resources */,
 				05B919B21EEEE32F007339F6 /* coolmonkey_13.gif in Resources */,
 				05B919B81EEEE32F007339F6 /* default_cry.gif in Resources */,
@@ -1724,6 +1731,7 @@
 				051BFE0B1EF590D000EA77EB /* ImageBrowserViewController.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
 				059D495B1EBB108F00BECA18 /* ThreadManager.swift in Sources */,
+				05CB825E1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift in Sources */,
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,

@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 struct QuoteAuthorManager {
-    static func quoteAuthor(fid: Int, tid: Int, pid: Int, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
-        NetworkUtilities.html(from: "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&repquote=\(pid)&extra=page%3D1") { result in
+    static func quoteAuthor(pageURLPath: String, fid: Int, tid: Int, pid: Int, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
+        NetworkUtilities.html(from: pageURLPath) { result in
             switch result {
             case let .success(html):
                 do {
@@ -26,12 +26,8 @@ struct QuoteAuthorManager {
                         .observeOn(MainScheduler.instance)
                         .subscribe { event in
                             switch event {
-                            case .next(let html):
-                                if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: html) {
-                                    failure.onNext(errorMessage)
-                                } else {
-                                    success.onNext(tid)
-                                }
+                            case .next(_):
+                                success.onNext(tid)
                             case .error(let error):
                                 failure.onNext(error.localizedDescription)
                             default:

@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 struct NewThreadManager {
-    static func postNewThread(fid: Int, typeid: Int, title: String, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
-        NetworkUtilities.formhash(from: "/forum/post.php?action=newthread&fid=\(fid)") { result in
+    static func postNewThread(pageURLPath: String, fid: Int, typeid: Int, title: String, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
+        NetworkUtilities.formhash(from: pageURLPath) { result in
             switch result {
             case .success(let formhash):
                 HiPDAProvider.request(.newThread(fid: fid, typeid: typeid, title: title, content: content, formhash: formhash, imageNumbers: imageNumbers))
@@ -39,11 +39,7 @@ struct NewThreadManager {
             let tid = try HtmlParser.tid(from: result)
             success.onNext(tid)
         } catch {
-            if let errorMessage = try? HtmlParser.newThreadErrorMessage(from: result) {
-                failure.onNext(errorMessage)
-            } else {
-                failure.onNext(NewThreadError.cannotGetTid.description)
-            }
+            failure.onNext(NewThreadError.cannotGetTid.description)
         }
     }
 }

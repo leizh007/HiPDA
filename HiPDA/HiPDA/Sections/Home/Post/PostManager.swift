@@ -77,12 +77,6 @@ class PostManager {
     func load(postInfo: PostInfo, completion: @escaping PostListFetchCompletion = { _ in }) {
         disposeBag = DisposeBag()
         
-        // 载入空数据
-        guard postInfo.tid != 0 else {
-            completion(.success((title: nil, posts: [])))
-            return
-        }
-        
         var totalPage = self.totalPage
         var title = self.title
         let uid = postInfo.authorid

@@ -15,6 +15,21 @@ enum NewThreadType {
     case quote(fid: Int, tid: Int, pid: Int)
 }
 
+extension NewThreadType {
+    var pageURLPath: String {
+        switch self {
+        case let .new(fid: fid):
+            return "/forum/post.php?action=newthread&fid=\(fid)"
+        case let .replyPost(fid: fid, tid: tid):
+            return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)"
+        case let .replyAuthor(fid: fid, tid: tid, pid: pid):
+            return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&reppost=\(pid)"
+        case let .quote(fid: fid, tid: tid, pid: pid):
+            return "/forum/post.php?action=reply&fid=\(fid)&tid=\(tid)&repquote=\(pid)&extra=page%3D1"
+        }
+    }
+}
+
 // MARK: - CustomStringConvertible
 
 extension NewThreadType: CustomStringConvertible {

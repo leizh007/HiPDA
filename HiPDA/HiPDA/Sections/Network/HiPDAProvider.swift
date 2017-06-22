@@ -23,8 +23,8 @@ private func HiPDAManager() -> Manager {
     
     configuration.httpAdditionalHeaders = headers
 #if DEBUG
-    configuration.timeoutIntervalForRequest = 10 // as seconds, you can set your request timeout
-    configuration.timeoutIntervalForResource = 10 // as seconds, you can set your resource timeout
+    configuration.timeoutIntervalForRequest = 20 // as seconds, you can set your request timeout
+    configuration.timeoutIntervalForResource = 20 // as seconds, you can set your resource timeout
 #endif
     
     let manager = Manager(configuration: configuration)
@@ -48,7 +48,12 @@ extension Moya.Response {
         guard let string = NSString(data: data, encoding: gbkEncoding) else {
             throw MoyaError.stringMapping(self)
         }
-        return (string as String).stringByDecodingHTMLEntities
+        let html = (string as String).stringByDecodingHTMLEntities
+        if let alertInfo = try? HtmlParser.alertInfo(from: html), !alertInfo.contains("欢迎您回来"){
+            throw HtmlParserError.unKnown(alertInfo)
+        }
+        
+        return html
     }
 }
 

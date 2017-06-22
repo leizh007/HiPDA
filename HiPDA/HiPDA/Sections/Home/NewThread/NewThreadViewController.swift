@@ -206,6 +206,7 @@ extension NewThreadViewController {
         PHPhotoLibrary.checkPhotoLibraryPermission { granted in
             if granted {
                 let vc = ImagePickerViewController.load(from: .views)
+                vc.pageURLPath = self.type.pageURLPath
                 vc.delegate = self
                 let navi = UINavigationController(rootViewController: vc)
                 navi.transitioningDelegate = self

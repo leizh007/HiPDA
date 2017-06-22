@@ -24,12 +24,14 @@ class ImagePickerViewController: BaseViewController {
     @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl!
     fileprivate var collectionView: UICollectionView!
     weak var delegate: ImagePickerDelegate?
+    var pageURLPath: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "选择图片"
         segmentedControl.selectedSegmentIndex = ImageCompressType.original.rawValue
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: .selected)
         skinViewModel()
         skinCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive(_:)), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
@@ -80,6 +82,7 @@ class ImagePickerViewController: BaseViewController {
     
     fileprivate func skinViewModel() {
         viewModel = ImagePickerViewModel()
+        viewModel.pageURLPath = pageURLPath
         viewModel.loadAssets()
     }
     

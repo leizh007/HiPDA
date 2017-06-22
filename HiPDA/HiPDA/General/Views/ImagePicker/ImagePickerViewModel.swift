@@ -27,13 +27,15 @@ class ImagePickerViewModel {
     var imageCompressType = ImageCompressType.original
     let dataSource = ImagePickerDataSource()
     let imageAsstesCollection = ImageAssetsCollection()
+    var pageURLPath: String!
     
     func loadAssets() {
         dataSource.loadAssets()
     }
         
     func uploadAssets(_ completion: @escaping (HiPDA.Result<[Int], NSError>) -> Void) {
-        ImagePickerViewModel.fetchHash { result in
+        fetchHash { [weak self] result in
+            guard let `self` = self else { return }
             switch result {
             case .success(let hash):
                 self.disposeBag = DisposeBag()
@@ -70,8 +72,8 @@ class ImagePickerViewModel {
         }
     }
     
-    private static func fetchHash(_ completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {
-        NetworkUtilities.html(from: "/forum/post.php?action=newthread&fid=57") { result in
+    private func fetchHash(_ completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {
+        NetworkUtilities.html(from: pageURLPath) { result in
             switch result {
             case let .success(html):
                 do {
