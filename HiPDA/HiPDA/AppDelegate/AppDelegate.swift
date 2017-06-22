@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    /// 待启动组件数组
     let bootstrappingComponents: [Bootstrapping] = [
         CrashAnalysis(),
         UIAppearanceManager(),
@@ -43,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - 启动相关
 
 extension AppDelegate {
-    /// 启动
     func bootstrap() {
         do {
             try bootstrapped(components: bootstrappingComponents)
@@ -52,13 +50,6 @@ extension AppDelegate {
         }
     }
 
-    /// 启动组件
-    ///
-    /// - parameter components: 组件数组
-    ///
-    /// - throws: 启动失败抛出异常
-    ///
-    /// - returns: 启动成功返回Bootstrapped类型的实例
     @discardableResult
     func bootstrapped(components: [Bootstrapping]) throws -> Bootstrapped {
         return try components.reduce(Bootstrapped(), { (bootstrapped, next) -> Bootstrapped in

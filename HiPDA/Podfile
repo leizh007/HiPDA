@@ -51,6 +51,7 @@ target 'HiPDA' do
   pod 'YYText', '~> 1.0.7', :inhibit_warnings => true
   pod 'YYImage', '~> 1.0.4'
   pod 'Moya/RxSwift', '~> 8.0.2'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.1.0'
   pod 'MBProgressHUD'
   pod 'SDWebImage/GIF'
   pod 'YYCache', '~> 1.0.4'

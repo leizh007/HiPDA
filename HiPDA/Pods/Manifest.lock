@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.4.0)
+  - AlamofireNetworkActivityIndicator (2.1.0):
+    - Alamofire (~> 4.1)
   - Argo (4.1.2):
     - Runes (>= 4.0.0)
   - Aspects (1.4.1)
@@ -50,6 +52,7 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
+  - AlamofireNetworkActivityIndicator (~> 2.1.0)
   - Argo (~> 4.1)
   - Crashlytics
   - Curry (~> 3.0.0)
@@ -95,6 +98,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
   Argo: 5db06502fc1222d83011f574243089dab25202ff
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
@@ -127,6 +131,6 @@ SPEC CHECKSUMS:
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 928fd3eae60d29a8cf8137825aa89cb4de385ed6
+PODFILE CHECKSUM: d0ed2d01207d019b8745f921f4184420b1052d7d
 
 COCOAPODS: 1.2.0

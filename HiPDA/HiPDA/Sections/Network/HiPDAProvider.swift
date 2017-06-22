@@ -37,18 +37,9 @@ private func HiPDAEndpointMapping<Target: TargetType>(_ target: Target) -> Endpo
     return Endpoint(url: url, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters, parameterEncoding: GBKURLEncoding())
 }
 
-fileprivate let plugin = NetworkActivityPlugin { change in
-    switch change {
-    case .began:
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    case .ended:
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-}
-
 let HiPDAProvider = RxMoyaProvider<HiPDA.API>(endpointClosure:HiPDAEndpointMapping,
                                           manager: HiPDAManager(),
-                                          plugins: [plugin, ErrorHandlePlugin()])
+                                          plugins: [ErrorHandlePlugin()])
 
 extension Moya.Response {
     func mapGBKString() throws -> String {
