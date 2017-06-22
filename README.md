@@ -6,12 +6,14 @@ HiPDA的非官方客户端（iOS版）！
 
 Notices
 ---
-目前的版本是在Xcode8.3.2， Swift3.1下开发，由于Swift3.1坑实在太多，在探索中前行。
+目前的版本是在Xcode8.3.3， Swift3.1下开发。
 
 TODO
 ---
 - 登录界面添加姓名下拉列表时会有奇怪的问题
 - Custom NavigationBar Animation
+- YYText的九宫格中文无法显示全部标点
+- 浏览帖子中图片加载的GIF有时会不动
 
 License
 ---
