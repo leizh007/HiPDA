@@ -17,7 +17,7 @@ struct Regex {
     /// - Parameter pattern: 正则表达式字符串
     /// - Returns: 正则表达式
     /// - Throws: 创建失败异常
-    private static func regularExpression(of pattern: String) throws -> NSRegularExpression {
+    static func regularExpression(of pattern: String) throws -> NSRegularExpression {
         let regex: NSRegularExpression
         if let value = Regex.regexCache[pattern] {
             regex = value

@@ -1,0 +1,166 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title> Hi!PDA Hi!PDA </title>
+<meta name="keywords" content="" />
+<meta name="generator" content="Discuz! 7.2" />
+<meta name="description" content=" Hi!PDA  - Board" />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<link rel="archives" title="Hi!PDA" href="http://www.hi-pda.com/forum/archiver/" />
+<link rel="stylesheet" type="text/css" href="forumdata/cache/style_1_common.css?d01" /><link rel="stylesheet" type="text/css" href="forumdata/cache/scriptstyle_1_profile.css?d01" />
+<script type="text/javascript">var STYLEID = '1', IMGDIR = 'images/default', VERHASH = 'd01', charset = 'gbk', discuz_uid = 893164, cookiedomain = '', cookiepath = '/', attackevasive = '0', disallowfloat = 'login|register|sendpm|newthread|reply|viewratings|viewwarning|viewthreadmod|viewvote|tradeorder|activity|debate|nav|usergroups|task', creditnotice = '1|威望|,2|金钱|', gid = 0, fid = parseInt('0'), tid = parseInt('0')</script>
+<script src="forumdata/cache/common.js?d01" type="text/javascript"></script>
+</head>
+
+<body id="profile" onkeydown="if(event.keyCode==27) return false;">
+
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+
+<div id="header">
+<div class="wrap s_clear">
+<h2><a href="index.php" title="Hi!PDA"><img src="templates/colors/images/logo.gif" alt="Hi!PDA" border="0" /></a></h2>
+<div id="umenu">
+<cite><a href="space.php?uid=893164" class="noborder">TestAccount</a></cite>
+<span class="pipe">|</span>
+<a id="myprompt" href="notice.php" >提醒</a>
+<span id="myprompt_check"></span>
+<a href="pm.php" id="pm_ntc" target="_blank">短消息</a>
+
+<span class="pipe">|</span>
+<a href="memcp.php">个人中心</a>
+<a href="logging.php?action=logout&amp;formhash=54f2f0a0">退出</a>
+</div>
+<div id="ad_headerbanner"></div>
+<div id="menu">
+<ul>
+<li class="menu_1"><a href="index.php" hidefocus="true" id="mn_index">论坛</a></li><li class="menu_2"><a href="search.php" hidefocus="true" id="mn_search">搜索</a></li></ul>
+<script type="text/javascript">
+var currentMenu = $('mn_') ? $('mn_') : $('mn_index');
+currentMenu.parentNode.className = 'current';
+</script>
+</div>
+</div>
+<div id="myprompt_menu" style="display:none" class="promptmenu">
+<div class="promptcontent">
+<ul class="s_clear"><li style="display:none"><a id="prompt_pm" href="pm.php?filter=newpm" target="_blank">私人消息 (0)</a></li><li style="display:none"><a id="prompt_announcepm" href="pm.php?filter=announcepm" target="_blank">公共消息 (0)</a></li><li style="display:none"><a id="prompt_systempm" href="notice.php?filter=systempm" target="_blank">系统消息 (0)</a></li><li style="display:none"><a id="prompt_friend" href="notice.php?filter=friend" target="_blank">好友消息 (0)</a></li><li style="display:none"><a id="prompt_threads" href="notice.php?filter=threads" target="_blank">帖子消息 (0)</a></li></ul>
+</div>
+</div>
+</div>
+<div id="nav"><a href="index.php">Hi!PDA</a> &raquo; 夏雪宜的个人资料</div>
+
+<script type="text/javascript">var imagemaxwidth = '600';</script>
+
+<div id="wrap" class="wrap with_side special s_clear">
+<div class="main">
+<div id="profilecontent" class="content">
+<div class="itemtitle s_clear">
+<h1>夏雪宜 <img src="https://img02.hi-pda.com/forum/images/default/online_buddy.gif" title="当前在线" class="online_buddy" /></h1>
+<ul>
+<li>(UID: 500085)</li>
+</ul>
+</div>
+<div id="baseprofile">
+<table cellpadding="0" cellpadding="0" class="formtable" style="table-layout:fixed">
+<tr>
+<th width="70">性别:</th>
+<td>
+保密</td>
+</tr>
+
+<tr>
+<th width="70">来自:</th>
+<td>
+苏州</td>
+</tr>
+</table>
+<table cellpadding="0" cellpadding="0" class="formtable">
+<tr>
+<th>MSN:</th>
+<td></td>
+</tr>
+</table>
+</div>
+<hr class="dashline" />
+
+<h3 class="blocktitle lightlink">用户组: <a href="faq.php?action=grouppermission&amp;searchgroupid=3" target="_blank">版主</a> <img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 7" /><img src="https://img02.hi-pda.com/forum/images/default/star_level2.gif" alt="Rank: 7" /><img src="https://img02.hi-pda.com/forum/images/default/star_level1.gif" alt="Rank: 7" /> </h3>
+<p>管理以下版块: <a href="forumdisplay.php?fid=2">Discovery</a>, <a href="forumdisplay.php?fid=6">Buy & Sell 交易服务区</a>, <a href="forumdisplay.php?fid=63">已完成交易</a></p><div class="s_clear">
+<ul class="commonlist right" style="width: 50%">
+<li>注册日期: 2009-3-20</li>
+<li>上次访问: 2017-6-23 04:18</li>
+<li>最后发表: 2017-6-23 08:39</li>
+</ul>
+<ul class="commonlist">
+<li>发帖数级别: 西方失落～ <img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 7" /><img src="https://img02.hi-pda.com/forum/images/default/star_level2.gif" alt="Rank: 7" /><img src="https://img02.hi-pda.com/forum/images/default/star_level1.gif" alt="Rank: 7" /></li>
+<li>阅读权限: 100</li>
+<li>帖子: 98129 篇(占全部帖子的 0.24%)</li>
+<li>平均每日发帖: 32.53 篇</li>
+<li>精华: 0 篇</li>
+<li>页面访问量: 602348</li></ul>
+</div>
+<p>在线时间: 总计在线 <em>18421.5</em> 小时, 本月在线 <em>95.17</em> 小时 <img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level3.gif" alt="Rank: 369" /><img src="https://img02.hi-pda.com/forum/images/default/star_level1.gif" alt="Rank: 369" /> (升级剩余时间 <span class="bold">19</span> 小时)</p>
+<hr class="dashline" />
+
+
+<h3 class="blocktitle lightlink">积分: 20</h3>
+<p>威望: 20 ,&nbsp;金钱: 0 </p>
+<hr class="dashline" />
+
+<h3 class="blocktitle lightlink">信用评价 <a href="eccredit.php?uid=500085" style="font-size: 12px; color: #09C;">(查看详细的信用记录)</a></h3>
+<p>
+买家信用评价: 0 <a href="eccredit.php?uid=500085" target="_blank"><img src="https://img02.hi-pda.com/forum/images/rank/seller/0.gif" border="0" class="absmiddle"></a>
+卖家信用评价: 0 <a href="eccredit.php?uid=500085" target="_blank"><img src="https://img02.hi-pda.com/forum/images/rank/buyer/0.gif" border="0" class="absmiddle"></a>
+</p>
+
+</div>
+</div>
+<div class="side">
+<div class="profile_side">
+<div class="avatar"><img src="https://img02.hi-pda.com/forum/uc_server/data/avatar/000/50/00/85_avatar_middle.jpg" onerror="this.onerror=null;this.src='https://img02.hi-pda.com/forum/uc_server/images/noavatar_middle.gif'" /></div>
+<ul id="profile_act">
+<li class="pm"><a href="pm.php?action=new&amp;uid=500085" id="sendpm" prompt="sendpm" onclick="showWindow('sendpm', this.href);return false;">发短消息</a></li>
+<li class="buddy"><a href="my.php?item=buddylist&amp;newbuddyid=500085&amp;buddysubmit=yes" id="addbuddy" prompt="addbuddy" onclick="ajaxmenu(this, 3000);doane(event);">加为好友</a></li>
+<li class="searchpost"><a href="search.php?srchuid=500085&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes">搜索帖子</a></li>
+</ul>
+<ul>
+<li><a href="stats.php?type=modworks&amp;uid=500085"><span>工作统计</span></a></li></ul>
+</div>
+</div></div><div id="ad_footerbanner1"></div><div id="ad_footerbanner2"></div><div id="ad_footerbanner3"></div>
+
+<div id="footer">
+<div class="wrap s_clear">
+<div id="footlink">
+<p>
+<strong><a href="https://www.hi-pda.com/" target="_blank">Hi!PDA</a></strong>
+( <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备05005575号</a>)<span class="pipe">|</span><a href="mailto:zhuyi@hi-pda.com">联系我们</a>
+<span class="pipe">|</span><a href="stats.php">论坛统计</a><span class="pipe">| <script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-180878-1']);
+_gaq.push(['_setDomainName', 'hi-pda.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script></span></p>
+<p class="smalltext">
+GMT+8, 2017-6-23 16:09, <span id="debuginfo">Processed in 0.005875 second(s), 9 queries</span>.
+</p>
+</div>
+<div id="rightinfo">
+<p>Powered by <strong><a href="http://www.discuz.net" target="_blank">Discuz!</a></strong> <em>7.2</em></p>
+<p class="smalltext">&copy; 2001-2009 <a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a></p>
+
+
+</div></div>
+</div>
+</body>
+</html>
+

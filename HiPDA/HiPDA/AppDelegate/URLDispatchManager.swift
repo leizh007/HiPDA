@@ -116,7 +116,7 @@ extension URLDispatchManager {
         do {
             let uid = try HtmlParser.uid(from: url.absoluteString)
             let userProfileVC = UserProfileViewController.load(from: .home)
-            userProfileVC.user = User(name: "", uid: uid)
+            userProfileVC.uid = uid
             show(userProfileVC)
         } catch {
             topVC?.showPromptInformation(of: .failure("\(error)"))

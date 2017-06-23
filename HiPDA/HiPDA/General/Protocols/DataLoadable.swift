@@ -33,6 +33,11 @@ protocol DataLoadDelegate: class {
     func loadMoreData()
 }
 
+extension DataLoadDelegate {
+    func loadNewData() {}
+    func loadMoreData() {}
+}
+
 // MARK: - DataLoadable
 
 protocol DataLoadable: TapToLoadDelegate {

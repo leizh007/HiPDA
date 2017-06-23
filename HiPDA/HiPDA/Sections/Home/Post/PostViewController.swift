@@ -364,10 +364,10 @@ extension PostViewController {
     fileprivate func skinWebViewJavascriptBridge(_ bridge: WKWebViewJavascriptBridge) {
         bridge.registerHandler("userClicked") { [weak self] (data, _) in
             guard let `self` = self,
-                let data = data,
-                let user = try? User.decode(JSON(data)).dematerialize() else { return }
+                let data = data as? [String: Int],
+                let uid = data["uid"] else { return }
             self.perform(.userProfile) { userProfileVC in
-                userProfileVC.user = user
+                userProfileVC.uid = uid
             }
         }
         

@@ -119,6 +119,11 @@
 		058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717B1DA1FB22004992AD /* BaseViewController.swift */; };
 		058A717E1DA1FFBD004992AD /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717D1DA1FFBD004992AD /* LoginResult.swift */; };
 		058A71801DA28865004992AD /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A717F1DA28865004992AD /* LensTests.swift */; };
+		058A9F441EFD072B00E74744 /* UserProfileModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F431EFD072B00E74744 /* UserProfileModelTests.swift */; };
+		058A9F461EFD079200E74744 /* UserProfileModelHtml.txt in Resources */ = {isa = PBXBuildFile; fileRef = 058A9F451EFD079200E74744 /* UserProfileModelHtml.txt */; };
+		058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F471EFD19A900E74744 /* ProfileAccountSection.swift */; };
+		058A9F4A1EFD19BE00E74744 /* ProfileActionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F491EFD19BE00E74744 /* ProfileActionSection.swift */; };
+		058A9F4C1EFD1B5300E74744 /* ProfileBaseInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F4B1EFD1B5300E74744 /* ProfileBaseInfoSection.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
@@ -219,6 +224,9 @@
 		05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */; };
 		05CB825E1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */; };
 		05CB82601EFBCC470040FC92 /* UserProfileSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */; };
+		05CB82621EFC0BA80040FC92 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB82611EFC0BA80040FC92 /* UserProfileViewModel.swift */; };
+		05CB82641EFC12C90040FC92 /* UserProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB82631EFC12C90040FC92 /* UserProfileSection.swift */; };
+		05CB82681EFCA97B0040FC92 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */; };
 		05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CEB74D1E1D0F7300ACB773 /* ForumList.plist */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */; };
@@ -404,6 +412,11 @@
 		058A717B1DA1FB22004992AD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		058A717D1DA1FFBD004992AD /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		058A717F1DA28865004992AD /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
+		058A9F431EFD072B00E74744 /* UserProfileModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModelTests.swift; sourceTree = "<group>"; };
+		058A9F451EFD079200E74744 /* UserProfileModelHtml.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProfileModelHtml.txt; sourceTree = "<group>"; };
+		058A9F471EFD19A900E74744 /* ProfileAccountSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAccountSection.swift; sourceTree = "<group>"; };
+		058A9F491EFD19BE00E74744 /* ProfileActionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileActionSection.swift; sourceTree = "<group>"; };
+		058A9F4B1EFD1B5300E74744 /* ProfileBaseInfoSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBaseInfoSection.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -506,6 +519,9 @@
 		05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileSectionHeaderView.swift; sourceTree = "<group>"; };
 		05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileSectionHeaderView.xib; sourceTree = "<group>"; };
+		05CB82611EFC0BA80040FC92 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		05CB82631EFC12C90040FC92 /* UserProfileSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileSection.swift; sourceTree = "<group>"; };
+		05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		05CEB74D1E1D0F7300ACB773 /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
@@ -666,6 +682,12 @@
 			isa = PBXGroup;
 			children = (
 				0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */,
+				05CB82611EFC0BA80040FC92 /* UserProfileViewModel.swift */,
+				05CB82631EFC12C90040FC92 /* UserProfileSection.swift */,
+				058A9F471EFD19A900E74744 /* ProfileAccountSection.swift */,
+				058A9F491EFD19BE00E74744 /* ProfileActionSection.swift */,
+				058A9F4B1EFD1B5300E74744 /* ProfileBaseInfoSection.swift */,
+				05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */,
 				05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */,
 				05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */,
 			);
@@ -1059,6 +1081,8 @@
 				059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */,
 				05EEF2151EBC773700C38CAD /* YYCacheExtensionTests.swift */,
 				05BF3C891ECA06F6001759E9 /* PostInfoTests.swift */,
+				058A9F431EFD072B00E74744 /* UserProfileModelTests.swift */,
+				058A9F451EFD079200E74744 /* UserProfileModelHtml.txt */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -1455,6 +1479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058A9F461EFD079200E74744 /* UserProfileModelHtml.txt in Resources */,
 				059D495D1EBB1B0B00BECA18 /* HtmlParserThreadsData.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1637,6 +1662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058A9F4C1EFD1B5300E74744 /* ProfileBaseInfoSection.swift in Sources */,
 				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
 				05EE515D1EC9FCBF00BC81B4 /* PostRequestInfo.swift in Sources */,
 				059D495F1EBB1D2900BECA18 /* ThreadResult.swift in Sources */,
@@ -1685,6 +1711,7 @@
 				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
 				0533F1F81EE560FA00DB854B /* ErrorHandlePlugin.swift in Sources */,
 				050A190E1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift in Sources */,
+				058A9F4A1EFD19BE00E74744 /* ProfileActionSection.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
@@ -1705,6 +1732,7 @@
 				05B35C431ECC3F4000C037A7 /* URLProtocolManager.swift in Sources */,
 				056B3BF41E6D867000843E32 /* AccountManagementViewController.swift in Sources */,
 				05068B001E0AC0010070E044 /* UserRemarkTableViewCell.swift in Sources */,
+				05CB82681EFCA97B0040FC92 /* UserProfileModel.swift in Sources */,
 				05068AFA1E097A8C0070E044 /* TableViewState.swift in Sources */,
 				05F3DCD91DB7B4A00061CED1 /* API.swift in Sources */,
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
@@ -1729,6 +1757,7 @@
 				05B35C451ECC43E100C037A7 /* PostResult.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
 				051BFE0B1EF590D000EA77EB /* ImageBrowserViewController.swift in Sources */,
+				05CB82641EFC12C90040FC92 /* UserProfileSection.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
 				059D495B1EBB108F00BECA18 /* ThreadManager.swift in Sources */,
 				05CB825E1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift in Sources */,
@@ -1752,6 +1781,7 @@
 				05BBBBC41E8026F700C6E0D3 /* NSString+HiPDA.m in Sources */,
 				05B35C411ECC3E3D00C037A7 /* HiPDAURLProtocol.swift in Sources */,
 				059D49531EBAF70000BECA18 /* Thread.swift in Sources */,
+				05CB82621EFC0BA80040FC92 /* UserProfileViewModel.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
 				0572261C1EF03ADC00397829 /* NetworkUtilities.swift in Sources */,
 				0546619C1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift in Sources */,
@@ -1763,6 +1793,7 @@
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
+				058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */,
 				0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
 				057226391EF2987000397829 /* PHPhotoLibrary+HiPDA.swift in Sources */,
@@ -1810,6 +1841,7 @@
 				05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */,
 				05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
+				058A9F441EFD072B00E74744 /* UserProfileModelTests.swift in Sources */,
 				05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,

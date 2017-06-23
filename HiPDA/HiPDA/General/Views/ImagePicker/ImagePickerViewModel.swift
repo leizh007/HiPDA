@@ -42,6 +42,7 @@ class ImagePickerViewModel {
                 let assets = self.imageAsstesCollection.getAssets()
                                     .flatMap { $0.downloadedAsset }
                 var imageNumbers = Array(repeatElement(0, count: assets.count))
+                let lock = NSRecursiveLock()
                 var err: NSError?
                 let group = DispatchGroup()
                 for i in 0..<assets.count {
@@ -51,7 +52,9 @@ class ImagePickerViewModel {
                         asset.upload(hash: hash, type: self.imageCompressType) { result in
                             switch result {
                             case .success(let num):
+                                lock.lock()
                                 imageNumbers[i] = num
+                                lock.unlock()
                             case .failure(let error):
                                 err = error as NSError
                             }

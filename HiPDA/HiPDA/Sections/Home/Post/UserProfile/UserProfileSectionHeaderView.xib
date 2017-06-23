@@ -20,15 +20,23 @@
                     <color key="textColor" red="0.0" green="0.22958287596702576" blue="0.33360868692398071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_navigationbar_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="JQ5-Q5-0ZU">
+                    <rect key="frame" x="355" y="17.5" width="14" height="9"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="JQ5-Q5-0ZU" secondAttribute="trailing" constant="16" id="Czv-n0-QtG"/>
+                <constraint firstItem="JQ5-Q5-0ZU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eBz-XV-VJH"/>
                 <constraint firstItem="1ET-gz-rqS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ept-Ev-Igb"/>
                 <constraint firstItem="1ET-gz-rqS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="m6Y-0T-vuG"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="13" y="59"/>
+            <point key="canvasLocation" x="12.5" y="59"/>
         </view>
     </objects>
+    <resources>
+        <image name="home_navigationbar_disclosure" width="14" height="9"/>
+    </resources>
 </document>

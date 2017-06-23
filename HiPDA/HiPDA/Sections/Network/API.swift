@@ -24,6 +24,7 @@ extension HiPDA {
         case addToFavorites(tid: Int)
         case addToAttentions(tid: Int)
         case uploadImage(hash: String, data: Data, mimeType: String)
+        case userProfile(uid: Int)
     }
 }
 
@@ -64,6 +65,8 @@ extension HiPDA.API: TargetType {
             return "/forum/my.php?item=attention&action=add&tid=\(tid)&inajax=1&ajaxtarget=favorite_msg"
         case .uploadImage(_):
             return "/forum/misc.php?type=image&action=swfupload&operation=upload"
+        case let .userProfile(uid: uid):
+            return "/forum/space.php?uid=\(uid)"
         }
     }
     var method: Moya.Method {
@@ -93,6 +96,8 @@ extension HiPDA.API: TargetType {
         case .addToAttentions(_):
             return .get
         case .uploadImage(_):
+            return .post
+        case .userProfile(_):
             return .post
         }
     }
@@ -161,6 +166,8 @@ extension HiPDA.API: TargetType {
         case .addToAttentions(_):
             return nil
         case .uploadImage(_):
+            return nil
+        case .userProfile(_):
             return nil
         }
     }

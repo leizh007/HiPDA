@@ -322,13 +322,8 @@ function linkClicked(link) {
 }
 
 function userClicked(user) {
-    var name = user.getElementsByClassName("username")[0];
     var uid = user.getElementsByClassName("uid")[0];
-    var data = {
-        "uid": parseInt(uid.innerText),
-        "name": name.innerText
-    };
-    WebViewJavascriptBridge.callHandler('userClicked', data, null);
+    WebViewJavascriptBridge.callHandler('userClicked', { "uid": parseInt(uid.innerText) }, null);
 }
 
 // ==========================================================================

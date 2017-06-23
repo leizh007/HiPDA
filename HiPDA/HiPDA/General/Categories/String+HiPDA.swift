@@ -147,7 +147,7 @@ extension String {
         }
         // Copy remaining characters to `result`:
         result.append(self[position ..< endIndex])
-        return result
+        return result.replacingOccurrences(of: "&nbsp;", with: "") // 在这个页面中空格替换不掉: https://www.hi-pda.com/forum/space.php?username=%CF%C4%D1%A9%D2%CB
     }
     
     var isLink: Bool {
