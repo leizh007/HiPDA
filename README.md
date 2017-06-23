@@ -14,6 +14,7 @@ TODO
 - Custom NavigationBar Animation
 - YYText的九宫格中文无法显示全部标点
 - 浏览帖子中图片加载的GIF有时会不动
+- 1px的线在iPhone X Plus上显示异常
 
 License
 ---
