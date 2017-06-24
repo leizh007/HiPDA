@@ -5,6 +5,7 @@ inhibit_all_warnings!
 def import_debug
     pod 'Reveal-iOS-SDK', :configurations => ['Debug']
     pod 'FLEX', :configurations => ['Debug']
+    pod 'MLeaksFinder', :configurations => ['Debug']
 end
 
 def import_JSONDecode
@@ -23,7 +24,6 @@ end
 def import_Statistics
     pod 'Fabric'
     pod 'Crashlytics'
-    pod 'MLeaksFinder'
 end
 
 def import_Thoughtbot
@@ -59,7 +59,8 @@ target 'HiPDA' do
   pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
   pod 'WebViewJavascriptBridge', '~> 6.0.2'
   pod 'HTMLString', '~> 3.0.0'
-
+  pod 'FDFullscreenPopGesture', '~> 1.1'
+  
   target 'HiPDATests' do
     inherit! :search_paths
     # Pods for testing
