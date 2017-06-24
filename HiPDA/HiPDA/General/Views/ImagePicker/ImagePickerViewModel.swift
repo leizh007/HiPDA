@@ -67,7 +67,7 @@ class ImagePickerViewModel {
                         completion(.failure(error))
                         return
                     }
-                    completion(.success(imageNumbers.sorted(by: <)))
+                    completion(.success(imageNumbers))
                 }
             case .failure(let error):
                 completion(.failure(error))
