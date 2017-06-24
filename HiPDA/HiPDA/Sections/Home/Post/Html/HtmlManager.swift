@@ -15,6 +15,7 @@ struct HtmlManager {
         static let script = "####script here####"
         static let maxWidth = "####max width####"
         static let blockQuoteWidth = "####blockquote width####"
+        static let blockcodeWidth = "####blockcode width#### "
         static let screenScale = "####screen scale####"
         static let seperatorLineHeight = "####seperator line height####"
     }
@@ -40,7 +41,9 @@ struct HtmlManager {
         let blockquoteMargin = CGFloat(16.0)
         let seperatorLineHeight = 1.0 / C.UI.screenScale
         css = css.replacingOccurrences(of: Attribute.maxWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin))px")
-            .replacingOccurrences(of: Attribute.blockQuoteWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin - 2 * blockquoteMargin))px").replacingOccurrences(of: Attribute.screenScale, with: "\(Int(C.UI.screenScale))").replacingOccurrences(of: Attribute.seperatorLineHeight, with: String(format:"%.3f", seperatorLineHeight))
+            .replacingOccurrences(of: Attribute.blockQuoteWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin - 2 * blockquoteMargin))px")
+            .replacingOccurrences(of: Attribute.blockcodeWidth, with: "\(Int(C.UI.screenWidth - 2 * contentMargin))px")
+            .replacingOccurrences(of: Attribute.screenScale, with: "\(Int(C.UI.screenScale))").replacingOccurrences(of: Attribute.seperatorLineHeight, with: String(format:"%.3f", seperatorLineHeight))
 
         
         return html.replacingOccurrences(of: Attribute.style, with: css)

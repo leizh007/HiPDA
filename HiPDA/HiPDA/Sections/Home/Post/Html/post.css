@@ -122,7 +122,6 @@
         background-color: #F7F7F7 !important;
         margin: 16px !important;
         padding: 8px 16px !important;
-        font-size: 16px !important;
         color: #666666 !important;
     }
     
@@ -229,5 +228,18 @@
     
     a[title="主题操作记录"] {
         display: none !important;
+    }
+
+    li {
+        word-break: break-all;
+    }
+
+    .blockcode {
+        -webkit-box-sizing: border-box;
+        width: ####blockcode width#### !important;
+        background-color: #F7F7F7 !important;
+        margin: 8px 0px !important;
+        padding: 8px 0px !important;
+        color: #666666 !important;
     }
 }
