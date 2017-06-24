@@ -12,6 +12,7 @@ protocol ProfileSection {
     associatedtype Item
     var header: String? { get }
     var items: [Item] { get }
+    var isCollapsed: Bool { get }
     static func createInstance(from html: String) throws -> Self
 }
 
@@ -19,6 +20,38 @@ enum ProfileSectionType {
     case account(ProfileAccountSection)
     case action(ProfileActionSection)
     case baseInfo(ProfileBaseInfoSection)
+    var isCollapsed: Bool {
+        switch self {
+        case .account(let account):
+            return account.isCollapsed
+        case .action(let action):
+            return action.isCollapsed
+        case .baseInfo(let baseInfo):
+            return baseInfo.isCollapsed
+        }
+    }
+    
+    var items: [Any] {
+        switch self {
+        case .account(let account):
+            return account.items
+        case .action(let action):
+            return action.items
+        case .baseInfo(let baseInfo):
+            return baseInfo.items
+        }
+    }
+    
+    var header: String? {
+        switch self {
+        case .account(let account):
+            return account.header
+        case .action(let action):
+            return action.header
+        case .baseInfo(let baseInfo):
+            return baseInfo.header
+        }
+    }
 }
 
 extension ProfileSectionType {

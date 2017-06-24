@@ -27,4 +27,20 @@ struct UserProfileModel {
         
         return UserProfileModel(sections: sections)
     }
+    
+    mutating func changeSectionHeaderCollapse(at index: Int) {
+        guard index < sections.count else { return }
+        let section = sections[index]
+        switch section {
+        case .account(var account):
+            account.isCollapsed = !account.isCollapsed
+            sections[index] = .account(account)
+        case .action(var action):
+            action.isCollapsed = !action.isCollapsed
+            sections[index] = .action(action)
+        case .baseInfo(var baseInfo):
+            baseInfo.isCollapsed = !baseInfo.isCollapsed
+            sections[index] = .baseInfo(baseInfo)
+        }
+    }
 }

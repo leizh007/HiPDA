@@ -27,7 +27,7 @@ class PostManager {
         self.postInfo = postInfo
     }
     
-    fileprivate var title: String?
+    var title: String?
     
     /// 总页数
     fileprivate(set) var totalPage = Int.max

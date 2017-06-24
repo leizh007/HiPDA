@@ -187,6 +187,10 @@ extension PostViewModel {
             }
         }
     }
+    
+    func reload(completion: @escaping PostFetchCompletion = { _ in }) {
+        parsePosts(manager.posts, title: manager.title, completion: completion)
+    }
 }
 
 // MARK: - NetWork Request

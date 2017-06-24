@@ -11,6 +11,7 @@ import Foundation
 struct ProfileAccountSection: ProfileSection {
     var header: String?
     var items: [User]
+    var isCollapsed: Bool
     
     static func createInstance(from html: String) throws -> ProfileAccountSection {
         let pattern = "<h1>([\\s\\S]*?)<\\/h1>[^<]*<ul>[^<]*<li>\\(UID:\\s*(\\d+)\\)<\\/li>"
@@ -21,6 +22,6 @@ struct ProfileAccountSection: ProfileSection {
         }
         let content = try ProfileSectionType.contentText(in: result[1])
         let name = ProfileSectionType.removeTrimmingWhiteSpaces(in: content)
-        return ProfileAccountSection(header: nil, items: [User(name: name, uid: uid)])
+        return ProfileAccountSection(header: nil, items: [User(name: name, uid: uid)], isCollapsed: false)
     }
 }

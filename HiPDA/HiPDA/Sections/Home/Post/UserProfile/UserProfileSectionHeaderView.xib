@@ -15,26 +15,60 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户组: 管理猿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ET-gz-rqS">
-                    <rect key="frame" x="16" y="11.5" width="113.5" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <rect key="frame" x="16" y="12.5" width="107.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.22958287596702576" blue="0.33360868692398071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_navigationbar_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="JQ5-Q5-0ZU">
                     <rect key="frame" x="355" y="17.5" width="14" height="9"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwF-Ov-cGw">
+                    <rect key="frame" x="0.0" y="0.0" width="385" height="1"/>
+                    <color key="backgroundColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="LjB-GK-CKE"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivk-UW-8I1">
+                    <rect key="frame" x="0.0" y="43" width="385" height="1"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="a1G-98-CgA"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="uwF-Ov-cGw" secondAttribute="trailing" id="6QS-nj-Lov"/>
                 <constraint firstAttribute="trailing" secondItem="JQ5-Q5-0ZU" secondAttribute="trailing" constant="16" id="Czv-n0-QtG"/>
+                <constraint firstItem="uwF-Ov-cGw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Nva-LR-9sp"/>
+                <constraint firstItem="Ivk-UW-8I1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="S8e-Bd-N0C"/>
+                <constraint firstAttribute="bottom" secondItem="Ivk-UW-8I1" secondAttribute="bottom" id="c17-QK-teP"/>
                 <constraint firstItem="JQ5-Q5-0ZU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eBz-XV-VJH"/>
                 <constraint firstItem="1ET-gz-rqS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ept-Ev-Igb"/>
+                <constraint firstAttribute="trailing" secondItem="Ivk-UW-8I1" secondAttribute="trailing" id="jdR-kW-1Z9"/>
                 <constraint firstItem="1ET-gz-rqS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="m6Y-0T-vuG"/>
+                <constraint firstItem="uwF-Ov-cGw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="va0-Xl-i5z"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="12.5" y="59"/>
+            <connections>
+                <outlet property="bottomSeperatorView" destination="Ivk-UW-8I1" id="mDG-6r-DkD"/>
+                <outlet property="disclosureIndicatorView" destination="JQ5-Q5-0ZU" id="X7A-DL-Dx5"/>
+                <outlet property="headerTitleLabel" destination="1ET-gz-rqS" id="CQX-sO-Kvs"/>
+                <outletCollection property="seperatorHeightConstraints" destination="LjB-GK-CKE" collectionClass="NSMutableArray" id="Xwa-LA-ach"/>
+                <outletCollection property="seperatorHeightConstraints" destination="a1G-98-CgA" collectionClass="NSMutableArray" id="Bmp-aA-MKd"/>
+                <outletCollection property="gestureRecognizers" destination="B95-Tt-xG1" appends="YES" id="MbD-5a-afH"/>
+            </connections>
+            <point key="canvasLocation" x="-90" y="6"/>
         </view>
+        <tapGestureRecognizer id="B95-Tt-xG1">
+            <connections>
+                <action selector="backgroundTapped:" destination="iN0-l3-epB" id="K6d-61-mbZ"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="home_navigationbar_disclosure" width="14" height="9"/>

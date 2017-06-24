@@ -9,6 +9,12 @@
 import UIKit
 import SDWebImage
 
+private enum SectionType: Int {
+    case account
+    case action
+    case settings
+}
+
 /// 我的ViewController
 class MeViewController: UITableViewController {
     /// 头像
@@ -42,6 +48,14 @@ class MeViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    fileprivate func showAccountProfile() {
+        guard let account = Settings.shared.activeAccount else { return }
+        let vc = UserProfileViewController.load(from: .home)
+        vc.uid = account.uid
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -49,5 +63,11 @@ class MeViewController: UITableViewController {
 extension MeViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case SectionType.account.rawValue:
+            showAccountProfile()
+        default:
+            break
+        }
     }
 }

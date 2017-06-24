@@ -22,6 +22,7 @@ extension ProfileBaseInfo: Equatable {
 struct ProfileBaseInfoSection: ProfileSection {
     var header: String?
     var items: [ProfileBaseInfo]
+    var isCollapsed: Bool
     
     static func createInstance(from html: String) throws -> ProfileBaseInfoSection {
         let header = try ProfileBaseInfoSection.header(in: html) ?? "基本信息"
@@ -30,7 +31,7 @@ struct ProfileBaseInfoSection: ProfileSection {
         var infos = additionalItems ?? []
         infos.append(contentsOf: items ?? [])
         
-        return ProfileBaseInfoSection(header: header, items: infos)
+        return ProfileBaseInfoSection(header: header, items: infos, isCollapsed: true)
     }
     
     private static func header(in html: String) throws -> String? {
@@ -120,8 +121,8 @@ struct ProfileBaseInfoSection: ProfileSection {
             return zip(stride(from: 0, to: nameValueArr.count, by: 2),
                        stride(from: 1, to: nameValueArr.count, by: 2))
                 .map {
-                    return ProfileBaseInfo(name: ProfileSectionType.removeTrimmingWhiteSpaces(in :nameValueArr[$0.0]),
-                                           value: ProfileSectionType.removeTrimmingWhiteSpaces(in :nameValueArr[$0.1]))
+                    return ProfileBaseInfo(name: ProfileSectionType.removeTrimmingWhiteSpaces(in: nameValueArr[$0.0]),
+                                           value: ProfileSectionType.removeTrimmingWhiteSpaces(in: nameValueArr[$0.1]))
             }
         }
         

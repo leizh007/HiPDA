@@ -366,7 +366,8 @@ extension PostViewController {
             guard let `self` = self,
                 let data = data as? [String: Int],
                 let uid = data["uid"] else { return }
-            self.perform(.userProfile) { userProfileVC in
+            self.perform(.userProfile) { [weak self] userProfileVC in
+                userProfileVC.delegate = self
                 userProfileVC.uid = uid
             }
         }
@@ -667,6 +668,16 @@ extension PostViewController: WKUIDelegate {
     @available(iOS 10.0, *)
     func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
         return false
+    }
+}
+
+// MARK: - UserProfileDelegate
+
+extension PostViewController: UserProfileDelegate {
+    func userProfileInformationDidChange() {
+        viewModel.reload { [weak self] result in
+            self?.handleDataLoadResult(result)
+        }
     }
 }
 

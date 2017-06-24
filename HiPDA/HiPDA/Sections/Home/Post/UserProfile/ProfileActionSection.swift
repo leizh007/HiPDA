@@ -16,11 +16,31 @@ enum ProfileAction {
     case block
 }
 
+extension ProfileAction: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .remark:
+            return "设置备注"
+        case .pm:
+            return "发短消息"
+        case .friend:
+            return "加为好友"
+        case .search:
+            return "搜索帖子"
+        case .block:
+            return "加入黑名单"
+        }
+    }
+}
+
 struct ProfileActionSection: ProfileSection {
     var header: String?
     var items: [ProfileAction]
+    var isCollapsed: Bool
+    
     static func createInstance(from html: String) throws -> ProfileActionSection {
         return ProfileActionSection(header: nil,
-                                    items: [.remark, .pm, .friend, .search, .block])
+                                    items: [.remark, .pm, .friend, .search, .block],
+                                    isCollapsed: false)
     }
 }

@@ -124,6 +124,10 @@
 		058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F471EFD19A900E74744 /* ProfileAccountSection.swift */; };
 		058A9F4A1EFD19BE00E74744 /* ProfileActionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F491EFD19BE00E74744 /* ProfileActionSection.swift */; };
 		058A9F4C1EFD1B5300E74744 /* ProfileBaseInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F4B1EFD1B5300E74744 /* ProfileBaseInfoSection.swift */; };
+		058A9F4E1EFE54EB00E74744 /* UserProfileAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F4D1EFE54EA00E74744 /* UserProfileAccountTableViewCell.swift */; };
+		058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F4F1EFE550100E74744 /* UserProfileRemarkTableViewCell.swift */; };
+		058A9F521EFE550C00E74744 /* UserProfileActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F511EFE550C00E74744 /* UserProfileActionTableViewCell.swift */; };
+		058A9F541EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F531EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
@@ -417,6 +421,10 @@
 		058A9F471EFD19A900E74744 /* ProfileAccountSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAccountSection.swift; sourceTree = "<group>"; };
 		058A9F491EFD19BE00E74744 /* ProfileActionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileActionSection.swift; sourceTree = "<group>"; };
 		058A9F4B1EFD1B5300E74744 /* ProfileBaseInfoSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBaseInfoSection.swift; sourceTree = "<group>"; };
+		058A9F4D1EFE54EA00E74744 /* UserProfileAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileAccountTableViewCell.swift; sourceTree = "<group>"; };
+		058A9F4F1EFE550100E74744 /* UserProfileRemarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileRemarkTableViewCell.swift; sourceTree = "<group>"; };
+		058A9F511EFE550C00E74744 /* UserProfileActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileActionTableViewCell.swift; sourceTree = "<group>"; };
+		058A9F531EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileBaseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -688,6 +696,10 @@
 				058A9F491EFD19BE00E74744 /* ProfileActionSection.swift */,
 				058A9F4B1EFD1B5300E74744 /* ProfileBaseInfoSection.swift */,
 				05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */,
+				058A9F4D1EFE54EA00E74744 /* UserProfileAccountTableViewCell.swift */,
+				058A9F4F1EFE550100E74744 /* UserProfileRemarkTableViewCell.swift */,
+				058A9F511EFE550C00E74744 /* UserProfileActionTableViewCell.swift */,
+				058A9F531EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift */,
 				05CB825D1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift */,
 				05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */,
 			);
@@ -1712,6 +1724,7 @@
 				0533F1F81EE560FA00DB854B /* ErrorHandlePlugin.swift in Sources */,
 				050A190E1ED3E2D200EEFD08 /* SDWebImageManager+HiPDA.swift in Sources */,
 				058A9F4A1EFD19BE00E74744 /* ProfileActionSection.swift in Sources */,
+				058A9F4E1EFE54EB00E74744 /* UserProfileAccountTableViewCell.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
@@ -1764,6 +1777,7 @@
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
+				058A9F541EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift in Sources */,
 				05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */,
 				05532B141ECE10BB00FAB176 /* ResourcesInitialization.swift in Sources */,
 				050C940C1EE67FE300FBD18F /* PageNumberSelectionViewController.swift in Sources */,
@@ -1793,6 +1807,7 @@
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
+				058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */,
 				058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */,
 				0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
@@ -1802,6 +1817,7 @@
 				05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */,
 				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,
 				05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */,
+				058A9F521EFE550C00E74744 /* UserProfileActionTableViewCell.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
