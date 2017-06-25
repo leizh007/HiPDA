@@ -78,6 +78,10 @@ extension UserProfileViewController: UITableViewDelegate {
                     self?.showPromptInformation(of: .failure(error.localizedDescription))
                 }
             }
+        case .pm:
+            let sendMessageVC = SendShortMessageViewController.load(from: .message)
+            sendMessageVC.modalPresentationStyle = .overCurrentContext
+            present(sendMessageVC, animated: false, completion: nil)
         default:
             break
         }

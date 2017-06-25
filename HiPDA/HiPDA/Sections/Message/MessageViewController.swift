@@ -9,5 +9,5 @@
 import UIKit
 
 /// 消息的ViewController
-class NotificationViewController: BaseViewController {
+class MessageViewController: BaseViewController {
 }
