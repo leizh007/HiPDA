@@ -62,10 +62,24 @@ extension UserProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         view.endEditing(true)
-        if case let .action(action) = viewModel.section(at: indexPath.section),
-            case .block = action.items[indexPath.row] {
+        guard case let .action(action) = viewModel.section(at: indexPath.section) else { return }
+        switch action.items[indexPath.row] {
+        case .block:
             viewModel.changeBlockState()
             tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .friend:
+            showPromptInformation(of: .loading("正在添加好友..."))
+            viewModel.addFriend { [weak self] result in
+                self?.hidePromptInformation()
+                switch result {
+                case .success(let info):
+                    self?.showPromptInformation(of: .success(info))
+                case .failure(let error):
+                    self?.showPromptInformation(of: .failure(error.localizedDescription))
+                }
+            }
+        default:
+            break
         }
     }
     

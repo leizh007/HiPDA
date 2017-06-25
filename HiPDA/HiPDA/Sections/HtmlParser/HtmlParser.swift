@@ -257,4 +257,12 @@ struct HtmlParser {
         }
         return num
     }
+    
+    static func addFriendPromptInformation(from html: String) throws -> String {
+        let result = try Regex.firstMatch(in: html, of: "<root><!\\[CDATA\\[([^\\]]+)\\]\\]><\\/root>")
+        guard result.count == 2 && !result[1].isEmpty else {
+            throw HtmlParserError.unKnown("获取返回结果出错")
+        }
+        return result[1]
+    }
 }

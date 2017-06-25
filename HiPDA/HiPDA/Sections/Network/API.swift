@@ -25,6 +25,7 @@ extension HiPDA {
         case addToAttentions(tid: Int)
         case uploadImage(hash: String, data: Data, mimeType: String)
         case userProfile(uid: Int)
+        case addFriend(uid: Int)
     }
 }
 
@@ -67,6 +68,8 @@ extension HiPDA.API: TargetType {
             return "/forum/misc.php?type=image&action=swfupload&operation=upload"
         case let .userProfile(uid: uid):
             return "/forum/space.php?uid=\(uid)"
+        case let .addFriend(uid: uid):
+            return "/forum/my.php?item=buddylist&newbuddyid=\(uid)&buddysubmit=yes&inajax=1&ajaxtarget=addbuddy_menu_content"
         }
     }
     var method: Moya.Method {
@@ -99,6 +102,8 @@ extension HiPDA.API: TargetType {
             return .post
         case .userProfile(_):
             return .post
+        case .addFriend(_):
+            return .get
         }
     }
     var parameters: [String : Any]? {
@@ -168,6 +173,8 @@ extension HiPDA.API: TargetType {
         case .uploadImage(_):
             return nil
         case .userProfile(_):
+            return nil
+        case .addFriend(_):
             return nil
         }
     }

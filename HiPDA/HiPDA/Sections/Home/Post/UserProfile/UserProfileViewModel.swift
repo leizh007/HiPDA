@@ -43,6 +43,25 @@ class UserProfileViewModel {
             }.disposed(by: disposeBag)
     }
     
+    func addFriend(completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {
+        disposeBag = DisposeBag()
+        HiPDAProvider.request(.addFriend(uid: uid))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .mapGBKString()
+            .map { try HtmlParser.addFriendPromptInformation(from: $0) }
+            .observeOn(MainScheduler.instance)
+            .subscribe { event in
+                switch event {
+                case .next(let info):
+                    completion(.success(info))
+                case .error(let error):
+                    completion(.failure(error as NSError))
+                default:
+                    break
+                }
+            }.disposed(by: disposeBag)
+    }
+    
     fileprivate static func userName(_ model: UserProfileModel) -> String {
         for case let .account(account) in model.sections {
             return account.items.first?.name ?? ""
