@@ -8,11 +8,14 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class SendShortMessageViewController: BaseViewController {
     @IBOutlet fileprivate weak var sendButton: UIButton!
     @IBOutlet fileprivate weak var textView: UITextView!
     @IBOutlet fileprivate weak var containerBottomConstraint: NSLayoutConstraint!
+    var user: User!
+    fileprivate var viewModel: SendShortMessageViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,8 @@ class SendShortMessageViewController: BaseViewController {
         textView.layer.borderWidth = 1
         textView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.831372549, blue: 0.831372549, alpha: 1).cgColor
         configureKeyboard()
+        viewModel = SendShortMessageViewModel(user: user)
+        textView.rx.text.orEmpty.map { !$0.isEmpty }.bindTo(sendButton.rx.isEnabled).disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,7 +56,19 @@ class SendShortMessageViewController: BaseViewController {
     }
 
     @IBAction fileprivate func sendButtonPressed(_ sender: UIButton) {
-        
+        showPromptInformation(of: .loading("正在发送..."))
+        viewModel.sendMessage(textView.text ?? "") { [weak self] result in
+            self?.hidePromptInformation()
+            switch result {
+            case .success(let info):
+                self?.showPromptInformation(of: .success(info))
+                delay(seconds: 0.25) {
+                    self?.dismiss()
+                }
+            case .failure(let error):
+                self?.showPromptInformation(of: .failure(error.localizedDescription))
+            }
+        }
     }
     
     @IBAction fileprivate func backgroundDidTapped(_ sender: Any) {

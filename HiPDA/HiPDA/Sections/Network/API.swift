@@ -26,6 +26,7 @@ extension HiPDA {
         case uploadImage(hash: String, data: Data, mimeType: String)
         case userProfile(uid: Int)
         case addFriend(uid: Int)
+        case sendShortMessage(username: String, message: String, formhash: String)
     }
 }
 
@@ -70,6 +71,8 @@ extension HiPDA.API: TargetType {
             return "/forum/space.php?uid=\(uid)"
         case let .addFriend(uid: uid):
             return "/forum/my.php?item=buddylist&newbuddyid=\(uid)&buddysubmit=yes&inajax=1&ajaxtarget=addbuddy_menu_content"
+        case .sendShortMessage(_):
+            return "/forum/pm.php?action=send&pmsubmit=yes&infloat=yes&sendnew=yes"
         }
     }
     var method: Moya.Method {
@@ -104,6 +107,8 @@ extension HiPDA.API: TargetType {
             return .post
         case .addFriend(_):
             return .get
+        case .sendShortMessage(_):
+            return .post
         }
     }
     var parameters: [String : Any]? {
@@ -176,6 +181,13 @@ extension HiPDA.API: TargetType {
             return nil
         case .addFriend(_):
             return nil
+        case let .sendShortMessage(username: username, message: message, formhash: formhash):
+            return [
+                "formhash": formhash,
+                "msgto": username,
+                "message": message,
+                "pmsubmit": true
+            ]
         }
     }
     var parameterEncoding: ParameterEncoding {

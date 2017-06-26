@@ -35,7 +35,8 @@ extension PromptInformationShowable where Self: UIViewController {
     ///
     /// - parameter style: 提示信息的样式
     func showPromptInformation(of style: ProgressHUDStyle) {
-        let hud = MBProgressHUD.showAdded(to: ancestor.view, animated: true)
+        guard let windwow = UIApplication.shared.windows.last else { return }
+        let hud = MBProgressHUD.showAdded(to: windwow, animated: true)
         hud.bezelView.style = .solidColor
         hud.bezelView.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8)
         hud.backgroundView.style = .solidColor
@@ -62,7 +63,8 @@ extension PromptInformationShowable where Self: UIViewController {
     
     /// 隐藏提示信息
     func hidePromptInformation() {
-        MBProgressHUD.hide(for: ancestor.view, animated: true)
+        guard let windwow = UIApplication.shared.windows.last else { return }
+        MBProgressHUD.hide(for: windwow, animated: true)
     }
 }
 

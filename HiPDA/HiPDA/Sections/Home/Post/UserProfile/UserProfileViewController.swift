@@ -80,6 +80,7 @@ extension UserProfileViewController: UITableViewDelegate {
             }
         case .pm:
             let sendMessageVC = SendShortMessageViewController.load(from: .message)
+            sendMessageVC.user = User(name: viewModel.name, uid: uid)
             sendMessageVC.modalPresentationStyle = .overCurrentContext
             present(sendMessageVC, animated: false, completion: nil)
         default:

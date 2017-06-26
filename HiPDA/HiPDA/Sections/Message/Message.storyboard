@@ -110,17 +110,25 @@
                                     <constraint firstAttribute="trailing" secondItem="MIb-OJ-qpO" secondAttribute="trailing" constant="12" id="woc-Jh-f6i"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbW-Ma-Jh4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="backgroundDidTapped:" destination="3JI-Xm-g62" eventType="touchUpInside" id="3df-Mh-dDy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="kEh-wa-08Q" firstAttribute="top" secondItem="skm-34-jPH" secondAttribute="bottom" constant="-176" id="8Ky-0t-r8H"/>
+                            <constraint firstItem="rbW-Ma-Jh4" firstAttribute="top" secondItem="EA6-eg-DGF" secondAttribute="top" id="BIx-zr-JEq"/>
+                            <constraint firstItem="rbW-Ma-Jh4" firstAttribute="leading" secondItem="EA6-eg-DGF" secondAttribute="leading" id="FVj-5o-EEW"/>
                             <constraint firstAttribute="trailing" secondItem="skm-34-jPH" secondAttribute="trailing" id="WNQ-ha-bUI"/>
                             <constraint firstItem="skm-34-jPH" firstAttribute="leading" secondItem="EA6-eg-DGF" secondAttribute="leading" id="gcx-lk-ARf"/>
+                            <constraint firstAttribute="trailing" secondItem="rbW-Ma-Jh4" secondAttribute="trailing" id="hxZ-fj-ZT9"/>
+                            <constraint firstItem="skm-34-jPH" firstAttribute="top" secondItem="rbW-Ma-Jh4" secondAttribute="bottom" id="uGc-o3-mOk"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="FpT-oy-LJG" appends="YES" id="DJC-VV-IeR"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="containerBottomConstraint" destination="8Ky-0t-r8H" id="Sjm-j2-7Kh"/>
@@ -129,11 +137,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsj-iI-hzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="FpT-oy-LJG">
-                    <connections>
-                        <action selector="backgroundDidTapped:" destination="3JI-Xm-g62" id="RFQ-VD-eFo"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2341.5999999999999" y="375.56221889055473"/>
         </scene>

@@ -247,6 +247,7 @@
 		05E697471F001042005919B7 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E697441F001042005919B7 /* Message.storyboard */; };
 		05E697481F001042005919B7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697451F001042005919B7 /* MessageViewController.swift */; };
 		05E697491F001042005919B7 /* SendShortMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697461F001042005919B7 /* SendShortMessageViewController.swift */; };
+		05E6974C1F00B027005919B7 /* SendShortMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */; };
 		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
 		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
 		05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2761D7AD0390096878B /* SearchViewController.swift */; };
@@ -557,6 +558,7 @@
 		05E697441F001042005919B7 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
 		05E697451F001042005919B7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		05E697461F001042005919B7 /* SendShortMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewController.swift; sourceTree = "<group>"; };
+		05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewModel.swift; sourceTree = "<group>"; };
 		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		05E9A2761D7AD0390096878B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -1127,6 +1129,7 @@
 				05E697441F001042005919B7 /* Message.storyboard */,
 				05E697451F001042005919B7 /* MessageViewController.swift */,
 				05E697461F001042005919B7 /* SendShortMessageViewController.swift */,
+				05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1766,6 +1769,7 @@
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				051BFE0C1EF590D000EA77EB /* ImageBrowserCollectionViewCell.swift in Sources */,
+				05E6974C1F00B027005919B7 /* SendShortMessageViewModel.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
