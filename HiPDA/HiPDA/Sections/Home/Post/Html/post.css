@@ -122,11 +122,12 @@
         background-color: #F7F7F7 !important;
         margin: 16px !important;
         padding: 8px 16px !important;
-        color: #666666 !important;
+        color: #888888 !important;
+        font-size: 16px !important;
     }
     
     blockquote > font > font {
-        font-size: 15px !important;
+        font-size: 16px !important;
     }
     
     .userblock {
@@ -240,6 +241,7 @@
         background-color: #F7F7F7 !important;
         margin: 8px 0px !important;
         padding: 8px 0px !important;
-        color: #666666 !important;
+        color: #888888 !important;
+        font-size: 16px !important;
     }
 }
