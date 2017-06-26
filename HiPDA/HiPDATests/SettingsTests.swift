@@ -44,8 +44,6 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings.userBlockList == [])
         XCTAssert(!settings.isEnabledThreadBlock)
         XCTAssert(settings.threadBlockWordList == [])
-        XCTAssert(!settings.isEnabledThreadAttention)
-        XCTAssert(settings.threadAttentionWordList == [])
         XCTAssert(settings.threadHistoryCountLimit == 100)
         XCTAssert(settings.isEnabledMessagePush)
         XCTAssert(settings.isEnabledSystemPm)
@@ -74,8 +72,6 @@ class SettingsTests: XCTestCase {
         settings.userBlockList = ["username1", "username2"]
         settings.isEnabledThreadBlock = true
         settings.threadBlockWordList = ["threadBlockWord1", "threadBlockWord2"]
-        settings.isEnabledThreadAttention = true
-        settings.threadAttentionWordList = ["threadAttentionWord1", "threadAttentionWord2"]
         settings.threadHistoryCountLimit = 200
         settings.isEnabledMessagePush = false
         settings.isEnabledSystemPm = false
@@ -107,8 +103,6 @@ class SettingsTests: XCTestCase {
         XCTAssert(setting1.userBlockList == ["username1", "username2"])
         XCTAssert(setting1.isEnabledThreadBlock)
         XCTAssert(setting1.threadBlockWordList == ["threadBlockWord1", "threadBlockWord2"])
-        XCTAssert(setting1.isEnabledThreadAttention)
-        XCTAssert(setting1.threadAttentionWordList == ["threadAttentionWord1", "threadAttentionWord2"])
         XCTAssert(setting1.threadHistoryCountLimit == 200)
         XCTAssert(!setting1.isEnabledMessagePush)
         XCTAssert(!setting1.isEnabledSystemPm)

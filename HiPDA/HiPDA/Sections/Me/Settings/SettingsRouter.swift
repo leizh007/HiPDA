@@ -33,8 +33,6 @@ struct SettingsRouter {
         case .userBlock:
             fallthrough
         case .threadBlock:
-            fallthrough
-        case .threadAttention:
             showEditWordsViewController(with: settingsSegue)
         case .pmDoNotDisturb:
             showPmDoNotDisturbViewController(with: settingsSegue)
@@ -79,8 +77,6 @@ extension SettingsRouter {
             words = viewController.viewModel.userBlockList
         case .threadBlock:
             words = viewController.viewModel.threadBlockWordList
-        case .threadAttention:
-            words = viewController.viewModel.threadAttentionWordList
         default:
             assertionFailure(kUnMatchedCase)
             words = []
@@ -95,8 +91,6 @@ extension SettingsRouter {
                     self.viewController?.viewModel.userBlockList = words
                 case .threadBlock:
                     self.viewController?.viewModel.threadBlockWordList = words
-                case .threadAttention:
-                    self.viewController?.viewModel.threadAttentionWordList = words
                 default:
                     break
                 }

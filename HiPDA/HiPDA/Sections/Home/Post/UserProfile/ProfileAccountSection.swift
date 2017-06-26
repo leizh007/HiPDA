@@ -18,7 +18,7 @@ struct ProfileAccountSection: ProfileSection {
         let result = try Regex.firstMatch(in: html, of: pattern)
         guard result.count == 3 && !result[1].isEmpty && !result[2].isEmpty,
             let uid = Int(result[2]) else {
-                throw HtmlParserError.unKnown("获取用户信息出错")
+                throw HtmlParserError.underlying("获取用户信息出错")
         }
         let content = try ProfileSectionType.contentText(in: result[1])
         let name = ProfileSectionType.removeTrimmingWhiteSpaces(in: content)

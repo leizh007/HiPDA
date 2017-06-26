@@ -83,6 +83,11 @@ extension UserProfileViewController: UITableViewDelegate {
             sendMessageVC.user = User(name: viewModel.name, uid: uid)
             sendMessageVC.modalPresentationStyle = .overCurrentContext
             present(sendMessageVC, animated: false, completion: nil)
+        case .search:
+            let searchVC = SearchUserThreadsViewController.load(from: .search)
+            searchVC.user = User(name: viewModel.name, uid: uid)
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            navigationController?.pushViewController(searchVC, animated: true)
         default:
             break
         }

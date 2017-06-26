@@ -110,19 +110,6 @@ extension YYCache {
         removeAllObjects()
     }
     
-    /// 添加帖子到我的关注
-    ///
-    /// - Parameter threads: 帖子列表
-    func addThreadsToAttention(threads: [HiPDA.Thread]) {
-        for thread in threads {
-            for word in Settings.shared.threadAttentionWordList {
-                if thread.title.contains(word) {
-                    addThread(thread)
-                }
-            }
-        }
-    }
-    
     /// 获取帖子帖子列表
     ///
     /// - Parameters:

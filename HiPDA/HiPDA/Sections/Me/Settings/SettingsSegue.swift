@@ -20,7 +20,6 @@ enum SettingsSegue: String {
     case accountManagement = "账号管理"
     case userBlock = "黑名单列表"
     case threadBlock = "帖子过滤词组"
-    case threadAttention = "帖子关注词组"
     case pmDoNotDisturb = "消息免打扰"
     case userRemark = "用户备注"
     case activeForumNameList = "版块列表"
@@ -33,13 +32,11 @@ enum SettingsSegue: String {
             self = .userBlock
         case (3, 1):
             self = .threadBlock
-        case (4, 1):
-            self = .threadAttention
-        case (6, 7):
+        case (5, 7):
             self = .pmDoNotDisturb
-        case (7, 0):
+        case (6, 0):
             self = .activeForumNameList
-        case (8, 1):
+        case (7, 1):
             self = .userRemark
         default:
             throw SettingsSugueError.unRecognizedIndexPath

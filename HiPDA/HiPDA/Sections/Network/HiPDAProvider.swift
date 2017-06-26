@@ -51,7 +51,7 @@ extension Moya.Response {
         let html = (string as String).stringByDecodingHTMLEntities
         if let alertInfo = try? HtmlParser.alertInfo(from: html),
             !alertInfo.contains("欢迎您回来") && !alertInfo.contains("成功") {
-            throw HtmlParserError.unKnown(alertInfo)
+            throw HtmlParserError.underlying(alertInfo)
         }
         
         return html

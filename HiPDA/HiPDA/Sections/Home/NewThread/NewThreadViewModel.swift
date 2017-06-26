@@ -16,7 +16,7 @@ private enum Constant {
 
 enum NewThreadError: Error {
     case cannotGetTid
-    case unKnown(String)
+    case underlying(String)
 }
 
 extension NewThreadError: CustomStringConvertible {
@@ -24,7 +24,7 @@ extension NewThreadError: CustomStringConvertible {
         switch self {
         case .cannotGetTid:
             return "无法获取tid"
-        case .unKnown(let value):
+        case .underlying(let value):
             return value
         }
     }

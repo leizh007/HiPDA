@@ -92,14 +92,6 @@ class Settings {
     var threadBlockWordList: [String]
     private static let kThreadBlockWordList = "threadBlockWordList"
     
-    /// 是否开启帖子关注
-    var isEnabledThreadAttention: Bool
-    private static let kIsEnabledThreadAttention = "isEnabledThreadAttention"
-    
-    /// 帖子关注单词列表
-    var threadAttentionWordList: [String]
-    private static let kThreadAttentionWordList = "threadAttentionWordList"
-    
     /// 浏览历史的条数
     var threadHistoryCountLimit: Int
     private static let kThreadHistoryCountLimit = "threadHistoryCountLimit"
@@ -206,8 +198,6 @@ class Settings {
         userBlockList = (userDefaults.value(forKey: Self.kUserBlockList) as? [String]) ?? []
         isEnabledThreadBlock = boolValue(in: userDefaults, key: Self.kIsEnabledThreadBlock, defalut: false)
         threadBlockWordList = (userDefaults.value(forKey: Self.kThreadBlockWordList) as? [String]) ?? []
-        isEnabledThreadAttention = boolValue(in: userDefaults, key: Self.kIsEnabledThreadAttention, defalut: false)
-        threadAttentionWordList = (userDefaults.value(forKey: Self.kThreadAttentionWordList) as? [String]) ?? []
         threadHistoryCountLimit = (userDefaults.value(forKey: Self.kThreadHistoryCountLimit) as? Int) ?? Self.kThreadHistoryCountDefault
         isEnabledMessagePush = boolValue(in: userDefaults, key: Self.kIsEnabledMessagePush, defalut: true)
         isEnabledSystemPm = boolValue(in: userDefaults, key: Self.kIsEnabledSystemPm, defalut: true)
@@ -272,8 +262,6 @@ class Settings {
         userDefaults.set(userBlockList, forKey: Self.kUserBlockList)
         userDefaults.set(isEnabledThreadBlock, forKey: Self.kIsEnabledThreadBlock)
         userDefaults.set(threadBlockWordList, forKey: Self.kThreadBlockWordList)
-        userDefaults.set(isEnabledThreadAttention, forKey: Self.kIsEnabledThreadAttention)
-        userDefaults.set(threadAttentionWordList, forKey: Self.kThreadAttentionWordList)
         userDefaults.set(threadHistoryCountLimit, forKey: Self.kThreadHistoryCountLimit)
         userDefaults.set(isEnabledMessagePush, forKey: Self.kIsEnabledMessagePush)
         userDefaults.set(isEnabledSystemPm, forKey: Self.kIsEnabledSystemPm)
@@ -327,8 +315,6 @@ class Settings {
         userBlockList = []
         isEnabledThreadBlock = false
         threadBlockWordList = []
-        isEnabledThreadAttention = false
-        threadAttentionWordList = []
         threadHistoryCountLimit = Settings.kThreadHistoryCountDefault
         isEnabledMessagePush = true
         isEnabledSystemPm = true

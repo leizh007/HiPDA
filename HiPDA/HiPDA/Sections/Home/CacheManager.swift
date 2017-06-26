@@ -19,9 +19,6 @@ enum CacheManager: String {
     /// 帖子列表
     case threads
     
-    /// 我的关注
-    case attention
-    
     /// 草稿
     case draft
     

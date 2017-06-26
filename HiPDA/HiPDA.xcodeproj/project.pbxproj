@@ -248,6 +248,10 @@
 		05E697481F001042005919B7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697451F001042005919B7 /* MessageViewController.swift */; };
 		05E697491F001042005919B7 /* SendShortMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697461F001042005919B7 /* SendShortMessageViewController.swift */; };
 		05E6974C1F00B027005919B7 /* SendShortMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */; };
+		05E6974E1F00EABB005919B7 /* SearchUserThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974D1F00EABB005919B7 /* SearchUserThreadsViewController.swift */; };
+		05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */; };
+		05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */; };
+		05E697541F00FB01005919B7 /* SearchUserThreadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697531F00FB01005919B7 /* SearchUserThreadModel.swift */; };
 		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
 		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
 		05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2761D7AD0390096878B /* SearchViewController.swift */; };
@@ -559,6 +563,10 @@
 		05E697451F001042005919B7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		05E697461F001042005919B7 /* SendShortMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewController.swift; sourceTree = "<group>"; };
 		05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewModel.swift; sourceTree = "<group>"; };
+		05E6974D1F00EABB005919B7 /* SearchUserThreadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsViewController.swift; sourceTree = "<group>"; };
+		05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsViewModel.swift; sourceTree = "<group>"; };
+		05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsTableViewCell.swift; sourceTree = "<group>"; };
+		05E697531F00FB01005919B7 /* SearchUserThreadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadModel.swift; sourceTree = "<group>"; };
 		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		05E9A2761D7AD0390096878B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -1172,6 +1180,10 @@
 			children = (
 				050EE3271DD200EB00C4B18D /* Search.storyboard */,
 				05E9A2761D7AD0390096878B /* SearchViewController.swift */,
+				05E6974D1F00EABB005919B7 /* SearchUserThreadsViewController.swift */,
+				05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */,
+				05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */,
+				05E697531F00FB01005919B7 /* SearchUserThreadModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1700,6 +1712,7 @@
 				05EDDCEF1DDCAB890095E95D /* NoResultView.swift in Sources */,
 				053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */,
 				05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */,
+				05E697541F00FB01005919B7 /* SearchUserThreadModel.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				0572261E1EF03C1200397829 /* NewThreadViewModel.swift in Sources */,
@@ -1714,6 +1727,7 @@
 				0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
+				05E6974E1F00EABB005919B7 /* SearchUserThreadsViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
 				050C940E1EEA399800FBD18F /* NewThreadType.swift in Sources */,
 				059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */,
@@ -1763,6 +1777,7 @@
 				057226221EF1817B00397829 /* NewThreadManager.swift in Sources */,
 				05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */,
 				0546619A1EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift in Sources */,
+				05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */,
 				051BFDE71EF58C8200EA77EB /* EmoticonCollectionViewCell.swift in Sources */,
 				0533F1FD1EE5939700DB854B /* HiPDA.swift in Sources */,
 				057226241EF1818500397829 /* ReplyPostManager.swift in Sources */,
@@ -1813,6 +1828,7 @@
 				057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */,
 				0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
+				05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */,

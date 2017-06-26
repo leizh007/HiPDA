@@ -27,6 +27,7 @@ extension HiPDA {
         case userProfile(uid: Int)
         case addFriend(uid: Int)
         case sendShortMessage(username: String, message: String, formhash: String)
+        case searchUserThreads(searchId: Int, page: Int)
     }
 }
 
@@ -73,6 +74,8 @@ extension HiPDA.API: TargetType {
             return "/forum/my.php?item=buddylist&newbuddyid=\(uid)&buddysubmit=yes&inajax=1&ajaxtarget=addbuddy_menu_content"
         case .sendShortMessage(_):
             return "/forum/pm.php?action=send&pmsubmit=yes&infloat=yes&sendnew=yes"
+        case let .searchUserThreads(searchId: searchId, page: page):
+            return "/forum/search.php?searchid=\(searchId)&orderby=lastpost&ascdesc=desc&searchsubmit=yes&page=\(page)"
         }
     }
     var method: Moya.Method {
@@ -109,6 +112,8 @@ extension HiPDA.API: TargetType {
             return .get
         case .sendShortMessage(_):
             return .post
+        case .searchUserThreads(_):
+            return .get
         }
     }
     var parameters: [String : Any]? {
@@ -188,6 +193,8 @@ extension HiPDA.API: TargetType {
                 "message": message,
                 "pmsubmit": true
             ]
+        case .searchUserThreads(_):
+            return nil
         }
     }
     var parameterEncoding: ParameterEncoding {

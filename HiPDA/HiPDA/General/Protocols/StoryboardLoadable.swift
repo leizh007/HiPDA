@@ -15,6 +15,7 @@ enum StoryBoard: String {
     case me = "Me"
     case home = "Home"
     case message = "Message"
+    case search = "Search"
 }
 
 /// 可以从storyboard中加载

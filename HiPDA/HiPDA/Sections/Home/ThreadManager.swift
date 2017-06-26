@@ -170,7 +170,7 @@ extension HiPDA {
                             return !userBlockSet.contains($0.user.name)
                             }.filter { thread in
                                 /// 删除包含过滤关键词的帖子
-                                for word in Settings.shared.threadAttentionWordList {
+                                for word in Settings.shared.threadBlockWordList {
                                     if thread.title.contains(word) {
                                         return false
                                     }
@@ -180,8 +180,6 @@ extension HiPDA {
                     }
                     .do(onNext: { threads in
                         let timeStamp = Date().timeIntervalSince1970
-                        /// 添加到关注列表中
-                        CacheManager.attention.instance?.addThreadsToAttention(threads: threads)
                         
                         if page == 1 {
                             /// 添加到缓存中

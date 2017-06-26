@@ -72,22 +72,6 @@ struct SettingsViewModel {
         }
     }
     
-    /// 是否开启帖子关注
-    var isEnabledThreadAttention: Bool {
-        return settings.isEnabledThreadAttention
-    }
-    
-    /// 帖子关注单词列表
-    var threadAttentionWordList: [String]{
-        get {
-            return settings.threadAttentionWordList
-        }
-        
-        set {
-            settings.threadAttentionWordList = newValue
-        }
-    }
-    
     /// 浏览历史的条数
     var threadHistoryCountLimitString: String {
         return "\(settings.threadHistoryCountLimit)"
@@ -223,15 +207,12 @@ struct SettingsViewModel {
     }
     
     /// 处理事件
-    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, threadAttention: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>, autoLoadImageViaWWANSwitch: Driver<Bool>) {
+    func handle(userBlock: Driver<Bool>, threadBlock: Driver<Bool>, messagePush: Driver<Bool>, systemPm: Driver<Bool>, friendPm: Driver<Bool>, threadPm: Driver<Bool>, privatePm: Driver<Bool>, announcePm: Driver<Bool>, pmDoNotDisturb: Driver<Bool>, userRemark: Driver<Bool>, historyCountLimit: Driver<String>, tail: Driver<Bool>, tailText: Driver<String>, tailURL: Driver<String>, autoLoadImageViaWWANSwitch: Driver<Bool>) {
         userBlock.drive(onNext: { on in
                 self.settings.isEnabledUserBlock = on
             }).addDisposableTo(disposeBag)
         threadBlock.drive(onNext: { on in
             self.settings.isEnabledThreadBlock = on
-        }).addDisposableTo(disposeBag)
-        threadAttention.drive(onNext: { on in
-            self.settings.isEnabledThreadAttention = on
         }).addDisposableTo(disposeBag)
         messagePush.drive(onNext: { on in
             self.settings.isEnabledMessagePush = on

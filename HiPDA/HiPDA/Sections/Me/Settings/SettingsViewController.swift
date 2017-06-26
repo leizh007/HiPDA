@@ -31,9 +31,6 @@ class SettingsViewController: UITableViewController {
     /// 帖子过滤
     @IBOutlet private weak var threadBlockSwitch: UISwitch!
     
-    /// 帖子关注
-    @IBOutlet private weak var threadAttentionSwitch: UISwitch!
-    
     /// 消息推送
     @IBOutlet private weak var messagePushSwitch: UISwitch!
     
@@ -108,7 +105,6 @@ class SettingsViewController: UITableViewController {
         viewModel = SettingsViewModel(settings: self.settings)
         userBlockSwitch.isOn = viewModel.isEnabledUserBlock
         threadBlockSwitch.isOn = viewModel.isEnabledThreadBlock
-        threadAttentionSwitch.isOn = viewModel.isEnabledThreadAttention
         messagePushSwitch.isOn = viewModel.isEnabledMessagePush
         systemPmSwitch.isOn = viewModel.isEnabledSystemPm
         friendPmSwitch.isOn = viewModel.isEnabledFriendPm
@@ -145,7 +141,6 @@ class SettingsViewController: UITableViewController {
         
         viewModel.handle(userBlock: userBlockSwitch.rx.value.asDriver(),
                          threadBlock: threadBlockSwitch.rx.value.asDriver(),
-                         threadAttention: threadAttentionSwitch.rx.value.asDriver(),
                          messagePush: messagePushSwitch.rx.value.asDriver(),
                          systemPm: systemPmSwitch.rx.value.asDriver(),
                          friendPm: friendPmSwitch.rx.value.asDriver(),
@@ -164,7 +159,7 @@ class SettingsViewController: UITableViewController {
     /// 配置tableView相关
     private func configureTableView() {
         enum C {
-            static let clearCacheIndexPath = IndexPath(row: 0, section: 11)
+            static let clearCacheIndexPath = IndexPath(row: 0, section: 10)
         }
         
         let router = SettingsRouter(viewController: self)

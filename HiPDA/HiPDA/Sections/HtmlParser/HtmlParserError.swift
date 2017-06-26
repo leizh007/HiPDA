@@ -13,12 +13,12 @@ import Foundation
 /// - regexCreateFailed: 无法创建正则表达式
 /// - cannotGetUid:      无法获取uid
 /// - cannotGetUsername: 无法获取username
-/// - unKnown:           未知错误
+/// - underlying:        未知错误
 enum HtmlParserError: Error {
     case regexCreateFailed(String)
     case cannotGetUid
     case cannotGetUsername
-    case unKnown(String)
+    case underlying(String)
 }
 
 extension HtmlParserError: CustomStringConvertible {
@@ -30,7 +30,7 @@ extension HtmlParserError: CustomStringConvertible {
             return "无法获取uid"
         case .cannotGetUsername:
             return "无法获取用户名"
-        case .unKnown(let value):
+        case .underlying(let value):
             return value
         }
     }
