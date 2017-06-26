@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UITableView_FDTemplateLayoutCell
 
 class SearchUserThreadsViewController: UIViewController {
     var user: User!
@@ -41,6 +42,22 @@ extension SearchUserThreadsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.fd_heightForCell(withIdentifier: SearchUserThreadsTableViewCell.reuseIdentifier) { [weak self] cell in
+            guard let searchCell = cell as? SearchUserThreadsTableViewCell, let `self` = self else { return }
+            searchCell.model = self.viewModel.model(at: indexPath.row)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let postInfo = PostInfo(tid: viewModel.model(at: indexPath.row).id)
+        let postVC = PostViewController.load(from: .home)
+        postVC.postInfo = postInfo
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(postVC, animated: true)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -55,7 +72,10 @@ extension SearchUserThreadsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(for: indexPath) as SearchUserThreadsTableViewCell
+        cell.model = viewModel.model(at: indexPath.row)
+        
+        return cell
     }
 }
 

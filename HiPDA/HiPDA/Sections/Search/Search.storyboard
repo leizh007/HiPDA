@@ -40,7 +40,7 @@
         <!--Search User Threads View Controller-->
         <scene sceneID="vbF-lY-1EC">
             <objects>
-                <viewController storyboardIdentifier="SearchUserThreadsViewController" id="Ikp-rJ-eKW" customClass="SearchUserThreadsViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchUserThreadsViewController" automaticallyAdjustsScrollViewInsets="NO" id="Ikp-rJ-eKW" customClass="SearchUserThreadsViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OoX-tA-rEz"/>
                         <viewControllerLayoutGuide type="bottom" id="Dx1-RX-kup"/>
@@ -52,12 +52,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="73" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pl3-0u-GJi" customClass="BaseTableView" customModule="HiPDA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchUserThreadsTableViewCell" rowHeight="64" id="nZr-Fj-niz" customClass="SearchUserThreadsTableViewCell" customModule="HiPDA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nZr-Fj-niz" id="xvZ-do-0R8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtc-hm-1UG">

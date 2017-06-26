@@ -264,7 +264,7 @@
 		05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE51551EC9521700BC81B4 /* PostViewController.swift */; };
 		05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */; };
 		05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */; };
-		05EE515D1EC9FCBF00BC81B4 /* PostRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */; };
+		05EE515D1EC9FCBF00BC81B4 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EE515C1EC9FCBF00BC81B4 /* PostInfo.swift */; };
 		05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF20A1EBC566B00C38CAD /* CacheManager.swift */; };
 		05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2111EBC6A8B00C38CAD /* Box.swift */; };
 		05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */; };
@@ -579,7 +579,7 @@
 		05EE51551EC9521700BC81B4 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		05EE51581EC9572A00BC81B4 /* NewThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThreadViewController.swift; sourceTree = "<group>"; };
 		05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequestInfo.swift; sourceTree = "<group>"; };
+		05EE515C1EC9FCBF00BC81B4 /* PostInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
 		05EEF20A1EBC566B00C38CAD /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		05EEF2111EBC6A8B00C38CAD /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		05EEF2131EBC6BB700C38CAD /* YYCache+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+HiPDA.swift"; sourceTree = "<group>"; };
@@ -1210,7 +1210,7 @@
 				05532B111ECDEBB600FAB176 /* HtmlManager.swift */,
 				05EE515A1EC9FBE000BC81B4 /* PostViewModel.swift */,
 				05B35C481ECC700400C037A7 /* PostManager.swift */,
-				05EE515C1EC9FCBF00BC81B4 /* PostRequestInfo.swift */,
+				05EE515C1EC9FCBF00BC81B4 /* PostInfo.swift */,
 				05B35C441ECC43E100C037A7 /* PostResult.swift */,
 				05B35C461ECC443700C037A7 /* Post.swift */,
 				05B35C401ECC3E3D00C037A7 /* HiPDAURLProtocol.swift */,
@@ -1694,7 +1694,7 @@
 			files = (
 				058A9F4C1EFD1B5300E74744 /* ProfileBaseInfoSection.swift in Sources */,
 				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
-				05EE515D1EC9FCBF00BC81B4 /* PostRequestInfo.swift in Sources */,
+				05EE515D1EC9FCBF00BC81B4 /* PostInfo.swift in Sources */,
 				059D495F1EBB1D2900BECA18 /* ThreadResult.swift in Sources */,
 				057226371EF223AB00397829 /* String+Emoji.swift in Sources */,
 				051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */,
