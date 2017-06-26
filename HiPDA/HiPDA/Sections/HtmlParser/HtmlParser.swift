@@ -115,7 +115,7 @@ struct HtmlParser {
             }
             
             return HiPDA.Thread(id: tid,
-                               title: result[HiPDAThreadPropertyIndex.title.rawValue],
+                               title: result[HiPDAThreadPropertyIndex.title.rawValue].stringByDecodingHTMLEntities,
                                attachment: HiPDA.ThreadAttachment.attacthment(from: result[HiPDAThreadPropertyIndex.attachment.rawValue]),
                                user: User(name:result[HiPDAThreadPropertyIndex.username.rawValue], uid:uid),
                                postTime: result[HiPDAThreadPropertyIndex.postTime.rawValue],
