@@ -253,4 +253,12 @@ struct HtmlParser {
                                          replyAndReadCount: "\(replyCount)/\(readCount)")
         }
     }
+    
+    static func messageCount(of type: String, from html: String) throws -> Int {
+        let result = try Regex.firstMatch(in: html, of: "\(type)\\s+\\((\\d+)\\)")
+        guard result.count == 2 && !result[1].isEmpty, let count = Int(result[1]) else {
+            throw HtmlParserError.underlying("无法获取\(type)")
+        }
+        return count
+    }
 }

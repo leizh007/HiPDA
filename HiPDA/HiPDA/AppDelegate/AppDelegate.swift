@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let bootstrappingComponents: [Bootstrapping] = [
+        ResourcesInitialization(),
         CrashAnalysis(),
         UIAppearanceManager(),
         URLProtocolManager(),
         LoginManager(),
-        ResourcesInitialization()
     ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {

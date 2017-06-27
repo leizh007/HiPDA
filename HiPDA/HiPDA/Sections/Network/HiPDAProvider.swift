@@ -49,6 +49,7 @@ extension Moya.Response {
             throw MoyaError.stringMapping(self)
         }
         let html = (string as String).stringByDecodingHTMLEntities
+        DispatchQueue.global().async { UnReadMessagesCountManager.handleUnReadMessagesCount(from: html) }
         if let alertInfo = try? HtmlParser.alertInfo(from: html),
             !alertInfo.contains("欢迎您回来") && !alertInfo.contains("成功") {
             throw HtmlParserError.underlying(alertInfo)
