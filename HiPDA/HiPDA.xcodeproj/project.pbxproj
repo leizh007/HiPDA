@@ -252,6 +252,9 @@
 		05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */; };
 		05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */; };
 		05E697541F00FB01005919B7 /* SearchUserThreadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697531F00FB01005919B7 /* SearchUserThreadModel.swift */; };
+		05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697551F01F729005919B7 /* UnReadMessagesCountManager.swift */; };
+		05E697581F01FD32005919B7 /* UnReadMessagesCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697571F01FD32005919B7 /* UnReadMessagesCountModel.swift */; };
+		05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697591F01FE45005919B7 /* UnReadMessagesCountAction.swift */; };
 		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
 		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
 		05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2761D7AD0390096878B /* SearchViewController.swift */; };
@@ -567,6 +570,9 @@
 		05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsViewModel.swift; sourceTree = "<group>"; };
 		05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsTableViewCell.swift; sourceTree = "<group>"; };
 		05E697531F00FB01005919B7 /* SearchUserThreadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadModel.swift; sourceTree = "<group>"; };
+		05E697551F01F729005919B7 /* UnReadMessagesCountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnReadMessagesCountManager.swift; sourceTree = "<group>"; };
+		05E697571F01FD32005919B7 /* UnReadMessagesCountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnReadMessagesCountModel.swift; sourceTree = "<group>"; };
+		05E697591F01FE45005919B7 /* UnReadMessagesCountAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnReadMessagesCountAction.swift; sourceTree = "<group>"; };
 		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		05E9A2761D7AD0390096878B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -1136,6 +1142,8 @@
 			children = (
 				05E697441F001042005919B7 /* Message.storyboard */,
 				05E697451F001042005919B7 /* MessageViewController.swift */,
+				05E697551F01F729005919B7 /* UnReadMessagesCountManager.swift */,
+				05E697571F01FD32005919B7 /* UnReadMessagesCountModel.swift */,
 				05E697461F001042005919B7 /* SendShortMessageViewController.swift */,
 				05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */,
 			);
@@ -1261,6 +1269,7 @@
 			isa = PBXGroup;
 			children = (
 				05F3DCEE1DB919070061CED1 /* ChangeAccountAction.swift */,
+				05E697591F01FE45005919B7 /* UnReadMessagesCountAction.swift */,
 				05F3DCEF1DB919070061CED1 /* EventBus.swift */,
 				05F3DCF01DB919070061CED1 /* State.swift */,
 			);
@@ -1706,6 +1715,7 @@
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
+				05E697581F01FD32005919B7 /* UnReadMessagesCountModel.swift in Sources */,
 				05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */,
 				057016F11DCB78700024EC3B /* Settings.swift in Sources */,
 				050EE3301DD3680C00C4B18D /* SettingsRouter.swift in Sources */,
@@ -1809,6 +1819,7 @@
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				051BFE071EF58F8300EA77EB /* ImagePickerCollectionViewCell.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
+				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,
 				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				05B35C471ECC443700C037A7 /* Post.swift in Sources */,
@@ -1862,6 +1873,7 @@
 				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
 				051BFE0E1EF5A30300EA77EB /* ImageAssetsCollection.swift in Sources */,
 				051BFE0A1EF58F8300EA77EB /* ImagePickerViewModel.swift in Sources */,
+				05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				051BFE081EF58F8300EA77EB /* ImagePickerDataSource.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,

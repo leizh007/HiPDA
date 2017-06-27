@@ -14,8 +14,9 @@ import AlamofireNetworkActivityIndicator
 class ResourcesInitialization: Bootstrapping {
     private var disposeBag = DisposeBag()
     func bootstrap(bootstrapped: Bootstrapped) throws {
-        let _ = EmoticonHelper.groups
-        let _ = URLDispatchManager.shared
+        _ = EmoticonHelper.groups
+        _ = URLDispatchManager.shared
+        _ = UnReadMessagesCountManager.shared
         NetworkActivityIndicatorManager.shared.isEnabled = true
         NetworkActivityIndicatorManager.shared.startDelay = 0.5
         NetworkActivityIndicatorManager.shared.completionDelay = 0.2

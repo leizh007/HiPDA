@@ -22,6 +22,15 @@ struct EventBus: StoreType {
 
 extension EventBus {
     var activeAccount: Driver<LoginResult?> {
-        return state.value.accountChanged.asDriver(onErrorJustReturn: nil)
+        return state.value.accountChanged
+            .observeOn(MainScheduler.instance)
+            .asDriver(onErrorJustReturn: nil)
+    }
+    
+    var unReadMessagesCount: Driver<UnReadMessagesCountModel> {
+        let model = UnReadMessagesCountModel(threadMessagesCount: 0, pmMessagesCount: 0, friendMessagesCount: 0)
+        return state.value.unReadMessagesCount
+            .observeOn(MainScheduler.instance)
+            .asDriver(onErrorJustReturn: model)
     }
 }

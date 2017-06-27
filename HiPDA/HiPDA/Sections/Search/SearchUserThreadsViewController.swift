@@ -102,6 +102,7 @@ extension SearchUserThreadsViewController: DataLoadDelegate {
             showPromptInformation(of: .failure(error.localizedDescription))
             tableView.status = tableView.status == .loading ? .tapToLoad : .normal
         }
+        tableView.reloadData()
         tableView.endRefreshing()
         if viewModel.hasMoreData {
             tableView.endLoadMore()
@@ -109,7 +110,6 @@ extension SearchUserThreadsViewController: DataLoadDelegate {
         } else {
             tableView.endLoadMoreWithNoMoreData()
         }
-        tableView.reloadData()
     }
 }
 

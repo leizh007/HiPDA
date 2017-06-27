@@ -17,4 +17,6 @@ extension Variable: ObservablePropertyType {
 struct State {
     /// 账户变更的PublishSubject
     let accountChanged = PublishSubject<LoginResult?>()
+    
+    let unReadMessagesCount = PublishSubject<UnReadMessagesCountModel>()
 }
