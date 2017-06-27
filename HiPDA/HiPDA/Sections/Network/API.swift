@@ -75,7 +75,7 @@ extension HiPDA.API: TargetType {
         case .sendShortMessage(_):
             return "/forum/pm.php?action=send&pmsubmit=yes&infloat=yes&sendnew=yes"
         case let .searchUserThreads(searchId: searchId, page: page):
-            return "/forum/search.php?searchid=\(searchId)&orderby=lastpost&ascdesc=desc&searchsubmit=yes&page=\(page)"
+            return "/forum/search.php?searchid=\(searchId)&orderby=dateline&ascdesc=desc&searchsubmit=yes&page=\(page)"
         }
     }
     var method: Moya.Method {

@@ -78,14 +78,19 @@ extension SearchUserThreadsViewModel {
             }
             return
         }
+        var totalPage = self.totalPage
         HiPDAProvider.request(.searchUserThreads(searchId: searchId, page: page))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .mapGBKString()
+            .do(onNext: { html in
+                totalPage = try HtmlParser.totalPage(from: html)
+            })
             .map { try HtmlParser.searchUserThreads(from: $0) }
             .observeOn(MainScheduler.instance)
-            .subscribe { event in
+            .subscribe { [weak self] event in
                 switch event {
                 case .next(let models):
+                    self?.totalPage = totalPage
                     completion(.success(models))
                 case .error(let error):
                     completion(.failure(error as NSError))
