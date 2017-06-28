@@ -261,4 +261,15 @@ struct HtmlParser {
         }
         return count
     }
+    
+    static func friendMessages(from html: String) throws -> [FriendMessageModel] {
+        let results = try Regex.matches(in: html, of: "<div\\s+class=\"f_buddy\"><a\\s+href=[^&]+&uid=(\\d+)\">([\\s\\S]*?)<\\/a>[^<]+<em>([^<]+)<\\/em>([\\s\\S]*?)<\\/div>")
+        return try results.map { result in
+            guard let uid = Int(result[1]) else { throw HtmlParserError.underlying("获取用户id出错") }
+            guard !result[2].isEmpty else { throw HtmlParserError.underlying("获取用户名出错") }
+            guard !result[3].isEmpty else { throw HtmlParserError.underlying("获取消息时间出错") }
+            let isRead = !result[4].contains("notice_newpm.gif")
+            return FriendMessageModel(isRead: isRead, sender: User(name: result[2], uid: uid), time: result[3])
+        }
+    }
 }

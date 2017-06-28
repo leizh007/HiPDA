@@ -57,4 +57,23 @@ class NetworkUtilities {
                 }
             }.disposed(by: NetworkUtilities.disposeBag)
     }
+    
+    static func addFriend(uid: Int, completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {
+        NetworkUtilities.disposeBag = DisposeBag()
+        HiPDAProvider.request(.addFriend(uid: uid))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .mapGBKString()
+            .map { try HtmlParser.addFriendPromptInformation(from: $0) }
+            .observeOn(MainScheduler.instance)
+            .subscribe { event in
+                switch event {
+                case .next(let info):
+                    completion(.success(info))
+                case .error(let error):
+                    completion(.failure(error as NSError))
+                default:
+                    break
+                }
+            }.disposed(by: NetworkUtilities.disposeBag)
+    }
 }

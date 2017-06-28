@@ -55,6 +55,11 @@ class BaseViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(viewController, animated: animated)
+    }
+    
     func setupConstraints() {
         // Override point
     }

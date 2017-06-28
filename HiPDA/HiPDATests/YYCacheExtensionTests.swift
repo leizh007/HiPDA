@@ -33,7 +33,7 @@ class YYCacheExtensionTests: XCTestCase {
     }
     
     func testHistoryCache() {
-        guard let cache = CacheManager.threadsReadHistory.instance else {
+        guard let cache = CacheManager.threadsReadHistory.shared else {
             XCTFail()
             return
         }
@@ -54,7 +54,7 @@ class YYCacheExtensionTests: XCTestCase {
     }
     
     func testThreadsCache() {
-        guard let cache = CacheManager.threads.instance else {
+        guard let cache = CacheManager.threads.shared else {
             XCTFail()
             return
         }
@@ -81,8 +81,25 @@ class YYCacheExtensionTests: XCTestCase {
             
             let kTotalPageKey = "totalPage"
             let totalPage = 10
-            CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
-            XCTAssert((CacheManager.threads.instance!.object(forKey: kTotalPageKey) as! NSNumber).intValue == totalPage)
+            CacheManager.threads.shared?.setObject(totalPage as NSNumber, forKey: kTotalPageKey)
+            XCTAssert((CacheManager.threads.shared!.object(forKey: kTotalPageKey) as! NSNumber).intValue == totalPage)
         }
+    }
+    
+    func testFriendMessage() {
+        guard let cache = CacheManager.friendMessage.shared else {
+            XCTFail()
+            return
+        }
+        let message1 = FriendMessageModel(isRead: true, sender: User(name: "leizh007", uid: 697558), time: "2017-6-25 22:56")
+        let message2 = FriendMessageModel(isRead: true, sender: User(name: "leizh007", uid: 697558), time: "2017-6-26 22:56")
+        cache.setFriendMessages([message1, message2])
+        let totalPageKey = "totalPage"
+        let lastUpdateTimeKey = "lastUpdateTime"
+        cache.setObject(8 as NSNumber, forKey: totalPageKey)
+        cache.setObject(22.0 as NSNumber, forKey: lastUpdateTimeKey)
+        XCTAssert(cache.friendMessages()! == [message1, message2])
+        XCTAssert((cache.object(forKey: totalPageKey)! as! NSNumber).intValue == 8)
+        XCTAssert((cache.object(forKey: lastUpdateTimeKey)! as! NSNumber).doubleValue == 22.0)
     }
 }

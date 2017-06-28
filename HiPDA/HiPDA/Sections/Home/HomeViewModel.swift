@@ -101,7 +101,7 @@ class HomeViewModel {
     /// - Parameter index: 帖子下标
     func readThread(at index: Int) {
         guard let thread = manager.threads.safe[index] else { return }
-        CacheManager.threadsReadHistory.instance?.addThread(thread)
+        CacheManager.threadsReadHistory.shared?.addThread(thread)
     }
     
     /// 删除帖子

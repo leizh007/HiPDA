@@ -22,6 +22,12 @@ enum CacheManager: String {
     /// 草稿
     case draft
     
+    case threadMessage
+    
+    case pmMessage
+    
+    case friendMessage
+    
     private static var dic = [String: YYCache]()
     
     // FIXME: -  待优化
@@ -30,7 +36,7 @@ enum CacheManager: String {
     private static let lock = NSRecursiveLock()
     
     /// 缓存实例
-    var instance: YYCache? {
+    var shared: YYCache? {
         CacheManager.lock.lock()
         defer {
             CacheManager.lock.unlock()

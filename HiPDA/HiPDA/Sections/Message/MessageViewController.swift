@@ -14,6 +14,9 @@ import RxCocoa
 class MessageViewController: BaseViewController {
     @IBOutlet fileprivate var titleView: MessageNavigationBarTitleView!
     @IBOutlet fileprivate weak var scrollView: UIScrollView!
+    fileprivate var messageViewControllers: [MessageTableViewController]!
+    private let  contentWidth = C.UI.screenWidth
+    private let contentHeight = C.UI.screenHeight - 64 - 49
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +34,26 @@ class MessageViewController: BaseViewController {
         navigationItem.titleView = titleView
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        messageViewControllers.forEach { $0.view.frame.size = CGSize(width: contentWidth, height: contentHeight) }
+    }
+    
     fileprivate func skinScrollView() {
-        let bottomSpacing = CGFloat(49)
-        let topSpacging = CGFloat(64)
-        scrollView.contentSize = CGSize(width: C.UI.screenWidth * 3, height: C.UI.screenHeight - topSpacging - bottomSpacing)
-        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: C.UI.screenWidth, height: C.UI.screenHeight - topSpacging - bottomSpacing))
-        let view2 = UIView(frame: CGRect(x: C.UI.screenWidth, y: 0, width: C.UI.screenWidth, height: C.UI.screenHeight - topSpacging - bottomSpacing))
-        let view3 = UIView(frame: CGRect(x: 2 * C.UI.screenWidth, y: 0, width: C.UI.screenWidth, height: C.UI.screenHeight - topSpacging - bottomSpacing))
+        scrollView.contentSize = CGSize(width: contentWidth * 3, height: contentHeight)
+        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight))
+        let view2 = UIView(frame: CGRect(x: C.UI.screenWidth, y: 0, width: contentWidth, height: contentHeight))
+        let friendMessageVC = FriendMessageViewController()
+        addChildViewController(friendMessageVC)
+        friendMessageVC.view.frame = CGRect(x: 2 * contentWidth, y: 0, width: contentWidth, height: contentHeight)
+        scrollView.addSubview(friendMessageVC.view)
+        friendMessageVC.didMove(toParentViewController: self)
         view1.backgroundColor = .yellow
         view2.backgroundColor = .green
-        view3.backgroundColor = .red
         scrollView.addSubview(view1)
         scrollView.addSubview(view2)
-        scrollView.addSubview(view3)
+        messageViewControllers = [friendMessageVC]
     }
 }
 

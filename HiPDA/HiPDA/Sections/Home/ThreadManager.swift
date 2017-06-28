@@ -69,15 +69,15 @@ extension HiPDA {
         private var disposeBag = DisposeBag()
         
         init(fid: Int, typeid: Int, threads: [HiPDA.Thread]? = nil) {
-            self.threads = threads ?? (CacheManager.threads.instance?.threads(forFid: fid, typeid: typeid) ?? [])
+            self.threads = threads ?? (CacheManager.threads.shared?.threads(forFid: fid, typeid: typeid) ?? [])
             self.threadModels = self.threads.map(threadModel(from:))
             self.page = 1
             self.fid = fid
             self.typeid = typeid
             let totalPageKey = key(forFid: fid, typeid: typeid, addtionalKey: kTotalPageKey)
-            self.totalPage = (CacheManager.threads.instance?.object(forKey: totalPageKey) as? NSNumber)?.intValue ?? 1
+            self.totalPage = (CacheManager.threads.shared?.object(forKey: totalPageKey) as? NSNumber)?.intValue ?? 1
             let timeStampKey = key(forFid: fid, typeid: typeid, addtionalKey: kTimeStamp)
-            self.timeStamp = (CacheManager.threads.instance?.object(forKey: timeStampKey) as? NSNumber)?.doubleValue ?? 0.0
+            self.timeStamp = (CacheManager.threads.shared?.object(forKey: timeStampKey) as? NSNumber)?.doubleValue ?? 0.0
         }
         
         /// 删除帖子
@@ -183,11 +183,11 @@ extension HiPDA {
                         
                         if page == 1 {
                             /// 添加到缓存中
-                            CacheManager.threads.instance?.setThreads(threads: threads, forFid: fid, typeid: typeid)
+                            CacheManager.threads.shared?.setThreads(threads: threads, forFid: fid, typeid: typeid)
                             let totalPageKey = key(forFid: fid, typeid: typeid, addtionalKey: kTotalPageKey)
-                            CacheManager.threads.instance?.setObject(totalPage as NSNumber, forKey: totalPageKey)
+                            CacheManager.threads.shared?.setObject(totalPage as NSNumber, forKey: totalPageKey)
                             let timeStampKey = key(forFid: fid, typeid: typeid, addtionalKey: kTimeStamp)
-                            CacheManager.threads.instance?.setObject(timeStamp as NSNumber, forKey: timeStampKey)
+                            CacheManager.threads.shared?.setObject(timeStamp as NSNumber, forKey: timeStampKey)
                         }
                         
                         /// 预加载用户头像

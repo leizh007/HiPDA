@@ -71,6 +71,17 @@
 		054065A31D43167400E460F6 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054065A21D43167400E460F6 /* UserTests.swift */; };
 		05407F3F1E8D09B100E4EA5F /* CookieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05407F3E1E8D09B100E4EA5F /* CookieManager.swift */; };
 		0541493D1F02A0BD00AFE469 /* MessageNavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541493C1F02A0BD00AFE469 /* MessageNavigationBarTitleView.swift */; };
+		0541494E1F038B6300AFE469 /* BaseMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541494B1F038B6300AFE469 /* BaseMessageModel.swift */; };
+		0541494F1F038B6300AFE469 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541494C1F038B6300AFE469 /* MessageTableViewController.swift */; };
+		054149501F038B6300AFE469 /* MessageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541494D1F038B6300AFE469 /* MessageTableViewModel.swift */; };
+		054149551F038B6F00AFE469 /* FriendMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054149521F038B6F00AFE469 /* FriendMessageModel.swift */; };
+		054149561F038B6F00AFE469 /* FriendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054149531F038B6F00AFE469 /* FriendMessageViewController.swift */; };
+		054149571F038B6F00AFE469 /* FriendMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054149541F038B6F00AFE469 /* FriendMessageViewModel.swift */; };
+		0541495C1F038B7C00AFE469 /* SendShortMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541495A1F038B7C00AFE469 /* SendShortMessageViewController.swift */; };
+		0541495D1F038B7C00AFE469 /* SendShortMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541495B1F038B7C00AFE469 /* SendShortMessageViewModel.swift */; };
+		054149601F03958700AFE469 /* YYCache+FriendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541495F1F03958700AFE469 /* YYCache+FriendMessage.swift */; };
+		054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054149611F03AF8400AFE469 /* FriendMessageTableViewCell.swift */; };
+		054149641F03AF8400AFE469 /* FriendMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054149621F03AF8400AFE469 /* FriendMessageTableViewCell.xib */; };
 		05416C891D903CB200049AA0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05416C881D903CB200049AA0 /* Result.swift */; };
 		0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */; };
 		0546619A1EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054661991EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift */; };
@@ -247,8 +258,6 @@
 		05E5101A1D7B238300B55B8F /* CollectionHiPDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */; };
 		05E697471F001042005919B7 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E697441F001042005919B7 /* Message.storyboard */; };
 		05E697481F001042005919B7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697451F001042005919B7 /* MessageViewController.swift */; };
-		05E697491F001042005919B7 /* SendShortMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697461F001042005919B7 /* SendShortMessageViewController.swift */; };
-		05E6974C1F00B027005919B7 /* SendShortMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */; };
 		05E6974E1F00EABB005919B7 /* SearchUserThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974D1F00EABB005919B7 /* SearchUserThreadsViewController.swift */; };
 		05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */; };
 		05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */; };
@@ -375,6 +384,17 @@
 		054065A21D43167400E460F6 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		05407F3E1E8D09B100E4EA5F /* CookieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieManager.swift; sourceTree = "<group>"; };
 		0541493C1F02A0BD00AFE469 /* MessageNavigationBarTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageNavigationBarTitleView.swift; sourceTree = "<group>"; };
+		0541494B1F038B6300AFE469 /* BaseMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageModel.swift; sourceTree = "<group>"; };
+		0541494C1F038B6300AFE469 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		0541494D1F038B6300AFE469 /* MessageTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewModel.swift; sourceTree = "<group>"; };
+		054149521F038B6F00AFE469 /* FriendMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendMessageModel.swift; sourceTree = "<group>"; };
+		054149531F038B6F00AFE469 /* FriendMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendMessageViewController.swift; sourceTree = "<group>"; };
+		054149541F038B6F00AFE469 /* FriendMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendMessageViewModel.swift; sourceTree = "<group>"; };
+		0541495A1F038B7C00AFE469 /* SendShortMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewController.swift; sourceTree = "<group>"; };
+		0541495B1F038B7C00AFE469 /* SendShortMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewModel.swift; sourceTree = "<group>"; };
+		0541495F1F03958700AFE469 /* YYCache+FriendMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+FriendMessage.swift"; sourceTree = "<group>"; };
+		054149611F03AF8400AFE469 /* FriendMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendMessageTableViewCell.swift; sourceTree = "<group>"; };
+		054149621F03AF8400AFE469 /* FriendMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendMessageTableViewCell.xib; sourceTree = "<group>"; };
 		05416C881D903CB200049AA0 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		054661991EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerCameraCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -566,8 +586,6 @@
 		05E510191D7B238300B55B8F /* CollectionHiPDATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHiPDATests.swift; sourceTree = "<group>"; };
 		05E697441F001042005919B7 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
 		05E697451F001042005919B7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
-		05E697461F001042005919B7 /* SendShortMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewController.swift; sourceTree = "<group>"; };
-		05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewModel.swift; sourceTree = "<group>"; };
 		05E6974D1F00EABB005919B7 /* SearchUserThreadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsViewController.swift; sourceTree = "<group>"; };
 		05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsViewModel.swift; sourceTree = "<group>"; };
 		05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserThreadsTableViewCell.swift; sourceTree = "<group>"; };
@@ -724,6 +742,52 @@
 				05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		0541494A1F038B6300AFE469 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0541494C1F038B6300AFE469 /* MessageTableViewController.swift */,
+				0541494D1F038B6300AFE469 /* MessageTableViewModel.swift */,
+				0541494B1F038B6300AFE469 /* BaseMessageModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		054149511F038B6F00AFE469 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				054149531F038B6F00AFE469 /* FriendMessageViewController.swift */,
+				054149541F038B6F00AFE469 /* FriendMessageViewModel.swift */,
+				054149521F038B6F00AFE469 /* FriendMessageModel.swift */,
+				0541495F1F03958700AFE469 /* YYCache+FriendMessage.swift */,
+				054149611F03AF8400AFE469 /* FriendMessageTableViewCell.swift */,
+				054149621F03AF8400AFE469 /* FriendMessageTableViewCell.xib */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		054149581F038B7600AFE469 /* Pm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pm;
+			sourceTree = "<group>";
+		};
+		054149591F038B7C00AFE469 /* SendShortMessage */ = {
+			isa = PBXGroup;
+			children = (
+				0541495A1F038B7C00AFE469 /* SendShortMessageViewController.swift */,
+				0541495B1F038B7C00AFE469 /* SendShortMessageViewModel.swift */,
+			);
+			path = SendShortMessage;
+			sourceTree = "<group>";
+		};
+		0541495E1F038B8200AFE469 /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Thread;
 			sourceTree = "<group>";
 		};
 		05532B0A1ECDEB3600FAB176 /* Html */ = {
@@ -1143,12 +1207,15 @@
 			isa = PBXGroup;
 			children = (
 				05E697441F001042005919B7 /* Message.storyboard */,
-				05E697451F001042005919B7 /* MessageViewController.swift */,
 				0541493C1F02A0BD00AFE469 /* MessageNavigationBarTitleView.swift */,
+				05E697451F001042005919B7 /* MessageViewController.swift */,
 				05E697551F01F729005919B7 /* UnReadMessagesCountManager.swift */,
 				05E697571F01FD32005919B7 /* UnReadMessagesCountModel.swift */,
-				05E697461F001042005919B7 /* SendShortMessageViewController.swift */,
-				05E6974B1F00B027005919B7 /* SendShortMessageViewModel.swift */,
+				054149591F038B7C00AFE469 /* SendShortMessage */,
+				0541494A1F038B6300AFE469 /* Base */,
+				0541495E1F038B8200AFE469 /* Thread */,
+				054149581F038B7600AFE469 /* Pm */,
+				054149511F038B6F00AFE469 /* Friend */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1499,6 +1566,7 @@
 				050EE3221DD200AA00C4B18D /* Main.storyboard in Resources */,
 				05B919AC1EEEE32F007339F6 /* coolmonkey_07.gif in Resources */,
 				05B919BF1EEEE32F007339F6 /* default_loveliness.gif in Resources */,
+				054149641F03AF8400AFE469 /* FriendMessageTableViewCell.xib in Resources */,
 				05B919AB1EEEE32F007339F6 /* coolmonkey_06.gif in Resources */,
 				05B919D81EEEE32F007339F6 /* grapeman_13.gif in Resources */,
 				050EE3171DD1FEA800C4B18D /* Views.storyboard in Resources */,
@@ -1708,6 +1776,7 @@
 				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
 				05EE515D1EC9FCBF00BC81B4 /* PostInfo.swift in Sources */,
 				059D495F1EBB1D2900BECA18 /* ThreadResult.swift in Sources */,
+				0541495C1F038B7C00AFE469 /* SendShortMessageViewController.swift in Sources */,
 				057226371EF223AB00397829 /* String+Emoji.swift in Sources */,
 				051F41A51E7BCBAA0049D31E /* Serializable.swift in Sources */,
 				051BFDDF1EF58BA300EA77EB /* UICollectionView+HiPDA.swift in Sources */,
@@ -1747,7 +1816,6 @@
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
-				05E697491F001042005919B7 /* SendShortMessageViewController.swift in Sources */,
 				050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */,
 				051BFDE91EF58C8200EA77EB /* EmoticonInputView.swift in Sources */,
 				051BFDE61EF58C8200EA77EB /* Emoticon.swift in Sources */,
@@ -1762,10 +1830,12 @@
 				058A9F4E1EFE54EB00E74744 /* UserProfileAccountTableViewCell.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
+				054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				057CA1421EF973C7003D2508 /* EmoticonParser.swift in Sources */,
 				05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
+				054149551F038B6F00AFE469 /* FriendMessageModel.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
 				05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */,
@@ -1792,13 +1862,13 @@
 				05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */,
 				0546619A1EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift in Sources */,
 				05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */,
+				054149571F038B6F00AFE469 /* FriendMessageViewModel.swift in Sources */,
 				051BFDE71EF58C8200EA77EB /* EmoticonCollectionViewCell.swift in Sources */,
 				0533F1FD1EE5939700DB854B /* HiPDA.swift in Sources */,
 				057226241EF1818500397829 /* ReplyPostManager.swift in Sources */,
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				051BFE0C1EF590D000EA77EB /* ImageBrowserCollectionViewCell.swift in Sources */,
-				05E6974C1F00B027005919B7 /* SendShortMessageViewModel.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
@@ -1810,6 +1880,7 @@
 				051BFE0B1EF590D000EA77EB /* ImageBrowserViewController.swift in Sources */,
 				05CB82641EFC12C90040FC92 /* UserProfileSection.swift in Sources */,
 				055996AE1D50DB5A00057CF6 /* Helper.swift in Sources */,
+				0541495D1F038B7C00AFE469 /* SendShortMessageViewModel.swift in Sources */,
 				059D495B1EBB108F00BECA18 /* ThreadManager.swift in Sources */,
 				05CB825E1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift in Sources */,
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
@@ -1822,6 +1893,7 @@
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				051BFE071EF58F8300EA77EB /* ImagePickerCollectionViewCell.swift in Sources */,
+				0541494E1F038B6300AFE469 /* BaseMessageModel.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
 				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,
 				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
@@ -1847,6 +1919,7 @@
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */,
+				0541494F1F038B6300AFE469 /* MessageTableViewController.swift in Sources */,
 				058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */,
 				0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
@@ -1857,6 +1930,7 @@
 				052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */,
 				05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */,
 				058A9F521EFE550C00E74744 /* UserProfileActionTableViewCell.swift in Sources */,
+				054149501F038B6300AFE469 /* MessageTableViewModel.swift in Sources */,
 				0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */,
 				05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */,
 				05F3DCF21DB919070061CED1 /* EventBus.swift in Sources */,
@@ -1869,6 +1943,7 @@
 				0577A23E1EDD6AAF00FF5D32 /* ImageUtils.swift in Sources */,
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
+				054149561F038B6F00AFE469 /* FriendMessageViewController.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
 				0533F1F01EE4186A00DB854B /* UITabBarController+HiPDA.swift in Sources */,
 				055996A81D50DB4500057CF6 /* Account.swift in Sources */,
@@ -1877,6 +1952,7 @@
 				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
 				051BFE0E1EF5A30300EA77EB /* ImageAssetsCollection.swift in Sources */,
 				051BFE0A1EF58F8300EA77EB /* ImagePickerViewModel.swift in Sources */,
+				054149601F03958700AFE469 /* YYCache+FriendMessage.swift in Sources */,
 				05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				051BFE081EF58F8300EA77EB /* ImagePickerDataSource.swift in Sources */,
