@@ -143,6 +143,8 @@
 		059B16B21F04955A00360D82 /* ThreadMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059B16B01F04955A00360D82 /* ThreadMessageTableViewCell.xib */; };
 		059B16B41F0497B800360D82 /* ThreadMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B31F0497B800360D82 /* ThreadMessageModel.swift */; };
 		059B16B81F04A16400360D82 /* YYCache+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B71F04A16400360D82 /* YYCache+Message.swift */; };
+		059B16BA1F04FFB600360D82 /* ThreadMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B91F04FFB600360D82 /* ThreadMessageViewController.swift */; };
+		059B16BC1F04FFCE00360D82 /* ThreadMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16BB1F04FFCE00360D82 /* ThreadMessageViewModel.swift */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
 		059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */; };
@@ -462,6 +464,8 @@
 		059B16B01F04955A00360D82 /* ThreadMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadMessageTableViewCell.xib; sourceTree = "<group>"; };
 		059B16B31F0497B800360D82 /* ThreadMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageModel.swift; sourceTree = "<group>"; };
 		059B16B71F04A16400360D82 /* YYCache+Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+Message.swift"; sourceTree = "<group>"; };
+		059B16B91F04FFB600360D82 /* ThreadMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageViewController.swift; sourceTree = "<group>"; };
+		059B16BB1F04FFCE00360D82 /* ThreadMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageViewModel.swift; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadAttachment.swift; sourceTree = "<group>"; };
@@ -792,6 +796,8 @@
 		0541495E1F038B8200AFE469 /* Thread */ = {
 			isa = PBXGroup;
 			children = (
+				059B16B91F04FFB600360D82 /* ThreadMessageViewController.swift */,
+				059B16BB1F04FFCE00360D82 /* ThreadMessageViewModel.swift */,
 				059B16B31F0497B800360D82 /* ThreadMessageModel.swift */,
 				059B16AF1F04955A00360D82 /* ThreadMessageTableViewCell.swift */,
 				059B16B01F04955A00360D82 /* ThreadMessageTableViewCell.xib */,
@@ -1844,6 +1850,7 @@
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				057CA1421EF973C7003D2508 /* EmoticonParser.swift in Sources */,
 				05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */,
+				059B16BA1F04FFB600360D82 /* ThreadMessageViewController.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				054149551F038B6F00AFE469 /* FriendMessageModel.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
@@ -1877,6 +1884,7 @@
 				0533F1FD1EE5939700DB854B /* HiPDA.swift in Sources */,
 				057226241EF1818500397829 /* ReplyPostManager.swift in Sources */,
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
+				059B16BC1F04FFCE00360D82 /* ThreadMessageViewModel.swift in Sources */,
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
 				051BFE0C1EF590D000EA77EB /* ImageBrowserCollectionViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,

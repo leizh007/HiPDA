@@ -42,18 +42,22 @@ class MessageViewController: BaseViewController {
     
     fileprivate func skinScrollView() {
         scrollView.contentSize = CGSize(width: contentWidth * 3, height: contentHeight)
-        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight))
+        let threadMessageVC = ThreadMessageViewController()
+        threadMessageVC.view.frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight)
+        scrollView.addSubview(threadMessageVC.view)
+        threadMessageVC.didMove(toParentViewController: self)
+    
         let view2 = UIView(frame: CGRect(x: C.UI.screenWidth, y: 0, width: contentWidth, height: contentHeight))
+        
         let friendMessageVC = FriendMessageViewController()
         addChildViewController(friendMessageVC)
         friendMessageVC.view.frame = CGRect(x: 2 * contentWidth, y: 0, width: contentWidth, height: contentHeight)
         scrollView.addSubview(friendMessageVC.view)
         friendMessageVC.didMove(toParentViewController: self)
-        view1.backgroundColor = .yellow
+
         view2.backgroundColor = .green
-        scrollView.addSubview(view1)
         scrollView.addSubview(view2)
-        messageViewControllers = [friendMessageVC]
+        messageViewControllers = [threadMessageVC, friendMessageVC]
     }
 }
 

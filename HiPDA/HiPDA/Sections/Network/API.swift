@@ -29,6 +29,7 @@ extension HiPDA {
         case sendShortMessage(username: String, message: String, formhash: String)
         case searchUserThreads(searchId: Int, page: Int)
         case friendMessage(page: Int)
+        case threadMessage(page: Int)
     }
 }
 
@@ -79,6 +80,8 @@ extension HiPDA.API: TargetType {
             return "/forum/search.php?searchid=\(searchId)&orderby=dateline&ascdesc=desc&searchsubmit=yes&page=\(page)"
         case let .friendMessage(page: page):
             return "/forum/notice.php?filter=friend&page=\(page)"
+        case let .threadMessage(page: page):
+            return "/forum/notice.php?filter=threads&page=\(page)"
         }
     }
     var method: Moya.Method {
@@ -118,6 +121,8 @@ extension HiPDA.API: TargetType {
         case .searchUserThreads(_):
             return .get
         case .friendMessage(_):
+            return .get
+        case .threadMessage(_):
             return .get
         }
     }
@@ -201,6 +206,8 @@ extension HiPDA.API: TargetType {
         case .searchUserThreads(_):
             return nil
         case .friendMessage(_):
+            return nil
+        case .threadMessage(_):
             return nil
         }
     }

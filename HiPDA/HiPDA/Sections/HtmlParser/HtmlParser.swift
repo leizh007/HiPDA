@@ -272,4 +272,23 @@ struct HtmlParser {
             return FriendMessageModel(isRead: isRead, sender: User(name: result[2], uid: uid), time: result[3])
         }
     }
+    
+    static func threadMessages(from html: String) throws -> [ThreadMessageModel] {
+        let results = try Regex.matches(in: html, of: "<li\\s+class=\"s_clear\"><[^<]+<[^>]+>([^<]+)<\\/a>([^<]+)<a\\s+href=\"[^\"]+\">([\\s\\S]*?)<\\/a>([\\s\\S]*?)<em>([^<]+)<\\/em>([\\s\\S]*?)<a\\s+href=\"([^\"]+)\"[^>]*>查看")
+        return try results.map { result in
+            guard !result[1].isEmpty else { throw HtmlParserError.underlying("获取发帖用户名出错") }
+            var action = result[2]
+            action = action.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !action.isEmpty else { throw HtmlParserError.underlying("获取用户操作出错") }
+            guard !result[7].isEmpty else { throw HtmlParserError.underlying("获取帖子链接出错") }
+            guard !result[3].isEmpty else { throw HtmlParserError.underlying("获取帖子主题出错") }
+            guard !result[5].isEmpty else { throw HtmlParserError.underlying("获取发表时间出错") }
+            let content = result[6]
+            let isRead = !content.contains("notice_newpm")
+            let contentResult = try Regex.firstMatch(in: content, of: "<dl\\s+class=\"summary\"><dt>您的帖子：<dt><dd>([\\s\\S]*?)<\\/dd><dt>[\\s\\S]*?说：<\\/dt><dd>([\\s\\S]*?)<\\/dd><\\/dl>")
+            let yourPost = contentResult.safe[1]
+            let senderPost = contentResult.safe[2]
+            return ThreadMessageModel(isRead: isRead, senderName: result[1], action: action, postTitle: result[3], postAction: result[4].trimmingCharacters(in: .whitespacesAndNewlines), postURL: result[7], time: result[5], yourPost: yourPost, senderPost: senderPost)
+        }
+    }
 }
