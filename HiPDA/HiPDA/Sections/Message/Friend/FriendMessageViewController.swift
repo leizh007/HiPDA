@@ -57,7 +57,7 @@ extension FriendMessageViewController {
             guard let `self` = self else { return }
             let vc = UserProfileViewController.load(from: .home)
             vc.uid = user.uid
-            (self.parent as? BaseViewController)?.pushViewController(vc, animated: true)
+            self.pushViewController(vc, animated: true)
         }
         let addFriendAction = UIAlertAction(title: "加 \(user.name) 为好友", style: .default) { [weak self] _ in
             guard let `self` = self else { return }

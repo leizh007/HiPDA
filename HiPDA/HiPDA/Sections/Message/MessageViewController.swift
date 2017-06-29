@@ -21,7 +21,7 @@ class MessageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observerUnReadMessagesCount()
+        observeEvenBus()
         skinScrollView()
         titleView.select(index: 0)
         titleView.delegate = self
@@ -76,13 +76,21 @@ extension MessageViewController: UIScrollViewDelegate {
 // MARK: - UnReadMessagesCount
 
 extension MessageViewController {
-    fileprivate func observerUnReadMessagesCount() {
+    fileprivate func observeEvenBus() {
         EventBus.shared.unReadMessagesCount
             .do(onNext: { [weak self] model in
                 self?.titleView.model = model
             })
             .map { $0.totalMessagesCount == 0 ? nil : "\($0.totalMessagesCount)" }
             .drive(navigationController!.tabBarItem.rx.badgeValue)
+            .disposed(by: disposeBag)
+        EventBus.shared.activeAccount.asObservable()
+            .subscribe(onNext: { [weak self] loginResult in
+                guard let loginResult = loginResult, case .success(let account) = loginResult else {
+                    return
+                }
+                self?.messageViewControllers.forEach { $0.accountChanged(account) }
+            })
             .disposed(by: disposeBag)
     }
 }

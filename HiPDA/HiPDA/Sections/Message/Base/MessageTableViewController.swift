@@ -42,8 +42,8 @@ class MessageTableViewController: BaseViewController {
         fatalError("Must override!")
     }
     
-    func accountChanged() {
-        viewModel.accountChanged()
+    func accountChanged(_ account: Account) {
+        viewModel.accountChanged(account)
         handleDataLoadResult(.success(()))
     }
     
@@ -57,6 +57,10 @@ class MessageTableViewController: BaseViewController {
     
     func cancelDataFetching() {
         viewModel.cancelDataFetching()
+    }
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        (parent as? BaseViewController)?.pushViewController(viewController, animated: true)
     }
 }
 

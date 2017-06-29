@@ -79,7 +79,6 @@
 		054149571F038B6F00AFE469 /* FriendMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054149541F038B6F00AFE469 /* FriendMessageViewModel.swift */; };
 		0541495C1F038B7C00AFE469 /* SendShortMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541495A1F038B7C00AFE469 /* SendShortMessageViewController.swift */; };
 		0541495D1F038B7C00AFE469 /* SendShortMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541495B1F038B7C00AFE469 /* SendShortMessageViewModel.swift */; };
-		054149601F03958700AFE469 /* YYCache+FriendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0541495F1F03958700AFE469 /* YYCache+FriendMessage.swift */; };
 		054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054149611F03AF8400AFE469 /* FriendMessageTableViewCell.swift */; };
 		054149641F03AF8400AFE469 /* FriendMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054149621F03AF8400AFE469 /* FriendMessageTableViewCell.xib */; };
 		05416C891D903CB200049AA0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05416C881D903CB200049AA0 /* Result.swift */; };
@@ -140,6 +139,10 @@
 		058A9F521EFE550C00E74744 /* UserProfileActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F511EFE550C00E74744 /* UserProfileActionTableViewCell.swift */; };
 		058A9F541EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A9F531EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift */; };
 		058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058DBBB01D4659780045E0FD /* SettingsTests.swift */; };
+		059B16B11F04955A00360D82 /* ThreadMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16AF1F04955A00360D82 /* ThreadMessageTableViewCell.swift */; };
+		059B16B21F04955A00360D82 /* ThreadMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059B16B01F04955A00360D82 /* ThreadMessageTableViewCell.xib */; };
+		059B16B41F0497B800360D82 /* ThreadMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B31F0497B800360D82 /* ThreadMessageModel.swift */; };
+		059B16B81F04A16400360D82 /* YYCache+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B71F04A16400360D82 /* YYCache+Message.swift */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
 		059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */; };
@@ -392,7 +395,6 @@
 		054149541F038B6F00AFE469 /* FriendMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendMessageViewModel.swift; sourceTree = "<group>"; };
 		0541495A1F038B7C00AFE469 /* SendShortMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewController.swift; sourceTree = "<group>"; };
 		0541495B1F038B7C00AFE469 /* SendShortMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendShortMessageViewModel.swift; sourceTree = "<group>"; };
-		0541495F1F03958700AFE469 /* YYCache+FriendMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+FriendMessage.swift"; sourceTree = "<group>"; };
 		054149611F03AF8400AFE469 /* FriendMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendMessageTableViewCell.swift; sourceTree = "<group>"; };
 		054149621F03AF8400AFE469 /* FriendMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendMessageTableViewCell.xib; sourceTree = "<group>"; };
 		05416C881D903CB200049AA0 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -456,6 +458,10 @@
 		058A9F511EFE550C00E74744 /* UserProfileActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileActionTableViewCell.swift; sourceTree = "<group>"; };
 		058A9F531EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileBaseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		058DBBB01D4659780045E0FD /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		059B16AF1F04955A00360D82 /* ThreadMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageTableViewCell.swift; sourceTree = "<group>"; };
+		059B16B01F04955A00360D82 /* ThreadMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadMessageTableViewCell.xib; sourceTree = "<group>"; };
+		059B16B31F0497B800360D82 /* ThreadMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageModel.swift; sourceTree = "<group>"; };
+		059B16B71F04A16400360D82 /* YYCache+Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+Message.swift"; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadAttachment.swift; sourceTree = "<group>"; };
@@ -750,6 +756,7 @@
 				0541494C1F038B6300AFE469 /* MessageTableViewController.swift */,
 				0541494D1F038B6300AFE469 /* MessageTableViewModel.swift */,
 				0541494B1F038B6300AFE469 /* BaseMessageModel.swift */,
+				059B16B71F04A16400360D82 /* YYCache+Message.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -760,7 +767,6 @@
 				054149531F038B6F00AFE469 /* FriendMessageViewController.swift */,
 				054149541F038B6F00AFE469 /* FriendMessageViewModel.swift */,
 				054149521F038B6F00AFE469 /* FriendMessageModel.swift */,
-				0541495F1F03958700AFE469 /* YYCache+FriendMessage.swift */,
 				054149611F03AF8400AFE469 /* FriendMessageTableViewCell.swift */,
 				054149621F03AF8400AFE469 /* FriendMessageTableViewCell.xib */,
 			);
@@ -786,6 +792,9 @@
 		0541495E1F038B8200AFE469 /* Thread */ = {
 			isa = PBXGroup;
 			children = (
+				059B16B31F0497B800360D82 /* ThreadMessageModel.swift */,
+				059B16AF1F04955A00360D82 /* ThreadMessageTableViewCell.swift */,
+				059B16B01F04955A00360D82 /* ThreadMessageTableViewCell.xib */,
 			);
 			path = Thread;
 			sourceTree = "<group>";
@@ -1518,6 +1527,7 @@
 				05B919D71EEEE32F007339F6 /* grapeman_12.gif in Resources */,
 				05B919C01EEEE32F007339F6 /* default_mad.gif in Resources */,
 				050EE3241DD200C800C4B18D /* Home.storyboard in Resources */,
+				059B16B21F04955A00360D82 /* ThreadMessageTableViewCell.xib in Resources */,
 				05B919DC1EEEE32F007339F6 /* grapeman_17.gif in Resources */,
 				05B919C31EEEE32F007339F6 /* default_shutup.gif in Resources */,
 				05B919C91EEEE32F007339F6 /* default_tongue.gif in Resources */,
@@ -1874,6 +1884,7 @@
 				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
 				05B35C491ECC700400C037A7 /* PostManager.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
+				059B16B81F04A16400360D82 /* YYCache+Message.swift in Sources */,
 				051761C51ED886A8007951DE /* URL+HiPDA.swift in Sources */,
 				05B35C451ECC43E100C037A7 /* PostResult.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
@@ -1914,12 +1925,14 @@
 				05068AF01E09696C0070E044 /* UserRemarkViewController.swift in Sources */,
 				057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */,
 				0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */,
+				059B16B11F04955A00360D82 /* ThreadMessageTableViewCell.swift in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */,
 				0541494F1F038B6300AFE469 /* MessageTableViewController.swift in Sources */,
+				059B16B41F0497B800360D82 /* ThreadMessageModel.swift in Sources */,
 				058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */,
 				0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
@@ -1952,7 +1965,6 @@
 				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
 				051BFE0E1EF5A30300EA77EB /* ImageAssetsCollection.swift in Sources */,
 				051BFE0A1EF58F8300EA77EB /* ImagePickerViewModel.swift in Sources */,
-				054149601F03958700AFE469 /* YYCache+FriendMessage.swift in Sources */,
 				05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				051BFE081EF58F8300EA77EB /* ImagePickerDataSource.swift in Sources */,

@@ -20,16 +20,16 @@ class FriendMessageViewModel: MessageTableViewModel {
         }
     }
     
-    override func getDataFromCache() {
-        friendMessageModels = CacheManager.friendMessage.shared?.friendMessages() ?? []
+    override func getDataFromCache(for account: Account) {
+        friendMessageModels = CacheManager.friendMessage.shared?.messages(for: account) ?? []
         page = 1
         totalPage = (CacheManager.friendMessage.shared?.object(forKey: totalPageKey) as? NSNumber)?.intValue ?? 1
         lastUpdateTime = (CacheManager.friendMessage.shared?.object(forKey: lastUpdateTimeKey) as? NSNumber)?.doubleValue ?? 0.0
     }
     
-    override func saveModelsToCache() {
+    override func saveModelsToCache(for account: Account) {
         guard let cache = CacheManager.friendMessage.shared else { return }
-        cache.setFriendMessages(friendMessageModels)
+        cache.setMessages(friendMessageModels, for: account)
         cache.setObject(totalPage as NSNumber, forKey: totalPageKey)
         cache.setObject(lastUpdateTime as NSNumber, forKey: lastUpdateTimeKey)
     }

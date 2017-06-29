@@ -87,19 +87,32 @@ class YYCacheExtensionTests: XCTestCase {
     }
     
     func testFriendMessage() {
+        let account = Account(name: "leizh007", uid: 123, questionid: 0, answer: "", password: "")
         guard let cache = CacheManager.friendMessage.shared else {
             XCTFail()
             return
         }
         let message1 = FriendMessageModel(isRead: true, sender: User(name: "leizh007", uid: 697558), time: "2017-6-25 22:56")
         let message2 = FriendMessageModel(isRead: true, sender: User(name: "leizh007", uid: 697558), time: "2017-6-26 22:56")
-        cache.setFriendMessages([message1, message2])
+        cache.setMessages([message1, message2], for: account)
         let totalPageKey = "totalPage"
         let lastUpdateTimeKey = "lastUpdateTime"
         cache.setObject(8 as NSNumber, forKey: totalPageKey)
         cache.setObject(22.0 as NSNumber, forKey: lastUpdateTimeKey)
-        XCTAssert(cache.friendMessages()! == [message1, message2])
+        XCTAssert((cache.messages(for: account) as [FriendMessageModel]?)! == [message1, message2])
         XCTAssert((cache.object(forKey: totalPageKey)! as! NSNumber).intValue == 8)
         XCTAssert((cache.object(forKey: lastUpdateTimeKey)! as! NSNumber).doubleValue == 22.0)
+    }
+    
+    func testThreadMessage() {
+        let account = Account(name: "leizh007", uid: 123, questionid: 0, answer: "", password: "")
+        guard let cache = CacheManager.threadMessage.shared else {
+            XCTFail()
+            return
+        }
+        let message1 = ThreadMessageModel(isRead: true, senderName: "TestAccount", action: "答复了您曾经在主题", postTitle: "测试，请不要回复，谢谢", postAction: "发表的帖子", postURL: "www", time: "2017-6-14 19:12", yourPost: nil, senderPost: "测试")
+        let message2 = ThreadMessageModel(isRead: true, senderName: "TestAccount", action: "答复了您曾经在主题", postTitle: "测试，请不要回复，谢谢", postAction: "发表的帖子", postURL: "www", time: "2017-6-14 19:12", yourPost: "测试", senderPost: nil)
+        cache.setMessages([message1, message2], for: account)
+        XCTAssert((cache.messages(for: account) as [ThreadMessageModel]?)! == [message1, message2])
     }
 }

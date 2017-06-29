@@ -44,3 +44,15 @@ func +<T>(lhs: [T], rhs: T) -> [T] {
     copy.append(rhs)
     return copy
 }
+
+func optionalEqual<T: Equatable>(_ lhs: T?, _ rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let(l?, r?):
+        return l == r
+    case (nil, nil):
+        return true
+    default:
+        return false
+    }
+}
+

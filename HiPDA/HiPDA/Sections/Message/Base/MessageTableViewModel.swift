@@ -43,18 +43,17 @@ class MessageTableViewModel {
     }
     
     init() {
-        getDataFromCache()
     }
     
-    func accountChanged() {
-        getDataFromCache()
+    func accountChanged(_ account: Account) {
+        getDataFromCache(for: account)
     }
     
-    func getDataFromCache() {
+    func getDataFromCache(for account: Account) {
         
     }
     
-    func saveModelsToCache() {
+    func saveModelsToCache(for account: Account) {
         
     }
     
@@ -75,7 +74,9 @@ extension MessageTableViewModel {
                 self.models = models
                 self.page = page
                 self.lastUpdateTime = Date().timeIntervalSince1970
-                self.saveModelsToCache()
+                if let account = Settings.shared.activeAccount {
+                    self.saveModelsToCache(for: account)
+                }
                 completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))

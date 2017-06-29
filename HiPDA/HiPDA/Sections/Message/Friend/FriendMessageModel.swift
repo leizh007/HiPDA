@@ -39,4 +39,3 @@ extension FriendMessageModel: Equatable {
         return lhs.sender == rhs.sender && lhs.time == rhs.time
     }
 }
-
