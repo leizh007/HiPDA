@@ -30,7 +30,10 @@ extension YYCache {
     func setMessages<T>(_ messages: [T], for account: Account) {
         let uid = account.uid
         let key = "\(String(describing: T.self))-\(uid)"
-        let messagesString = JSONSerializer.serializeToJSON(object: messages) ?? ""
+        var messagesString = JSONSerializer.serializeToJSON(object: messages) ?? ""
+        messagesString = messagesString.replacingOccurrences(of: "\r", with: "\\r")
+            .replacingOccurrences(of: "\n", with: "\\n")
+            .replacingOccurrences(of: "\t", with: "\\t")
         setObject(messagesString as NSString, forKey: key)
     }
 }
