@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import YYCache
 
 typealias MessageListResult = HiPDA.Result<Void, NSError>
 
@@ -38,8 +39,17 @@ class MessageTableViewModel {
         return totalPage > page
     }
     
-    func loadData(at page: Int, completion: @escaping (HiPDA.Result<[BaseMessageModel], NSError>) -> Void) {
-        disposeBag = DisposeBag()
+    
+    func modelTransform(_ html: String) throws -> [BaseMessageModel] {
+        return []
+    }
+    
+    func api(at page: Int) -> HiPDA.API {
+        return .privateMessage(page: page)
+    }
+        
+    func cache() -> YYCache? {
+        return nil
     }
     
     init() {
@@ -97,6 +107,31 @@ extension MessageTableViewModel {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func loadData(at page: Int, completion: @escaping (HiPDA.Result<[BaseMessageModel], NSError>) -> Void) {
+        disposeBag = DisposeBag()
+        var totalPage = self.totalPage
+        let transform = self.modelTransform
+        HiPDAProvider.request(api(at: page))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .mapGBKString()
+            .do(onNext: { html in
+                totalPage = try HtmlParser.totalPage(from: html)
+            })
+            .map { try transform($0) }
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                switch event {
+                case .next(let models):
+                    self?.totalPage = totalPage
+                    completion(.success(models))
+                case .error(let error):
+                    completion(.failure(error as NSError))
+                default:
+                    break
+                }
+            }.disposed(by: disposeBag)
     }
 }
 

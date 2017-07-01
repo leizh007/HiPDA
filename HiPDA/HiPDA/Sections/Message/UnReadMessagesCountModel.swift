@@ -13,12 +13,12 @@ struct UnReadMessagesCountModel {
     let threadMessagesCount: Int
     
     // 私人消息
-    let pmMessagesCount: Int
+    let privateMessagesCount: Int
     
     // 好友消息
     let friendMessagesCount: Int
     
     var totalMessagesCount: Int {
-        return threadMessagesCount + pmMessagesCount + friendMessagesCount
+        return threadMessagesCount + privateMessagesCount + friendMessagesCount
     }
 }

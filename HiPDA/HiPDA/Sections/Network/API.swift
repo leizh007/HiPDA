@@ -30,6 +30,7 @@ extension HiPDA {
         case searchUserThreads(searchId: Int, page: Int)
         case friendMessage(page: Int)
         case threadMessage(page: Int)
+        case privateMessage(page: Int)
     }
 }
 
@@ -82,6 +83,8 @@ extension HiPDA.API: TargetType {
             return "/forum/notice.php?filter=friend&page=\(page)"
         case let .threadMessage(page: page):
             return "/forum/notice.php?filter=threads&page=\(page)"
+        case let .privateMessage(page: page):
+            return "/forum/pm.php?filter=privatepm&page=\(page)"
         }
     }
     var method: Moya.Method {
@@ -123,6 +126,8 @@ extension HiPDA.API: TargetType {
         case .friendMessage(_):
             return .get
         case .threadMessage(_):
+            return .get
+        case .privateMessage(_):
             return .get
         }
     }
@@ -208,6 +213,8 @@ extension HiPDA.API: TargetType {
         case .friendMessage(_):
             return nil
         case .threadMessage(_):
+            return nil
+        case .privateMessage(_):
             return nil
         }
     }

@@ -291,4 +291,28 @@ struct HtmlParser {
             return ThreadMessageModel(isRead: isRead, senderName: result[1], action: action, postTitle: result[3], postAction: result[4].trimmingCharacters(in: .whitespacesAndNewlines), postURL: result[7], time: result[5], yourPost: yourPost, senderPost: senderPost)
         }
     }
+    
+    static func privateMessages(from html: String) throws -> [PrivateMessageModel] {
+        let results = try Regex.matches(in: html, of: "<li\\s+id=\"pm_\\d+\"\\s+class=\"s_clear[\\s\\S]*?<cite><a\\s+href=\"space\\.php\\?uid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a><\\/cite>([^<]+)([\\s\\S]*?)<\\/p>[^<]*<div\\s+class=\"summary\">([\\s\\S]*?)<\\/div>[^<]*<p[^<]+<a\\s+href=\"([^\"]+)\"")
+        let date = Date()
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-M-d"
+        let today = dateFormater.string(from: date)
+        let yesterdayDate = Date(timeInterval: -60 * 60 * 24, since: date)
+        let yesterday = dateFormater.string(from: yesterdayDate)
+        let theDayBeforeYesterdayDate = Date(timeInterval: -60 * 60 * 24 * 2, since: date)
+        let theDayBeforeYesterday = dateFormater.string(from: theDayBeforeYesterdayDate)
+        return try results.map { result in
+            guard !result[2].isEmpty else { throw HtmlParserError.underlying("获取用户名出错") }
+            guard !result[1].isEmpty, let uid = Int(result[1]) else { throw HtmlParserError.underlying("获取用户id出错") }
+            guard !result[3].isEmpty else { throw HtmlParserError.underlying("获取消息时间出错") }
+            let time = result[3].replacingOccurrences(of: "今天", with: today)
+                .replacingOccurrences(of: "昨天", with: yesterday)
+                .replacingOccurrences(of: "前天", with: theDayBeforeYesterday)
+            let isRead = !result[4].contains("notice_newpm.gif")
+            let content = result[5].trimmingCharacters(in: .whitespacesAndNewlines)
+            let url = "/forum/\(result[6])"
+            return PrivateMessageModel(sender: User(name: result[2], uid: uid), time: time, content: content, isRead: isRead, url: url)
+        }
+    }
 }

@@ -20,10 +20,10 @@ class MessageNavigationBarTitleView: UIView {
     var model: UnReadMessagesCountModel! {
         didSet {
             messagesCountLabels[0].text = "\(model.threadMessagesCount)"
-            messagesCountLabels[1].text = "\(model.pmMessagesCount)"
+            messagesCountLabels[1].text = "\(model.privateMessagesCount)"
             messagesCountLabels[2].text = "\(model.friendMessagesCount)"
             messagesCountLabels[0].isHidden = model.threadMessagesCount == 0
-            messagesCountLabels[1].isHidden = model.pmMessagesCount == 0
+            messagesCountLabels[1].isHidden = model.privateMessagesCount == 0
             messagesCountLabels[2].isHidden = model.friendMessagesCount == 0
         }
     }

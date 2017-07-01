@@ -20,6 +20,14 @@ class ThreadMessageViewModel: MessageTableViewModel {
         }
     }
     
+    override func modelTransform(_ html: String) throws -> [BaseMessageModel] {
+        return try HtmlParser.threadMessages(from: html)
+    }
+    
+    override func api(at page: Int) -> HiPDA.API {
+        return .threadMessage(page: page)
+    }
+    
     override func getDataFromCache(for account: Account) {
         threadMessageModels = CacheManager.threadMessage.shared?.messages(for: account) ?? []
         page = 1
@@ -33,31 +41,9 @@ class ThreadMessageViewModel: MessageTableViewModel {
         cache.setObject(totalPage as NSNumber, forKey: totalPageKey)
         cache.setObject(lastUpdateTime as NSNumber, forKey: lastUpdateTimeKey)
     }
-    
-    override func loadData(at page: Int, completion: @escaping (HiPDA.Result<[BaseMessageModel], NSError>) -> Void) {
-        disposeBag = DisposeBag()
-        var totalPage = self.totalPage
-        HiPDAProvider.request(.threadMessage(page: page))
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
-            .mapGBKString()
-            .do(onNext: { html in
-                totalPage = try HtmlParser.totalPage(from: html)
-            })
-            .map { try HtmlParser.threadMessages(from: $0) }
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
-                switch event {
-                case .next(let models):
-                    self?.totalPage = totalPage
-                    completion(.success(models))
-                case .error(let error):
-                    completion(.failure(error as NSError))
-                default:
-                    break
-                }
-            }.disposed(by: disposeBag)
-    }
 }
+
+// MARK: - DataSource
 
 extension ThreadMessageViewModel {
     func title(at index: Int) -> String {

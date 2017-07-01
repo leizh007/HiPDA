@@ -24,7 +24,7 @@ enum CacheManager: String {
     
     case threadMessage
     
-    case pmMessage
+    case privateMessage
     
     case friendMessage
     

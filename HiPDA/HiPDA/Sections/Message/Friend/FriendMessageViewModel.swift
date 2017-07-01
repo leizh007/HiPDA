@@ -20,6 +20,14 @@ class FriendMessageViewModel: MessageTableViewModel {
         }
     }
     
+    override func modelTransform(_ html: String) throws -> [BaseMessageModel] {
+        return try HtmlParser.friendMessages(from: html)
+    }
+    
+    override func api(at page: Int) -> HiPDA.API {
+        return .friendMessage(page: page)
+    }
+
     override func getDataFromCache(for account: Account) {
         friendMessageModels = CacheManager.friendMessage.shared?.messages(for: account) ?? []
         page = 1
@@ -32,30 +40,6 @@ class FriendMessageViewModel: MessageTableViewModel {
         cache.setMessages(friendMessageModels, for: account)
         cache.setObject(totalPage as NSNumber, forKey: totalPageKey)
         cache.setObject(lastUpdateTime as NSNumber, forKey: lastUpdateTimeKey)
-    }
-    
-    override func loadData(at page: Int, completion: @escaping (HiPDA.Result<[BaseMessageModel], NSError>) -> Void) {
-        disposeBag = DisposeBag()
-        var totalPage = self.totalPage
-        HiPDAProvider.request(.friendMessage(page: page))
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
-            .mapGBKString()
-            .do(onNext: { html in
-                totalPage = try HtmlParser.totalPage(from: html)
-            })
-            .map { try HtmlParser.friendMessages(from: $0) }
-            .observeOn(MainScheduler.instance)
-            .subscribe { [weak self] event in
-                switch event {
-                case .next(let models):
-                    self?.totalPage = totalPage
-                    completion(.success(models))
-                case .error(let error):
-                    completion(.failure(error as NSError))
-                default:
-                    break
-                }
-            }.disposed(by: disposeBag)
     }
     
     func addFriend(at index: Int, completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {

@@ -33,7 +33,7 @@ class UnReadMessagesCountManager {
             let pmMessagesCount = try? HtmlParser.messageCount(of: "私人消息", from: html),
             let friendMessagesCount = try? HtmlParser.messageCount(of: "好友消息", from: html) else { return }
         let model = UnReadMessagesCountModel(threadMessagesCount: threadMessagesCount,
-                                             pmMessagesCount: pmMessagesCount,
+                                             privateMessagesCount: pmMessagesCount,
                                              friendMessagesCount: friendMessagesCount)
         EventBus.shared.dispatch(UnReadMessagesCountAction(model: model))
     }

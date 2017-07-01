@@ -145,6 +145,11 @@
 		059B16B81F04A16400360D82 /* YYCache+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B71F04A16400360D82 /* YYCache+Message.swift */; };
 		059B16BA1F04FFB600360D82 /* ThreadMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16B91F04FFB600360D82 /* ThreadMessageViewController.swift */; };
 		059B16BC1F04FFCE00360D82 /* ThreadMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16BB1F04FFCE00360D82 /* ThreadMessageViewModel.swift */; };
+		059B16C31F06468D00360D82 /* PrivateMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16C21F06468D00360D82 /* PrivateMessageModel.swift */; };
+		059B16C51F064ADB00360D82 /* PrivateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16C41F064ADB00360D82 /* PrivateMessageViewController.swift */; };
+		059B16C71F064AE400360D82 /* PrivateMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16C61F064AE400360D82 /* PrivateMessageViewModel.swift */; };
+		059B16CA1F064AF200360D82 /* PrivateMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16C81F064AF100360D82 /* PrivateMessageTableViewCell.swift */; };
+		059B16CB1F064AF200360D82 /* PrivateMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
 		059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */; };
@@ -466,6 +471,11 @@
 		059B16B71F04A16400360D82 /* YYCache+Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YYCache+Message.swift"; sourceTree = "<group>"; };
 		059B16B91F04FFB600360D82 /* ThreadMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageViewController.swift; sourceTree = "<group>"; };
 		059B16BB1F04FFCE00360D82 /* ThreadMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadMessageViewModel.swift; sourceTree = "<group>"; };
+		059B16C21F06468D00360D82 /* PrivateMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageModel.swift; sourceTree = "<group>"; };
+		059B16C41F064ADB00360D82 /* PrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewController.swift; sourceTree = "<group>"; };
+		059B16C61F064AE400360D82 /* PrivateMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewModel.swift; sourceTree = "<group>"; };
+		059B16C81F064AF100360D82 /* PrivateMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageTableViewCell.swift; sourceTree = "<group>"; };
+		059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateMessageTableViewCell.xib; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadAttachment.swift; sourceTree = "<group>"; };
@@ -777,13 +787,6 @@
 			path = Friend;
 			sourceTree = "<group>";
 		};
-		054149581F038B7600AFE469 /* Pm */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pm;
-			sourceTree = "<group>";
-		};
 		054149591F038B7C00AFE469 /* SendShortMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +1003,18 @@
 				052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		059B16C11F0643ED00360D82 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				059B16C41F064ADB00360D82 /* PrivateMessageViewController.swift */,
+				059B16C61F064AE400360D82 /* PrivateMessageViewModel.swift */,
+				059B16C21F06468D00360D82 /* PrivateMessageModel.swift */,
+				059B16C81F064AF100360D82 /* PrivateMessageTableViewCell.swift */,
+				059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		05B506721D6C8D4B004D573D /* Protocols */ = {
@@ -1226,11 +1241,11 @@
 				05E697451F001042005919B7 /* MessageViewController.swift */,
 				05E697551F01F729005919B7 /* UnReadMessagesCountManager.swift */,
 				05E697571F01FD32005919B7 /* UnReadMessagesCountModel.swift */,
-				054149591F038B7C00AFE469 /* SendShortMessage */,
 				0541494A1F038B6300AFE469 /* Base */,
 				0541495E1F038B8200AFE469 /* Thread */,
-				054149581F038B7600AFE469 /* Pm */,
 				054149511F038B6F00AFE469 /* Friend */,
+				059B16C11F0643ED00360D82 /* Private */,
+				054149591F038B7C00AFE469 /* SendShortMessage */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1573,6 +1588,7 @@
 				055996C41D50DD0900057CF6 /* Assets.xcassets in Resources */,
 				05B919C51EEEE32F007339F6 /* default_sleepy.gif in Resources */,
 				05B919BA1EEEE32F007339F6 /* default_dizzy.gif in Resources */,
+				059B16CB1F064AF200360D82 /* PrivateMessageTableViewCell.xib in Resources */,
 				05B919B41EEEE32F007339F6 /* coolmonkey_15.gif in Resources */,
 				05B919A81EEEE32F007339F6 /* coolmonkey_03.gif in Resources */,
 				05B919C61EEEE32F007339F6 /* default_smile.gif in Resources */,
@@ -1802,6 +1818,7 @@
 				059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
+				059B16C71F064AE400360D82 /* PrivateMessageViewModel.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
 				05E697581F01FD32005919B7 /* UnReadMessagesCountModel.swift in Sources */,
 				05F8BCA91E37580F00F9EC1B /* ForumNameModel.swift in Sources */,
@@ -1876,6 +1893,8 @@
 				0546619E1EF8B7BD00857D33 /* DownloadedAsset.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				057226221EF1817B00397829 /* NewThreadManager.swift in Sources */,
+				059B16CA1F064AF200360D82 /* PrivateMessageTableViewCell.swift in Sources */,
+				059B16C51F064ADB00360D82 /* PrivateMessageViewController.swift in Sources */,
 				05BBBBC11E80225100C6E0D3 /* GBKURLEncoding.swift in Sources */,
 				0546619A1EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift in Sources */,
 				05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */,
@@ -1886,6 +1905,7 @@
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
 				059B16BC1F04FFCE00360D82 /* ThreadMessageViewModel.swift in Sources */,
 				053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */,
+				059B16C31F06468D00360D82 /* PrivateMessageModel.swift in Sources */,
 				051BFE0C1EF590D000EA77EB /* ImageBrowserCollectionViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,

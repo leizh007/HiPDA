@@ -28,7 +28,7 @@ extension EventBus {
     }
     
     var unReadMessagesCount: Driver<UnReadMessagesCountModel> {
-        let model = UnReadMessagesCountModel(threadMessagesCount: 0, pmMessagesCount: 0, friendMessagesCount: 0)
+        let model = UnReadMessagesCountModel(threadMessagesCount: 0, privateMessagesCount: 0, friendMessagesCount: 0)
         return state.value.unReadMessagesCount
             .observeOn(MainScheduler.instance)
             .asDriver(onErrorJustReturn: model)
