@@ -40,6 +40,8 @@ enum C {
     enum Number {
         /// 主页在tabbarController中的下标
         static let homeViewControllerIndex = 0
+        
+        static let messageViewControllerIndex = 1
     }
     
     enum URL {

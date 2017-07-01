@@ -24,19 +24,25 @@ protocol PromptInformationShowable {
     /// 展示提示信息
     ///
     /// - parameter style: 提示信息的样式
-    func showPromptInformation(of style: ProgressHUDStyle)
+    func showPromptInformation(of style: ProgressHUDStyle, in view: UIView?)
     
     /// 隐藏提示信息
-    func hidePromptInformation()
+    func hidePromptInformation(in view: UIView?)
 }
 
 extension PromptInformationShowable where Self: UIViewController {
     /// 展示提示信息
     ///
     /// - parameter style: 提示信息的样式
-    func showPromptInformation(of style: ProgressHUDStyle) {
-        guard let windwow = UIApplication.shared.windows.last else { return }
-        let hud = MBProgressHUD.showAdded(to: windwow, animated: true)
+    func showPromptInformation(of style: ProgressHUDStyle, in view: UIView? = nil) {
+        let viewToShowedIn: UIView
+        if let view = view {
+            viewToShowedIn = view
+        } else {
+            viewToShowedIn = ancestor.view
+        }
+        
+        let hud = MBProgressHUD.showAdded(to: viewToShowedIn, animated: true)
         hud.bezelView.style = .solidColor
         hud.bezelView.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8)
         hud.backgroundView.style = .solidColor
@@ -62,9 +68,14 @@ extension PromptInformationShowable where Self: UIViewController {
     }
     
     /// 隐藏提示信息
-    func hidePromptInformation() {
-        guard let windwow = UIApplication.shared.windows.last else { return }
-        MBProgressHUD.hide(for: windwow, animated: true)
+    func hidePromptInformation(in view: UIView? = nil) {
+        let viewToShowedIn: UIView
+        if let view = view {
+            viewToShowedIn = view
+        } else {
+            viewToShowedIn = ancestor.view
+        }
+        MBProgressHUD.hide(for: viewToShowedIn, animated: true)
     }
 }
 

@@ -25,6 +25,15 @@ class MessageViewController: BaseViewController {
         skinScrollView()
         titleView.select(index: 0)
         titleView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(messageViewControllerTabRepeatedSelected), name: .MessageViewControllerTabRepeatedSelected, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func messageViewControllerTabRepeatedSelected() {
+        console(message: "")
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -66,6 +75,16 @@ extension MessageViewController: MesssageNavigationBarTitleViewDelegate {
 extension MessageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         titleView.configureApperance(with: scrollView.contentOffset.x / scrollView.frame.size.width)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            console(message: "end")
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        console(message: "end")
     }
 }
 

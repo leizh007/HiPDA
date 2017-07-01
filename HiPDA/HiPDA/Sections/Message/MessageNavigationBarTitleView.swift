@@ -16,6 +16,7 @@ class MessageNavigationBarTitleView: UIView {
     @IBOutlet private var messagesCountLabels: [UILabel]!
     @IBOutlet private var messageLabels: [UILabel]!
     weak var delegate: MesssageNavigationBarTitleViewDelegate?
+    private var lastSelectedIndex = 0
     
     var model: UnReadMessagesCountModel! {
         didSet {
@@ -32,6 +33,11 @@ class MessageNavigationBarTitleView: UIView {
         let tag = sender.view?.tag ?? 0
         select(index: tag)
         delegate?.itemDidSelect(tag)
+        if lastSelectedIndex != tag {
+            lastSelectedIndex = tag
+        } else {
+            NotificationCenter.default.post(name: .MessageViewControllerTabRepeatedSelected, object: nil)
+        }
     }
     
     func configureApperance(with offset: CGFloat) {

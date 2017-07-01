@@ -56,17 +56,18 @@ class SendShortMessageViewController: BaseViewController {
     }
 
     @IBAction fileprivate func sendButtonPressed(_ sender: UIButton) {
-        showPromptInformation(of: .loading("正在发送..."))
+        guard let window = UIApplication.shared.windows.last else { return }
+        showPromptInformation(of: .loading("正在发送..."), in: window)
         viewModel.sendMessage(textView.text ?? "") { [weak self] result in
-            self?.hidePromptInformation()
+            self?.hidePromptInformation(in: window)
             switch result {
             case .success(let info):
-                self?.showPromptInformation(of: .success(info))
+                self?.showPromptInformation(of: .success(info), in: window)
                 delay(seconds: 0.25) {
                     self?.dismiss()
                 }
             case .failure(let error):
-                self?.showPromptInformation(of: .failure(error.localizedDescription))
+                self?.showPromptInformation(of: .failure(error.localizedDescription), in: window)
             }
         }
     }

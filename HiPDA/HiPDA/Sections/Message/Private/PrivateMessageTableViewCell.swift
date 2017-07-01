@@ -45,6 +45,18 @@ class PrivateMessageTableViewCell: UITableViewCell {
         
         avatarImageView.sd_cancelCurrentImageLoad()
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        redPointView.backgroundColor = .red
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        redPointView.backgroundColor = .red
+    }
 }
 
 extension PrivateMessageTableViewCell: NibLoadableView { }
