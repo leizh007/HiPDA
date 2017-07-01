@@ -21,7 +21,7 @@ class LoginManager: Bootstrapping {
     
     func bootstrap(bootstrapped: Bootstrapped) throws {
         if let account = Settings.shared.lastLoggedInAccount {
-            LoginViewModel.login(with: account).do(onNext: { [weak self] _ in
+            LoginManager.login(with: account).do(onNext: { [weak self] _ in
                 self?.isInAppLoading = false
             }).subscribe(onNext: { result in
                     EventBus.shared.dispatch(ChangeAccountAction(account: result))
@@ -86,4 +86,38 @@ class LoginManager: Bootstrapping {
             }, completion:nil)
         }
     }
+    
+    /// 登录
+    ///
+    /// - parameter account: 待登录的账户
+    ///
+    /// - returns: 返回Observable包含登录结果
+    static func login(with account: Account) -> Observable<LoginResult> {
+        CookieManager.shared.clear()
+        if let cookies = CookieManager.shared.cookies(for: account) {
+            CookieManager.shared.set(cookies: cookies, for: account)
+            return Observable.just(LoginResult.success(account))
+        }
+        return Observable.create { observer in
+            HiPDAProvider.request(.login(account))
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+                .mapGBKString()
+                .map {
+                    return try HtmlParser.loginResult(of: account.name, from: $0)
+                }
+                .observeOn(MainScheduler.instance)
+                .subscribe { event in
+                    switch event {
+                    case let .next(uid):
+                        observer.onNext(.success(Account.uidLens.set(uid, account)))
+                    case let .error(error):
+                        observer.onNext(.failure(error is LoginError ? error as! LoginError : .unKnown(error.localizedDescription)))
+                    default:
+                        break
+                    }
+                    observer.onCompleted()
+            }
+        }
+    }
+
 }

@@ -43,41 +43,8 @@ struct LoginViewModel {
         loggedIn = loginTaps.withLatestFrom(accountInfos)
             .map { Account(name: $0, uid: 0, questionid: $2, answer: $3, password: $1.md5) } // 这里传密码和密码md5加密后的都能登录成功...
             .flatMapLatest { account in
-                return LoginViewModel.login(with: account)
+                return LoginManager.login(with: account)
                     .asDriver(onErrorJustReturn: .failure(.unKnown("未知错误")))
-        }
-    }
-    
-    /// 登录
-    ///
-    /// - parameter account: 待登录的账户
-    ///
-    /// - returns: 返回Observable包含登录结果
-    static func login(with account: Account) -> Observable<LoginResult> {
-        CookieManager.shared.clear()
-        if let cookies = CookieManager.shared.cookies(for: account) {
-            CookieManager.shared.set(cookies: cookies, for: account)
-            return Observable.just(LoginResult.success(account))
-        }
-        return Observable.create { observer in
-            HiPDAProvider.request(.login(account))
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
-                .mapGBKString()
-                .map {
-                    return try HtmlParser.loginResult(of: account.name, from: $0)
-                }
-                .observeOn(MainScheduler.instance)
-                .subscribe { event in
-                    switch event {
-                    case let .next(uid):
-                        observer.onNext(.success(Account.uidLens.set(uid, account)))
-                    case let .error(error):
-                        observer.onNext(.failure(error is LoginError ? error as! LoginError : .unKnown(error.localizedDescription)))
-                    default:
-                        break
-                    }
-                    observer.onCompleted()
-            }
         }
     }
 }

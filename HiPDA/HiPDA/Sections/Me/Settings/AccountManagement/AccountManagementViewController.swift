@@ -69,7 +69,7 @@ extension AccountManagementViewController: UITableViewDelegate {
         case .account(_):
             if let account = viewModel.account(at: indexPath.row) {
                 showPromptInformation(of: .loading("正在切换账户..."))
-                LoginViewModel.login(with: account).subscribe(onNext: { [unowned self] loginResult in
+                LoginManager.login(with: account).subscribe(onNext: { [unowned self] loginResult in
                     self.hidePromptInformation()
                     switch loginResult {
                     case .success(_):
@@ -79,6 +79,8 @@ extension AccountManagementViewController: UITableViewDelegate {
                         EventBus.shared.dispatch(ChangeAccountAction(account: .success(account)))
                         self.showPromptInformation(of: .success("账户切换成功!"))
                     case .failure(let error):
+                        guard let account = Settings.shared.activeAccount else { return }
+                        CookieManager.shared.set(cookies: CookieManager.shared.cookies(for: account), for: account)
                         self.showPromptInformation(of: .failure("账户切换失败: \(error)"))
                     }
                 }).disposed(by: disposeBag)
