@@ -18,7 +18,6 @@ class MessageTableViewController: BaseViewController {
         
         skinTableView()
         skinViewModel()
-        loadNewData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,18 +44,38 @@ class MessageTableViewController: BaseViewController {
     func accountChanged(_ account: Account) {
         viewModel.accountChanged(account)
         handleDataLoadResult(.success(()))
+        tableView.contentOffset = .zero
     }
     
     func viewDidBecomeVisible() {
         isVisible = true
+        if viewModel.shouldRefresh {
+            if tableView.status == .noResult || tableView.status == .tapToLoad {
+                tableView.status = .loading
+            } else {
+                tableView.status = .pullUpLoading
+            }
+            tableView.refreshing()
+        }
     }
     
     func viewDidBecomeInvisible() {
         isVisible = false
+        cancelDataFetching()
+        handleDataLoadResult(.success(()))
     }
     
     func cancelDataFetching() {
         viewModel.cancelDataFetching()
+    }
+    
+    func messageViewControllerTabRepeatedSelected() {
+        guard tableView.status == .normal else { return }
+        if tableView.contentOffset.y == 0 {
+            tableView.refreshing()
+        } else {
+            tableView.setContentOffset(.zero, animated: true)
+        }
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

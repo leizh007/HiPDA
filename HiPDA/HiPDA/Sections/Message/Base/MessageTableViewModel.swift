@@ -15,15 +15,9 @@ typealias MessageListResult = HiPDA.Result<Void, NSError>
 class MessageTableViewModel {
     var disposeBag = DisposeBag()
     var models = [BaseMessageModel]()
-    var totalPageKey: String {
-        return "totalPage-\(Settings.shared.activeAccount?.uid ?? 0)"
-    }
     var totalPage = 1
     var page = 1
     var unReadMessagesCount = 0
-    var lastUpdateTimeKey: String {
-        return "lastUpdateTime-\(Settings.shared.activeAccount?.uid ?? 0)"
-    }
     var lastUpdateTime = Date().timeIntervalSince1970
     var isThreadsOutOfDate: Bool {
         return Date().timeIntervalSince1970 - lastUpdateTime > 60 * 60
@@ -57,6 +51,14 @@ class MessageTableViewModel {
     
     func accountChanged(_ account: Account) {
         getDataFromCache(for: account)
+    }
+    
+    func totalPageKey(for account: Account) -> String {
+        return "totalPage-\(account.uid)"
+    }
+    
+    func lastUpdateTimeKey(for account: Account) -> String {
+        return "lastUpdateTime-\(account.uid)"
     }
     
     func getDataFromCache(for account: Account) {

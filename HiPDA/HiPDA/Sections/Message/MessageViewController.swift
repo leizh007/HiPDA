@@ -17,7 +17,10 @@ class MessageViewController: BaseViewController {
     fileprivate var messageViewControllers: [MessageTableViewController]!
     private let  contentWidth = C.UI.screenWidth
     private let contentHeight = C.UI.screenHeight - 64 - 49
-    
+    fileprivate var currentVisibleChildrenViewController: MessageTableViewController! {
+        let index = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))
+        return messageViewControllers[index]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +36,19 @@ class MessageViewController: BaseViewController {
     }
     
     func messageViewControllerTabRepeatedSelected() {
-        console(message: "")
+        currentVisibleChildrenViewController.messageViewControllerTabRepeatedSelected()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        messageViewControllers.forEach { $0 == self.currentVisibleChildrenViewController ? $0.viewDidBecomeVisible() : $0.viewDidBecomeInvisible() }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        messageViewControllers.forEach { $0.viewDidBecomeInvisible() }
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
@@ -66,7 +81,12 @@ class MessageViewController: BaseViewController {
 
 extension MessageViewController: MesssageNavigationBarTitleViewDelegate {
     func itemDidSelect(_ index: Int) {
+        let oldVC = currentVisibleChildrenViewController
         scrollView.contentOffset.x = CGFloat(index) * scrollView.frame.size.width
+        let vc = currentVisibleChildrenViewController
+        if oldVC != vc {
+            messageViewControllers.forEach { $0 == vc ? $0.viewDidBecomeVisible() : $0.viewDidBecomeInvisible() }
+        }
     }
 }
 
@@ -79,12 +99,12 @@ extension MessageViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            console(message: "end")
+            messageViewControllers.forEach { $0 == self.currentVisibleChildrenViewController ? $0.viewDidBecomeVisible() : $0.viewDidBecomeInvisible() }
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        console(message: "end")
+        messageViewControllers.forEach { $0 == self.currentVisibleChildrenViewController ? $0.viewDidBecomeVisible() : $0.viewDidBecomeInvisible() }
     }
 }
 

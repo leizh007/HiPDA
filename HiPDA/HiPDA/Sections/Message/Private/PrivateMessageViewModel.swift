@@ -31,15 +31,15 @@ class PrivateMessageViewModel: MessageTableViewModel {
     override func getDataFromCache(for account: Account) {
         privateMessageModels = CacheManager.privateMessage.shared?.messages(for: account) ?? []
         page = 1
-        totalPage = (CacheManager.privateMessage.shared?.object(forKey: totalPageKey) as? NSNumber)?.intValue ?? 1
-        lastUpdateTime = (CacheManager.privateMessage.shared?.object(forKey: lastUpdateTimeKey) as? NSNumber)?.doubleValue ?? 0.0
+        totalPage = (CacheManager.privateMessage.shared?.object(forKey: totalPageKey(for: account)) as? NSNumber)?.intValue ?? 1
+        lastUpdateTime = (CacheManager.privateMessage.shared?.object(forKey: lastUpdateTimeKey(for: account)) as? NSNumber)?.doubleValue ?? 0.0
     }
     
     override func saveModelsToCache(for account: Account) {
         guard let cache = CacheManager.privateMessage.shared else { return }
         cache.setMessages(privateMessageModels, for: account)
-        cache.setObject(totalPage as NSNumber, forKey: totalPageKey)
-        cache.setObject(lastUpdateTime as NSNumber, forKey: lastUpdateTimeKey)
+        cache.setObject(totalPage as NSNumber, forKey: totalPageKey(for: account))
+        cache.setObject(lastUpdateTime as NSNumber, forKey: lastUpdateTimeKey(for: account))
     }
 }
 
