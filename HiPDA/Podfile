@@ -60,6 +60,7 @@ target 'HiPDA' do
   pod 'WebViewJavascriptBridge', '~> 6.0.2'
   pod 'HTMLString', '~> 3.0.0'
   pod 'FDFullscreenPopGesture', '~> 1.1'
+  pod 'JSQMessagesViewController', '~> 7.3.4'
   
   target 'HiPDATests' do
     inherit! :search_paths

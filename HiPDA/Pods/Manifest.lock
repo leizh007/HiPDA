@@ -16,6 +16,9 @@ PODS:
   - FLEX (2.4.0)
   - HandyJSON (1.6.0)
   - HTMLString (3.0.0)
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - MLeaksFinder (0.2.1):
@@ -63,6 +66,7 @@ DEPENDENCIES:
   - FLEX
   - HandyJSON (~> 1.6)
   - HTMLString (~> 3.0.0)
+  - JSQMessagesViewController (~> 7.3.4)
   - MBProgressHUD
   - MJRefresh (~> 3.1.12)
   - MLeaksFinder
@@ -113,6 +117,8 @@ SPEC CHECKSUMS:
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   HandyJSON: 573a148e2c649d108a8d6fbee1874c5c2d0822ca
   HTMLString: 57f421a65b10c4eba75a16c329d1cc82a2167ab3
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
@@ -134,6 +140,6 @@ SPEC CHECKSUMS:
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 6ad8debd1cdc3ee9a18159474ffdef72e02aa064
+PODFILE CHECKSUM: 921446a24c5d6761e43b794f8df3a60170f9756c
 
 COCOAPODS: 1.2.0
