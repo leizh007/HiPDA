@@ -33,7 +33,6 @@ class ThreadMessageViewModel: MessageTableViewModel {
         page = 1
         totalPage = (CacheManager.threadMessage.shared?.object(forKey: totalPageKey(for: account)) as? NSNumber)?.intValue ?? 1
         lastUpdateTime = (CacheManager.threadMessage.shared?.object(forKey: lastUpdateTimeKey(for: account)) as? NSNumber)?.doubleValue ?? 0.0
-        console(message: "")
     }
     
     override func saveModelsToCache(for account: Account) {
@@ -41,7 +40,6 @@ class ThreadMessageViewModel: MessageTableViewModel {
         cache.setMessages(threadMessageModels, for: account)
         cache.setObject(totalPage as NSNumber, forKey: totalPageKey(for: account))
         cache.setObject(lastUpdateTime as NSNumber, forKey: lastUpdateTimeKey(for: account))
-        console(message: "")
     }
 }
 

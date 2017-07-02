@@ -52,10 +52,11 @@ class MessageTableViewController: BaseViewController {
         if viewModel.shouldRefresh {
             if tableView.status == .noResult || tableView.status == .tapToLoad {
                 tableView.status = .loading
+                loadNewData()
             } else {
                 tableView.status = .pullUpLoading
+                tableView.refreshing()
             }
-            tableView.refreshing()
         }
     }
     
