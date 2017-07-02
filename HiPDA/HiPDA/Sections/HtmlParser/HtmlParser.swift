@@ -286,8 +286,8 @@ struct HtmlParser {
             let content = result[6]
             let isRead = !content.contains("notice_newpm")
             let contentResult = try Regex.firstMatch(in: content, of: "<dl\\s+class=\"summary\"><dt>您的帖子：<dt><dd>([\\s\\S]*?)<\\/dd><dt>[\\s\\S]*?说：<\\/dt><dd>([\\s\\S]*?)<\\/dd><\\/dl>")
-            let yourPost = contentResult.safe[1]
-            let senderPost = contentResult.safe[2]
+            let yourPost = contentResult.safe[1]?.stringByDecodingHTMLEntities
+            let senderPost = contentResult.safe[2]?.stringByDecodingHTMLEntities
             return ThreadMessageModel(isRead: isRead, senderName: result[1], action: action, postTitle: result[3], postAction: result[4].trimmingCharacters(in: .whitespacesAndNewlines), postURL: result[7], time: result[5], yourPost: yourPost, senderPost: senderPost)
         }
     }
