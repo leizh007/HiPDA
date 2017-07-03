@@ -21,9 +21,16 @@ class ChatViewModel {
     fileprivate var disposeBag = DisposeBag()
     fileprivate var messages = [JSQMessage]()
     fileprivate var avatars = [String: JSQMessagesAvatarImage]()
+    fileprivate var formhash = ""
+    fileprivate var lastdaterange = ""
     fileprivate let dateFormater: DateFormatter = {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-M-d"
+        return dateFormater
+    }()
+    fileprivate let secondDateFormater: DateFormatter = {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-M-d HH:mm:ss"
         return dateFormater
     }()
     init(user: User) {
@@ -49,6 +56,10 @@ class ChatViewModel {
         HiPDAProvider.request(.privateMessageConversation(uid: user.uid))
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .mapGBKString()
+            .do(onNext: { [weak self] html in
+                self?.formhash = try HtmlParser.replyValue(for: "formhash", in: html)
+                self?.lastdaterange = try HtmlParser.replyValue(for: "lastdaterange", in: html)
+            })
             .map { try HtmlParser.chatMessges(from: $0).map(self.transform(message:)) }
             .observeOn(MainScheduler.instance)
             .subscribe { e in
@@ -95,6 +106,38 @@ class ChatViewModel {
     
     fileprivate func dateString(of date: Date) -> String {
         return dateFormater.string(from: date)
+    }
+    
+    func sendMessage(_ message: JSQMessage, with completion: @escaping (HiPDA.Result<Void, NSError>) -> Void) {
+        messages.append(message)
+        HiPDAProvider.request(.replypm(uid: user.uid, formhash: formhash, lastdaterange: lastdaterange, message: message.text ?? ""))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .mapGBKString()
+            .map { html -> Bool in
+                let messages = try HtmlParser.chatMessges(from: html)
+                if messages.count == 1 && messages[0].content == message.text {
+                    return true
+                }
+                let result = try Regex.firstMatch(in: html, of: "\\[CDATA\\[([^<]+)<")
+                if result.count == 2 && !result[1].isEmpty {
+                    throw HtmlParserError.underlying("发送失败: \(result[1])")
+                } else {
+                    throw HtmlParserError.underlying("发送失败")
+                }
+            }
+            .observeOn(MainScheduler.instance)
+            .subscribe { [weak self] event in
+                guard let `self` = self else { return }
+                switch event {
+                case .next(_):
+                    completion(.success(()))
+                case .error(let error):
+                    self.messages = self.messages.filter { self.secondDateFormater.string(from: $0.date) != self.secondDateFormater.string(from: message.date) }
+                    completion(.failure(error as NSError))
+                default:
+                    break
+                }
+            }.disposed(by: disposeBag)
     }
 }
 

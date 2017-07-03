@@ -142,4 +142,16 @@ extension ChatViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        guard let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text) else { return }
+        viewModel.sendMessage(message) { [weak self] result in
+            if case .failure(let error) = result {
+                self?.showPromptInformation(of: .failure(error.localizedDescription))
+                self?.collectionView.reloadData()
+            }
+        }
+        
+        finishSendingMessage(animated: true)
+    }
 }
