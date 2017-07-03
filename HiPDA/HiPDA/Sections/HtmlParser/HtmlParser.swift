@@ -310,7 +310,7 @@ struct HtmlParser {
                 .replacingOccurrences(of: "昨天", with: yesterday)
                 .replacingOccurrences(of: "前天", with: theDayBeforeYesterday)
             let isRead = !result[4].contains("notice_newpm.gif")
-            let content = result[5].trimmingCharacters(in: .whitespacesAndNewlines)
+            let content = result[5].trimmingCharacters(in: .whitespacesAndNewlines).stringByDecodingHTMLEntities
             let url = "/forum/\(result[6])"
             return PrivateMessageModel(sender: User(name: result[2], uid: uid), time: time, content: content, isRead: isRead, url: url)
         }
