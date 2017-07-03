@@ -315,4 +315,51 @@ struct HtmlParser {
             return PrivateMessageModel(sender: User(name: result[2], uid: uid), time: time, content: content, isRead: isRead, url: url)
         }
     }
+    
+    static func chatMessges(from html: String) throws -> [ChatMessage] {
+        let results = try Regex.matches(in: html, of: "<li\\s+id=\"pm_\\d+\"\\s+class=\"s_clear[^>]+>[\\s\\S]*?<p\\s+class=\"cite\">[^<]*<cite>([\\s\\S]*?)<\\/cite>([\\d-\\s:]+)([\\s\\S]*?)<\\/p>[^<]*<div\\s+class=\"summary\">([\\s\\S]*?)<\\/div>")
+        return try results.map { result in
+            let name = result[1].trimmingCharacters(in: .whitespacesAndNewlines)
+            let time = result[2].trimmingCharacters(in: .whitespacesAndNewlines)
+            let isRead = !result[3].contains("notice_newpm.gif")
+            var content = result[4].trimmingCharacters(in: .whitespacesAndNewlines).stringByDecodingHTMLEntities
+            content = try HtmlParser.mapEmoticonInMessageContent(content)
+            return ChatMessage(name: name, time: time, isRead: isRead, content: try HtmlParser.removeHtmlTags(from: content))
+        }
+    }
+    
+    private static func removeHtmlTags(from content: String) throws -> String {
+        let str = "<a\\s+href=\"([^\"]+)\"[^>]+>[^<]+<\\/a>|<img\\s+src=\"([^\"]+)\"[^\\/]+\\/>"
+        let regex = try Regex.regularExpression(of: str)
+        var html = content as NSString
+        let results = regex.matches(in: html as String, range: NSRange(location: 0, length: html.length))
+        for result in results.reversed() {
+            let range = result.range
+            let str1 = result.rangeAt(1).location == NSNotFound ? "" : html.substring(with: result.rangeAt(1))
+            let str2 = result.rangeAt(2).location == NSNotFound ? "" : html.substring(with: result.rangeAt(2))
+            if !str1.isEmpty {
+                html = html.replacingCharacters(in: range, with: str1) as NSString
+            } else if !str2.isEmpty {
+                html = html.replacingCharacters(in: range, with: str2) as NSString
+            }
+        }
+        return html.replacingOccurrences(of: "<br />", with: "") as String
+    }
+    
+    private static func mapEmoticonInMessageContent(_ content: String) throws -> String {
+        let str = "<img\\s+src=\"[^\"]+smilies\\/(\\w+)\\/([^\\.]+)\\.gif\"[^>]+>"
+        let regex = try Regex.regularExpression(of: str)
+        var html = content as NSString
+        let results = regex.matches(in: html as String, range: NSRange(location: 0, length: html.length))
+        for result in results.reversed() {
+            let range = result.range
+            let str1 = result.rangeAt(1).location == NSNotFound ? "" : html.substring(with: result.rangeAt(1))
+            let str2 = result.rangeAt(2).location == NSNotFound ? "" : html.substring(with: result.rangeAt(2))
+            let emoticon = "\(str1)_\(str2)"
+            if let code = EmoticonHelper.nameCodeDic[emoticon] {
+                html = html.replacingCharacters(in: range, with: code) as NSString
+            }
+        }
+        return html as String
+    }
 }

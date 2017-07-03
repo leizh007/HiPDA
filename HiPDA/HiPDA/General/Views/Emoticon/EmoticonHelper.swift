@@ -22,4 +22,15 @@ struct EmoticonHelper {
             })
         }
     }()
+    
+    static let nameCodeDic: [String: String] = {
+        var dic = [String: String]()
+        for group in EmoticonHelper.groups {
+            for emoticon in group.emoticons {
+                dic[emoticon.name] = emoticon.code
+            }
+        }
+        
+        return dic
+    }()
 }

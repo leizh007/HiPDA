@@ -69,6 +69,7 @@ class MessageViewController: BaseViewController {
         scrollView.contentSize = CGSize(width: contentWidth * 3, height: contentHeight)
         for (offset, ViewContrller) in [ThreadMessageViewController.self, PrivateMessageViewController.self, FriendMessageViewController.self].enumerated() {
             let vc = ViewContrller.init()
+            addChildViewController(vc)
             vc.view.frame = CGRect(x: CGFloat(offset) * contentWidth, y: 0, width: contentWidth, height: contentHeight)
             scrollView.addSubview(vc.view)
             vc.didMove(toParentViewController: self)

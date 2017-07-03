@@ -30,7 +30,10 @@ extension HiPDA {
         case searchUserThreads(searchId: Int, page: Int)
         case friendMessage(page: Int)
         case threadMessage(page: Int)
+        // 私人消息列表
         case privateMessage(page: Int)
+        // 私人消息对话
+        case privateMessageConversation(uid: Int)
     }
 }
 
@@ -85,6 +88,8 @@ extension HiPDA.API: TargetType {
             return "/forum/notice.php?filter=threads&page=\(page)"
         case let .privateMessage(page: page):
             return "/forum/pm.php?filter=privatepm&page=\(page)"
+        case let .privateMessageConversation(uid: uid):
+            return "/forum/pm.php?uid=\(uid)&filter=privatepm&daterange=5#new"
         }
     }
     var method: Moya.Method {
@@ -128,6 +133,8 @@ extension HiPDA.API: TargetType {
         case .threadMessage(_):
             return .get
         case .privateMessage(_):
+            return .get
+        case .privateMessageConversation(_):
             return .get
         }
     }
@@ -215,6 +222,8 @@ extension HiPDA.API: TargetType {
         case .threadMessage(_):
             return nil
         case .privateMessage(_):
+            return nil
+        case .privateMessageConversation(_):
             return nil
         }
     }

@@ -52,5 +52,9 @@ extension PrivateMessageViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         
+        let vc = ChatViewController()
+        vc.user = privateMessageViewModel.user(at: indexPath.row)
+        vc.hidesBottomBarWhenPushed = true
+        pushViewController(vc, animated: true)
     }
 }

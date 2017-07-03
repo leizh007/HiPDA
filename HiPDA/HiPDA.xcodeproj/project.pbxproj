@@ -161,6 +161,8 @@
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
 		05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */; };
+		05A76B911F0A14F700199B6D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A76B901F0A14F700199B6D /* ChatViewModel.swift */; };
+		05A76B931F0A1F2F00199B6D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A76B921F0A1F2F00199B6D /* ChatMessage.swift */; };
 		05A850C01EFA4E8200085B29 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */; };
 		05B35C3B1ECC231000C037A7 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3A1ECC231000C037A7 /* BaseWebView.swift */; };
 		05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */; };
@@ -258,6 +260,7 @@
 		05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130601E017D21007D3765 /* EditWordListSection.swift */; };
 		05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130641E0187FC007D3765 /* EditWordListTableViewStateTests.swift */; };
 		05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130681E019415007D3765 /* EditWordListViewController.swift */; };
+		05D4A7501F09F3400087BB54 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D4A74F1F09F3400087BB54 /* ChatViewController.swift */; };
 		05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */; };
 		05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */; };
 		05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DD42AD1EC21A5F007F0EBE /* Avatar.swift */; };
@@ -487,6 +490,8 @@
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
 		05A2AF9A1E2388F60048508C /* ForumManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManagerTests.swift; sourceTree = "<group>"; };
+		05A76B901F0A14F700199B6D /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		05A76B921F0A1F2F00199B6D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		05B35C3A1ECC231000C037A7 /* BaseWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadable.swift; sourceTree = "<group>"; };
@@ -593,6 +598,7 @@
 		05D4898B1D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05D489901D3E5E23000A086B /* HiPDAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiPDAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D489961D3E5E23000A086B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05D4A74F1F09F3400087BB54 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		05DA5B641D841A45004E2ED7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		05DA5B671D856850004E2ED7 /* PickerActionSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerActionSheetController.swift; sourceTree = "<group>"; };
 		05DD42AD1EC21A5F007F0EBE /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -1224,6 +1230,16 @@
 			path = HiPDAUITests;
 			sourceTree = "<group>";
 		};
+		05D4A74E1F09E50C0087BB54 /* Converstaion */ = {
+			isa = PBXGroup;
+			children = (
+				05D4A74F1F09F3400087BB54 /* ChatViewController.swift */,
+				05A76B901F0A14F700199B6D /* ChatViewModel.swift */,
+				05A76B921F0A1F2F00199B6D /* ChatMessage.swift */,
+			);
+			path = Converstaion;
+			sourceTree = "<group>";
+		};
 		05DD42E91EC47C23007F0EBE /* NSURLProtocol-WebKitSupport */ = {
 			isa = PBXGroup;
 			children = (
@@ -1241,6 +1257,7 @@
 				05E697451F001042005919B7 /* MessageViewController.swift */,
 				05E697551F01F729005919B7 /* UnReadMessagesCountManager.swift */,
 				05E697571F01FD32005919B7 /* UnReadMessagesCountModel.swift */,
+				05D4A74E1F09E50C0087BB54 /* Converstaion */,
 				0541494A1F038B6300AFE469 /* Base */,
 				0541495E1F038B8200AFE469 /* Thread */,
 				054149511F038B6F00AFE469 /* Friend */,
@@ -1807,6 +1824,7 @@
 				058A9F4C1EFD1B5300E74744 /* ProfileBaseInfoSection.swift in Sources */,
 				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
 				05EE515D1EC9FCBF00BC81B4 /* PostInfo.swift in Sources */,
+				05D4A7501F09F3400087BB54 /* ChatViewController.swift in Sources */,
 				059D495F1EBB1D2900BECA18 /* ThreadResult.swift in Sources */,
 				0541495C1F038B7C00AFE469 /* SendShortMessageViewController.swift in Sources */,
 				057226371EF223AB00397829 /* String+Emoji.swift in Sources */,
@@ -1924,6 +1942,7 @@
 				05CB825E1EFBCC3B0040FC92 /* UserProfileSectionHeaderView.swift in Sources */,
 				05068AFE1E0988090070E044 /* AnimatableSection.swift in Sources */,
 				05416C891D903CB200049AA0 /* Result.swift in Sources */,
+				05A76B931F0A1F2F00199B6D /* ChatMessage.swift in Sources */,
 				05F3DCDA1DB7B4A00061CED1 /* HiPDAProvider.swift in Sources */,
 				058A9F541EFE551800E74744 /* UserProfileBaseInfoTableViewCell.swift in Sources */,
 				05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */,
@@ -1999,6 +2018,7 @@
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
 				0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
+				05A76B911F0A14F700199B6D /* ChatViewModel.swift in Sources */,
 				05DD42EC1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
