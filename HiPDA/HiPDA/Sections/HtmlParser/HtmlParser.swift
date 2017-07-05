@@ -362,4 +362,43 @@ struct HtmlParser {
         }
         return html as String
     }
+    
+    static func searchTitleModels(from html: String) throws -> [SearchTitleModel] {
+        let str = "<th\\s+class=\"subject\">([^<]+<){3}a\\s+href=\"viewthread\\.php\\?tid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[\\s\\S]*?forumdisplay\\.php\\?fid=\\d+\">([\\s\\S]*?)<\\/a>[\\s\\S]*?uid=(\\d+)\">([\\s\\S]*?)<\\/a>([^<]+<){2}em>([\\d-]+)<\\/em>([^<]+<){3}strong>(\\d+)<[^<]+<em>(\\d+)<\\/em>"
+        let results = try Regex.matches(in: html, of: str)
+        return try results.map { result in
+            guard result.count == 12 else { throw HtmlParserError.underlying("获取搜索结果出错") }
+            guard let tid = Int(result[2]) else { throw HtmlParserError.underlying("获取帖子id出错") }
+            let title = result[3]
+            let (content: titleContent, ranges: wordRanges) = try HtmlParser.titleContentAndHighlightWordRanges(in: title)
+            let forumName = result[4]
+            guard let uid = Int(result[5]) else { throw HtmlParserError.underlying("获取用户id出错") }
+            let user = User(name: result[6], uid: uid)
+            let time = result[8]
+            guard let replyCount = Int(result[10]) else { throw HtmlParserError.underlying("获取帖子回复数出错") }
+            guard let readCount = Int(result[11]) else { throw HtmlParserError.underlying("获取哦帖子查看数出错") }
+            return SearchTitleModel(tid: tid, title: titleContent, titleHighlightWordRanges: wordRanges, forumName: forumName, user: user, time: time, readCount: readCount, replyCount: replyCount)
+        }
+    }
+    
+    fileprivate static func titleContentAndHighlightWordRanges(in title: String) throws -> (content: String, ranges: [NSRange]) {
+        let title = title as NSString
+        let content = NSMutableString()
+        var ranges = [NSRange]()
+        let str = "<em\\sstyle=\"color:red;\">([\\s\\S]*?)<\\/em>"
+        let regex = try Regex.regularExpression(of: str)
+        let results = regex.matches(in: title as String, range: NSRange(location: 0, length: title.length))
+        var index = 0
+        for result in results {
+            let contentRange = result.rangeAt(1)
+            content.append(title.substring(with: NSRange(location: index, length: result.range.location - index)))
+            let range = NSRange(location: content.length, length: contentRange.length)
+            ranges.append(range)
+            content.append(title.substring(with: contentRange))
+            index = result.range.location + result.range.length
+        }
+        content.append(title.substring(with: NSRange(location: index, length: title.length - index)))
+        
+        return (content: content as String, ranges: ranges)
+    }
 }

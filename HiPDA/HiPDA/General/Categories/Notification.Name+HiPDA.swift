@@ -14,6 +14,8 @@ extension Notification.Name {
     
     static let MessageViewControllerTabRepeatedSelected = Notification.Name(rawValue: "MessageViewControllerTabRepeatedSelected")
     
+    static let SearchViewControllerTabRepeatedSelected = Notification.Name(rawValue: "SearchViewControllerTabRepeatedSelected")
+    
     static let ImageAssetDownloadProgress = Notification.Name(rawValue: "ImageAssetDownloadProgress")
     
     static let ImageAssetsCollectionDidChange = Notification.Name(rawValue: "ImageAssetsCollectionDidChange")

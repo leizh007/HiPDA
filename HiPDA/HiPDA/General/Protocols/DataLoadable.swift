@@ -109,7 +109,7 @@ extension DataLoadable where Self: UIView {
 
 extension DataLoadable {
     func tapToLoad() {
-        if let delegate = dataLoadDelegate {
+        if let delegate = dataLoadDelegate, hasRefreshHeader {
             status = .loading
             delegate.loadNewData()
         }

@@ -35,6 +35,7 @@ extension HiPDA {
         // 私人消息对话
         case privateMessageConversation(uid: Int)
         case replypm(uid: Int, formhash: String, lastdaterange: String, message: String)
+        case search(type: SearchType, text: String, page: Int)
     }
 }
 
@@ -93,6 +94,8 @@ extension HiPDA.API: TargetType {
             return "/forum/pm.php?uid=\(uid)&filter=privatepm&daterange=5#new"
         case let .replypm(uid: uid, formhash: _, lastdaterange: _, message: _):
             return "/forum/pm.php?action=send&uid=\(uid)&pmsubmit=yes&infloat=yes&inajax=1"
+        case let .search(type: type, text: text, page: page):
+            return "/forum/search.php?srchtype=\(type.description)&srchtxt=\(text.gbkEscaped)&searchsubmit=true&st=on&srchuname=&srchfilter=all&srchfrom=0&before=&orderby=lastpost&ascdesc=desc&page=\(page)"
         }
     }
     var method: Moya.Method {
@@ -141,6 +144,8 @@ extension HiPDA.API: TargetType {
             return .get
         case .replypm(_):
             return .post
+        case .search(_):
+            return .get
         }
     }
     var parameters: [String : Any]? {
@@ -237,6 +242,8 @@ extension HiPDA.API: TargetType {
                 "lastdaterange": lastdaterange,
                 "message": message
             ]
+        case .search(_):
+            return nil
         }
     }
     var parameterEncoding: ParameterEncoding {

@@ -42,6 +42,8 @@ enum C {
         static let homeViewControllerIndex = 0
         
         static let messageViewControllerIndex = 1
+        
+        static let searchViewControllerIndex = 2
     }
     
     enum URL {

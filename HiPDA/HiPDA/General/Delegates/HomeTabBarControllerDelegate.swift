@@ -18,6 +18,8 @@ class HomeTabBarControllerDelegate: NSObject, UITabBarControllerDelegate {
             NotificationCenter.default.post(name: .HomeViewControllerTabRepeatedSelected, object: nil)
         } else if lastSelectedIndex == C.Number.messageViewControllerIndex {
             NotificationCenter.default.post(name: .MessageViewControllerTabRepeatedSelected, object: nil)
+        } else if lastSelectedIndex == C.Number.searchViewControllerIndex {
+            NotificationCenter.default.post(name: .SearchViewControllerTabRepeatedSelected, object: nil)
         }
         
         /// 处理动画相关
