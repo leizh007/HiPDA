@@ -337,21 +337,10 @@ extension HomeViewController: UITableViewDelegate {
         
         viewModel.readThread(at: indexPath.row)
         
-        // 自言自语2081183
-        // block: 2094735
-        // 大量图片: 2088239
-        // 水平超界: 2090332, 1750779
-        // 超级大图: 2100594
-        // 投票: 2101044
-        // GIF: 2105608
-        // Email: 2108943
-        // 长图: 2110491
-        // 视频: 2036709
         let tid = viewModel.tid(at: indexPath.row)
         let readPostVC = PostViewController.load(from: .home)
         readPostVC.postInfo = PostInfo(tid: tid)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.pushViewController(readPostVC, animated: true)
+        pushViewController(readPostVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {

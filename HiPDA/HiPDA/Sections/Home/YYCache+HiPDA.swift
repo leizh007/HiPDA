@@ -70,9 +70,6 @@ extension YYCache {
     /// - Parameter id: 帖子id
     /// - Returns: 找到帖子返回，否则返回nil
     func thread(for id: Int) -> HiPDA.Thread? {
-        if useLRUStrategy, let index = tids.index(of: id) {
-            tids.insert(tids.remove(at: index), at: 0)
-        }
         guard let threadString = object(forKey: "\(id)") as? String,
             let threadData = threadString.data(using: .utf8),
             let attributes = try? JSONSerialization.jsonObject(with: threadData, options: []),
@@ -87,10 +84,16 @@ extension YYCache {
     /// - Parameter thread: 帖子
     func addThread(_ thread: HiPDA.Thread) {
         if let index = tids.index(of: thread.id) {
-            tids.remove(at: index)
+            if useLRUStrategy {
+                tids.insert(tids.remove(at: index), at: 0)
+            }
+        } else {
+            tids.insert(thread.id, at: 0)
         }
-        tids.insert(thread.id, at: 0)
-        if tids.count > Int(memoryCache.countLimit) {
+        while tids.count > Int(memoryCache.countLimit) {
+            if let tid = tids.last {
+                removeObject(forKey: "\(tid)")
+            }
             tids.removeLast()
         }
         let threadString = thread.encode()
@@ -107,6 +110,7 @@ extension YYCache {
     
     /// 清空缓存
     func clear() {
+        tids = []
         removeAllObjects()
     }
     

@@ -160,6 +160,8 @@
 		059B16CB1F064AF200360D82 /* PrivateMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
 		059D35861F0DD05400D5A42D /* SearchFulltextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D35851F0DD05400D5A42D /* SearchFulltextTableViewCell.swift */; };
+		059D35891F0E7AB700D5A42D /* BrowseHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D35881F0E7AB700D5A42D /* BrowseHistoryViewController.swift */; };
+		059D358B1F0E7BF700D5A42D /* BrowseHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D358A1F0E7BF600D5A42D /* BrowseHistoryViewModel.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
 		059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */; };
 		059D49591EBB009D00BECA18 /* HiPDAThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */; };
@@ -498,6 +500,8 @@
 		059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateMessageTableViewCell.xib; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
 		059D35851F0DD05400D5A42D /* SearchFulltextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFulltextTableViewCell.swift; sourceTree = "<group>"; };
+		059D35881F0E7AB700D5A42D /* BrowseHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseHistoryViewController.swift; sourceTree = "<group>"; };
+		059D358A1F0E7BF600D5A42D /* BrowseHistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseHistoryViewModel.swift; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadAttachment.swift; sourceTree = "<group>"; };
 		059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadTests.swift; sourceTree = "<group>"; };
@@ -1041,6 +1045,15 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		059D35871F0E7A2400D5A42D /* BrowseHistory */ = {
+			isa = PBXGroup;
+			children = (
+				059D35881F0E7AB700D5A42D /* BrowseHistoryViewController.swift */,
+				059D358A1F0E7BF600D5A42D /* BrowseHistoryViewModel.swift */,
+			);
+			path = BrowseHistory;
+			sourceTree = "<group>";
+		};
 		05B506721D6C8D4B004D573D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1311,6 +1324,7 @@
 		05E9A26D1D7ACFDB0096878B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				059D35871F0E7A2400D5A42D /* BrowseHistory */,
 				057016A31DCA3CFF0024EC3B /* Settings */,
 				05E9A2721D7AD00C0096878B /* MeViewController.swift */,
 				050EE3291DD2019B00C4B18D /* Me.storyboard */,
@@ -1896,6 +1910,7 @@
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
+				059D35891F0E7AB700D5A42D /* BrowseHistoryViewController.swift in Sources */,
 				050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */,
 				051BFDE91EF58C8200EA77EB /* EmoticonInputView.swift in Sources */,
 				051BFDE61EF58C8200EA77EB /* Emoticon.swift in Sources */,
@@ -1958,6 +1973,7 @@
 				051BFE0C1EF590D000EA77EB /* ImageBrowserCollectionViewCell.swift in Sources */,
 				05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */,
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
+				059D358B1F0E7BF700D5A42D /* BrowseHistoryViewModel.swift in Sources */,
 				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
 				05B35C491ECC700400C037A7 /* PostManager.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,

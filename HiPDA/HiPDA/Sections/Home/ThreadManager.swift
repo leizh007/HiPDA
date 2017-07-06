@@ -29,7 +29,7 @@ fileprivate func key(forFid fid: Int, typeid: Int, addtionalKey: String) -> Stri
     return "fid=\(fid)&typeid=\(typeid)&addtionalKey=\(addtionalKey)"
 }
 
-fileprivate func threadModel(from thread: HiPDA.Thread) -> HomeThreadModel {
+func threadModel(from thread: HiPDA.Thread) -> HomeThreadModel {
         let userName = Settings.shared.isEnabledUserRemark ? (Settings.shared.userRemarkDictionary[thread.user.name] ?? thread.user.name) : thread.user.name
         return HomeThreadModel(avatarImageURL: thread.user.avatarImageURL,
                                userName: userName,

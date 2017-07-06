@@ -50,8 +50,8 @@ class SearchViewController: BaseViewController {
         searchBar.text = ""
         viewModel.clear()
         tableView.reloadData()
-        tableView.isScrollEnabled = false
         tableView.status = .normal
+        tableView.isScrollEnabled = false
     }
     
     @IBAction fileprivate func segmentControlValueChanged(_ sender: UISegmentedControl) {

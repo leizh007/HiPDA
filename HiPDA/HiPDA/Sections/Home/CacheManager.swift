@@ -70,4 +70,9 @@ enum CacheManager: String {
         /// 只有浏览历史使用LRU策略，其他的就按添加时间进行排列
         cache.useLRUStrategy = self == .threadsReadHistory
     }
+    
+    static func save() {
+        guard let cache = CacheManager.threadsReadHistory.shared else { return }
+        cache.setObject(cache.tids as NSCoding, forKey: kTidsKey)
+    }
 }

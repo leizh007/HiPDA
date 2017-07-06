@@ -7,3 +7,53 @@
 //
 
 import Foundation
+import YYCache
+
+class BrowseHistoryViewModel {
+    fileprivate let cache: YYCache?
+    fileprivate var threads: [HiPDA.Thread]
+    fileprivate var models: [HomeThreadModel]
+    init() {
+        let cache = CacheManager.threadsReadHistory.shared
+        self.cache = cache
+        let threads = cache?.tids.flatMap { cache?.thread(for: $0) } ?? []
+        models = threads.map(threadModel(from:))
+        self.threads = threads
+    }
+    
+    var hasData: Bool {
+        return threads.count > 0
+    }
+}
+
+extension BrowseHistoryViewModel {
+    func read(at index: Int) {
+        cache?.addThread(threads[index])
+        threads.insert(threads.remove(at: index), at: 0)
+        models.insert(models.remove(at: index), at: 0)
+    }
+    
+    func delete(at index: Int) {
+        cache?.removeThread(threads[index])
+        threads.remove(at: index)
+        models.remove(at: index)
+    }
+    
+    func clear() {
+        cache?.clear()
+        threads = []
+        models = []
+    }
+    
+    func numberOfModels() -> Int {
+        return threads.count
+    }
+    
+    func model(at index: Int) -> HomeThreadModel {
+        return models[index]
+    }
+    
+    func tid(at index: Int) -> Int {
+        return threads[index].id
+    }
+}
