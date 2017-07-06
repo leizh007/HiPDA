@@ -48,6 +48,10 @@ class SearchViewController: BaseViewController {
     @IBAction fileprivate func cancelButtonDidPressed(_ sender: UIButton) {
         searchBar.resignFirstResponder()
         searchBar.text = ""
+        viewModel.clear()
+        tableView.reloadData()
+        tableView.isScrollEnabled = false
+        tableView.status = .normal
     }
     
     @IBAction fileprivate func segmentControlValueChanged(_ sender: UISegmentedControl) {
@@ -98,7 +102,10 @@ extension SearchViewController: UITableViewDelegate {
                 titleCell.model = model
             }
         default:
-            return 44.0
+            return tableView.fd_heightForCell(withIdentifier: SearchFulltextTableViewCell.reuseIdentifier) { [unowned self] cell in
+                guard let fulltextCell = cell as? SearchFulltextTableViewCell else { return }
+                fulltextCell.model = self.viewModel.fulltextMoel(at: indexPath.row)
+            }
         }
     }
     
@@ -112,8 +119,7 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let tid = viewModel.tid(at: indexPath.row)
-        URLDispatchManager.shared.linkActived("https://www.hi-pda.com/forum/viewthread.php?tid=\(tid)&highlight=")
+        URLDispatchManager.shared.linkActived(viewModel.jumURL(at: indexPath.row))
     }
 }
 
@@ -134,7 +140,9 @@ extension SearchViewController: UITableViewDataSource {
             cell.model = viewModel.titleModel(at: indexPath.row)
             return cell
         case .fulltext:
-            return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(for: indexPath) as SearchFulltextTableViewCell
+            cell.model = viewModel.fulltextMoel(at: indexPath.row)
+            return cell
         }
     }
 }

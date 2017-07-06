@@ -84,6 +84,7 @@
 		05416C891D903CB200049AA0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05416C881D903CB200049AA0 /* Result.swift */; };
 		0545908D1F0D0DC7002F7AFF /* SearchTitleModelForUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545908C1F0D0DC7002F7AFF /* SearchTitleModelForUI.swift */; };
 		0545908F1F0D196C002F7AFF /* SearchTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545908E1F0D196C002F7AFF /* SearchTitleTableViewCell.swift */; };
+		054590911F0D3D8C002F7AFF /* SearchFulltextModelForUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054590901F0D3D8C002F7AFF /* SearchFulltextModelForUI.swift */; };
 		0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */; };
 		0546619A1EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054661991EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift */; };
 		0546619C1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546619B1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift */; };
@@ -158,6 +159,7 @@
 		059B16CA1F064AF200360D82 /* PrivateMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B16C81F064AF100360D82 /* PrivateMessageTableViewCell.swift */; };
 		059B16CB1F064AF200360D82 /* PrivateMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */; };
 		059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */; };
+		059D35861F0DD05400D5A42D /* SearchFulltextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D35851F0DD05400D5A42D /* SearchFulltextTableViewCell.swift */; };
 		059D49531EBAF70000BECA18 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49521EBAF70000BECA18 /* Thread.swift */; };
 		059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */; };
 		059D49591EBB009D00BECA18 /* HiPDAThreadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */; };
@@ -417,6 +419,7 @@
 		05416C881D903CB200049AA0 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		0545908C1F0D0DC7002F7AFF /* SearchTitleModelForUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTitleModelForUI.swift; sourceTree = "<group>"; };
 		0545908E1F0D196C002F7AFF /* SearchTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTitleTableViewCell.swift; sourceTree = "<group>"; };
+		054590901F0D3D8C002F7AFF /* SearchFulltextModelForUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFulltextModelForUI.swift; sourceTree = "<group>"; };
 		0545B6691DCF0857009B9F3E /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		054661991EF7C19D00857D33 /* ImagePickerCameraCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerCameraCollectionViewCell.swift; sourceTree = "<group>"; };
 		0546619B1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+HiPDA.swift"; sourceTree = "<group>"; };
@@ -494,6 +497,7 @@
 		059B16C81F064AF100360D82 /* PrivateMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageTableViewCell.swift; sourceTree = "<group>"; };
 		059B16C91F064AF200360D82 /* PrivateMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateMessageTableViewCell.xib; sourceTree = "<group>"; };
 		059BE0D41ED92BF6009C7251 /* UIWindow+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HiPDA.swift"; sourceTree = "<group>"; };
+		059D35851F0DD05400D5A42D /* SearchFulltextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFulltextTableViewCell.swift; sourceTree = "<group>"; };
 		059D49521EBAF70000BECA18 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadAttachment.swift; sourceTree = "<group>"; };
 		059D49581EBB009D00BECA18 /* HiPDAThreadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDAThreadTests.swift; sourceTree = "<group>"; };
@@ -1326,6 +1330,8 @@
 				0545908E1F0D196C002F7AFF /* SearchTitleTableViewCell.swift */,
 				057844301F0C778E004CB91F /* SearchFulltextManager.swift */,
 				057844341F0C7852004CB91F /* SearchFulltextModel.swift */,
+				054590901F0D3D8C002F7AFF /* SearchFulltextModelForUI.swift */,
+				059D35851F0DD05400D5A42D /* SearchFulltextTableViewCell.swift */,
 				05E6974D1F00EABB005919B7 /* SearchUserThreadsViewController.swift */,
 				05E6974F1F00F481005919B7 /* SearchUserThreadsViewModel.swift */,
 				05E697511F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift */,
@@ -1912,6 +1918,7 @@
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				054149551F038B6F00AFE469 /* FriendMessageModel.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
+				054590911F0D3D8C002F7AFF /* SearchFulltextModelForUI.swift in Sources */,
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
 				05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */,
 				051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */,
@@ -1976,6 +1983,7 @@
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				051BFE071EF58F8300EA77EB /* ImagePickerCollectionViewCell.swift in Sources */,
+				059D35861F0DD05400D5A42D /* SearchFulltextTableViewCell.swift in Sources */,
 				0541494E1F038B6300AFE469 /* BaseMessageModel.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
 				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,

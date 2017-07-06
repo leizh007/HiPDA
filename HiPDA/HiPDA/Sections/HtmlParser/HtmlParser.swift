@@ -401,4 +401,21 @@ struct HtmlParser {
         
         return (content: content as String, ranges: ranges)
     }
+    
+    static func searchFulltextModels(from html: String) throws -> [SearchFulltextModel] {
+        let pattern = "sp_title\">[\\s\\S]*?标题[\\s\\S]*?pid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[^>]+>[^>]+>([\\s\\S]*?)<\\/div>[\\s\\S]*?fid=\\d+\">([\\s\\S]*?)<\\/a>[\\s\\S]*?uid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a><\\/span>[^>]+>查看:\\s+(\\d+)<\\/span>[^>]+>回复:\\s+(\\d+)<\\/span>[^>]+>最后发表:\\s+([\\d-:\\s]+)<\\/span>"
+        let results = try Regex.matches(in: html, of: pattern)
+        return try results.map { result in
+            guard let pid = Int(result[1]) else { throw HtmlParserError.underlying("获取帖子id失败") }
+            let title = result[2]
+            let (content: content, ranges: wordRanges) = try HtmlParser.titleContentAndHighlightWordRanges(in: result[3])
+            let forumName = result[4]
+            guard let uid = Int(result[5]) else { throw HtmlParserError.underlying("获取用户id出错") }
+            let user = User(name: result[6], uid: uid)
+            guard let replyCount = Int(result[8]) else { throw HtmlParserError.underlying("获取帖子回复数出错") }
+            guard let readCount = Int(result[7]) else { throw HtmlParserError.underlying("获取哦帖子查看数出错") }
+            let time = result[9]
+            return SearchFulltextModel(pid: pid, title: title, content: content, contentHighlightWordRanges: wordRanges, forumName: forumName, user: user, readCount: readCount, replyCount: replyCount, time: time)
+        }
+    }
 }

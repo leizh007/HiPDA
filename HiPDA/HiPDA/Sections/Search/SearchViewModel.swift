@@ -32,7 +32,7 @@ class SearchViewModel {
         case .title:
             return searchTitleModelsForUI.count > 0
         case .fulltext:
-            return false
+            return searchFulltextModelsForUI.count > 0
         }
     }
     fileprivate var page = 0
@@ -40,8 +40,16 @@ class SearchViewModel {
     fileprivate var type = SearchType.title
     fileprivate var text = ""
     fileprivate var searchTitleModelsForUI = [SearchTitleModelForUI]()
+    fileprivate var searchFulltextModelsForUI = [SearchFulltextModelForUI]()
     var hasMoreData: Bool {
         return page < maxPage
+    }
+    
+    func clear() {
+        page = 0
+        maxPage = 0
+        searchTitleModelsForUI = []
+        searchFulltextModelsForUI = []
     }
     
     func search(type: SearchType, text: String, completion: @escaping (HiPDA.Result<Void, NSError>) -> Void) {
@@ -57,9 +65,9 @@ class SearchViewModel {
     
     fileprivate func search(type: SearchType, text: String, page: Int, completion: @escaping (HiPDA.Result<Void, NSError>) -> Void) {
         disposeBag = DisposeBag()
-        var searchTitleModelsForUI = self.searchTitleModelsForUI
         switch type {
         case .title:
+            var searchTitleModelsForUI = self.searchTitleModelsForUI
             SearchTitleManager.search(text: text, page: page) { [weak self] result in
                 guard let `self` = self else { return }
                 switch result {
@@ -68,16 +76,7 @@ class SearchViewModel {
                 case .success(let (totalPage: totalPage, models: models)):
                     DispatchQueue.global().async {
                         let modelsForUI = models.map { model -> SearchTitleModelForUI in
-                            let attri = NSMutableAttributedString(string: model.title)
-                            for range in model.titleHighlightWordRanges {
-                                attri.addAttributes([NSForegroundColorAttributeName: UIColor.red], range: range)
-                            }
-                            attri.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 17.0)],
-                                                range: NSRange(location: 0, length: (model.title as NSString).length))
-                            let paragraphStye = NSMutableParagraphStyle()
-                            paragraphStye.lineBreakMode = .byCharWrapping
-                            attri.addAttributes([NSParagraphStyleAttributeName: paragraphStye],
-                                                range: NSRange(location: 0, length: (model.title as NSString).length))
+                            let attri = SearchViewModel.attributedString(from: model.title, fontSize: 17.0, ranges: model.titleHighlightWordRanges)
                             return SearchTitleModelForUI(tid: model.tid, title: attri, forumName: model.forumName, user: model.user, time: model.time, readCount: model.readCount, replyCount: model.replyCount)
                         }
                         if page == 1 {
@@ -98,14 +97,51 @@ class SearchViewModel {
                 }
             }.disposed(by: disposeBag)
         case .fulltext:
+            var searchFulltextModelsForUI = self.searchFulltextModelsForUI
             SearchFulltextManager.search(text: text, page: page) { [weak self] result in
-                guard let `self` = self,
-                    `self`.type == type &&
-                        `self`.text == text &&
-                        `self`.page == page - 1 else { return }
-                console(message: String(describing: result))
+                guard let `self` = self  else { return }
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let (totalPage: totalPage, models: models)):
+                    DispatchQueue.global().async {
+                        let modelsForUI = models.map { model -> SearchFulltextModelForUI in
+                            let attri = SearchViewModel.attributedString(from: model.content, fontSize: 16.0, ranges: model.contentHighlightWordRanges)
+                            return SearchFulltextModelForUI(pid: model.pid, title: model.title, content: attri, forumName: model.forumName, user: model.user, readCount: model.readCount, replyCount: model.readCount, time: model.time)
+                        }
+                        if page == 1 {
+                            searchFulltextModelsForUI = modelsForUI
+                        } else {
+                            searchFulltextModelsForUI.append(contentsOf: modelsForUI)
+                        }
+
+                        DispatchQueue.main.async {
+                            guard self.type == type &&
+                                self.text == text &&
+                                self.page == page - 1 else { return }
+                            self.page = page
+                            self.maxPage = totalPage
+                            self.searchFulltextModelsForUI = searchFulltextModelsForUI
+                            completion(.success(()))
+                        }
+                    }
+                }
             }.disposed(by: disposeBag)
         }
+    }
+    
+    fileprivate static func attributedString(from content: String, fontSize: CGFloat, ranges: [NSRange]) -> NSAttributedString {
+        let attri = NSMutableAttributedString(string: content)
+        for range in ranges {
+            attri.addAttributes([NSForegroundColorAttributeName: UIColor.red], range: range)
+        }
+        let fullRange = NSRange(location: 0, length: (content as NSString).length)
+        attri.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], range: fullRange)
+        let paragraphStye = NSMutableParagraphStyle()
+        paragraphStye.lineBreakMode = .byCharWrapping
+        attri.addAttributes([NSParagraphStyleAttributeName: paragraphStye], range: fullRange)
+        
+        return attri
     }
 }
 
@@ -117,7 +153,7 @@ extension SearchViewModel {
         case .title:
             return searchTitleModelsForUI.count
         case .fulltext:
-            return 0
+            return searchFulltextModelsForUI.count
         }
     }
     
@@ -125,12 +161,16 @@ extension SearchViewModel {
         return searchTitleModelsForUI[index]
     }
     
-    func tid(at index: Int) -> Int {
+    func fulltextMoel(at index: Int) -> SearchFulltextModelForUI {
+        return searchFulltextModelsForUI[index]
+    }
+    
+    func jumURL(at index: Int) -> String {
         switch type {
         case .title:
-            return searchTitleModelsForUI[index].tid
+            return "https://www.hi-pda.com/forum/viewthread.php?tid=\(searchTitleModelsForUI[index].tid)&highlight="
         case .fulltext:
-            return 0
+            return "https://www.hi-pda.com/forum/redirect.php?goto=findpost&pid=\(searchFulltextModelsForUI[index].pid)"
         }
     }
 }
