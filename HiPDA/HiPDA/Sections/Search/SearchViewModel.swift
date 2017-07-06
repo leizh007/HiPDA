@@ -161,7 +161,7 @@ extension SearchViewModel {
         return searchTitleModelsForUI[index]
     }
     
-    func fulltextMoel(at index: Int) -> SearchFulltextModelForUI {
+    func fulltextModel(at index: Int) -> SearchFulltextModelForUI {
         return searchFulltextModelsForUI[index]
     }
     

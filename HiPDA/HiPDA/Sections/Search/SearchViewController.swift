@@ -104,7 +104,7 @@ extension SearchViewController: UITableViewDelegate {
         default:
             return tableView.fd_heightForCell(withIdentifier: SearchFulltextTableViewCell.reuseIdentifier) { [unowned self] cell in
                 guard let fulltextCell = cell as? SearchFulltextTableViewCell else { return }
-                fulltextCell.model = self.viewModel.fulltextMoel(at: indexPath.row)
+                fulltextCell.model = self.viewModel.fulltextModel(at: indexPath.row)
             }
         }
     }
@@ -141,7 +141,7 @@ extension SearchViewController: UITableViewDataSource {
             return cell
         case .fulltext:
             let cell = tableView.dequeueReusableCell(for: indexPath) as SearchFulltextTableViewCell
-            cell.model = viewModel.fulltextMoel(at: indexPath.row)
+            cell.model = viewModel.fulltextModel(at: indexPath.row)
             return cell
         }
     }
