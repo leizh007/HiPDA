@@ -44,9 +44,10 @@ class NewThreadViewModel {
     let success: PublishSubject<Int>
     let failure: PublishSubject<String>
     let isSendButtonEnabled: Driver<Bool>
+    let draftAfterCloseButtonPressed: PublishSubject<Draft?>
     var imageNumbers = [Int]()
     
-    init(type: NewThreadType, typeName: Driver<String>, title: Driver<String>, content: Driver<String>, sendButtonPresed: PublishSubject<Void>) {
+    init(type: NewThreadType, typeName: Driver<String>, title: Driver<String>, content: Driver<String>, sendButtonPresed: PublishSubject<Void>, closeButtonPressed: PublishSubject<Void>) {
         self.type = type
         isSendButtonEnabled = Driver.combineLatest(title, content) { ($0, $1) }.map { (title, content) in
             switch type {
@@ -58,6 +59,7 @@ class NewThreadViewModel {
         }
         success = PublishSubject<Int>()
         failure = PublishSubject<String>()
+        draftAfterCloseButtonPressed = PublishSubject<Draft?>()
         let attribute = Driver.combineLatest(typeName, title, content) { (ForumManager.typeid(of: $0), $1, NewThreadViewModel.skinContent($2)) }
         sendButtonPresed.withLatestFrom(attribute).asObservable().subscribe(onNext: { [weak self] (typeid, title, content) in
             guard let `self` = self else { return }
@@ -75,6 +77,24 @@ class NewThreadViewModel {
                 QuoteAuthorManager.quoteAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
             }
         }).disposed(by: disposeBag)
+        closeButtonPressed.withLatestFrom(Driver.combineLatest(typeName, title, content) { ($0, $1, $2) })
+            .asObservable()
+            .subscribe(onNext: { [weak self] (typeName, title, content) in
+                guard let `self` = self else { return }
+                guard case .new(fid: let fid) = type else {
+                    self.draftAfterCloseButtonPressed.onNext(nil)
+                    return
+                }
+                let forumName = ForumManager.forumName(ofFid: fid)
+                if typeName == "分类" && title.isEmpty && content.isEmpty && self.imageNumbers.isEmpty {
+                    self.draftAfterCloseButtonPressed.onNext(nil)
+                    return
+                }
+                let dateFormater = DateFormatter()
+                dateFormater.dateFormat = "yyyy-M-d HH:mm:ss"
+                let draft = Draft(fid: fid, forumName: forumName, typeName: typeName, time: dateFormater.string(from: Date()), title: title, content: content, imageNumbers: self.imageNumbers)
+                self.draftAfterCloseButtonPressed.onNext(draft)
+            }).disposed(by: disposeBag)
     }
     
     fileprivate static func skinContent(_ content: String) -> String {

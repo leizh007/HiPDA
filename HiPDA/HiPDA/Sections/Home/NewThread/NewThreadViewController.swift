@@ -54,6 +54,7 @@ class NewThreadViewController: BaseViewController {
     fileprivate let titleVariable = Variable("")
     fileprivate let contentVariable = Variable("")
     fileprivate let sendButtonPressedPublishSubject = PublishSubject<Void>()
+    fileprivate let closePublishSubject = PublishSubject<Void>()
     
     var typeName = Constant.classification {
         didSet {
@@ -99,7 +100,8 @@ class NewThreadViewController: BaseViewController {
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {
-        let closeButton =  UIBarButtonItem(image: #imageLiteral(resourceName: "navigationbar_close"), style: .plain, target: self, action: #selector(close))
+        let closeButton =  UIBarButtonItem(image: #imageLiteral(resourceName: "navigationbar_close"), style: .plain, target: nil, action: nil)
+        closeButton.rx.tap.bindTo(closePublishSubject).disposed(by: disposeBag)
         let postButton = UIBarButtonItem(image: #imageLiteral(resourceName: "new_thread_sent"), style: .plain, target: self, action: #selector(post))
         sendButtons.append(postButton)
         postButton.isEnabled = false
@@ -133,7 +135,7 @@ class NewThreadViewController: BaseViewController {
     }
     
     fileprivate func skinViewModel() {
-        viewModel = NewThreadViewModel(type: type, typeName: typeNameVariable.asDriver(), title: titleVariable.asDriver(), content: contentVariable.asDriver(), sendButtonPresed: sendButtonPressedPublishSubject)
+        viewModel = NewThreadViewModel(type: type, typeName: typeNameVariable.asDriver(), title: titleVariable.asDriver(), content: contentVariable.asDriver(), sendButtonPresed: sendButtonPressedPublishSubject, closeButtonPressed: closePublishSubject)
         viewModel.isSendButtonEnabled.asObservable().subscribe(onNext: { [weak self] isEnabled in
             self?.sendButtons.forEach { $0.isEnabled = isEnabled }
         }).disposed(by: disposeBag)
@@ -154,6 +156,24 @@ class NewThreadViewController: BaseViewController {
                     }
                 }
             }
+        }).disposed(by: disposeBag)
+        viewModel.draftAfterCloseButtonPressed.subscribe(onNext: { [unowned self] draft in
+            self.view.endEditing(true)
+            guard let draft = draft else {
+                self.close()
+                return
+            }
+            let alert = UIAlertController(title: "关闭", message: "是否保存为草稿?", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "取消", style: .cancel) { _ in
+                self.close()
+            }
+            let save = UIAlertAction(title: "保存", style: .default) { _ in
+                DraftManager.shared.addDraft(draft)
+                self.close()
+            }
+            alert.addAction(cancel)
+            alert.addAction(save)
+            self.present(alert, animated: true, completion: nil)
         }).disposed(by: disposeBag)
     }
     

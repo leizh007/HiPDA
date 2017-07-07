@@ -46,6 +46,17 @@ struct ForumManager {
         return dictionary
     }()
     
+    static fileprivate let forumNameDictionary: [Int: String] = {
+        var dictionary = [Int: String]()
+        for forum in ForumManager.forums {
+            dictionary[forum.id] = forum.name
+            for subForum in forum.subForums ?? [] {
+                dictionary[subForum.id] = subForum.name
+            }
+        }
+        return dictionary
+    }()
+    
     static func typeNames(of fid: Int) -> [String] {
         return ForumManager.forums.filter { $0.id == fid }.first?.typeNames ?? []
     }
@@ -60,6 +71,10 @@ struct ForumManager {
     /// - Returns: 版块id
     static func fid(ofForumName name: String) -> Int {
         return ForumManager.fidDictionary[name] ?? 0
+    }
+    
+    static func forumName(ofFid fid: Int) -> String {
+        return ForumManager.forumNameDictionary[fid] ?? ""
     }
     
     static let defalutForumNameList = ["Discovery", "Buy & Sell 交易服务区", "E-INK", "Geek Talks · 奇客怪谈", "疑似机器人"]

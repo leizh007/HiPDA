@@ -92,23 +92,6 @@ class SearchViewController: BaseViewController {
 // MARK: - UITableViewDelegate
 
 extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let type = SearchType(rawValue: segmentControl.selectedSegmentIndex) else { return 44.0 }
-        switch type {
-        case .title:
-            return tableView.fd_heightForCell(withIdentifier: SearchTitleTableViewCell.reuseIdentifier) { [unowned self] cell in
-                guard let titleCell = cell as? SearchTitleTableViewCell else { return }
-                let model = self.viewModel.titleModel(at: indexPath.row)
-                titleCell.model = model
-            }
-        default:
-            return tableView.fd_heightForCell(withIdentifier: SearchFulltextTableViewCell.reuseIdentifier) { [unowned self] cell in
-                guard let fulltextCell = cell as? SearchFulltextTableViewCell else { return }
-                fulltextCell.model = self.viewModel.fulltextModel(at: indexPath.row)
-            }
-        }
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
     }
