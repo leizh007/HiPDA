@@ -37,6 +37,9 @@ private enum InputViewType {
 }
 
 class NewThreadViewController: BaseViewController {
+    var draft: Draft?
+    var draftSendSuccessCompletion: ((Void) -> Void)?
+    var draftEditCompleted: ((Draft) -> Void)?
     var type = NewThreadType.new(fid: 0)
     var typeNames = [String]()
     @IBOutlet fileprivate weak var titleTextView: YYTextView!
@@ -65,7 +68,11 @@ class NewThreadViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let draft = draft {
+            type = .new(fid: draft.fid)
+            typeName = draft.typeName
+        }
         title = type.description
         if case .new(fid: let fid) = type {
             typeNames = ForumManager.typeNames(of: fid)
@@ -85,6 +92,11 @@ class NewThreadViewController: BaseViewController {
             constraint.constant = 1.0 / C.UI.screenScale
         }
         skinViewModel()
+        if let draft = draft {
+            titleTextView.text = draft.title
+            contentTextView.text = draft.content
+            viewModel.imageNumbers = draft.imageNumbers
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -149,6 +161,7 @@ class NewThreadViewController: BaseViewController {
         viewModel.success.subscribe(onNext: { [unowned self] tid in
             self.hidePromptInformation()
             self.showPromptInformation(of: .success("发送成功!"))
+            self.draftSendSuccessCompletion?()
             delay(seconds: 0.25) {
                 self.presentingViewController?.dismiss(animated: true) {
                     if case .new(_) = self.type {
@@ -168,7 +181,11 @@ class NewThreadViewController: BaseViewController {
                 self.close()
             }
             let save = UIAlertAction(title: "保存", style: .default) { _ in
-                DraftManager.shared.addDraft(draft)
+                if let completion = self.draftEditCompleted {
+                    completion(draft)
+                } else {
+                    DraftManager.shared.addDraft(draft)
+                }
                 self.close()
             }
             alert.addAction(cancel)

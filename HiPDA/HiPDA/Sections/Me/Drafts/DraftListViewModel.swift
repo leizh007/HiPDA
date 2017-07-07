@@ -25,4 +25,16 @@ extension DraftListViewModel {
     func model(at index: Int) -> Draft {
         return manager.drafts[index]
     }
+    
+    func delete(at index: Int) {
+        manager.deleteDraft(at: index)
+    }
+    
+    func clear() {
+        manager.deleteAllDrafts()
+    }
+    
+    func updateDraft(_ draft: Draft, at index: Int) {
+        manager.updateDraft(draft, at: index)
+    }
 }
