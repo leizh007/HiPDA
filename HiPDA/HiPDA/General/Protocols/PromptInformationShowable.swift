@@ -21,6 +21,8 @@ enum ProgressHUDStyle {
 }
 
 protocol PromptInformationShowable {
+    func showPromptInformation(of style: ProgressHUDStyle)
+    func hidePromptInformation()
     /// 展示提示信息
     ///
     /// - parameter style: 提示信息的样式
@@ -31,6 +33,14 @@ protocol PromptInformationShowable {
 }
 
 extension PromptInformationShowable where Self: UIViewController {
+    func showPromptInformation(of style: ProgressHUDStyle) {
+        showPromptInformation(of: style, in: nil)
+    }
+    
+    func hidePromptInformation() {
+        hidePromptInformation(in: nil)
+    }
+    
     /// 展示提示信息
     ///
     /// - parameter style: 提示信息的样式

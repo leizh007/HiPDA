@@ -274,9 +274,14 @@ struct HtmlParser {
     }
     
     static func threadMessages(from html: String) throws -> [ThreadMessageModel] {
-        let results = try Regex.matches(in: html, of: "<li\\s+class=\"s_clear\"><[^<]+<[^>]+>([^<]+)<\\/a>([^<]+)<a\\s+href=\"[^\"]+\">([\\s\\S]*?)<\\/a>([\\s\\S]*?)<em>([^<]+)<\\/em>([\\s\\S]*?)<a\\s+href=\"([^\"]+)\"[^>]*>查看")
+        let results = try Regex.matches(in: html, of: "<li\\s+class=\"s_clear\">([\\s\\S]*?<\\/a>)\\s([^<]+)<a\\s+href=\\\"[^\\\"]+\\\">([\\s\\S]*?)<\\/a>([\\s\\S]*?)<em>([^<]+)<\\/em>([\\s\\S]*?)<a\\s+href=\"([^\"]+)\"[^>]*>查看")
         return try results.map { result in
             guard !result[1].isEmpty else { throw HtmlParserError.underlying("获取发帖用户名出错") }
+            var senderName = result[1] as NSString
+            let linkTagRegex = try Regex.regularExpression(of: "<[^>]+>")
+            for result in linkTagRegex.matches(in: senderName as String, range: NSRange(location: 0, length: senderName.length)).reversed() {
+                senderName = senderName.replacingCharacters(in: result.range, with: "") as NSString
+            }
             var action = result[2]
             action = action.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !action.isEmpty else { throw HtmlParserError.underlying("获取用户操作出错") }
@@ -288,7 +293,7 @@ struct HtmlParser {
             let contentResult = try Regex.firstMatch(in: content, of: "<dl\\s+class=\"summary\"><dt>您的帖子：<dt><dd>([\\s\\S]*?)<\\/dd><dt>[\\s\\S]*?说：<\\/dt><dd>([\\s\\S]*?)<\\/dd><\\/dl>")
             let yourPost = contentResult.safe[1]?.stringByDecodingHTMLEntities
             let senderPost = contentResult.safe[2]?.stringByDecodingHTMLEntities
-            return ThreadMessageModel(isRead: isRead, senderName: result[1], action: action, postTitle: result[3], postAction: result[4].trimmingCharacters(in: .whitespacesAndNewlines), postURL: result[7], time: result[5], yourPost: yourPost, senderPost: senderPost)
+            return ThreadMessageModel(isRead: isRead, senderName: senderName as String, action: action, postTitle: result[3], postAction: result[4].trimmingCharacters(in: .whitespacesAndNewlines), postURL: result[7], time: result[5], yourPost: yourPost, senderPost: senderPost)
         }
     }
     

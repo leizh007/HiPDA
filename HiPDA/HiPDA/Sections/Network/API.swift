@@ -38,6 +38,8 @@ extension HiPDA {
         case search(type: SearchType, text: String, page: Int)
         case favorites(page: Int)
         case attention(page: Int)
+        case deleteFavorites(tids: [Int], formhash: String)
+        case deleteAttentions(tids: [Int], formhash: String)
     }
 }
 
@@ -102,6 +104,10 @@ extension HiPDA.API: TargetType {
             return "/forum/my.php?item=favorites&type=thread&page=\(page)"
         case let .attention(page: page):
             return "/forum/my.php?item=attention&type=thread&page=\(page)"
+        case .deleteFavorites(_):
+            return "/forum/my.php?item=favorites&type=thread"
+        case .deleteAttentions(_):
+            return "/forum/my.php?item=attention&type=thread"
         }
     }
     var method: Moya.Method {
@@ -156,6 +162,10 @@ extension HiPDA.API: TargetType {
             return .get
         case .attention(_):
             return .get
+        case .deleteAttentions(_):
+            return .post
+        case .deleteFavorites(_):
+            return .post
         }
     }
     var parameters: [String : Any]? {
@@ -258,6 +268,10 @@ extension HiPDA.API: TargetType {
             return nil
         case .attention(_):
             return nil
+        case .deleteFavorites(_):
+            return nil
+        case .deleteAttentions(_):
+            return nil
         }
     }
     var parameterEncoding: ParameterEncoding {
@@ -273,6 +287,16 @@ extension HiPDA.API: TargetType {
             return .upload(.multipart([MultipartFormData(provider: .data(hashData), name: "hash"),
                                        MultipartFormData(provider: .data(uidData), name: "uid"),
                                        MultipartFormData(provider: .data(data), name: "Filedata", fileName: "HiPDA-image.\(suffix)", mimeType: mimeType)]))
+        case let .deleteFavorites(tids: tids, formhash: formhash):
+            var tidsData = tids.map { MultipartFormData(provider: .data("\($0)".data(using: .utf8) ?? Data()), name: "delete[]") }
+            tidsData.append(MultipartFormData(provider: .data(formhash.data(using: .utf8) ?? Data()), name: "formhash"))
+            tidsData.append(MultipartFormData(provider: .data("true".data(using: .utf8) ?? Data()), name: "favsubmit"))
+            return .upload(.multipart(tidsData))
+        case let .deleteAttentions(tids: tids, formhash: formhash):
+            var tidsData = tids.map { MultipartFormData(provider: .data("\($0)".data(using: .utf8) ?? Data()), name: "delete[]") }
+            tidsData.append(MultipartFormData(provider: .data(formhash.data(using: .utf8) ?? Data()), name: "formhash"))
+            tidsData.append(MultipartFormData(provider: .data("true".data(using: .utf8) ?? Data()), name: "attentionsubmit"))
+            return .upload(.multipart(tidsData))
         default:
             return .request
         }

@@ -96,6 +96,46 @@ class FavoritesAndAttentionBaseViewModel {
                 }
             }.disposed(by: disposeBag)
     }
+    
+    func delete(indexs: [Int], completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {
+        let formhashPath: String
+        switch type {
+        case .favorites:
+            formhashPath = "/forum/my.php?item=favorites&type=thread"
+        case .attention:
+            formhashPath = "/forum/my.php?item=attention&type=thread"
+        }
+        NetworkUtilities.formhash(from: formhashPath) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let formhash):
+                let tids = indexs.map { self.model(at: $0).tid }
+                let api: HiPDA.API
+                switch self.type {
+                case .favorites:
+                    api = .deleteFavorites(tids: tids, formhash: formhash)
+                case .attention:
+                    api = .deleteAttentions(tids: tids, formhash: formhash)
+                }
+                HiPDAProvider.request(api)
+                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+                    .mapGBKString()
+                    .map { try HtmlParser.alertInfo(from: $0) }
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { event in
+                        switch event {
+                        case .next(let info):
+                            completion(.success(info))
+                        case .error(let error):
+                            completion(.failure(error as NSError))
+                        default:
+                            break
+                        }
+                    }.disposed(by: self.disposeBag)
+            }
+        }
+    }
 }
 
 // MARK: - DataSource
@@ -112,5 +152,11 @@ extension FavoritesAndAttentionBaseViewModel {
     func jumpURL(at index: Int) -> String {
         let tid = model(at: index).tid
         return "https://www.hi-pda.com/forum/viewthread.php?tid=\(tid)&extra=page%3D1"
+    }
+    
+    func delete(at indexs: [Int]) {
+        for index in indexs.sorted(by: >) {
+            models.remove(at: index)
+        }
     }
 }
