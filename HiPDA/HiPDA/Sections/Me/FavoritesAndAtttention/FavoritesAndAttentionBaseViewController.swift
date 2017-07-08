@@ -34,10 +34,12 @@ class FavoritesAndAttentionBaseViewController: BaseViewController {
         deletButton.layer.shadowOpacity = 0.25
     }
     
-    override func configureApperance(of navigationBar: UINavigationBar) {
-        super.configureApperance(of: navigationBar)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(selectButtonSelected))
+    fileprivate func updateRightBarButtonItem() {
+        if tableView.status == .noResult || tableView.status == .loading || tableView.status == .tapToLoad {
+            navigationItem.rightBarButtonItem = nil
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(selectButtonSelected))
+        }
     }
     
     func selectButtonSelected() {
@@ -180,5 +182,6 @@ extension FavoritesAndAttentionBaseViewController: DataLoadDelegate {
         } else {
             tableView.endLoadMoreWithNoMoreData()
         }
+        updateRightBarButtonItem()
     }
 }
