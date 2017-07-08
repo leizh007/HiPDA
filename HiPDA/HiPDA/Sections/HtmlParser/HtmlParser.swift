@@ -274,7 +274,7 @@ struct HtmlParser {
     }
     
     static func threadMessages(from html: String) throws -> [ThreadMessageModel] {
-        let results = try Regex.matches(in: html, of: "<li\\s+class=\"s_clear\">([\\s\\S]*?<\\/a>)\\s([^<]+)<a\\s+href=\\\"[^\\\"]+\\\">([\\s\\S]*?)<\\/a>([\\s\\S]*?)<em>([^<]+)<\\/em>([\\s\\S]*?)<a\\s+href=\"([^\"]+)\"[^>]*>查看")
+        let results = try Regex.matches(in: html, of: "<li\\s+class=\"s_clear\">([\\s\\S]*?<\\/a>)\\s([^<]+)<a\\s+href=\"[^\"]+\">([\\s\\S]*?)<\\/a>([\\s\\S]*?)<em>([^<]+)<\\/em>([\\s\\S]*?)<a\\s+href=\"([^\"]+)\"[^>]*>查看")
         return try results.map { result in
             guard !result[1].isEmpty else { throw HtmlParserError.underlying("获取发帖用户名出错") }
             var senderName = result[1] as NSString

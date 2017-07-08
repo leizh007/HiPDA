@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 fileprivate enum Constants {
-    static let deleteButtonHeight = CGFloat(44.0) + CGFloat.from(pixel: 1)
+    static let deleteButtonHeight = CGFloat(49.0) + CGFloat.from(pixel: 1)
 }
 
 class FavoritesAndAttentionBaseViewController: BaseViewController {
