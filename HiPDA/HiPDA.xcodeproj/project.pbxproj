@@ -65,6 +65,10 @@
 		0537AAF51EAF5D5C00A51721 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */; };
 		0537AAF71EB039F300A51721 /* HomeNavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */; };
 		0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */; };
+		05384BA31F10C5B40071B1C1 /* FavoritesAndAttentionBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05384BA21F10C5B40071B1C1 /* FavoritesAndAttentionBaseViewController.swift */; };
+		05384BA51F10C5FE0071B1C1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05384BA41F10C5FE0071B1C1 /* FavoritesViewController.swift */; };
+		05384BA71F10C6090071B1C1 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05384BA61F10C6090071B1C1 /* AttentionViewController.swift */; };
+		05384BA91F10C8260071B1C1 /* FavoritesAndAttentionBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05384BA81F10C8260071B1C1 /* FavoritesAndAttentionBaseViewModel.swift */; };
 		05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */; };
 		053B78CB1E7527E8001EFF88 /* AccoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78CA1E7527E8001EFF88 /* AccoutTableViewCell.swift */; };
 		053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B78CE1E7670D1001EFF88 /* AccountCellModel.swift */; };
@@ -107,6 +111,11 @@
 		055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996CB1D50E0D600057CF6 /* Bootstrap.swift */; };
 		05645C7B1D75D60900B86D0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05645C7A1D75D60900B86D0A /* Constants.swift */; };
 		056B3BF41E6D867000843E32 /* AccountManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056B3BF31E6D867000843E32 /* AccountManagementViewController.swift */; };
+		056ED15F1F10CCC5006FBCB8 /* FavoritesAndAttentionBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED15E1F10CCC5006FBCB8 /* FavoritesAndAttentionBaseModel.swift */; };
+		056ED1621F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1601F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.swift */; };
+		056ED1631F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056ED1611F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib */; };
+		056ED1651F10FE7B006FBCB8 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1641F10FE7B006FBCB8 /* FavoritesViewModel.swift */; };
+		056ED1671F10FE99006FBCB8 /* AttentionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1661F10FE99006FBCB8 /* AttentionViewModel.swift */; };
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
@@ -407,6 +416,10 @@
 		0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationBarTitleView.swift; sourceTree = "<group>"; };
 		0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameSelectionViewController.swift; sourceTree = "<group>"; };
+		05384BA21F10C5B40071B1C1 /* FavoritesAndAttentionBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesAndAttentionBaseViewController.swift; sourceTree = "<group>"; };
+		05384BA41F10C5FE0071B1C1 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		05384BA61F10C6090071B1C1 /* AttentionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
+		05384BA81F10C8260071B1C1 /* FavoritesAndAttentionBaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesAndAttentionBaseViewModel.swift; sourceTree = "<group>"; };
 		05387FB51D7ADD3A00F9196C /* Collection+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+HiPDA.swift"; sourceTree = "<group>"; };
 		053B78CA1E7527E8001EFF88 /* AccoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccoutTableViewCell.swift; path = AccountManagement/AccoutTableViewCell.swift; sourceTree = "<group>"; };
 		053B78CE1E7670D1001EFF88 /* AccountCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountCellModel.swift; path = AccountManagement/AccountCellModel.swift; sourceTree = "<group>"; };
@@ -453,6 +466,11 @@
 		055996CB1D50E0D600057CF6 /* Bootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
 		05645C7A1D75D60900B86D0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		056B3BF31E6D867000843E32 /* AccountManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementViewController.swift; path = AccountManagement/AccountManagementViewController.swift; sourceTree = "<group>"; };
+		056ED15E1F10CCC5006FBCB8 /* FavoritesAndAttentionBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesAndAttentionBaseModel.swift; sourceTree = "<group>"; };
+		056ED1601F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesAndAttentionBaseTableViewCell.swift; sourceTree = "<group>"; };
+		056ED1611F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesAndAttentionBaseTableViewCell.xib; sourceTree = "<group>"; };
+		056ED1641F10FE7B006FBCB8 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		056ED1661F10FE99006FBCB8 /* AttentionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionViewModel.swift; sourceTree = "<group>"; };
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -802,6 +820,22 @@
 				05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		05384BA11F10C4750071B1C1 /* FavoritesAndAtttention */ = {
+			isa = PBXGroup;
+			children = (
+				05384BA21F10C5B40071B1C1 /* FavoritesAndAttentionBaseViewController.swift */,
+				05384BA81F10C8260071B1C1 /* FavoritesAndAttentionBaseViewModel.swift */,
+				056ED15E1F10CCC5006FBCB8 /* FavoritesAndAttentionBaseModel.swift */,
+				056ED1601F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.swift */,
+				056ED1611F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib */,
+				05384BA41F10C5FE0071B1C1 /* FavoritesViewController.swift */,
+				056ED1641F10FE7B006FBCB8 /* FavoritesViewModel.swift */,
+				05384BA61F10C6090071B1C1 /* AttentionViewController.swift */,
+				056ED1661F10FE99006FBCB8 /* AttentionViewModel.swift */,
+			);
+			path = FavoritesAndAtttention;
 			sourceTree = "<group>";
 		};
 		0541494A1F038B6300AFE469 /* Base */ = {
@@ -1349,6 +1383,7 @@
 		05E9A26D1D7ACFDB0096878B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				05384BA11F10C4750071B1C1 /* FavoritesAndAtttention */,
 				059D358C1F0E8C6400D5A42D /* Drafts */,
 				059D35871F0E7A2400D5A42D /* BrowseHistory */,
 				057016A31DCA3CFF0024EC3B /* Settings */,
@@ -1624,6 +1659,7 @@
 				050EE3151DD1FB7F00C4B18D /* Login.storyboard in Resources */,
 				05B919B71EEEE32F007339F6 /* default_cool.gif in Resources */,
 				05B919BD1EEEE32F007339F6 /* default_huffy.gif in Resources */,
+				056ED1631F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib in Resources */,
 				05B919C41EEEE32F007339F6 /* default_shy.gif in Resources */,
 				05B919B51EEEE32F007339F6 /* coolmonkey_16.gif in Resources */,
 				05B919A91EEEE32F007339F6 /* coolmonkey_04.gif in Resources */,
@@ -1903,6 +1939,7 @@
 				059BE0D51ED92BF6009C7251 /* UIWindow+HiPDA.swift in Sources */,
 				05B5067E1D6C9610004D573D /* UITableView+HiPDA.swift in Sources */,
 				05EEF2141EBC6BB700C38CAD /* YYCache+HiPDA.swift in Sources */,
+				056ED1621F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.swift in Sources */,
 				057844311F0C778E004CB91F /* SearchFulltextManager.swift in Sources */,
 				059B16C71F064AE400360D82 /* PrivateMessageViewModel.swift in Sources */,
 				05068AF81E0973B60070E044 /* UserRemarkTableViewState.swift in Sources */,
@@ -1935,6 +1972,7 @@
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
 				050C940E1EEA399800FBD18F /* NewThreadType.swift in Sources */,
 				059D49551EBAFD7400BECA18 /* ThreadAttachment.swift in Sources */,
+				056ED1651F10FE7B006FBCB8 /* FavoritesViewModel.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
@@ -2003,9 +2041,11 @@
 				0589EB6C1DB525410055DBB9 /* String+HiPDA.swift in Sources */,
 				059D358B1F0E7BF700D5A42D /* BrowseHistoryViewModel.swift in Sources */,
 				05EE51561EC9521700BC81B4 /* PostViewController.swift in Sources */,
+				05384BA91F10C8260071B1C1 /* FavoritesAndAttentionBaseViewModel.swift in Sources */,
 				05B35C491ECC700400C037A7 /* PostManager.swift in Sources */,
 				05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */,
 				059B16B81F04A16400360D82 /* YYCache+Message.swift in Sources */,
+				056ED15F1F10CCC5006FBCB8 /* FavoritesAndAttentionBaseModel.swift in Sources */,
 				051761C51ED886A8007951DE /* URL+HiPDA.swift in Sources */,
 				05B35C451ECC43E100C037A7 /* PostResult.swift in Sources */,
 				054AA6421D75C2E400819C2D /* FPSLabel.swift in Sources */,
@@ -2028,6 +2068,7 @@
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				051BFE071EF58F8300EA77EB /* ImagePickerCollectionViewCell.swift in Sources */,
 				059D35861F0DD05400D5A42D /* SearchFulltextTableViewCell.swift in Sources */,
+				05384BA71F10C6090071B1C1 /* AttentionViewController.swift in Sources */,
 				0541494E1F038B6300AFE469 /* BaseMessageModel.swift in Sources */,
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
 				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,
@@ -2051,17 +2092,20 @@
 				057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */,
 				0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */,
 				059B16B11F04955A00360D82 /* ThreadMessageTableViewCell.swift in Sources */,
+				05384BA31F10C5B40071B1C1 /* FavoritesAndAttentionBaseViewController.swift in Sources */,
 				057844351F0C7852004CB91F /* SearchFulltextModel.swift in Sources */,
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */,
+				05384BA51F10C5FE0071B1C1 /* FavoritesViewController.swift in Sources */,
 				0541494F1F038B6300AFE469 /* MessageTableViewController.swift in Sources */,
 				059B16B41F0497B800360D82 /* ThreadMessageModel.swift in Sources */,
 				058A9F481EFD19A900E74744 /* ProfileAccountSection.swift in Sources */,
 				0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */,
 				0545B66A1DCF0857009B9F3E /* SettingsViewModel.swift in Sources */,
+				056ED1671F10FE99006FBCB8 /* AttentionViewModel.swift in Sources */,
 				057226391EF2987000397829 /* PHPhotoLibrary+HiPDA.swift in Sources */,
 				050E483D1EC0749600BB6904 /* Notification.Name+HiPDA.swift in Sources */,
 				05B506761D6C91E9004D573D /* NibLoadableView.swift in Sources */,

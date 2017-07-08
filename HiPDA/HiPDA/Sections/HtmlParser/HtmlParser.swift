@@ -418,4 +418,22 @@ struct HtmlParser {
             return SearchFulltextModel(pid: pid, title: title, content: content, contentHighlightWordRanges: wordRanges, forumName: forumName, user: user, readCount: readCount, replyCount: replyCount, time: time)
         }
     }
+    
+    static func favoriteModels(from html: String) throws -> [FavoritesAndAttentionBaseModel] {
+        let pattern = "<tr>[\\s\\S]*?<th>[^\\?]+\\?tid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[^\\?]+\\?[^>]+>([\\s\\S]*?)<\\/a>"
+        let results = try Regex.matches(in: html, of: pattern)
+        return try results.map { result in
+            guard let tid = Int(result[1]) else { throw HtmlParserError.underlying("获取帖子id失败") }
+            return FavoritesAndAttentionBaseModel(forumName: result[3], title: result[2], tid: tid)
+        }
+    }
+    
+    static func attentionModels(from html: String) throws -> [FavoritesAndAttentionBaseModel] {
+        let pattern = "<tr>[\\s\\S]*?<th>[^\\?]+\\?tid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[\\s\\S]*?<td\\s+class=\"forum\">([\\s\\S]*?)<\\/td>"
+        let results = try Regex.matches(in: html, of: pattern)
+        return try results.map { result in
+            guard let tid = Int(result[1]) else { throw HtmlParserError.underlying("获取帖子id失败") }
+            return FavoritesAndAttentionBaseModel(forumName: result[3], title: result[2], tid: tid)
+        }
+    }
 }

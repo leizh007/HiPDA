@@ -128,6 +128,9 @@
                                                 <constraint firstItem="lfr-FQ-sVX" firstAttribute="centerY" secondItem="ME4-ff-55i" secondAttribute="centerY" id="qTg-Vs-ZXr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="SOQ-vP-cyx" kind="show" id="Ddj-Sa-ZYV"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="s7t-au-Naz">
                                         <rect key="frame" x="0.0" y="230" width="375" height="44"/>
@@ -158,6 +161,9 @@
                                                 <constraint firstItem="lP7-a1-rYF" firstAttribute="centerY" secondItem="Yy2-ye-y6j" secondAttribute="centerY" id="vhU-Eb-Peq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cQF-Ce-zsX" kind="show" id="5ck-Wq-uyZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="RpF-vn-zDf">
                                         <rect key="frame" x="0.0" y="274" width="375" height="44"/>
@@ -1163,10 +1169,10 @@
                                 <inset key="separatorInset" minX="64" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccoutTableViewCell" rowHeight="56" id="ohN-sR-N8d" customClass="AccoutTableViewCell" customModule="HiPDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="56"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohN-sR-N8d" id="5Kj-yk-A5F">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Ql-clf">
@@ -1217,10 +1223,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAccount" rowHeight="56" id="cgs-rF-Ct7">
-                                        <rect key="frame" x="0.0" y="111" width="375" height="56"/>
+                                        <rect key="frame" x="0.0" y="112" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cgs-rF-Ct7" id="GUj-hL-kZ3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_management_add" translatesAutoresizingMaskIntoConstraints="NO" id="XOp-2M-5Bf">
@@ -1246,10 +1252,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="yWI-D3-gxg">
-                                        <rect key="frame" x="0.0" y="167" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="168" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWI-D3-gxg" id="Ja3-g5-Mxa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="退出当前帐号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-37-2IQ">
@@ -1290,6 +1296,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVF-Hr-PuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3702" y="1934"/>
+        </scene>
+        <!--Attention View Controller-->
+        <scene sceneID="FXR-gD-diw">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="cQF-Ce-zsX" customClass="AttentionViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2A2-hB-eas"/>
+                        <viewControllerLayoutGuide type="bottom" id="vjS-1o-vK1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GEm-y5-A5x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9sj-6M-82h" customClass="BaseTableView" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9sj-6M-82h" secondAttribute="trailing" id="8Z2-eK-CEM"/>
+                            <constraint firstItem="9sj-6M-82h" firstAttribute="top" secondItem="2A2-hB-eas" secondAttribute="bottom" id="hhM-wq-2gv"/>
+                            <constraint firstItem="9sj-6M-82h" firstAttribute="leading" secondItem="GEm-y5-A5x" secondAttribute="leading" id="pKF-TC-eGO"/>
+                            <constraint firstAttribute="bottom" secondItem="9sj-6M-82h" secondAttribute="bottom" id="wYr-8m-zCc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9sj-6M-82h" id="FRR-4a-jJa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHV-RQ-72O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-908" y="2692.8035982008996"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="ViC-qe-ZyD">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="SOQ-vP-cyx" customClass="FavoritesViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lih-xh-lEC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jda-dn-VnS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WPo-ta-Kgg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="XVT-My-y4v" customClass="BaseTableView" customModule="HiPDA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XVT-My-y4v" firstAttribute="top" secondItem="lih-xh-lEC" secondAttribute="bottom" id="Kbz-Xb-ra9"/>
+                            <constraint firstAttribute="trailing" secondItem="XVT-My-y4v" secondAttribute="trailing" id="dIq-32-8nM"/>
+                            <constraint firstAttribute="bottom" secondItem="XVT-My-y4v" secondAttribute="bottom" id="kpq-yH-7aD"/>
+                            <constraint firstItem="XVT-My-y4v" firstAttribute="leading" secondItem="WPo-ta-Kgg" secondAttribute="leading" id="w1t-My-NKY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="XVT-My-y4v" id="hgQ-8i-hOz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKx-g9-7u0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-141.59999999999999" y="2692.8035982008996"/>
         </scene>
         <!--Draft List View Controller-->
         <scene sceneID="bNW-P4-8Ry">
@@ -1394,10 +1468,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeThreadTableViewCell" rowHeight="80" id="iBT-7v-HSO" customClass="HomeThreadTableViewCell" customModule="HiPDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="55" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iBT-7v-HSO" id="eg9-aj-IOs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-9w-LU8">

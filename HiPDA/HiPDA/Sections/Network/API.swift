@@ -36,6 +36,8 @@ extension HiPDA {
         case privateMessageConversation(uid: Int)
         case replypm(uid: Int, formhash: String, lastdaterange: String, message: String)
         case search(type: SearchType, text: String, page: Int)
+        case favorites(page: Int)
+        case attention(page: Int)
     }
 }
 
@@ -96,6 +98,10 @@ extension HiPDA.API: TargetType {
             return "/forum/pm.php?action=send&uid=\(uid)&pmsubmit=yes&infloat=yes&inajax=1"
         case let .search(type: type, text: text, page: page):
             return "/forum/search.php?srchtype=\(type.description)&srchtxt=\(text.gbkEscaped)&searchsubmit=true&st=on&srchuname=&srchfilter=all&srchfrom=0&before=&orderby=lastpost&ascdesc=desc&page=\(page)"
+        case let .favorites(page: page):
+            return "/forum/my.php?item=favorites&type=thread&page=\(page)"
+        case let .attention(page: page):
+            return "/forum/my.php?item=attention&type=thread&page=\(page)"
         }
     }
     var method: Moya.Method {
@@ -145,6 +151,10 @@ extension HiPDA.API: TargetType {
         case .replypm(_):
             return .post
         case .search(_):
+            return .get
+        case .favorites(_):
+            return .get
+        case .attention(_):
             return .get
         }
     }
@@ -243,6 +253,10 @@ extension HiPDA.API: TargetType {
                 "message": message
             ]
         case .search(_):
+            return nil
+        case .favorites(_):
+            return nil
+        case .attention(_):
             return nil
         }
     }
