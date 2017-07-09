@@ -50,6 +50,8 @@ enum C {
         /// WebView的baseURL
         static let baseWebViewURL = Foundation.URL(string: "https://www.hi-pda.com/forum/")!
         
+        static let authorEmail = "leizh007@qq.com"
+        
         enum HiPDA {
             /// 标明图片
             static let image = "--hipda-image--"

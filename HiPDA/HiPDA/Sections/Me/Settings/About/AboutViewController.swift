@@ -29,10 +29,10 @@ class AboutViewController: UITableViewController {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["leizh007@qq.com"])
+            mail.setToRecipients([C.URL.authorEmail])
             present(mail, animated: true, completion: nil)
         } else {
-            UIApplication.shared.openURL(URL(string: "mailto:leizh007@qq.com")!)
+            UIApplication.shared.openURL(URL(string: "mailto:\(C.URL.authorEmail)")!)
         }
     }
     

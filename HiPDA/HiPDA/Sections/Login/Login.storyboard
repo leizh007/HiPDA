@@ -265,20 +265,51 @@
                                 <state key="normal" image="navigationbar_close"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2017年 leizh007. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oc2-3a-ks1">
-                                <rect key="frame" x="16" y="631" width="343" height="16"/>
+                                <rect key="frame" x="16" y="635" width="343" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.53725490200000003" green="0.80000000000000004" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ANo-Y1-0bV">
+                                <rect key="frame" x="102" y="605" width="171" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vl8-CN-4VU">
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="意见与反馈"/>
+                                        <connections>
+                                            <action selector="adviseButtonPressed:" destination="b8G-pp-cGW" eventType="touchUpInside" id="Kq7-j1-Ni9"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qam-Ax-MqD">
+                                        <rect key="frame" x="85" y="8.5" width="1" height="13"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="M3R-Af-ycr"/>
+                                            <constraint firstAttribute="height" constant="13" id="al2-tI-WlX"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7I-E1-Qvp">
+                                        <rect key="frame" x="94" y="0.0" width="77" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="如何注册？"/>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="b8G-pp-cGW" eventType="touchUpInside" id="i6q-Hp-8wT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.1137254902" green="0.5568627451" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="oc2-3a-ks1" firstAttribute="top" secondItem="ANo-Y1-0bV" secondAttribute="bottom" id="0UE-0x-sQl"/>
                             <constraint firstItem="NU6-0b-YAT" firstAttribute="top" secondItem="Mj4-dw-xCJ" secondAttribute="bottom" constant="7" id="4EE-HJ-IY7"/>
                             <constraint firstItem="oc2-3a-ks1" firstAttribute="trailing" secondItem="44D-6Y-ava" secondAttribute="trailingMargin" id="5Ct-iT-fha"/>
                             <constraint firstAttribute="trailing" secondItem="NP7-g9-xV3" secondAttribute="trailing" id="Bkv-TH-CHR"/>
-                            <constraint firstItem="kAa-AH-Alj" firstAttribute="top" secondItem="oc2-3a-ks1" secondAttribute="bottom" constant="20" id="GHi-cl-yaF"/>
+                            <constraint firstItem="kAa-AH-Alj" firstAttribute="top" secondItem="oc2-3a-ks1" secondAttribute="bottom" constant="16" id="GHi-cl-yaF"/>
                             <constraint firstItem="NP7-g9-xV3" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leading" id="N2Z-2p-OtI"/>
+                            <constraint firstItem="ANo-Y1-0bV" firstAttribute="centerX" secondItem="44D-6Y-ava" secondAttribute="centerX" id="Pot-W7-lrW"/>
                             <constraint firstItem="NP7-g9-xV3" firstAttribute="top" secondItem="Mj4-dw-xCJ" secondAttribute="bottom" constant="44" id="WDo-2v-TTU"/>
                             <constraint firstItem="oc2-3a-ks1" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leadingMargin" id="XJj-xA-uBr"/>
                             <constraint firstItem="NU6-0b-YAT" firstAttribute="leading" secondItem="44D-6Y-ava" secondAttribute="leading" constant="16" id="jJu-73-ZL9"/>
@@ -307,7 +338,7 @@
                 <tapGestureRecognizer id="0l5-wo-JPG"/>
                 <tapGestureRecognizer id="DXT-06-3Zc"/>
             </objects>
-            <point key="canvasLocation" x="-1866" y="268"/>
+            <point key="canvasLocation" x="-1866.4000000000001" y="267.61619190404798"/>
         </scene>
     </scenes>
     <resources>

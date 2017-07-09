@@ -62,6 +62,7 @@
 		0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1F31EE44C4700DB854B /* PostOperationViewController.swift */; };
 		0533F1F81EE560FA00DB854B /* ErrorHandlePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1F71EE560FA00DB854B /* ErrorHandlePlugin.swift */; };
 		0533F1FD1EE5939700DB854B /* HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1FC1EE5939700DB854B /* HiPDA.swift */; };
+		05360D321F12355600EC2CC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05360D311F12355600EC2CC3 /* LoginViewController.swift */; };
 		0537AAF51EAF5D5C00A51721 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */; };
 		0537AAF71EB039F300A51721 /* HomeNavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */; };
 		0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */; };
@@ -325,7 +326,6 @@
 		05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2701D7ACFF20096878B /* HomeViewController.swift */; };
 		05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2721D7AD00C0096878B /* MeViewController.swift */; };
 		05E9A2771D7AD0390096878B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2761D7AD0390096878B /* SearchViewController.swift */; };
-		05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A2791D7AD8230096878B /* LoginViewController.swift */; };
 		05E9A27E1D7AD9DD0096878B /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */; };
 		05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */; };
 		05EDDCED1DDCA9C80095E95D /* NoResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */; };
@@ -431,6 +431,7 @@
 		0533F1F31EE44C4700DB854B /* PostOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOperationViewController.swift; sourceTree = "<group>"; };
 		0533F1F71EE560FA00DB854B /* ErrorHandlePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlePlugin.swift; sourceTree = "<group>"; };
 		0533F1FC1EE5939700DB854B /* HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiPDA.swift; sourceTree = "<group>"; };
+		05360D311F12355600EC2CC3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0537AAF41EAF5D5C00A51721 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationBarTitleView.swift; sourceTree = "<group>"; };
 		0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumNameSelectionViewController.swift; sourceTree = "<group>"; };
@@ -710,7 +711,6 @@
 		05E9A2701D7ACFF20096878B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05E9A2721D7AD00C0096878B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		05E9A2761D7AD0390096878B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		05E9A2791D7AD8230096878B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		05E9A27D1D7AD9DD0096878B /* StoryboardLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		05EDDCEA1DDCA2DE0095E95D /* BaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		05EDDCEC1DDCA9C80095E95D /* NoResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultView.xib; sourceTree = "<group>"; };
@@ -1496,7 +1496,7 @@
 		05E9A2781D7AD8180096878B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				05E9A2791D7AD8230096878B /* LoginViewController.swift */,
+				05360D311F12355600EC2CC3 /* LoginViewController.swift */,
 				05CB48A41D7C5EF6000926E6 /* LoginViewModel.swift */,
 				058A717D1DA1FFBD004992AD /* LoginResult.swift */,
 				05E510151D7B21DD00B55B8F /* LoginManager.swift */,
@@ -2082,6 +2082,7 @@
 				054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
 				057CA1421EF973C7003D2508 /* EmoticonParser.swift in Sources */,
+				05360D321F12355600EC2CC3 /* LoginViewController.swift in Sources */,
 				05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */,
 				059B16BA1F04FFB600360D82 /* ThreadMessageViewController.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
@@ -2165,7 +2166,6 @@
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
 				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,
 				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
-				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
 				056ED1701F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift in Sources */,
 				05B35C471ECC443700C037A7 /* Post.swift in Sources */,
 				051BFDE81EF58C8200EA77EB /* EmoticonHelper.swift in Sources */,

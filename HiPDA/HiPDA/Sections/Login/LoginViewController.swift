@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import MessageUI
 
 /// 登录成功后的回调
 typealias LoggedInCompletionHandler = (Account) -> Void
@@ -77,6 +78,21 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         configureTapGestureRecognizer()
         configureTextFields()
         configureViewModel()
+    }
+    
+    @IBAction func adviseButtonPressed(_ sender: UIButton) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([C.URL.authorEmail])
+            present(mail, animated: true, completion: nil)
+        } else {
+            UIApplication.shared.openURL(URL(string: "mailto:\(C.URL.authorEmail)")!)
+        }
+    }
+    
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        URLDispatchManager.shared.linkActived("https://www.hi-pda.com/forum/tobenew.php")
     }
     
     override func setupConstraints() {
@@ -252,5 +268,11 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
         }
         
         return nil
+    }
+}
+
+extension LoginViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
 }
