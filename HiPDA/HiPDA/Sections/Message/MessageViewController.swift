@@ -15,7 +15,7 @@ class MessageViewController: BaseViewController {
     @IBOutlet fileprivate var titleView: MessageNavigationBarTitleView!
     @IBOutlet fileprivate weak var scrollView: UIScrollView!
     fileprivate var messageViewControllers: [MessageTableViewController]!
-    private let  contentWidth = C.UI.screenWidth
+    private let contentWidth = C.UI.screenWidth
     private let contentHeight = C.UI.screenHeight - 64 - 49
     fileprivate var currentVisibleChildrenViewController: MessageTableViewController! {
         let index = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))

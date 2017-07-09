@@ -116,6 +116,21 @@
 		056ED1631F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056ED1611F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib */; };
 		056ED1651F10FE7B006FBCB8 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1641F10FE7B006FBCB8 /* FavoritesViewModel.swift */; };
 		056ED1671F10FE99006FBCB8 /* AttentionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1661F10FE99006FBCB8 /* AttentionViewModel.swift */; };
+		056ED16A1F11B5E9006FBCB8 /* MyThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1691F11B5E9006FBCB8 /* MyThreadsViewController.swift */; };
+		056ED16C1F11BD2C006FBCB8 /* MyThreadsNavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED16B1F11BD2C006FBCB8 /* MyThreadsNavigationBarTitleView.swift */; };
+		056ED16E1F11CA51006FBCB8 /* MyThreadsBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED16D1F11CA51006FBCB8 /* MyThreadsBaseTableViewController.swift */; };
+		056ED1701F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED16F1F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift */; };
+		056ED1721F11CCBA006FBCB8 /* MyTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1711F11CCBA006FBCB8 /* MyTopicsViewController.swift */; };
+		056ED1741F11CCDC006FBCB8 /* MyTopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1731F11CCDC006FBCB8 /* MyTopicsViewModel.swift */; };
+		056ED1761F11CCF4006FBCB8 /* MyPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1751F11CCF4006FBCB8 /* MyPostsViewController.swift */; };
+		056ED1781F11CCFB006FBCB8 /* MyPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1771F11CCFB006FBCB8 /* MyPostsViewModel.swift */; };
+		056ED17A1F11D5DA006FBCB8 /* MyThreadsBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1791F11D5DA006FBCB8 /* MyThreadsBaseModel.swift */; };
+		056ED17C1F11DA96006FBCB8 /* MyTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED17B1F11DA96006FBCB8 /* MyTopicModel.swift */; };
+		056ED17E1F11DAB0006FBCB8 /* MyPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED17D1F11DAB0006FBCB8 /* MyPostModel.swift */; };
+		056ED1811F120605006FBCB8 /* MyTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED17F1F120605006FBCB8 /* MyTopicTableViewCell.swift */; };
+		056ED1821F120605006FBCB8 /* MyTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056ED1801F120605006FBCB8 /* MyTopicTableViewCell.xib */; };
+		056ED1851F120612006FBCB8 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1831F120612006FBCB8 /* MyPostTableViewCell.swift */; };
+		056ED1861F120612006FBCB8 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056ED1841F120612006FBCB8 /* MyPostTableViewCell.xib */; };
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
@@ -471,6 +486,21 @@
 		056ED1611F10CD17006FBCB8 /* FavoritesAndAttentionBaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesAndAttentionBaseTableViewCell.xib; sourceTree = "<group>"; };
 		056ED1641F10FE7B006FBCB8 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		056ED1661F10FE99006FBCB8 /* AttentionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionViewModel.swift; sourceTree = "<group>"; };
+		056ED1691F11B5E9006FBCB8 /* MyThreadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyThreadsViewController.swift; sourceTree = "<group>"; };
+		056ED16B1F11BD2C006FBCB8 /* MyThreadsNavigationBarTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyThreadsNavigationBarTitleView.swift; sourceTree = "<group>"; };
+		056ED16D1F11CA51006FBCB8 /* MyThreadsBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyThreadsBaseTableViewController.swift; sourceTree = "<group>"; };
+		056ED16F1F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyThreadsBaseTableViewModel.swift; sourceTree = "<group>"; };
+		056ED1711F11CCBA006FBCB8 /* MyTopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTopicsViewController.swift; sourceTree = "<group>"; };
+		056ED1731F11CCDC006FBCB8 /* MyTopicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTopicsViewModel.swift; sourceTree = "<group>"; };
+		056ED1751F11CCF4006FBCB8 /* MyPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsViewController.swift; sourceTree = "<group>"; };
+		056ED1771F11CCFB006FBCB8 /* MyPostsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsViewModel.swift; sourceTree = "<group>"; };
+		056ED1791F11D5DA006FBCB8 /* MyThreadsBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyThreadsBaseModel.swift; sourceTree = "<group>"; };
+		056ED17B1F11DA96006FBCB8 /* MyTopicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTopicModel.swift; sourceTree = "<group>"; };
+		056ED17D1F11DAB0006FBCB8 /* MyPostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostModel.swift; sourceTree = "<group>"; };
+		056ED17F1F120605006FBCB8 /* MyTopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTopicTableViewCell.swift; sourceTree = "<group>"; };
+		056ED1801F120605006FBCB8 /* MyTopicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTopicTableViewCell.xib; sourceTree = "<group>"; };
+		056ED1831F120612006FBCB8 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
+		056ED1841F120612006FBCB8 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -1062,6 +1092,28 @@
 			name = AccountManagement;
 			sourceTree = "<group>";
 		};
+		056ED1681F11B5DA006FBCB8 /* MyThreads */ = {
+			isa = PBXGroup;
+			children = (
+				056ED1691F11B5E9006FBCB8 /* MyThreadsViewController.swift */,
+				056ED16B1F11BD2C006FBCB8 /* MyThreadsNavigationBarTitleView.swift */,
+				056ED16D1F11CA51006FBCB8 /* MyThreadsBaseTableViewController.swift */,
+				056ED16F1F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift */,
+				056ED1791F11D5DA006FBCB8 /* MyThreadsBaseModel.swift */,
+				056ED1711F11CCBA006FBCB8 /* MyTopicsViewController.swift */,
+				056ED1731F11CCDC006FBCB8 /* MyTopicsViewModel.swift */,
+				056ED17B1F11DA96006FBCB8 /* MyTopicModel.swift */,
+				056ED17F1F120605006FBCB8 /* MyTopicTableViewCell.swift */,
+				056ED1801F120605006FBCB8 /* MyTopicTableViewCell.xib */,
+				056ED1751F11CCF4006FBCB8 /* MyPostsViewController.swift */,
+				056ED1771F11CCFB006FBCB8 /* MyPostsViewModel.swift */,
+				056ED17D1F11DAB0006FBCB8 /* MyPostModel.swift */,
+				056ED1831F120612006FBCB8 /* MyPostTableViewCell.swift */,
+				056ED1841F120612006FBCB8 /* MyPostTableViewCell.xib */,
+			);
+			path = MyThreads;
+			sourceTree = "<group>";
+		};
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,6 +1435,7 @@
 		05E9A26D1D7ACFDB0096878B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				056ED1681F11B5DA006FBCB8 /* MyThreads */,
 				05384BA11F10C4750071B1C1 /* FavoritesAndAtttention */,
 				059D358C1F0E8C6400D5A42D /* Drafts */,
 				059D35871F0E7A2400D5A42D /* BrowseHistory */,
@@ -1688,8 +1741,10 @@
 				05B919DE1EEEE32F007339F6 /* grapeman_19.gif in Resources */,
 				05B919AD1EEEE32F007339F6 /* coolmonkey_08.gif in Resources */,
 				05B919DA1EEEE32F007339F6 /* grapeman_15.gif in Resources */,
+				056ED1821F120605006FBCB8 /* MyTopicTableViewCell.xib in Resources */,
 				05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */,
 				05B919BB1EEEE32F007339F6 /* default_funk.gif in Resources */,
+				056ED1861F120612006FBCB8 /* MyPostTableViewCell.xib in Resources */,
 				05B919A61EEEE32F007339F6 /* coolmonkey_01.gif in Resources */,
 				05B919D31EEEE32F007339F6 /* grapeman_08.gif in Resources */,
 				05B919B31EEEE32F007339F6 /* coolmonkey_14.gif in Resources */,
@@ -1924,6 +1979,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056ED1721F11CCBA006FBCB8 /* MyTopicsViewController.swift in Sources */,
 				058A9F4C1EFD1B5300E74744 /* ProfileBaseInfoSection.swift in Sources */,
 				05EE515B1EC9FBE000BC81B4 /* PostViewModel.swift in Sources */,
 				05EE515D1EC9FCBF00BC81B4 /* PostInfo.swift in Sources */,
@@ -1967,6 +2023,7 @@
 				0577A24D1EE2AAEE00FF5D32 /* URLDispatchManager.swift in Sources */,
 				05F3DCF31DB919070061CED1 /* State.swift in Sources */,
 				05E9A2731D7AD00C0096878B /* MeViewController.swift in Sources */,
+				056ED1761F11CCF4006FBCB8 /* MyPostsViewController.swift in Sources */,
 				059D35921F0E8DF100D5A42D /* Draft.swift in Sources */,
 				05E6974E1F00EABB005919B7 /* SearchUserThreadsViewController.swift in Sources */,
 				057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */,
@@ -1975,12 +2032,16 @@
 				056ED1651F10FE7B006FBCB8 /* FavoritesViewModel.swift in Sources */,
 				05082EF91D80629400259707 /* Operators.swift in Sources */,
 				055996CC1D50E0D600057CF6 /* Bootstrap.swift in Sources */,
+				056ED1811F120605006FBCB8 /* MyTopicTableViewCell.swift in Sources */,
 				051F41AB1E7E5F6D0049D31E /* AccountManagementViewModel.swift in Sources */,
 				059D35891F0E7AB700D5A42D /* BrowseHistoryViewController.swift in Sources */,
 				050A19101ED550E200EEFD08 /* NetworkReachabilityManager.swift in Sources */,
+				056ED16E1F11CA51006FBCB8 /* MyThreadsBaseTableViewController.swift in Sources */,
 				051BFDE91EF58C8200EA77EB /* EmoticonInputView.swift in Sources */,
+				056ED17A1F11D5DA006FBCB8 /* MyThreadsBaseModel.swift in Sources */,
 				051BFDE61EF58C8200EA77EB /* Emoticon.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
+				056ED16C1F11BD2C006FBCB8 /* MyThreadsNavigationBarTitleView.swift in Sources */,
 				053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */,
 				0588D8231EBF185A00AC43DD /* HomeThreadTableViewCell.swift in Sources */,
 				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
@@ -1990,6 +2051,7 @@
 				058A9F4A1EFD19BE00E74744 /* ProfileActionSection.swift in Sources */,
 				058A9F4E1EFE54EB00E74744 /* UserProfileAccountTableViewCell.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
+				056ED17C1F11DA96006FBCB8 /* MyTopicModel.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
 				054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */,
 				05B506741D6C8D64004D573D /* ReusableView.swift in Sources */,
@@ -1998,6 +2060,7 @@
 				059B16BA1F04FFB600360D82 /* ThreadMessageViewController.swift in Sources */,
 				0589EB501DB24BA30055DBB9 /* UIViewController+HiPDA.swift in Sources */,
 				054149551F038B6F00AFE469 /* FriendMessageModel.swift in Sources */,
+				056ED17E1F11DAB0006FBCB8 /* MyPostModel.swift in Sources */,
 				05DDFB821DC759CD00B7BAE8 /* Optional+HiPDA.swift in Sources */,
 				054590911F0D3D8C002F7AFF /* SearchFulltextModelForUI.swift in Sources */,
 				053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */,
@@ -2020,6 +2083,7 @@
 				05F3DCD91DB7B4A00061CED1 /* API.swift in Sources */,
 				05F3DCDF1DB7B5970061CED1 /* Regex.swift in Sources */,
 				05E9A2711D7ACFF20096878B /* HomeViewController.swift in Sources */,
+				056ED1781F11CCFB006FBCB8 /* MyPostsViewModel.swift in Sources */,
 				0546619E1EF8B7BD00857D33 /* DownloadedAsset.swift in Sources */,
 				05CB48A51D7C5EF6000926E6 /* LoginViewModel.swift in Sources */,
 				057226221EF1817B00397829 /* NewThreadManager.swift in Sources */,
@@ -2065,6 +2129,7 @@
 				05532B141ECE10BB00FAB176 /* ResourcesInitialization.swift in Sources */,
 				050C940C1EE67FE300FBD18F /* PageNumberSelectionViewController.swift in Sources */,
 				05DA5B681D856850004E2ED7 /* PickerActionSheetController.swift in Sources */,
+				056ED1851F120612006FBCB8 /* MyPostTableViewCell.swift in Sources */,
 				05EEF2121EBC6A8B00C38CAD /* Box.swift in Sources */,
 				051BFE071EF58F8300EA77EB /* ImagePickerCollectionViewCell.swift in Sources */,
 				059D35861F0DD05400D5A42D /* SearchFulltextTableViewCell.swift in Sources */,
@@ -2074,6 +2139,7 @@
 				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,
 				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
 				05E9A27A1D7AD8230096878B /* LoginViewController.swift in Sources */,
+				056ED1701F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift in Sources */,
 				05B35C471ECC443700C037A7 /* Post.swift in Sources */,
 				051BFDE81EF58C8200EA77EB /* EmoticonHelper.swift in Sources */,
 				057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */,
@@ -2088,6 +2154,7 @@
 				0578442D1F0B91F0004CB91F /* SearchViewModel.swift in Sources */,
 				05D130691E019415007D3765 /* EditWordListViewController.swift in Sources */,
 				05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */,
+				056ED16A1F11B5E9006FBCB8 /* MyThreadsViewController.swift in Sources */,
 				05068AF01E09696C0070E044 /* UserRemarkViewController.swift in Sources */,
 				057226281EF1819700397829 /* QuoteAuthorManager.swift in Sources */,
 				0577A24F1EE2B78C00FF5D32 /* UIApplication+HiPDA.swift in Sources */,
@@ -2141,6 +2208,7 @@
 				05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				059D35941F0F229F00D5A42D /* YYCache+Draft.swift in Sources */,
+				056ED1741F11CCDC006FBCB8 /* MyTopicsViewModel.swift in Sources */,
 				051BFE081EF58F8300EA77EB /* ImagePickerDataSource.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
 				0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */,

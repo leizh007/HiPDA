@@ -441,4 +441,21 @@ struct HtmlParser {
             return FavoritesAndAttentionBaseModel(forumName: result[3], title: result[2], tid: tid)
         }
     }
+    
+    static func myTopicModels(from html: String) throws -> [MyTopicModel] {
+        let pattern = "<th>[^\\?]+\\?tid=(\\d+)[^>]+>([\\s\\S]*?)<\\/a>[^\\?]+\\?fid=\\d+[^>]+>([\\s\\S]*?)<\\/a>"
+        let results = try Regex.matches(in: html, of: pattern)
+        return try results.map { result in
+            guard let tid = Int(result[1]) else { throw HtmlParserError.underlying("获取帖子id失败") }
+            return MyTopicModel(tid: tid, title: result[2], forumName: result[3])
+        }
+    }
+    
+    static func myPostModels(from html: String) throws -> [MyPostModel] {
+        let pattern = "<th>[^<]*<a\\shref=\"([^\"]+)\"[^>]+>([\\s\\S]*?)<\\/a>([^>]+>){3}([\\s\\S]*?)<\\/a>[\\s\\S]*?<em>([\\d-\\s:]+)<\\/em>[\\s\\S]*?lighttxt\">([\\s\\S]*?)<\\/th>[^<]*<\\/tr>"
+        let results = try Regex.matches(in: html, of: pattern)
+        return results.map { result in
+            return MyPostModel(urlPath: result[1].stringByDecodingHTMLEntities, title: result[2], content: result[6], forumName: result[4], postTime: result[5])
+        }
+    }
 }

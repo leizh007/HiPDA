@@ -40,6 +40,8 @@ extension HiPDA {
         case attention(page: Int)
         case deleteFavorites(tids: [Int], formhash: String)
         case deleteAttentions(tids: [Int], formhash: String)
+        case myTopics(page: Int)
+        case myPosts(page: Int)
     }
 }
 
@@ -108,6 +110,10 @@ extension HiPDA.API: TargetType {
             return "/forum/my.php?item=favorites&type=thread"
         case .deleteAttentions(_):
             return "/forum/my.php?item=attention&type=thread"
+        case let .myTopics(page: page):
+            return "/forum/my.php?item=threads&page=\(page)"
+        case let .myPosts(page: page):
+            return "/forum/my.php?item=posts&page=\(page)"
         }
     }
     var method: Moya.Method {
@@ -166,6 +172,10 @@ extension HiPDA.API: TargetType {
             return .post
         case .deleteFavorites(_):
             return .post
+        case .myTopics(_):
+            return .get
+        case .myPosts(_):
+            return .get
         }
     }
     var parameters: [String : Any]? {
@@ -271,6 +281,10 @@ extension HiPDA.API: TargetType {
         case .deleteFavorites(_):
             return nil
         case .deleteAttentions(_):
+            return nil
+        case .myTopics(_):
+            return nil
+        case .myPosts(_):
             return nil
         }
     }
