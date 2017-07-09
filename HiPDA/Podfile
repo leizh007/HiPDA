@@ -61,6 +61,7 @@ target 'HiPDA' do
   pod 'HTMLString', '~> 3.0.0'
   pod 'FDFullscreenPopGesture', '~> 1.1'
   pod 'JSQMessagesViewController', '~> 7.3.4'
+  pod 'AcknowList'
   
   target 'HiPDATests' do
     inherit! :search_paths

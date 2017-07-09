@@ -8,6 +8,7 @@
 
 import Foundation
 import MessageUI
+import AcknowList
 
 fileprivate enum AbountSection: Int {
     case version
@@ -34,6 +35,13 @@ class AboutViewController: UITableViewController {
             UIApplication.shared.openURL(URL(string: "mailto:leizh007@qq.com")!)
         }
     }
+    
+    fileprivate func showAcknowledgementsViewController() {
+        let path = Bundle.main.path(forResource: "Pods-HiPDA-acknowledgements", ofType: "plist")
+        let viewController = AcknowListViewController(acknowledgementsPlistPath: path)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension AboutViewController {
@@ -42,11 +50,11 @@ extension AboutViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 160.0 : 10.0
+        return section == 0 ? 160.0 : 8.0
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 5.0
+        return 8.0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,7 +66,7 @@ extension AboutViewController {
         case .advise:
             sendAdvise()
         case .acknowledgements:
-            break
+            showAcknowledgementsViewController()
         }
     }
 }

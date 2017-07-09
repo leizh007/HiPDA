@@ -298,6 +298,7 @@
 		05CB82681EFCA97B0040FC92 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */; };
 		05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CEB74D1E1D0F7300ACB773 /* ForumList.plist */; };
 		05CED4B51F12158900A2C0FD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED4B41F12158900A2C0FD /* AboutViewController.swift */; };
+		05CED4BF1F1225F500A2C0FD /* Pods-HiPDA-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CED4BE1F1225F500A2C0FD /* Pods-HiPDA-acknowledgements.plist */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */; };
 		05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130601E017D21007D3765 /* EditWordListSection.swift */; };
@@ -672,6 +673,7 @@
 		05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		05CEB74D1E1D0F7300ACB773 /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		05CED4B41F12158900A2C0FD /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		05CED4BE1F1225F500A2C0FD /* Pods-HiPDA-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-HiPDA-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-HiPDA/Pods-HiPDA-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
@@ -1305,6 +1307,7 @@
 			isa = PBXGroup;
 			children = (
 				05CED4B41F12158900A2C0FD /* AboutViewController.swift */,
+				05CED4BE1F1225F500A2C0FD /* Pods-HiPDA-acknowledgements.plist */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -1760,6 +1763,7 @@
 				05B919D41EEEE32F007339F6 /* grapeman_09.gif in Resources */,
 				05B919CD1EEEE32F007339F6 /* grapeman_02.gif in Resources */,
 				05B919CC1EEEE32F007339F6 /* grapeman_01.gif in Resources */,
+				05CED4BF1F1225F500A2C0FD /* Pods-HiPDA-acknowledgements.plist in Resources */,
 				05B919DE1EEEE32F007339F6 /* grapeman_19.gif in Resources */,
 				05B919AD1EEEE32F007339F6 /* coolmonkey_08.gif in Resources */,
 				05B919DA1EEEE32F007339F6 /* grapeman_15.gif in Resources */,
@@ -1871,7 +1875,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2427380ED53DC087DDD61F14 /* [CP] Embed Pods Frameworks */ = {
@@ -1976,7 +1980,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F26777E2EE7C9699EB1D9F9F /* [CP] Check Pods Manifest.lock */ = {
@@ -1991,7 +1995,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
