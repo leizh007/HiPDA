@@ -131,6 +131,7 @@
 		056ED1821F120605006FBCB8 /* MyTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056ED1801F120605006FBCB8 /* MyTopicTableViewCell.xib */; };
 		056ED1851F120612006FBCB8 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1831F120612006FBCB8 /* MyPostTableViewCell.swift */; };
 		056ED1861F120612006FBCB8 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056ED1841F120612006FBCB8 /* MyPostTableViewCell.xib */; };
+		056ED1891F120F1D006FBCB8 /* FontAndLineHeightSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056ED1881F120F1D006FBCB8 /* FontAndLineHeightSettingViewController.swift */; };
 		057016A51DCA3D3A0024EC3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */; };
 		057016A71DCAD6150024EC3B /* PromptInformationShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */; };
 		057016F11DCB78700024EC3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057016F01DCB78700024EC3B /* Settings.swift */; };
@@ -501,6 +502,7 @@
 		056ED1801F120605006FBCB8 /* MyTopicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTopicTableViewCell.xib; sourceTree = "<group>"; };
 		056ED1831F120612006FBCB8 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		056ED1841F120612006FBCB8 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
+		056ED1881F120F1D006FBCB8 /* FontAndLineHeightSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAndLineHeightSettingViewController.swift; sourceTree = "<group>"; };
 		057016A41DCA3D3A0024EC3B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		057016A61DCAD6150024EC3B /* PromptInformationShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptInformationShowable.swift; sourceTree = "<group>"; };
 		057016F01DCB78700024EC3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -1114,9 +1116,18 @@
 			path = MyThreads;
 			sourceTree = "<group>";
 		};
+		056ED1871F120F04006FBCB8 /* FontAndLineHeight */ = {
+			isa = PBXGroup;
+			children = (
+				056ED1881F120F1D006FBCB8 /* FontAndLineHeightSettingViewController.swift */,
+			);
+			path = FontAndLineHeight;
+			sourceTree = "<group>";
+		};
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				056ED1871F120F04006FBCB8 /* FontAndLineHeight */,
 				056B3BF21E6D863C00843E32 /* AccountManagement */,
 				05CEB7541E1D5E5900ACB773 /* ForumList */,
 				05068AEE1E09693B0070E044 /* UserRemark */,
@@ -2208,6 +2219,7 @@
 				05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */,
 				05082EF71D8061C500259707 /* UITextInput+HiPDA.swift in Sources */,
 				059D35941F0F229F00D5A42D /* YYCache+Draft.swift in Sources */,
+				056ED1891F120F1D006FBCB8 /* FontAndLineHeightSettingViewController.swift in Sources */,
 				056ED1741F11CCDC006FBCB8 /* MyTopicsViewModel.swift in Sources */,
 				051BFE081EF58F8300EA77EB /* ImagePickerDataSource.swift in Sources */,
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,

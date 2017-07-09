@@ -373,6 +373,9 @@
                                                 <constraint firstItem="rTe-Yl-ETB" firstAttribute="leading" secondItem="s0q-rd-OIj" secondAttribute="leading" constant="16" id="UYl-cl-MXk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xhc-MR-cRX" kind="show" id="Oim-dX-bHq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1026,6 +1029,49 @@
             </objects>
             <point key="canvasLocation" x="2152.8000000000002" y="1933.5832083958023"/>
         </scene>
+        <!--Font And Line Height Setting View Controller-->
+        <scene sceneID="WLt-TR-vXA">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="xhc-MR-cRX" customClass="FontAndLineHeightSettingViewController" customModule="HiPDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zF2-Zo-T9b"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9s-no-tHB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sXA-nM-BRe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyF-iO-ueg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="270"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="BKq-zR-apO"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂不支持设置！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ed-GJ-NvV">
+                                <rect key="frame" x="126.5" y="342" width="121.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Ed-GJ-NvV" firstAttribute="top" secondItem="nyF-iO-ueg" secondAttribute="bottom" constant="8" id="R9D-WS-PK4"/>
+                            <constraint firstItem="nyF-iO-ueg" firstAttribute="top" secondItem="zF2-Zo-T9b" secondAttribute="bottom" id="ViB-7E-GFA"/>
+                            <constraint firstItem="nyF-iO-ueg" firstAttribute="leading" secondItem="sXA-nM-BRe" secondAttribute="leading" id="ch0-5Q-wzC"/>
+                            <constraint firstAttribute="trailing" secondItem="nyF-iO-ueg" secondAttribute="trailing" id="kgV-Fe-7if"/>
+                            <constraint firstItem="9Ed-GJ-NvV" firstAttribute="centerX" secondItem="sXA-nM-BRe" secondAttribute="centerX" id="xgO-6E-yZk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webViewContainer" destination="nyF-iO-ueg" id="Hl7-ET-b4q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppv-yg-C6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2909.5999999999999" y="509.59520239880067"/>
+        </scene>
         <!--User Remark View Controller-->
         <scene sceneID="Ahr-tZ-NHg">
             <objects>
@@ -1548,10 +1594,10 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftTableViewCell" rowHeight="64" id="Y5O-jG-teH" customClass="DraftTableViewCell" customModule="HiPDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y5O-jG-teH" id="dzT-4S-q8T">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1l-TI-iGM">
@@ -1881,7 +1927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueg-1t-FX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2910" y="2758"/>
+            <point key="canvasLocation" x="2910" y="2694"/>
         </scene>
         <!--Active Forum Name List View Controller-->
         <scene sceneID="M5b-JI-HLn">
@@ -1899,7 +1945,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgz-an-us7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2910" y="3511"/>
+            <point key="canvasLocation" x="2910" y="3487"/>
         </scene>
         <!--Forum List View Controller-->
         <scene sceneID="IDP-Xi-tve">
@@ -2104,7 +2150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAw-Xa-R9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909.5999999999999" y="4303.8980509745134"/>
+            <point key="canvasLocation" x="2910" y="4258"/>
         </scene>
     </scenes>
     <resources>
