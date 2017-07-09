@@ -297,6 +297,7 @@
 		05CB82641EFC12C90040FC92 /* UserProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB82631EFC12C90040FC92 /* UserProfileSection.swift */; };
 		05CB82681EFCA97B0040FC92 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */; };
 		05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CEB74D1E1D0F7300ACB773 /* ForumList.plist */; };
+		05CED4B51F12158900A2C0FD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED4B41F12158900A2C0FD /* AboutViewController.swift */; };
 		05CF1A691D6DE1A80066AFA7 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */; };
 		05D1305F1E017C46007D3765 /* EditWordListSectionedTableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1305E1E017C46007D3765 /* EditWordListSectionedTableViewState.swift */; };
 		05D130611E017D21007D3765 /* EditWordListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D130601E017D21007D3765 /* EditWordListSection.swift */; };
@@ -670,6 +671,7 @@
 		05CB82631EFC12C90040FC92 /* UserProfileSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileSection.swift; sourceTree = "<group>"; };
 		05CB82671EFCA97B0040FC92 /* UserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		05CEB74D1E1D0F7300ACB773 /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
+		05CED4B41F12158900A2C0FD /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		05CF1A661D6DE1A80066AFA7 /* HiPDA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiPDA-Bridging-Header.h"; path = "../Helpers/HiPDA-Bridging-Header.h"; sourceTree = "<group>"; };
 		05CF1A671D6DE1A80066AFA7 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		05CF1A681D6DE1A80066AFA7 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
@@ -1127,6 +1129,7 @@
 		057016A31DCA3CFF0024EC3B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				05CED4B31F12157D00A2C0FD /* About */,
 				056ED1871F120F04006FBCB8 /* FontAndLineHeight */,
 				056B3BF21E6D863C00843E32 /* AccountManagement */,
 				05CEB7541E1D5E5900ACB773 /* ForumList */,
@@ -1296,6 +1299,14 @@
 				05F8BCAA1E37593800F9EC1B /* ForumNameSection.swift */,
 			);
 			path = ForumList;
+			sourceTree = "<group>";
+		};
+		05CED4B31F12157D00A2C0FD /* About */ = {
+			isa = PBXGroup;
+			children = (
+				05CED4B41F12158900A2C0FD /* AboutViewController.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		05D1305B1E017BF6007D3765 /* EditWordList */ = {
@@ -2078,6 +2089,7 @@
 				05EE51591EC9572A00BC81B4 /* NewThreadViewController.swift in Sources */,
 				051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */,
 				058A71741DA1E407004992AD /* Lens.swift in Sources */,
+				05CED4B51F12158900A2C0FD /* AboutViewController.swift in Sources */,
 				05B918761EEE826F007339F6 /* CGUtilities.swift in Sources */,
 				05DD42AE1EC21A5F007F0EBE /* Avatar.swift in Sources */,
 				0545908D1F0D0DC7002F7AFF /* SearchTitleModelForUI.swift in Sources */,
