@@ -1611,6 +1611,7 @@
 				C95C3B42383B0E09365FF564 /* [CP] Check Pods Manifest.lock */,
 				05D4896D1D3E5E23000A086B /* Sources */,
 				05D4896E1D3E5E23000A086B /* Frameworks */,
+				059D8B151F135C2400F97046 /* ShellScript */,
 				05D4896F1D3E5E23000A086B /* Resources */,
 				2427380ED53DC087DDD61F14 /* [CP] Embed Pods Frameworks */,
 				A68560A9DC840911E47F075A /* [CP] Copy Pods Resources */,
@@ -1855,6 +1856,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "codesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"";
+		};
+		059D8B151F135C2400F97046 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REV=`git rev-list HEAD | wc -l | awk '{print $1}'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${REV}\" \"$PRODUCT_SETTINGS_PATH\"";
 		};
 		05C7FE201D3E7BC4005D0D0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2434,7 +2448,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2469,7 +2483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
