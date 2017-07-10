@@ -200,6 +200,7 @@
 		059D495B1EBB108F00BECA18 /* ThreadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D495A1EBB108F00BECA18 /* ThreadManager.swift */; };
 		059D495D1EBB1B0B00BECA18 /* HtmlParserThreadsData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 059D495C1EBB1B0A00BECA18 /* HtmlParserThreadsData.txt */; };
 		059D495F1EBB1D2900BECA18 /* ThreadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D495E1EBB1D2900BECA18 /* ThreadResult.swift */; };
+		059D8AE61F13180B00F97046 /* BackgroundFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059D8AE51F13180B00F97046 /* BackgroundFetchManager.swift */; };
 		05A1C82D1E35D647004A95B1 /* ActiveForumNameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */; };
 		05A2AF981E2385B00048508C /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF961E2385B00048508C /* Forum.swift */; };
 		05A2AF991E2385B00048508C /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2AF971E2385B00048508C /* ForumManager.swift */; };
@@ -573,6 +574,7 @@
 		059D495A1EBB108F00BECA18 /* ThreadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadManager.swift; sourceTree = "<group>"; };
 		059D495C1EBB1B0A00BECA18 /* HtmlParserThreadsData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HtmlParserThreadsData.txt; sourceTree = "<group>"; };
 		059D495E1EBB1D2900BECA18 /* ThreadResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadResult.swift; sourceTree = "<group>"; };
+		059D8AE51F13180B00F97046 /* BackgroundFetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundFetchManager.swift; sourceTree = "<group>"; };
 		05A1C82C1E35D647004A95B1 /* ActiveForumNameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveForumNameListViewController.swift; sourceTree = "<group>"; };
 		05A2AF961E2385B00048508C /* Forum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		05A2AF971E2385B00048508C /* ForumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
@@ -939,6 +941,7 @@
 				05B35C421ECC3F4000C037A7 /* URLProtocolManager.swift */,
 				05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */,
 				0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */,
+				059D8AE51F13180B00F97046 /* BackgroundFetchManager.swift */,
 				053067D61DFD80B8009D0154 /* PerformanceMonitor.h */,
 				053067D71DFD80B8009D0154 /* PerformanceMonitor.m */,
 			);
@@ -1682,6 +1685,9 @@
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -2241,6 +2247,7 @@
 				0589EB4E1DB249220055DBB9 /* PresentAnimator.swift in Sources */,
 				0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */,
 				054AA64C1D75D0D100819C2D /* FPSAssistiveTouch.swift in Sources */,
+				059D8AE61F13180B00F97046 /* BackgroundFetchManager.swift in Sources */,
 				05A76B911F0A14F700199B6D /* ChatViewModel.swift in Sources */,
 				05DD42EC1EC47C42007F0EBE /* NSURLProtocol+WebKitSupport.m in Sources */,
 				0578442F1F0C7785004CB91F /* SearchTitleManager.swift in Sources */,
