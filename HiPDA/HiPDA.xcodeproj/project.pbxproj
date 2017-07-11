@@ -55,9 +55,7 @@
 		0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */; };
 		052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */; };
 		052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92161E0688FF00856219 /* SettingsSegue.swift */; };
-		053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053067D01DFD6BCF009D0154 /* CrashReporter.framework */; };
 		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
-		053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 053067D71DFD80B8009D0154 /* PerformanceMonitor.m */; };
 		0533F1F01EE4186A00DB854B /* UITabBarController+HiPDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1EF1EE4186A00DB854B /* UITabBarController+HiPDA.swift */; };
 		0533F1F41EE44C4700DB854B /* PostOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1F31EE44C4700DB854B /* PostOperationViewController.swift */; };
 		0533F1F81EE560FA00DB854B /* ErrorHandlePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0533F1F71EE560FA00DB854B /* ErrorHandlePlugin.swift */; };
@@ -424,10 +422,7 @@
 		0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PmDoNotDisturbTimeSettingViewController.swift; sourceTree = "<group>"; };
 		052F92161E0688FF00856219 /* SettingsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSegue.swift; sourceTree = "<group>"; };
-		053067D01DFD6BCF009D0154 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		053067D41DFD808A009D0154 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
-		053067D61DFD80B8009D0154 /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
-		053067D71DFD80B8009D0154 /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
 		0533F1EF1EE4186A00DB854B /* UITabBarController+HiPDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+HiPDA.swift"; sourceTree = "<group>"; };
 		0533F1F31EE44C4700DB854B /* PostOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostOperationViewController.swift; sourceTree = "<group>"; };
 		0533F1F71EE560FA00DB854B /* ErrorHandlePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlePlugin.swift; sourceTree = "<group>"; };
@@ -760,7 +755,6 @@
 			files = (
 				051761C71ED88912007951DE /* SafariServices.framework in Frameworks */,
 				355DD1CE78EB6671D51A2DE7 /* Pods_HiPDA.framework in Frameworks */,
-				053067D11DFD6BCF009D0154 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,8 +936,6 @@
 				05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */,
 				0577A24C1EE2AAEE00FF5D32 /* URLDispatchManager.swift */,
 				059D8AE51F13180B00F97046 /* BackgroundFetchManager.swift */,
-				053067D61DFD80B8009D0154 /* PerformanceMonitor.h */,
-				053067D71DFD80B8009D0154 /* PerformanceMonitor.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -1583,7 +1575,6 @@
 				7C733C1B811E239B20C38FCC /* Pods_HiPDA.framework */,
 				77FDF8600BAF7ACBBEE655F6 /* Pods_HiPDATests.framework */,
 				753714CB2B1C478F423F753C /* Pods_HiPDAUITests.framework */,
-				053067D01DFD6BCF009D0154 /* CrashReporter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2088,7 +2079,6 @@
 				051BFDE61EF58C8200EA77EB /* Emoticon.swift in Sources */,
 				0589EB571DB349880055DBB9 /* UIImage+HiPDA.swift in Sources */,
 				056ED16C1F11BD2C006FBCB8 /* MyThreadsNavigationBarTitleView.swift in Sources */,
-				053067D81DFD80B8009D0154 /* PerformanceMonitor.m in Sources */,
 				0588D8231EBF185A00AC43DD /* HomeThreadTableViewCell.swift in Sources */,
 				05EDDCF11DDCB0450095E95D /* XibLoadable.swift in Sources */,
 				0533F1F81EE560FA00DB854B /* ErrorHandlePlugin.swift in Sources */,

@@ -14,8 +14,5 @@ import Crashlytics
 class CrashAnalysis: Bootstrapping {
     func bootstrap(bootstrapped: Bootstrapped) throws {
         Fabric.with([Crashlytics.self])
-#if DEBUG
-        //PerformanceMonitor.shared().start()
-#endif
     }
 }
