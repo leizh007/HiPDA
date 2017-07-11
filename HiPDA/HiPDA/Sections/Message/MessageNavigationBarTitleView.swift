@@ -32,9 +32,9 @@ class MessageNavigationBarTitleView: UIView {
     @IBAction private func messagesContainerViewDidTapped(_ sender: UITapGestureRecognizer) {
         let tag = sender.view?.tag ?? 0
         select(index: tag)
-        delegate?.itemDidSelect(tag)
         if lastSelectedIndex != tag {
             lastSelectedIndex = tag
+            delegate?.itemDidSelect(tag)
         } else {
             NotificationCenter.default.post(name: .MessageViewControllerTabRepeatedSelected, object: nil)
         }
@@ -59,6 +59,7 @@ class MessageNavigationBarTitleView: UIView {
             messageLabels[index].transform = CGAffineTransform(scaleX: 1.0 - 2.0 * (1 - factor) / 17.0,
                                                                     y: 1.0 - 2.0 * (1 - factor) / 17.0)
         }
+        lastSelectedIndex = Int(round(offset))
     }
     
     func select(index: Int) {
