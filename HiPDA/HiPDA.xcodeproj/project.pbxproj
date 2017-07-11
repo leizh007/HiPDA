@@ -1681,10 +1681,10 @@
 				TargetAttributes = {
 					05D489701D3E5E23000A086B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZG65V92KVZ;
+						DevelopmentTeam = 763FDD9B4C;
 						DevelopmentTeamName = "震 雷 (Personal Team)";
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2439,7 +2439,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ZG65V92KVZ;
+				DEVELOPMENT_TEAM = 763FDD9B4C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2448,10 +2448,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA.cannon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "260daeb3-9dbb-4136-af53-d324d4c98c30";
+				PROVISIONING_PROFILE_SPECIFIER = HiPDA_Development;
 				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2467,9 +2467,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ZG65V92KVZ;
+				DEVELOPMENT_TEAM = 763FDD9B4C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2483,10 +2483,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leizh007.HiPDA.cannon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "93882a2d-3903-426d-bd56-9fb36d4f8cd8";
+				PROVISIONING_PROFILE_SPECIFIER = HiPDA;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
