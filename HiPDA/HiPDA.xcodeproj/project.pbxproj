@@ -2436,8 +2436,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: zhen lei (H5YKKLZKUC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zhen lei (H5YKKLZKUC)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 763FDD9B4C;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2466,8 +2466,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Daolong Wang (MSF98TD4N3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zhen lei (763FDD9B4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zhen lei (763FDD9B4C)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 763FDD9B4C;
 				FRAMEWORK_SEARCH_PATHS = (
