@@ -116,6 +116,9 @@ extension MessageViewController {
         EventBus.shared.unReadMessagesCount
             .do(onNext: { [weak self] model in
                 self?.titleView.model = model
+                self?.messageViewControllers.safe[0]?.unReadMessagesCount = model.threadMessagesCount
+                self?.messageViewControllers.safe[1]?.unReadMessagesCount = model.privateMessagesCount
+                self?.messageViewControllers.safe[2]?.unReadMessagesCount = model.friendMessagesCount
             })
             .map { $0.totalMessagesCount == 0 ? nil : "\($0.totalMessagesCount)" }
             .drive(navigationController!.tabBarItem.rx.badgeValue)

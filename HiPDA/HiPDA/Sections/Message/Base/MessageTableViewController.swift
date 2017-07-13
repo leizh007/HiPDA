@@ -12,6 +12,11 @@ class MessageTableViewController: BaseViewController {
     var tableView: BaseTableView!
     var viewModel: MessageTableViewModel!
     var isVisible = false
+    var unReadMessagesCount = 0 {
+        didSet {
+            viewModel?.unReadMessagesCount = unReadMessagesCount
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
