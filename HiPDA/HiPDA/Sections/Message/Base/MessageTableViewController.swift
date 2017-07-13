@@ -40,6 +40,7 @@ class MessageTableViewController: BaseViewController {
         tableView.hasRefreshHeader = true
         tableView.hasLoadMoreFooter = true
         view.addSubview(tableView)
+        tableView.cellLayoutMarginsFollowReadableWidth = false
     }
     
     func skinViewModel() {

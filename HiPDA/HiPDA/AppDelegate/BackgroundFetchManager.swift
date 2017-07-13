@@ -15,7 +15,7 @@ class BackgroundFetchManager: NSObject, Bootstrapping {
     fileprivate var completionHandler: ((UIBackgroundFetchResult) -> Void)?
     
     func bootstrap(bootstrapped: Bootstrapped) throws {
-        UIApplication.shared.setMinimumBackgroundFetchInterval(60 * 60)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     }
     
     func performFetch(with completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
