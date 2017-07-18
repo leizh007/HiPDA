@@ -218,7 +218,7 @@ extension HomeViewController: HomeNavigationBarTitleViewDelegate {
     func titleViewClicked(titleView: HomeNavigationBarTitleView) {
         guard let forumNameSelectionViewController = storyboard?.instantiateViewController(withIdentifier: ForumNameSelectionViewController.identifier) as? ForumNameSelectionViewController else { return }
         forumNameSelectionViewController.modalPresentationStyle = .popover
-        forumNameSelectionViewController.preferredContentSize = CGSize(width: 200, height: 264) // 200跟titleView的最大宽度差不多，264 = 6 * cell的高度44.0
+        forumNameSelectionViewController.preferredContentSize = CGSize(width: 225, height: 264) // 200跟titleView的最大宽度差不多，264 = 6 * cell的高度44.0
         forumNameSelectionViewController.popoverPresentationController?.sourceView = titleView
         let sourceRect = CGRect(x: 0, y: 0, width: titleView.bounds.size.width, height: 22.5)
         forumNameSelectionViewController.popoverPresentationController?.sourceRect = sourceRect // 为了让popOver的上边沿和navigationBar的下边沿对齐

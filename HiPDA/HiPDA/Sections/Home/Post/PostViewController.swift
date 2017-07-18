@@ -16,13 +16,10 @@ import SDWebImage
 import Then
 
 /// 浏览帖子页面
-class PostViewController: BaseViewController {
-    fileprivate static let shared = PostViewController.load(from: .home)
-    
+class PostViewController: BaseViewController {    
     var postInfo: PostInfo! {
         didSet {
-            guard let viewModel = viewModel else { return }
-            viewModel.postInfo = postInfo
+            viewModel?.postInfo = postInfo
         }
     }
     
@@ -102,6 +99,10 @@ class PostViewController: BaseViewController {
         
         postOperationViewController?.dismiss(animation: false)
         postOperationViewController = nil
+    }
+    
+    deinit {
+        webView?.scrollView.delegate = nil
     }
     
     func canJump(to postInfo: PostInfo) -> Bool {
