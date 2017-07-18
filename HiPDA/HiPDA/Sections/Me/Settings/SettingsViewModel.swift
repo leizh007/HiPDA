@@ -166,6 +166,16 @@ struct SettingsViewModel {
         }
     }
     
+    var threadOrder: HiPDA.ThreadOrder {
+        get {
+            return settings.threadOrder
+        }
+        
+        set {
+            settings.threadOrder = newValue
+        }
+    }
+    
     /// 是否开启小尾巴设置
     var isEnabledTail: Bool {
         return settings.isEnabledTail

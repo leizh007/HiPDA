@@ -79,6 +79,8 @@ class SettingsViewController: UITableViewController {
     /// 无线网络下自动下载图片的switch
     @IBOutlet private weak var autoLoadImageViaWWANSwitch: UISwitch!
     
+    @IBOutlet private weak var threadOrderLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,6 +121,7 @@ class SettingsViewController: UITableViewController {
         tailTextTextField.text = viewModel.tailText
         tailURLTextField.text = viewModel.tailURLString
         autoLoadImageViaWWANSwitch.isOn = viewModel.autoLoadImageViaWWAN
+        threadOrderLabel.text = viewModel.threadOrder.descriptionForDisplay
         
         viewModel.pmDoNotDisturbDescription.asObservable()
             .bindTo(pmDoNotDisturbDescriptionLabel.rx.text)
@@ -159,7 +162,8 @@ class SettingsViewController: UITableViewController {
     /// 配置tableView相关
     private func configureTableView() {
         enum C {
-            static let clearCacheIndexPath = IndexPath(row: 0, section: 10)
+            static let clearCacheIndexPath = IndexPath(row: 0, section: 11)
+            static let threadOrderIndexPath = IndexPath(row: 0, section: 7)
         }
         
         let router = SettingsRouter(viewController: self)
@@ -182,21 +186,44 @@ class SettingsViewController: UITableViewController {
             .subscribe(onNext: { [unowned self] indexPath in
                 self.tableView.deselectRow(at: indexPath, animated: true)
                 self.view.endEditing(true)
-                if indexPath == C.clearCacheIndexPath {
+                switch indexPath {
+                case C.clearCacheIndexPath:
                     self.clearCache()
-                } else {
+                case C.threadOrderIndexPath:
+                    self.showThreadOrderSelectionView()
+                default:
                     router.handleSelection(for: indexPath)
                 }
             }).addDisposableTo(disposeBag)
+    }
+    
+    private func showThreadOrderSelectionView() {
+        let orders = [HiPDA.ThreadOrder.heats,
+                      HiPDA.ThreadOrder.dateline,
+                      HiPDA.ThreadOrder.replies,
+                      HiPDA.ThreadOrder.views,
+                      HiPDA.ThreadOrder.lastpost]
+        let orderDescriptions = orders.map { $0.descriptionForDisplay }
+        let pickerActionSheetController = PickerActionSheetController.load(from: .views)
+        pickerActionSheetController.pickerTitles = orderDescriptions
+        pickerActionSheetController.initialSelelctionIndex = orders.index(of: viewModel.threadOrder)
+        pickerActionSheetController.selectedCompletionHandler = { [unowned self] (index) in
+            self.dismiss(animated: false, completion: nil)
+            if let index = index, let order = orders.safe[index] {
+                self.threadOrderLabel.text = order.descriptionForDisplay
+                self.viewModel.threadOrder = order
+            }
+        }
+        pickerActionSheetController.modalPresentationStyle = .overCurrentContext
+        present(pickerActionSheetController, animated: false, completion: nil)
     }
     
     private func clearCache() {
         cacheIndicatorView.isHidden = false
         cacheIndicatorView.startAnimating()
         cacheSizeLabel.isHidden = true
-#if DEBUG
+        
         SDImageCache.shared().clearMemory()
-#endif
         SDImageCache.shared().clearDisk(onCompletion: {
             DispatchQueue.global().async {
                 // 缓存大小，Byte为单位

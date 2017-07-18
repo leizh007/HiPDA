@@ -12,7 +12,7 @@ import Moya
 extension HiPDA {
     enum API {
         case login(Account)
-        case threads(fid: Int, typeid: Int, page: Int)
+        case threads(fid: Int, typeid: Int, page: Int, order: HiPDA.ThreadOrder)
         case posts(PostInfo)
         case redirect(String)
         case newThread(fid: Int, typeid: Int, title: String, content: String, formhash: String, imageNumbers: [Int])
@@ -51,8 +51,8 @@ extension HiPDA.API: TargetType {
         switch self {
         case .login(_):
             return "/forum/logging.php?action=login&loginsubmit=yes"
-        case let .threads(fid: fid, typeid: typeid, page: page):
-            return "/forum/forumdisplay.php?fid=\(fid)&filter=type&typeid=\(typeid)&page=\(page)"
+        case let .threads(fid: fid, typeid: typeid, page: page, order: order):
+            return "/forum/forumdisplay.php?fid=\(fid)&filter=type&typeid=\(typeid)&page=\(page)&orderby=\(order.rawValue)"
         case let .posts(postInfo):
             switch (postInfo.pid, postInfo.authorid) {
             case let (pid?, nil):

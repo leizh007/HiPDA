@@ -158,7 +158,7 @@ extension HiPDA {
             let userBlockSet = Set(Settings.shared.userBlockList)
             var totalPage = self.totalPage
             return Observable.create { observer in
-                HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page))
+                HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page, order: Settings.shared.threadOrder))
                     .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                     .mapGBKString()
                     .do(onNext: { htmlString in
