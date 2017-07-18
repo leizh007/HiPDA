@@ -2427,7 +2427,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zhen lei (H5YKKLZKUC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zhen lei (H5YKKLZKUC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 763FDD9B4C;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2445,7 +2445,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2458,7 +2458,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiPDA/HiPDA.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: zhen lei (763FDD9B4C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zhen lei (763FDD9B4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 763FDD9B4C;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2481,7 +2481,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_OBJC_BRIDGING_HEADER = "HiPDA/Helpers/HiPDA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
