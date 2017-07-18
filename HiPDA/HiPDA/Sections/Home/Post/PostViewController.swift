@@ -627,6 +627,10 @@ extension PostViewController: UIScrollViewDelegate {
             }
         #endif
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollView.decelerationRate = UIScrollViewDecelerationRateNormal
+    }
 }
 
 // MARK: - WKNavigationDelegate
