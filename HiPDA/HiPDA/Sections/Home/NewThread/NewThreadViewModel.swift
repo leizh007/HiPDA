@@ -41,7 +41,8 @@ typealias NewTheadResult = HiPDA.Result<Int, NewThreadError>
 class NewThreadViewModel {
     fileprivate let type: NewThreadType
     fileprivate var disposeBag = DisposeBag()
-    let success: PublishSubject<Int>
+    let successNewThread: PublishSubject<Int>
+    let successOther: PublishSubject<String>
     let failure: PublishSubject<String>
     let isSendButtonEnabled: Driver<Bool>
     let draftAfterCloseButtonPressed: PublishSubject<Draft?>
@@ -57,7 +58,8 @@ class NewThreadViewModel {
                 return content.characters.count > Constant.contentLengthThreshold
             }
         }
-        success = PublishSubject<Int>()
+        successNewThread = PublishSubject<Int>()
+        successOther = PublishSubject<String>()
         failure = PublishSubject<String>()
         draftAfterCloseButtonPressed = PublishSubject<Draft?>()
         let attribute = Driver.combineLatest(typeName, title, content) { (ForumManager.typeid(of: $0), $1, NewThreadViewModel.skinContent($2)) }
@@ -68,13 +70,13 @@ class NewThreadViewModel {
             }
             switch type {
             case let .new(fid: fid):
-                NewThreadManager.postNewThread(pageURLPath: type.pageURLPath, fid: fid, typeid: typeid, title: title, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                NewThreadManager.postNewThread(pageURLPath: type.pageURLPath, fid: fid, typeid: typeid, title: title, content: content, imageNumbers: self.imageNumbers, success: self.successNewThread, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyPost(fid: fid, tid: tid):
-                ReplyPostManager.replyPost(pageURLPath: type.pageURLPath, fid: fid, tid: tid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                ReplyPostManager.replyPost(pageURLPath: type.pageURLPath, fid: fid, tid: tid, content: content, imageNumbers: self.imageNumbers, success: self.successOther, failure: self.failure, disposeBag: self.disposeBag)
             case let .replyAuthor(fid: fid, tid: tid, pid: pid):
-                ReplyAuthorManager.replyAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                ReplyAuthorManager.replyAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.successOther, failure: self.failure, disposeBag: self.disposeBag)
             case let .quote(fid: fid, tid: tid, pid: pid):
-                QuoteAuthorManager.quoteAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.success, failure: self.failure, disposeBag: self.disposeBag)
+                QuoteAuthorManager.quoteAuthor(pageURLPath: type.pageURLPath, fid: fid, tid: tid, pid: pid, content: content, imageNumbers: self.imageNumbers, success: self.successOther, failure: self.failure, disposeBag: self.disposeBag)
             }
         }).disposed(by: disposeBag)
         closeButtonPressed.withLatestFrom(Driver.combineLatest(typeName, title, content) { ($0, $1, $2) })

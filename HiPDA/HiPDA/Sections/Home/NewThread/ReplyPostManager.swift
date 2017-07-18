@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 struct ReplyPostManager {
-    static func replyPost(pageURLPath: String, fid: Int, tid: Int, content: String, imageNumbers: [Int], success: PublishSubject<Int>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
+    static func replyPost(pageURLPath: String, fid: Int, tid: Int, content: String, imageNumbers: [Int], success: PublishSubject<String>, failure: PublishSubject<String>, disposeBag: DisposeBag) {
         NetworkUtilities.formhash(from: pageURLPath) { result in
             switch result {
             case .success(let formhash):
@@ -20,8 +20,8 @@ struct ReplyPostManager {
                     .observeOn(MainScheduler.instance)
                     .subscribe { event in
                         switch event {
-                        case .next(_):
-                            success.onNext(tid)
+                        case .next(let html):
+                            success.onNext(html)
                         case .error(let error):
                             failure.onNext(error.localizedDescription)
                         default:

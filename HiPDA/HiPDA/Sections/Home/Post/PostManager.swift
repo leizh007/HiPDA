@@ -125,4 +125,20 @@ class PostManager {
                 }
             }.disposed(by: disposeBag)
     }
+    
+    func handlePostSendCompletion(_ html: String, completion: @escaping PostListFetchCompletion = { _ in }) {
+        guard let posts = try? HtmlParser.posts(from: html), let totalPage = try? HtmlParser.totalPage(from: html) else { return }
+        self.totalPage = totalPage
+        self.pidSet = Set(posts.map { $0.id })
+        self.posts = posts
+        postInfo = PostInfo.lens.page.set(totalPage, postInfo)
+        var title: String? = nil
+        if totalPage == 1 {
+            title = try? HtmlParser.postTitle(from: html)
+            self.title = title
+        } else {
+            self.title = nil
+        }
+        completion(.success((title: title, posts: posts)))
+    }
 }

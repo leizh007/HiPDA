@@ -125,7 +125,14 @@ extension PostViewModel {
 
 // MARK: - Data Load
 
-extension PostViewModel {
+extension PostViewModel {    
+    func handlePostSendCompletion(_ html: String, completion: @escaping PostFetchCompletion = { _ in }) {
+        status = .idle
+        manager.handlePostSendCompletion(html) { [weak self] result in
+            self?.handPostListResult(result, completion: completion)
+        }
+    }
+    
     func loadData(completion: @escaping PostFetchCompletion = { _ in }) {
         status = .loadingFirstEntrance
         manager.load(postInfo: manager.postInfo) { [weak self] result in

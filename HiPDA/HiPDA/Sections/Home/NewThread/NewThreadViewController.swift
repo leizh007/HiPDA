@@ -42,6 +42,7 @@ class NewThreadViewController: BaseViewController {
     var draftEditCompleted: ((Draft) -> Void)?
     var type = NewThreadType.new(fid: 0)
     var typeNames = [String]()
+    var sendPostCompletion: ((String) -> Void)?
     @IBOutlet fileprivate weak var titleTextView: YYTextView!
     @IBOutlet fileprivate weak var contentTextView: YYTextView!
     fileprivate var activeTextView: YYTextView?
@@ -158,7 +159,7 @@ class NewThreadViewController: BaseViewController {
             self?.hidePromptInformation()
             self?.showPromptInformation(of: .failure(errorMesssage))
         }).disposed(by: disposeBag)
-        viewModel.success.subscribe(onNext: { [unowned self] tid in
+        viewModel.successNewThread.subscribe(onNext: { [unowned self] tid in
             self.hidePromptInformation()
             self.showPromptInformation(of: .success("发送成功!"))
             self.draftSendSuccessCompletion?()
@@ -168,6 +169,15 @@ class NewThreadViewController: BaseViewController {
                         URLDispatchManager.shared.linkActived("https://www.hi-pda.com/forum/viewthread.php?tid=\(tid)&extra=page%3D1")
                     }
                 }
+            }
+        }).disposed(by: disposeBag)
+        viewModel.successOther.subscribe(onNext: { [unowned self] html in
+            self.hidePromptInformation()
+            self.showPromptInformation(of: .success("发送成功!"))
+            self.draftSendSuccessCompletion?()
+            self.sendPostCompletion?(html)
+            delay(seconds: 0.25) {
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }).disposed(by: disposeBag)
         viewModel.draftAfterCloseButtonPressed.subscribe(onNext: { [unowned self] draft in

@@ -257,6 +257,9 @@ extension PostViewController {
         }
         let vc = NewThreadViewController.load(from: .home)
         vc.type = .replyPost(fid: fid, tid: viewModel.postInfo.tid)
+        vc.sendPostCompletion = { [unowned self] html in
+            self.handlePostSendCompletion(html)
+        }
         let navi = UINavigationController(rootViewController: vc)
         navi.transitioningDelegate = self
         present(navi, animated: true, completion: nil)
@@ -282,6 +285,15 @@ extension PostViewController {
             self.loadData()
         }
         present(pageNumberVC, animated: true, completion: nil)
+    }
+    
+    fileprivate func handlePostSendCompletion(_ html: String) {
+        viewModel.handlePostSendCompletion(html) { [weak self] result in
+            self?.handleDataLoadResult(result)
+            delay(seconds: 0.1) {
+                self?.bridge.callHandler("scrollToBottom")
+            }
+        }
     }
 }
 
@@ -432,6 +444,9 @@ extension PostViewController {
             }
             let vc = NewThreadViewController.load(from: .home)
             vc.type = .replyAuthor(fid: fid, tid: self.viewModel.postInfo.tid, pid: pid)
+            vc.sendPostCompletion = { [unowned self] html in
+                self.handlePostSendCompletion(html)
+            }
             let navi = UINavigationController(rootViewController: vc)
             navi.transitioningDelegate = self
             self.present(navi, animated: true, completion: nil)
@@ -443,6 +458,9 @@ extension PostViewController {
             }
             let vc = NewThreadViewController.load(from: .home)
             vc.type = .quote(fid: fid, tid: self.viewModel.postInfo.tid, pid: pid)
+            vc.sendPostCompletion = { [unowned self] html in
+                self.handlePostSendCompletion(html)
+            }
             let navi = UINavigationController(rootViewController: vc)
             navi.transitioningDelegate = self
             self.present(navi, animated: true, completion: nil)
