@@ -35,6 +35,9 @@ class PostViewModel {
         }
     }
     
+    var isPostInFavoriteList = false
+    var isPostInAttentionList = false
+    
     /// 总页数
     var totalPage: Int {
         return manager.totalPage
@@ -205,14 +208,58 @@ extension PostViewModel {
 typealias FavoriteAndAttentionCompletion = (HiPDA.Result<String, FavoriteAndAttentionError>) -> Void
 
 extension PostViewModel {
-    func addToFavorites(completion: @escaping FavoriteAndAttentionCompletion) {
-        request(with: .addToFavorites(tid: postInfo.tid), completion: completion)
+    func favoriteButtonPressed(doing: @escaping (String) -> Void, completion: @escaping FavoriteAndAttentionCompletion) {
+        if !isPostInFavoriteList {
+            doing("正在加入收藏列表...")
+            request(with: .addToFavorites(tid: postInfo.tid)) { [weak self] result in
+                switch result {
+                case .success(_):
+                    self?.isPostInFavoriteList = true
+                    completion(.success("收藏成功!"))
+                case .failure(let error):
+                    completion(.failure(.unKnown(error.localizedDescription)))
+                }
+            }
+        } else {
+            doing("正在取消收藏...")
+            delete(type: .favorites, tid: manager.postInfo.tid) { [weak self] result in
+                switch result {
+                case .success(_):
+                    self?.isPostInFavoriteList = false
+                    completion(.success("取消收藏!"))
+                case .failure(let error):
+                    completion(.failure(.unKnown(error.localizedDescription)))
+                }
+            }
+        }
     }
     
-    func addToAttentions(completion: @escaping FavoriteAndAttentionCompletion) {
-        request(with: .addToAttentions(tid: postInfo.tid), completion: completion)
+    func attentionButtonPressed(doing: @escaping (String) -> Void, completion: @escaping FavoriteAndAttentionCompletion) {
+        if !isPostInAttentionList {
+            doing("正在加入关注列表...")
+            request(with: .addToAttentions(tid: postInfo.tid)) { [weak self] result in
+                switch result {
+                case .success(_):
+                    self?.isPostInAttentionList = true
+                    completion(.success("关注成功!"))
+                case .failure(let error):
+                    completion(.failure(.unKnown(error.localizedDescription)))
+                }
+            }
+        } else {
+            doing("正在取消关注...")
+            delete(type: .attention, tid: manager.postInfo.tid) { [weak self] result in
+                switch result {
+                case .success(_):
+                    self?.isPostInAttentionList = false
+                    completion(.success("取消关注!"))
+                case .failure(let error):
+                    completion(.failure(.unKnown(error.localizedDescription)))
+                }
+            }
+        }
     }
-    
+        
     fileprivate func request(with api: HiPDA.API, completion: @escaping FavoriteAndAttentionCompletion) {
         disposeBag = DisposeBag()
         HiPDAProvider.request(api)
@@ -233,6 +280,45 @@ extension PostViewModel {
                     break
                 }
             }.disposed(by: disposeBag)
+    }
+    
+    fileprivate func delete(type: FavoritesAndAttentionType, tid: Int, completion: @escaping (HiPDA.Result<String, NSError>) -> Void) {
+        let formhashPath: String
+        switch type {
+        case .favorites:
+            formhashPath = "/forum/my.php?item=favorites&type=thread"
+        case .attention:
+            formhashPath = "/forum/my.php?item=attention&type=thread"
+        }
+        NetworkUtilities.formhash(from: formhashPath) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let formhash):
+                let api: HiPDA.API
+                switch type {
+                case .favorites:
+                    api = .deleteFavorites(tids: [tid], formhash: formhash)
+                case .attention:
+                    api = .deleteAttentions(tids: [tid], formhash: formhash)
+                }
+                HiPDAProvider.request(api)
+                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+                    .mapGBKString()
+                    .map { try HtmlParser.alertInfo(from: $0) }
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { event in
+                        switch event {
+                        case .next(let info):
+                            completion(.success(info))
+                        case .error(let error):
+                            completion(.failure(error as NSError))
+                        default:
+                            break
+                        }
+                    }.disposed(by: self.disposeBag)
+            }
+        }
     }
     
     fileprivate static func favoriteMessage(from html: String) throws -> String {

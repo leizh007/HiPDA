@@ -323,17 +323,19 @@ extension PostViewController: PostOperationDelegate {
         postOperationViewController = nil
         switch operation {
         case .collection:
-            showPromptInformation(of: .loading("正在加入收藏夹..."))
-            viewModel.addToFavorites { [unowned self] result in
+            viewModel.favoriteButtonPressed(doing: { [unowned self] info in
+                self.showPromptInformation(of: .loading(info))
+            }, completion: { [unowned self] result in
                 self.hidePromptInformation()
                 self.handleAddFavoriteAndAttentionResult(result)
-            }
+            })
         case .attention:
-            showPromptInformation(of: .loading("正在加入关注列表..."))
-            viewModel.addToAttentions { [unowned self] result in
-                self.hidePromptInformation()
-                self.handleAddFavoriteAndAttentionResult(result)
-            }
+            viewModel.attentionButtonPressed(doing: { [unowned self] info in
+                self.showPromptInformation(of: .loading(info))
+                }, completion: { [unowned self] result in
+                    self.hidePromptInformation()
+                    self.handleAddFavoriteAndAttentionResult(result)
+            })
         case .top:
             bridge.callHandler("scrollToTop")
         case .bottom:
