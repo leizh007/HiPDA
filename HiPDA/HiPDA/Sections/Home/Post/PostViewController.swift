@@ -290,7 +290,7 @@ extension PostViewController {
     fileprivate func handlePostSendCompletion(_ html: String) {
         viewModel.handlePostSendCompletion(html) { [weak self] result in
             self?.handleDataLoadResult(result)
-            delay(seconds: 0.1) {
+            delay(seconds: 0.5) {
                 self?.bridge.callHandler("scrollToBottom")
             }
         }
