@@ -85,6 +85,7 @@ extension HiPDA {
         /// - Parameter index: 帖子所在的下标
         func deleteThread(at index: Int) {
             threads.remove(at: index)
+            threadModels.remove(at: index)
         }
         
         /// 获取第一页帖子列表
