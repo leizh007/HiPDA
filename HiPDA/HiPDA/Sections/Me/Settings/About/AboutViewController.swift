@@ -16,16 +16,29 @@ fileprivate enum AbountSection: Int {
     case acknowledgements
 }
 
+fileprivate enum AdviseRow: Int {
+    case appStore
+    case email
+}
+
 class AboutViewController: UITableViewController {
     @IBOutlet fileprivate var appIconContainerView: UIView!
+    @IBOutlet fileprivate weak var versionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "关于"
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+        #if DEBUG
+            let appBundle = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ?? ""
+            versionLabel.text = "\(version) (\(appBundle))"
+        #else
+            versionLabel.text = version
+        #endif
     }
     
-    fileprivate func sendAdvise() {
+    fileprivate func sendAdviseEmail() {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
@@ -41,6 +54,11 @@ class AboutViewController: UITableViewController {
         let viewController = AcknowListViewController(acknowledgementsPlistPath: path)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    fileprivate func goToAppStore() {
+        guard let url = URL(string: "https://itunes.apple.com/cn/app/hipda/id1258047518?mt=8") else { return }
+        UIApplication.shared.openURL(url)
     }
 }
 
@@ -64,7 +82,13 @@ extension AboutViewController {
         case .version:
             break
         case .advise:
-            sendAdvise()
+            guard let adviseRow = AdviseRow(rawValue: indexPath.row) else { return }
+            switch adviseRow {
+            case .appStore:
+                goToAppStore()
+            case .email:
+                sendAdviseEmail()
+            }
         case .acknowledgements:
             showAcknowledgementsViewController()
         }
