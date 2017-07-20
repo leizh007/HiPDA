@@ -11,6 +11,7 @@ import Foundation
 /// 正则解析
 struct Regex {
     private static var regexCache = [String: NSRegularExpression]()
+    private static let lock = NSRecursiveLock()
     
     /// 获取正则表达式
     ///
@@ -18,6 +19,10 @@ struct Regex {
     /// - Returns: 正则表达式
     /// - Throws: 创建失败异常
     static func regularExpression(of pattern: String) throws -> NSRegularExpression {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         let regex: NSRegularExpression
         if let value = Regex.regexCache[pattern] {
             regex = value
