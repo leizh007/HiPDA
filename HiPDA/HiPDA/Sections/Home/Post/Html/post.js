@@ -241,7 +241,7 @@ function addOnClickToImage(image) {
                 window.clearInterval(intervalID);
                 imageLongPressed(e.target);
             },
-            1000
+            longpress
         );
     };
     image.ontouchend = function (e) {
