@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoResultView" customModule="HiPDA" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMN-Dn-iUp">
-                    <rect key="frame" x="167" y="325.5" width="40" height="20"/>
+                    <rect key="frame" x="280" y="292" width="40" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-Ky-h1G">
-                    <rect key="frame" x="131" y="289.5" width="20" height="20"/>
+                    <rect key="frame" x="254" y="260" width="20" height="20"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTF-Xa-uP4">
-                    <rect key="frame" x="155" y="281.5" width="64" height="44"/>
+                    <rect key="frame" x="278" y="248" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="YaW-ye-uKy"/>
-                        <constraint firstAttribute="width" constant="64" id="qeb-KE-oGa"/>
+                        <constraint firstAttribute="width" constant="44" id="qeb-KE-oGa"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="SnellRoundhand-Black" family="Snell Roundhand" pointSize="44"/>
+                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="44"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -39,12 +39,13 @@
             <constraints>
                 <constraint firstItem="hMN-Dn-iUp" firstAttribute="top" secondItem="kTF-Xa-uP4" secondAttribute="bottom" id="12r-9C-CPa"/>
                 <constraint firstItem="hMN-Dn-iUp" firstAttribute="centerX" secondItem="kTF-Xa-uP4" secondAttribute="centerX" id="Bld-oX-El3"/>
-                <constraint firstItem="9Zw-Ky-h1G" firstAttribute="centerY" secondItem="kTF-Xa-uP4" secondAttribute="centerY" constant="-4" id="MsO-VI-84u"/>
+                <constraint firstItem="9Zw-Ky-h1G" firstAttribute="centerY" secondItem="kTF-Xa-uP4" secondAttribute="centerY" id="MsO-VI-84u"/>
                 <constraint firstItem="kTF-Xa-uP4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Rax-R2-te6"/>
                 <constraint firstItem="kTF-Xa-uP4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-30" id="Xzz-1H-Gse"/>
                 <constraint firstItem="kTF-Xa-uP4" firstAttribute="leading" secondItem="9Zw-Ky-h1G" secondAttribute="trailing" constant="4" id="fj0-u7-yid"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="activityIndicator" destination="9Zw-Ky-h1G" id="sPm-ci-tlb"/>
                 <outlet property="descriptionLabel" destination="hMN-Dn-iUp" id="ce1-6v-7iH"/>
