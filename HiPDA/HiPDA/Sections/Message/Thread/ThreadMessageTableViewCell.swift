@@ -89,7 +89,7 @@ class ThreadMessageTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         var offset = CGFloat(0.0)
-        let titleHeight = ThreadMessageTableViewCell.height(for: title)
+        let titleHeight = ThreadMessageTableViewCell.height(for: title ?? "")
         titleLabel.frame = CGRect(x: Constants.contentMargin,
                                   y: Constants.contentMargin,
                                   width: Constants.contentWidth,

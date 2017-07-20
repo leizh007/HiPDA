@@ -130,6 +130,9 @@ extension HiPDA {
                         if page == 1 {
                             newThreads = threads
                         } else {
+                            var threads = threads
+                            let tidSet = Set(newThreads.map { $0.id })
+                            threads = threads.filter { !tidSet.contains($0.id) }
                             newThreads.reserveCapacity(newThreads.count + threads.count)
                             newThreads.append(contentsOf: threads)
                         }
