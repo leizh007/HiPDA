@@ -131,32 +131,44 @@
                     </connections>
                 </tapGestureRecognizer>
                 <view contentMode="scaleToFill" id="3qd-cd-nUS" customClass="HomeNavigationBarTitleView" customModule="HiPDA" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="70" height="27"/>
+                    <rect key="frame" x="0.0" y="0.0" width="176" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_navigationbar_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-Ot-ciY">
-                            <rect key="frame" x="48" y="11" width="14" height="9"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bB5-uC-ttO">
+                            <rect key="frame" x="61.5" y="3.5" width="53.5" height="20.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENn-sW-57q">
+                                    <rect key="frame" x="0.0" y="0.0" width="35.5" height="20.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Wbm-Ng-MqE"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_navigationbar_disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-Ot-ciY">
+                                    <rect key="frame" x="39.5" y="7" width="14" height="9"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="tintColor" red="0.1137254902" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.1137254902" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENn-sW-57q">
-                            <rect key="frame" x="8" y="3" width="36" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Wbm-Ng-MqE"/>
+                                <constraint firstItem="cSd-Ot-ciY" firstAttribute="leading" secondItem="ENn-sW-57q" secondAttribute="trailing" constant="4" id="AGr-5C-kMY"/>
+                                <constraint firstAttribute="bottom" secondItem="ENn-sW-57q" secondAttribute="bottom" id="Gi6-nY-bPt"/>
+                                <constraint firstAttribute="trailing" secondItem="cSd-Ot-ciY" secondAttribute="trailing" id="VXb-Er-mxh"/>
+                                <constraint firstItem="ENn-sW-57q" firstAttribute="centerY" secondItem="bB5-uC-ttO" secondAttribute="centerY" id="iGL-1y-E0Y"/>
+                                <constraint firstItem="ENn-sW-57q" firstAttribute="leading" secondItem="bB5-uC-ttO" secondAttribute="leading" id="vnR-O3-HKN"/>
+                                <constraint firstItem="cSd-Ot-ciY" firstAttribute="centerY" secondItem="bB5-uC-ttO" secondAttribute="centerY" constant="1" id="zNk-n3-6ao"/>
+                                <constraint firstItem="ENn-sW-57q" firstAttribute="top" secondItem="bB5-uC-ttO" secondAttribute="top" id="ztu-w6-mI9"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstItem="cSd-Ot-ciY" firstAttribute="centerY" secondItem="3qd-cd-nUS" secondAttribute="centerY" constant="2" id="W4g-Rb-eMT"/>
-                        <constraint firstItem="ENn-sW-57q" firstAttribute="centerY" secondItem="3qd-cd-nUS" secondAttribute="centerY" id="f8M-Nc-oDc"/>
-                        <constraint firstItem="cSd-Ot-ciY" firstAttribute="leading" secondItem="ENn-sW-57q" secondAttribute="trailing" constant="4" id="hjU-iI-G9U"/>
-                        <constraint firstAttribute="trailing" secondItem="cSd-Ot-ciY" secondAttribute="trailing" constant="8" id="oAT-QH-zfP"/>
-                        <constraint firstItem="ENn-sW-57q" firstAttribute="leading" secondItem="3qd-cd-nUS" secondAttribute="leading" constant="8" id="ryY-Q4-qac"/>
+                        <constraint firstItem="bB5-uC-ttO" firstAttribute="centerY" secondItem="3qd-cd-nUS" secondAttribute="centerY" id="JIc-ej-d5K"/>
+                        <constraint firstItem="bB5-uC-ttO" firstAttribute="centerX" secondItem="3qd-cd-nUS" secondAttribute="centerX" id="Prl-iW-YUa"/>
                     </constraints>
                     <connections>
                         <outlet property="disclosureImageView" destination="cSd-Ot-ciY" id="BZy-Xw-bnz"/>

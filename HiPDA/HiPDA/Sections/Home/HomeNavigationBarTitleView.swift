@@ -37,16 +37,6 @@ class HomeNavigationBarTitleView: UIView {
         
         set {
             titleLabel.text = newValue
-            titleLabel.sizeToFit()
-            titleLabel.frame = CGRect(x: titleLabel.frame.origin.x,
-                                      y: titleLabel.frame.origin.y,
-                                      width: min(titleLabel.frame.size.width, 150),
-                                      height: titleLabel.frame.size.height)
-            let newWidth = contentMargin * 2.5 + titleLabel.frame.size.width + disclosureImageView.frame.size.width
-            frame = CGRect(x: frame.origin.x - (newWidth - frame.size.width) / 2.0,
-                           y: frame.origin.y,
-                           width: newWidth,
-                           height: 27.0)
             UIView.animate(withDuration: C.UI.animationDuration) {
                 self.disclosureImageView.transform = .identity
             }
