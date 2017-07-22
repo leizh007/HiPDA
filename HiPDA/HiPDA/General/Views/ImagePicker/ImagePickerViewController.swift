@@ -176,11 +176,15 @@ extension ImagePickerViewController {
     }
     
     func camereCellPressed() {
-        AVCaptureDevice.checkCameraPermission { [weak self] granted in
-            if granted {
-                self?.showCameraPicker()
-            } else {
-                self?.showPromptInformation(of: .failure("已拒绝相机的访问申请，请到设置中开启相机的访问权限！"))
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            showPromptInformation(of: .failure("摄像头不可用!"))
+        } else {
+            AVCaptureDevice.checkCameraPermission { [weak self] granted in
+                if granted {
+                    self?.showCameraPicker()
+                } else {
+                    self?.showPromptInformation(of: .failure("已拒绝相机的访问申请，请到设置中开启相机的访问权限！"))
+                }
             }
         }
     }
