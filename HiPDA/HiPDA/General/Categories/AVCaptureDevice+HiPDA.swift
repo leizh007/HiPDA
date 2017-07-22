@@ -16,9 +16,9 @@ extension AVCaptureDevice {
         case .authorized:
             completion(true)
         case .denied:
-            completion(true)
+            completion(false)
         case .restricted:
-            completion(true)
+            completion(false)
         case .notDetermined:
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo) { granted in
                 DispatchQueue.main.async {
