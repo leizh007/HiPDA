@@ -15,6 +15,7 @@ import Photos
 private enum Constant {
     static let classification = "分类"
     static let contentLengthThreshold = 5
+    static let ifUserAgreedEULA = "ifUserAgreedEULA"
 }
 
 private enum TextViewType: Int {
@@ -98,6 +99,7 @@ class NewThreadViewController: BaseViewController {
             contentTextView.text = draft.content
             viewModel.imageNumbers = draft.imageNumbers
         }
+        showEULAIfUserHasNotAgreed()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -120,6 +122,29 @@ class NewThreadViewController: BaseViewController {
         postButton.isEnabled = false
         navigationItem.leftBarButtonItem = closeButton
         navigationItem.rightBarButtonItem = postButton
+    }
+    
+    fileprivate func showEULAIfUserHasNotAgreed() {
+        let agreed = UserDefaults.standard.bool(forKey: Constant.ifUserAgreedEULA)
+        if agreed {
+            return
+        }
+        let message = "欢迎使用HiPDA，本软件许可使用协议由您和开发者Zhen Lei共同签署。\n" +
+        "请您在发布内容之前，仔细阅读以下协议。如果您同意接受本协议所有条款和条件约束，可以继续发布内容；如您不同意本协议条款和条件，则无法发布内容。\n" +
+        "发布内容需满足以下要求：\n" +
+        "1，发言请文明，不得骂人，脏话，不管是回帖还是PM，都不允许，被骂了可以告状，但不要回骂，回骂会被扣分或者ban（视情节严重）;\n" +
+        "2，不要挑起事端，引起纠纷，钓鱼者会被办，发言请对事不对人，不要人身攻击;\n" +
+        "3，色情相关的帖子或图片请不要发，轻则扣分删贴，重则办ID。"
+        let alert = UIAlertController(title: "用户许可协议", message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "不同意", style: .cancel) { [unowned self] _ in
+            self.navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+        let agree = UIAlertAction(title: "同意", style: .default) { _ in
+            UserDefaults.standard.set(true, forKey: Constant.ifUserAgreedEULA)
+        }
+        alert.addAction(cancel)
+        alert.addAction(agree)
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func skinTextView(_ textView: YYTextView) {

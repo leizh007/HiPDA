@@ -489,7 +489,15 @@ extension PostViewController {
         if uid == Settings.shared.activeAccount?.uid {
             // FIXME: - 添加编辑功能
         }
-    
+        
+        let tipOff = UIAlertAction(title: "举报", style: .default) { [unowned self] _ in
+            let tipOffVC = TipOffViewController.load(from: .home)
+            tipOffVC.user = self.viewModel.userOfPid(pid) ?? User(name: "UID: \(uid)", uid: uid)
+            tipOffVC.modalPresentationStyle = .overCurrentContext
+            self.present(tipOffVC, animated: false, completion: nil)
+        }
+        actionSheet.addAction(tipOff)
+        
         actionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)

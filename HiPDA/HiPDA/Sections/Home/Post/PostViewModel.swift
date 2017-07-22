@@ -82,6 +82,10 @@ class PostViewModel {
         }
         return url
     }
+    
+    func userOfPid(_ pid: Int) -> User? {
+        return manager.userOfPid(pid)
+    }
 }
 
 // MARK: - Header Titles

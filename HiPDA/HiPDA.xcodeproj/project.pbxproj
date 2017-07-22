@@ -100,6 +100,8 @@
 		05532B101ECDEB4A00FAB176 /* post.js in Resources */ = {isa = PBXBuildFile; fileRef = 05532B0D1ECDEB4A00FAB176 /* post.js */; };
 		05532B121ECDEBB600FAB176 /* HtmlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05532B111ECDEBB600FAB176 /* HtmlManager.swift */; };
 		05532B141ECE10BB00FAB176 /* ResourcesInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */; };
+		0558E1B61F22EDDE00377ECF /* TipOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558E1B41F22EDDE00377ECF /* TipOffViewController.swift */; };
+		0558E1B71F22EDDE00377ECF /* TipOffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558E1B51F22EDDE00377ECF /* TipOffViewModel.swift */; };
 		0559969B1D50DB3800057CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969A1D50DB3800057CF6 /* AppDelegate.swift */; };
 		055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */; };
 		055996A81D50DB4500057CF6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055996A11D50DB4500057CF6 /* Account.swift */; };
@@ -469,6 +471,8 @@
 		05532B0D1ECDEB4A00FAB176 /* post.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = post.js; sourceTree = "<group>"; };
 		05532B111ECDEBB600FAB176 /* HtmlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HtmlManager.swift; path = Html/HtmlManager.swift; sourceTree = "<group>"; };
 		05532B131ECE10BB00FAB176 /* ResourcesInitialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesInitialization.swift; sourceTree = "<group>"; };
+		0558E1B41F22EDDE00377ECF /* TipOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipOffViewController.swift; sourceTree = "<group>"; };
+		0558E1B51F22EDDE00377ECF /* TipOffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipOffViewModel.swift; sourceTree = "<group>"; };
 		0559969A1D50DB3800057CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0559969F1D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		055996A11D50DB4500057CF6 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -1285,6 +1289,16 @@
 			path = grapeman;
 			sourceTree = "<group>";
 		};
+		05C4D5431F22E9B3000A3863 /* TipOff */ = {
+			isa = PBXGroup;
+			children = (
+				0558E1B41F22EDDE00377ECF /* TipOffViewController.swift */,
+				0558E1B51F22EDDE00377ECF /* TipOffViewModel.swift */,
+			);
+			name = TipOff;
+			path = HiPDA/Sections/Home/TipOff;
+			sourceTree = SOURCE_ROOT;
+		};
 		05CEB7541E1D5E5900ACB773 /* ForumList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1506,6 +1520,7 @@
 		05EE51541EC9517000BC81B4 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				05C4D5431F22E9B3000A3863 /* TipOff */,
 				0521A5911ED32E67005EB96E /* UserProfile */,
 				05532B0A1ECDEB3600FAB176 /* Html */,
 				05EE51551EC9521700BC81B4 /* PostViewController.swift */,
@@ -2047,6 +2062,7 @@
 				053B78CF1E7670D1001EFF88 /* AccountCellModel.swift in Sources */,
 				05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */,
 				05E697541F00FB01005919B7 /* SearchUserThreadModel.swift in Sources */,
+				0558E1B71F22EDDE00377ECF /* TipOffViewModel.swift in Sources */,
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				0572261E1EF03C1200397829 /* NewThreadViewModel.swift in Sources */,
@@ -2090,6 +2106,7 @@
 				058A9F4A1EFD19BE00E74744 /* ProfileActionSection.swift in Sources */,
 				058A9F4E1EFE54EB00E74744 /* UserProfileAccountTableViewCell.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
+				0558E1B61F22EDDE00377ECF /* TipOffViewController.swift in Sources */,
 				056ED17C1F11DA96006FBCB8 /* MyTopicModel.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
 				054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */,

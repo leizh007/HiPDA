@@ -37,6 +37,10 @@ class PostManager {
         return postInfo.page
     }
     
+    func userOfPid(_ pid: Int) -> User? {
+        return posts.filter { $0.id == pid }.first?.user
+    }
+    
     /// 加载第一页数据
     func loadFirstPage(completion: @escaping PostListFetchCompletion = { _ in }) {
         let oldPostInfo = postInfo
