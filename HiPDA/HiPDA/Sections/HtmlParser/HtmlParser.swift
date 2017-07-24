@@ -447,7 +447,7 @@ struct HtmlParser {
         let results = try Regex.matches(in: html, of: pattern)
         return try results.map { result in
             guard let tid = Int(result[1]) else { throw HtmlParserError.underlying("获取帖子id失败") }
-            return MyTopicModel(tid: tid, title: result[2], forumName: result[3])
+            return MyTopicModel(tid: tid, title: result[2].stringByDecodingHTMLEntities, forumName: result[3])
         }
     }
     
@@ -455,7 +455,7 @@ struct HtmlParser {
         let pattern = "<th>[^<]*<a\\shref=\"([^\"]+)\"[^>]+>([\\s\\S]*?)<\\/a>([^>]+>){3}([\\s\\S]*?)<\\/a>[\\s\\S]*?<em>([\\d-\\s:]+)<\\/em>[\\s\\S]*?lighttxt\">([\\s\\S]*?)<\\/th>[^<]*<\\/tr>"
         let results = try Regex.matches(in: html, of: pattern)
         return results.map { result in
-            return MyPostModel(urlPath: result[1].stringByDecodingHTMLEntities, title: result[2], content: result[6], forumName: result[4], postTime: result[5])
+            return MyPostModel(urlPath: result[1].stringByDecodingHTMLEntities, title: result[2].stringByDecodingHTMLEntities, content: result[6], forumName: result[4], postTime: result[5])
         }
     }
 }
