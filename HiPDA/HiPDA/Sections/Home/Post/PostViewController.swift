@@ -292,6 +292,11 @@ extension PostViewController {
             self?.handleDataLoadResult(result)
             delay(seconds: 0.5) {
                 self?.bridge.callHandler("scrollToBottom")
+                self?.webView?.evaluateJavaScript("document.title") { [weak self] (title, _) in
+                    if title == nil {
+                        self?.webView?.reload()
+                    }
+                }
             }
         }
     }
@@ -691,6 +696,10 @@ extension PostViewController: WKNavigationDelegate {
                 showPromptInformation(of: .failure(error.localizedDescription))
             }
         #endif
+    }
+    
+    func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+        webView.reload()
     }
 }
 
