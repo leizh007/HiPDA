@@ -59,7 +59,8 @@ target 'HiPDA' do
   pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
   pod 'WebViewJavascriptBridge', '~> 6.0.2'
   pod 'HTMLString', '~> 3.0.0'
-  pod 'FDFullscreenPopGesture', '~> 1.1'
+  #pod 'FDFullscreenPopGesture', '~> 1.1'
+  #pod 'JZNavigationExtension', '~> 1.5.0.1'
   pod 'JSQMessagesViewController', '~> 7.3.4'
   pod 'AcknowList'
   
