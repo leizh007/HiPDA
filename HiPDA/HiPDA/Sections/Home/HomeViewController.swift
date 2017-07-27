@@ -80,6 +80,10 @@ class HomeViewController: BaseViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(newThreadButtonPressed(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigationbar_filter"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(filterButtonPressed(_:)))
     }
 }
 
@@ -92,6 +96,35 @@ extension HomeViewController {
         let nav = UINavigationController(rootViewController: newThreadVC)
         nav.transitioningDelegate = self
         present(nav, animated: true, completion: nil)
+    }
+    
+    func filterButtonPressed(_ sender: UIBarButtonItem) {
+        guard let filterVC = storyboard?.instantiateViewController(withIdentifier: ThreadFilterViewController.identifier) as? ThreadFilterViewController,
+            let sourceView = navigationItem.leftBarButtonItem?.value(forKey: "view") as? UIView else { return }
+        filterVC.modalPresentationStyle = .popover
+        filterVC.preferredContentSize = CGSize(width: 250, height: C.UI.screenHeight * 0.45)
+        filterVC.popoverPresentationController?.sourceView = sourceView
+        let sourceRect = CGRect(x: 0, y: 0, width: sourceView.frame.size.width, height: 25)
+        filterVC.popoverPresentationController?.sourceRect = sourceRect
+        filterVC.popoverPresentationController?.backgroundColor = .groupTableViewBackground
+        filterVC.popoverPresentationController?.delegate = self
+        
+        let filter = ThreadFilterManager.shared.filter(for: forumName)
+        var sections = [FilterSection]()
+        var typeNames = ForumManager.typeNames(of: ForumManager.fid(ofForumName: forumName))
+        typeNames.insert("全部", at: 0)
+        let typeSection = FilterSection(header: "分类", selectedIndex: typeNames.index(of: filter.typeName) ?? 0, items: typeNames, isCollapsed: true)
+        sections.append(typeSection)
+        let sortNames = ThreadOrder.allOrderDescriptions
+        sections.append(FilterSection(header: "排序", selectedIndex: sortNames.index(of: filter.order.descriptionForDisplay) ?? 0, items: sortNames, isCollapsed: true))
+        filterVC.filterSections = sections
+        filterVC.selectedCompletion = { [unowned self] filter in
+            ThreadFilterManager.shared.save(filter: filter, for: self.forumName)
+            self.viewModel.filter = filter
+            self.tableView.refreshing()
+        }
+        
+        present(filterVC, animated: true, completion: nil)
     }
 }
 

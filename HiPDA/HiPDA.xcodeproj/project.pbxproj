@@ -53,6 +53,15 @@
 		051F41AD1E7E5FC10049D31E /* AccountManagementCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */; };
 		051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */; };
 		0521A5931ED32E7D005EB96E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */; };
+		052D58FD1F2996A300543AF7 /* ThreadFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D58FC1F2996A300543AF7 /* ThreadFilter.swift */; };
+		052D58FF1F29B06600543AF7 /* FilterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D58FE1F29B06600543AF7 /* FilterSection.swift */; };
+		052D59011F29B13400543AF7 /* ThreadFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D59001F29B13400543AF7 /* ThreadFilterViewController.swift */; };
+		052D59031F29B21800543AF7 /* ThreadFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D59021F29B21800543AF7 /* ThreadFilterManager.swift */; };
+		052D59051F29B65400543AF7 /* ThreadFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D59041F29B65400543AF7 /* ThreadFilterTests.swift */; };
+		052D59071F29CD0200543AF7 /* ThreadFilterSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D59061F29CD0200543AF7 /* ThreadFilterSectionHeaderView.swift */; };
+		052D59091F29CD1400543AF7 /* ThreadFilterSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052D59081F29CD1400543AF7 /* ThreadFilterSectionHeaderView.xib */; };
+		052D590B1F29CFF400543AF7 /* ThreadFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D590A1F29CFF400543AF7 /* ThreadFilterTableViewCell.swift */; };
+		052D590D1F29D0A600543AF7 /* ThreadFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D590C1F29D0A600543AF7 /* ThreadFilterViewModel.swift */; };
 		052F92151E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */; };
 		052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F92161E0688FF00856219 /* SettingsSegue.swift */; };
 		053067D51DFD808A009D0154 /* CrashAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053067D41DFD808A009D0154 /* CrashAnalysis.swift */; };
@@ -208,7 +217,6 @@
 		05A76B911F0A14F700199B6D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A76B901F0A14F700199B6D /* ChatViewModel.swift */; };
 		05A76B931F0A1F2F00199B6D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A76B921F0A1F2F00199B6D /* ChatMessage.swift */; };
 		05A850C01EFA4E8200085B29 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */; };
-		05AA8AFD1F1E3BC700EE09C0 /* ThreadOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA8AFC1F1E3BC700EE09C0 /* ThreadOrder.swift */; };
 		05B35C3B1ECC231000C037A7 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3A1ECC231000C037A7 /* BaseWebView.swift */; };
 		05B35C3D1ECC238C00C037A7 /* DataLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */; };
 		05B35C3F1ECC3CD800C037A7 /* UIAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */; };
@@ -423,6 +431,15 @@
 		051F41AC1E7E5FC10049D31E /* AccountManagementCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementCommand.swift; path = AccountManagement/AccountManagementCommand.swift; sourceTree = "<group>"; };
 		051F41AE1E7E624A0049D31E /* AccountManagementItemtype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagementItemtype.swift; path = AccountManagement/AccountManagementItemtype.swift; sourceTree = "<group>"; };
 		0521A5921ED32E7D005EB96E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		052D58FC1F2996A300543AF7 /* ThreadFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilter.swift; sourceTree = "<group>"; };
+		052D58FE1F29B06600543AF7 /* FilterSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSection.swift; sourceTree = "<group>"; };
+		052D59001F29B13400543AF7 /* ThreadFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilterViewController.swift; sourceTree = "<group>"; };
+		052D59021F29B21800543AF7 /* ThreadFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilterManager.swift; sourceTree = "<group>"; };
+		052D59041F29B65400543AF7 /* ThreadFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilterTests.swift; sourceTree = "<group>"; };
+		052D59061F29CD0200543AF7 /* ThreadFilterSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilterSectionHeaderView.swift; sourceTree = "<group>"; };
+		052D59081F29CD1400543AF7 /* ThreadFilterSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadFilterSectionHeaderView.xib; sourceTree = "<group>"; };
+		052D590A1F29CFF400543AF7 /* ThreadFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilterTableViewCell.swift; sourceTree = "<group>"; };
+		052D590C1F29D0A600543AF7 /* ThreadFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadFilterViewModel.swift; sourceTree = "<group>"; };
 		052F92141E0680F600856219 /* PmDoNotDisturbTimeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PmDoNotDisturbTimeSettingViewController.swift; sourceTree = "<group>"; };
 		052F92161E0688FF00856219 /* SettingsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSegue.swift; sourceTree = "<group>"; };
 		053067D41DFD808A009D0154 /* CrashAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashAnalysis.swift; sourceTree = "<group>"; };
@@ -582,7 +599,6 @@
 		05A76B901F0A14F700199B6D /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		05A76B921F0A1F2F00199B6D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		05A850BF1EFA4E8200085B29 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
-		05AA8AFC1F1E3BC700EE09C0 /* ThreadOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadOrder.swift; sourceTree = "<group>"; };
 		05B35C3A1ECC231000C037A7 /* BaseWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		05B35C3C1ECC238C00C037A7 /* DataLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadable.swift; sourceTree = "<group>"; };
 		05B35C3E1ECC3CD800C037A7 /* UIAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAppearanceManager.swift; sourceTree = "<group>"; };
@@ -858,6 +874,21 @@
 				05CB825F1EFBCC470040FC92 /* UserProfileSectionHeaderView.xib */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		052D58FB1F29968D00543AF7 /* ThreadFilter */ = {
+			isa = PBXGroup;
+			children = (
+				052D58FC1F2996A300543AF7 /* ThreadFilter.swift */,
+				052D59021F29B21800543AF7 /* ThreadFilterManager.swift */,
+				052D58FE1F29B06600543AF7 /* FilterSection.swift */,
+				052D59001F29B13400543AF7 /* ThreadFilterViewController.swift */,
+				052D590C1F29D0A600543AF7 /* ThreadFilterViewModel.swift */,
+				052D590A1F29CFF400543AF7 /* ThreadFilterTableViewCell.swift */,
+				052D59061F29CD0200543AF7 /* ThreadFilterSectionHeaderView.swift */,
+				052D59081F29CD1400543AF7 /* ThreadFilterSectionHeaderView.xib */,
+			);
+			path = ThreadFilter;
 			sourceTree = "<group>";
 		};
 		05384BA11F10C4750071B1C1 /* FavoritesAndAtttention */ = {
@@ -1393,6 +1424,7 @@
 				05BF3C891ECA06F6001759E9 /* PostInfoTests.swift */,
 				058A9F431EFD072B00E74744 /* UserProfileModelTests.swift */,
 				058A9F451EFD079200E74744 /* UserProfileModelHtml.txt */,
+				052D59041F29B65400543AF7 /* ThreadFilterTests.swift */,
 				054065A11D43167300E460F6 /* HiPDATests-Bridging-Header.h */,
 			);
 			path = HiPDATests;
@@ -1448,6 +1480,7 @@
 		05E9A26C1D7ACFDB0096878B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				052D58FB1F29968D00543AF7 /* ThreadFilter */,
 				050EE3231DD200C800C4B18D /* Home.storyboard */,
 				0537AAF61EB039F300A51721 /* HomeNavigationBarTitleView.swift */,
 				05E9A2701D7ACFF20096878B /* HomeViewController.swift */,
@@ -1457,7 +1490,6 @@
 				0537AAF81EB0988E00A51721 /* ForumNameSelectionViewController.swift */,
 				059D49521EBAF70000BECA18 /* Thread.swift */,
 				059D49541EBAFD7400BECA18 /* ThreadAttachment.swift */,
-				05AA8AFC1F1E3BC700EE09C0 /* ThreadOrder.swift */,
 				059D495A1EBB108F00BECA18 /* ThreadManager.swift */,
 				059D495E1EBB1D2900BECA18 /* ThreadResult.swift */,
 				05EEF20A1EBC566B00C38CAD /* CacheManager.swift */,
@@ -1787,6 +1819,7 @@
 				05CEB74E1E1D0F7300ACB773 /* ForumList.plist in Resources */,
 				05B919BB1EEEE32F007339F6 /* default_funk.gif in Resources */,
 				056ED1861F120612006FBCB8 /* MyPostTableViewCell.xib in Resources */,
+				052D59091F29CD1400543AF7 /* ThreadFilterSectionHeaderView.xib in Resources */,
 				05B919A61EEEE32F007339F6 /* coolmonkey_01.gif in Resources */,
 				05B919D31EEEE32F007339F6 /* grapeman_08.gif in Resources */,
 				05B919B31EEEE32F007339F6 /* coolmonkey_14.gif in Resources */,
@@ -2066,6 +2099,7 @@
 				05C5E8DA1D899E0D00E840FE /* UIView+HiPDA.swift in Sources */,
 				05387FB61D7ADD3A00F9196C /* Collection+HiPDA.swift in Sources */,
 				0572261E1EF03C1200397829 /* NewThreadViewModel.swift in Sources */,
+				052D59011F29B13400543AF7 /* ThreadFilterViewController.swift in Sources */,
 				057844331F0C783C004CB91F /* SearchTitleModel.swift in Sources */,
 				0588D8251EBF26E000AC43DD /* HomeThreadModel.swift in Sources */,
 				059D35901F0E8DAA00D5A42D /* DraftTableViewCell.swift in Sources */,
@@ -2107,6 +2141,7 @@
 				058A9F4E1EFE54EB00E74744 /* UserProfileAccountTableViewCell.swift in Sources */,
 				051F41AF1E7E624A0049D31E /* AccountManagementItemtype.swift in Sources */,
 				0558E1B61F22EDDE00377ECF /* TipOffViewController.swift in Sources */,
+				052D58FD1F2996A300543AF7 /* ThreadFilter.swift in Sources */,
 				056ED17C1F11DA96006FBCB8 /* MyTopicModel.swift in Sources */,
 				051BFE101EF6D11200EA77EB /* ImageSelectorStateIndicator.swift in Sources */,
 				054149631F03AF8400AFE469 /* FriendMessageTableViewCell.swift in Sources */,
@@ -2152,6 +2187,7 @@
 				05E697501F00F481005919B7 /* SearchUserThreadsViewModel.swift in Sources */,
 				054149571F038B6F00AFE469 /* FriendMessageViewModel.swift in Sources */,
 				051BFDE71EF58C8200EA77EB /* EmoticonCollectionViewCell.swift in Sources */,
+				052D58FF1F29B06600543AF7 /* FilterSection.swift in Sources */,
 				0533F1FD1EE5939700DB854B /* HiPDA.swift in Sources */,
 				057226241EF1818500397829 /* ReplyPostManager.swift in Sources */,
 				052F92171E0688FF00856219 /* SettingsSegue.swift in Sources */,
@@ -2196,6 +2232,7 @@
 				0537AAF91EB0988E00A51721 /* ForumNameSelectionViewController.swift in Sources */,
 				05E697561F01F729005919B7 /* UnReadMessagesCountManager.swift in Sources */,
 				05EEF20B1EBC566B00C38CAD /* CacheManager.swift in Sources */,
+				052D590B1F29CFF400543AF7 /* ThreadFilterTableViewCell.swift in Sources */,
 				056ED1701F11CA9E006FBCB8 /* MyThreadsBaseTableViewModel.swift in Sources */,
 				05B35C471ECC443700C037A7 /* Post.swift in Sources */,
 				051BFDE81EF58C8200EA77EB /* EmoticonHelper.swift in Sources */,
@@ -2206,6 +2243,7 @@
 				059D49531EBAF70000BECA18 /* Thread.swift in Sources */,
 				05CB82621EFC0BA80040FC92 /* UserProfileViewModel.swift in Sources */,
 				05DA5B651D841A45004E2ED7 /* ActivityIndicator.swift in Sources */,
+				052D59031F29B21800543AF7 /* ThreadFilterManager.swift in Sources */,
 				0572261C1EF03ADC00397829 /* NetworkUtilities.swift in Sources */,
 				0546619C1EF7C4AC00857D33 /* AVCaptureDevice+HiPDA.swift in Sources */,
 				0578442D1F0B91F0004CB91F /* SearchViewModel.swift in Sources */,
@@ -2221,6 +2259,7 @@
 				058A717C1DA1FB22004992AD /* BaseViewController.swift in Sources */,
 				05E697521F00FA65005919B7 /* SearchUserThreadsTableViewCell.swift in Sources */,
 				05F3DCF11DB919070061CED1 /* ChangeAccountAction.swift in Sources */,
+				052D590D1F29D0A600543AF7 /* ThreadFilterViewModel.swift in Sources */,
 				05EDDCEB1DDCA2DE0095E95D /* BaseTableView.swift in Sources */,
 				058A9F501EFE550100E74744 /* UserProfileRemarkTableViewCell.swift in Sources */,
 				05384BA51F10C5FE0071B1C1 /* FavoritesViewController.swift in Sources */,
@@ -2251,6 +2290,7 @@
 				055996AB1D50DB4500057CF6 /* User.swift in Sources */,
 				05E510161D7B21DD00B55B8F /* LoginManager.swift in Sources */,
 				054149561F038B6F00AFE469 /* FriendMessageViewController.swift in Sources */,
+				052D59071F29CD0200543AF7 /* ThreadFilterSectionHeaderView.swift in Sources */,
 				055996A71D50DB4500057CF6 /* HomeTabBarControllerDelegate.swift in Sources */,
 				059D35981F0F35B800D5A42D /* DraftListViewModel.swift in Sources */,
 				0533F1F01EE4186A00DB854B /* UITabBarController+HiPDA.swift in Sources */,
@@ -2260,7 +2300,6 @@
 				059D35961F0F2AAD00D5A42D /* DraftManager.swift in Sources */,
 				05F8BCA31E37459800F9EC1B /* ForumNameTableViewCell.swift in Sources */,
 				051BFE0E1EF5A30300EA77EB /* ImageAssetsCollection.swift in Sources */,
-				05AA8AFD1F1E3BC700EE09C0 /* ThreadOrder.swift in Sources */,
 				059D358E1F0E8C7200D5A42D /* DraftListViewController.swift in Sources */,
 				051BFE0A1EF58F8300EA77EB /* ImagePickerViewModel.swift in Sources */,
 				05E6975A1F01FE45005919B7 /* UnReadMessagesCountAction.swift in Sources */,
@@ -2290,6 +2329,7 @@
 				05D130651E0187FC007D3765 /* EditWordListTableViewStateTests.swift in Sources */,
 				05B506841D6CA4C4004D573D /* ResultTests.swift in Sources */,
 				058A9F441EFD072B00E74744 /* UserProfileModelTests.swift in Sources */,
+				052D59051F29B65400543AF7 /* ThreadFilterTests.swift in Sources */,
 				05A2AF9B1E2388F60048508C /* ForumManagerTests.swift in Sources */,
 				05B5067C1D6C9386004D573D /* NibLoadableViewTests.swift in Sources */,
 				058DBBB11D4659780045E0FD /* SettingsTests.swift in Sources */,

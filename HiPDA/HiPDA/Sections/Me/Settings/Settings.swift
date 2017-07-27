@@ -53,7 +53,6 @@ class Settings {
         static let tailURL = "tailURL"
         static let avatarImageResolution = "avatarImageResolution"
         static let autoLoadImageViaWWAN = "autoLoadImageViaWWAN"
-        static let threadOrder = "threadOrder"
     }
     
     static let shared = Settings()
@@ -167,8 +166,6 @@ class Settings {
     
     var autoLoadImageViaWWAN: Bool
     
-    var threadOrder: HiPDA.ThreadOrder
-    
     init() {
         typealias `Self` = Settings
         func boolValue(in userDefaults: UserDefaults, key: String, defalut: Bool) -> Bool {
@@ -219,7 +216,6 @@ class Settings {
         activeForumNameList = (userDefaults.value(forKey: ConstantKeys.activeForumNameList) as? [String]) ?? ForumManager.defalutForumNameList
         isEnabledUserRemark = boolValue(in: userDefaults, key: ConstantKeys.isEnabledUserRemark, defalut: false)
         userRemarkDictionary = (userDefaults.value(forKey: ConstantKeys.userRemarkDictionary) as? [String: String]) ?? [:]
-        threadOrder = HiPDA.ThreadOrder(rawValue: (userDefaults.value(forKey: ConstantKeys.threadOrder) as? String) ?? "lastpost") ?? .lastpost
         isEnabledTail = boolValue(in: userDefaults, key: ConstantKeys.isEnabledTail, defalut: true)
         tailText = (userDefaults.value(forKey: ConstantKeys.tailText) as? String) ?? "小尾巴~"
         if boolValue(in: userDefaults, key: "kFirstLaunch", defalut: true) {
@@ -283,7 +279,6 @@ class Settings {
         userDefaults.set(activeForumNameList, forKey: ConstantKeys.activeForumNameList)
         userDefaults.set(isEnabledUserRemark, forKey: ConstantKeys.isEnabledUserRemark)
         userDefaults.set(userRemarkDictionary, forKey: ConstantKeys.userRemarkDictionary)
-        userDefaults.set(threadOrder.rawValue, forKey: ConstantKeys.threadOrder)
         userDefaults.set(isEnabledTail, forKey: ConstantKeys.isEnabledTail)
         userDefaults.set(tailText, forKey: ConstantKeys.tailText)
         if let url = tailURL {
@@ -330,7 +325,6 @@ class Settings {
         activeForumNameList = ForumManager.defalutForumNameList
         isEnabledUserRemark = false
         userRemarkDictionary = [:]
-        threadOrder = .lastpost
         isEnabledTail = true
         tailText = "小尾巴~"
         tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=2137250&extra=&page=1")

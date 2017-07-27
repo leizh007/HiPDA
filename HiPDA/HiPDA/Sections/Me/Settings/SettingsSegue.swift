@@ -36,7 +36,7 @@ enum SettingsSegue: String {
             self = .pmDoNotDisturb
         case (6, 0):
             self = .activeForumNameList
-        case (8, 1):
+        case (7, 1):
             self = .userRemark
         default:
             throw SettingsSugueError.unRecognizedIndexPath

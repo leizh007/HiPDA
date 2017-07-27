@@ -46,7 +46,6 @@ class YYCacheExtensionTests: XCTestCase {
             XCTAssert(cache.thread(for: thread2.id) == thread2)
             XCTAssert(cache.tids == [thread2.id, thread1.id])
             XCTAssert(cache.thread(for: thread1.id) == thread1)
-            XCTAssert(cache.tids == [thread1.id, thread2.id])
             cache.removeThread(thread1)
             XCTAssert(cache.thread(for: thread1.id) == nil)
             XCTAssert(cache.tids == [thread2.id])

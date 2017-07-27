@@ -37,8 +37,6 @@ class HomeViewModel {
         }
     }
     
-    var oldOrder = Settings.shared.threadOrder
-    
     /// 当前选中的论坛版块名称不在论坛列表中
     var shouldRefreshData: Bool {
         struct Status {
@@ -47,7 +45,7 @@ class HomeViewModel {
         Status.calledNumber += 1
         let oldForumName = _selectedForumName
         let newForumName = selectedForumName
-        return oldOrder != Settings.shared.threadOrder || Status.calledNumber == 1 || oldForumName != newForumName || !hasData
+        return Status.calledNumber == 1 || oldForumName != newForumName || !hasData
     }
     
     /// 是否有数据
@@ -65,7 +63,17 @@ class HomeViewModel {
     
     /// 帖子数据是否过时
     var isThreadsOutOfDate: Bool {
-        return oldOrder != Settings.shared.threadOrder || Date().timeIntervalSince1970 - manager.timeStamp > kThreadsOutOfDateTimeInterval
+        return Date().timeIntervalSince1970 - manager.timeStamp > kThreadsOutOfDateTimeInterval
+    }
+    
+    var filter: ThreadFilter {
+        get {
+            return manager.filter
+        }
+        
+        set {
+            manager.filter = newValue
+        }
     }
     
     fileprivate var manager: HiPDA.ThreadManager {
@@ -74,7 +82,7 @@ class HomeViewModel {
             manager = managerDic[selectedForumName]!
         } else {
             manager = HiPDA.ThreadManager(fid: ForumManager.fid(ofForumName: selectedForumName),
-                                         typeid: 0)
+                                          filter: ThreadFilterManager.shared.filter(for: selectedForumName))
             managerDic[selectedForumName] = manager
         }
         
@@ -175,7 +183,6 @@ extension HomeViewModel {
         let fid = manager.fid
         manager.firstPageThreads { [weak self] result in
             guard let `self` = self, fid == `self`.manager.fid else { return }
-            self.oldOrder = Settings.shared.threadOrder
             completion(result)
         }
     }

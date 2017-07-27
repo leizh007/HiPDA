@@ -12,7 +12,7 @@ import Moya
 extension HiPDA {
     enum API {
         case login(Account)
-        case threads(fid: Int, typeid: Int, page: Int, order: HiPDA.ThreadOrder)
+        case threads(fid: Int, typeid: Int, page: Int, order: ThreadOrder)
         case posts(PostInfo)
         case redirect(String)
         case newThread(fid: Int, typeid: Int, title: String, content: String, formhash: String, imageNumbers: [Int])

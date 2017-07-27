@@ -59,8 +59,7 @@ extension HiPDA {
         /// 论坛id
         let fid: Int
         
-        /// 过滤id
-        let typeid: Int
+        var filter: ThreadFilter
         
         /// 状态
         private var state = HiPDA.ThreadManagerState.idle
@@ -68,15 +67,15 @@ extension HiPDA {
         /// disposeBag
         private var disposeBag = DisposeBag()
         
-        init(fid: Int, typeid: Int, threads: [HiPDA.Thread]? = nil) {
-            self.threads = threads ?? (CacheManager.threads.shared?.threads(forFid: fid, typeid: typeid) ?? [])
+        init(fid: Int, filter: ThreadFilter, threads: [HiPDA.Thread]? = nil) {
+            self.threads = threads ?? (CacheManager.threads.shared?.threads(forFid: fid, typeid: 0) ?? [])
             self.threadModels = self.threads.map(threadModel(from:))
             self.page = 1
             self.fid = fid
-            self.typeid = typeid
-            let totalPageKey = key(forFid: fid, typeid: typeid, addtionalKey: kTotalPageKey)
+            self.filter = filter
+            let totalPageKey = key(forFid: fid, typeid: 0, addtionalKey: kTotalPageKey)
             self.totalPage = (CacheManager.threads.shared?.object(forKey: totalPageKey) as? NSNumber)?.intValue ?? 1
-            let timeStampKey = key(forFid: fid, typeid: typeid, addtionalKey: kTimeStamp)
+            let timeStampKey = key(forFid: fid, typeid: 0, addtionalKey: kTimeStamp)
             self.timeStamp = (CacheManager.threads.shared?.object(forKey: timeStampKey) as? NSNumber)?.doubleValue ?? 0.0
         }
         
@@ -158,11 +157,12 @@ extension HiPDA {
         /// - Returns: 返回帖子列表获取结果
         private func fetchThreads(at page: Int) -> Observable<HiPDAThreadsResult> {
             let fid = self.fid
-            let typeid = self.typeid
+            let typeid = ForumManager.typeid(of: self.filter.typeName)
             let userBlockSet = Set(Settings.shared.userBlockList)
             var totalPage = self.totalPage
+            let order = self.filter.order
             return Observable.create { observer in
-                HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page, order: Settings.shared.threadOrder))
+                HiPDAProvider.request(.threads(fid: fid, typeid: typeid, page: page, order: order))
                     .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                     .mapGBKString()
                     .do(onNext: { htmlString in
@@ -187,10 +187,10 @@ extension HiPDA {
                         
                         if page == 1 {
                             /// 添加到缓存中
-                            CacheManager.threads.shared?.setThreads(threads: threads, forFid: fid, typeid: typeid)
-                            let totalPageKey = key(forFid: fid, typeid: typeid, addtionalKey: kTotalPageKey)
+                            CacheManager.threads.shared?.setThreads(threads: threads, forFid: fid, typeid: 0)
+                            let totalPageKey = key(forFid: fid, typeid: 0, addtionalKey: kTotalPageKey)
                             CacheManager.threads.shared?.setObject(totalPage as NSNumber, forKey: totalPageKey)
-                            let timeStampKey = key(forFid: fid, typeid: typeid, addtionalKey: kTimeStamp)
+                            let timeStampKey = key(forFid: fid, typeid: 0, addtionalKey: kTimeStamp)
                             CacheManager.threads.shared?.setObject(timeStamp as NSNumber, forKey: timeStampKey)
                         }
                         

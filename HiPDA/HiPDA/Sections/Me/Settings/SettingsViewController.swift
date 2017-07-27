@@ -121,7 +121,6 @@ class SettingsViewController: UITableViewController {
         tailTextTextField.text = viewModel.tailText
         tailURLTextField.text = viewModel.tailURLString
         autoLoadImageViaWWANSwitch.isOn = viewModel.autoLoadImageViaWWAN
-        threadOrderLabel.text = viewModel.threadOrder.descriptionForDisplay
         
         viewModel.pmDoNotDisturbDescription.asObservable()
             .bindTo(pmDoNotDisturbDescriptionLabel.rx.text)
@@ -162,8 +161,7 @@ class SettingsViewController: UITableViewController {
     /// 配置tableView相关
     private func configureTableView() {
         enum C {
-            static let clearCacheIndexPath = IndexPath(row: 0, section: 11)
-            static let threadOrderIndexPath = IndexPath(row: 0, section: 7)
+            static let clearCacheIndexPath = IndexPath(row: 0, section: 10)
         }
         
         let router = SettingsRouter(viewController: self)
@@ -189,35 +187,12 @@ class SettingsViewController: UITableViewController {
                 switch indexPath {
                 case C.clearCacheIndexPath:
                     self.clearCache()
-                case C.threadOrderIndexPath:
-                    self.showThreadOrderSelectionView()
                 default:
                     router.handleSelection(for: indexPath)
                 }
             }).addDisposableTo(disposeBag)
     }
-    
-    private func showThreadOrderSelectionView() {
-        let orders = [HiPDA.ThreadOrder.heats,
-                      HiPDA.ThreadOrder.dateline,
-                      HiPDA.ThreadOrder.replies,
-                      HiPDA.ThreadOrder.views,
-                      HiPDA.ThreadOrder.lastpost]
-        let orderDescriptions = orders.map { $0.descriptionForDisplay }
-        let pickerActionSheetController = PickerActionSheetController.load(from: .views)
-        pickerActionSheetController.pickerTitles = orderDescriptions
-        pickerActionSheetController.initialSelelctionIndex = orders.index(of: viewModel.threadOrder)
-        pickerActionSheetController.selectedCompletionHandler = { [unowned self] (index) in
-            self.dismiss(animated: false, completion: nil)
-            if let index = index, let order = orders.safe[index] {
-                self.threadOrderLabel.text = order.descriptionForDisplay
-                self.viewModel.threadOrder = order
-            }
-        }
-        pickerActionSheetController.modalPresentationStyle = .overCurrentContext
-        present(pickerActionSheetController, animated: false, completion: nil)
-    }
-    
+        
     private func clearCache() {
         cacheIndicatorView.isHidden = false
         cacheIndicatorView.startAnimating()

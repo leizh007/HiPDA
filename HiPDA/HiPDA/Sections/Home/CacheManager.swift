@@ -28,6 +28,8 @@ enum CacheManager: String {
     
     case friendMessage
     
+    case threadFilter
+    
     private static var dic = [String: YYCache]()
     
     // FIXME: -  待优化

@@ -60,7 +60,7 @@ class SettingsTests: XCTestCase {
         XCTAssert(settings.userRemarkDictionary == [:])
         XCTAssert(settings.isEnabledTail)
         XCTAssert(settings.tailText == "小尾巴~")
-        XCTAssert(settings.tailURL == URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=1598240")!)
+        XCTAssert(settings.tailURL == URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=2137250&extra=&page=1")!)
         XCTAssert(settings.avatarImageResolution == .middle)
         
         /// 改变settings里面参数的值
