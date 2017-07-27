@@ -227,8 +227,13 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
     
     /// 配置ViewModel相关信息
     func configureViewModel() {
-        let viewModel = LoginViewModel(username: nameTextField.rx.text.orEmpty.asDriver(),
-                                       password: passwordTextField.rx.text.orEmpty.asDriver(),
+        let nameVariable = Variable("")
+        let passwordVariable = Variable("")
+        (nameTextField.rx.textInput <-> nameVariable).addDisposableTo(disposeBag)
+        (passwordTextField.rx.textInput <-> passwordVariable).addDisposableTo(disposeBag)
+        
+        let viewModel = LoginViewModel(username: nameVariable.asDriver(),
+                                       password: passwordVariable.asDriver(),
                                        questionid: questionDriver,
                                        answer: answerDriver,
                                        loginTaps: loginButton.rx.tap.asDriver())
@@ -239,6 +244,7 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
             switch result {
             case .success(let account):
                 self.showPromptInformation(of: .success("登录成功"))
+                Settings.shared.shouldAutoLogin = true
                 delay(seconds: 1.0) {
                     self.loggedInCompletion?(account)
                 }
@@ -255,6 +261,11 @@ class LoginViewController: BaseViewController, StoryboardLoadable {
             self?.cancelCompletion?()
             self?.presentingViewController?.dismiss(animated: true, completion: nil)
         }).addDisposableTo(disposeBag)
+        
+        if let account = Settings.shared.lastLoggedInAccount {
+            nameVariable.value = account.name
+            passwordVariable.value = account.password
+        }
     }
     
     /// 找到激活的textField

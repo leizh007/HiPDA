@@ -119,6 +119,9 @@
                                                             <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_password_hide" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-5Y-4g3">
                                                                 <rect key="frame" x="295" y="0.0" width="40" height="40"/>
                                                                 <gestureRecognizers/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="fgp-44-ami"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="DXT-06-3Zc" appends="YES" id="jzI-3x-ZQR"/>
                                                                 </connections>
@@ -338,7 +341,7 @@
                 <tapGestureRecognizer id="0l5-wo-JPG"/>
                 <tapGestureRecognizer id="DXT-06-3Zc"/>
             </objects>
-            <point key="canvasLocation" x="-1866.4000000000001" y="267.61619190404798"/>
+            <point key="canvasLocation" x="-1908" y="269"/>
         </scene>
     </scenes>
     <resources>

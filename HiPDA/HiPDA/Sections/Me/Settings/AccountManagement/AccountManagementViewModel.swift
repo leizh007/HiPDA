@@ -103,6 +103,9 @@ struct AccountManagementViewModel {
         case let .move(from: sourceIndex, to: destinationIndex):
             accountList.insert(accountList.remove(at: sourceIndex), at: destinationIndex)
         case let .delete(at: index):
+            if let account = settings.lastLoggedInAccount, account == accountList[index] {
+                settings.lastLoggedInAccount = nil
+            }
             accountList.remove(at: index)
         case let .click(at: index):
             activeAccount = accountList[index]

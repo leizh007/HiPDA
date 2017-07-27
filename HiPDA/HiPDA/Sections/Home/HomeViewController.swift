@@ -100,7 +100,7 @@ extension HomeViewController {
 extension HomeViewController {
     /// 处理登陆相关view展示
     fileprivate func handleLoginStatue() {
-        if Settings.shared.lastLoggedInAccount != nil {
+        if Settings.shared.lastLoggedInAccount != nil, Settings.shared.shouldAutoLogin {
             self.showPromptInformation(of: .loading("正在登录..."))
         } else {
             self.showLoginSuccessInformation = false

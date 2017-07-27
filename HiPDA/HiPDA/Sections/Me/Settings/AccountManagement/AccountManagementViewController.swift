@@ -102,6 +102,7 @@ extension AccountManagementViewController: UITableViewDelegate {
             navigationController?.present(loginVC, animated: true, completion: nil)
         case .logout:
             EventBus.shared.dispatch(ChangeAccountAction(account: nil))
+            Settings.shared.shouldAutoLogin = false
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

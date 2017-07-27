@@ -20,7 +20,7 @@ class LoginManager: Bootstrapping {
     private var disposeBag = DisposeBag()
     
     func bootstrap(bootstrapped: Bootstrapped) throws {
-        if let account = Settings.shared.lastLoggedInAccount {
+        if let account = Settings.shared.lastLoggedInAccount, Settings.shared.shouldAutoLogin {
             LoginManager.login(with: account).do(onNext: { [weak self] _ in
                 self?.isInAppLoading = false
             }).subscribe(onNext: { result in

@@ -41,7 +41,7 @@ struct LoginViewModel {
         let accountInfos = Driver.combineLatest(username, password, questionid, answer) { ($0, $1, $2, $3) }
         
         loggedIn = loginTaps.withLatestFrom(accountInfos)
-            .map { Account(name: $0, uid: 0, questionid: $2, answer: $3, password: $1.md5) } // 这里传密码和密码md5加密后的都能登录成功...
+            .map { Account(name: $0, uid: 0, questionid: $2, answer: $3, password: $1) } // 这里传密码和密码md5加密后的都能登录成功...
             .flatMapLatest { account in
                 return LoginManager.login(with: account)
                     .asDriver(onErrorJustReturn: .failure(.unKnown("未知错误")))
