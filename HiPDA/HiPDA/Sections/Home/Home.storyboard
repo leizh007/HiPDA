@@ -381,7 +381,7 @@
                         <constraints>
                             <constraint firstItem="GH6-bK-gAv" firstAttribute="leading" secondItem="OHL-DM-KYd" secondAttribute="leading" id="eLU-al-4nx"/>
                             <constraint firstAttribute="trailing" secondItem="GH6-bK-gAv" secondAttribute="trailing" id="lid-30-GKd"/>
-                            <constraint firstItem="Uwc-Dk-Krf" firstAttribute="top" secondItem="GH6-bK-gAv" secondAttribute="bottom" id="sRQ-Ld-uwo"/>
+                            <constraint firstAttribute="bottom" secondItem="GH6-bK-gAv" secondAttribute="bottom" id="qFS-Y3-6ir"/>
                             <constraint firstItem="GH6-bK-gAv" firstAttribute="top" secondItem="Fh6-dd-sHE" secondAttribute="bottom" id="z5M-oq-d8h"/>
                         </constraints>
                     </view>
