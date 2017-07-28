@@ -1,0 +1,12 @@
+
+/* Class = "UITabBarItem"; title = "主页"; ObjectID = "FQd-sL-1fA"; */
+"FQd-sL-1fA.title" = "主页";
+
+/* Class = "UITabBarItem"; title = "我"; ObjectID = "FlA-XB-2n6"; */
+"FlA-XB-2n6.title" = "我";
+
+/* Class = "UITabBarItem"; title = "搜索"; ObjectID = "MUr-Rv-BmD"; */
+"MUr-Rv-BmD.title" = "搜索";
+
+/* Class = "UITabBarItem"; title = "消息"; ObjectID = "ZuG-Xo-MWT"; */
+"ZuG-Xo-MWT.title" = "消息";
