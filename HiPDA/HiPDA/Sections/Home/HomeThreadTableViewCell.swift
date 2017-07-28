@@ -25,6 +25,7 @@ class HomeThreadTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var replyCountLabel: UILabel!
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     var justForHeightCaculation = false
+    var shouldChangeTitleTextColorWhenThreadIsRead = false
     
     var threadModel: HomeThreadModel? {
         didSet {
@@ -34,7 +35,8 @@ class HomeThreadTableViewCell: UITableViewCell {
             readCountLabel.text = "\(threadModel.readCount)"
             replyCountLabel.text = "\(threadModel.replyCount)"
             titleLabel.text = threadModel.title
-            avatarImageView.sd_setImage(with: threadModel.avatarImageURL, placeholderImage: Avatar.placeholder, options: [.avoidAutoSetImage]) { [weak self] (image, _, _, _) in
+            let placeholderImage = Settings.shared.useAvatarPlaceholder ? Avatar.placeholder : Avatar.blank
+            avatarImageView.sd_setImage(with: threadModel.avatarImageURL, placeholderImage: placeholderImage, options: [.avoidAutoSetImage]) { [weak self] (image, _, _, _) in
                 guard let `self` = self, let image = image else { return }
                 DispatchQueue.global().async {
                     let corneredImage = image.image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0 / C.UI.screenScale, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))
@@ -43,6 +45,14 @@ class HomeThreadTableViewCell: UITableViewCell {
                         self.avatarImageView.image = corneredImage
                     }
                 }
+            }
+            if shouldChangeTitleTextColorWhenThreadIsRead {
+                titleLabel.textColor = threadModel.isRead ? #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                nameLabel.textColor = threadModel.isRead ? #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) : #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
+                readCountLabel.textColor = threadModel.isRead ? #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) : #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
+                countSeperatorLabel.textColor = threadModel.isRead ? #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) : #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
+                replyCountLabel.textColor = threadModel.isRead ? #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) : #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
+                timeDescriptionLabel.textColor = threadModel.isRead ? #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) : #colorLiteral(red: 0.3960784314, green: 0.4666666667, blue: 0.5254901961, alpha: 1)
             }
         }
     }

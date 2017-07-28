@@ -28,4 +28,6 @@ struct HomeThreadModel {
     
     /// 标题
     let title: String
+    
+    var isRead: Bool
 }

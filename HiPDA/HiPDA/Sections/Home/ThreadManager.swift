@@ -36,7 +36,8 @@ func threadModel(from thread: HiPDA.Thread) -> HomeThreadModel {
                                replyCount: thread.replyCount,
                                readCount: thread.readCount,
                                timeString: thread.postTime.descriptionTimeStringForThread,
-                               title: thread.title)
+                               title: thread.title,
+                               isRead: CacheManager.threadsReadHistory.shared?.containsThread(thread) ?? false)
 }
 
 extension HiPDA {
@@ -85,6 +86,10 @@ extension HiPDA {
         func deleteThread(at index: Int) {
             threads.remove(at: index)
             threadModels.remove(at: index)
+        }
+        
+        func readThread(at index: Int) {
+            threadModels[index].isRead = true
         }
         
         /// 获取第一页帖子列表

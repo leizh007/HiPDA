@@ -11,6 +11,7 @@ import Foundation
 struct Avatar {
     /// 默认头像的图片
     static let placeholder =  #imageLiteral(resourceName: "avatar_placeholder").image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0 / C.UI.screenScale, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))!
+    static let blank = #imageLiteral(resourceName: "avatar_placeholder_blank").image(roundCornerRadius: Avatar.cornerRadius, borderWidth: 1.0 / C.UI.screenScale, borderColor: .lightGray, size: CGSize(width: Avatar.width, height: Avatar.height))!
     
     static let width = CGFloat(34.0)
     static let height = CGFloat(34.0)

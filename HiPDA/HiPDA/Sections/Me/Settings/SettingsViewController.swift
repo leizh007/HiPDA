@@ -79,6 +79,8 @@ class SettingsViewController: UITableViewController {
     /// 无线网络下自动下载图片的switch
     @IBOutlet private weak var autoLoadImageViaWWANSwitch: UISwitch!
     
+    @IBOutlet private weak var useAvatarPlaceholderSwitch: UISwitch!
+    
     @IBOutlet private weak var threadOrderLabel: UILabel!
     
     override func viewDidLoad() {
@@ -121,6 +123,7 @@ class SettingsViewController: UITableViewController {
         tailTextTextField.text = viewModel.tailText
         tailURLTextField.text = viewModel.tailURLString
         autoLoadImageViaWWANSwitch.isOn = viewModel.autoLoadImageViaWWAN
+        useAvatarPlaceholderSwitch.isOn = viewModel.useAvatarPlaceholder
         
         viewModel.pmDoNotDisturbDescription.asObservable()
             .bindTo(pmDoNotDisturbDescriptionLabel.rx.text)
@@ -155,13 +158,14 @@ class SettingsViewController: UITableViewController {
                          tail: tailSwitch.rx.value.asDriver(),
                          tailText: tailText,
                          tailURL: tailURL,
-                         autoLoadImageViaWWANSwitch: autoLoadImageViaWWANSwitch.rx.value.asDriver())
+                         autoLoadImageViaWWANSwitch: autoLoadImageViaWWANSwitch.rx.value.asDriver(),
+                         useAvatarPlaceholderSwitch: useAvatarPlaceholderSwitch.rx.value.asDriver())
     }
     
     /// 配置tableView相关
     private func configureTableView() {
         enum C {
-            static let clearCacheIndexPath = IndexPath(row: 0, section: 10)
+            static let clearCacheIndexPath = IndexPath(row: 0, section: 11)
         }
         
         let router = SettingsRouter(viewController: self)

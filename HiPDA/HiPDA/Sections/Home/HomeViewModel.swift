@@ -112,6 +112,7 @@ class HomeViewModel {
     func readThread(at index: Int) {
         guard let thread = manager.threads.safe[index] else { return }
         CacheManager.threadsReadHistory.shared?.addThread(thread)
+        manager.readThread(at: index)
     }
     
     /// 删除帖子

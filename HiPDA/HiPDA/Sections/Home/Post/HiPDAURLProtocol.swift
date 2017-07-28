@@ -59,7 +59,7 @@ class HiPDAURLProtocol: URLProtocol {
 
 extension HiPDAURLProtocol {
     fileprivate func loadAvatarImage() {
-        loadImage(url: request.url!, imageFlag: C.URL.HiPDA.avatar, placeHolderData: HiPDAURLProtocol.avatarPlaceholderData)
+        loadImage(url: request.url!, imageFlag: C.URL.HiPDA.avatar, placeHolderData: Settings.shared.useAvatarPlaceholder ? HiPDAURLProtocol.avatarPlaceholderData : nil)
     }
     
     fileprivate func loadAttatchImage() {

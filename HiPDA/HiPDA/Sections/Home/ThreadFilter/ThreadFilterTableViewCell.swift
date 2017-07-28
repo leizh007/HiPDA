@@ -22,7 +22,7 @@ class ThreadFilterTableViewCell: UITableViewCell {
                 accessoryType = .checkmark
                 titleLabel.textColor = C.Color.navigationBarTintColor
             } else {
-                titleLabel.textColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+                titleLabel.textColor = .black
                 accessoryType = .none
             }
         }

@@ -367,8 +367,8 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         viewModel.readThread(at: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
         
         let tid = viewModel.tid(at: indexPath.row)
         let readPostVC = PostViewController.load(from: .home)
@@ -405,6 +405,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as HomeThreadTableViewCell
         cell.justForHeightCaculation = false
+        cell.shouldChangeTitleTextColorWhenThreadIsRead = true
         cell.threadModel = self.viewModel.threadModel(at: indexPath.row)
         
         return cell

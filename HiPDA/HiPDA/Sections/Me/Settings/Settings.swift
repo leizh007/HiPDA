@@ -29,6 +29,7 @@ class Settings {
         static let activeAccount = "activeAccount"
         static let autoDownloadImageWhenUsingWWAN = "autoDownloadImageWhenUsingWWAN"
         static let autoDownloadImageSizeThreshold = "autoDownloadImageSizeThreshold"
+        static let useAvatarPlaceholder = "useAvatarPlaceholder"
         static let fontSize = "fontSize"
         static let lineSpacing = "lineSpacing"
         static let isEnabledUserBlock = "isEnabledUserBlock"
@@ -93,6 +94,8 @@ class Settings {
     
     /// WWAN自动下载图片阈值，单位byte，默认256kb
     var autoDownloadImageSizeThreshold: Int
+    
+    var useAvatarPlaceholder: Bool
     
     /// 读帖子界面字体大小
     var fontSize: Int
@@ -187,6 +190,7 @@ class Settings {
         
         autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: ConstantKeys.autoDownloadImageWhenUsingWWAN, defalut: true)
         autoDownloadImageSizeThreshold = (userDefaults.value(forKey: ConstantKeys.autoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
+        useAvatarPlaceholder = boolValue(in: userDefaults, key: ConstantKeys.useAvatarPlaceholder, defalut: true)
         fontSize = (userDefaults.value(forKey: ConstantKeys.fontSize) as? Int) ?? 17
         lineSpacing = (userDefaults.value(forKey: ConstantKeys.lineSpacing) as? Int) ?? 1
         isEnabledUserBlock = boolValue(in: userDefaults, key: ConstantKeys.isEnabledUserBlock, defalut: true)
@@ -252,6 +256,7 @@ class Settings {
         userDefaults.set(shouldAutoLogin, forKey: ConstantKeys.shouldAutoLogin)
         userDefaults.set(autoDownloadImageWhenUsingWWAN, forKey: ConstantKeys.autoDownloadImageWhenUsingWWAN)
         userDefaults.set(autoDownloadImageSizeThreshold, forKey: ConstantKeys.autoDownloadImageSizeThreshold)
+        userDefaults.set(useAvatarPlaceholder, forKey: ConstantKeys.useAvatarPlaceholder)
         userDefaults.set(fontSize, forKey: ConstantKeys.fontSize)
         userDefaults.set(lineSpacing, forKey: ConstantKeys.lineSpacing)
         userDefaults.set(isEnabledUserBlock, forKey: ConstantKeys.isEnabledUserBlock)
@@ -306,6 +311,7 @@ class Settings {
         shouldAutoLogin = true
         autoDownloadImageWhenUsingWWAN = true
         autoDownloadImageSizeThreshold = 256 * 1024
+        useAvatarPlaceholder = true
         fontSize = 17
         lineSpacing = 1
         isEnabledUserBlock = true
