@@ -53,9 +53,9 @@ class NewThreadViewModel {
         isSendButtonEnabled = Driver.combineLatest(title, content) { ($0, $1) }.map { (title, content) in
             switch type {
             case .new(fid: _):
-                return !title.isEmpty && content.characters.count > Constant.contentLengthThreshold
+                return !title.isEmpty && NewThreadViewModel.skinContent(content).characters.count > Constant.contentLengthThreshold
             default:
-                return content.characters.count > Constant.contentLengthThreshold
+                return NewThreadViewModel.skinContent(content).characters.count > Constant.contentLengthThreshold
             }
         }
         successNewThread = PublishSubject<Int>()
