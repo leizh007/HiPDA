@@ -367,8 +367,10 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.readThread(at: indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        delay(seconds: 0.25) { 
+            self.viewModel.readThread(at: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
         
         let tid = viewModel.tid(at: indexPath.row)
         let readPostVC = PostViewController.load(from: .home)
