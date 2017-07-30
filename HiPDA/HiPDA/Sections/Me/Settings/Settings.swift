@@ -13,6 +13,7 @@ import Runes
 import Curry
 import RxSwift
 import RxCocoa
+import YYCache
 
 /// 用于从Keychain中获取密码的服务名
 private let kAccountServiceKey = "HiPDA-account"
@@ -171,13 +172,13 @@ class Settings {
     
     init() {
         typealias `Self` = Settings
-        func boolValue(in userDefaults: UserDefaults, key: String, defalut: Bool) -> Bool {
-            return (userDefaults.value(forKey: key) as? Bool) ?? defalut
+        let storage = CacheManager.settings.shared!
+        let accountNameArray = (storage.object(forKey: ConstantKeys.accountList) as? [String]) ?? []
+        
+        func boolValue(in storage: YYCache, key: String, defalut: Bool) -> Bool {
+            return (storage.object(forKey: key) as? Bool) ?? defalut
         }
-        
-        let userDefaults = UserDefaults.standard
-        let accountNameArray = (userDefaults.value(forKey: ConstantKeys.accountList) as? [String]) ?? []
-        
+
         func account(with name: String) -> Account? {
             let accountString = SAMKeychain.password(forService: kAccountServiceKey, account: name) ?? ""
             let accountData = accountString.data(using: .utf8) ?? Data()
@@ -185,116 +186,115 @@ class Settings {
             return try? Account.decode(JSON(attributes)).dematerialize()
         }
         accountList = accountNameArray.flatMap(account(with:))
-        lastLoggedInAccount = (userDefaults.value(forKey: ConstantKeys.lastLoggedInAccount) as? String).flatMap(account(with:))
-        shouldAutoLogin = boolValue(in: userDefaults, key: ConstantKeys.shouldAutoLogin, defalut: true)
+        lastLoggedInAccount = (storage.object(forKey: ConstantKeys.lastLoggedInAccount) as? String).flatMap(account(with:))
+        shouldAutoLogin = boolValue(in: storage, key: ConstantKeys.shouldAutoLogin, defalut: true)
         
-        autoDownloadImageWhenUsingWWAN = boolValue(in: userDefaults, key: ConstantKeys.autoDownloadImageWhenUsingWWAN, defalut: true)
-        autoDownloadImageSizeThreshold = (userDefaults.value(forKey: ConstantKeys.autoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
-        useAvatarPlaceholder = boolValue(in: userDefaults, key: ConstantKeys.useAvatarPlaceholder, defalut: true)
-        fontSize = (userDefaults.value(forKey: ConstantKeys.fontSize) as? Int) ?? 17
-        lineSpacing = (userDefaults.value(forKey: ConstantKeys.lineSpacing) as? Int) ?? 1
-        isEnabledUserBlock = boolValue(in: userDefaults, key: ConstantKeys.isEnabledUserBlock, defalut: true)
-        userBlockList = (userDefaults.value(forKey: ConstantKeys.userBlockList) as? [String]) ?? []
-        isEnabledThreadBlock = boolValue(in: userDefaults, key: ConstantKeys.isEnabledThreadBlock, defalut: false)
-        threadBlockWordList = (userDefaults.value(forKey: ConstantKeys.threadBlockWordList) as? [String]) ?? []
-        threadHistoryCountLimit = (userDefaults.value(forKey: ConstantKeys.threadHistoryCountLimit) as? Int) ?? Self.kThreadHistoryCountDefault
-        isEnabledMessagePush = boolValue(in: userDefaults, key: ConstantKeys.isEnabledMessagePush, defalut: true)
-        isEnabledSystemPm = boolValue(in: userDefaults, key: ConstantKeys.isEnabledSystemPm, defalut: true)
-        isEnabledFriendPm = boolValue(in: userDefaults, key: ConstantKeys.isEnabledFriendPm, defalut: true)
-        isEnabledThreadPm = boolValue(in: userDefaults, key: ConstantKeys.isEnabledThreadPm, defalut: true)
-        isEnabledPrivatePm = boolValue(in: userDefaults, key: ConstantKeys.isEnabledPrivatePm, defalut: true)
-        isEnabledAnnoucePm = boolValue(in: userDefaults, key: ConstantKeys.isEnabledAnnoucePm, defalut: true)
-        isEnabledPmDoNotDisturb = boolValue(in: userDefaults, key: ConstantKeys.isEnabledPmDoNotDisturb, defalut: true)
-        if let dictionary = userDefaults.value(forKey: ConstantKeys.pmDoNotDisturbFromTime) as? [String: Int],
+        autoDownloadImageWhenUsingWWAN = boolValue(in: storage, key: ConstantKeys.autoDownloadImageWhenUsingWWAN, defalut: true)
+        autoDownloadImageSizeThreshold = (storage.object(forKey: ConstantKeys.autoDownloadImageSizeThreshold) as? Int) ?? 256 * 1024
+        useAvatarPlaceholder = boolValue(in: storage, key: ConstantKeys.useAvatarPlaceholder, defalut: true)
+        fontSize = (storage.object(forKey: ConstantKeys.fontSize) as? Int) ?? 17
+        lineSpacing = (storage.object(forKey: ConstantKeys.lineSpacing) as? Int) ?? 1
+        isEnabledUserBlock = boolValue(in: storage, key: ConstantKeys.isEnabledUserBlock, defalut: true)
+        userBlockList = (storage.object(forKey: ConstantKeys.userBlockList) as? [String]) ?? []
+        isEnabledThreadBlock = boolValue(in: storage, key: ConstantKeys.isEnabledThreadBlock, defalut: false)
+        threadBlockWordList = (storage.object(forKey: ConstantKeys.threadBlockWordList) as? [String]) ?? []
+        threadHistoryCountLimit = (storage.object(forKey: ConstantKeys.threadHistoryCountLimit) as? Int) ?? Self.kThreadHistoryCountDefault
+        isEnabledMessagePush = boolValue(in: storage, key: ConstantKeys.isEnabledMessagePush, defalut: true)
+        isEnabledSystemPm = boolValue(in: storage, key: ConstantKeys.isEnabledSystemPm, defalut: true)
+        isEnabledFriendPm = boolValue(in: storage, key: ConstantKeys.isEnabledFriendPm, defalut: true)
+        isEnabledThreadPm = boolValue(in: storage, key: ConstantKeys.isEnabledThreadPm, defalut: true)
+        isEnabledPrivatePm = boolValue(in: storage, key: ConstantKeys.isEnabledPrivatePm, defalut: true)
+        isEnabledAnnoucePm = boolValue(in: storage, key: ConstantKeys.isEnabledAnnoucePm, defalut: true)
+        isEnabledPmDoNotDisturb = boolValue(in: storage, key: ConstantKeys.isEnabledPmDoNotDisturb, defalut: true)
+        if let dictionary = storage.object(forKey: ConstantKeys.pmDoNotDisturbFromTime) as? [String: Int],
             let hour = dictionary["hour"], let minute = dictionary["minute"] {
             pmDoNotDisturbFromTime = (hour: hour, minute: minute)
         } else {
             pmDoNotDisturbFromTime = (hour: 22, minute: 0)
         }
-        if let dictionary = userDefaults.value(forKey: ConstantKeys.pmDoNotDisturbToTime) as? [String: Int],
+        if let dictionary = storage.object(forKey: ConstantKeys.pmDoNotDisturbToTime) as? [String: Int],
             let hour = dictionary["hour"], let minute = dictionary["minute"] {
             pmDoNotDisturbToTime = (hour: hour, minute: minute)
         } else {
             pmDoNotDisturbToTime = (hour: 9, minute: 0)
         }
-        activeForumNameList = (userDefaults.value(forKey: ConstantKeys.activeForumNameList) as? [String]) ?? ForumManager.defalutForumNameList
-        isEnabledUserRemark = boolValue(in: userDefaults, key: ConstantKeys.isEnabledUserRemark, defalut: false)
-        userRemarkDictionary = (userDefaults.value(forKey: ConstantKeys.userRemarkDictionary) as? [String: String]) ?? [:]
-        isEnabledTail = boolValue(in: userDefaults, key: ConstantKeys.isEnabledTail, defalut: true)
-        tailText = (userDefaults.value(forKey: ConstantKeys.tailText) as? String) ?? "小尾巴~"
-        if boolValue(in: userDefaults, key: "kFirstLaunch", defalut: true) {
+        activeForumNameList = (storage.object(forKey: ConstantKeys.activeForumNameList) as? [String]) ?? ForumManager.defalutForumNameList
+        isEnabledUserRemark = boolValue(in: storage, key: ConstantKeys.isEnabledUserRemark, defalut: false)
+        userRemarkDictionary = (storage.object(forKey: ConstantKeys.userRemarkDictionary) as? [String: String]) ?? [:]
+        isEnabledTail = boolValue(in: storage, key: ConstantKeys.isEnabledTail, defalut: true)
+        tailText = (storage.object(forKey: ConstantKeys.tailText) as? String) ?? "小尾巴~"
+        if boolValue(in: storage, key: "kFirstLaunch", defalut: true) {
             tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=2137250&extra=&page=1")
-            userDefaults.set(false, forKey: "kFirstLaunch")
+            storage.setObject(false as NSNumber, forKey: "kFirstLaunch")
         } else {
-            if let urlString = userDefaults.value(forKey: ConstantKeys.tailURL) as? String {
+            if let urlString = storage.object(forKey: ConstantKeys.tailURL) as? String {
                 tailURL = URL(string: urlString)
             }
         }
-        avatarImageResolution = UserAvatarImageResolution(rawValue: userDefaults.string(forKey: ConstantKeys.avatarImageResolution) ?? "middle") ?? .middle
-        autoLoadImageViaWWAN = boolValue(in: userDefaults, key: ConstantKeys.autoLoadImageViaWWAN, defalut: true)
+        avatarImageResolution = UserAvatarImageResolution(rawValue: storage.object(forKey: ConstantKeys.avatarImageResolution) as? String ?? "middle") ?? .middle
+        autoLoadImageViaWWAN = boolValue(in: storage, key: ConstantKeys.autoLoadImageViaWWAN, defalut: true)
     }
     
     /// 持久化
     func save() {
         typealias `Self` = Settings
         
-        let userDefaults = UserDefaults.standard
+        let storage = CacheManager.settings.shared!
         let accountNameArray = accountList.map { $0.name }
         if accountNameArray.count == 0 {
-            userDefaults.removeObject(forKey: ConstantKeys.accountList)
+            storage.setObject(nil, forKey: ConstantKeys.accountList)
         } else {
-            userDefaults.setValue(accountNameArray, forKey: ConstantKeys.accountList)
+            storage.setObject(accountNameArray as NSCoding, forKey: ConstantKeys.accountList)
             accountList.forEach { account in
                 SAMKeychain.setPassword(account.encode(), forService: kAccountServiceKey, account: account.name)
             }
         }
         if let account = lastLoggedInAccount {
-            userDefaults.setValue(account.name, forKey: ConstantKeys.lastLoggedInAccount)
+            storage.setObject(account.name as NSCoding, forKey: ConstantKeys.lastLoggedInAccount)
         } else {
-            userDefaults.removeObject(forKey: ConstantKeys.lastLoggedInAccount)
+            storage.setObject(nil, forKey: ConstantKeys.lastLoggedInAccount)
         }
-        userDefaults.set(shouldAutoLogin, forKey: ConstantKeys.shouldAutoLogin)
-        userDefaults.set(autoDownloadImageWhenUsingWWAN, forKey: ConstantKeys.autoDownloadImageWhenUsingWWAN)
-        userDefaults.set(autoDownloadImageSizeThreshold, forKey: ConstantKeys.autoDownloadImageSizeThreshold)
-        userDefaults.set(useAvatarPlaceholder, forKey: ConstantKeys.useAvatarPlaceholder)
-        userDefaults.set(fontSize, forKey: ConstantKeys.fontSize)
-        userDefaults.set(lineSpacing, forKey: ConstantKeys.lineSpacing)
-        userDefaults.set(isEnabledUserBlock, forKey: ConstantKeys.isEnabledUserBlock)
-        userDefaults.set(userBlockList, forKey: ConstantKeys.userBlockList)
-        userDefaults.set(isEnabledThreadBlock, forKey: ConstantKeys.isEnabledThreadBlock)
-        userDefaults.set(threadBlockWordList, forKey: ConstantKeys.threadBlockWordList)
-        userDefaults.set(threadHistoryCountLimit, forKey: ConstantKeys.threadHistoryCountLimit)
-        userDefaults.set(isEnabledMessagePush, forKey: ConstantKeys.isEnabledMessagePush)
-        userDefaults.set(isEnabledSystemPm, forKey: ConstantKeys.isEnabledSystemPm)
-        userDefaults.set(isEnabledFriendPm, forKey: ConstantKeys.isEnabledFriendPm)
-        userDefaults.set(isEnabledThreadPm, forKey: ConstantKeys.isEnabledThreadPm)
-        userDefaults.set(isEnabledPrivatePm, forKey: ConstantKeys.isEnabledPrivatePm)
-        userDefaults.set(isEnabledAnnoucePm, forKey: ConstantKeys.isEnabledAnnoucePm)
-        userDefaults.set(isEnabledPmDoNotDisturb, forKey: ConstantKeys.isEnabledPmDoNotDisturb)
+        storage.setObject(shouldAutoLogin as NSCoding, forKey: ConstantKeys.shouldAutoLogin)
+        storage.setObject(autoDownloadImageWhenUsingWWAN as NSCoding, forKey: ConstantKeys.autoDownloadImageWhenUsingWWAN)
+        storage.setObject(autoDownloadImageSizeThreshold as NSCoding, forKey: ConstantKeys.autoDownloadImageSizeThreshold)
+        storage.setObject(useAvatarPlaceholder as NSCoding, forKey: ConstantKeys.useAvatarPlaceholder)
+        storage.setObject(fontSize as NSCoding, forKey: ConstantKeys.fontSize)
+        storage.setObject(lineSpacing as NSCoding, forKey: ConstantKeys.lineSpacing)
+        storage.setObject(isEnabledUserBlock as NSCoding, forKey: ConstantKeys.isEnabledUserBlock)
+        storage.setObject(userBlockList as NSCoding, forKey: ConstantKeys.userBlockList)
+        storage.setObject(isEnabledThreadBlock as NSCoding, forKey: ConstantKeys.isEnabledThreadBlock)
+        storage.setObject(threadBlockWordList as NSCoding, forKey: ConstantKeys.threadBlockWordList)
+        storage.setObject(threadHistoryCountLimit as NSCoding, forKey: ConstantKeys.threadHistoryCountLimit)
+        storage.setObject(isEnabledMessagePush as NSCoding, forKey: ConstantKeys.isEnabledMessagePush)
+        storage.setObject(isEnabledSystemPm as NSCoding, forKey: ConstantKeys.isEnabledSystemPm)
+        storage.setObject(isEnabledFriendPm as NSCoding, forKey: ConstantKeys.isEnabledFriendPm)
+        storage.setObject(isEnabledThreadPm as NSCoding, forKey: ConstantKeys.isEnabledThreadPm)
+        storage.setObject(isEnabledPrivatePm as NSCoding, forKey: ConstantKeys.isEnabledPrivatePm)
+        storage.setObject(isEnabledAnnoucePm as NSCoding, forKey: ConstantKeys.isEnabledAnnoucePm)
+        storage.setObject(isEnabledPmDoNotDisturb as NSCoding, forKey: ConstantKeys.isEnabledPmDoNotDisturb)
         let fromTimeDictionary = [
             "hour": pmDoNotDisturbFromTime.hour,
             "minute": pmDoNotDisturbFromTime.minute
         ]
-        userDefaults.set(fromTimeDictionary, forKey: ConstantKeys.pmDoNotDisturbFromTime)
+        storage.setObject(fromTimeDictionary as NSCoding, forKey: ConstantKeys.pmDoNotDisturbFromTime)
         let toTimeDictionary = [
             "hour": pmDoNotDisturbToTime.hour,
             "minute": pmDoNotDisturbToTime.minute
         ]
-        userDefaults.set(toTimeDictionary, forKey: ConstantKeys.pmDoNotDisturbToTime)
-        userDefaults.set(activeForumNameList, forKey: ConstantKeys.activeForumNameList)
-        userDefaults.set(isEnabledUserRemark, forKey: ConstantKeys.isEnabledUserRemark)
-        userDefaults.set(userRemarkDictionary, forKey: ConstantKeys.userRemarkDictionary)
-        userDefaults.set(isEnabledTail, forKey: ConstantKeys.isEnabledTail)
-        userDefaults.set(tailText, forKey: ConstantKeys.tailText)
+        storage.setObject(toTimeDictionary as NSCoding, forKey: ConstantKeys.pmDoNotDisturbToTime)
+        storage.setObject(activeForumNameList as NSCoding, forKey: ConstantKeys.activeForumNameList)
+        storage.setObject(isEnabledUserRemark as NSCoding, forKey: ConstantKeys.isEnabledUserRemark)
+        storage.setObject(userRemarkDictionary as NSCoding, forKey: ConstantKeys.userRemarkDictionary)
+        storage.setObject(isEnabledTail as NSCoding, forKey: ConstantKeys.isEnabledTail)
+        storage.setObject(tailText as NSCoding, forKey: ConstantKeys.tailText)
         if let url = tailURL {
             let urlString = url.absoluteString
-            userDefaults.set(urlString, forKey: ConstantKeys.tailURL)
+            storage.setObject(urlString as NSCoding, forKey: ConstantKeys.tailURL)
         } else {
-            userDefaults.removeObject(forKey: ConstantKeys.tailURL)
+            storage.setObject(nil, forKey: ConstantKeys.tailURL)
         }
-        userDefaults.set(avatarImageResolution.rawValue, forKey: ConstantKeys.avatarImageResolution)
-        userDefaults.set(autoLoadImageViaWWAN, forKey: ConstantKeys.autoLoadImageViaWWAN)
-        userDefaults.synchronize()
+        storage.setObject(avatarImageResolution.rawValue as NSCoding, forKey: ConstantKeys.avatarImageResolution)
+        storage.setObject(autoLoadImageViaWWAN as NSCoding, forKey: ConstantKeys.autoLoadImageViaWWAN)
     }
     
     /// 恢复到默认设置,测试用

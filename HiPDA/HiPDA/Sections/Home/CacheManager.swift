@@ -30,6 +30,8 @@ enum CacheManager: String {
     
     case threadFilter
     
+    case settings
+    
     private static var dic = [String: YYCache]()
     
     // FIXME: -  待优化
