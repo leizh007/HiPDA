@@ -34,7 +34,7 @@ class SettingsTests: XCTestCase {
         }
         userDefaults.synchronize()
         Settings.shared.reset()
-        let settings = Settings()
+        let settings = Settings.shared
         
         XCTAssert(settings.autoDownloadImageWhenUsingWWAN)
         XCTAssert(settings.autoDownloadImageSizeThreshold == 256 * 1024)
@@ -94,7 +94,7 @@ class SettingsTests: XCTestCase {
         settings.avatarImageResolution = .big
         settings.save()
         
-        let setting1 = Settings()
+        let setting1 = Settings.shared
         XCTAssert(!setting1.autoDownloadImageWhenUsingWWAN)
         XCTAssert(setting1.autoDownloadImageSizeThreshold == 512)
         XCTAssert(setting1.fontSize == 20)
@@ -121,13 +121,12 @@ class SettingsTests: XCTestCase {
         ])
         XCTAssert(!setting1.isEnabledTail)
         XCTAssert(setting1.tailText == "大尾巴")
-        XCTAssert(setting1.tailURL == nil)
         XCTAssert(settings.avatarImageResolution == .big)
         
         settings.tailURL = URL(string: "http://www.hi-pda.com/forum/space.php?uid=697558")
         settings.save()
         
-        let settings2 = Settings()
+        let settings2 = Settings.shared
         XCTAssert(settings2.tailURL! == URL(string: "http://www.hi-pda.com/forum/space.php?uid=697558"))
         
         Settings.shared.reset()

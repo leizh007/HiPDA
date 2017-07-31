@@ -180,7 +180,8 @@ class Settings {
         }
 
         func account(with name: String) -> Account? {
-            let accountString = SAMKeychain.password(forService: kAccountServiceKey, account: name) ?? ""
+            let key = "\(kAccountServiceKey)\(name)"
+            let accountString = storage.object(forKey: key) as? String ?? ""//SAMKeychain.password(forService: kAccountServiceKey, account: name) ?? ""
             let accountData = accountString.data(using: .utf8) ?? Data()
             guard let attributes = try? JSONSerialization.jsonObject(with: accountData, options: []) else { return nil }
             return try? Account.decode(JSON(attributes)).dematerialize()
@@ -246,7 +247,9 @@ class Settings {
         } else {
             storage.setObject(accountNameArray as NSCoding, forKey: ConstantKeys.accountList)
             accountList.forEach { account in
-                SAMKeychain.setPassword(account.encode(), forService: kAccountServiceKey, account: account.name)
+                let key = "\(kAccountServiceKey)\(account.name)"
+                storage.setObject(account.encode() as NSCoding, forKey: key)
+//                SAMKeychain.setPassword(account.encode(), forService: kAccountServiceKey, account: account.name)
             }
         }
         if let account = lastLoggedInAccount {
@@ -336,6 +339,7 @@ class Settings {
         tailURL = URL(string: "https://www.hi-pda.com/forum/viewthread.php?tid=2137250&extra=&page=1")
         avatarImageResolution = .middle
         autoLoadImageViaWWAN = true
+        CacheManager.settings.shared!.setObject(true as NSNumber, forKey: "kFirstLaunch")
     }
 }
 
