@@ -19,13 +19,18 @@ class BrowseHistoryViewController: BaseViewController {
         title = "最近浏览"
         tableView.delegate = self
         tableView.dataSource = self
+        
+        viewModel.loadData { [weak self] _ in
+            guard let `self` = self else { return }
+            self.tableView.reloadData()
+            self.tableView.status = self.viewModel.hasData ? .normal : .noResult
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
-        tableView.status = viewModel.hasData ? .normal : .noResult
     }
     
     override func configureApperance(of navigationBar: UINavigationBar) {

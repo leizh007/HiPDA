@@ -10,15 +10,21 @@ import Foundation
 import YYCache
 
 class BrowseHistoryViewModel {
-    fileprivate let cache: YYCache?
-    fileprivate var threads: [HiPDA.Thread]
-    fileprivate var models: [HomeThreadModel]
-    init() {
-        let cache = CacheManager.threadsReadHistory.shared
-        self.cache = cache
-        let threads = cache?.tids.flatMap { cache?.thread(for: $0) } ?? []
-        models = threads.map(threadModel(from:))
-        self.threads = threads
+    fileprivate var cache: YYCache? = nil
+    fileprivate var threads: [HiPDA.Thread] = []
+    fileprivate var models = [HomeThreadModel]()
+    
+    func loadData(completion: @escaping (Void) -> Void) {
+        DispatchQueue.global().async {
+            let cache = CacheManager.threadsReadHistory.shared
+            self.cache = cache
+            let threads = cache?.tids.flatMap { cache?.thread(for: $0) } ?? []
+            self.models = threads.map(threadModel(from:))
+            self.threads = threads
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
     }
     
     var hasData: Bool {
