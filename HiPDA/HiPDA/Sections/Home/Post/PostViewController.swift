@@ -513,6 +513,13 @@ extension PostViewController {
     }
     
     fileprivate func imageLongPressed(url: String) {
+        // 不太懂，有时候会重复频繁的调用该函数
+        struct StaticVariables {
+            static var lastCallStamp = 0.0
+        }
+        guard Date().timeIntervalSince1970 - StaticVariables.lastCallStamp > 1.0 else { return }
+        StaticVariables.lastCallStamp = Date().timeIntervalSince1970
+        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let look = UIAlertAction(title: "查看", style: .default) { [weak self] _ in
             self?.showImageBrowser(clickedImageURL: url, imageURLs: [url])
