@@ -51,13 +51,13 @@ class BackgroundFetchManager: NSObject, Bootstrapping {
     
     fileprivate func alertBody(from model: UnReadMessagesCountModel) -> String {
         if model.totalMessagesCount == model.threadMessagesCount {
-            return "您有\(model.threadMessagesCount)条帖子消息"
+            return "您有\(model.threadMessagesCount)条帖子消息。"
         } else if model.totalMessagesCount == model.privateMessagesCount {
-            return "您有\(model.privateMessagesCount)条私人消息"
+            return "您有\(model.privateMessagesCount)条私人消息。"
         } else if model.totalMessagesCount == model.friendMessagesCount {
-            return "您有\(model.friendMessagesCount)条好友消息"
+            return "您有\(model.friendMessagesCount)条好友消息。"
         }
-        return "您有\(model.totalMessagesCount)条新消息"
+        return "您有\(model.totalMessagesCount)条新消息。"
     }
     
     fileprivate func shouldPostNotification(with model: UnReadMessagesCountModel) -> Bool {

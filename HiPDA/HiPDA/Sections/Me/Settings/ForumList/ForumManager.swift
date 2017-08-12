@@ -35,6 +35,15 @@ struct ForumManager {
             .flatMap { $0 }
     }()
     
+    fileprivate static let flattenedForums: [Forum] = {
+        return ForumManager.forums.reduce([]) { (result, forum) -> [Forum] in
+            var result = result
+            result.append(forum)
+            result.append(contentsOf: forum.subForums ?? [])
+            return result
+        }
+    }()
+    
     static fileprivate let fidDictionary: [String: Int] = {
         var dictionary = [String: Int]()
         for forum in ForumManager.forums {
@@ -58,7 +67,7 @@ struct ForumManager {
     }()
     
     static func typeNames(of fid: Int) -> [String] {
-        return ForumManager.forums.filter { $0.id == fid }.first?.typeNames ?? []
+        return ForumManager.flattenedForums.filter { $0.id == fid }.first?.typeNames ?? []
     }
     
     static func typeid(of name: String) -> Int {
