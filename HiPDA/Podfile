@@ -63,6 +63,8 @@ target 'HiPDA' do
   #pod 'JZNavigationExtension', '~> 1.5.0.1'
   pod 'JSQMessagesViewController', '~> 7.3.4'
   pod 'AcknowList'
+  pod 'RTRootNavigationController', '~> 0.6.3'
+  pod 'Texture', '~> 2.4'
   
   target 'HiPDATests' do
     inherit! :search_paths
